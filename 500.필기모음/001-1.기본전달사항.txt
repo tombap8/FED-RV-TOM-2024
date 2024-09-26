@@ -1,4 +1,4 @@
-[ 프로젝트기반 프론트엔드 과정 2022 - 기본전달사항 ]
+[ 프로젝트기반 프론트엔드 과정 2024 - 기본전달사항 ]
 탐쌤이멜: tombap@naver.com
 
 1. 교재: NCS 4권
@@ -11,10 +11,10 @@ https://www.w3schools.com/
 4. 소스 빌드용 폴더 생성하기!
 
 5. 강의 동영상 백업 유튜브: 탐쌤코딩 프론트엔드 2022
-https://www.youtube.com/channel/UCQr6Glh1QSvdIUA6EBvVjcw
+https://www.youtube.com/channel/UC54MBwmFWTQoxPeICl7wy2A
 
 6. 소스 깃허브 : 탐쌤코딩 프론트엔드 2022
-https://github.com/tombap8/FED-PJ-2022-tom
+https://github.com/tombap8/FED-RV-TOM-2024
 
 7. 사이트 벤치마킹 포털
 
