@@ -16,35 +16,105 @@
     <!-- 추가로 head태그에 css,js등 연결함 -->
   </head>
   <body>
+    <!-- 
+        Heading 요소 : h1 ~ h6
+        제목에 해당하는 내용을 담는 태그
+        h1태그는 특히 사이트의 로고 등 
+        간판격에 해당하는 컨텐츠를 담는다!
+        한 페이지에 하나의 h1만 쓰는 것이 
+        구조화의 일반적사용
+    -->
     <h1>[ 프로젝트기반 프론트엔드 과정 2024 - 기본전달사항 ]</h1>
-     탐쌤이멜:
-    tombap@naver.com 
-    <h2>1. 교재:</h2> NCS 4권 
-    <h2>2. 평가:</h2> 3회차의 프로젝트 산출물 
-    <h2>3. 공식교과서:</h2> 
-    w3c 스쿨 https://www.w3schools.com/ 
-    <h2>4. 소스 빌드용 폴더 생성하기! </h2>
-    <h2>5. 강의 동영상 백업 유튜브: </h2>
-    탐쌤코딩 프론트엔드 2024
-    https://www.youtube.com/channel/UC54MBwmFWTQoxPeICl7wy2A 
+    탐쌤이멜: tombap@naver.com
+    <h2>1. 교재:</h2>
+    NCS 4권
+    <h2>2. 평가:</h2>
+    3회차의 프로젝트 산출물
+    <h2>3. 공식교과서:</h2>
+    <!-- 
+        [ html 요소 중 가장중요한 a ]
+        a 요소는 웹페이지 이동을 시킴
+        a는 anchor(닻)뜻인데
+        웹 서핑을 항해로 비유하여
+        어떤 페이지에 도달하여 정박하는
+        것을 상징하여 a태그명이 됨!
+        (필수속성)
+        href(Hyper Text Reference)
+        이동할 페이지 주소인 
+        하이퍼텍스트 참조라는 이름임
+        이 값으로 웹 주소를 쓰면
+        페이지가 이동되고
+        만약 "#아이디명"으로 쓰면
+        같은 페이지의 특정 아이디를
+        사용한 요소로 이동한다!
+        기본적으로 같은 페이지에서
+        페이지이동이 되지만
+        다음 속성으로 변경하면
+        새창에서 열 수 있다!
+        target="_blank"
+    -->
+    w3c 스쿨
+    <a href="https://www.w3schools.com/" target="_blank"
+      >https://www.w3schools.com/</a
+    >
+    <h2>4. 소스 빌드용 폴더 생성하기!</h2>
+    <h2>5. 강의 동영상 백업 유튜브:</h2>
+    탐쌤코딩 프론트엔드 2024 <br>
+    <!-- 
+      인라인요소에서 줄바꿈시에 홀로태그인 br사용!
+      br은 break라는 단어약어임(줄을 깬다!)
+      
+    -->
+    <a
+      href="https://www.youtube.com/channel/UC54MBwmFWTQoxPeICl7wy2A"
+      target="_blank"
+      >https://www.youtube.com/channel/UC54MBwmFWTQoxPeICl7wy2A</a
+    >
     <h2>6. 소스 깃허브 :</h2>
-    탐쌤코딩 프론트엔드 2024 https://github.com/tombap8/FED-RV-TOM-2024 
-    <h2>7. 사이트 벤치마킹 포털 </h2>
-    (1) 디비컷 https://www.dbcut.com/bbs/index.php (2)
-    굿디자인웹 https://www.gdweb.co.kr/main/ (3) 어워즈
-    https://www.awwwards.com/ 
-    <h2>8. 필수 회원가입 </h2>
-    (1) 닷홈: 회원가입 후
-    무료호스팅하기! https://www.dothome.co.kr/ (2) 깃허브: 회원가입 후
-    레파지토리 만들기! https://github.com/ (3) 피그마: 회원가입하기 
-    <h2>9. 포트폴리오 </h2>
+    탐쌤코딩 프론트엔드 2024
+    <a href="https://github.com/tombap8/FED-RV-TOM-2024" target="_blank"
+      >https://github.com/tombap8/FED-RV-TOM-2024</a
+    >
+    <h2>7. 사이트 벤치마킹 포털</h2>
+    <h3>(1) 디비컷</h3>
+    <a href="https://www.dbcut.com/bbs/index.php" target="_blank"
+      >https://www.dbcut.com/bbs/index.php</a
+    >
+    <h3>(2) 굿디자인웹</h3>
+    <a href="https://www.gdweb.co.kr/main/" target="_blank"
+      >https://www.gdweb.co.kr/main/</a
+    >
+    <h3>(3) 어워즈</h3>
+    <a href="https://www.awwwards.com/" target="_blank"
+      >https://www.awwwards.com/</a
+    >
+    <h2>8. 필수 회원가입</h2>
+    <h3>(1) 닷홈:</h3>
+    회원가입 후 무료호스팅하기!
+    <a href="https://www.dothome.co.kr/" target="_blank"
+      >https://www.dothome.co.kr/</a
+    >
+    <h3>(2) 깃허브:</h3>
+    회원가입 후 레파지토리 만들기!
+    <a href="https://github.com/" target="_blank">https://github.com/</a>
+    <h3>(3) 피그마:</h3>
+    회원가입하기
+    <h2>9. 포트폴리오</h2>
     - 개인포폴 주제선정 후 분기별 제출 및 발표 예시)
-    https://tombap8.github.io/KNG-FED211/index.html
-    <h2>10. UI/UX 참고자료 </h2>
-    1) UX
-    개념의 예 : 피아노건반 계단 - The Fun Theory 동영상 시리즈 1번
-    https://youtu.be/SByymar3bds 2) 인터페이스 개념 - 나건교수 동영상
-    https://youtu.be/EKFM5yeXdck -> 소통이 이루지는 장소에서 사용되는 수단과
-    방법을 인터페이스라고함!
+    <a href="https://tombap8.github.io/KNG-FED211/index.html" target="_blank"
+      >https://tombap8.github.io/KNG-FED211/index.html</a
+    >
+    <h2>10. UI/UX 참고자료</h2>
+    <h3>1) UX 개념의 예 :</h3>
+    피아노건반 계단 - The Fun Theory 동영상 시리즈 1번
+    <a href="https://youtu.be/SByymar3bds" target="_blank"
+      >https://youtu.be/SByymar3bds</a
+    >
+    <h3>2) 인터페이스 개념</h3>
+    - 나건교수 동영상
+    <a href="https://youtu.be/EKFM5yeXdck" target="_blank"
+      >https://youtu.be/EKFM5yeXdck</a
+    >
+    -> 소통이 이루지는 장소에서 사용되는 수단과 방법을 인터페이스라고함!
   </body>
 </html>
