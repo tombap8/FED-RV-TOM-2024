@@ -9,6 +9,22 @@
     <title>
       네이버요약뉴스 2024.10.
     </title>
+    <!-- 웹폰트 CDN방식 호출하기 -->
+    <!-- CDN은 Content Delivery Network
+      네트웤으로 컨텐트 불러오기 -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
+      rel="stylesheet"
+    />
     <!-- 스타일 요소 -->
     <style>
       /* CSS 인터널 코딩구역 */
@@ -30,6 +46,20 @@
         /* 배경색 bgc */
         background-color: #dbf8e2;
       }
+      /* 전체 타이틀
+      CSS에서 띄어쓰기는 하위요소를 선택함! */
+      #top-area h1{
+        /* 글자체 ff
+        콤마로 연결된 글자체는 앞의체가 없을경우
+        대체체임! 모두없을시 브라우저 기본체나옴 */
+        font-family: "Do Hyeon", sans-serif;
+        /* 글자크기 fz */
+        font-size: 40px;
+        /* 글자색 c */
+        color: #01623a;
+      }
+
+
       /* 2. 메인영역 */
       #main-area {
         /* 위,아래 마진
@@ -37,7 +67,7 @@
         margin: 15px auto;
         /* margin-top: 15px;
         margin-bottom: 15px; */
-        
+
         /* 
           마진(margin), 패딩(padding)규칙
           - 마진은 바깥여백, 패딩은 안쪽여백
@@ -79,7 +109,6 @@
 
         /* 마영오로 박스 중앙정렬 */
         margin: 0 auto;
-
 
         /* 보더(경계선) 
           border: 두께 종류 색상
