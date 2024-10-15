@@ -56,7 +56,7 @@
         대체체임! 모두없을시 브라우저 기본체나옴 */
         font-family: "Do Hyeon", sans-serif;
         /* 글자크기 fz */
-        font-size: 40px;
+        font-size: 48px;
         /* 글자색 c */
         color: #01623a;
         /* 글자그림자 ts
@@ -74,9 +74,28 @@
         /* 글자밑줄없앰 tdn */
         text-decoration: none;
         /* 글자크기 fz */
-        font-size: 22px;
+        font-size: 28px;
         /* 글자두껍게 fwb */
         font-weight: bold;
+      }
+      /* 첫번째 a메뉴를 빼고 두번째부터
+      끝까지 양쪽마진 적용하기
+      주의) 인라인요소는 위아래 마진적용안됨! */
+      .menu span+a{
+        /* 앞에 span형제요소가 있는 a만선택
+        +는 형제선택자 */
+        margin: 4px;
+      }
+
+      /* a요소에 마우스 오버시 */
+      .menu span+a:hover{
+        /* 글자색 */
+        color: hotpink;
+        /* 글자윗줄 tdo */
+        text-decoration: overline;
+        /* 글자데코 스타일 tdst */
+        text-decoration-style: wavy;
+
       }
 
 
@@ -143,6 +162,10 @@
 
       /* 주소셋팅 */
       address {
+        /* 글자체 */
+        font-family: "Do Hyeon", sans-serif;
+        /* 글자크기 fz */
+        font-size: 24px;
         /* 기본 이탤릭체 해제하기 fsn */
         font-style: normal;
         /* 글자 중앙정렬 tac */
@@ -167,6 +190,7 @@
             "
           />
         </a>
+        <span></span>
         <a href="sub1.html">정치</a>
         <span> | </span>
         <a href="sub2.html">경제</a>
