@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>
-      네이버요약뉴스 2024.10.
+      네이버요약뉴스 - IT/과학 뉴스
     </title>
     <!-- 웹폰트 CDN방식 호출하기 -->
     <!-- CDN은 Content Delivery Network
@@ -27,9 +27,12 @@
     />
     <!-- 스타일 요소 -->
     <!-- <style></style> -->
-    
+
     <!-- 외부 CSS 불러오기 -->
-     <link rel="stylesheet" href="./css/common.css">
+    <link
+      rel="stylesheet"
+      href="./css/common.css"
+    />
   </head>
   <body>
     <!-- 1. 상단영역 -->
@@ -67,9 +70,24 @@
       id="main-area"
       class="part main-area"
     >
-    <img src="./images/main.jpg" alt="메인페이지 뉴스이미지" style="width: 100%;">
-  </main>
-
+      <!-- 2-1. 서브타이틀 -->
+      <h2 class="sub-title">
+        IT/과학 뉴스
+      </h2>
+      <!-- 2-2.언론사로고 -->
+      <div class="press-logo"></div>
+      <!-- 2-3. 기사제목 -->
+      <h3 class="article-title"></h3>
+      <!-- 2-4. 기사사진 
+       figure요소 : 사진,그림 넣는 블록박스-->
+      <figure
+        class="article-picture"
+      ></figure>
+      <!-- 2-5. 기사내용 -->
+      <section
+        class="contents"
+      ></section>
+    </main>
     <!-- <div id="main"></div> -->
 
     <!-- 3. 하단영역 -->
