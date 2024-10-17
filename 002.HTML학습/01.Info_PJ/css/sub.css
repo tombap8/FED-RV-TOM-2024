@@ -2,3 +2,25 @@
 
 /* 서브페이지 공통 CSS - sub.css */
 
+/* 2-1. 서브타이틀 
+태그명+이름 방식의 선택자는 종속선택자*/
+h2.sub-title{
+    /* 글자크기 : font-size (fz) */
+    font-size: 38px;
+    /* 글자두께 : font-weight (fw)
+    두껍게 bold(fwb) / 보통 normal(fwn) */
+    font-weight: normal;
+    /* 텍스트 중앙정렬 : tac */
+    text-align: center;
+    /* 배경색 : bgc */
+    background-color: pink;
+}
+/* 2-2.언론사로고 */
+/* 2-3. 기사제목 */
+/* 2-4. 기사사진 */
+/* 2-5. 기사내용 */
+/* 2-5.5. 인용블록영역 */
+/* 2-6. 기자정보 */
+/* 2-7. 기사원문 */
+/* 주해영역 */
+/* 오늘의 작품 & 느낌 */
