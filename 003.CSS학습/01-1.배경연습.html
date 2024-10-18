@@ -23,6 +23,55 @@
           기준한다! 보이는 화면을 window라고 함!
         */
       }
+
+      /* 타이틀 */
+      h1{
+        /* 패딩 p50 */
+        padding: 50px;
+        /* 중앙정렬 tac */
+        text-align: center;
+      }
+
+      /* body요소 안에 배경넣기 */
+      body{
+        /* 주의 : html에 배경을 넣지 말고 body넣자! */
+
+        /* 1. 배경색 : bgc */
+        background-color: pink;
+
+        /* 2. 배경이미지 : bgi -> url()
+        기본적으로 배경이미지는 반복된다! */
+        background-image: url(./imgs/bg_logo_a_01.png);
+
+        /* 3. 배경 반복여부 : bgr
+          값:
+          repeat-x : x축반복
+          repeat-y : y축반복
+          repeat : 모든축반복(기본값)
+          no-repeat : 반복안함
+        */
+        background-repeat: no-repeat;
+        /* 4. 화면고정 : bga 
+          배경고정 여부는 스크롤바가 있어야
+          확인된다!(스크롤시 움직이지 않게함)
+        */
+        /* background-attachment: fixed;
+        height: 200%; */
+        
+        /* 5. 배경위치 : bgp 
+          background-position: 가로 세로;
+          1. 가로방향 : left, center, right
+          2. 세로방향 : top, center, bottom
+          - 수치값 : px, %, em 등 여러단위 사용가능
+          - % 단위는 기준이 이미지의 중앙이다!
+          (50%는 정중앙임!)
+          - 양방향중 생략하면 center가 기본값임!
+        */
+        background-position: right bottom;
+
+
+      }
+      
       
     </style>
   </head>
