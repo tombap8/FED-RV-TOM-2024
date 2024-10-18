@@ -2,7 +2,10 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>01-1.배경연습</title>
     <style>
       /* 스타일시트 인터널 코딩구역 */
@@ -10,13 +13,16 @@
       /* 초기화
       - 기본 디자인 셋팅을 없애는코드
       - 마진,패딩 없애기가 기본초기화임 */
-      html,body,h1{
+      html,
+      body,
+      h1 {
         /* 콤마는 그룹선택자임! */
         margin: 0;
         padding: 0;
       }
       /* 보이는 화면만큼 최상위 요소 맞추기 */
-      html,body{
+      html,
+      body {
         height: 100%;
         /* 항상 %단위는 싸고 있는 부모박스를 기준한다!
           body는 html을 기준하고 html은 보이는 화면을
@@ -25,7 +31,7 @@
       }
 
       /* 타이틀 */
-      h1{
+      h1 {
         /* 패딩 p50 */
         padding: 50px;
         /* 중앙정렬 tac */
@@ -33,7 +39,7 @@
       }
 
       /* body요소 안에 배경넣기 */
-      body{
+      body {
         /* 주의 : html에 배경을 넣지 말고 body넣자! */
 
         /* 1. 배경색 : background-color (bgc) */
@@ -81,11 +87,12 @@
           사용가능하며 가로, 세로중 한쪽만 주면
           이미지가 비율을 유지함!
 
-        */        background-size: co;
+        */
+        background-size: co;
         /* background-size:  100px 300px; */
         /* background-size:  100px; */
         /* background-size:  100px auto; */
-        background-size:  auto 300px;
+        background-size: auto 300px;
 
         /* 
           [ 배경속성 한꺼번에 쓰기 ]
@@ -99,7 +106,7 @@
       }
 
       /* body아래 .wrap박스 */
-      .wrap{
+      .wrap {
         height: 100%;
         /* 높이값을 body와 같이 화면만큼 채운다! */
 
@@ -108,7 +115,7 @@
           여러개의 배경이미지를 넣을 수 있다!
 
           background : 색이반고윙/크, 색이반고윙/크,...;
-          
+
           콤마로 구분하여 연속 셋팅한다!
 
           ((특징))
@@ -122,12 +129,32 @@
 
         /* 배경이미지 다중적용하기! */
         background:
-        url(./imgs/dc1.png) no-repeat center/400px;
-
-
+        /* 도깨비 이름 */ url(./imgs/d01.png)
+            no-repeat 50% 59%/122px,
+          /* 도깨비 */
+            url(./imgs/dc1.png)
+            no-repeat center / 400px,
+          /* 지은탁 이름(모두비율로셋팅) */
+            url(./imgs/d02.png)
+            no-repeat 87% 14vw / 15%,
+          /* 지은탁(모두비율로셋팅) */
+            url(./imgs/dc2.png)
+            no-repeat right top / 38%,
+          /* 저승사자이름 */
+            url(./imgs/d03.png)
+            no-repeat 11% 100%/70px,
+          /* 저승사자 */
+            url(./imgs/dc3.png)
+            no-repeat left bottom/300px,
+          /* 써니이름 */
+            url(./imgs/d04.png)
+            no-repeat 5% 10%/100px,
+          /* 써니 */ url(./imgs/dc4.png)
+            no-repeat left top/250px,
+          /* 포스터 */
+            url(./imgs/bg_mainvisual.jpg)
+            no-repeat 0/50%;
       }
-      
-      
     </style>
   </head>
   <body>
