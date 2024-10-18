@@ -61,8 +61,23 @@ h2.sub-title{
     padding: 20px;
     /* 둥근모서리 brad */
     border-radius: 20px;
+    /* CSS이미지는 상대경로로 CSS파일위치로부터
+    찾아서 넣는다! ../는 폴더하나위로 올라감 */
+    /* 배경 한번에 넣기 : 색이반고윙/크 */
+    background: url(../images/titbg4.jpg) no-repeat center/cover;
 
-    background: url();
+    /* 박스그림자 box-shadow (bxsh) 
+        box-shadow: 
+        (내부그림자 inset) x축 y축 불러 (확장) 색
+
+        -> 블러 뒤에 확장옵션에 px값을 주면
+        그림자가 더 커진다! 박스그림자에만 이 옵션있음
+
+        콤마로 연결하면 글자그림자든 박스그림자든
+        모두 다중 그림자 적용가능함!!!
+    */
+    box-shadow: inset 0 0 10px #000,
+    0 0 20px hotpink;
 }
 /* 2-2.언론사로고 */
 /* 2-3. 기사제목 */
