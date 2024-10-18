@@ -1,7 +1,21 @@
 [ FED-RV-17th 벤치마킹 ](10/10-4/4)
 
-- 평가기준: 
+- UI/UX 평가기준: 
 1. 사용성 / 2. 컨텐츠 / 3. 디자인 / 4.창의성
+
+- 기술평가기준:
+1. Semantics / SEO(Search Engine Optimization)
+    - 시멘틱 태그사용 및 검색최적화
+2. Animations / Transitions
+    - 애니메이션 및 트랜지션 사용
+3. Accessibility
+    - 컨텐츠 접근성
+4. WPO (Web performance Optimization)
+    - 웹 최적화 (로딩속도)
+5. Responsive Design
+    - 반응형웹 디자인 적용
+6. Markup / Meta-data
+    - 데이터 구조화 및 메타 데이터 활용
 ____________________________________________
 
 1. 기술교육관련 사이트(7.34/7.82)
