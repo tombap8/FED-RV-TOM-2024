@@ -76,13 +76,99 @@ h2.sub-title{
         콤마로 연결하면 글자그림자든 박스그림자든
         모두 다중 그림자 적용가능함!!!
     */
-    box-shadow: inset 0 0 10px #000,
-    0 0 20px hotpink;
+    box-shadow: 
+    /* 내부 그림자 */
+    inset 0 0 10px #000,
+    /* 바깥쪽 그림자 */
+    0 0 20px 5px darkcyan;
 }
+
+/* 
+    [ CSS 적용우선 순위 ]
+     0. 속성값안에 !important 라고 쓰면 가장 최우선적용!
+     1. 인라인 셋팅 :  태그안에 style속성셋팅
+     2. 종속선택 요소 : 태그명#아이디명 / 태그명.클래스명
+     3. 아이디 요소 : #이름
+     4. 클래스 요소 : .이름
+     5. 요소명 : 태그명
+     
+     -> 레벨이 같은 경우엔 나중에 쓴것이 덮어써진다!
+
+*/
+
+/* 페이지별 타이틀 박스 디자인 변경 */
+/* 정치뉴스 */
+h2.politics{
+    /* 배경이미지 변경 */
+    background-image: 
+    url(../images/titbg1.jpg);
+
+    /* 글자색 변경 */
+    color: darkorange;
+}
+/* 경제뉴스 */
+h2.economics{
+    /* 배경이미지 변경 */
+    background-image: 
+    url(../images/titbg2.jpg);
+
+    /* 글자색 변경 */
+    color: lightgreen;
+}
+/* 사회뉴스 */
+h2.social{
+    /* 배경이미지 변경 */
+    background-image: 
+    url(../images/titbg3.jpg);
+
+    /* 글자색 변경 */
+    color: lightseagreen;
+}
+/*  IT/과학뉴스 */
+h2.it{
+    /* 배경이미지 변경 */
+    background-image: 
+    url(../images/titbg4.jpg);
+
+    /* 글자색 변경 */
+    color: darkblue;
+}
+/*  TV/연예뉴스 */
+h2.tv{
+    /* 배경이미지 변경 */
+    background-image: 
+    url(../images/titbg5.jpg);
+
+    /* 글자색 변경 */
+    color: lightgoldenrodyellow;
+}
+
+
 /* 2-2.언론사로고 */
+.press-logo img{
+    /* 이미지 높이값 고정(가로크기는 자동) */
+    height: 32px;
+}
 /* 2-3. 기사제목 */
+.article-title{
+    /* 글자크기 fz30 */
+    font-size: 30px;
+    /* 글자색 c */
+    color: #1e1e23;
+}
 /* 2-4. 기사사진 */
+.article-picture{
+    /* fugure 요소 기본마진 없앰 */
+    margin: 0;
+}
+.article-picture img{
+    width: 100%;
+}
 /* 2-5. 기사내용 */
+.contents p{
+    font-size: 20px;
+    line-height: 2.1;    
+}
 /* 2-5.5. 인용블록영역 */
 /* 2-6. 기자정보 */
 /* 2-7. 기사원문 */
