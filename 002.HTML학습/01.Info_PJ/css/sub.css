@@ -36,12 +36,14 @@
 10) 다중형제선택자: ~
     예) li:nth-child(4)~li 
     -> 4번째 li이후 모든 형제선택
-    
+
 ***********************************/
 
 /* 2-1. 서브타이틀 
 태그명+이름 방식의 선택자는 종속선택자*/
 h2.sub-title{
+    /* 글자체(웹폰트) font-family (ff) */
+    font-family: "Single Day", cursive;
     /* 글자크기 : font-size (fz) */
     font-size: 38px;
     /* 글자두께 : font-weight (fw)
@@ -50,7 +52,17 @@ h2.sub-title{
     /* 텍스트 중앙정렬 : tac */
     text-align: center;
     /* 배경색 : bgc */
-    background-color: pink;
+    /* background-color: pink; */
+    /* 글자그림자 ts */
+    text-shadow: 2px 2px 2px #00000081;
+
+    /* 박스디자인 */
+    /* 패딩 p */
+    padding: 20px;
+    /* 둥근모서리 brad */
+    border-radius: 20px;
+
+    background: url();
 }
 /* 2-2.언론사로고 */
 /* 2-3. 기사제목 */
