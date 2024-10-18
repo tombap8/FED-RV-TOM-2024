@@ -4,7 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>01-1.배경연습</title>
-    <style></style>
+    <style>
+      /* 스타일시트 인터널 코딩구역 */
+
+      /* 초기화
+      - 기본 디자인 셋팅을 없애는코드
+      - 마진,패딩 없애기가 기본초기화임 */
+      html,body,h1{
+        /* 콤마는 그룹선택자임! */
+        margin: 0;
+        padding: 0;
+      }
+      /* 보이는 화면만큼 최상위 요소 맞추기 */
+      html,body{
+        height: 100%;
+        /* 항상 %단위는 싸고 있는 부모박스를 기준한다!
+          body는 html을 기준하고 html은 보이는 화면을
+          기준한다! 보이는 화면을 window라고 함!
+        */
+      }
+      
+    </style>
   </head>
   <body>
     <div class="wrap">
