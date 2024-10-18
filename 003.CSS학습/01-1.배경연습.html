@@ -36,14 +36,14 @@
       body{
         /* 주의 : html에 배경을 넣지 말고 body넣자! */
 
-        /* 1. 배경색 : bgc */
+        /* 1. 배경색 : background-color (bgc) */
         background-color: pink;
 
-        /* 2. 배경이미지 : bgi -> url()
+        /* 2. 배경이미지 : background-image (bgi) -> url()
         기본적으로 배경이미지는 반복된다! */
         background-image: url(./imgs/bg_logo_a_01.png);
 
-        /* 3. 배경 반복여부 : bgr
+        /* 3. 배경 반복여부 : background-repeat (bgr)
           값:
           repeat-x : x축반복
           repeat-y : y축반복
@@ -51,14 +51,15 @@
           no-repeat : 반복안함
         */
         background-repeat: no-repeat;
-        /* 4. 화면고정 : bga 
+
+        /* 4. 화면고정 : background-attachment (bga) 
           배경고정 여부는 스크롤바가 있어야
           확인된다!(스크롤시 움직이지 않게함)
         */
         /* background-attachment: fixed;
         height: 200%; */
-        
-        /* 5. 배경위치 : bgp 
+
+        /* 5. 배경위치 : background-position (bgp) 
           background-position: 가로 세로;
           1. 가로방향 : left, center, right
           2. 세로방향 : top, center, bottom
@@ -67,9 +68,54 @@
           (50%는 정중앙임!)
           - 양방향중 생략하면 center가 기본값임!
         */
-        background-position: right bottom;
+        /* background-position: right bottom; */
+        /* 포지션 따로쓸 수 있음! */
+        background-position-x: right;
+        background-position-y: bottom;
 
+        /* 6. 배경이미지 크기 : background-size (bgz) 
+          정해진값:
+          1. contain - 이미지가 화면을 채우고 모두 보임
+          2. cover - 이미지가 박스를 모두 채우고 잘리는 부분이 있을 수 있음
+          3. 수치값 - 가로,세로에 모두 수치값
+          사용가능하며 가로, 세로중 한쪽만 주면
+          이미지가 비율을 유지함!
 
+        */        background-size: co;
+        /* background-size:  100px 300px; */
+        /* background-size:  100px; */
+        /* background-size:  100px auto; */
+        background-size:  auto 300px;
+
+        /* 
+          [ 배경속성 한꺼번에 쓰기 ]
+           background : 배경색 이미지 반복 고정 위치/크기
+           background : 색이반고윙/크
+           - 주의: 위치값 없이 크기만 셋팅하려면
+           반드시 위치값을 0이라도 쓰고 슬래쉬 뒤에 
+           크기를 써야함!
+           예) background: #000 url() no-repeat 0/right;
+        */
+      }
+
+      /* body아래 .wrap박스 */
+      .wrap{
+        height: 100%;
+        /* 높이값을 body와 같이 화면만큼 채운다! */
+
+        /* 
+          배경 한번에 쓰기를 사용하면
+          여러개의 배경이미지를 넣을 수 있다!
+          background : 색이반고윙/크, 색이반고윙/크,...;
+
+          ((특징))
+          1. 위쪽에 셋팅된 배경이미지가 위에 위치함
+          2. 위치값의 가로는 left, 세로는 center가 기본값임
+          3. 위치가 크기의 특정값을 쓰지 않으면 기본값이 적용됨
+          4. 위치값을 0을 쓰면 기본값인 left center가 적용됨
+          5. 위치값을 %로 쓰면 설정박스의 % 위치를 이미지 중심을
+          기준으로 위치하게됨
+        */
       }
       
       
