@@ -10,7 +10,7 @@
     - 애니메이션 및 트랜지션 사용
 3. Accessibility
     - 컨텐츠 접근성
-4. WPO (Web performance Optimization)
+4. WPO (Web Performance Optimization)
     - 웹 최적화 (로딩속도)
 5. Responsive Design
     - 반응형웹 디자인 적용
