@@ -161,13 +161,39 @@ h2.tv{
     /* fugure 요소 기본마진 없앰 */
     margin: 0;
 }
+/* 기사이미지 */
 .article-picture img{
     width: 100%;
+}
+/* 이미지 설명
+figcaption은 블록요소다! */
+.article-picture figcaption{
+    /* 글자가운데정렬 tac */
+    text-align: center;
+}
+/*  하위요소에 지정된 속성은 그 요소에서 
+재정의 해야 적용됨! 예컨데 글자크기가 이미
+small 태그에 적용되어 있어서 여기에 재정의해야함! */
+.article-picture figcaption small{
+    /* 글자크기 15px : fz15 */
+    font-size: 15px;
+
 }
 /* 2-5. 기사내용 */
 .contents p{
     font-size: 20px;
     line-height: 2.1;    
+    /* 
+        [ 줄간격 : line-height ]
+         - 박스요소의 글자의 간격 높이를 지정하는 속성
+         - 글자는 높이값의 세로 정중앙에 위치함
+         - 단위를 사용하면 특정크기로 지정됨
+         - 단위없는 숫자로표현하면 글자크기의 배수로
+         상대적 크기가 적용됨
+         - 젠코딩시 숫자만쓰면 배수로 표현되므로
+         주의 요망!! 예) lh20 -> line-height: 20;
+    */
+    color: #303038;
 }
 /* 2-5.5. 인용블록영역 */
 /* 2-6. 기자정보 */
