@@ -251,6 +251,9 @@ small 태그에 적용되어 있어서 여기에 재정의해야함! */
     line-height: 1.8;
     /* 양쪽정렬 justify : taj */
     text-align: justify;
+    /* 양쪽 정렬시 영어단어 깨서 중앙
+    공백 없애기 : wbb */
+    word-break: break-all;
     /* 첫줄 들여쓰기 : ti */
     text-indent: 15px;
 }
@@ -297,6 +300,22 @@ small 태그에 적용되어 있어서 여기에 재정의해야함! */
     /* a요소 기본 디자인 변경 */
     /* 밑줄없앰 : tdn */
     text-decoration: none;
+
+    /* 정원은 둥근모서리값 50% */
+    border-radius: 50%;
+    /* 배경색 : bgc */
+    background-color: lightcyan;
+    /* 글자색 : c */
+    color: darkcyan;
+    /* 글자크기 : fz */
+    font-size: 20px;
+    /* 두꺼운 글자 : fwb */
+    font-weight: bold;
 }
+/* 기사원문 오버시 변경 */
+.article-link a:hover{
+    background-color: yellow;
+}
+
 /* 주해영역 */
 /* 오늘의 작품 & 느낌 */
