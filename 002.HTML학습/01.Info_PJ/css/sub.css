@@ -217,15 +217,15 @@ small 태그에 적용되어 있어서 여기에 재정의해야함! */
     스타일이 있을 경우 뒤에 띄어쓰기로 쓸 수 있음 */
 }
 
-/* 2-5.5. 인용블록영역 */
-.quote-box{
+/* 공통 보더박스 디자인 : .bd-box */
+.bd-box{
     /* 윗쪽보더주기 : bdt */
     border-top: 2px dashed gray;
     /* 윗쪽마진 : mt */
     margin-top: 20px;
 }
 /* 타이틀 */
-.quote-box h4{
+.bd-box h4{
     /* 가로크기 내용만큼 설정위해 display변경!
     -> inline (패딩 디자인이 실제 공간을 차지하지 않음)
     -> inline-block (블록처럼 디자인적용되는 인라인요소) */
@@ -239,6 +239,8 @@ small 태그에 적용되어 있어서 여기에 재정의해야함! */
     /* 박스그림자 : bxsh */
     box-shadow: inset 0 0 10px #7b7b7b;
 }
+
+/* 2-5.5. 인용블록영역 */
 /* 인용구 박스 : blockquote */
 .quote-box blockquote{
     /* 기본 마진 없앰 : m */
@@ -249,6 +251,8 @@ small 태그에 적용되어 있어서 여기에 재정의해야함! */
     line-height: 1.8;
     /* 양쪽정렬 justify : taj */
     text-align: justify;
+    /* 첫줄 들여쓰기 : ti */
+    text-indent: 15px;
 }
 
 /* 이미지 오른쪽으로 보내고 옆에 글자 흘러가기 */
@@ -258,10 +262,41 @@ small 태그에 적용되어 있어서 여기에 재정의해야함! */
     float: right;
     /* 왼쪽마진 : ml (이미지왼쪽에 글자에 간격줌) */
     margin-left: 15px;
+    /* 마진탑으로 이미지위치를 이동함 : mt */
+    margin-top: 15px;
+    /* 둥근모서리 : brs */
+    border-radius: 10px;
 }
 
 
 /* 2-6. 기자정보 */
 /* 2-7. 기사원문 */
+.article-link{
+    /* 오른쪽 정렬 */
+    text-align: right;
+}
+/* 자식요소 a는 인라인이므로 크기 적용안됨
+따라서 디자인 적용되는 인라인요소인 inline-block
+을 사용한다! */
+.article-link a{
+    /* 인라인블록 : dib */
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    /* 가로중앙정렬 */
+    text-align: center;
+    /* 세로중앙은? */
+    line-height: 100px;
+    /* vertical-align: middle;
+    ->인라인요소간 세로정렬
+    -> 세로중앙정렬은 table-cell 디스플레이에서만
+    적용됨. 여기서는 line-height를 높이값과 
+    같이 줌! */
+    border: 2px solid lightcoral;
+
+    /* a요소 기본 디자인 변경 */
+    /* 밑줄없앰 : tdn */
+    text-decoration: none;
+}
 /* 주해영역 */
 /* 오늘의 작품 & 느낌 */
