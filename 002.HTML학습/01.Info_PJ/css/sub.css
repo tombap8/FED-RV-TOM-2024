@@ -181,8 +181,12 @@ small 태그에 적용되어 있어서 여기에 재정의해야함! */
 }
 /* 2-5. 기사내용 */
 .contents p{
+    /* 기본마진없애고 아래쪽마진만 줌 */
+    margin: 0;
+    margin-bottom: 25px;
+
     font-size: 20px;
-    line-height: 2.1;    
+    line-height: 1.6;    
     /* 
         [ 줄간격 : line-height ]
          - 박스요소의 글자의 간격 높이를 지정하는 속성
@@ -195,7 +199,48 @@ small 태그에 적용되어 있어서 여기에 재정의해야함! */
     */
     color: #303038;
 }
+
+/* 중요글자 strong */
+.contents p strong {
+    color: darkmagenta;
+}
+/* 강조글자 em */
+.contents p em{
+    /* 글자색 : c */
+    color: lightseagreen;
+    /* 글자그림자 : ts */
+    text-shadow: 2px 2px 2px #0000007a;
+    /* 글자윗줄 overline : tdo */
+    /* 글자윗줄 underline : tdu */
+    text-decoration: underline wavy;
+    /* text-decoratiion: 유형 (스타일)
+    스타일이 있을 경우 뒤에 띄어쓰기로 쓸 수 있음 */
+}
+
 /* 2-5.5. 인용블록영역 */
+.quote-box{
+    /* 윗쪽보더주기 : bdt */
+    border-top: 2px dashed gray;
+    /* 윗쪽마진 : mt */
+    margin-top: 20px;
+}
+/* 타이틀 */
+.quote-box h4{
+    /* 가로크기 내용만큼 설정위해 display변경!
+    -> inline (패딩 디자인이 실제 공간을 차지하지 않음)
+    -> inline-block (블록처럼 디자인적용되는 인라인요소) */
+    display: inline-block;
+    /* 배경색 : bgc */
+    background-color: #e6e6e6;
+    /* 패딩 : p */
+    padding: 15px;
+    /* 둥근모서리 : brad */
+    border-radius: 15px;
+    /* 박스그림자 : bxsh */
+    box-shadow: inset 0 0 10px #7b7b7b;
+
+
+}
 /* 2-6. 기자정보 */
 /* 2-7. 기사원문 */
 /* 주해영역 */
