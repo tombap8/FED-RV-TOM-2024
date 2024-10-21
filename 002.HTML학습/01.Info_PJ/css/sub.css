@@ -238,9 +238,29 @@ small 태그에 적용되어 있어서 여기에 재정의해야함! */
     border-radius: 15px;
     /* 박스그림자 : bxsh */
     box-shadow: inset 0 0 10px #7b7b7b;
-
-
 }
+/* 인용구 박스 : blockquote */
+.quote-box blockquote{
+    /* 기본 마진 없앰 : m */
+    margin: 0;
+    /* 글자크기 : fz */
+    font-size: 20px;
+    /* 줄간격 : lh */
+    line-height: 1.8;
+    /* 양쪽정렬 justify : taj */
+    text-align: justify;
+}
+
+/* 이미지 오른쪽으로 보내고 옆에 글자 흘러가기 */
+.quote-box blockquote img{
+    /* 나는 오른쪽에 있고(글자는 왼쪽에 흘러감)
+    float: right (flr) */
+    float: right;
+    /* 왼쪽마진 : ml (이미지왼쪽에 글자에 간격줌) */
+    margin-left: 15px;
+}
+
+
 /* 2-6. 기자정보 */
 /* 2-7. 기사원문 */
 /* 주해영역 */
