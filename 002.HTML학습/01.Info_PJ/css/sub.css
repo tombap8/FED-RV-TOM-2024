@@ -372,3 +372,18 @@ small 태그에 적용되어 있어서 여기에 재정의해야함! */
 .work img {
     border: 20px ridge goldenrod;
 }
+/* 이미지 설명 */
+.work figcaption {
+    /* 글자관련설정 */
+    font-family: "Single Day", cursive;
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+}
+/* 작품명만 따로 디자인 
+cite는 작품명요소(시멘틱 구조화다!) */
+.work figcaption cite{
+    color: darkorchid;
+    /* 기본이택릭체 해제 : fsn */
+    font-style: normal;
+}
