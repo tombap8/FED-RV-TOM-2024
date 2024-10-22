@@ -221,6 +221,8 @@ small 태그에 적용되어 있어서 여기에 재정의해야함! */
 .bd-box{
     /* 윗쪽보더주기 : bdt */
     border-top: 2px dashed gray;
+    /* 아래쪽보더주기 : bdb */
+    border-bottom: 2px dashed gray;
     /* 윗쪽마진 : mt */
     margin-top: 20px;
 }
