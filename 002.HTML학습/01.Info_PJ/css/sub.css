@@ -330,7 +330,13 @@ small 태그에 적용되어 있어서 여기에 재정의해야함! */
 }
 /* 기사원문 오버시 변경 */
 .article-link a:hover{
+    /* 배경색변경 : bgc */
     background-color: yellow;
+    /* 글자색 변경 : c */
+    color: red;
+    /* 박스그림자 : bxsh */
+    box-shadow: 0 0 5px 1px darkred;
+    /* box-shadow: x축 y축 블러 확대 색 */
 }
 
 /* 주해영역 */
