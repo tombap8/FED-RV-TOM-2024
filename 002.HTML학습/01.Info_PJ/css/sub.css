@@ -349,3 +349,26 @@ small 태그에 적용되어 있어서 여기에 재정의해야함! */
 
 /* 주해영역 */
 /* 오늘의 작품 & 느낌 */
+.work{
+    /* 전체 정렬 중앙 : tac */
+    text-align: center;
+}
+/* 타이틀 */
+.work h4{
+    font-family: "Do Hyeon", sans-serif;
+    font-size: 30px;
+    font-weight: normal;
+    margin: 0;
+    color: #555;
+}
+/* 이미지박스 */
+.work figure {
+    /* 기본마진없앰 */
+    margin: 0;
+    /* 위아래패딩 */
+    padding: 15px 0;
+}
+/* 작품 이미지 */
+.work img {
+    border: 20px ridge goldenrod;
+}
