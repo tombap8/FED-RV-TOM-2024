@@ -223,8 +223,10 @@ small 태그에 적용되어 있어서 여기에 재정의해야함! */
     border-top: 2px dashed gray;
     /* 아래쪽보더주기 : bdb */
     border-bottom: 2px dashed gray;
-    /* 윗쪽마진 : mt */
-    margin-top: 20px;
+    /* 윗아래마진 : m */
+    margin: 20px 0;
+    /* 위아래패딩 : p */
+    padding: 15px 0;
 }
 /* 타이틀 */
 .bd-box h4{
