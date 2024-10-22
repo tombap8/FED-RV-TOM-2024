@@ -390,7 +390,7 @@
             </ul>
           </article>
 
-         <!-- 랭킹뉴스 : ul -->
+         <!-- 랭킹뉴스 : ol -->
           <article class="rank-news news-box">
             <h3>랭킹뉴스</h3>
             <ol>
@@ -406,7 +406,54 @@
             </ol>
           </article>
 
+          <!-- 
+          [ 용어정의리스트 : dl ]
+          
+          dl > dt + dd
+          __________________
 
+          dl : 용어 리스트
+          (defines the description list)
+          dt : 용어정의
+          (defines the term)
+          dd : 용어설명
+          (description each term)
+          ________________________
+          주의 - dl은 반드시 자식요소로 dt와 dd가
+          반드시 한번이상 사용되어야 함!!!
+          또 주의 - dt와 dd는 형제관계임!(자식아님!)
+          -->
+
+          <!-- 분야별 뉴스 : dl -->
+          <article class="sec-news news-box">
+            <h3>분야별 뉴스</h3>
+            <dl>
+              <!-- 경제파트 -->
+               <dt>경제</dt>
+               <dd>
+                <a href="" target="_blank"></a>
+               </dd>
+               <dd>
+                <a href="" target="_blank"></a>
+               </dd>
+              <!-- 사회파트 -->
+               <dt>사회</dt>
+               <dd>
+                <a href="" target="_blank"></a>
+               </dd>
+               <dd>
+                <a href="" target="_blank"></a>
+               </dd>
+              <!-- TV/연예파트 -->
+               <dt>TV/연예</dt>
+               <dd>
+                <a href="" target="_blank"></a>
+               </dd>
+               <dd>
+                <a href="" target="_blank"></a>
+               </dd>
+            </dl>
+          </article>
 
 
 
