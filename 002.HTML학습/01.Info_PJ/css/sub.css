@@ -328,7 +328,11 @@ small 태그에 적용되어 있어서 여기에 재정의해야함! */
     /* 두꺼운 글자 : fwb */
     font-weight: bold;
 }
-/* 기사원문 오버시 변경 */
+/* 기사원문 오버시 변경 
+    :hover는 마우스 오버시 가상클래스임!
+    선택요소에 붙여서 사용함!
+    가상클래스란 마치 클래스를 준것 같다는 의미
+*/
 .article-link a:hover{
     /* 배경색변경 : bgc */
     background-color: yellow;
