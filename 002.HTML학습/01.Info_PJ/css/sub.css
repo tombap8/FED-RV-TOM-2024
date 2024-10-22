@@ -263,16 +263,32 @@ small 태그에 적용되어 있어서 여기에 재정의해야함! */
     /* 나는 오른쪽에 있고(글자는 왼쪽에 흘러감)
     float: right (flr) */
     float: right;
+    /* 
+        기본적으로 이미지는 인라인요소이며
+        글자가 왼쪽으로 한줄 하단에 나열됨!
+        글자가 옆에 올라와서 흘러가게 하려면
+        float속성을 사용해야 한다!
+            float:left 이미지는 왼쪽에 글자는 오른쪽에
+            float:right 이미지는 오른쪽에 글자는 왼쪽에
+
+    */
+
     /* 왼쪽마진 : ml (이미지왼쪽에 글자에 간격줌) */
     margin-left: 15px;
     /* 마진탑으로 이미지위치를 이동함 : mt */
-    margin-top: 15px;
+    /* margin-top: 15px; - 아래쪽에 영향으로 주석! */
     /* 둥근모서리 : brs */
     border-radius: 10px;
 }
 
 
 /* 2-6. 기자정보 */
+.reporter{
+    /* 글자크기 : fz */
+    font-size: 20px;
+    /* 위아래 패딩 : p */
+    padding: 15px 0;
+}
 /* 2-7. 기사원문 */
 .article-link{
     /* 오른쪽 정렬 */
