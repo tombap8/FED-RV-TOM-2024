@@ -352,7 +352,35 @@ small 태그에 적용되어 있어서 여기에 재정의해야함! */
 .work{
     /* 전체 정렬 중앙 : tac */
     text-align: center;
+    /* 패딩 */
+    padding: 15px;
+    /* 박스 그림자 : bxsh */
+    box-shadow: inset 0 0 10px 2px #00000075;
+    /* 박스 그림자 
+        box-shadow: x축 y축 blur spread 색
+        1.x축 - 가로축 이동
+        2.y축 - 세로축 이동
+        3.blur - 경계선 흐림
+        4.spread - 그림자 기존크기 보다 더한크기
+        5.색 - 그림자 색
+        ->> 내부 그림자일 경우 inset 키워드를 앞에씀
+        box-shadow: inset x축 y축 blur spread 색
+        ->> spread는 필요시에 작성함
+    */
+    /* 배경색 그라데이션 : bgl */
+    background: 
+    linear-gradient(-45deg, #fd62f9, #a8ffab, #00cac7);
 }
+/* 그라데이션 
+    [ 선형 그라데이션 : linear-gradient ]
+    linear-gradient(방향,색1,색2,...);
+    linear-gradient(방향,색1 몇%,색2 몇%,...);
+    linear-gradient(각도,색1 몇%,색2 몇%,...);
+    - 옵션 : 
+    1. 방향: to top, to bottom, to left, to right
+    2. 각도: 각도deg
+    3. 콤마로 나열된 색상 뒤에 %수치를 쓰면 비율조정가능
+*/
 /* 타이틀 */
 .work h4{
     font-family: "Do Hyeon", sans-serif;
@@ -386,18 +414,4 @@ cite는 작품명요소(시멘틱 구조화다!) */
     color: darkorchid;
     /* 기본이택릭체 해제 : fsn */
     font-style: normal;
-    /* 배경색 그라데이션 : bgl */
-    background: 
-    linear-gradient(-45deg, #fd62f9, #a8ffab, #00cac7);
 }
-
-/* 그라데이션 
-    [ 선형 그라데이션 : linear-gradient ]
-    linear-gradient(방향,색1,색2,...);
-    linear-gradient(방향,색1 몇%,색2 몇%,...);
-    linear-gradient(각도,색1 몇%,색2 몇%,...);
-    - 옵션 : 
-    1. 방향: to top, to bottom, to left, to right
-    2. 각도: 각도deg
-    3. 콤마로 나열된 색상 뒤에 %수치를 쓰면 비율조정가능
-*/
