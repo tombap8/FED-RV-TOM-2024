@@ -448,6 +448,15 @@ cite는 작품명요소(시멘틱 구조화다!) */
     color: #222;
     /* 밑줄없앰 : tdn */
     text-decoration: none;
+
+    /* 한줄 말줄임 셋팅하기 */
+    /* 1. 줄바꿈 방지 : wh */
+    white-space: nowrap;
+    /* 2. 넘치는 요소 숨기기(전체조건 inline아닐것!) */
+    overflow: hidden;/* oh */
+    display: block;/* db : a는 inline이니까 변경 */
+    /* 3. 넘치는 글자 말줄임표시(...) : tov */
+    text-overflow: ellipsis;
 }
 /* 공통 a요소 오버시 
 가상클래스(:hover) */
@@ -510,5 +519,24 @@ ul, ol은 기본마진,패딩,블릿,번호 등
     - 필수속성 : content
     - 이미지는 content 속성값으로 url() 사용!
 */
+
+/* 
+    주요뉴스의 li 순서에서 개별 선택하기!
+    글자색 변경하기!
+
+    [ 같은 종류의 형제요소 선택법 ]
+    :first-child -> 첫번째 자식
+    :last-child -> 마지막째 자식
+    :nth-child(n) -> n번째 자식
+*/
+.main-news li:first-child a{
+    color: red;
+}
+.main-news li:last-child a{
+    color: green;
+}
+.main-news li:nth-child(2) a{
+    color: blue;
+}
 
 
