@@ -424,85 +424,91 @@ cite는 작품명요소(시멘틱 구조화다!) */
   padding: 20px 0;
 }
 /* 뉴스 타이틀 공통 */
-.news-box h3{
-    /* 글자체 (웹폰트) : ff */
-    font-family: "Do Hyeon", sans-serif;
-    /* 두껍지 않게 : fwn */
-    font-weight: normal;
-    /* 글자크기 : fz */
-    font-size: 30px;
-    /* 배경 그라데이션 : bg */
-    background: 
-    linear-gradient(to right,lightblue,transparent);
-    /* 패딩 : p */
-    padding: 10px;
-
+.news-box h3 {
+  /* 글자체 (웹폰트) : ff */
+  font-family: "Do Hyeon", sans-serif;
+  /* 두껍지 않게 : fwn */
+  font-weight: normal;
+  /* 글자크기 : fz */
+  font-size: 30px;
+  /* 배경 그라데이션 : bg */
+  background: linear-gradient(
+    to right,
+    lightblue,
+    transparent
+  );
+  /* 패딩 : p */
+  padding: 10px;
 }
 /* 뉴스파트 공통a요소 */
-.news-box a{
-    /* 글자크기 17px : fz17 */
-    font-size: 17px;
-    /* 줄간격 2.5배 : lh2.5 */
-    line-height: 2.5;
-    /* 글자색 #222 : c */
-    color: #222;
-    /* 밑줄없앰 : tdn */
-    text-decoration: none;
+.news-box a {
+  /* 글자크기 17px : fz17 */
+  font-size: 17px;
+  /* 줄간격 2.5배 : lh2.5 */
+  line-height: 2.5;
+  /* 글자색 #222 : c */
+  color: #222;
+  /* 밑줄없앰 : tdn */
+  text-decoration: none;
 
-    /* [ 한줄 말줄임 셋팅하기 ] */
-    /* 1. 줄바꿈 방지 : wh */
-    white-space: nowrap;
-    /* 2. 넘치는 요소 숨기기(전체조건 inline아닐것!) */
-    overflow: hidden;/* oh */
-    display: block;/* db : a는 inline이니까 변경 */
-    /* 3. 넘치는 글자 말줄임표시(...) : tov */
-    text-overflow: ellipsis;
+  /* [ 한줄 말줄임 셋팅하기 ] */
+  /* 1. 줄바꿈 방지 : wh */
+  white-space: nowrap;
+  /* 2. 넘치는 요소 숨기기(전체조건 inline아닐것!) */
+  overflow: hidden; /* oh */
+  display: block; /* db : a는 inline이니까 변경 */
+  /* 3. 넘치는 글자 말줄임표시(...) : tov */
+  text-overflow: ellipsis;
 }
 /* 공통 a요소 오버시 
 가상클래스(:hover) */
-.news-box a:hover{
-    /* 글자색 : c */
-    color: yellowgreen;
-    /* 글자그림자 : ts */
-    text-shadow: 1px 1px 1px #000000d6;
+.news-box a:hover {
+  /* 글자색 : c */
+  color: yellowgreen;
+  /* 글자그림자 : ts */
+  text-shadow: 1px 1px 1px #000000d6;
 }
 
 /* 뉴스파트 공통 초기화하기
 ul, ol은 기본마진,패딩,블릿,번호 등
 초기화 필요함 */
-.news-box ul, .news-box ol{
-    /* 마진,패딩 0 */
-    margin: 0;
-    padding: 0;
-    /* 블릿,숫자표시 리스트 없앰
+.news-box ul,
+.news-box ol {
+  /* 마진,패딩 0 */
+  margin: 0;
+  padding: 0;
+  /* 블릿,숫자표시 리스트 없앰
     : lin */
-    list-style: none;
+  list-style: none;
 }
 /* ol 은 숫자값 살리기 */
-.news-box ol{
-    /* 숫자표시 기본값 살리기 */
-    list-style: decimal;
-    /* 왼쪽패딩 : pl */
-    padding-left: 20px;
+.news-box ol {
+  /* 숫자표시 기본값 살리기 */
+  list-style: decimal;
+  /* 왼쪽패딩 : pl */
+  padding-left: 20px;
 }
 /* dl,dd는 기본마진있음  */
-.news-box dl, .news-box dl dd{
-    margin: 0;
+.news-box dl,
+.news-box dl dd {
+  margin: 0;
 }
 
 /* 주요뉴스 개별 설정하기 */
-.main-news a::before{ /* 맨앞 */
-    /* 가상요소 필수속성 content : ct */
-    content: '🍦';
-    margin-right: 5px;
-    font-size: 20px;
+.main-news a::before {
+  /* 맨앞 */
+  /* 가상요소 필수속성 content : ct */
+  content: "🍦";
+  margin-right: 5px;
+  font-size: 20px;
 }
-.main-news a::after{/* 맨뒤 */
-    content: '🍀';
-    /* content: url(https://cdn-icons-png.flaticon.com/256/5290/5290109.png); */
-    /* url을 사용하면 이미지를 넣을 수 
+.main-news a::after {
+  /* 맨뒤 */
+  content: "🍀";
+  /* content: url(https://cdn-icons-png.flaticon.com/256/5290/5290109.png); */
+  /* url을 사용하면 이미지를 넣을 수 
     있으나 크기조정 안됨! */
-    /* width: 15px;적용안됨! */
+  /* width: 15px;적용안됨! */
 }
 
 /* 가상요소로 아이콘 넣기
@@ -529,48 +535,48 @@ ul, ol은 기본마진,패딩,블릿,번호 등
     :last-child -> 마지막째 자식
     :nth-child(n) -> n번째 자식
 */
-.main-news li:first-child a{
-    color: red;
+.main-news li:first-child a {
+  color: red;
 }
-.main-news li:last-child a{
-    color: green;
+.main-news li:last-child a {
+  color: green;
 }
-.main-news li:nth-child(2) a{
-    color: blue;
+.main-news li:nth-child(2) a {
+  color: blue;
 }
 
 /* 분야별 뉴스 */
-.sec-news dt{
-    font-family: "Single Day", cursive;
-    font-size: 30px;
-    border: 4px dashed darkcyan;
-    padding: 10px;
-    /* 내용만큼 가로크기 되도록
+.sec-news dt {
+  font-family: "Single Day", cursive;
+  font-size: 30px;
+  border: 4px dashed darkcyan;
+  padding: 10px;
+  /* 내용만큼 가로크기 되도록
     display변경 inline-block
     -> dib */
-    display: inline-block;
-    /* 원형 둥근모서리 */
-    border-radius: 50%;
+  display: inline-block;
+  /* 원형 둥근모서리 */
+  border-radius: 50%;
 }
 
 /* dt 따로 순서별 디자인 설정 */
 /* 경제파트 */
-.sec-news dt:first-of-type{
-    color: red;
-    background-color: lightgreen;
-    border-color: yellowgreen;
+.sec-news dt:first-of-type {
+  color: red;
+  background-color: lightgreen;
+  border-color: yellowgreen;
 }
 /* 사회파트 */
-.sec-news dt:nth-of-type(2){
-    color: blue;
-    background-color: lightcoral;
-    border-color: darkmagenta;
+.sec-news dt:nth-of-type(2) {
+  color: blue;
+  background-color: lightcoral;
+  border-color: darkmagenta;
 }
 /* TV/연예파트 */
-.sec-news dt:last-of-type{
-    color: green;
-    background-color: lightskyblue;
-    border-color: darkorchid;
+.sec-news dt:last-of-type {
+  color: green;
+  background-color: lightskyblue;
+  border-color: darkorchid;
 }
 /* 
     [ 여러종류의 태그에서 순서별 선택법 ]
@@ -579,4 +585,9 @@ ul, ol은 기본마진,패딩,블릿,번호 등
      :nth-of-type(n) 같은 종류중 n번째요소
 */
 
-
+/* 두번째 dt부터 마진탑주기
+-> dt앞에 dd가 있는 모든 dt를 선택함!
+-> 형제선택자 + 사용함 : dd+dt */
+.sec-news dd + dt {
+  margin-top: 20px;
+}
