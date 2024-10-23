@@ -554,16 +554,19 @@ ul, ol은 기본마진,패딩,블릿,번호 등
 }
 
 /* dt 따로 순서별 디자인 설정 */
+/* 경제파트 */
 .sec-news dt:first-of-type{
     color: red;
     background-color: lightgreen;
     border-color: yellowgreen;
 }
+/* 사회파트 */
 .sec-news dt:nth-of-type(2){
     color: blue;
     background-color: lightcoral;
     border-color: darkmagenta;
 }
+/* TV/연예파트 */
 .sec-news dt:last-of-type{
     color: green;
     background-color: lightskyblue;
