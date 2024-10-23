@@ -603,7 +603,27 @@ ul, ol은 기본마진,패딩,블릿,번호 등
     border-collapse: collapse;
     /* separate가 기본값임(사이간격있음)
     -> table태그에서 border="1" 설정으로 확인 */
+
+    /* 테두리 */
+    border: 2px solid #ccc;
+
+    /* 테이블 중앙정렬 - 마영오!
+    블록요소, 테이블요소 모두 적용공통 */
+    margin: 0 auto;
 }
+
+/* 첫번째 td : 숫자데이터 부분 */
+.photo-news td:first-child{
+    /* 가로크기 : w */
+    width: 50px;
+    /* 세로크기 : h */
+    height: 84px;
+    /* 글자중앙 : tac */
+    text-align: center;
+    /* 배경색 : bgc */
+    background-color: #ccc;
+}
+
 
 /* 사진뉴스 a요소 셋팅 */
 .photo-news a{
