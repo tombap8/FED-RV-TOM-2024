@@ -624,6 +624,19 @@ ul, ol은 기본마진,패딩,블릿,번호 등
     background-color: #ccc;
 }
 
+/* 두번째 td : 기사제목링크 부분 */
+.photo-news td:nth-child(2){
+    /* 배경색 : bgc */
+    background-color: #e4e4e4;
+    /* 양쪽패딩 : p */
+    padding: 0 20px;
+}
+/* 세번째 td : 사진링크 부분 */
+.photo-news td:last-child{
+    /* 배경색 : bgc */
+    background-color: #e4e4e4;
+}
+
 
 /* 사진뉴스 a요소 셋팅 */
 .photo-news a{
@@ -638,4 +651,9 @@ ul, ol은 기본마진,패딩,블릿,번호 등
 .photo-news img{
     width: 100px;
     height: 70px;
+    vertical-align: middle;
+}
+/* 사이구분선 넣기 : 두번째 tr부터 */
+.photo-news tr+tr td{
+    border-top: 2px solid #ccc;
 }
