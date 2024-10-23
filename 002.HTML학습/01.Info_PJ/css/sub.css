@@ -591,3 +591,31 @@ ul, ol은 기본마진,패딩,블릿,번호 등
 .sec-news dd + dt {
   margin-top: 20px;
 }
+
+
+/* 사진뉴스 테이블 */
+.photo-news table{
+    /* 최대가로크기설정 : maw
+    최대크기보다 작아지면 auto로전환! */
+    max-width: 500px;
+
+    /* 테이블 기본 간격없앰(정확한 수치화를 위해) */
+    border-collapse: collapse;
+    /* separate가 기본값임(사이간격있음)
+    -> table태그에서 border="1" 설정으로 확인 */
+}
+
+/* 사진뉴스 a요소 셋팅 */
+.photo-news a{
+    /* 줄바꿈방지 설정 해제 : whn
+    -> 줄바꿈방지 설정일 경우
+    테이블 td에서 크기가 글내용
+    만큼 밀려서 나오기때문에
+    기본 줄바꿈으로 설정함! */
+    white-space: normal;
+}
+/* 사진뉴스 이미지 */
+.photo-news img{
+    width: 100px;
+    height: 70px;
+}
