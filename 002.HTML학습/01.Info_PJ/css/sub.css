@@ -471,7 +471,9 @@ ul, ol은 기본마진,패딩,블릿,번호 등
 }
 /* ol 은 숫자값 살리기 */
 .news-box ol{
+    /* 숫자표시 기본값 살리기 */
     list-style: decimal;
+    /* 왼쪽패딩 : pl */
     padding-left: 20px;
 }
 /* dl,dd는 기본마진있음  */
