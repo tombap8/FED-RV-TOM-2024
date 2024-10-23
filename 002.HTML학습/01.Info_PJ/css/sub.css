@@ -41,32 +41,33 @@
 
 /* 2-1. 서브타이틀 
 태그명+이름 방식의 선택자는 종속선택자*/
-h2.sub-title{
-    /* 글자체(웹폰트) font-family (ff) */
-    font-family: "Single Day", cursive;
-    /* 글자크기 : font-size (fz) */
-    font-size: 38px;
-    /* 글자두께 : font-weight (fw)
+h2.sub-title {
+  /* 글자체(웹폰트) font-family (ff) */
+  font-family: "Single Day", cursive;
+  /* 글자크기 : font-size (fz) */
+  font-size: 38px;
+  /* 글자두께 : font-weight (fw)
     두껍게 bold(fwb) / 보통 normal(fwn) */
-    font-weight: normal;
-    /* 텍스트 중앙정렬 : tac */
-    text-align: center;
-    /* 배경색 : bgc */
-    /* background-color: pink; */
-    /* 글자그림자 ts */
-    text-shadow: 2px 2px 2px #00000081;
+  font-weight: normal;
+  /* 텍스트 중앙정렬 : tac */
+  text-align: center;
+  /* 배경색 : bgc */
+  /* background-color: pink; */
+  /* 글자그림자 ts */
+  text-shadow: 2px 2px 2px #00000081;
 
-    /* 박스디자인 */
-    /* 패딩 p */
-    padding: 20px;
-    /* 둥근모서리 brad */
-    border-radius: 20px;
-    /* CSS이미지는 상대경로로 CSS파일위치로부터
+  /* 박스디자인 */
+  /* 패딩 p */
+  padding: 20px;
+  /* 둥근모서리 brad */
+  border-radius: 20px;
+  /* CSS이미지는 상대경로로 CSS파일위치로부터
     찾아서 넣는다! ../는 폴더하나위로 올라감 */
-    /* 배경 한번에 넣기 : 색이반고윙/크 */
-    background: url(../images/titbg4.jpg) no-repeat center/cover;
+  /* 배경 한번에 넣기 : 색이반고윙/크 */
+  background: url(../images/titbg4.jpg)
+    no-repeat center/cover;
 
-    /* 박스그림자 box-shadow (bxsh) 
+  /* 박스그림자 box-shadow (bxsh) 
         box-shadow: 
         (내부그림자 inset) x축 y축 불러 (확장) 색
 
@@ -76,11 +77,11 @@ h2.sub-title{
         콤마로 연결하면 글자그림자든 박스그림자든
         모두 다중 그림자 적용가능함!!!
     */
-    box-shadow: 
-    /* 내부 그림자 */
-    inset 0 0 10px #000,
-    /* 바깥쪽 그림자 */
-    0 0 20px 5px darkcyan;
+  box-shadow: 
+    /* 내부 그림자 */ inset
+      0 0 10px #000,
+    /* 바깥쪽 그림자 */ 0 0 20px 5px
+      darkcyan;
 }
 
 /* 
@@ -98,96 +99,89 @@ h2.sub-title{
 
 /* 페이지별 타이틀 박스 디자인 변경 */
 /* 정치뉴스 */
-h2.politics{
-    /* 배경이미지 변경 */
-    background-image: 
-    url(../images/titbg1.jpg);
+h2.politics {
+  /* 배경이미지 변경 */
+  background-image: url(../images/titbg1.jpg);
 
-    /* 글자색 변경 */
-    color: darkorange;
+  /* 글자색 변경 */
+  color: darkorange;
 }
 /* 경제뉴스 */
-h2.economics{
-    /* 배경이미지 변경 */
-    background-image: 
-    url(../images/titbg2.jpg);
+h2.economics {
+  /* 배경이미지 변경 */
+  background-image: url(../images/titbg2.jpg);
 
-    /* 글자색 변경 */
-    color: lightgreen;
+  /* 글자색 변경 */
+  color: lightgreen;
 }
 /* 사회뉴스 */
-h2.social{
-    /* 배경이미지 변경 */
-    background-image: 
-    url(../images/titbg3.jpg);
+h2.social {
+  /* 배경이미지 변경 */
+  background-image: url(../images/titbg3.jpg);
 
-    /* 글자색 변경 */
-    color: lightseagreen;
+  /* 글자색 변경 */
+  color: lightseagreen;
 }
 /*  IT/과학뉴스 */
-h2.it{
-    /* 배경이미지 변경 */
-    background-image: 
-    url(../images/titbg4.jpg);
+h2.it {
+  /* 배경이미지 변경 */
+  background-image: url(../images/titbg4.jpg);
 
-    /* 글자색 변경 */
-    color: darkblue;
+  /* 글자색 변경 */
+  color: darkblue;
 }
 /*  TV/연예뉴스 */
-h2.tv{
-    /* 배경이미지 변경 */
-    background-image: 
-    url(../images/titbg5.jpg);
+h2.tv {
+  /* 배경이미지 변경 */
+  background-image: url(../images/titbg5.jpg);
 
-    /* 글자색 변경 */
-    color: lightgoldenrodyellow;
+  /* 글자색 변경 */
+  color: lightgoldenrodyellow;
 }
-
 
 /* 2-2.언론사로고 */
-.press-logo img{
-    /* 이미지 높이값 고정(가로크기는 자동) */
-    height: 32px;
+.press-logo img {
+  /* 이미지 높이값 고정(가로크기는 자동) */
+  height: 32px;
 }
 /* 2-3. 기사제목 */
-.article-title{
-    /* 글자크기 fz30 */
-    font-size: 30px;
-    /* 글자색 c */
-    color: #1e1e23;
+.article-title {
+  /* 글자크기 fz30 */
+  font-size: 30px;
+  /* 글자색 c */
+  color: #1e1e23;
 }
 /* 2-4. 기사사진 */
-.article-picture{
-    /* fugure 요소 기본마진 없앰 */
-    margin: 0;
+.article-picture {
+  /* fugure 요소 기본마진 없앰 */
+  margin: 0;
 }
 /* 기사이미지 */
-.article-picture img{
-    width: 100%;
+.article-picture img {
+  width: 100%;
 }
 /* 이미지 설명
 figcaption은 블록요소다! */
-.article-picture figcaption{
-    /* 글자가운데정렬 tac */
-    text-align: center;
+.article-picture figcaption {
+  /* 글자가운데정렬 tac */
+  text-align: center;
 }
 /*  하위요소에 지정된 속성은 그 요소에서 
 재정의 해야 적용됨! 예컨데 글자크기가 이미
 small 태그에 적용되어 있어서 여기에 재정의해야함! */
-.article-picture figcaption small{
-    /* 글자크기 15px : fz15 */
-    font-size: 15px;
-
+.article-picture figcaption small {
+  /* 글자크기 15px : fz15 */
+  font-size: 15px;
 }
 /* 2-5. 기사내용 */
-.contents p{
-    /* 기본마진없애고 아래쪽마진만 줌 */
-    margin: 0;
-    margin-bottom: 25px;
+.contents p {
+  /* 기본마진없애고 아래쪽마진만 줌 */
+  margin: 0;
+  margin-bottom: 25px;
 
-    font-size: 20px;
-    line-height: 1.6;    
-    /* 
+  font-size: 20px;
+  line-height: 1.6;
+  /* 
         [ 줄간격 : line-height ]
          - 박스요소의 글자의 간격 높이를 지정하는 속성
          - 글자는 높이값의 세로 정중앙에 위치함
@@ -197,77 +191,77 @@ small 태그에 적용되어 있어서 여기에 재정의해야함! */
          - 젠코딩시 숫자만쓰면 배수로 표현되므로
          주의 요망!! 예) lh20 -> line-height: 20;
     */
-    color: #303038;
+  color: #303038;
 }
 
 /* 중요글자 strong */
 .contents p strong {
-    color: darkmagenta;
+  color: darkmagenta;
 }
 /* 강조글자 em */
-.contents p em{
-    /* 글자색 : c */
-    color: lightseagreen;
-    /* 글자그림자 : ts */
-    text-shadow: 2px 2px 2px #0000007a;
-    /* 글자윗줄 overline : tdo */
-    /* 글자윗줄 underline : tdu */
-    text-decoration: underline wavy;
-    /* text-decoratiion: 유형 (스타일)
+.contents p em {
+  /* 글자색 : c */
+  color: lightseagreen;
+  /* 글자그림자 : ts */
+  text-shadow: 2px 2px 2px #0000007a;
+  /* 글자윗줄 overline : tdo */
+  /* 글자윗줄 underline : tdu */
+  text-decoration: underline wavy;
+  /* text-decoratiion: 유형 (스타일)
     스타일이 있을 경우 뒤에 띄어쓰기로 쓸 수 있음 */
 }
 
 /* 공통 보더박스 디자인 : .bd-box */
-.bd-box{
-    /* 윗쪽보더주기 : bdt */
-    border-top: 2px dashed gray;
-    /* 아래쪽보더주기 : bdb */
-    border-bottom: 2px dashed gray;
-    /* 윗아래마진 : m */
-    margin: 20px 0;
-    /* 위아래패딩 : p */
-    padding: 15px 0;
+.bd-box {
+  /* 윗쪽보더주기 : bdt */
+  border-top: 2px dashed gray;
+  /* 아래쪽보더주기 : bdb */
+  border-bottom: 2px dashed gray;
+  /* 윗아래마진 : m */
+  margin: 20px 0;
+  /* 위아래패딩 : p */
+  padding: 15px 0;
 }
 /* 타이틀 */
-.bd-box h4{
-    /* 가로크기 내용만큼 설정위해 display변경!
+.bd-box h4 {
+  /* 가로크기 내용만큼 설정위해 display변경!
     -> inline (패딩 디자인이 실제 공간을 차지하지 않음)
     -> inline-block (블록처럼 디자인적용되는 인라인요소) */
-    display: inline-block;
-    /* 배경색 : bgc */
-    background-color: #e6e6e6;
-    /* 패딩 : p */
-    padding: 15px;
-    /* 둥근모서리 : brad */
-    border-radius: 15px;
-    /* 박스그림자 : bxsh */
-    box-shadow: inset 0 0 10px #7b7b7b;
+  display: inline-block;
+  /* 배경색 : bgc */
+  background-color: #e6e6e6;
+  /* 패딩 : p */
+  padding: 15px;
+  /* 둥근모서리 : brad */
+  border-radius: 15px;
+  /* 박스그림자 : bxsh */
+  box-shadow: inset 0 0 10px #7b7b7b;
 }
 
 /* 2-5.5. 인용블록영역 */
 /* 인용구 박스 : blockquote */
-.quote-box blockquote{
-    /* 기본 마진 없앰 : m */
-    margin: 0;
-    /* 글자크기 : fz */
-    font-size: 20px;
-    /* 줄간격 : lh */
-    line-height: 1.8;
-    /* 양쪽정렬 justify : taj */
-    text-align: justify;
-    /* 양쪽 정렬시 영어단어 깨서 중앙
+.quote-box blockquote {
+  /* 기본 마진 없앰 : m */
+  margin: 0;
+  /* 글자크기 : fz */
+  font-size: 20px;
+  /* 줄간격 : lh */
+  line-height: 1.8;
+  /* 양쪽정렬 justify : taj */
+  text-align: justify;
+  /* 양쪽 정렬시 영어단어 깨서 중앙
     공백 없애기 : wbb */
-    word-break: break-all;
-    /* 첫줄 들여쓰기 : ti */
-    text-indent: 15px;
+  word-break: break-all;
+  /* 첫줄 들여쓰기 : ti */
+  text-indent: 15px;
 }
 
 /* 이미지 오른쪽으로 보내고 옆에 글자 흘러가기 */
-.quote-box blockquote img{
-    /* 나는 오른쪽에 있고(글자는 왼쪽에 흘러감)
+.quote-box blockquote img {
+  /* 나는 오른쪽에 있고(글자는 왼쪽에 흘러감)
     float: right (flr) */
-    float: right;
-    /* 
+  float: right;
+  /* 
         기본적으로 이미지는 인라인요소이며
         글자가 왼쪽으로 한줄 하단에 나열됨!
         글자가 옆에 올라와서 흘러가게 하려면
@@ -277,86 +271,86 @@ small 태그에 적용되어 있어서 여기에 재정의해야함! */
 
     */
 
-    /* 왼쪽마진 : ml (이미지왼쪽에 글자에 간격줌) */
-    margin-left: 15px;
-    /* 마진탑으로 이미지위치를 이동함 : mt */
-    /* margin-top: 15px; - 아래쪽에 영향으로 주석! */
-    /* 둥근모서리 : brs */
-    border-radius: 10px;
+  /* 왼쪽마진 : ml (이미지왼쪽에 글자에 간격줌) */
+  margin-left: 15px;
+  /* 마진탑으로 이미지위치를 이동함 : mt */
+  /* margin-top: 15px; - 아래쪽에 영향으로 주석! */
+  /* 둥근모서리 : brs */
+  border-radius: 10px;
 }
-
 
 /* 2-6. 기자정보 */
-.reporter{
-    /* 글자크기 : fz */
-    font-size: 20px;
-    /* 위아래 패딩 : p */
-    padding: 15px 0;
+.reporter {
+  /* 글자크기 : fz */
+  font-size: 20px;
+  /* 위아래 패딩 : p */
+  padding: 15px 0;
 }
 /* 2-7. 기사원문 */
-.article-link{
-    /* 오른쪽 정렬 */
-    text-align: right;
+.article-link {
+  /* 오른쪽 정렬 */
+  text-align: right;
 }
 /* 자식요소 a는 인라인이므로 크기 적용안됨
 따라서 디자인 적용되는 인라인요소인 inline-block
 을 사용한다! */
-.article-link a{
-    /* 인라인블록 : dib */
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-    /* 가로중앙정렬 */
-    text-align: center;
-    /* 세로중앙은? */
-    line-height: 100px;
-    /* vertical-align: middle;
+.article-link a {
+  /* 인라인블록 : dib */
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  /* 가로중앙정렬 */
+  text-align: center;
+  /* 세로중앙은? */
+  line-height: 100px;
+  /* vertical-align: middle;
     ->인라인요소간 세로정렬
     -> 세로중앙정렬은 table-cell 디스플레이에서만
     적용됨. 여기서는 line-height를 높이값과 
     같이 줌! */
-    border: 2px solid lightcoral;
+  border: 2px solid lightcoral;
 
-    /* a요소 기본 디자인 변경 */
-    /* 밑줄없앰 : tdn */
-    text-decoration: none;
+  /* a요소 기본 디자인 변경 */
+  /* 밑줄없앰 : tdn */
+  text-decoration: none;
 
-    /* 정원은 둥근모서리값 50% */
-    border-radius: 50%;
-    /* 배경색 : bgc */
-    background-color: lightcyan;
-    /* 글자색 : c */
-    color: darkcyan;
-    /* 글자크기 : fz */
-    font-size: 20px;
-    /* 두꺼운 글자 : fwb */
-    font-weight: bold;
+  /* 정원은 둥근모서리값 50% */
+  border-radius: 50%;
+  /* 배경색 : bgc */
+  background-color: lightcyan;
+  /* 글자색 : c */
+  color: darkcyan;
+  /* 글자크기 : fz */
+  font-size: 20px;
+  /* 두꺼운 글자 : fwb */
+  font-weight: bold;
 }
 /* 기사원문 오버시 변경 
     :hover는 마우스 오버시 가상클래스임!
     선택요소에 붙여서 사용함!
     가상클래스란 마치 클래스를 준것 같다는 의미
 */
-.article-link a:hover{
-    /* 배경색변경 : bgc */
-    background-color: yellow;
-    /* 글자색 변경 : c */
-    color: red;
-    /* 박스그림자 : bxsh */
-    box-shadow: 0 0 5px 1px darkred;
-    /* box-shadow: x축 y축 블러 확대 색 */
+.article-link a:hover {
+  /* 배경색변경 : bgc */
+  background-color: yellow;
+  /* 글자색 변경 : c */
+  color: red;
+  /* 박스그림자 : bxsh */
+  box-shadow: 0 0 5px 1px darkred;
+  /* box-shadow: x축 y축 블러 확대 색 */
 }
 
 /* 주해영역 */
 /* 오늘의 작품 & 느낌 */
-.work{
-    /* 전체 정렬 중앙 : tac */
-    text-align: center;
-    /* 패딩 */
-    padding: 15px;
-    /* 박스 그림자 : bxsh */
-    box-shadow: inset 0 0 10px 2px #00000075;
-    /* 박스 그림자 
+.work {
+  /* 전체 정렬 중앙 : tac */
+  text-align: center;
+  /* 패딩 */
+  padding: 15px;
+  /* 박스 그림자 : bxsh */
+  box-shadow: inset 0 0 10px 2px
+    #00000075;
+  /* 박스 그림자 
         box-shadow: x축 y축 blur spread 색
         1.x축 - 가로축 이동
         2.y축 - 세로축 이동
@@ -367,9 +361,13 @@ small 태그에 적용되어 있어서 여기에 재정의해야함! */
         box-shadow: inset x축 y축 blur spread 색
         ->> spread는 필요시에 작성함
     */
-    /* 배경색 그라데이션 : bgl */
-    background: 
-    linear-gradient(-45deg, #fd62f9, #a8ffab, #00cac7);
+  /* 배경색 그라데이션 : bgl */
+  background: linear-gradient(
+    -45deg,
+    #fd62f9,
+    #a8ffab,
+    #00cac7
+  );
 }
 /* 그라데이션 
     [ 선형 그라데이션 : linear-gradient ]
@@ -382,36 +380,81 @@ small 태그에 적용되어 있어서 여기에 재정의해야함! */
     3. 콤마로 나열된 색상 뒤에 %수치를 쓰면 비율조정가능
 */
 /* 타이틀 */
-.work h4{
-    font-family: "Do Hyeon", sans-serif;
-    font-size: 30px;
-    font-weight: normal;
-    margin: 0;
-    color: #555;
+.work h4 {
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 30px;
+  font-weight: normal;
+  margin: 0;
+  color: #555;
 }
 /* 이미지박스 */
 .work figure {
-    /* 기본마진없앰 */
-    margin: 0;
-    /* 위아래패딩 */
-    padding: 15px 0;
+  /* 기본마진없앰 */
+  margin: 0;
+  /* 위아래패딩 */
+  padding: 15px 0;
 }
 /* 작품 이미지 */
 .work img {
-    border: 20px ridge goldenrod;
+  border: 20px ridge goldenrod;
 }
 /* 이미지 설명 */
 .work figcaption {
-    /* 글자관련설정 */
-    font-family: "Single Day", cursive;
-    font-size: 20px;
-    color: #333;
-    font-weight: bold;
+  /* 글자관련설정 */
+  font-family: "Single Day", cursive;
+  font-size: 20px;
+  color: #333;
+  font-weight: bold;
 }
 /* 작품명만 따로 디자인 
 cite는 작품명요소(시멘틱 구조화다!) */
-.work figcaption cite{
-    color: darkorchid;
-    /* 기본이택릭체 해제 : fsn */
-    font-style: normal;
+.work figcaption cite {
+  color: darkorchid;
+  /* 기본이택릭체 해제 : fsn */
+  font-style: normal;
 }
+
+/* 뉴스파트 공통 클래스 : .news-box */
+.news-box {
+  /* 상단보더 넣기 : bdt */
+  border-top: 2px dashed #ccc;
+  /* 위아래마진 : m */
+  margin: 20px 0;
+  /* 위아래패딩 : p */
+  padding: 20px 0;
+}
+/* 뉴스 타이틀 공통 */
+.news-box h3{
+    /* 글자체 (웹폰트) : ff */
+    font-family: "Do Hyeon", sans-serif;
+    /* 두껍지 않게 : fwn */
+    font-weight: normal;
+    /* 글자크기 : fz */
+    font-size: 30px;
+    /* 배경 그라데이션 : bg */
+    background: 
+    linear-gradient(to right,lightblue,transparent);
+    /* 패딩 : p */
+    padding: 10px;
+
+}
+/* 뉴스파트 공통a요소 */
+.news-box a{
+    /* 글자크기 17px : fz17 */
+    font-size: 17px;
+    /* 줄간격 2.5배 : lh2.5 */
+    line-height: 2.5;
+    /* 글자색 #222 : c */
+    color: #222;
+    /* 밑줄없앰 : tdn */
+    text-decoration: none;
+}
+/* 공통 a요소 오버시 
+가상클래스(:hover) */
+.news-box a:hover{
+    /* 글자색 : c */
+    color: yellowgreen;
+    /* 글자그림자 : ts */
+    text-shadow: 1px 1px 1px #000000d6;
+}
+
