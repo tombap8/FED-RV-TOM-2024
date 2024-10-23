@@ -539,4 +539,41 @@ ul, ol은 기본마진,패딩,블릿,번호 등
     color: blue;
 }
 
+/* 분야별 뉴스 */
+.sec-news dt{
+    font-family: "Single Day", cursive;
+    font-size: 30px;
+    border: 4px dashed darkcyan;
+    padding: 10px;
+    /* 내용만큼 가로크기 되도록
+    display변경 inline-block
+    -> dib */
+    display: inline-block;
+    /* 원형 둥근모서리 */
+    border-radius: 50%;
+}
+
+/* dt 따로 순서별 디자인 설정 */
+.sec-news dt:first-of-type{
+    color: red;
+    background-color: lightgreen;
+    border-color: yellowgreen;
+}
+.sec-news dt:nth-of-type(2){
+    color: blue;
+    background-color: lightcoral;
+    border-color: darkmagenta;
+}
+.sec-news dt:last-of-type{
+    color: green;
+    background-color: lightskyblue;
+    border-color: darkorchid;
+}
+/* 
+    [ 여러종류의 태그에서 순서별 선택법 ]
+     :first-of-type 같은 종류중 첫번째요소
+     :last-of-type 같은 종류중 마지막째요소
+     :nth-of-type(n) 같은 종류중 n번째요소
+*/
+
 
