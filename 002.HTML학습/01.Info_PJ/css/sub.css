@@ -592,6 +592,30 @@ ul, ol은 기본마진,패딩,블릿,번호 등
   margin-top: 20px;
 }
 
+
+/* 포토뉴스 파트 */
+/* 타이틀 */
+.photo-news h3{
+  /* 배경그라데이션 없앰 */
+  background-image: none;
+  /* 중앙정렬 */
+  text-align: center;
+}
+
+/* 가상요소로 사진기 아이콘 넣기 */
+.photo-news h3::before{
+  content: '📷';
+  vertical-align: -1px;
+  font-size: 31px;
+  margin-right: 8px;
+}
+.photo-news h3::after{
+  content: '📺';
+  vertical-align: -1px;
+  font-size: 31px;
+  margin-left: 8px;
+}
+
 /* 사진뉴스 테이블 */
 .photo-news table {
   /* 최대가로크기설정 : maw
@@ -645,6 +669,9 @@ ul, ol은 기본마진,패딩,블릿,번호 등
     기본 줄바꿈으로 설정함! */
   white-space: normal;
 
+  /* 줄간격조정 */
+  line-height: 1.5;
+
   /* 여러줄일때 말줄임 설정하기 */
   /* 1. 여러줄 말줄임시 필요한 display */
   display: -webkit-box;
@@ -656,11 +683,27 @@ ul, ol은 기본마진,패딩,블릿,번호 등
     -webkit-line-clamp: 2;
     /* 5. 말줄임 처리 방향설정 : 수직방향(vertical) */
     -webkit-box-orient: vertical;
-    /* 6. 높이값 제한설정 (이유: 숨겨야하니까) */
-    max-height: 2.5em;
+    /* 6. 높이값 제한설정 (이유: 숨겨야하니까)
+    필요시 사용! */
+    /* max-height: 2.5em; */
     /* 7. 줄바꿈방지를 일반으로 변경 (줄바꿈상태) */
     /* white-space: normal; -> 위에서 이미줌 */
 }
+
+/* 
+  [ CSS 속성이나 값에 벤더사 접두어 ]
+   - 브라우저 제작사별로 특정 속성을
+   지원할 경우 특정 버전부터 지원하게되고
+   그때 브라우저사 접두어를 사용함!
+   1. -webket- : 크롬, 사파리
+   2. -ms- : 익스플로러/엣지
+   3. -o- : 오페라
+   4. -moz- : (모질라)파이어폭스
+*/
+
+
+
+
 /* 사진뉴스 이미지 */
 .photo-news img {
   width: 100px;
