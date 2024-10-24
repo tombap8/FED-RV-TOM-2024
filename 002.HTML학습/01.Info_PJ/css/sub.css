@@ -644,6 +644,22 @@ ul, ol은 기본마진,패딩,블릿,번호 등
     만큼 밀려서 나오기때문에
     기본 줄바꿈으로 설정함! */
   white-space: normal;
+
+  /* 여러줄일때 말줄임 설정하기 */
+  /* 1. 여러줄 말줄임시 필요한 display */
+  display: -webkit-box;
+  /* 2. 넘치는요소 숨기기 */
+    overflow: hidden;
+    /* 3. 텍스트 말줄임표시 */
+    text-overflow: ellipsis;
+    /* 4. 말줄임 처리 줄수 : 여기선 2줄처리 */
+    -webkit-line-clamp: 2;
+    /* 5. 말줄임 처리 방향설정 : 수직방향(vertical) */
+    -webkit-box-orient: vertical;
+    /* 6. 높이값 제한설정 (이유: 숨겨야하니까) */
+    max-height: 2.5em;
+    /* 7. 줄바꿈방지를 일반으로 변경 (줄바꿈상태) */
+    /* white-space: normal; -> 위에서 이미줌 */
 }
 /* 사진뉴스 이미지 */
 .photo-news img {
@@ -655,6 +671,8 @@ ul, ol은 기본마진,패딩,블릿,번호 등
 .photo-news tr + tr td {
   border-top: 2px solid #ccc;
 }
+
+/* ******************************** */
 
 /* 비디오 박스 : .mv0-box */
 .mv-box iframe {
