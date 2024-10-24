@@ -29,13 +29,16 @@
     <!-- <style></style> -->
 
     <!-- 외부 CSS 불러오기 -->
-     <!-- 공통 CSS -->
+    <!-- 공통 CSS -->
     <link
       rel="stylesheet"
       href="./css/common.css"
     />
     <!-- 서브용 CSS -->
-     <link rel="stylesheet" href="./css/sub.css">
+    <link
+      rel="stylesheet"
+      href="./css/sub.css"
+    />
   </head>
   <body>
     <!-- 1. 상단영역 -->
@@ -150,7 +153,20 @@
             사용 </em
           >하는 것으로 확인됐다.
         </p>
-
+        <!-- 추가이미지 -->
+        <figure class="article-picture">
+          <img
+            src="./images/arti_img4-2.jpg"
+            alt="병코돌고래가 물속에서 웃고 있다"
+          />
+          <!-- 사진설명은 figcaption요소 사용 -->
+          <figcaption>
+            <small>
+              병코돌고래가 물속에서 웃고
+              있다
+            </small>
+          </figcaption>
+        </figure>
         <p>
           구체적으로 홀로 놀 때에는 입을
           벌리는 행동이 단 한 차례만
@@ -201,6 +217,17 @@
             의사소통의 방식 </q
           >이라고 덧붙였다.
         </p>
+
+        <!-- 동영상 넣기 -->
+        <div class="mv-box">
+          <!-- iframe : inline frame
+           다른 웹사이트를 삽입하여 보여주는
+           연결창
+           필수속성 : src(원본위치) -->
+          <iframe            src="https://www.youtube.com/embed/IvIIofrMVWU"
+            title="친절한 돌고래의 선물"
+          ></iframe>
+        </div>
 
         <p>
           병코돌고래는 무리지어 생활하며
@@ -348,7 +375,8 @@
             alt="뭉크의 절규"
           />
           <figcaption>
-            뭉크의 &lt;<cite>절규</cite>&gt;
+            뭉크의
+            &lt;<cite>절규</cite>&gt;
           </figcaption>
         </figure>
       </article>
@@ -372,42 +400,83 @@
           그 어떤 요소도 직계자식으로 사용할 수 없다!
           예) <ul><li></li><div></div></ul> -> 사용불가!
 
-         --> 
+         -->
 
-         <!-- 주요뉴스 : ul -->
-          <article class="main-news news-box">
-            <h3>주요뉴스</h3>
-            <ul>
-              <li>
-                <a href="https://n.news.naver.com/mnews/article/081/0003489077" target="_blank">
-                  “비자 면제해줬더니 불법체류”…제주서 중국인 1만명이나</a>
-              </li>
-              <li>
-                <a href="https://n.news.naver.com/mnews/article/081/0003489044" target="_blank">“5조원대 무기 자체구매할 듯” K방산 큰손, 갑자기 방향 튼 이유는</a>
-              </li>
-              <li>
-                <a href="https://n.news.naver.com/mnews/article/081/0003489086" target="_blank">“돈맛 알아야” 12살 딸에 400만원 D사 가방 선물한 남편</a>
-              </li>
-            </ul>
-          </article>
+      <!-- 주요뉴스 : ul -->
+      <article
+        class="main-news news-box"
+      >
+        <h3>주요뉴스</h3>
+        <ul>
+          <li>
+            <a
+              href="https://n.news.naver.com/mnews/article/081/0003489077"
+              target="_blank"
+            >
+              “비자 면제해줬더니
+              불법체류”…제주서 중국인
+              1만명이나</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://n.news.naver.com/mnews/article/081/0003489044"
+              target="_blank"
+              >“5조원대 무기 자체구매할
+              듯” K방산 큰손, 갑자기
+              방향 튼 이유는</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://n.news.naver.com/mnews/article/081/0003489086"
+              target="_blank"
+              >“돈맛 알아야” 12살 딸에
+              400만원 D사 가방 선물한
+              남편</a
+            >
+          </li>
+        </ul>
+      </article>
 
-         <!-- 랭킹뉴스 : ol -->
-          <article class="rank-news news-box">
-            <h3>랭킹뉴스</h3>
-            <ol>
-              <li>
-                <a href="https://n.news.naver.com/mnews/article/081/0003488939?type=journalists" target="_blank">우크라 전장에 꽂힌 北인공기…“북한군 파병 지역에 등장” 진실은?</a>
-              </li>
-              <li>
-                <a href="https://nownews.seoul.co.kr/news/newsView.php?id=20241002601009&wlog_tag3=naver_relation" target="_blank">태풍이 만든 '파묘', 관 떠내려가…"약 150명 사망, 지옥같은 상황"</a>
-              </li>
-              <li>
-                <a href="https://nownews.seoul.co.kr/news/newsView.php?id=20240723601011&wlog_tag3=naver_relation" target="_blank">마약먹은 미친 상어?…브라질 해안 상어 잡아보니 '코카인' 양성 반응 </a>
-              </li>
-            </ol>
-          </article>
+      <!-- 랭킹뉴스 : ol -->
+      <article
+        class="rank-news news-box"
+      >
+        <h3>랭킹뉴스</h3>
+        <ol>
+          <li>
+            <a
+              href="https://n.news.naver.com/mnews/article/081/0003488939?type=journalists"
+              target="_blank"
+              >우크라 전장에 꽂힌
+              北인공기…“북한군 파병
+              지역에 등장” 진실은?</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://nownews.seoul.co.kr/news/newsView.php?id=20241002601009&wlog_tag3=naver_relation"
+              target="_blank"
+              >태풍이 만든 '파묘', 관
+              떠내려가…"약 150명 사망,
+              지옥같은 상황"</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://nownews.seoul.co.kr/news/newsView.php?id=20240723601011&wlog_tag3=naver_relation"
+              target="_blank"
+              >마약먹은 미친
+              상어?…브라질 해안 상어
+              잡아보니 '코카인' 양성
+              반응
+            </a>
+          </li>
+        </ol>
+      </article>
 
-          <!-- 
+      <!-- 
           [ 용어정의리스트 : dl ]
           
           dl > dt + dd
@@ -425,38 +494,74 @@
           또 주의 - dt와 dd는 형제관계임!(자식아님!)
           -->
 
-          <!-- 분야별 뉴스 : dl -->
-          <article class="sec-news news-box">
-            <h3>분야별 뉴스</h3>
-            <dl>
-              <!-- 경제파트 -->
-               <dt>경제</dt>
-               <dd>
-                <a href="https://n.news.naver.com/mnews/article/014/0005256340" target="_blank">두산 사업재편 재시동… "주식 더 준다"</a>
-               </dd>
-               <dd>
-                <a href="https://n.news.naver.com/mnews/article/629/0000330962" target="_blank">맘스터치, 메뉴 62종 가격 인상…싸이버거 300원↑</a>
-               </dd>
-              <!-- 사회파트 -->
-               <dt>사회</dt>
-               <dd>
-                <a href="https://n.news.naver.com/mnews/article/018/0005865201" target="_blank">경찰, ‘36주 낙태 의혹’ 병원장·집도의 구속영장 신청</a>
-               </dd>
-               <dd>
-                <a href="https://n.news.naver.com/mnews/article/025/0003394914" target="_blank">연세대 '논술문제 유출' 논란에…일부 수험생 무효소송 제기</a>
-               </dd>
-              <!-- TV/연예파트 -->
-               <dt>TV/연예</dt>
-               <dd>
-                <a href="https://m.entertain.naver.com/article/241/0003389139" target="_blank">"마지막 앨범 될 수도"…조용필, 당신은 이미 나이와 시대를…</a>
-               </dd>
-               <dd>
-                <a href="https://m.entertain.naver.com/ranking/article/312/0000685785" target="_blank">1[공식] 전소민, '런닝맨' 하차 1년 만에 겹경사 터졌다…</a>
-               </dd>
-            </dl>
-          </article>
+      <!-- 분야별 뉴스 : dl -->
+      <article
+        class="sec-news news-box"
+      >
+        <h3>분야별 뉴스</h3>
+        <dl>
+          <!-- 경제파트 -->
+          <dt>경제</dt>
+          <dd>
+            <a
+              href="https://n.news.naver.com/mnews/article/014/0005256340"
+              target="_blank"
+              >두산 사업재편 재시동…
+              "주식 더 준다"</a
+            >
+          </dd>
+          <dd>
+            <a
+              href="https://n.news.naver.com/mnews/article/629/0000330962"
+              target="_blank"
+              >맘스터치, 메뉴 62종 가격
+              인상…싸이버거 300원↑</a
+            >
+          </dd>
+          <!-- 사회파트 -->
+          <dt>사회</dt>
+          <dd>
+            <a
+              href="https://n.news.naver.com/mnews/article/018/0005865201"
+              target="_blank"
+              >경찰, ‘36주 낙태 의혹’
+              병원장·집도의 구속영장
+              신청</a
+            >
+          </dd>
+          <dd>
+            <a
+              href="https://n.news.naver.com/mnews/article/025/0003394914"
+              target="_blank"
+              >연세대 '논술문제 유출'
+              논란에…일부 수험생
+              무효소송 제기</a
+            >
+          </dd>
+          <!-- TV/연예파트 -->
+          <dt>TV/연예</dt>
+          <dd>
+            <a
+              href="https://m.entertain.naver.com/article/241/0003389139"
+              target="_blank"
+              >"마지막 앨범 될
+              수도"…조용필, 당신은 이미
+              나이와 시대를…</a
+            >
+          </dd>
+          <dd>
+            <a
+              href="https://m.entertain.naver.com/ranking/article/312/0000685785"
+              target="_blank"
+              >1[공식] 전소민, '런닝맨'
+              하차 1년 만에 겹경사
+              터졌다…</a
+            >
+          </dd>
+        </dl>
+      </article>
 
-          <!-- 
+      <!-- 
             [ 테이블 요소 : table ]
             table > tbody > tr > td
 
@@ -474,53 +579,84 @@
             td : 테이블 데이터요소(table data)
            -->
 
-           <!-- 사진뉴스 : table -->
-          <article class="photo-news news-box">
-            <h3>사진뉴스</h3>
-            <!-- 3행3열 테이블 구성하기 -->
-             <!-- <table border="1"> -->
-             <table>
-              <!-- 첫번째줄 -->
-              <tr>
-                <td>1</td>
-                <td>
-                  <a href="https://n.news.naver.com/mnews/ranking/article/092/0002349600?ntype=RANKING" target="_blank">"아이폰17, 애플 제품 중 최고 야심작"…근거는?</a>
-                </td>
-                <td>
-                  <a href="https://n.news.naver.com/mnews/ranking/article/092/0002349600?ntype=RANKING" target="_blank">
-                    <img src="./images/photo_news1.jpg" alt="포토뉴스1">
-                  </a>
-                </td>
-              </tr>
-              <!-- 두번째줄 -->
-              <tr>
-                <td>2</td>
-                <td>
-                  <a href="https://n.news.naver.com/mnews/ranking/article/030/0003250270?ntype=RANKING" target="_blank">“북한군, 러시아서 6천명씩 2개 여단 훈련… 돈 때문에 파병나간 듯”</a>
-                </td>
-                <td>
-                  <a href="https://n.news.naver.com/mnews/ranking/article/030/0003250270?ntype=RANKING" target="_blank"><img src="./images/photo_news2.jpg" alt="포토뉴스2"></a>
-                  
-                </td>
-              </tr>
-              <!-- 세번째줄 -->
-              <tr>
-                <td>3</td>
-                <td>
-                  <a href="https://n.news.naver.com/mnews/ranking/article/018/0005866034?ntype=RANKING" target="_blank">안성재 셰프 '1인 70만 원' 디너 코스…오픈 61초 만에 매진</a>
-                </td>
-                <td>
-                  <a href="https://n.news.naver.com/mnews/ranking/article/018/0005866034?ntype=RANKING" target="_blank"><img src="./images/photo_news3.jpg" alt="포토뉴스3"></a>
-                  
-                </td>
-              </tr>
-             </table>
-          </article>
-
-          
-
-
-
+      <!-- 사진뉴스 : table -->
+      <article
+        class="photo-news news-box"
+      >
+        <h3>사진뉴스</h3>
+        <!-- 3행3열 테이블 구성하기 -->
+        <!-- <table border="1"> -->
+        <table>
+          <!-- 첫번째줄 -->
+          <tr>
+            <td>1</td>
+            <td>
+              <a
+                href="https://n.news.naver.com/mnews/ranking/article/092/0002349600?ntype=RANKING"
+                target="_blank"
+                >"아이폰17, 애플 제품 중
+                최고 야심작"…근거는?</a
+              >
+            </td>
+            <td>
+              <a
+                href="https://n.news.naver.com/mnews/ranking/article/092/0002349600?ntype=RANKING"
+                target="_blank"
+              >
+                <img
+                  src="./images/photo_news1.jpg"
+                  alt="포토뉴스1"
+                />
+              </a>
+            </td>
+          </tr>
+          <!-- 두번째줄 -->
+          <tr>
+            <td>2</td>
+            <td>
+              <a
+                href="https://n.news.naver.com/mnews/ranking/article/030/0003250270?ntype=RANKING"
+                target="_blank"
+                >“북한군, 러시아서
+                6천명씩 2개 여단 훈련…
+                돈 때문에 파병나간
+                듯”</a
+              >
+            </td>
+            <td>
+              <a
+                href="https://n.news.naver.com/mnews/ranking/article/030/0003250270?ntype=RANKING"
+                target="_blank"
+                ><img
+                  src="./images/photo_news2.jpg"
+                  alt="포토뉴스2"
+              /></a>
+            </td>
+          </tr>
+          <!-- 세번째줄 -->
+          <tr>
+            <td>3</td>
+            <td>
+              <a
+                href="https://n.news.naver.com/mnews/ranking/article/018/0005866034?ntype=RANKING"
+                target="_blank"
+                >안성재 셰프 '1인 70만
+                원' 디너 코스…오픈 61초
+                만에 매진</a
+              >
+            </td>
+            <td>
+              <a
+                href="https://n.news.naver.com/mnews/ranking/article/018/0005866034?ntype=RANKING"
+                target="_blank"
+                ><img
+                  src="./images/photo_news3.jpg"
+                  alt="포토뉴스3"
+              /></a>
+            </td>
+          </tr>
+        </table>
+      </article>
 
       <!-- 
         [ html요소에서 특수문자 처리 ]

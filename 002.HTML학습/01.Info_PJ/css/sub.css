@@ -592,68 +592,96 @@ ul, ol은 기본마진,패딩,블릿,번호 등
   margin-top: 20px;
 }
 
-
 /* 사진뉴스 테이블 */
-.photo-news table{
-    /* 최대가로크기설정 : maw
+.photo-news table {
+  /* 최대가로크기설정 : maw
     최대크기보다 작아지면 auto로전환! */
-    max-width: 500px;
+  max-width: 500px;
 
-    /* 테이블 기본 간격없앰(정확한 수치화를 위해) */
-    border-collapse: collapse;
-    /* separate가 기본값임(사이간격있음)
+  /* 테이블 기본 간격없앰(정확한 수치화를 위해) */
+  border-collapse: collapse;
+  /* separate가 기본값임(사이간격있음)
     -> table태그에서 border="1" 설정으로 확인 */
 
-    /* 테두리 */
-    border: 2px solid #ccc;
+  /* 테두리 */
+  border: 2px solid #ccc;
 
-    /* 테이블 중앙정렬 - 마영오!
+  /* 테이블 중앙정렬 - 마영오!
     블록요소, 테이블요소 모두 적용공통 */
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 /* 첫번째 td : 숫자데이터 부분 */
-.photo-news td:first-child{
-    /* 가로크기 : w */
-    width: 50px;
-    /* 세로크기 : h */
-    height: 84px;
-    /* 글자중앙 : tac */
-    text-align: center;
-    /* 배경색 : bgc */
-    background-color: #ccc;
+.photo-news td:first-child {
+  /* 가로크기 : w */
+  width: 50px;
+  /* 세로크기 : h */
+  height: 84px;
+  /* 글자중앙 : tac */
+  text-align: center;
+  /* 배경색 : bgc */
+  background-color: #ccc;
 }
 
 /* 두번째 td : 기사제목링크 부분 */
-.photo-news td:nth-child(2){
-    /* 배경색 : bgc */
-    background-color: #e4e4e4;
-    /* 양쪽패딩 : p */
-    padding: 0 20px;
+.photo-news td:nth-child(2) {
+  /* 배경색 : bgc */
+  background-color: #e4e4e4;
+  /* 양쪽패딩 : p */
+  padding: 0 20px;
 }
 /* 세번째 td : 사진링크 부분 */
-.photo-news td:last-child{
-    /* 배경색 : bgc */
-    background-color: #e4e4e4;
+.photo-news td:last-child {
+  /* 배경색 : bgc */
+  background-color: #e4e4e4;
 }
 
-
 /* 사진뉴스 a요소 셋팅 */
-.photo-news a{
-    /* 줄바꿈방지 설정 해제 : whn
+.photo-news a {
+  /* 줄바꿈방지 설정 해제 : whn
     -> 줄바꿈방지 설정일 경우
     테이블 td에서 크기가 글내용
     만큼 밀려서 나오기때문에
     기본 줄바꿈으로 설정함! */
-    white-space: normal;
+  white-space: normal;
 }
 /* 사진뉴스 이미지 */
-.photo-news img{
-    width: 100px;
-    height: 70px;
-    vertical-align: middle;
+.photo-news img {
+  width: 100px;
+  height: 70px;
+  vertical-align: middle;
 }
 /* 사이구분선 넣기 : 두번째 tr부터 */
-.photo-news tr+tr td{
-    border-top: 2px solid #ccc;
+.photo-news tr + tr td {
+  border-top: 2px solid #ccc;
+}
+
+/* 비디오 박스 : .mv0-box */
+.mv-box iframe {
+  width: 100%;
+  height: 392px;
+}
+
+/* mark태그 디자인 변경 */
+.contents mark {
+  font-family: "Single Day", cursive;
+  font-size: 26px;
+  color: #333;
+  line-height: 1.7;
+  background-color: #ffe4b6;
+  display: block;
+  width: 90%;
+  margin: 20px auto;
+  padding: 30px 67px;
+  border-top: 2px solid gray;
+  border-bottom: 2px solid gray;
+  box-sizing: border-box;
+}
+
+/* strong요소 디자인 변경 */
+.contents strong {
+  font-style: normal;
+  color: darkmagenta;
+  font-weight: bold;
+  text-shadow: 2px 2px 2px #0b88db;
 }
