@@ -24,7 +24,7 @@ h2.tit{
     /* 두꺼운글자 해제 : fwn */
     font-weight: normal;
     /* 글자크기 : fz */
-    font-size: 20px;
+    font-size: 17px;
 }
 
 
@@ -60,10 +60,17 @@ table.drama{
     margin: 0 auto;
     /* 패딩 */
     padding: 15px;
+}
+
+/* 드라마별 묶음요소 .drama > ul */
+.drama ul {
     /* 보더 */
-    border: 1px solid #ccc;
+    border: 1px solid #a3a3a3;
     /* 둥근모서리 */
     border-radius: 10px;
+    /* 전체글자 */
+    font-size: 15px;
+
 }
 
 /* 드라마 이미지 */
