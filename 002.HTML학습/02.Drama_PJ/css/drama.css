@@ -99,7 +99,7 @@ table.drama{
     color: blue;
     text-decoration: none;
 }
-.drama ol a:hover{
+.drama ol a:hover{ 
     /* 밑줄 : tdu */
     text-decoration: underline;
 }
@@ -109,13 +109,15 @@ table.drama{
 올리기위해 .drama 조상요소씀 */
 .drama .subscribe{
     display: inline-block;
+    /* display변경 이유: 마진탑적용과
+    패딩을 실제로 위아래쪽 밀기위해 */
     margin-top: 5px;
     padding: 7px;
 
     color: #222;
     text-decoration: none;
     font-size: 14px;
-    border: 1px solid #e3e3e3;
+    border: 1px solid #d0d0d0;
     border-radius: 10px;
 }
 /* 오버시 없앰 */
@@ -134,8 +136,11 @@ table.drama{
 }
 /* 하트기호 */
 .subscribe i{
+    /* 기본이탤릭해제 */
     font-style: normal;
     color: red;
     border-left: 1px solid #ccc;
+    /* 인라인요소의 앞뒤 마진,패딩은 적용됨! */
     padding-left: 5px;
+    margin-left: 5px;
 }
