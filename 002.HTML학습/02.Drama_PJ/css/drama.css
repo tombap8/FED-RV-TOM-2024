@@ -10,7 +10,24 @@ html,body,h1,h2,ul,ol{
 ul,ol{
     /* 리스트 스타일 없앰 : lin */
     list-style: none;
+}   
+
+/* 전체제목 */
+h1.tit{
+    /* 글자중앙정렬 : tac */
+    text-align: center;
+    /* 패딩 */
+    padding: 20px;
 }
+/* 드라마제목 */
+h2.tit{
+    /* 두꺼운글자 해제 : fwn */
+    font-weight: normal;
+    /* 글자크기 : fz */
+    font-size: 20px;
+}
+
+
 /* ul의 li를 옆으로 흐르게하기 */
 .drama ul > li{
     /* 직계자식 li를 선택해야 하위의 ol>li까지
@@ -41,7 +58,7 @@ table.drama{
     /* 패딩 */
     padding: 15px;
     /* 보더 */
-    border: 1px solid #777;
+    border: 1px solid #ccc;
     /* 둥근모서리 */
     border-radius: 10px;
 }
