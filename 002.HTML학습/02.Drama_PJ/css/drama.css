@@ -103,3 +103,39 @@ table.drama{
     /* 밑줄 : tdu */
     text-decoration: underline;
 }
+
+/* 구독버튼 */
+/* 기존 a요소 적용 우선순위
+올리기위해 .drama 조상요소씀 */
+.drama .subscribe{
+    display: inline-block;
+    margin-top: 5px;
+    padding: 7px;
+
+    color: #222;
+    text-decoration: none;
+    font-size: 14px;
+    border: 1px solid #e3e3e3;
+    border-radius: 10px;
+}
+/* 오버시 없앰 */
+.drama .subscribe:hover{
+    text-decoration: none;
+}
+/* 플러스기호 */
+.subscribe span{
+    color: blue;
+}
+/* 구독자수 */
+.subscribe b{
+    font-weight: normal;
+    color: #555;
+    font-size: 12px;
+}
+/* 하트기호 */
+.subscribe i{
+    font-style: normal;
+    color: red;
+    border-left: 1px solid #ccc;
+    padding-left: 5px;
+}
