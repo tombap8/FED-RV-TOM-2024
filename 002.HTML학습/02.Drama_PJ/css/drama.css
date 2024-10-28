@@ -1,0 +1,39 @@
+@charset "utf-8";
+/* 드라마 테이블 CSS - drama.css */
+
+/* 기본초기화 : 마진,패딩 */
+html,body,h1,h2,ul,ol{
+    margin: 0;
+    padding: 0;
+}
+/* 블릿표시자 초기화 : ul,ol */
+ul,ol{
+    /* 리스트 스타일 없앰 : lin */
+    list-style: none;
+}
+/* ul의 li를 옆으로 흐르게하기 */
+.drama ul > li{
+    /* 직계자식 li를 선택해야 하위의 ol>li까지
+    선택되지 않는다! */
+    /* 블록플롯 셋팅 */
+    float: left;
+    /* 나는 왼쪽에 너는 오른쪽으로 올라와서 흘러가 */
+}
+
+/* 자식 블록플롯때문에 부모가 망가지는걸
+막아주는 가상요소 클리어 장치 */
+.drama ul::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* 테이블 셋팅 */
+.drama{
+    /* 최대가로크기 : maw */
+    max-width: 670px;
+    /* 마영오! 박스 중앙정렬 */
+    margin: 0 auto;
+    /* 패딩 */
+    padding: 15px;
+}
