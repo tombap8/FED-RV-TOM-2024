@@ -25,6 +25,8 @@ h2.tit{
     font-weight: normal;
     /* 글자크기 : fz */
     font-size: 17px;
+    /* 하단마진 */
+    margin-bottom: 10px;
 }
 
 
@@ -77,4 +79,27 @@ table.drama{
 .drama img{
     /* 가로크기 설정 : 높이값은 자동! */
     width: 75px;
+}
+
+/* 추가정보 파트 */
+.info-txt{
+    color: #939396;
+}
+.num-txt{
+    color: red;
+}
+/* 숫자부분(데이터DB에서 숫자넣는 구분요소) */
+.num-txt em{
+    /* 기본 이탤릭 해제 : fsn */
+    font-style: normal;
+}
+/* 글자정보 링크 */
+.drama ol a{
+    /* a요소 기본셋팅변경: 글자색,밑줄 */
+    color: blue;
+    text-decoration: none;
+}
+.drama ol a:hover{
+    /* 밑줄 : tdu */
+    text-decoration: underline;
 }
