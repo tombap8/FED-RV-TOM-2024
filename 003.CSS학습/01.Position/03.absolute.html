@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03. absolute 포지션</title>
+    <style>
+        .bx{
+            width: 300px;
+            height: 300px;
+            border: 2px solid blue;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;/* fwb */
+            /* 글자세로중앙 */
+            line-height: 300px;
+        }
+
+        /* 첫번째 앱솔루트 박스 */
+        #a1{
+            /* 포지션 앱솔루트 : poa */
+            position: absolute;
+
+            /******************************** 
+                [ 3. absolute 포지션 ]
+                 - 절대적인 부모를 기준으로
+                 위치를 잡는 포지션
+                 - 부모자격을 따져서 기준을 삼는다!
+                 (단, 위치속성을 쓴 경우에만!!!)
+
+                 1. absolute 포지션은 위치이동값을 쓰기전과
+                 쓴후로 나눌 수 있다!
+
+                 (1) 위치이동값을 쓰지 않은 경우
+
+                 - 자기보다 위에 있는 static한 요소를 
+                 존중하여 그 아래 위치함!!!
+                 (->>>> 젠틀앱솔루트!!!)
+
+                 + 앱솔루트 요소보다 아랫쪽에 위치하고 있는
+                 static한 요소는 앱솔루트를 인식하지 못하여
+                 같은 자리에 올라와 자리를 차지한다!
+                 (줄서있다가 날아오른 아이언맨!)
+
+                (2) 위치 이동값을 사용한 경우
+
+                - 위치 이동값을 사용한 부분에 대해서만!!!
+                앱솔루트가 위치를 잡을때 기준이 되는
+                부모는? static이 아닌 요소가 부모다!
+
+                static이 아닌 포지션은?
+                relative / absolute / fixed / sticky
+
+
+
+
+
+            ********************************/
+
+            
+            background: url(./images/ab1.jpg) no-repeat center/cover;
+        }
+
+        /* 두번째 앱솔루트 박스 */
+        #a2{
+            /* 앱솔루트 포지션 */
+            position: absolute;
+
+            
+            background: url(./images/ab1.jpg) no-repeat center/cover;
+        }
+
+        #r1{
+            /* 포지션 relative : por */
+            position: relative;
+
+            /* 위로부터 100px : t100 */
+            top: 100px;
+            /* 왼쪽으로부터 100px : l100 */
+            left: 100px;
+
+            background: url(./images/ab5.jpg) no-repeat center/cover;
+        }
+        #r2{
+            /* 포지션 relative */
+            position: relative;
+            left: 150px;
+
+            background: url(./images/ab4.jpg) no-repeat center/cover;
+        }
+
+        /* 첫번째 박스에 포지션 체크 */
+        #s1{
+            background-color: lightgreen;
+        }
+        #s2{
+            background-color: lightcoral;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="bx" id="r1">r1</div>
+    <div class="bx" id="s1">s1</div>
+    <!-- 첫번째 앱솔루트 박스 -->
+    <div class="bx" id="a1">a1</div>
+    <div class="bx" id="r2">r2</div>
+    <div class="bx" id="s2">s2</div>
+    <!-- 두번째 앱솔루트 박스 -->
+    <div class="bx" id="a2">a2</div>
+    <!-- 
+    [ 젠코딩(에밋코딩) ]
+
+    .bx#s${s$}*3 
+    ___________________
+
+    . : 클래스
+    # : 아이디
+    $ : 증가숫자자리
+    *숫자 : 반복생성횟수
+    {} : 데이터출력(꺽쇠사이값)
+    [] : 속성셋팅값
+    > : 하위직계 자식요소
+    + : 형제요소
+    () : 요소 구분하기     
+    ______________________
+    ((샘플))
+    header.my#key[title=hi]{메뉴}*2
+
+    ul>li*3>a*4
+
+    div.my#my$*2>section+article>img
+    -->
+   
+    
+</body>
+</html>
