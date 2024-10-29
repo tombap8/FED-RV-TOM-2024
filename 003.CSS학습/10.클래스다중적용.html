@@ -65,7 +65,7 @@
 
       /* 클래스만으로 보더 속성만들기 */
       .bd6{
-        border: 10px dotted hotpink !important;
+        border: 10px dotted hotpink;
       }
 
       /* 아이디로 보더 속성만들기 */
@@ -77,7 +77,7 @@
       }
       /* 보더관련 클래스 */
       .bx .bd1 {
-        border: 10px dotted pink;
+        border: 10px dotted pink !important;
       }
       .bx .bd3 {
         border: 20px ridge darkorchid;
@@ -103,7 +103,7 @@
 
         4. 일반적으로 아래와 같은 순서로 적용이 우선한다!
 
-        type < class < id < inline < !important
+        type < class < id < inline style < !important
 
         ※ 주의 : !important 는 inline CSS보다 
         우선하므로 JS적용시에도 우선권을 가진다!
@@ -116,12 +116,12 @@
   <body>
     <h1>클래스 다중적용</h1>
     <ul class="bx">
-      <li class="fcls1">클래스적용1</li>
-      <li class="fcls2">클래스적용2</li>
-      <li class="fcls3">클래스적용3</li>
-      <li class="fcls1">클래스적용4</li>
-      <li class="fcls2">클래스적용5</li>
-      <li class="fcls3">클래스적용6</li>
+      <li class="fcls1 bd1">클래스적용1</li>
+      <li class="fcls2 bd2">클래스적용2</li>
+      <li class="fcls3 bd3">클래스적용3</li>
+      <li class="fcls1 bd1" id="bd4" style="border: 5px dashed greenyellow;">클래스적용4</li>
+      <li class="fcls2 bd2 bd6" id="bd5">클래스적용5</li>
+      <li class="fcls3 bd3">클래스적용6</li>
       <li class="fcls1">클래스적용7</li>
       <li class="fcls2">클래스적용8</li>
       <li class="fcls3">클래스적용9</li>
