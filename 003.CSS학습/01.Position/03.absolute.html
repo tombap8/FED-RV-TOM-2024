@@ -50,6 +50,23 @@
                 static이 아닌 포지션은?
                 relative / absolute / fixed / sticky
 
+                -> 위치 이동값을 쓰지 않는 부분에 대해서는
+                부모를 찾지 않는다!!!(젠틀함!!!)
+
+                -> 부모자격이 있는 부모요소들 중 가장 가까운 것이 부모다!
+
+                -> 만약 부모자격이 모두 없으면 보이는 화면
+                (window)을 기준한다!
+                (보이는 화면은 body가 아니다! 스크롤이
+                생겨도 스크롤 위쪽 보이는 화면을 지칭한다!)
+
+                -> 또한!
+                width나 height 값을
+                %단위로 줄 경우 부모자격을 가진 요소를
+                기준으로 그 크기를 잡는다!
+                (일반적으로 %단위의 크기는 바로 싸고 있는
+                직계부모박스를 기준한다!)
+
 
 
 
@@ -64,7 +81,10 @@
         #a2{
             /* 앱솔루트 포지션 */
             position: absolute;
-
+            bottom: 0;
+            right: 0;
+            /* 나의 부모는? 포지션이 static이 아닌요소가
+            없으므로 보이는 화면(window)을 기준한다! */
             
             background: url(./images/ab1.jpg) no-repeat center/cover;
         }
@@ -83,6 +103,7 @@
         #r2{
             /* 포지션 relative */
             position: relative;
+            top: 150px;
             left: 150px;
 
             background: url(./images/ab4.jpg) no-repeat center/cover;
@@ -128,6 +149,19 @@
             height: 50px;
             color: #fff;
             background: url(./images/ab1.jpg) no-repeat center/cover;
+        }
+
+        /* .a4는 위치이동값을 사용하자! -> 부모찾아 삼만리! */
+        .a4{
+            /* 앱솔루트는 .abs에서 이미 셋팅! */
+            top: 0;
+            left: 0;
+            /* 나의 부모는? 포지션이 있는 요소! .s8 */
+
+            /* 앱솔루트 요소 크기를 %로 줄경우
+            부모자격 박스를 기준하여 설정된다!!! */
+            width: 25%;
+            height: 40%;
         }
 
     </style>
