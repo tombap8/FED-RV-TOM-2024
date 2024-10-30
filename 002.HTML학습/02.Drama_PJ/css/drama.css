@@ -44,15 +44,19 @@ h2.tit{
 }
 /* 하위 a */
 .menu a{
+    /* 디자인 적용위해 display변경 */
     display: inline-block;
     line-height: 2.5;
     /* 글자색 : c */
     color: #555;
     /* 밑줄없앰 : tdn */
     text-decoration: none;
+    /* 양쪽마진 */
+    margin: 0 10px;
 }
 /* 하위 a.on */
 .menu a.on{
+    /* 하단보더 : bdb */
     border-bottom: 1px solid #000;
     /* 글자색 진하게 */
     color: #000;
