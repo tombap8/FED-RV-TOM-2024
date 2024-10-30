@@ -29,6 +29,36 @@ h2.tit{
     margin-bottom: 10px;
 }
 
+/* 이동 네비게이션 메뉴 */
+.menu{
+    /* 글자 중앙 */
+    text-align: center;
+}
+/* 하위 h2 */
+.menu h2{
+    /* 글자크기 : fz */
+    font-size: 16px;
+    /* 글자 두께 해제 : fwn */
+    font-weight: normal;
+
+}
+/* 하위 a */
+.menu a{
+    display: inline-block;
+    line-height: 2.5;
+    /* 글자색 : c */
+    color: #555;
+    /* 밑줄없앰 : tdn */
+    text-decoration: none;
+}
+/* 하위 a.on */
+.menu a.on{
+    border-bottom: 1px solid #000;
+    /* 글자색 진하게 */
+    color: #000;
+    /* text-decoration: underline; */
+}
+
 
 /* ul의 li를 옆으로 흐르게하기 */
 .drama ul > li{
