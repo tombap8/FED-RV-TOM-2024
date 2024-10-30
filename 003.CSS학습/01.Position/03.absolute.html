@@ -169,6 +169,35 @@
             height: 40%;
         }
 
+        /* 앱솔루트 : 판타롱스타킹! */
+        .a5{
+            position: absolute;
+            /* 박스크기를 주지 않은 앱솔루트는
+            그 크기가 내용만큼 자동으로 설정됨! */
+            top: 20%;
+            right: 10%;
+            /* 나의 부모는? 보이는 화면 */
+
+            outline: 2px solid red;
+            /* 보더와 비슷하나 박스구성요소가 아니고
+            주변에 영향을 주지 않는 외곽선만 보여주는 속성
+            사용법은 border와 유사함 */
+        }
+
+        /*블록박스 내에 단독 이미지 하단공백 4px은 무엇인가? */
+        .a5 img{
+            vertical-align: top;
+            /* 
+                박스에 단일한 이미지를 넣은 경우
+                하단에 자연스런 간극이 존재한다!
+                이것을 없애려면 vertical-align
+                인라인요소간 세로정렬 속성의 값으로
+                top/bottom/middle 중 하나로 셋팅하면
+                하단 간극이 사라진다!
+                (baseline값은 적용안됨!)
+            */
+        }
+
     </style>
 </head>
 <body>
@@ -180,6 +209,11 @@
     <div class="bx" id="s2">s2</div>
     <!-- 두번째 앱솔루트 박스 -->
     <div class="bx" id="a2">a2</div>
+
+    <!-- 앱솔루트 : 판타롱스타킹! -->
+     <div class="a5" title="앱솔루트 판타롱스타킹~!">
+        <img src="./images/ab2.jpg" alt="타노스">
+     </div>
 
 
     <!-- 부모를 찾는 앱솔루트! -->
