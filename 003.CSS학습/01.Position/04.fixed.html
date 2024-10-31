@@ -338,6 +338,28 @@
         vertical-align: middle;
       }
 
+      /* 부모가 많은 요소를 fixed처리하기
+        - display: inline 요소가 자동
+        block처리됨!
+        - 가로,세로크기 내용만큼 생김!
+        - 부모가 아무리 많아도 fixed는
+        보이는 화면이 그 기준이된다!
+      
+      */
+      .iamfixed{
+        position: fixed;
+        top: 200px;
+        right: 200px;
+        z-index: 9999999;
+
+        background-color: yellowgreen;
+        border: 4px double blue;
+        border-radius: 50%;
+        padding: 15px;
+        font-size: 30px;
+
+      }
+
     </style>
   </head>
   <body>
@@ -418,6 +440,9 @@
             >
               나는 span앱솔루트다!
             </span>
+
+            <!-- 부모가 많은 요소를 fixed처리하기 -->
+             <span class="iamfixed">👩‍🔧개발자👨‍🔧</span>
           </div>
         </div>
       </div>
