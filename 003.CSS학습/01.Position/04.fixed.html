@@ -296,8 +296,18 @@
         /* 부모는 당연히 window! */
         z-index: 9999999;
 
+        /* 트랜지션 : trs 속시이지 */
+        transition: .4s ease-out;
+
         /* background-color: red; */
       }
+      /* 포스터에 마우스 오버시
+      right값 변경으로 포스터 보이기 */
+      .fixed-poster:hover{
+        right: 0;
+      }
+
+
       /* 글자span */
       .fixed-poster span{
         position: absolute;
