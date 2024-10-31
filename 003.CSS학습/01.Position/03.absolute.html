@@ -73,11 +73,18 @@
                     직계부모박스를 기준한다!)
 
                 2. 앱솔루트는 가로,세로 크기를 주지않은 경우
-                일반적으로  block요소 이므로 width:auto  로써
-                부모박스 끝까지 차지하지만...
-                앱솔루트는 내용만큼만 그 크기를 가진다!
-                ->>> 앱솔루트 판타롱스타킹!!!
+                    일반적으로  block요소 이므로 width:auto 로써
+                    부모박스 끝까지 차지하지만...
+                    앱솔루트는 내용만큼만 그 크기를 가진다!
+                    ->>> 앱솔루트 판타롱스타킹!!!
 
+                3. 원래 block이 아닌요소를 앱솔루트를 줄 경우
+                자동으로  display: block 으로 설정된다!
+                이유는 자동크기를 설정할 경우 블록이 아니면
+                크기를 설정할 수 없기 때문이다!
+                -> 일반적으로 앱솔루트 포지션 요소는 블록이다!
+
+                4. 앱솔루트끼리는 서로 겹친다!
 
 
 
@@ -232,7 +239,53 @@
 
 
         }
+
+        /* span을 앱솔루트로 만들경우~! */
+        .spabs{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            /* 나의 부모는? .s8 */
+
+            outline: 4px dotted darkmagenta;
+        }
         
+        /* 앱솔루트끼리는 서로 겹친다! */
+        .absimg{
+            /* 박스크기를 지정한 이유는?
+            자식요소 img가 앱솔루트 이므로
+            그 크기를 자동으로 감쌀 수 없음! */
+            width: 200px;
+            height: 250px;
+        }
+        /* 모든 이미지에 앱솔루트주기! */
+        .absimg img{
+            position: absolute;
+            /* 젠틀앱솔루트! */
+            width: 200px;
+        }
+        /* 두번째 이미지인 닥스를 투명하게 만들기 */
+        .absimg img:last-child{
+            /* 투명도 속성 : opacity -> op숫자
+            0투명, 1불투명, 0~1사이 소수점 반투명 */
+            opacity: 0;
+            /* filter: opacity(.5);-> 예전방식 */
+
+            /* 트랜지션 속성 : trs
+            -> 두가지 속성변경과정을 애니메이션 해주는 속성
+            transition: 속시이지;
+            (속성 시간 이징 지연)
+            간단하게는 시간만 써도 됨
+            시간단위 s를 붙여서 초단위로 사용함
+            시간 사용시 소수점 앞 0은 생략가능!
+            */
+            transition: .5s;
+        }
+
+        /* 박스에 마우스 오버시 투명 닥스를 보이게 하기 */
+        .absimg:hover img:last-child{
+            opacity: 1;
+        }
 
     </style>
 </head>
@@ -255,6 +308,12 @@
         <img src="./images/ab2.jpg" alt="타노스">
      </div>
 
+    <!-- 앱솔루트끼리는 서로 겹친다! -->
+     <div class="absimg">
+        <img src="./images/ab3.jpg" alt="토르">
+        <img src="./images/ab4.jpg" alt="닥스">
+     </div>
+
 
     <!-- 부모를 찾는 앱솔루트! -->
      <div class="bx2 s5">s5
@@ -267,6 +326,10 @@
 
                      <div class="abs a4"
                      title="나는 부모찾아 올라간다!">a4</div>
+
+                     <span class="spabs" title="자동블록전환!">
+                        나는 span앱솔루트다!
+                     </span>
 
                 </div>
             </div>
