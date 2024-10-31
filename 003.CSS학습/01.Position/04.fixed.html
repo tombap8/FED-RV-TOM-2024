@@ -276,6 +276,17 @@
       .absimg:hover img:last-child {
         opacity: 1;
       }
+
+      /* 나는 젠틀픽스드다! */
+      #f1{
+        position: fixed;
+        z-index: 100;
+        width: 50%;
+        height: auto;
+        line-height: 200px;
+        background-color: yellow;
+        font-size: 30px;
+      }
     </style>
   </head>
   <body>
@@ -284,6 +295,12 @@
 
     <div class="bx" id="r1">r1</div>
     <div class="bx" id="s1">s1</div>
+
+    <!-- 젠틀픽스드 박스 -->
+    <div class="bx" id="f1">
+      나는 젠틀픽스드다!!!
+    </div>
+
     <!-- 첫번째 앱솔루트 박스 -->
     <div class="bx" id="a1">a1</div>
     <div class="bx" id="r2">r2</div>
