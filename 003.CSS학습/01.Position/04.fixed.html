@@ -53,22 +53,44 @@
         안보이게됨! 반명  fixed포지션은 요소를 고정함!)
     
     **************************************/
+        top: 0;
+        left: 0; 
 
+        /* 
+        -> 위치값 사용안하면 젠틀픽스드!
+        */
 
-        top: 50px;
-        left: 30%;
-        /* 나의 부모는? 보이는 화면 window */
+        /* 나의 부모는? 당연히 보이는 화면 window */
         /* 겹쳐질때 가장위로하기 z-index : z999 */
         z-index: 999;
 
         /* 박스모델 */
-        width: 40%;
+        width: 100%;
         text-align: center;
         margin: 0;
-        padding: 20px;
-        border: 4px solid darkorange;
-        border-radius: 20px;
-        background-color: lightsalmon;
+        padding: 20px;        
+        border: 4px solid darkgreen;
+        border-radius: 0 0 50% 50%;
+        /* border-radius: 50px 200px 300px; */
+        /* border-radius: 50px 300px; */
+        /* 
+          [ 둥근모서리 모서리별 값주기 ]
+           border-radius: 값;
+           -> 모든방향
+           border-radius: 값 값;
+           -> 왼쪽위+오른쪽아래 오른쪽위+왼쪽아래
+           border-radius: 값 값 값;
+           -> 왼쪽위 오른쪽위+왼쪽아래 오른쪽아래
+           border-radius: 값 값 값 값;
+           -> 왼쪽위 부터 시계방향
+        */
+
+
+        /* 패딩,보더 포함박스 설정 : bxb */
+        box-sizing: border-box;
+
+
+        background-color: lightgreen;
 
         /* 박스그림자 : bxsh */
         box-shadow: 5px 5px 4px
