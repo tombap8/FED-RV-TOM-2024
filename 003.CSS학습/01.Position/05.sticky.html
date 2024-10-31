@@ -353,6 +353,34 @@
 
       }
 
+      /* 스티키를 포함하는 부모박스 */
+      .wrap{
+        padding: 15px;
+        border: 5px dotted blue;
+      }
+
+      /* 스티키 적용구간 부모박스 */
+      .wrap-stk{
+        padding: 15px;
+        border: 5px dotted red;
+        height: 500px;
+        /* 스티키 구간적용을 위해서 높이값 필수!!! */
+      }
+
+      /* 스티키 박스 */
+      .stkbx{
+        position: sticky;
+        /* 보이는 화면 상단으로 부터 100px위치 */
+        top: 100px;
+
+        text-align: center;
+        font-size: 30px;
+        padding: 50px;
+        background-color: lightblue;
+        border: 5px dotted blue;
+        z-index: 9999;
+      }
+
     </style>
   </head>
   <body>
@@ -363,6 +391,17 @@
 
     <!-- 스티키 제목박스-->
     <h1 class="tit">Sticky 포지션</h1>
+
+    <!-- 스티키를 포함하는 박스 -->
+     <div class="wrap">
+      <!--  스티키 구간적용박스 -->
+        <div class="wrap-stk">
+          <!-- 스티키 포지션 박스 -->
+           <div class="stkbx">
+            나는 sticky다! 사라지지 않아!
+           </div>
+        </div>
+     </div>
 
     <!-- 젠틀픽스드 박스 -->
     <div class="bx" id="f1">
