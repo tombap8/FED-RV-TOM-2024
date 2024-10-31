@@ -287,6 +287,47 @@
         background-color: yellow;
         font-size: 30px;
       }
+
+      /* 포스터 보기 박스 */
+      .fixed-poster{
+        position: fixed;
+        top: 250px;
+        right: 0;
+        /* 부모는 당연히 window! */
+        z-index: 9999999;
+
+        background-color: red;
+      }
+      /* 글자span */
+      .fixed-poster span{
+        position: absolute;
+        top: 0;
+        left: -50px;
+        /* 나의 부모는? .fixed-poster */
+        width: 50px;
+        height: 300px;
+        background-color: lightblue;
+        /* 둥근모서리 : 왼쪽위,아래 */
+        border-radius: 20px 0 0 20px;
+
+        /* 글자 세로모드 */
+        writing-mode: vertical-lr;
+        font-size: 25px;
+        text-align: center;
+        padding-left: 7px;
+        box-sizing: border-box;
+        /* 자간: letter-spacing */
+        letter-spacing: 10px;
+        /* 참고) 단어간격 : word-spacing */
+      }
+      /* 포스터 이미지 */
+      .fixed-poster img{
+        height: 300px;
+        /* 블록박스에 단독 이미지
+        하단 간극 없애기 : vam */
+        vertical-align: middle;
+      }
+
     </style>
   </head>
   <body>
@@ -300,6 +341,12 @@
     <div class="bx" id="f1">
       나는 젠틀픽스드다!!!
     </div>
+
+    <!-- 포스터보기 fixed적용박스 -->
+     <div class="fixed-poster">
+      <img src="./images/ab0.jpg" alt="포스터">
+      <span>포스터보기</span>
+     </div>
 
     <!-- 첫번째 앱솔루트 박스 -->
     <div class="bx" id="a1">a1</div>
