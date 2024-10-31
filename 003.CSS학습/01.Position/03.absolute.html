@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>03. absolute 포지션</title>
     <style>
-        .bx{
-            width: 300px;
-            height: 300px;
-            border: 2px solid blue;
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;/* fwb */
-            /* 글자세로중앙 */
-            line-height: 300px;
-        }
+      .bx {
+        width: 300px;
+        height: 300px;
+        border: 2px solid blue;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold; /* fwb */
+        /* 글자세로중앙 */
+        line-height: 300px;
+      }
 
-        /* 첫번째 앱솔루트 박스 */
-        #a1{
-            /* 포지션 앱솔루트 : poa */
-            position: absolute;
+      /* 첫번째 앱솔루트 박스 */
+      #a1 {
+        /* 포지션 앱솔루트 : poa */
+        position: absolute;
 
-            /******************************** 
+        /******************************** 
                 [ 3. absolute 포지션 ]
                  - 절대적인 부모를 기준으로
                  위치를 잡는 포지션
@@ -91,116 +91,120 @@
 
             ********************************/
 
-            
-            background: url(./images/ab1.jpg) no-repeat center/cover;
-        }
+        background: url(./images/ab1.jpg)
+          no-repeat center/cover;
+      }
 
-        /* 두번째 앱솔루트 박스 */
-        #a2{
-            /* 앱솔루트 포지션 */
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            /* 나의 부모는? 포지션이 static이 아닌요소가
+      /* 두번째 앱솔루트 박스 */
+      #a2 {
+        /* 앱솔루트 포지션 */
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        /* 나의 부모는? 포지션이 static이 아닌요소가
             없으므로 보이는 화면(window)을 기준한다! */
-            
-            background: url(./images/ab1.jpg) no-repeat center/cover;
-        }
 
-        #r1{
-            /* 포지션 relative : por */
-            position: relative;
+        background: url(./images/ab1.jpg)
+          no-repeat center/cover;
+      }
 
-            /* 위로부터 100px : t100 */
-            top: 100px;
-            /* 왼쪽으로부터 100px : l100 */
-            left: 100px;
+      #r1 {
+        /* 포지션 relative : por */
+        position: relative;
 
-            background: url(./images/ab5.jpg) no-repeat center/cover;
-        }
-        #r2{
-            /* 포지션 relative */
-            position: relative;
-            top: 150px;
-            left: 150px;
+        /* 위로부터 100px : t100 */
+        top: 100px;
+        /* 왼쪽으로부터 100px : l100 */
+        left: 100px;
 
-            background: url(./images/ab4.jpg) no-repeat center/cover;
-        }
+        background: url(./images/ab5.jpg)
+          no-repeat center/cover;
+      }
+      #r2 {
+        /* 포지션 relative */
+        position: relative;
+        top: 150px;
+        left: 150px;
 
-        /* 첫번째 박스에 포지션 체크 */
-        #s1{
-            background-color: lightgreen;
-        }
-        #s2{
-            background-color: lightcoral;
-        }
+        background: url(./images/ab4.jpg)
+          no-repeat center/cover;
+      }
 
-        /* 부모를 찾는 앱솔루트! */
-        .bx2{
-            border: 2px dotted orangered;
-            padding: 50px;
-            font-size: 24px;
-            text-align: center;
-        }
-        /* 각 부모박스 */
-        .s5{
-            position: relative;
-            background-color: lightblue;
-        }
-        .s6{
-            position: relative;
-            background-color: lightcoral;
-        }
-        .s7{
-            position: relative;
-            background-color: lightgreen;
-        }
-        .s8{
-            position: relative;
-            background-color: lightsalmon;
-        }
+      /* 첫번째 박스에 포지션 체크 */
+      #s1 {
+        background-color: lightgreen;
+      }
+      #s2 {
+        background-color: lightcoral;
+      }
 
-        /* 부모를 찾는 앱솔루트 박스 */
-        .abs{
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            color: #fff;
-            background: url(./images/ab1.jpg) no-repeat center/cover;
-        }
+      /* 부모를 찾는 앱솔루트! */
+      .bx2 {
+        border: 2px dotted orangered;
+        padding: 50px;
+        font-size: 24px;
+        text-align: center;
+      }
+      /* 각 부모박스 */
+      .s5 {
+        position: relative;
+        background-color: lightblue;
+      }
+      .s6 {
+        position: relative;
+        background-color: lightcoral;
+      }
+      .s7 {
+        position: relative;
+        background-color: lightgreen;
+      }
+      .s8 {
+        position: relative;
+        background-color: lightsalmon;
+      }
 
-        /* .a4는 위치이동값을 사용하자! -> 부모찾아 삼만리! */
-        .a4{
-            /* 앱솔루트는 .abs에서 이미 셋팅! */
-            top: 0;
-            left: 0;
-            /* 나의 부모는? 포지션이 있는 요소! .s8 */
+      /* 부모를 찾는 앱솔루트 박스 */
+      .abs {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        color: #fff;
+        background: url(./images/ab1.jpg)
+          no-repeat center/cover;
+      }
 
-            /* 앱솔루트 요소 크기를 %로 줄경우
+      /* .a4는 위치이동값을 사용하자! -> 부모찾아 삼만리! */
+      .a4 {
+        /* 앱솔루트는 .abs에서 이미 셋팅! */
+        top: 0;
+        left: 0;
+        /* 나의 부모는? 포지션이 있는 요소! .s8 */
+
+        /* 앱솔루트 요소 크기를 %로 줄경우
             부모자격 박스를 기준하여 설정된다!!! */
-            width: 25%;
-            height: 40%;
-        }
+        width: 25%;
+        height: 40%;
+      }
 
-        /* 앱솔루트 : 판타롱스타킹! */
-        .a5{
-            position: absolute;
-            /* 박스크기를 주지 않은 앱솔루트는
+      /* 앱솔루트 : 판타롱스타킹! */
+      .a5 {
+        position: absolute;
+        /* 박스크기를 주지 않은 앱솔루트는
             그 크기가 내용만큼 자동으로 설정됨! */
-            top: 20%;
-            right: 10%;
-            /* 나의 부모는? 보이는 화면 */
+        top: 20%;
+        right: 10%;
+        /* 나의 부모는? 보이는 화면 */
 
-            outline: 2px solid red;
-            /* 보더와 비슷하나 박스구성요소가 아니고
+        outline: 2px solid red;
+        /* 보더와 비슷하나 박스구성요소가 아니고
             주변에 영향을 주지 않는 외곽선만 보여주는 속성
             사용법은 border와 유사함 */
-        }
+      }
 
-        /*블록박스 내에 단독 이미지 하단공백 4px은 무엇인가? */
-        .a5 img{
-            vertical-align: top;
-            /* 
+      /*블록박스 내에 단독 이미지 하단공백 4px은 무엇인가? */
+      .a5 img {
+        vertical-align: top;
+        /* 
                 박스에 단일한 이미지를 넣은 경우
                 하단에 자연스런 간극이 존재한다!
                 이것을 없애려면 vertical-align
@@ -209,69 +213,69 @@
                 하단 간극이 사라진다!
                 (baseline값은 적용안됨!)
             */
-        }
+      }
 
+      /* 제목넣기 : 앱솔루트로! */
+      h1.tit {
+        /* 포지션 */
+        position: absolute;
+        top: 50px;
+        left: 30%;
+        /* 나의 부모는? 보이는 화면 window */
+        /* 겹쳐질때 가장위로하기 z-index : z999 */
+        z-index: 999;
 
-        /* 제목넣기 : 앱솔루트로! */
-        h1.tit{
-            /* 포지션 */
-            position: absolute;
-            top: 50px;
-            left: 30%;
-            /* 나의 부모는? 보이는 화면 window */
-            /* 겹쳐질때 가장위로하기 z-index : z999 */
-            z-index: 999;
+        /* 박스모델 */
+        width: 40%;
+        text-align: center;
+        margin: 0;
+        padding: 20px;
+        border: 4px solid darkorange;
+        border-radius: 20px;
+        background-color: lightsalmon;
 
-            /* 박스모델 */
-            width: 40%;
-            text-align: center;
-            margin: 0;
-            padding: 20px;
-            border: 4px solid darkorange;
-            border-radius: 20px;
-            background-color: lightsalmon;
+        /* 박스그림자 : bxsh */
+        box-shadow: 5px 5px 4px
+          rgba(0, 0, 0, 0.412);
 
-            /* 박스그림자 : bxsh */
-            box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.412);
-            
-            /* 글자관련 */
-            font-size: 60px;
+        /* 글자관련 */
+        font-size: 60px;
+      }
 
+      /* span을 앱솔루트로 만들경우~! */
+      .spabs {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        /* 나의 부모는? .s8 */
 
-        }
+        outline: 4px dotted darkmagenta;
+      }
 
-        /* span을 앱솔루트로 만들경우~! */
-        .spabs{
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            /* 나의 부모는? .s8 */
-
-            outline: 4px dotted darkmagenta;
-        }
-        
-        /* 앱솔루트끼리는 서로 겹친다! */
-        .absimg{
-            /* 박스크기를 지정한 이유는?
+      /* 앱솔루트끼리는 서로 겹친다! */
+      .absimg {
+        /* 박스크기를 지정한 이유는?
             자식요소 img가 앱솔루트 이므로
             그 크기를 자동으로 감쌀 수 없음! */
-            width: 200px;
-            height: 250px;
-        }
-        /* 모든 이미지에 앱솔루트주기! */
-        .absimg img{
-            position: absolute;
-            /* 젠틀앱솔루트! */
-            width: 200px;
-        }
-        /* 두번째 이미지인 닥스를 투명하게 만들기 */
-        .absimg img:last-child{
-            /* 투명도 속성 : opacity -> op숫자
-            0투명, 1불투명, 0~1사이 소수점 반투명 */
-            opacity: 0;
-            /* filter: opacity(.5);-> 예전방식 */
+        width: 200px;
+        height: 250px;
+      }
+      /* 모든 이미지에 앱솔루트주기! */
+      .absimg img {
+        position: absolute;
+        /* 젠틀앱솔루트! */
+        width: 200px;
 
-            /* 트랜지션 속성 : trs
+        border: 21px ridge goldenrod;
+      }
+      /* 두번째 이미지인 닥스를 투명하게 만들기 */
+      .absimg img:last-child {
+        /* 투명도 속성 : opacity -> op숫자
+            0투명, 1불투명, 0~1사이 소수점 반투명 */
+        opacity: 0;
+        /* filter: opacity(.5);-> 예전방식 */
+
+        /* 트랜지션 속성 : trs
             -> 두가지 속성변경과정을 애니메이션 해주는 속성
             transition: 속시이지;
             (속성 시간 이징 지연)
@@ -279,20 +283,18 @@
             시간단위 s를 붙여서 초단위로 사용함
             시간 사용시 소수점 앞 0은 생략가능!
             */
-            transition: .5s;
-        }
+        transition: 0.5s;
+      }
 
-        /* 박스에 마우스 오버시 투명 닥스를 보이게 하기 */
-        .absimg:hover img:last-child{
-            opacity: 1;
-        }
-
+      /* 박스에 마우스 오버시 투명 닥스를 보이게 하기 */
+      .absimg:hover img:last-child {
+        opacity: 1;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <!-- 제목 -->
-     <h1 class="tit">Absolute 포지션</h1>
+    <h1 class="tit">Absolute 포지션</h1>
 
     <div class="bx" id="r1">r1</div>
     <div class="bx" id="s1">s1</div>
@@ -304,40 +306,61 @@
     <div class="bx" id="a2">a2</div>
 
     <!-- 앱솔루트 : 판타롱스타킹! -->
-     <div class="a5" title="앱솔루트 판타롱스타킹~!">
-        <img src="./images/ab2.jpg" alt="타노스">
-     </div>
+    <div
+      class="a5"
+      title="앱솔루트 판타롱스타킹~!"
+    >
+      <img
+        src="./images/ab2.jpg"
+        alt="타노스"
+      />
+    </div>
 
     <!-- 앱솔루트끼리는 서로 겹친다! -->
-     <div class="absimg">
-        <img src="./images/ab3.jpg" alt="토르">
-        <img src="./images/ab4.jpg" alt="닥스">
-     </div>
-
+    <div class="absimg">
+      <img
+        src="./images/ab3.jpg"
+        alt="토르"
+      />
+      <img
+        src="./images/ab4.jpg"
+        alt="닥스"
+      />
+    </div>
 
     <!-- 부모를 찾는 앱솔루트! -->
-     <div class="bx2 s5">s5
-        <div class="bx2 s6">s6
-            <div class="bx2 s7">s7
-                <div class="bx2 s8">s8
-                    <!-- 박스내부 앱솔루트 -->
-                     <div class="abs a3"
-                     title="나는 젠틀앱솔루트다!">a3</div>
-
-                     <div class="abs a4"
-                     title="나는 부모찾아 올라간다!">a4</div>
-
-                     <span class="spabs" title="자동블록전환!">
-                        나는 span앱솔루트다!
-                     </span>
-
-                </div>
+    <div class="bx2 s5">
+      s5
+      <div class="bx2 s6">
+        s6
+        <div class="bx2 s7">
+          s7
+          <div class="bx2 s8">
+            s8
+            <!-- 박스내부 앱솔루트 -->
+            <div
+              class="abs a3"
+              title="나는 젠틀앱솔루트다!"
+            >
+              a3
             </div>
+
+            <div
+              class="abs a4"
+              title="나는 부모찾아 올라간다!"
+            >
+              a4
+            </div>
+
+            <span
+              class="spabs"
+              title="자동블록전환!"
+            >
+              나는 span앱솔루트다!
+            </span>
+          </div>
         </div>
-     </div>
-
-
-
-    
-</body>
+      </div>
+    </div>
+  </body>
 </html>
