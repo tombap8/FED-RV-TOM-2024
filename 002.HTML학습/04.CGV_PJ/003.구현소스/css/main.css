@@ -63,13 +63,20 @@ body * {
 .poster-menu{
     position: absolute;
     bottom: 43px;
-    left: 247px;
+    left: 226px;
     /* 나의 부모는? .main-area */
 }
 /* 메뉴 리스트 li */
 .poster-menu li {
     /* 블록 옆으로 흐르게 : float */
     float: left;
+}
+/* li 사이간격 
+li+li 앞에 li가 있는 li선택
+즉, 첫번째 li빼고 다 선택 */
+.poster-menu li+li{
+    /* 왼쪽마진 : ml */
+    margin-left: 10px;
 }
 
 /* 포스터 이미지 */
