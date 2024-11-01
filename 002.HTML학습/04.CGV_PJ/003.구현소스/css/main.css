@@ -67,6 +67,9 @@ body * {
 .poster-menu ul > li {
   /* 렐러티브 포지션 : 부모자격 (.mv-info) */
   position: relative;
+  /* 부모자격에서 넘치는 자식요소 숨기기설정!
+  oh */
+  overflow: hidden;
   /* 블록 옆으로 흐르게 : float */
   float: left;
 }
@@ -87,7 +90,8 @@ li+li 앞에 li가 있는 li선택
 /* 영화정보박스 */
 .mv-info {
   position: absolute;
-  top: 0;
+  /* 처음에 높이값 만큼 아래쪽에 밀려나 있음! */
+  top: 100%;
   left: 0;
   /* 나의 부모는? .poster-menu ul>li */
   width: 100%;
@@ -107,13 +111,23 @@ li+li 앞에 li가 있는 li선택
   font-family: "Cute Font", cursive;
   /* 글자크기 */
   font-size: 16px;
+
+  /* 트랜지션 : trs 속시이지 */
+  transition: .3s ease-out;
 }
+
+/* 상위 ul>li 오버시 영화정보 보이기 */
+.poster-menu ul>li:hover .mv-info{
+    top: 0;
+    /* 값이 100% -> 0으로 변경됨! */
+}
+
 /* 첫번째 제목만 큰글자 만들기 */
 .mv-info ol li:first-child {
   /* 글자크기 : fz */
   font-size: 20px;
   /* 글자 두껍게 : fwb */
-  font-weight: bold;
+  /* font-weight: bold; */
   /* 글자색 : c */
   color: aqua;
 }
