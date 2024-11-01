@@ -4,9 +4,18 @@
 
 /*********** 1. 웹폰트 : CDN ***********/
 /* Cute Font, Jua, Audiowide 체 */
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Cute+Font&family=Jua&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Cute+Font&family=Jua&display=swap");
 /* 
     font-family: 'Audiowide', cursive;
     font-family: 'Cute Font', cursive;
     font-family: 'Jua', sans-serif;
 */
+
+/********** 2. 공통 클래스 **********/
+/* 레이아웃 공통 클래스 */
+.part {
+  /* 가로크기 공통 */
+  width: 1200px;
+  /* 마.영.오 - 블록박스 중앙정렬 */
+  margin: 0 auto;
+}
