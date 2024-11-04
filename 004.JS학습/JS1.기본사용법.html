@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS1. 자바스크립트 기본 + DOM선택법</title>
+    <!-- 자바스크립트 코딩구역(인터널방식) -->
+    <script>
+      // 한줄주석
+      /* 여러줄주석 */
+      /*******************************************
+            [자바스크립트란?] 
+            - 고정적인 html 구조와 CSS로 디자인된
+            웹문서의 디자인 혹은 기능적으로 구현된 것을
+            변경하기 위해 개발된 브라우저 전용
+            프로그래밍 언어다!
+
+            _________________________________
+
+            [ JS의 코딩구역 ]
+
+            1. 인터널(internal) 방식
+            - html의 script 요소 내부에 데이터로 코딩함
+
+            2. 익스터널(external) 방식
+            - JS 외부파일로 확장자가 .js
+            - html 페이지에서 script요소에 src속성의
+            값으로 파일위치를 지정하여 호출함!
+            예) <script src='파일경로/파일명.js'>
+
+            3. 이벤트 속성의 인라인(inline) 코딩
+            - html 요소의 이벤트 속성값으로 JS코드를 작성함
+            예) <h1 onclick="JS코드">
+        ______________________________________
+
+        [ JS의 역할 ]
+
+        1. HTML을 변경한다
+
+        2. CSS의 디자인 속성을 재정의한다
+
+        [ 각 언어별 역할비유 ]
+        1. HTML(데이터구조) - 건물의 콘크리트 구조물
+        2. CSS(디자인) - 건물의 인테리어, 익스테리어
+        3. JS(프로그래밍) - 건물의 수도, 전기, 엘리베이터 등
+
+        _____________________________________
+
+        [ JS의 화면출력 ]
+        1. document.write(내용) - html화면 상단에 출력
+        2. window.alert(내용) - 팝업형식의 경고창으로 출력
+            -> window를 생략가능 : alert(내용)
+            -> 특징: html 랜더링 되기전에 제어권을 가짐!
+            (확인버튼 클릭전까지는 랜더링이 멈춰져 있음)
+        3. console.log(내용) - 콘솔창에 출력
+            -> 개발시에 많이 사용함(디버깅시에 사용!)
+            -> 콘솔은 브라우저 엔진에서 관할하는 내부출력모드
+            -> 개발자모드(F12)의 콘솔(console)탭을 선택함
+            -> 콘솔창에 로그가 찍힌 라인번호를 알려준다!
+
+        ________________________________________
+
+        [ JS코드의 특징 ]
+
+        -> JS 명령어 실행코드는 만나는 즉시 실행됨!
+        그래서 내가 원하는 시점의 이벤트에 명령어코드가
+        실행되려면 함수가 필요하다!
+
+        ________________________________________
+
+        [ JS 문법의 핵심 구분방법! ]
+
+        따옴표 없는 문자 vs "따옴표 있는 문자"
+
+        데이터/명령어 저장주소 vs "문자데이터"
+
+        ->  데이터는 변수에 명령어는 함수에 저장된다!
+
+        ________________________________________
+
+        [ JS의 함수 ]
+        - 정의 : 특정실행코드 명령어를 호출시 실행하는
+        코드 저장공간!
+
+        - 형식 : function 함수명 (전달변수) {코드}
+
+        - 호출 : 함수명(값)
+        -> 값은 함수의 전달변수 개수만큼 보낸다!
+        -> 호출시 소괄호를 꼭 해준다!
+
+        ___________________________________
+
+        [ JS의 시그널 ]
+
+        1. 따옴표없는 문자 -> 저장주소
+
+        2. 점(.) -> 하위 내용
+
+        3. 이퀄(=) -> 오른쪽값이 왼쪽으로 들어감(할당)
+
+        ______________________________________
+
+        [ JS의 document 객체란? ]
+
+        - 전체 웹문서의 요소에 접근하여 프로그래밍할 수 
+        있도록 만들어진 웹문서 객체
+
+        - DOM(Document Object Model) 이란?
+        문서 객체 모델은 HTML 문서의 각 항목을
+        계층으로 표현하여 생성, 변형, 삭제할 수 있도록 
+        돕는 인터페이스이다. 
+        
+        W3C의 표준이다. 
+        W3C의 표준화한 API들의 기반이 된다.
+        DOM은 HTML 문서의 요소를 제어하기 위해 
+        웹 브라우저에서 처음 지원되었다
+
+        
+        _____________________________________
+
+        [ JS에서 코드의 마무리는 세미콜론;;;;;; ]
+
+        - JS의 코드 끝에는 세미콜론으로 마무리한다!
+        - 세미콜론이 안붙는 경우
+            1. 선언적함수(이름이 있는 함수)의 끝
+            2. 제어문의 끝(if문, for문,...)
+
+        ((참고: 자동세미콜론 삽입기능))
+        ASI(Automatic Semicolon Insertion)
+        -> 브라우저가 세미콜론이 필요한 부분의 구문분석을
+        통하여 자동으로 넣어주는 기능!
+        -> 주의사항: 세미콜론을 안써도 되는 편리한 기능이지만
+        자동구문분석에서 오류분석이 있을 수 있으므로
+        개발자가 직접 세미콘론을 넣어주는 것을 추천함!!!
+
+        ____________________________________
+
+        [ JS의 이벤트란? ]
+
+        - 브라우저에서 실행되는 입력 또는 상태변경
+        관련 시점을 구분하여 알려주는 요소
+
+        - 이벤트의 종류:
+        1) 마우스 관련 이벤트
+        - click, dblclick, mouseover, mouseout, mouseup,...
+        2) 키보드 관련 이벤트
+        - keydown, keyup, keypress,...
+        3) 기타 이벤트
+        - load, focus, blur, ...
+
+        -> 이벤트와 함수를 연결하려면?
+        html 요소에 이벤트 속성 모두 만들어져 있다!!!
+
+        [ HTML 이벤트 속성 ]
+
+        -> on+이벤트명 = 값
+        예) <h1 onclick="함수명()">
+            onmouseover="값", onload="값"
+
+      ___________________________________
+
+        [ JS의 이퀄의 의미 ]
+        - 이퀄은 오른쪽값이 왼쪽에 할당됨을 의미!
+        (할당은 값이 특정 메모리공간에 들어감을 의미)
+        -> 절대로 같다는 의미가 아니다!!!!
+
+        [ JS에서 점(.)의 의미 ]
+        - 객체의 하위 메서드나 속성으로 들어감을 의미
+        - 객체는 목적을 가지고 만든 프로그램 단위체
+        - 메서드는 객체 내부에 만들어진 함수(코드저장소)
+        - 속성은 객체 내부의 특정값을 정의하는 항목
+
+        예) 우주.우리은하.태양계.지구.대한민국.서울.강남구
+
+        _______________________________________
+
+        [ JS 기본 요소 선택법 ]
+
+        1. 아이디 선택법 :
+        getElementById(아이디명)
+
+        get Element By Id
+        가져와 요소를 아이디로!
+        -> 아이디는 유일하므로 선택즉시
+        바로 접근가능함!
+
+        2. 클래스 선택법 : 
+        getElementsByClassName(클래스명)
+
+        get Elements By Class Name
+        가져와 요소들을 클래스명으로!
+
+        -> 클래스는 여러번 사용가능하므로
+        선택후 순번을 선택해야 구체적인 요소에 접근가능함!
+
+        -> 순번선택방법: item(순번) / [순번]
+            document
+            .getElementsByClassName(클래스명).item(순번)
+
+            document
+            .getElementsByClassName(클래스명)[순번]
+        
+        -> 개수 : length
+
+        3. 태그 선택법 : 
+        getElementsByTagName(태그명)
+
+        get Elements By Tag Name
+        가져와 요소들을 태그명으로!
+
+        -> 태그는 여러번 사용가능하므로
+        선택후 순번을 선택해야 구체적인 요소에 접근가능함!
+
+        -> 순번선택방법: item(순번) / [순번]
+            document
+            .getElementsByTagName(태그명).item(순번)
+
+            document
+            .getElementsByTagName(태그명)[순번]
+
+        -> 개수 : length
+
+        __________________________________________
+
+        [ 선택자 문법을 그대로 사용하는 요소 선택법 ]
+
+        1. querySelector(CSS선택자)
+        -> 선택자에 맞는 요소를 처음만나는 것으로 선택
+        -> 무조건 하나만 가져오므로 순번 불필요!
+
+        예) document.querySelector('#my>li')
+        -> 만나는 첫번째 li요소를 선택함
+
+        2. querySelectorAll(CSS선택자)
+        -> 선택자에 맞는 요소를 모두 가져옴!
+        -> html요소 컬렉션에 담겨서 저장됨
+        -> 순번과 개수를 구할 수 있음
+        순번 : item(순번) / [순번]
+        개수 : length 
+
+        예) document.querySelectorAll('#my>li')
+        -> 만나는 li모두를 선택함(순번,개수 사용함!)
+        ____________________________________________
+
+        [ JS에서 요소 선택 후 CSS변경하기 ]
+
+        1. 스타일시트 속성명으로 개별추가하기
+
+        선택요소.style.스타일시트속성명 = 속성값
+        - 선택요소의 CSS특정 속성값을 변경함
+        - 스타일시트 속성명은 모두 변수형으로 JS브라우저
+        객체의 속성으로 만들어져 있다!
+
+        예) 'font-size' -> fontSize
+            'border-radius' -> borderRadius
+
+            -> 이음절 이상 속성명은 데쉬(-)를 빼고
+            단어 첫글자를 대문자로 처리하여 사용함!
+
+            -> JS에서 CSS를 변경하면 요소 태그 내부에
+            style속성으로 인라인코딩 되어 들어간다!
+            (최우선 적용!)
+
+            2. 한꺼번에 style속성값으로 넣기
+            -> style.cssText = 'css문법'
+            -> 이전에 코딩된 인라인 style 속성값은 무시됨!
+            -> 백틱(`)을 사용하면 좀 더 가독성있는 코딩가능
+
+        ________________________________________
+        
+        *******************************************/
+
+      
+    </script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        /* 보이는 화면에 채우기 */
+      }
+      body {
+        overflow: hidden;
+      }
+
+      .pbox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* 부모는? window(보이는화면) */
+        margin: 0;
+        padding: 0;
+
+        width: 500px;
+        height: 500px;
+        padding-top: 200px;
+
+        /* 글자 */
+        line-height: 50px;
+        font-size: 30px;
+        text-align: center;
+        /* 줄바꿈방지 */
+        white-space: nowrap;
+
+        border: 4px solid purple;
+        /* 보더박스:보더,패딩포함 */
+        box-sizing: border-box;
+
+        /* 사용자 텍스트 영역 선택방지 */
+        user-select: none;
+
+        /* background: url(./images/kimbs.jpg) no-repeat center/cover; */
+      }
+      p.pbox {
+        z-index: 1;
+      }
+
+      /* 원모양 */
+      .원이야 {
+        position: absolute;
+        top: 0;
+        right: 0;
+        /* 부모는? window */
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        /* 배경공통 */
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* 보더박스 : 보더,패딩포함박스 */
+        box-sizing: border-box;
+      }
+      /* 원모양 개별셋팅 */
+      .원이야:nth-child(1) {
+        right: 400px;
+        background-image: url(./images/01.png);
+      }
+      .원이야:nth-child(2) {
+        right: 200px;
+        background-image: url(./images/02.png);
+      }
+      .원이야:nth-child(3) {
+        background-image: url(./images/03.png);
+      }
+
+      /* .원이야.on 일 경우 애니적용하기! */
+      .원이야.on {
+        /* 애니메이션 키프레임 호출은 animation속성으로! */
+        animation: rotate-ani 5s linear infinite;
+        /* animation: 키프레임이름 시간 가속도 반복횟수; */
+      }
+      /* .원이야 회전 키프레임
+      애니메이션을 위한 장면연출 구역을 키프레임이라고함 */
+      @keyframes rotate-ani {
+        to {
+          /* css나중 상태 */
+          transform: rotate(360deg);
+        }
+      }
+
+      /* 전체 사각형으로 변할 원 */
+      .넌뭐냐 {
+        position: absolute;
+        top: 40%;
+        right: 0;
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        line-height: 200px;
+        white-space: nowrap;
+        border-radius: 50%;
+        background: #bbd3b3 url(./images/prog.jpg) no-repeat center/auto 100%;
+      }
+    </style>
+  </head>
+  <body>
+   
+  </body>
+</html>
