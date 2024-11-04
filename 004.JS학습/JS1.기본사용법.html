@@ -2,8 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JS1. 자바스크립트 기본 + DOM선택법</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>
+      JS1. 자바스크립트 기본 + DOM선택법
+    </title>
     <!-- 자바스크립트 코딩구역(인터널방식) -->
     <script>
       // 한줄주석
@@ -270,29 +275,26 @@
         
         *******************************************/
 
-        // 출력1
-        // 전체문서는 document
-        // write()메서드 : 화면출력용
-        // document.write("<h1>나는 프론트엔드 개발자다!<\h1>");
+      // 출력1
+      // 전체문서는 document
+      // write()메서드 : 화면출력용
+      // document.write("<h1>나는 프론트엔드 개발자다!<\h1>");
 
-        // 출력2
-        // 전체 윈도우 객체는 window
-        // alert() 메서드 : 경고창출력용
-        // - "확인" 직전에 화면실행을 멈춤(제어권가짐)
-        // window.alert("너도 개발자니?");
+      // 출력2
+      // 전체 윈도우 객체는 window
+      // alert() 메서드 : 경고창출력용
+      // - "확인" 직전에 화면실행을 멈춤(제어권가짐)
+      // window.alert("너도 개발자니?");
 
-        // 출력3
-        // JS출력로그 확인은 콘솔에서!
-        // 브라우저 F12의 Console탭에서 확인됨!
-        // 개발시 콘솔 확인 빈번함!
-        // console.log("진짜 개발은 지금부터~!");
-
-      
+      // 출력3
+      // JS출력로그 확인은 콘솔에서!
+      // 브라우저 F12의 Console탭에서 확인됨!
+      // 개발시 콘솔 확인 빈번함!
+      // console.log("진짜 개발은 지금부터~!");
     </script>
 
-<!-- JS외부파일 연결하기 -->
- <script src="./js/JS1.기본사용법.js"></script>
-
+    <!-- JS외부파일 연결하기 -->
+    <script src="./js/JS1.기본사용법.js"></script>
 
     <style>
       html,
@@ -369,7 +371,8 @@
       /* .원이야.on 일 경우 애니적용하기! */
       .원이야.on {
         /* 애니메이션 키프레임 호출은 animation속성으로! */
-        animation: rotate-ani 5s linear infinite;
+        animation: rotate-ani 5s linear
+          infinite;
         /* animation: 키프레임이름 시간 가속도 반복횟수; */
       }
       /* .원이야 회전 키프레임
@@ -392,11 +395,37 @@
         line-height: 200px;
         white-space: nowrap;
         border-radius: 50%;
-        background: #bbd3b3 url(./images/prog.jpg) no-repeat center/auto 100%;
+        background: #bbd3b3
+          url(./images/prog.jpg)
+          no-repeat center/auto 100%;
       }
     </style>
   </head>
   <body>
-   
+    <!-- 드라마 소개박스 -->
+     <!-- 현재 DOM구조 : html>body>p.pbox>span#name -->
+      <!-- 이벤트속성 : on이벤트명="값"
+       이벤트속성값 영역은 보통 문자열이 아니고
+       JS코딩구역이다! -->
+       
+     <p class="pbox"
+     title="클릭하시면 김비서가 나옵니다~!"
+     onclick="
+    //  alert('👩‍🦰ㅋㅋ');
+    // 백틱(`)으로 감싸서 출력할 수 있다!
+    // 이퀄(=)은 오른쪽 값을 왼쪽에 할당!
+    // innerHTML 은 태그를 넣을 수 있는 속성임
+    // JS는 명령어끝에 반드시 세미콜론 해야함!
+    document.getElementById('name').innerHTML = 
+    `<img src='./images/kim.png' alt='김비서가 왜그럴까?'>`;
+
+    // 함수를 호출하여 나머지 기능을 만들어볼까?
+    김비서나와라();
+     
+     "
+     >
+      나는 요즘 매일 생각한다! <br>
+      도대체 <span id="name"></span>
+     </p>
   </body>
 </html>
