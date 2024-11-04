@@ -2,13 +2,71 @@
 /* 로봇 PJ CSS - robot.css */
 
 /* 초기화 */
-html,body{
-    margin: 0;
-    padding: 0;
-    /* 보이는 화면만큼 높이값 셋팅 */
-    height: 100%;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  /* 보이는 화면만큼 높이값 셋팅 */
+  height: 100%;
 }
 
-body{
-    background: url(../images/bg.jpg) no-repeat top/cover;
+/* 공사중 표시 */
+body * {
+  outline: 2px dashed yellow;
 }
+
+body {
+  background: url(../images/bg.jpg)
+    no-repeat top/cover;
+}
+/************* 1. 상단영역 *************/
+
+/************* 2. 메인영역 *************/
+/* 2-1. 로봇박스 */
+.robot-box {
+  padding-top: 100px;
+}
+/* 2-1-1. 로봇머리 */
+.head {
+  /* 부모자격 relative : 자식요소 앱솔루트 */
+  position: relative;
+  /* 중앙정렬박스 : 마.영.오! */
+  margin: 0 auto;
+  /* margin-top: 250px; */
+  width: 250px;
+  height: 250px;
+}
+/* 눈공통 */
+.eye {
+  position: absolute;
+  top: 50px;
+  /* 나의 부모는? .head */
+  width: 50px;
+  height: 50px;
+  /* 배경공통 */
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  /* 원형셋팅 */
+  border-radius: 50%;
+}
+/* 왼눈 */
+.eye1 {
+  /* 개별위치값 */
+  left: 50px;
+  /* 이미지만 변경 */
+  background-image: url(../images/e1.jpg);
+}
+/* 오른눈 */
+.eye2 {
+  /* 개별위치값 */
+  right: 50px;
+  /* 이미지만 변경 */
+  background-image: url(../images/e2.jpg);
+}
+/* 코 */
+/* 입 */
+/* 왼귀 */
+/* 오른귀 */
+/* 2-1-2. 로봇몸통 */
+/* 2-2. 설명박스 */
+/************* 3. 하단영역 *************/
