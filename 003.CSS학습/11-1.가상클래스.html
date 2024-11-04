@@ -281,12 +281,12 @@
             3n+1 -> 1, 4, 7, 10,...
 
         */
-      .뭘까 {
+      .part1 li:nth-child(3n+1)::before {
         content: "👩‍🦰";
       }
 
       /* 마지막 li선택 */
-      .뭘까 {
+      .part1 li:last-child {
         font: 40px "굴림";
         font-weight: bold;
         /* 글자에 배경 그라데이션 반영하기 */
@@ -302,17 +302,17 @@
       of-type 가상클래스를 사용한다! */
 
       /* div 중에 2번째 */
-      .여긴또 {
+      .part2 div:nth-of-type(2) {
         font: 30px "궁서";
         color: red;
       }
       /* i 중에 첫번째 */
-      .여긴또 {
+      .part2 i:first-of-type {
         font: 24px "굴림";
         color: darkorange;
       }
       /* i중에 첫번째 이후 모든(*)요소 선택 */
-      .여긴또 {
+      .part2 i:first-of-type ~ * {
         font-family: "궁서체";
         color: deeppink;
       }
@@ -340,27 +340,29 @@
         5. 속성명만 쓰면 속성이 있는 것 모두 선택함
         예) [alt] -> alt속성이 있는 것 선택
 
-        참고)                https://www.w3schools.com/css/css_attribute_selectors.asp
+        참고)                
+        https://www.w3schools.com/css/css_attribute_selectors.asp
         
       *********************************************/
       /* = 정확히 일치 */
-      .호호호{
+      [title='역겨워!']::after{
         content: '🤶';
       }
       /* ^= 시작하는 문자 */
-      .호호호{
+      [title^=즈려]::after{
         content: '👩‍🦰';
       }
       /* $= 끝나는 문자 */
-      .호호호{
+      [title$=ㅋㅋ]::after{
         content: '👮‍♀️';
       }
       /* *= 모든 문자 */
-      .호호호{
+      [title*=변]::after{
         content: '👨‍💻';
       }
       /* title속성이 있는 모든 요소 */
-      .호호호{
+      [title]{
+        font-size: 40px;
         outline: 4px dotted lightgreen;
       }
 
