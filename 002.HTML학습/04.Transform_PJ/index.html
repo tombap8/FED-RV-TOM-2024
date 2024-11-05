@@ -185,7 +185,7 @@
                  /* 트랜지션 시간 늘리기 */
                  transition-duration: 5s;
 
-                  /* 
+            /* 
                 transition: 속시이지
                 개별 설정이 가능함!
 
@@ -202,7 +202,18 @@
             }
 
             /* 회전축 변경하기 */
-            #trans6 img {}
+            #trans6 img {
+                /* transform-origin: right bottom; */
+                transform-origin: 70% 20%;
+            /* 
+                [ 트랜스폼 회전축 변경속성 ]
+                transform-origin: 가로 세로;
+                - 가로값 : left, right, center, 몇px,몇%
+                - 세로값 : top, bottom, center, 몇px,몇%
+                - 기본값 : 가로, 세로 center임! 
+            */
+
+            }
 
             /* 
                 7. skew - x,y축 기울임
@@ -210,7 +221,9 @@
                 - skew(x축,y축)
                 - 각도가 양수/음수에 따라 기울임 방향이 달라짐
             */
-            #trans7:hover img {}
+            #trans7:hover img {
+                transform: skewY(-30deg);
+            }
 
             /* 
                 8. scale(x축배수, y축배수)
