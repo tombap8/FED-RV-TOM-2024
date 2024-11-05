@@ -171,6 +171,23 @@
         width: 10px;
         height: 10px;
         background-color: royalblue;
+
+        /* 트랜지션 : 돌아올때 */
+        transition: 
+        /* 1. left는 3초간 처음과 끝에 천천히 6초 기다림 */
+        left 3s ease-in-out 6s,
+        /* 2. width는 2초간 끝에 천천히 4초 기다림 */
+        width 2s ease-out 4s,
+        /* 3. height는 1초간 처음에 천천히 3초 기다림 */
+        height 1s ease-in 3s,
+        /* 4. 배경색은 3초간 등속도 */
+        background-color 3s linear,
+        /* 5. 둥근모서리는 2초간 등속도 */
+        border-radius 2s linear,
+        /* 6. 보더는 1초간 등속도 */
+        border 1s linear,
+        /* 7. 배경이미지는 2초간 등속도 */
+        background-image 2s linear;
       }
       /* 체크박스가 체크되면 그 다음 형제요소를 변경하여
     클릭시 변경된것 같은 효과로 작동시킨다!
@@ -178,10 +195,13 @@
       #chkbx:checked + span {
         left: 50%;
         width: 500px;
-        height: 300px;
+        height: 400px;
         background-color: hotpink;
         border-radius: 0;
         border: 10px ridge gray;
+
+        /* 배경이미지변경(심슨->마지) */
+        background-image: url(./images/Marge_Simpson.png);
 
         /* 트랜지션 : 진행할때 */
         transition: 
@@ -196,7 +216,9 @@
         /* 5. 둥근모서리는 2초간 등속도로 7초기다림 */
         border-radius 2s linear 7s,
         /* 6. 보더는 1초간 등속도로 7초기다림 */
-        border 1s linear 7s;
+        border 1s linear 7s,
+        /* 7. 배경이미지는 2초간 등속도로 7초기다림 */
+        background-image 2s linear 7s;
       }
     </style>
   </head>
