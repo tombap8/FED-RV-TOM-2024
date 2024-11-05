@@ -137,7 +137,11 @@
         height: 50px;
         background-color: palevioletred;
         /* 트랜지션 원본(양방향/돌아올때) */
-        transition: all 2s 1s;
+        transition: 
+        /* 돌아올때 1초후 2초간 진행 */
+        all 2s 1s,
+        /* 돌아올때 top값만 바로 1초간진행 */
+        top 1s;
       }
       /* 마우스 오버시 트랜지션설정 */
       #tr3:hover span {
@@ -150,7 +154,11 @@
         background-color: lightgreen;
 
         /* 오버시에만 적용되는 트랜지션 */
-        transition: 5s;
+        transition: 
+        /* 전체오버시 5초간 진행 */
+        5s, 
+        /* top속성만 5초후 1초간 진행 */
+        top 1s 5s;
       }
 
       /* #tr4에 트랜지션 설정하기 */
