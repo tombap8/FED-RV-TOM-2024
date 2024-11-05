@@ -70,7 +70,7 @@
 
                 1. rotateY(각도deg) - Y축회전
                 - deg 는 각도의 단위(도:degree)
-                
+
                 [ 각도 단위 확장 ]
                 (1) deg: 도 단위 (360 deg는 한 바퀴 회전)
                 (2) grad: 그라디언트 (400 grad는 한 바퀴 회전)
@@ -151,7 +151,13 @@
                 /* x,y축 동시이동 : tft */
                 /* transform: translate(-50%, -100%); */
 
-                /* [ translate 속성 ] */
+                /* 
+                    [ translate 속성 ]
+                     translate: 값 값; -> x,y축 이동설정
+                     translate: 값; -> x축 이동설정
+                     translate: 0 값; -> y축 이동설정
+                
+                */
                 translate: -50% -100%;
                 /* x축이동 */
                 /* translate: -50%; */
@@ -185,8 +191,24 @@
                 /* 원형회전 : tfr */
                  /* transform: rotate(2589deg); */
 
-                 /* [ rotate 속성 ] */
-                 rotate: 4568deg;
+                 /* 
+                    [ rotate 속성 ]
+                     rotate: 각도; -> 평면회전
+                     rotate: x 각도; -> x축회전
+                     rotate: y 각도; -> y축회전
+                     rotate: z 각도; -> z축회전
+
+                     ((축별조합하기)) 1은 사용, 0은 미사용
+                     rotate: 1 1 0 45deg; -> x,y조합
+                     rotate: 1 1 1 45deg; -> x,y,z 조합
+                 
+                 
+                 */
+                 /* rotate: 4568deg; */
+                 rotate: 3turn;
+                 /* rotate: x 4568deg; */
+                 /* rotate: y 4568deg; */
+                 /* rotate: 1 1 0 4568deg; */
 
                  /* 트랜지션 종류 변경 */
                  transition-property: rotate;
@@ -246,8 +268,17 @@
                 /* 스케일 : tf:s */
                 /* transform: scale(2); */
 
-                /* [ scale 속성 ] */
-                scale: 2;
+                /* 
+                    [ scale 속성 ] 
+                     scale: 값; -> 전체확대
+                     scale: 값 값; -> x,y 따로확대
+                     scale: 값 1; -> x확대
+                     scale: 1 값; -> y확대
+                 */
+                /* scale: 2; */
+                /* scale: 2 4; */
+                /* scale: 2 1; */
+                scale: 1 2;
             }
             /* 초기배율설정 */
             #trans8 img {
