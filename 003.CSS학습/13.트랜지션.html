@@ -90,8 +90,10 @@
         width: 200px;
         height: 200px;
         border: 5px solid #000;
-        background-color: #ff0;
         border-radius: 50%;
+
+        /* 배경셋팅 */
+        background: #ff0 url(./images/simpson.png) no-repeat top/100%;
       }
 
       /*  #tr1에 트랜지션 적용 */
@@ -130,9 +132,25 @@
 
       /* #tr3에 트랜지션 설정 */
       #tr3 span {
+        left: -2%;
+        width: 50px;
+        height: 50px;
+        background-color: palevioletred;
+        /* 트랜지션 원본(양방향/돌아올때) */
+        transition: all 2s 1s;
       }
       /* 마우스 오버시 트랜지션설정 */
       #tr3:hover span {
+        /* 위로올라감 */
+        top: -200px;
+
+        left: 70%;
+        width: 400px;
+        height: 400px;
+        background-color: lightgreen;
+
+        /* 오버시에만 적용되는 트랜지션 */
+        transition: 5s;
       }
 
       /* #tr4에 트랜지션 설정하기 */
