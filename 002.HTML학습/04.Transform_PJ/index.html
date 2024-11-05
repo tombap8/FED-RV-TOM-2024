@@ -234,16 +234,34 @@
                 -> 가끔 크기가 정해진 요소를 일정크기로
                 축소, 확대해서 크기를 맞출때도 용이함!
             */
-            #trans8:hover img {}
+            #trans8:hover img {
+                /* 스케일 : tf:s */
+                /* transform: scale(2); */
+
+                /* [ scale 속성 ] */
+                scale: 2;
+            }
             /* 초기배율설정 */
-            #trans8 img {}
+            #trans8 img {
+                /* 소수점값은 축소임 */
+                /* transform: scale(.5); */
+                scale: .5;
+
+                /* 트랜지션 속성변경 */
+                transition-property: scale;
+            }
 
             /* 
                 9. 복합적용하기
                 transform: 속성1 속성2 속성3 ....; 
             */
 
-            #trans9:hover img {}
+            #trans9:hover img {
+                transform: scale(5) translate(-200%,-100%) rotateX(1200deg) skewX(50deg) rotate(5300deg);
+
+                /* 트랜지션 시간 늘리기 */
+                transition-duration: 30s;
+            }
 
             /* 
                 10. 앞뒤로 있는 이미지 뒤집기
