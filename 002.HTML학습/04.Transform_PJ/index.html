@@ -330,8 +330,8 @@
                 rotate: y 90deg;
                 /* transform: rotateY(90deg); */
 
-                /* 트랜지션: trs */
-                transition: .4s;
+                /* 트랜지션: trs 처음에 천천히 */
+                transition: .4s ease-in;
             }
 
             /* 유정이 오버시 회전하여 보이기 */
@@ -340,8 +340,9 @@
                 rotate: y 0deg;
                 /* transform: rotateY(0deg); */
 
-                /* 트랜지션 : trs 속시이지 (뒤에 지연시간) */
-                transition: .4s .4s;
+                /* 트랜지션 : trs 속시이지 (뒤에 지연시간) 
+                마지막에 천천히 */
+                transition: .4s ease-out .4s;
             }
 
             /* 보거미 원본 회전하기 */
@@ -350,8 +351,9 @@
                 rotate: y 0deg;
                 /* transform: rotateY(0deg); */
 
-                /* 트랜지션 : trs 속시이지 (뒤에 지연시간) */
-                transition: .4s .4s;
+                /* 트랜지션 : trs 속시이지 (뒤에 지연시간)
+                마지막에 천천히 */
+                transition: .4s ease-out .4s;
             }
 
             /* 보거미 오버시 회전하기 */
@@ -360,10 +362,22 @@
                 rotate: y 90deg;
                 /* transform: rotateY(90deg); */
 
-                /* 트랜지션: trs */
-                transition: .4s;
+                /* 트랜지션: trs 처음에 천천히 */
+                transition: .4s ease-in;
 
             }
+
+            /* 
+                [ CSS 애니메이션 가속도 ]
+
+                (1) linear : 등속도
+                (2) ease : 앞뒤로 약간느려짐(기본값)
+                (3) ease-in : 처음에 느리게 출발
+                (4) ease-out : 마지막에 느리게 멈춤
+                (5) ease-in-out : 앞뒤로 느려짐
+
+                https://www.w3schools.com/cssref/playit.php?filename=playcss_animation-timing-function&preval=linear
+            */
             
 
         </style>

@@ -3,9 +3,83 @@
     <head>
         <meta charset="UTF-8" />
         <title>스타벅스 응용</title>
-        <style></style>
+        <style>
+            body{
+                background: #000 url(./starbucks_img/reserve_bg.jpg) no-repeat fixed center/100%;
+            }
+
+             #trans10{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                /* 부모는? window */
+
+                /* 정중앙이동은 내크기의 절반만큼씩
+                왼쪽방향, 윗쪽방향으로 translate이동함! */
+                translate: -50% -50%;
+
+                /* 앱솔루트 자식은 잡히지 않으므로
+                가로,세로 크기를 설정함! */
+                width: 334px;
+                height: 334px;
+                
+                /* 텍스트 중앙해제 */
+                text-align: left;
+            }
+            #trans10 img{
+                position: absolute;
+                /* 앱솔루트는 서로 겹친다! */
+                /* 위치값 없으면 부모박스에 가만히 있는다!
+                즉, 젠틀하다! 젠틀앱솔루트~!!! */
+            }
+            /* 유정이 원본 회전하여 숨기기 */
+            #trans10 img:first-child{
+                /* y축 90도회전 */
+                rotate: y 90deg;
+                /* transform: rotateY(90deg); */
+
+                /* 트랜지션: trs 처음에 천천히 */
+                transition: .4s ease-in;
+            }
+
+            /* 유정이 오버시 회전하여 보이기 */
+            #trans10:hover img:first-child{
+                /* y축 0도회전 */
+                rotate: y 0deg;
+                /* transform: rotateY(0deg); */
+
+                /* 트랜지션 : trs 속시이지 (뒤에 지연시간) 
+                마지막에 천천히 */
+                transition: .4s ease-out .4s;
+            }
+
+            /* 보거미 원본 회전하기 */
+            #trans10 img:last-child{
+                /* y축 0도회전 */
+                rotate: y 0deg;
+                /* transform: rotateY(0deg); */
+
+                /* 트랜지션 : trs 속시이지 (뒤에 지연시간)
+                마지막에 천천히 */
+                transition: .4s ease-out .4s;
+            }
+
+            /* 보거미 오버시 회전하기 */
+            #trans10:hover img:last-child{
+                /* y축 90도회전 */
+                rotate: y 90deg;
+                /* transform: rotateY(90deg); */
+
+                /* 트랜지션: trs 처음에 천천히 */
+                transition: .4s ease-in;
+
+            }
+        </style>
     </head>
     <body>
-        
+        <div id="trans10">
+            <img src="./starbucks_img/reserve_medal02.png" alt="캐릭터" />
+            <img src="./starbucks_img/reserve_medal01.png" alt="캐릭터" />
+        </div>
     </body>
 </html>
