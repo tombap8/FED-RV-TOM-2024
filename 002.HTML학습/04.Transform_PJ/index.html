@@ -173,7 +173,33 @@
                 - 기본회전축은 정중앙
                 (변경가능: transform-origin)
             */
-            #trans6:hover img {}
+            #trans6:hover img {
+                /* 원형회전 : tfr */
+                 /* transform: rotate(2589deg); */
+
+                 /* [ rotate 속성 ] */
+                 rotate: 4568deg;
+
+                 /* 트랜지션 종류 변경 */
+                 transition-property: rotate;
+                 /* 트랜지션 시간 늘리기 */
+                 transition-duration: 5s;
+
+                  /* 
+                transition: 속시이지
+                개별 설정이 가능함!
+
+                1. 속성 : 
+                    transition-property
+                2. 시간 :
+                    transition-duration
+                3. 이징(가속도) :
+                    transition-timing-function
+                4. 지연시간 :
+                    transition-delay
+                */
+
+            }
 
             /* 회전축 변경하기 */
             #trans6 img {}
