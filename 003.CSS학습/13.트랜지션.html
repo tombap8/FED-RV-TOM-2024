@@ -64,7 +64,7 @@
             transition : none;
 
         
-            ***************************************************/
+      ***************************************************/
       body {
         padding-bottom: 400px;
       }
@@ -93,7 +93,9 @@
         border-radius: 50%;
 
         /* 배경셋팅 */
-        background: #ff0 url(./images/simpson.png) no-repeat top/100%;
+        background: #ff0
+          url(./images/simpson.png)
+          no-repeat top/100%;
       }
 
       /*  #tr1에 트랜지션 적용 */
@@ -138,10 +140,10 @@
         background-color: palevioletred;
         /* 트랜지션 원본(양방향/돌아올때) */
         transition: 
-        /* 돌아올때 1초후 2초간 진행 */
-        all 2s 1s,
-        /* 돌아올때 top값만 바로 1초간진행 */
-        top 1s;
+        /* 돌아올때 1초후 2초간 진행 */ all
+            2s 1s,
+          /* 돌아올때 top값만 바로 1초간진행 */
+            top 1s;
       }
       /* 마우스 오버시 트랜지션설정 */
       #tr3:hover span {
@@ -155,10 +157,9 @@
 
         /* 오버시에만 적용되는 트랜지션 */
         transition: 
-        /* 전체오버시 5초간 진행 */
-        5s, 
-        /* top속성만 5초후 1초간 진행 */
-        top 1s 5s;
+        /* 전체오버시 5초간 진행 */ 5s,
+          /* top속성만 5초후 1초간 진행 */
+            top 1s 5s;
       }
 
       /* #tr4에 트랜지션 설정하기 */
@@ -174,20 +175,20 @@
 
         /* 트랜지션 : 돌아올때 */
         transition: 
-        /* 1. left는 3초간 처음과 끝에 천천히 6초 기다림 */
-        left 3s ease-in-out 6s,
-        /* 2. width는 2초간 끝에 천천히 4초 기다림 */
-        width 2s ease-out 4s,
-        /* 3. height는 1초간 처음에 천천히 3초 기다림 */
-        height 1s ease-in 3s,
-        /* 4. 배경색은 3초간 등속도 */
-        background-color 3s linear,
-        /* 5. 둥근모서리는 2초간 등속도 */
-        border-radius 2s linear,
-        /* 6. 보더는 1초간 등속도 */
-        border 1s linear,
-        /* 7. 배경이미지는 2초간 등속도 */
-        background-image 2s linear;
+        /* 1. left는 3초간 처음과 끝에 천천히 6초 기다림 */ left
+            3s ease-in-out 6s,
+          /* 2. width는 2초간 끝에 천천히 4초 기다림 */
+            width 2s ease-out 4s,
+          /* 3. height는 1초간 처음에 천천히 3초 기다림 */
+            height 1s ease-in 3s,
+          /* 4. 배경색은 3초간 등속도 */
+            background-color 3s linear,
+          /* 5. 둥근모서리는 2초간 등속도 */
+            border-radius 2s linear,
+          /* 6. 보더는 1초간 등속도 */
+            border 1s linear,
+          /* 7. 배경이미지는 2초간 등속도 */
+            background-image 2s linear;
       }
       /* 체크박스가 체크되면 그 다음 형제요소를 변경하여
     클릭시 변경된것 같은 효과로 작동시킨다!
@@ -205,20 +206,22 @@
 
         /* 트랜지션 : 진행할때 */
         transition: 
-        /* 1. left는 3초간 처음과 끝에 천천히 1초 기다림 */
-        left 3s ease-in-out 1s,
-        /* 2. width는 2초간 끝에 천천히 4초 기다림 */
-        width 2s ease-out 4s,
-        /* 3. height는 1초간 처음에 천천히 6초 기다림 */
-        height 1s ease-in 6s,
-        /* 4. 배경색은 3초간 등속도로 7초기다림 */
-        background-color 3s linear 7s,
-        /* 5. 둥근모서리는 2초간 등속도로 7초기다림 */
-        border-radius 2s linear 7s,
-        /* 6. 보더는 1초간 등속도로 7초기다림 */
-        border 1s linear 7s,
-        /* 7. 배경이미지는 2초간 등속도로 7초기다림 */
-        background-image 2s linear 7s;
+        /* 1. left는 3초간 처음과 끝에 천천히 1초 기다림 */ left
+            3s ease-in-out 1s,
+          /* 2. width는 2초간 끝에 천천히 4초 기다림 */
+            width 2s ease-out 4s,
+          /* 3. height는 1초간 처음에 천천히 6초 기다림 */
+            height 1s ease-in 6s,
+          /* 4. 배경색은 3초간 등속도로 7초기다림 */
+            background-color 3s linear
+            7s,
+          /* 5. 둥근모서리는 2초간 등속도로 7초기다림 */
+            border-radius 2s linear 7s,
+          /* 6. 보더는 1초간 등속도로 7초기다림 */
+            border 1s linear 7s,
+          /* 7. 배경이미지는 2초간 등속도로 7초기다림 */
+            background-image 2s linear
+            7s;
       }
     </style>
   </head>
