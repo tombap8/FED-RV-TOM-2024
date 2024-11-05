@@ -116,6 +116,7 @@
             #trans3:hover img {
                 /* x축이동 : tftx */
                 transform: translateX(-50%);
+                
             }
             /* 
                 4. translateY(거리) - Y축이동
@@ -127,7 +128,7 @@
             */
             #trans4:hover img {
                 /* y축이동 : tfty */
-                transform: translateY(y);
+                transform: translateY(200px);
             }
             /* 
                 5. translate(x축거리,y축거리) - X,Y축이동
@@ -138,7 +139,32 @@
                     width,height값
                 - 이동방향: + 오른쪽/아랫쪽, -는 왼쪽/윗쪽
             */
-            #trans5:hover img {}
+            #trans5:hover img {
+                /* x,y축 동시이동 : tft */
+                /* transform: translate(-50%, -100%); */
+
+                /* [ translate 속성 ] */
+                translate: -50% -100%;
+                /* x축이동 */
+                /* translate: -50%; */
+                /* y축이동 */
+                /* translate: 0 -100%; */
+
+                /* translate의 사용율이 높아짐에 따라
+                transform 하위속서에서 독립하여 사용될 수
+                있다! translate: x축 y축; 
+                    y축값을 안쓰면 비워놓고
+                    x축값을 안쓰면 0쓰고 지나감
+                */
+
+
+                transition: .5s;
+
+
+                /* CSS에서 기존 하위속성이 사용율이 높아지면 별도의 속성으로 독립시켜주기도함! */
+                /* filter:opacity(50%); */
+                opacity: 0.5;
+            }
 
             /* 
                 6. rotate(각도deg) - 원형회전
