@@ -167,11 +167,36 @@
         속시이지 순으로 셋팅하고 콤마로 구분한다!
     */
       #tr4 span {
+        left: 10%;
+        width: 10px;
+        height: 10px;
+        background-color: royalblue;
       }
       /* 체크박스가 체크되면 그 다음 형제요소를 변경하여
     클릭시 변경된것 같은 효과로 작동시킨다!
      */
       #chkbx:checked + span {
+        left: 50%;
+        width: 500px;
+        height: 300px;
+        background-color: hotpink;
+        border-radius: 0;
+        border: 10px ridge gray;
+
+        /* 트랜지션 : 진행할때 */
+        transition: 
+        /* 1. left는 3초간 처음과 끝에 천천히 1초 기다림 */
+        left 3s ease-in-out 1s,
+        /* 2. width는 2초간 끝에 천천히 4초 기다림 */
+        width 2s ease-out 4s,
+        /* 3. height는 1초간 처음에 천천히 6초 기다림 */
+        height 1s ease-in 6s,
+        /* 4. 배경색은 3초간 등속도로 7초기다림 */
+        background-color 3s linear 7s,
+        /* 5. 둥근모서리는 2초간 등속도로 7초기다림 */
+        border-radius 2s linear 7s,
+        /* 6. 보더는 1초간 등속도로 7초기다림 */
+        border 1s linear 7s;
       }
     </style>
   </head>
