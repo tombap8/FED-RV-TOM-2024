@@ -31,6 +31,10 @@
                 padding: 20px;
                 margin: 100px auto;
                 box-sizing: border-box;
+
+                /* 겹쳐지는 부분 배경 흐르게하기
+                -> 백드롭필터! 블러! */
+                backdrop-filter: blur(5px);
             }
 
             /* 가상요소로 clear셋팅 */
@@ -88,8 +92,18 @@
                 2. rotateX(각도deg) - X축회전
                 - deg 는 각도의 단위(도:degree)
             */
-            #trans2 img {}
-            #trans2:hover img {}
+            #trans2 img {
+                /* x축회전 : tfrx */
+                transform: rotateX(180deg);
+                /* 필터블러 */
+                filter: blur(2px);
+            }
+            #trans2:hover img {
+                /* x축회전 : tfrx */
+                transform: rotateX(0deg);
+                /* 필터블러 */
+                filter: blur(0px);
+            }
 
             /* 
                 3. translateX(거리) - X축이동
@@ -99,7 +113,10 @@
                 - % 단위를 쓸경우 기준은 요소의 width값
                 - 이동방향: + 오른쪽, -는 왼쪽
             */
-            #trans3:hover img {}
+            #trans3:hover img {
+                /* x축이동 : tftx */
+                transform: translateX(-50%);
+            }
             /* 
                 4. translateY(거리) - Y축이동
                 - 단위 : px, % 등
@@ -108,7 +125,10 @@
                 - % 단위를 쓸경우 기준은 요소의 height값
                 - 이동방향: + 아랫쪽, -는 윗쪽
             */
-            #trans4:hover img {}
+            #trans4:hover img {
+                /* y축이동 : tfty */
+                transform: translateY(y);
+            }
             /* 
                 5. translate(x축거리,y축거리) - X,Y축이동
                 - 단위 : px, % 등
