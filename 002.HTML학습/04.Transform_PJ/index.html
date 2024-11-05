@@ -314,6 +314,9 @@
                 가로,세로 크기를 설정함! */
                 width: 200px;
                 height: 200px;
+                
+                /* 텍스트 중앙해제 */
+                text-align: left;
             }
             #trans10 img{
                 position: absolute;
@@ -322,13 +325,45 @@
                 즉, 젠틀하다! 젠틀앱솔루트~!!! */
             }
             /* 유정이 원본 회전하여 숨기기 */
-            #trans10 img:first-child{}
+            #trans10 img:first-child{
+                /* y축 90도회전 */
+                rotate: y 90deg;
+                /* transform: rotateY(90deg); */
+
+                /* 트랜지션: trs */
+                transition: .4s;
+            }
+
             /* 유정이 오버시 회전하여 보이기 */
-            #trans10:hover img:first-child{}
+            #trans10:hover img:first-child{
+                /* y축 0도회전 */
+                rotate: y 0deg;
+                /* transform: rotateY(0deg); */
+
+                /* 트랜지션 : trs 속시이지 (뒤에 지연시간) */
+                transition: .4s .4s;
+            }
+
             /* 보거미 원본 회전하기 */
-            #trans10 img:last-child{}
+            #trans10 img:last-child{
+                /* y축 0도회전 */
+                rotate: y 0deg;
+                /* transform: rotateY(0deg); */
+
+                /* 트랜지션 : trs 속시이지 (뒤에 지연시간) */
+                transition: .4s .4s;
+            }
+
             /* 보거미 오버시 회전하기 */
-            #trans10:hover img:last-child{}
+            #trans10:hover img:last-child{
+                /* y축 90도회전 */
+                rotate: y 90deg;
+                /* transform: rotateY(90deg); */
+
+                /* 트랜지션: trs */
+                transition: .4s;
+
+            }
             
 
         </style>
