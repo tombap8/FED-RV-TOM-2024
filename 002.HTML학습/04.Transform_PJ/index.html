@@ -67,7 +67,22 @@
                 1. rotateY(각도deg) - Y축회전
                 - deg 는 각도의 단위(도:degree)
             */
-            #trans1:hover img {}
+            #trans1:hover img {
+                /* y축회전 : tfry */
+                transform: rotateY(180deg);
+
+                /* 필터 적용하기(흑백) */
+                filter: grayscale(100%);
+                /* CSS 필터 적용하기
+                    : 필터속성은 흑백,흐림,세피아,명암,
+                    채도 등 출력이미지를 변경하고자 할때
+                    사용하는 속성
+                    (참고)
+                    https://www.w3schools.com/cssref/playit.php?filename=playcss_filter&preval=blur(5px)
+                */
+
+
+            }
 
             /* 
                 2. rotateX(각도deg) - X축회전
