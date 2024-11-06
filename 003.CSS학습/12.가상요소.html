@@ -54,7 +54,7 @@
 
              */
       /* h2요소 맨앞에 이미지 넣기 */
-      .뭘까 {
+      h2::before {
         content: url(./imgs/blogo.png);
         width: 20px;
         height: 10px;
@@ -69,7 +69,7 @@
       }
 
       /* 맨뒤 추가요소 ::after */
-      .뭘까 {
+      h2::after {
         /* 이미지크기 조절하려면
             박스를 만들고 배경이미지로 넣는다! */
         content: "";
@@ -85,7 +85,9 @@
         /* 박스 그림자 여러개주기
             x y blur spread 색... 을 
             콤마로 연결하면 여러개 사용가능 */
-        box-shadow: 0 0 10px purple, 10px 10px 5px 2px #0000ff6e;
+        box-shadow: 
+        0 0 10px purple, 
+        10px 10px 5px 2px #0000ff6e;
 
         /* 간격,위치조정 */
         vertical-align: middle;
@@ -107,52 +109,57 @@
       }
 
       /* 반복되는 요소의 앞에 아이콘 가상요소로 넣기 */
-      .뭘까{
+      dt::before{
         content: '🛕★';
         font-size: 30px;
         vertical-align: 2px;
         color: red;
       }
       /* dt아이콘 변경 */
-      .뭘까{
+      /* dt중 두번째 */
+      dt:nth-of-type(2)::before{
         content: '🧛‍♂️';
       }
-      .뭘까{
+      /* dt중 세번째 */
+      dt:nth-of-type(3)::before{
         content: '🏇';
       }
-      .뭘까{
+      /* dt중 네번째 */
+      dt:nth-of-type(4)::before{
         content: '🍒';
       }
 
       /* dd전체 before적용하기 */
-      .뭘까{
+      dd::before{
         content: '👨‍🦰';
         font-size: 28px;
         margin-right: 15px;
       }
       /* 여자인 경우 이모지 변경 */
-      .뭘까,
-      .뭘까,
-      .뭘까,
-      .뭘까,
-      .뭘까,
-      .뭘까      
+      dd:nth-of-type(3)::before,
+      dd:nth-of-type(4)::before,
+      dd:nth-of-type(8)::before,
+      dd:nth-of-type(9)::before,
+      dd:nth-of-type(11)::before,
+      dd:nth-of-type(12)::before      
       {
         content: '👩‍🦰';
       }
-      .뭘까      
+      /* 남자,여자 같이 출력
+      "찬열,펀치" */
+      dd:nth-of-type(13)::before       
       {
         content: '👨‍🦰👩‍🦰';
       }
 
       
       /* 스토리의 dd는 가상요소 없애기 */
-      .뭘까{
+      dd.story::before{
         display: none;
       }
 
       /* 스토리의 dd 아래 h3 이모지넣기 */
-      .뭘까{
+      dd.story h3::before{
         content: '🎥';
         margin-right: 20px;
       }
