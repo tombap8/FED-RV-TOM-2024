@@ -53,6 +53,25 @@ function 김비서나와라(){
     // 3-2. 글자색 변경하기
     나변수.style.color = "lime";
 
+    // 3-3. 글자크기 변경하기
+    나변수.style.fontSize = "40px";
+
+    // 3-4. 글자그림자
+    나변수.style.textShadow = "2px 2px 2px #000";
+
+    // 3-5. 트랜지션
+    나변수.style.transition = "all 1s";
+
+    // 3-6. 크기변경 
+    나변수.style.width = "600px";
+    나변수.style.height = "600px";
+
+    // 3-7. 줄간격
+    나변수.style.lineHeight = "100px";
+
+    // 3-8. 원만들기
+    나변수.style.borderRadius = "50%";
+
 
 
 
