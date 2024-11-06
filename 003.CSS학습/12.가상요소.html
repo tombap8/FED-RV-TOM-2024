@@ -165,14 +165,18 @@
       }
 
       /* .story의 첫번째 p태그의 첫번째 글자 디자인 변경하기 */
-      .뭘까{
+      .story p:first-of-type::first-letter{
             font-size: 50px;
             color: hotpink;
             font-weight: bold;
+            /* ::first-line에서의 글자체가 같이 적용되므로
+            ::first-letter의 글자체를 별도로 셋팅한다!
+            우선순위가 높음! */
+            font-family: "맑은 고딕";
         }
 
       /* .story의 첫번째 p태그의 첫번째줄 디자인 변경하기 */
-      .뭘까{
+      .story p:first-of-type::first-line{
             font-size: 22px;
             color: blue;
             font-family: '궁서';
@@ -193,7 +197,8 @@
       /* 기타 가상요소 ::selection */
       /* 드래그 선택시 글자색 배경색 설정변경! */
       
-      .뭘까{
+      /* p::selection{ -> p요소만 적용*/
+      ::selection{/* 전체적용! */
         color: rgb(52, 255, 154);
         background-color: hotpink;
       }
