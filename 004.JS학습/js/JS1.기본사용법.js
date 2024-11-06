@@ -26,12 +26,32 @@ function 김비서나와라(){
     console.log(
         document.getElementsByClassName('pbox'));
 
+    // 변수에 대상 할당하기!
+    var 나변수 = document.getElementsByClassName('pbox').item(0);
+    // 변수는 특정메모리 공간이다!
+    // 선언과 동시에 할당하여 값을 저장함
+    // 변수는 여기를 "봐!" var 로 선언
+    // var 변수명 = 값
+
+    // [변수를 사용하는 이유?]
+    // - 변수는 재사용
+    // - 변수는 저장 메모리공간 주소
+    // - 변수는 따옴표안쓴 문자
+    // - 변수는 띄어쓰기 없음
+    // - 변수는 호출시 값 출력
+    // - 변수는 재할당시 다른값 덮어씀
+    // - 변수는 한번만 선언 var(let/const)
+    // - var는 variable(변수)라는 단어에서 나온말!
+
+
     ////// 변경내용 ////////////////////
     // 3-1. 배경이미지 넣기
-    document.getElementsByClassName('pbox').item(0)
-    .style.background = "url(./images/kimbs.jpg) no-repeat top/cover";
+    나변수.style.background = "url(./images/kimbs.jpg) no-repeat top/cover";
     // .pbox중 첫번째 (0번)를 선택함!
     // item(순번)
+
+    // 3-2. 글자색 변경하기
+    나변수.style.color = "lime";
 
 
 
