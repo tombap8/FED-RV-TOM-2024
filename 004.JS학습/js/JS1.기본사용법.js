@@ -106,7 +106,8 @@ function 김비서나와라() {
   // JS에서 body는 특별히 취급하여 
   // document.body로 선택
   var 나바디 = document.body;
-  나바디.style.backgroundColor = "lightGreen";
+  나바디.style.backgroundColor = "lightgreen";
+//   나바디.style.background = "linear-gradient(45deg, lightgreen, hotpink, lightblue)";
   나바디.style.transition = "3s 5s";
 
 
