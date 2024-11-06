@@ -26,6 +26,7 @@ function 김비서나와라(){
     console.log(
         document.getElementsByClassName('pbox'));
 
+    ////// 변경내용 ////////////////////
     // 3-1. 배경이미지 넣기
     document.getElementsByClassName('pbox').item(0)
     .style.background = "url(./images/kimbs.jpg) no-repeat top/cover";
