@@ -251,4 +251,21 @@ function 사각사각(){
   // top값부터 1초간 작동 나머지는 1초후 작동
   나야나.style.zIndex = "100";// 맨위
 
+  // 4. 추가변경 : 글자넣기
+  // innerText = 글자내용
+  // -> 태그없는 글자 데이터만 넣기!
+  나야나.innerText = "JS입문을 환영합니다!";
+
+  // 5. 글자 관련 CSS 넣기!
+  나야나.style.fontSize = "70px";
+  나야나.style.color = "aqua";
+  나야나.style.fontWeight = "bold";
+  나야나.style.textShadow = "5px 5px 3px #000";
+  나야나.style.lineHeight = window.innerHeight + "px";
+  // window.innerHeight는 현재 윈도우창 높이값 리턴!
+
+  // 화면높이값
+  console.log("화면높이값:",window.innerHeight);
+
+
 } /////////// 사각사각 함수 //////////////////
