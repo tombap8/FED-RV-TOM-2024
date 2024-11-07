@@ -24,9 +24,8 @@ function 김비서나와라() {
   // 0,1,2,... 이런 순서로 수집함
   // 하나뿐이어도 0번째라고 해야함!
   console.log(
-    document.getElementsByClassName(
-      "pbox"
-    )
+    document.getElementsByClassName("pbox"),
+    document.getElementsByTagName("span")
   );
 
   // 변수에 대상 할당하기!
@@ -107,8 +106,52 @@ function 김비서나와라() {
   // document.body로 선택
   var 나바디 = document.body;
   나바디.style.backgroundColor = "lightgreen";
-//   나바디.style.background = "linear-gradient(45deg, lightgreen, hotpink, lightblue)";
   나바디.style.transition = "3s 5s";
+
+  /****************************************** 
+    [ JS DOM의 요소 선택 메서드 ]
+     1. id 선택 메서드 : 
+      -> getElementById(아이디명)
+     document.getElementById("id명")
+
+     2. class 선택 메서드 : 
+      -> getElementsByClassName(클래스명)
+      document.getElementsByClassName("class명")
+      ((하위속성))
+      length - 클래스개수
+      ((순번선택 하위메서드))
+      item(순번) - 구체적인 순번요소 선택(0부터시작)
+
+     3. tag 선택 메서드 : 
+      -> getElementsByTagName(태그명)
+      document.getElementsByTagName("tag명")
+      ((하위속성))
+      length - 요소개수
+      ((순번선택 하위메서드))
+      item(순번) - 구체적인 순번요소 선택(0부터시작)
+
+      [ HTML 컬렉션은 무엇인가? ]
+      - DOM을 통하여 선택된 다중선택요소인
+      class/tag 를 메모리상 수집하는 공간
+      - 상세 선택시 순번선택 메서드인 item()을
+      사용하여 선택한다
+      - 배열처럼 순서대로 메모리를 사용하기 때문에
+      '유사배열'이라고 불리우며 배열처럼 대괄호순번
+      을 사용하여 선택할 수 있다!
+      - document
+      .getElementsByClassName(클래스명).item(0)
+      -> 아래처럼 점안찍고 대괄호 순번사용가능!
+      .getElementsByClassName(클래스명)[0]
+
+      - 컬렉션 전체 개수정보는 length 속성으로 
+      알 수 있다!
+
+      참고) 
+      https://www.w3schools.com/js/js_htmldom_collections.asp
+
+
+  ******************************************/
+
 
 
 } //////////// 김비서나와라 함수 //////////
