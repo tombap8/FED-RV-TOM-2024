@@ -197,5 +197,24 @@ function 맘대로해라(헐, 헉스){
   아파트.style.right = "calc(100% - 200px*"+(헐+1)+")";
   // 순번에 1을 더해서 곱한이유는 right위치를 순서대로 잡기위함!
 
+  // 3-3. 유튜브 동영상 넣기
+  아파트.innerHTML = `<iframe id="my-apt"
+  src="https://www.youtube.com/embed/8Ebqe2Dbzls?autoplay=1" 
+  allow="autoplay"></iframe>`;
+
+  // 3-4. 아이프레임 디자인 넣기
+  var 뮤비 = document.querySelector('#my-apt');
+  // cssText속성 : 한꺼번에 문자열로 CSS를 넣을때 사용
+  // 주의: 따로 속성 셋팅할때와 달리 다른 인라인 속성을
+  // 덮어써서 지워버리니까 조심하라!
+  뮤비.style.cssText = `
+    position: absolute;
+    border: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  `;
+
+
 
 } ////////// 맘대로해라 함수 //////////////////
