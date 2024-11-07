@@ -24,8 +24,12 @@ function 김비서나와라() {
   // 0,1,2,... 이런 순서로 수집함
   // 하나뿐이어도 0번째라고 해야함!
   console.log(
+    "클래스선택 HTML컬랙션 객체",
     document.getElementsByClassName("pbox"),
-    document.getElementsByTagName("span")
+    "요소선택 HTML 컬랙션 객체",
+    document.getElementsByTagName("span"),
+    "아이디선택 HTML 요소객체",
+    document.getElementById("name")
   );
 
   // 변수에 대상 할당하기!
