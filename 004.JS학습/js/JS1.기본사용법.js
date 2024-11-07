@@ -171,10 +171,31 @@ function 맘대로해라(헐, 헉스){
   // 해당요소의 순번은 헐 변수에 들어있음!
   var 아파트 = 
   document.querySelectorAll('.박스야 .원이야')[헐];
+  // -> 아래와 같이 써도 같은것임!
+  // document.querySelectorAll('.박스야 .원이야').item(헐);
+  /*********************************************** 
+    [ JS DOM의 특별한 선택 메서드 2가지 ]
+     1. querySelector(CSS선택자) - 하나만 선택
+     2. querySelectorAll(CSS선택자) - 여러개 선택
+     -> 2번방식은 HTMLCollection을 반환한다!
+     -> 따라서 length와 item(순번)/[순번]을 사용함!
+  ***********************************************/
 
   // document.getElementsByClassName("박스야").item(0)
   // .getElementsByClassName("원이야").item(헐);
 
   console.log("대상요소:",아파트);
+
+  // 3. 변경내용 : 트랜지션으로 화면 왼쪽하단으로 이동하며
+  // 박스에 유튜브 비디오가 나오도록 한다!
+
+  // 3-1. 트랜지션 설정
+  아파트.style.transition = "all 1s ease-out,right .5s 1s";
+
+  // 3-2. 위치이동
+  아파트.style.top = "calc(100% - 200px)";
+  아파트.style.right = "calc(100% - 200px*"+(헐+1)+")";
+  // 순번에 1을 더해서 곱한이유는 right위치를 순서대로 잡기위함!
+
 
 } ////////// 맘대로해라 함수 //////////////////
