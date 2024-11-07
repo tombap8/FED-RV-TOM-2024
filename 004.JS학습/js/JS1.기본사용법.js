@@ -167,4 +167,14 @@ function 맘대로해라(헐, 헉스){
   // 1. 함수호출확인
   console.log("니맘대로하세요~!",헐,헉스);
 
+  // 2. 대상선정 : .박스야 .원이야
+  // 해당요소의 순번은 헐 변수에 들어있음!
+  var 아파트 = 
+  document.querySelectorAll('.박스야 .원이야')[헐];
+
+  // document.getElementsByClassName("박스야").item(0)
+  // .getElementsByClassName("원이야").item(헐);
+
+  console.log("대상요소:",아파트);
+
 } ////////// 맘대로해라 함수 //////////////////
