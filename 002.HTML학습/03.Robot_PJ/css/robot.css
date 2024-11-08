@@ -34,7 +34,7 @@ body {
 .robot-box {
   /* 위,아래 패딩으로 공간확보 */
   padding-top: 100px;
-  padding-bottom: 500px;
+  padding-bottom: 700px;
 }
 /* 2-1-1. 로봇머리 */
 .head {
@@ -224,6 +224,8 @@ body {
   position: absolute;
   /* 앱솔루트 자동블록 */
   top: 100%;
+  /* 손박스 위로배치 */
+  z-index: 1;
   /* 손이미지 배경사이즈만큼 */
   width: 80px;
   height: 110px;
@@ -231,12 +233,31 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
-
+/* 왼손 */
+.arm1 span::after{
+  background-image: url(../images/hand_left.png);
+  left: -12px;
+}
+/* 오른손 */
+.arm2 span::after{
+  background-image: url(../images/hand_right.png);
+  right: -12px;
+}
 /* 다리공통 */
 .leg {
   top: 100%;
   width: 70px;
-  height: 200px;
+  height: 280px;
+}
+/* 다리관절 가상요소로 만들기 */
+.leg::after{
+  content: '';
+  position: absolute;
+  top: 90%;
+  left: -10%;
+  width: 120%;
+  height: 20%;
+  border-radius: 20px;
 }
 /* 왼다리 */
 .leg1 {
@@ -253,7 +274,41 @@ body {
   top: 100%;
   left: 10%;
   width: 80%;
-  height: 80%;
+  height: 100%;
+}
+/* 부츠상단 가상요소 */
+.leg span::before{
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: -10%;
+  width: 120%;
+  height: 100%;
+  background-image: 
+  linear-gradient(
+    to right, #ccc, #222);
+  border: 2px solid #222;
+  border-top-width: 15px;
+  /* 패딩,보더 포함박스 : bxb */
+  box-sizing: border-box;
+}
+/* 부츠하단 가상요소 */
+.leg span::after{
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: -30%;
+  width: 160%;
+  height: 20%;
+  background-image: 
+  linear-gradient(
+    to right, #ccc, #222);
+  border: 2px solid #222;
+  border-bottom-width: 10px;
+  /* 패딩,보더 포함박스 : bxb */
+  box-sizing: border-box;
+  /* 상단 보더 둥글게 */
+  border-radius: 50% 50% 0 0;
 }
 /* 어깨공통 */
 .shdr {
