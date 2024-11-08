@@ -95,18 +95,24 @@ body {
     no-repeat 0/100% 100%;
 }
 /* 귀공통 */
-.ear{
+.ear {
   top: 80px;
   width: 50px;
   height: 80px;
 }
 /* 왼귀 */
-.ear1{
-left: -50px;
+.ear1 {
+  /* 왼쪽바깥위치 */
+  left: -50px;
+  /* 왼위,아래만 둥근모서리 */
+  border-radius: 20px 0 0 20px;
 }
 /* 오른귀 */
-.ear2{
-right: -50px;
+.ear2 {
+  /*치오른쪽바깥위치 */
+  right: -50px;
+  /* 오른위,아래만 둥근모서리 */
+  border-radius: 0 20px 20px 0;
 }
 /* 2-1-2. 로봇몸통 */
 /* 2-2. 설명박스 */
