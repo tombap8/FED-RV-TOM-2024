@@ -201,6 +201,26 @@ body {
   width: 50px;
   height: 180px;
 }
+/* 팔관절 가상요소로 만들기 */
+.arm::after{
+  content: '';
+  position: absolute;
+  top: 90%;
+  left: -10%;
+  width: 120%;
+  /* 패딩top을 %로하면 박스 가로크기를 
+  기준하여 생성된다! 100% 정사각형
+  단, height값을 주지말것! */
+  padding-top: 100%;
+  /* 원형 그라데이션주기
+  radial-gradient(색1,색2,색3) */
+  background-image: 
+  radial-gradient(#ccc 40%, #ccc 60%,#222);
+  border: 3px solid #ccc;
+  /* 원만들기 */
+  border-radius: 50%;
+  box-sizing: border-box;
+}
 /* 왼팔 */
 .arm1 {
   left: -65px;
@@ -247,7 +267,7 @@ body {
 .leg {
   top: 100%;
   width: 70px;
-  height: 280px;
+  height: 260px;
 }
 /* 다리관절 가상요소로 만들기 */
 .leg::after{
