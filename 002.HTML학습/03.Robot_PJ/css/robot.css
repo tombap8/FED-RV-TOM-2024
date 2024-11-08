@@ -21,8 +21,9 @@ body {
   /* 배경이미지 */
   background: url(../images/bg.jpg)
     no-repeat top/cover;
-    /* 커서 이미지로 변경하기 */
-    cursor: url(../images/favicon.png),auto;
+  /* 커서 이미지로 변경하기 */
+  cursor: url(../images/favicon.png),
+    auto;
 }
 /************* 1. 상단영역 *************/
 
@@ -75,12 +76,38 @@ body {
   background-image: url(../images/e2.jpg);
 }
 /* 코 */
-.nose{
-  position: absolute;
+.nose {
+  top: 100px;
+  left: 100px;
+  width: 50px;
+  height: 70px;
+  background: url(../images/nose.jpg)
+    no-repeat 0/110% 100%;
+  border-radius: 20px;
 }
 /* 입 */
+.mouth {
+  bottom: 20px;
+  left: 59px;
+  width: 132px;
+  height: 46px;
+  background: url(../images/mouth.png)
+    no-repeat 0/100% 100%;
+}
+/* 귀공통 */
+.ear{
+  top: 80px;
+  width: 50px;
+  height: 80px;
+}
 /* 왼귀 */
+.ear1{
+left: -50px;
+}
 /* 오른귀 */
+.ear2{
+right: -50px;
+}
 /* 2-1-2. 로봇몸통 */
 /* 2-2. 설명박스 */
 /************* 3. 하단영역 *************/
