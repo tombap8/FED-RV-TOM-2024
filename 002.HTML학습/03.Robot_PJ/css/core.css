@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+/* Robot PJ : 공통클래스/웹폰트 CSS - core.css */
+
+/*********** 1. 웹폰트 : CDN ***********/
+
+/* 웹폰트 CDN */
+@import url("https://fonts.googleapis.com/css2?family=Barlow&family=Black+Ops+One&family=Chakra+Petch&family=Orbitron:wght@500&display=swap");
+
+/* 
+    font-family: 'Barlow', sans-serif;
+    font-family: 'Black Ops One', cursive;
+    font-family: 'Chakra Petch', sans-serif;
+    font-family: 'Orbitron', sans-serif;
+*/
+
+/********** 2. 공통 클래스 **********/
+/* 레이아웃 공통 클래스 */
+.part {
+  /* 가로크기 공통 */
+  width: 1200px;
+  /* 마.영.오 - 블록박스 중앙정렬 */
+  margin: 0 auto;
+}

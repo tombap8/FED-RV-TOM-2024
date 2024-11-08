@@ -1,11 +1,13 @@
 @charset "utf-8";
 /* 로봇 PJ CSS - robot.css */
 
+/* 외부 CSS합치기 */
+@import url(./core.css);
+@import url(./reset.css);
+
 /* 초기화 */
 html,
 body {
-  margin: 0;
-  padding: 0;
   /* 보이는 화면만큼 높이값 셋팅 */
   height: 100%;
 }
