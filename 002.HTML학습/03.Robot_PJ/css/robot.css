@@ -13,7 +13,9 @@ body {
 }
 
 /* 공사중 표시 */
-body * {
+body *,
+*::before,
+*::after {
   outline: 2px dashed yellow;
 }
 
@@ -129,7 +131,7 @@ body {
   border-radius: 0 20px 20px 0;
 }
 /* 2-1-2. 로봇몸통 */
-.body{
+.body {
   /* 부모자격 렐러티브 */
   position: relative;
   width: 180px;
@@ -139,8 +141,8 @@ body {
   margin-top: 50px;
 }
 /* .body가상요소로 상체만들기 */
-.body::before{
-  content: '';
+.body::before {
+  content: "";
   display: block;
   /* 블록으로 변경해야 div같이 사용가능 */
   position: absolute;
@@ -151,12 +153,17 @@ body {
   width: 120%;
   height: 50%;
   border-radius: 15px;
-  background-image: linear-gradient(to bottom, #e1e1e1,#b6b6b6,#4e4e4e);
+  background-image: linear-gradient(
+    to bottom,
+    #e1e1e1,
+    #b6b6b6,
+    #4e4e4e
+  );
   background-color: #fff;
 }
 /* .body가상요소로 숏바지만들기 */
-.body::after{
-  content: '';
+.body::after {
+  content: "";
   display: block;
   /* 블록으로 변경해야 div같이 사용가능 */
   position: absolute;
@@ -167,15 +174,20 @@ body {
   width: 120%;
   height: 35%;
   border-radius: 15px 15px 50% 50%;
-  background-image: linear-gradient(to bottom, #e1e1e1,#b6b6b6,#4e4e4e);
+  background-image: linear-gradient(
+    to bottom,
+    #e1e1e1,
+    #b6b6b6,
+    #4e4e4e
+  );
   background-color: #fff;
 }
 /* 바디 하위요소 앱솔루트 */
-.body>div{
+.body > div {
   position: absolute;
 }
 /* 로봇목 */
-.neck{
+.neck {
   top: -70px;
   left: 50%;
   translate: -50%;
@@ -184,21 +196,21 @@ body {
   border-radius: 20px;
 }
 /* 팔공통 */
-.arm{
+.arm {
   top: 30px;
   width: 50px;
   height: 180px;
 }
 /* 왼팔 */
-.arm1{
+.arm1 {
   left: -65px;
 }
 /* 오른팔 */
-.arm2{
+.arm2 {
   right: -65px;
 }
 /* 팔하단 공통 */
-.arm span{
+.arm span {
   position: absolute;
   /* 부모는? .arm */
   top: 100%;
@@ -206,22 +218,36 @@ body {
   width: 80%;
   height: 80%;
 }
+/* 손공통 : span의 가상요소로 만들기 */
+.arm span::after {
+  content: "";
+  position: absolute;
+  /* 앱솔루트 자동블록 */
+  top: 100%;
+  /* 손이미지 배경사이즈만큼 */
+  width: 80px;
+  height: 110px;
+  /* 배경공통 */
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
 /* 다리공통 */
-.leg{
+.leg {
   top: 100%;
   width: 70px;
   height: 200px;
 }
 /* 왼다리 */
-.leg1{
+.leg1 {
   left: 0;
 }
 /* 오른다리 */
-.leg2{
+.leg2 {
   right: 0;
 }
 /* 다리하단 공통 */
-.leg span{
+.leg span {
   position: absolute;
   /* 부모는? .leg */
   top: 100%;
@@ -230,17 +256,17 @@ body {
   height: 80%;
 }
 /* 어깨공통 */
-.shdr{
+.shdr {
   width: 70px;
   height: 70px;
 }
 /* 왼어깨 */
-.shdr1{
+.shdr1 {
   left: -77px;
   border-radius: 50% 0 0 50%;
 }
 /* 오른어깨 */
-.shdr2{
+.shdr2 {
   right: -77px;
   border-radius: 0 50% 50% 0;
 }
