@@ -18,9 +18,9 @@ body * {
 }
 
 body {
-  /* 배경이미지 */
+  /* 배경이미지(고정fixed) */
   background: url(../images/bg.jpg)
-    no-repeat top/cover;
+    no-repeat fixed top/cover;
   /* 커서 이미지로 변경하기 */
   cursor: url(../images/favicon.png),
     auto;
@@ -30,7 +30,9 @@ body {
 /************* 2. 메인영역 *************/
 /* 2-1. 로봇박스 */
 .robot-box {
+  /* 위,아래 패딩으로 공간확보 */
   padding-top: 100px;
+  padding-bottom: 500px;
 }
 /* 2-1-1. 로봇머리 */
 .head {
