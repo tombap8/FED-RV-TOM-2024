@@ -39,8 +39,10 @@ body {
   /* 중앙정렬박스 : 마.영.오! */
   margin: 0 auto;
   /* margin-top: 250px; */
-  width: 250px;
+  width: 200px;
   height: 250px;
+  /* 얼굴모양 만들기 */
+  border-radius: 80px 80px 150px 150px;
 }
 
 /* 로봇머리 하위 공통 앱솔루트 */
@@ -64,14 +66,14 @@ body {
 /* 왼눈 */
 .eye1 {
   /* 개별위치값 */
-  left: 50px;
+  left: 16%;
   /* 이미지만 변경 */
   background-image: url(../images/e1.jpg);
 }
 /* 오른눈 */
 .eye2 {
   /* 개별위치값 */
-  right: 50px;
+  right: 16%;
   /* 이미지만 변경 */
   background-image: url(../images/e2.jpg);
 }
