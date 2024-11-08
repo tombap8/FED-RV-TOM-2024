@@ -142,13 +142,54 @@ body {
 }
 /* 로봇목 */
 .neck{
-  top: -60px;
+  top: -70px;
   left: 50%;
   translate: -50%;
   width: 50px;
-  height: 70px;
+  height: 80px;
   border-radius: 20px;
 }
-
+/* 팔공통 */
+.arm{
+  width: 50px;
+  height: 180px;
+}
+/* 왼팔 */
+.arm1{
+  left: -50px;
+}
+/* 오른팔 */
+.arm2{
+  right: -50px;
+}
+/* 다리공통 */
+.leg{
+  top: 100%;
+  width: 70px;
+  height: 200px;
+}
+/* 왼다리 */
+.leg1{
+  left: 0;
+}
+/* 오른다리 */
+.leg2{
+  right: 0;
+}
+/* 어깨공통 */
+.shdr{
+  width: 70px;
+  height: 70px;
+}
+/* 왼어깨 */
+.shdr1{
+  left: -70px;
+  border-radius: 50% 0 0 50%;
+}
+/* 오른어깨 */
+.shdr2{
+  right: -70px;
+  border-radius: 0 50% 50% 0;
+}
 /* 2-2. 설명박스 */
 /************* 3. 하단영역 *************/
