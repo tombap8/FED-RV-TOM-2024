@@ -197,6 +197,15 @@ body {
 .arm2{
   right: -65px;
 }
+/* 팔하단 공통 */
+.arm span{
+  position: absolute;
+  /* 부모는? .arm */
+  top: 100%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+}
 /* 다리공통 */
 .leg{
   top: 100%;
@@ -210,6 +219,15 @@ body {
 /* 오른다리 */
 .leg2{
   right: 0;
+}
+/* 다리하단 공통 */
+.leg span{
+  position: absolute;
+  /* 부모는? .leg */
+  top: 100%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
 }
 /* 어깨공통 */
 .shdr{
