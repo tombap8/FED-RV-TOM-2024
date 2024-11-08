@@ -36,6 +36,8 @@ body {
 .head {
   /* 부모자격 relative : 자식요소 앱솔루트 */
   position: relative;
+  /* 몸통보다위 */
+  z-index: 1;
   /* 중앙정렬박스 : 마.영.오! */
   margin: 0 auto;
   /* margin-top: 250px; */
@@ -125,5 +127,28 @@ body {
   border-radius: 0 20px 20px 0;
 }
 /* 2-1-2. 로봇몸통 */
+.body{
+  /* 부모자격 렐러티브 */
+  position: relative;
+  width: 180px;
+  height: 320px;
+  /* 마영오! 가로중앙 */
+  margin: 0 auto;
+  margin-top: 50px;
+}
+/* 바디 하위요소 앱솔루트 */
+.body>div{
+  position: absolute;
+}
+/* 로봇목 */
+.neck{
+  top: -60px;
+  left: 50%;
+  translate: -50%;
+  width: 50px;
+  height: 70px;
+  border-radius: 20px;
+}
+
 /* 2-2. 설명박스 */
 /************* 3. 하단영역 *************/
