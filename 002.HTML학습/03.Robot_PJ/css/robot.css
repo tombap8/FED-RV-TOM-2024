@@ -80,7 +80,11 @@ body {
 /* 코 */
 .nose {
   top: 100px;
-  left: 100px;
+  /* 가로방향 중앙이동설정
+  -> left 절반밀고 자신크기절반 반대로이동 */
+  left: 50%;
+  translate: -50%;
+
   width: 50px;
   height: 70px;
   background: url(../images/nose.jpg)
@@ -89,10 +93,14 @@ body {
 }
 /* 입 */
 .mouth {
-  bottom: 20px;
-  left: 59px;
-  width: 132px;
-  height: 46px;
+  bottom: 10%;
+  /* 가로방향 중앙이동설정
+  -> left 절반밀고 자신크기절반 반대로이동 */
+  left: 50%;
+  translate: -50%;
+
+  width: 90px;
+  height: 40px;
   background: url(../images/mouth.png)
     no-repeat 0/100% 100%;
 }
