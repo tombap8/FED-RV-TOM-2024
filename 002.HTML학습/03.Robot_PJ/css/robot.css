@@ -42,9 +42,14 @@ body {
   height: 250px;
 }
 
+/* 로봇머리 하위 공통 앱솔루트 */
+.head > div {
+  position: absolute;
+}
+
 /* 눈공통 */
 .eye {
-  position: absolute;
+  /* position: absolute; */
   top: 50px;
   /* 나의 부모는? .head */
   width: 50px;
@@ -70,6 +75,9 @@ body {
   background-image: url(../images/e2.jpg);
 }
 /* 코 */
+.nose{
+  position: absolute;
+}
 /* 입 */
 /* 왼귀 */
 /* 오른귀 */
