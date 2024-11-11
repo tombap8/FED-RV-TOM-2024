@@ -470,5 +470,18 @@ body {
   */
 }
 
+/* 2-2-1. 제목 */
+.text-box h2{
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 35px;
+  text-align: center;
+  background-color: #ffffff6a;
+  color: lime;
+  text-shadow: 2px 2px 2px #0000007b;
+  border-radius: 20px;
+  /* 기존 두꺼운체 해제 : fwn */
+  font-weight: normal;
+}
+
 
 /************* 3. 하단영역 *************/
