@@ -128,7 +128,7 @@
     선언시에 정해준다! 그런데 JS는 데이터형을
     정하지 않고 할당시에 데이터형이 자동으로 정해진다!
 
-    -> JS 에서도 데이터형을 정해는 방법으롤 TypeScript가
+    -> JS 에서도 데이터형을 정해는 방법으로 TypeScript가
     사용되고 있음! - MS에서 개발하고 배포함!
 
     _______________________________________
@@ -238,7 +238,50 @@
       var word5 = "새";
 
       // 화면출력
-      document.write();
+      document.write(` <br><br>
+        <h1>청산별곡</h1>
+
+        살어리 살어리랏다 ${word1}애 살어리랏다 <br> 
+        ${word2}랑 ${word3}랑 먹고 ${word1}애 살어리랏다 <br>
+        ${word4} <br><br>
+
+        우러라 우러라 ${word5}여 자고 니러 우러라 ${word5}여 <br>
+        널라와 시름 한 나도 자고 니러 우니로라 <br>
+        ${word4}
+      `);
+
+      // 변수의 자리 출력연습
+
+      // 사용자 이름
+      var userName = "헨리";
+
+      // 오늘의 날씨
+      var todayWeather = "쨍하고 맑음";
+
+      // 인사 메시지
+      var message = "쿨하게 멋지게 자신있게!";
+
+      // 화면출력
+      document.write(`
+          <br><br>
+          ${userName}님, 안녕하세요! <br>
+          오늘의 날씨는 ${todayWeather}입니다!<br>
+          ${message} <br><br>
+      `);
+
+      // 변수값 변경하기
+      userName = "제시카";
+      todayWeather = "흐리고 구름많음";
+      message = "나는 소중하니까!";
+
+
+      // 화면출력 다시한번
+      document.write(`
+          <br><br>
+          ${userName}님, 안녕하세요! <br>
+          오늘의 날씨는 ${todayWeather}입니다!<br>
+          ${message} <br><br>
+      `);
 
 
      
