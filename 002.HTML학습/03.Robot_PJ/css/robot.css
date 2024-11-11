@@ -495,5 +495,18 @@ body {
   padding: 10px;
 }
 
+/* 2-2-3.내용단락 */
+.text-box p{
+  font-family: 'Barlow', sans-serif;
+  font-size: 17px;
+  /* 줄간격 */
+  line-height: 1.7;
+  /* 자간 */
+  letter-spacing: 1px;
+  /* 단어간격 */
+  word-spacing: 2px;
+
+}
+
 
 /************* 3. 하단영역 *************/
