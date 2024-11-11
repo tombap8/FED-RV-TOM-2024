@@ -518,10 +518,12 @@ body {
   -> 두종색! -> 두께 종류 색상 */
   column-gap: 55px;
 
+  /* 양쪽정렬 : justify */
   text-align: justify;
   /* 영문에서 양쪽 정렬일 경우
   단어단위로 줄바꿈이 되므로 중간에
   구멍이 생김. 따라서 단어깨기설정필요! */
+  /* 단어깨기 : 모두깨기(break-all) */
   word-break: break-all;
 
   /* 첫줄 들여쓰기 : text-indent (ti) */
