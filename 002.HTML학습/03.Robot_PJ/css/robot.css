@@ -13,11 +13,11 @@ body {
 }
 
 /* 공사중 표시 */
-body *,
+/* body *,
 *::before,
 *::after {
   outline: 2px dashed yellow;
-}
+} */
 
 body {
   /* 배경이미지(고정fixed) */
@@ -32,6 +32,7 @@ body {
 /************* 2. 메인영역 *************/
 /* 2-1. 로봇박스 */
 .robot-box {
+  display: none;
   /* 위,아래 패딩으로 공간확보 */
   padding-top: 100px;
   padding-bottom: 700px;
@@ -405,14 +406,69 @@ body {
 /* 유튭동영상 아이프레임 */
 .screen iframe{
   position: absolute;
-  top: 0%;
-  left: 0%;
+  top: -6%;
+  left: -41%;
   /* 부모는? .screen */
-  width: 100%;
-  height: 100%;
+  width: 181%;
+  height: 113%;
+}
+
+/* 버튼박스 */
+.btns{
+  position: absolute;
+  bottom: 16px;
+  right: 6px;
+  /*부모는? .tv */
+}
+/* 버튼요소 */
+.btns button{
+  display: block;
+  /* 원래는 inline-block
+  한줄에 하나씩만 오도록 블록화! */
+  font-size: 9px;
+  padding: 0;
+  width: 20px;
+  height: 12px;
+  line-height: 12px;
 }
 
 
 
 /* 2-2. 설명박스 */
+.text-box{
+  max-width: 800px;
+  margin: 0 auto;
+  color: #fff;
+  background-color: #00000067;
+  border-radius: 20px;
+  padding: 15px 30px;
+  /* 박스 2중 글로우효과(그림자로줌) */
+  box-shadow: 
+  inset 0 0 20px blue,
+  inset 0 0 50px 10px cyan;
+
+  /* 백드롭 블러효과주기 */
+  backdrop-filter: blur(6px);
+  /* 
+  [백드롭 필터효과] 
+  - filter속성과 동일한 셋팅을 가지며
+  적용대상이 겹쳐지는 하단의 그래픽을 변경한다!
+
+  backdrop-filter: blur(2px); -> 흐림
+  backdrop-filter: brightness(60%); -> 밝기
+  backdrop-filter: contrast(40%); -> 대비
+  backdrop-filter: drop-shadow(4px 4px 10px blue);->그림자
+  backdrop-filter: grayscale(30%);-> 흑백
+  backdrop-filter: hue-rotate(120deg); -> 색상변경
+  backdrop-filter: invert(70%); -> 반전색
+  backdrop-filter: opacity(20%); -> 투명도
+  backdrop-filter: sepia(90%); -> 세피아효과
+  backdrop-filter: saturate(80%); -> 채도
+
+  -> 복합적용 가능!
+  backdrop-filter: blur(4px) saturate(150%);
+  */
+}
+
+
 /************* 3. 하단영역 *************/
