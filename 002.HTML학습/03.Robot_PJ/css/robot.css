@@ -370,5 +370,38 @@ body {
   right: -77px;
   border-radius: 0 50% 50% 0;
 }
+/* TV 박스 */
+.tv{
+  top: 10%;
+  /* 앱솔루트 가로중앙 셋팅 */
+  left: 50%;
+  translate: -50%;
+  /* 트랜스폼의 트랜스레이트는
+  현재위치에서의 위치이동이며
+  %단위는 자신의 크기를 기준함
+  translate: 가로 세로 */
+
+  width: 140px;
+  height: 100px;
+  /* 가슴부분 가상요소보다 위 */
+  z-index: 2;
+  /* 배경이미지 */
+  background: url(../images/tv.jpg) no-repeat 0/100% 100%;
+}
+
+/* 스크린 */
+.screen{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  /* 부모는? .tv */
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  border-radius: 10px;
+}
+
+
+
 /* 2-2. 설명박스 */
 /************* 3. 하단영역 *************/
