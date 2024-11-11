@@ -22,11 +22,47 @@ body * {
 
 /*************** 1. 상단영역 ***************/
 .top-area {
+  /* 부모자격 렐러티브! */
+  position: relative;
+
   height: 80px;
   /* 배경이미지 */
   background: url(../images/curtain.jpg)
     repeat-x;
 }
+/* 1-1.타이틀 */
+.tit{
+  font-family: 'Jua', sans-serif;
+  font-size: 40px;
+  color: aquamarine;
+  text-align: center;
+  line-height: 80px;
+  /* 글자 글로우 효과 */
+  text-shadow: 0 0 4px aquamarine;
+}
+/* 1-2.GNB 메뉴 */
+.gnb{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  /* 부모는? .top-area */
+}
+/* 글자일반 셋팅 */
+.gnb ul{
+  font-family: 'Jua', sans-serif;
+  font-size: 20px;
+}
+/* 리스트 옆으로 흐름 */
+.gnb ul>li{
+  float: left;
+}
+/* 리스트 사이간격
+li+li 두번째 li부터 선택 */
+.gnb ul>li+li{
+  margin-left: 20px;
+}
+
+
 /*************** 2. 메인영역 ***************/
 .main-area {
   position: relative;
