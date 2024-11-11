@@ -482,6 +482,18 @@ body {
   /* 기존 두꺼운체 해제 : fwn */
   font-weight: normal;
 }
+/* 2-2-2. 출처 */
+.text-box small{
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 12px;
+  text-shadow: 1px 1px 1px #00000077;
+  color: #ff0;
+
+  /* 블록으로 변경해야 tac먹힘! */
+  display: block;
+  text-align: center;
+  padding: 10px;
+}
 
 
 /************* 3. 하단영역 *************/
