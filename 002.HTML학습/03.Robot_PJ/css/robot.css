@@ -32,7 +32,7 @@ body {
 /************* 2. 메인영역 *************/
 /* 2-1. 로봇박스 */
 .robot-box {
-  display: none;
+  /* display: none; */
   /* 위,아래 패딩으로 공간확보 */
   padding-top: 100px;
   padding-bottom: 700px;
@@ -472,10 +472,15 @@ body {
 
 /* 2-2-1. 제목 */
 .text-box h2{
+  /* 스티키 포지션 */
+  position: sticky;
+  top: 10px;
+  /* top값이 고정위치값임! */
+
   font-family: 'Chakra Petch', sans-serif;
   font-size: 35px;
   text-align: center;
-  background-color: #ffffff6a;
+  background-color: #ffffff8d;
   color: lime;
   text-shadow: 2px 2px 2px #0000007b;
   border-radius: 20px;
