@@ -506,6 +506,33 @@ body {
   /* 단어간격 */
   word-spacing: 2px;
 
+  /* 다단설정하기
+    -> 다중열속성
+    column-count : 다중열개수
+    column-rule : 다중열구분선
+    column-gap : 다중열사이간격
+  */
+  column-count: 3;
+  column-rule: 5px dotted lightgreen;
+  /* 다중열 구분선 값은 보더와 같음
+  -> 두종색! -> 두께 종류 색상 */
+  column-gap: 55px;
+
+  text-align: justify;
+  /* 영문에서 양쪽 정렬일 경우
+  단어단위로 줄바꿈이 되므로 중간에
+  구멍이 생김. 따라서 단어깨기설정필요! */
+  word-break: break-all;
+
+  /* 첫줄 들여쓰기 : text-indent (ti) */
+  text-indent: 40px;
+
+}
+/* 가상요소 첫글자 적용하기 */
+.text-box p::first-letter{
+  font-size: 30px;
+  font-weight: bold;
+  color: hotpink;
 }
 
 
