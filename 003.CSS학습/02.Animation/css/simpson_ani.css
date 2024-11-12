@@ -152,7 +152,16 @@
 /* 메기 왔다갔다 키프레임 */
 /* 키프레임 */
 
+/* 바트애니호출 */
+.bart{
+    animation: bart-ani 1s ease-out 8.5s forwards;
+}
 /* 바트 키프레임 */
+@keyframes bart-ani {
+    to {
+        top: -25%;
+    }
+}
 /* 키프레임 */
 
 /* 바트 추락 키프레임 */
