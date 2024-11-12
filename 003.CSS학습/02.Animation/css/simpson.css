@@ -1,51 +1,299 @@
 @charset "utf-8";
 /* 심슨 가족 인사 애니메이션 CSS - simpson.css */
 
+@import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&display=swap');
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    /* 뷰포트단위 가로크기 100% */
+    height: 100vh;
+    /* 뷰포트단위 세로크기 100% */
+}
 
 body {
-    background-color: #000;
+    position: relative;
+    /* 부모자격 */
+    overflow: hidden;
 }
 
-/*전체박스*/
-.house {
-    position: relative;
-    /*부모자격*/
-    width: 800px;
-    height: 441px;
-    background: url(../images/house.png) no-repeat;
-    margin: 0 auto;
-    /*마영오-블록박스 가로중앙정렬*/
+/* body의 가상요소로 배경 배치하기 */
+body::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* 부모? body - 부모박스에 밀착! */
 
-    /*원근설정*/
-    perspective: 480px;
+    /* 배경이미지 */
+    background: url(../images/oldTVON.png) no-repeat top/cover;
+}
+
+/* TV 이미지 셋팅 */
+#tv {
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    /* 부모는? body */
+    transform: translate(-50%, -50%);
+    /* 정중앙이동 */
+    width: 90%;
+    max-width: 1000px;
+    /* 가로크기를 부모요소의 90%로 설정했지만
+    max-width:1000px 설정으로 1000px크기를 넘지 못함  */
+}
+
+
+/* 타이틀 */
+.tit {
+    position: absolute;
+    top: 4vh;
+    left: 50%;
+    transform: translateX(-50%);
+    /* 가로중앙이동 */
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Black And White Picture', sans-serif;
+    font-size: 4vmax;
+    font-weight: normal;
+    /* 두께일반 */
+    color: #fff;
+    text-shadow: 2px 0 #000, -2px 0 #000,
+        0 2px #000, 0 -2px #000;
+    /* 글자테두리 */
+    z-index: 1;
+    /* .house보다 위 */
+
+    white-space: nowrap;
+    /* 줄바꿈방지 - 박스크기가 컨텐츠보다 조금이라도 작아
+    지면 자동줄바꿈이 되는데 nowrap으로 설정시 줄바꿈안됨! */
+}
+
+/* 전체박스 */
+.house {
+    position: absolute;
+    /* 부모자격 */
+    top: 43%;
+    left: 50%;
+    /* 부모는? body */
+    transform: translate(-60%, -50%);
+    /* 정중앙이동 */
+
+    width: 70%;
+    /* 유동적인 가로크기!!! */
+    max-width: 800px;
+    /* 최대가로크기 제한을 주고 70% 가로값 지정 */
+
+    /* height: 441px; */
+    /* 비율유지설정 적용을 위해 height값은 지정하지 않는다 */
+    margin: 0 auto;
+    /* 마영오 - 블록가로중앙 */
+    background: url(../images/house.png) no-repeat;
+    background-size: 100%;
+    /* 가로크기에 맞춤(세로는자동) */
+    /* z-index: 1; */
 
     overflow: hidden;
-    /*넘치는 자식요소 숨기기*/
+    /* 넘치는 자식요소 숨기기 */
+
+    /* 3D 원근애니설정하기 - 자식요소에 적용! */
+    perspective: 480px;
 }
 
-/*문짝*/
-.door {
-    position: absolute;
-    top: 284px;
-    left: 356px;
-    /*부모? .house*/
-    width: 32px;
-
-    /*문짝Y축회전-원근으로 보이려면 
-    부모에게 perspective*/
-    transform: rotateY(0deg);
-    transform-origin: right;
-    /*문짝축 오른쪽변경*/
-
-
+/* 비율유지 가상요소 */
+.rbx::before {
+    content: '';
+    display: block;
+    padding-top: 55%;
 }
-/*심슨*/
+
+/* 
+    [ 비율유지박스를 위해 필요한 것들 ]
+    1. 가로크기가 유동적인 높이값 없는 블록박스
+    2. 1번박스의 가상요소 before로 padding-top값 %지정(비율)
+    3. 1번박스의 속박스 앱솔루트 밀착박스 설정(1번박스가 부모)
+
+    [ 비율유지박스를 위한 클래스 ]
+    1. .rbx 비율유지박스 (width %)
+    2. .rbx::before 비율설정 (padding-top %)
+    3. .rbxIn 비율유지속박스 (absolute)
+*/
+
+
+/* 1. 심슨 */
 .simpson {
     position: absolute;
-    top: 305px;
-    left: 356px;
-    /*문짝과 같은 위치*/
-    width: 32px;
-    /*문짝과 같은 크기*/
+    top: 65%;
+    left: 43.7%;
+    width: 5%;
 
 }
+
+
+/* 2. 문짝 */
+.door {
+    position: absolute;
+    top: 65%;
+    left: 44.5%;
+    width: 4%;
+
+    /* 문짝 Y축회전 - 원근으로 보이려면 
+    부모에게 perspective 를 설정해야함! */
+    transform: rotateY(0deg);
+    transform-origin: right;
+    /* 문짝축 오른쪽변경 */
+
+}
+
+
+/* 말풍선 */
+.words {
+    position: absolute;
+    top: 1%;
+    left: 17%;
+    /* 부모는? .house */
+    /* width: 30%; */
+    /* height: 50%; */
+    /* 크기는 글자크기가 변하므로 자동으로함
+    앱솔루트는 내용만큼 박스가 커짐! */
+    white-space: nowrap;
+    padding: 4%;
+    border: 1vmin solid #4E8BF8;
+    border-radius: 50%;
+    background-color: #fff;
+    font: 2vmin/4vmin Verdana;
+    /* 
+        글자 크기 vmin단위는 가로/세로중 작은 사이즈를
+        기준한 비율을 셋팅함. 글자크기를 유동적으로
+        브라우저가 변경하지만 최소 9px보다 작아질 수 없다!
+    */
+    text-align: center;
+
+    /* 글자나타나기는 투명도(opacity)로 애니메이션한다! */
+    opacity: 0;
+
+    transform: scale(.9);
+    /* 90%크기로 축소 */
+
+    
+}
+
+/* 가상요소로 말풍선 삼각형 만들기 */
+.words::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    /* 부모는? .words */
+    transform: rotate(-54deg) translate(55%, 30%);
+    width: 0;
+    height: 0;
+
+    /* 역삼각형보더 */
+    border-top: 4vmin solid #4E8BF8;
+    /* border-bottom으로 주면 삼각형임 */
+    border-left: 4vmin solid transparent;
+    border-right: 4vmin solid transparent;
+}
+
+.words::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    /* 부모는? .words */
+    transform: rotate(-54deg) translate(55%, -11%);
+    width: 0;
+    height: 0;
+
+    /* 역삼각형보더 */
+    border-top: 4vmin solid #fff;
+    /* border-bottom으로 주면 삼각형임 */
+    border-left: 4vmin solid transparent;
+    border-right: 4vmin solid transparent;
+}
+
+
+/* 마지심슨 */
+.marge {
+    position: absolute;
+    bottom: -45%;
+    right: -34%;
+    width: 50%;
+    transform: rotate(0deg);
+    transform-origin: bottom;
+    /* 회전축 하단변경 */
+
+}
+
+
+/* 리사심슨 */
+.lisa {
+    position: absolute;
+    top: 0;
+    left: -30%;
+    width: 23%;
+    transform: rotate(90deg);
+
+}
+
+
+/* 메기심슨 */
+.maggie {
+    position: absolute;
+    bottom: -64%;
+    left: 12%;
+    width: 26%;
+}
+
+
+/* 바트심슨 */
+.bart {
+    position: absolute;
+    top: -72%;
+    right: 14%;
+    width: 29%;
+    transform: rotate(180deg);
+
+}
+
+
+
+/************ 미디어쿼리 **************/
+/* 1. 태블릿 / 가로방향 모바일 1024px이하 */
+@media only screen and (max-width:1024px) {
+
+    /* 타이틀 */
+    .tit {
+        top: 80vh;
+        font-size: 7vmax;
+    }
+
+}
+
+/* 1024px 이하 */
+
+/* 2. 모바일 500px이하 */
+@media only screen and (max-width:500px) {
+
+    /* 타이틀 */
+    .tit {
+        top: 9vh;
+    }
+
+    /* 말풍선 */
+    .words {
+        top: -9%;
+        left: 8%;
+        transform: scale(.6);
+    }
+
+}
+
+/* 500px 이하 */
