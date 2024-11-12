@@ -1,0 +1,51 @@
+@charset "utf-8";
+/* 심슨 가족 인사 애니메이션 CSS - simpson.css */
+
+
+body {
+    background-color: #000;
+}
+
+/*전체박스*/
+.house {
+    position: relative;
+    /*부모자격*/
+    width: 800px;
+    height: 441px;
+    background: url(../images/house.png) no-repeat;
+    margin: 0 auto;
+    /*마영오-블록박스 가로중앙정렬*/
+
+    /*원근설정*/
+    perspective: 480px;
+
+    overflow: hidden;
+    /*넘치는 자식요소 숨기기*/
+}
+
+/*문짝*/
+.door {
+    position: absolute;
+    top: 284px;
+    left: 356px;
+    /*부모? .house*/
+    width: 32px;
+
+    /*문짝Y축회전-원근으로 보이려면 
+    부모에게 perspective*/
+    transform: rotateY(0deg);
+    transform-origin: right;
+    /*문짝축 오른쪽변경*/
+
+
+}
+/*심슨*/
+.simpson {
+    position: absolute;
+    top: 305px;
+    left: 356px;
+    /*문짝과 같은 위치*/
+    width: 32px;
+    /*문짝과 같은 크기*/
+
+}
