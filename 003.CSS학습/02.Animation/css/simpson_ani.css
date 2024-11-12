@@ -3,9 +3,30 @@
 /* 심슨 가족 애니메이션 코드 : simpson_ani.css */
 
 /* 심슨 키프레임 */
+
 /* 키프레임 */
 
-/* 문열기 키프레임 */
+/* 문열기 호출 */
+.door{
+    /* animation: 이시이지반방마; */
+    animation: door-ani 2s ease-in-out 1s;
+}
+/* 문열기 키프레임 
+닫음-열림-열림-닫음*/
+@keyframes door-ani {
+    0%{
+        rotate: y 0deg;
+    }
+    30%{
+        rotate: y 125deg;
+    }
+    70%{
+        rotate: y 125deg;
+    }
+    100%{
+        rotate: y 0deg;
+    }
+}
 /* 키프레임 */
 
 /* 말풍선 키프레임 */
