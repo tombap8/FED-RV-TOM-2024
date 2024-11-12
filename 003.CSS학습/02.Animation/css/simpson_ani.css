@@ -134,7 +134,16 @@
 }
 /* 키프레임 */
 
+/* 메기애니호출 */
+.maggie{
+    animation: maggie-ani 1s ease-out 8s forwards;
+}
 /* 메기 키프레임 */
+@keyframes maggie-ani {
+    to{
+        bottom: -18%;
+    }
+}
 /* 키프레임 */
 
 /* 메기 업다운 키프레임 */
