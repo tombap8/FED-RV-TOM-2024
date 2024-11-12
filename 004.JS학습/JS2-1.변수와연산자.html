@@ -721,30 +721,55 @@
   // 오늘의 날씨
   var today = "비";
 
-// 결과변수
-var result;
-console.log(
-  "할당안한 변수값은?",
-  result
-);
-// 할당안한 변수는 기본적으로 undefined가 셋팅됨! 이것도 데이터임!
+  // 결과변수
+  var result;
+  console.log(
+    "할당안한 변수값은?",
+    result
+  );
+  // 할당안한 변수는 기본적으로 undefined가 셋팅됨! 이것도 데이터임!
 
-// 함수에 담아서 변수값을 변경해 본다!
-var showAction = function () {
-  today === "비"
-    ? (result = "집에 있어요!")
-    : (result = "놀이동산가요!");
+  // 함수에 담아서 변수값을 변경해 본다!
+  var showAction = function () {
+    today === "비"
+      ? (result = "집에 있어요!")
+      : (result = "놀이동산가요!");
 
-  document.write(`
-      <h1>7. 조건연산자(삼항연산자) : </h1>
-      오늘의 날씨는 어떤가요? ${today} <br>
-      오늘 집에 있을까요? 놀러갈까요? ${result}
-      <br><br>
-  `);
-}; /////////// showAction 함수 /////////////
+    document.write(`
+        <h1>7. 조건연산자(삼항연산자) : </h1>
+        오늘의 날씨는 어떤가요? ${today} <br>
+        오늘 집에 있을까요? 놀러갈까요? ${result}
+        <br><br>
+    `);
+  }; /////////// showAction 함수 /////////////
 
-// 결과함수 처음호출
-showAction();
+  // 결과함수 처음호출
+  showAction();
+
+  // today변수값을 변경하여 출력
+  today = "해";
+  showAction();
+
+  // 삼항 연산자는 출력자리에 바로 사용할 수 있다!!!
+  var answerNow = function(answer){
+    // answer는 함수내부의 전달변수
+
+    // 함수호출시 대답이 answer에 담긴다!
+    document.write(`
+      <h2>조건 연산자 자리출력</h2>
+      아빠, 아이스크림 사줘! <br>
+      아빠왈
+      ${
+        answer == "좋아" ? "사줄께!" : "안돼!"
+      }
+        <br><br>
+    `); // document.write ///
+  }; /////// answerNow함수 ////////
+
+  // 조건연산자 자리출력1
+  answerNow("좋아");
+  // 조건연산자 자리출력2
+  answerNow("여보야 한테 혼나는데...");
 
     </script>
   </head>
