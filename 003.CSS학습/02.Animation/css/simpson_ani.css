@@ -141,7 +141,9 @@
     /* 등장애니 */
     maggie-ani 1s ease-out 8s forwards,
     /* 업다운애니 - alternate는 번갈아 양방향 애니셋팅 */
-    maggie-updown-ani .5s ease-in-out 9s infinite alternate;
+    maggie-updown-ani .5s ease-in-out 9s infinite alternate,
+    /* 왔다갔다애니 */
+    maggie-comengo-ani 4s ease-in-out 12s infinite alternate;
 }
 /* 메기 키프레임 */
 @keyframes maggie-ani {
