@@ -111,7 +111,7 @@
 
 /* 마지애니 호출 */
 .marge{
-    animation: marge-ani 1s 7s forwards;
+    animation: marge-ani 1s ease-out 7s forwards;
 }
 /* 마지키프레임 */
 @keyframes marge-ani {
@@ -122,7 +122,16 @@
 }
 /* 키프레임 */
 
+/* 리사애니호출 */
+.lisa{
+    animation: lisa-ani 1s ease-out 7.5s forwards;
+}
 /* 리사 키프레임 */
+@keyframes lisa-ani {
+    to{
+        left: 0;
+    }
+}
 /* 키프레임 */
 
 /* 메기 키프레임 */
