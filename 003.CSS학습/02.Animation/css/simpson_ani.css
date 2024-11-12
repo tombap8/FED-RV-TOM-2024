@@ -95,10 +95,31 @@
 }
 /* 키프레임 */
 
+/* 말풍선 애니호출 */
+.words{
+    /* 애니메이션 : 이시(이)지(반방)마 */
+    animation: tooltip-ani 1s 6s forwards;
+}
 /* 말풍선 키프레임 */
+@keyframes tooltip-ani {
+    /* 처음값이 기본값과 같으면 from생략가능 */
+    to{
+        opacity: 1;
+    }
+}
 /* 키프레임 */
 
+/* 마지애니 호출 */
+.marge{
+    animation: marge-ani 1s 7s forwards;
+}
 /* 마지키프레임 */
+@keyframes marge-ani {
+    to{
+        right: -26%;
+        transform: rotate(-20deg);
+    }
+}
 /* 키프레임 */
 
 /* 리사 키프레임 */
