@@ -116,7 +116,7 @@
 /* 마지키프레임 */
 @keyframes marge-ani {
     to{
-        right: -15%;
+        right: -19%;
         transform: rotate(-9deg);
     }
 }
@@ -129,7 +129,7 @@
 /* 리사 키프레임 */
 @keyframes lisa-ani {
     to{
-        left: 0;
+        left: -5%;
     }
 }
 /* 키프레임 */
@@ -143,7 +143,7 @@
     /* 업다운애니 - alternate는 번갈아 양방향 애니셋팅 */
     maggie-updown-ani .5s ease-in-out 9s infinite alternate,
     /* 왔다갔다애니 */
-    maggie-comengo-ani 4s ease-in-out 12s infinite alternate;
+    maggie-comengo-ani 10s ease-in-out 12s infinite alternate;
 }
 /* 메기 키프레임 */
 @keyframes maggie-ani {
@@ -177,7 +177,13 @@
 
 /* 바트애니호출 */
 .bart{
-    animation: bart-ani 1s ease-out 8.5s forwards;
+    animation: 
+    /* 바트 등장 */
+    bart-ani 1s ease-out 8.5s forwards,
+    /* 바트 떨어짐 */
+    bart-falling-ani .5s ease-out 12s forwards,
+    /* 바트 일어섬 */
+    bart-standup-ani .5s ease-out 15s forwards;
 }
 /* 바트 키프레임 */
 @keyframes bart-ani {
@@ -188,7 +194,18 @@
 /* 키프레임 */
 
 /* 바트 추락 키프레임 */
+@keyframes bart-falling-ani {
+    to{
+        top: 100%;
+        transform: rotate(0deg);
+    }
+}
 /* 키프레임 */
 
 /* 바트 일어섬 키프레임 */
+@keyframes bart-standup-ani {
+    to{
+        top: 50%;
+    }
+}
 /* 키프레임 */
