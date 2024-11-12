@@ -116,8 +116,8 @@
 /* 마지키프레임 */
 @keyframes marge-ani {
     to{
-        right: -26%;
-        transform: rotate(-20deg);
+        right: -15%;
+        transform: rotate(-9deg);
     }
 }
 /* 키프레임 */
@@ -134,19 +134,29 @@
 }
 /* 키프레임 */
 
-/* 메기애니호출 */
+/* 메기애니호출
+-> 다중애니적용은 (이시이지반방마)를 콤마로 연결하여 적용한다! */
 .maggie{
-    animation: maggie-ani 1s ease-out 8s forwards;
+    animation: 
+    /* 등장애니 */
+    maggie-ani 1s ease-out 8s forwards,
+    /* 업다운애니 - alternate는 번갈아 양방향 애니셋팅 */
+    maggie-updown-ani .5s ease-in-out 9s infinite alternate;
 }
 /* 메기 키프레임 */
 @keyframes maggie-ani {
     to{
-        bottom: -18%;
+        bottom: -15%;
     }
 }
 /* 키프레임 */
 
 /* 메기 업다운 키프레임 */
+@keyframes maggie-updown-ani {
+    to{
+        bottom: -20%;
+    }
+}
 /* 키프레임 */
 
 /* 메기 왔다갔다 키프레임 */
