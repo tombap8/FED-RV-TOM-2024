@@ -2,30 +2,96 @@
 
 /* 심슨 가족 애니메이션 코드 : simpson_ani.css */
 
+/* 심슨애니 호출 */
+.simpson {
+  /* 애니메이션: 이름 시간 이징 지연 반복 방향 마지막 */
+  animation: simpson-ani 4s ease-in-out
+    2s alternate forwards;
+  /* 
+    ((반복))
+    반복횟수 없으면 1번만, 숫자만큼 반복, 영원히는 infinite 
+    ((방향)) 
+    - alternate 번갈아 설정시 왔다갔다함!(회수가 많아야함)
+    ((마지막상태))
+    처음상태가 backwards(기본값) / 나중상태가 forwards
+    - 마지막장면 상태유지 하려고 할때 forwards 사용
+    - 회수가 무한이면 안됨
+    */
+}
 /* 심슨 키프레임 */
-
+@keyframes simpson-ani {
+  0% {
+    top: 65%;
+    left: 43.7%;
+    width: 5%;
+  }
+  /* 1.옆으로 나옴 */
+  10% {
+    top: 69%;
+    left: 39.7%;
+    width: 5%;
+  }
+  /* 2. 걸어서 앞으로 나옴
+    z-index위로 설정, rotate설정
+  */
+  20% {
+    top: 72%;
+    left: 39.7%;
+    width: 9%;
+    rotate: -5deg;
+    z-index: 1;
+  }
+  40% {
+    top: 69%;
+    left: 36.7%;
+    width: 14%;
+    rotate: 5deg;
+    z-index: 1;
+  }
+  60% {
+    top: 67%;
+    left: 38.7%;
+    width: 18%;
+    rotate: -5deg;
+    z-index: 1;
+  }
+  80% {
+    top: 48%;
+    left: 39.7%;
+    width: 26%;
+    rotate: 5deg;
+    z-index: 1;
+  }
+  100% {
+    top: 28%;
+    left: 35.7%;
+    width: 34%;
+    rotate: 0deg;
+    z-index: 1;
+  }
+}
 /* 키프레임 */
 
 /* 문열기 호출 */
-.door{
-    /* animation: 이시이지반방마; */
-    animation: door-ani 2s ease-in-out 1s;
+.door {
+  /* animation: 이시이지반방마; */
+  animation: door-ani 2s ease-in-out 1s;
 }
 /* 문열기 키프레임 
 닫음-열림-열림-닫음*/
 @keyframes door-ani {
-    0%{
-        rotate: y 0deg;
-    }
-    30%{
-        rotate: y 125deg;
-    }
-    70%{
-        rotate: y 125deg;
-    }
-    100%{
-        rotate: y 0deg;
-    }
+  0% {
+    rotate: y 0deg;
+  }
+  30% {
+    rotate: y 125deg;
+  }
+  70% {
+    rotate: y 125deg;
+  }
+  100% {
+    rotate: y 0deg;
+  }
 }
 /* 키프레임 */
 
