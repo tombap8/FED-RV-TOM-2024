@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>플렉스 디스플레이</title>
+    <style>
+      /*
+          [ 플렉스 디스플레이 박스 ]
+        flex 란? - flexible(유연한-에서 나온말)
+
+        - 가변적인 자식요소를 컨트롤하기 위해
+        CSS3에서 새롭게 선보인 display 기술
+
+        [ 플렉스 셋팅법 ]
+        1. 대상: 컨트롤할 요소들의 직계부모요소
+        2. 등분할셋팅:
+            - 자식요소를 같은 비율로 채울 때
+            자식요소에 flex속성값을 1로 쓰면 된다!
+        3. 일반적인 셋팅:
+            - 특정크기나 내용이 있는 블록요소인 자식을
+            옆으로 흐르게 한다(flex셋팅 일단 불필요!)
+
+        ____________________________________________
+
+            [ flex 속성 : 플렉스 자식요소에 주는 속성 ]
+            -> flex : 한번에 아래 3가지 속성을 줌
+
+            flex: 1 숫자하나만 쓰면 
+            flex: 1 1 0 과 동일
+            해석) 
+            커질래? 응(1), 작아질래? 응(1), 가로크기 0 (설정없음)
+
+            따로 설정시 아래와 같다!
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 0;
+
+            1) flex-grow: 1 | 0 -> 커질래? 1 응 | 0 아니
+            2) flex-shrink: 1 | 0 -> 작아질래? 1 응 | 0 아니
+            3) flex-basis: 설정값(px,%,em,rem,vw등)
+            -> width 가로크기를 설정하는 속성
+            -> 만약 0을 쓰면 속성값 없음!
+        ___________________________________________
+
+        [ 자식요소 속성 중 order란? ]
+        - 원하는 순서로 정해서 박스가 나열되게함!
+        - flex-direction 속성으로 방향을 정할 수 있다!
+        (order를 지정하면 이 순서를 기반으로 방향을 정한다!)
+        
+
+        속성명-> order: 순번
+        순서를 정할 요소에 준다
+        예)
+            <li style="order:3"></li>
+            <li style="order:1"></li>
+            <li style="order:2"></li>
+            <li style="order:5"></li>
+
+
+        소스참고:
+        https://www.w3schools.com/css/tryit.asp?filename=trycss3_flexbox_order_2
+
+
+        */
+
+      /* 초기화 */
+      html,
+      body,
+      h1,
+      h2,
+      ol,
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+      ol,
+      ul {
+        list-style: none;
+      }
+
+      /* 전체 랩핑박스 */
+      .wrap {
+        height: 100vh;
+        /* 보이는 화면채우기 */
+      }
+      /* 등분할 flex적용박스 */
+      .flex-box {}
+
+      .flex-box li {}
+
+      
+
+    
+
+      /* 등분할 박스 li 개별셋팅 */
+      .flex-box li:nth-child(1) {
+        background: url(./images/m01_bg.jpg) no-repeat center/cover;
+      }
+      .flex-box li:nth-child(2) {
+        background: url(./images/m02_bg.jpg) no-repeat center/cover;
+      }
+      .flex-box li:nth-child(3) {
+        background: url(./images/m03_bg.jpg) no-repeat center/cover;
+      }
+      .flex-box li:nth-child(4) {
+        background: url(./images/m04_bg.jpg) no-repeat center/cover;
+      }
+      .flex-box li:nth-child(5) {
+        background: url(./images/m05_bg.jpg) no-repeat center/cover;
+      }
+
+      
+    </style>
+  </head>
+  <body>
+    <!-- 전체 랩핑박스 -->
+    <div class="wrap">
+      <!-- 등분할 파티션박스 -->
+      <ul class="flex-box">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <!-- 타이틀박스 1 -->
+    <!-- <ol class="tit t1">
+      <li>L</li>
+      <li>O</li>
+      <li>T</li>
+      <li>T</li>
+      <li>E</li>
+    </ol> -->
+
+    <!-- 타이틀박스 2 -->
+    <!-- <ol class="tit t2">
+      <li>W</li>
+      <li>O</li>
+      <li>R</li>
+      <li>L</li>
+      <li>D</li>
+    </ol> -->
+
+    <!-- 타이틀박스 3 -->
+    <!-- <ol class="tit t3">
+      <li>W</li>
+      <li>O</li>
+      <li>R</li>
+      <li>L</li>
+      <li>D</li>
+    </ol> -->
+
+    <!-- 타이틀박스 4 -->
+    <!-- <ol class="tit t4">
+      <li>W</li>
+      <li>O</li>
+      <li>R</li>
+      <li>L</li>
+      <li>D</li>
+    </ol> -->
+
+    <!-- 타이틀박스 5 -->
+    <!-- <ol class="tit t5">
+      <li>W</li>
+      <li>O</li>
+      <li>R</li>
+      <li>L</li>
+      <li>D</li>
+    </ol> -->
+
+    <!-- 타이틀박스 6 -->
+    <!-- <ol class="tit t6">
+      <li>L</li>
+      <li>O</li>
+      <li>T</li>
+      <li>T</li>
+      <li>E</li>
+
+      <li>W</li>
+      <li>O</li>
+      <li>R</li>
+      <li>L</li>
+      <li>D</li>
+
+      <li>L</li>
+      <li>O</li>
+      <li>T</li>
+      <li>T</li>
+      <li>E</li>
+    </ol> -->
+
+    <!-- 타이틀박스 7 -->
+    <!-- <ol class="tit t7">
+      <li>L</li>
+      <li>O</li>
+      <li>T</li>
+      <li>T</li>
+      <li>E</li>
+
+      <li class="brk"></li>
+
+      <li>W</li>
+      <li>O</li>
+      <li>R</li>
+      <li>L</li>
+      <li>D</li>
+    </ol> -->
+  </body>
+</html>
