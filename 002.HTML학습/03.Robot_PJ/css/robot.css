@@ -96,6 +96,89 @@ h1.logo{
   padding-top: 100px;
   padding-bottom: 700px;
 }
+
+/* 2-1-0. 로봇 말풍선 */
+.link-title{
+  position: absolute;
+  top: -7vw;
+  left: 50%;
+  /* 로봇머리로 부터 위치 일정하게 */
+  transform: translateX(200px) scale(0);
+  /* 로봇쪽에서 커지게 하기위해
+  트랜스폼 기준 변경(왼쪽아래) */
+  transform-origin: left bottom;
+  width: 40vw;
+  height: 20vw;
+
+  border-radius: 50%;
+  background-color: #fff;
+  text-align: center;
+  line-height: 20vw;
+
+  text-decoration: none;
+  color: orangered;
+  font-size: 5vw;
+
+  border: 10px dashed orangered;
+  box-sizing: border-box;
+
+}
+/* 가상요소로 삼각형 만들기 */
+.link-title::after{
+  content: '';
+  position: absolute;
+  top: 62.7%;
+  left: -9%;
+  /* 왜%인가? 유동적인 부모를 기준한 위치값이다! */
+  transform: rotate(43deg);
+  /* 가로,세로 크기 0 */
+  width: 0;
+  height: 0;
+  /* 보더탑 크기+색 설정 */
+  border-top: 11vw solid orangered;
+  /* 양쪽보더 크기+투명색 설정 */
+  border-left: 1.5vw solid transparent;
+  border-right: 1.5vw solid transparent;
+}
+/* 로봇 말풍선 오버시 */
+.link-title:hover{
+  color: #fff;
+  background-image: 
+  radial-gradient(circle,red 10%,blue 30%,yellow);
+}
+
+/* 
+    [ 원형 그라데이션 ]
+
+    - 기본형, 영역지정형은 박스모양을 따라감!
+
+    1) 기본형: 중앙중심, 모양은 박스크기에 맞춤
+    background-image: 
+        radial-gradient(색1,색2,색3,...);
+    - 시작색으로부터 중앙에서 시작됨
+
+    2) 영역 지정형:
+    background-image: 
+        radial-gradient(색1 몇%,색2 몇%,색3 몇%,...);
+    - 색 뒤에 한칸 띄고 %수치로 영역지정함
+
+    3) 그라데이션 모양을 원형으로 사용할 경우:
+    background-image: 
+        radial-gradient(circle,색1,색2,색3,...);
+    - circle 키워드를 첫번째에 사용함
+
+    4) 영역옵션 지정형: 중심점 변경
+    background-image: 
+        radial-gradient(옵션 at 가로위치 세로위치,색1,색2,색3,...);
+    - 옵션4가지 : closest-side / farthest-side
+                closest-corner / farthest-corner
+                ___________________________________
+                - closest는 중심점으로 좀더 모아진것
+                - farthest는 중심점에서 멀리 퍼진것
+                - side와 corner는 경계선과 끝부분옵션임
+    - 가로위치, 세로위치 (중심점) - 단위는 px / %
+*/
+
 /* 2-1-1. 로봇머리 */
 .head {
   /* 부모자격 relative : 자식요소 앱솔루트 */
