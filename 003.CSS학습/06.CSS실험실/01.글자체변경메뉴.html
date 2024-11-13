@@ -53,12 +53,28 @@
         /* 메뉴에 오버시 애니메이션 */
 
         /* 
-          a요소 대상(단, a는 블록으로 변경)
-          
-          [방법1 : 마진값 활용]
+        
+        [방법1 : 마진값 활용]
+        -> a요소 대상(단, a는 블록으로 변경)
           margin-top: -80px;
           display: block;
           transition: .5s;
+
+        [방법2 : 포지션 활용]
+        -> a요소 대상
+         position: relative;
+        top: -80px;
+        transition: .5s;
+        (단, 트랜지션은 변경전에 top:0 설정필수!
+        왜? 기본값은 top:auto이기때문)
+
+        [방법3 : 트랜스폼 활용]
+        -> a요소 대상(단, a는 블록으로 변경)
+        translate : 0 -50%;
+        display: block;
+        transition: .5s
+
+
         */
 
 
