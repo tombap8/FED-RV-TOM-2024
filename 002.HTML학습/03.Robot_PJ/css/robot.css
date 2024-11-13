@@ -686,3 +686,28 @@ h1.logo{
 
 
 /************* 3. 하단영역 *************/
+/* 3-1. 회사정보 */
+#bottom-area{
+  position: relative;
+  /* z-index적용위해 포지션줌! */
+  z-index: 5;
+
+  margin-top: 100px;
+
+  color: #fff;
+  /* 글자크기 : 30px, 글자체 'Black Ops One' */
+  font: 3rem 'Black Ops One';
+  /* 글자그림자 */
+  text-shadow: 2px 2px 2px #000;
+  /* 글자중앙 */
+  text-align: center;
+  /* 패딩 : 가로/세로중 작은 화면기준 7%
+  -> vmin(작은쪽기준) , vmax(큰쪽기준) */
+  padding: 7vmin;
+  /* 반투명 배경넣기 : 검은색 반투명(0.5) 
+    rgb(0 0 0 / 0.5) -> 요즘 더 많이사용함
+    rgba(0,0,0,0.5)
+  */
+  background-color: rgb(0 0 0 / 0.5);
+
+}
