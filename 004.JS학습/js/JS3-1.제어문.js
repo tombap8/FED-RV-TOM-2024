@@ -19,5 +19,12 @@ function showJumsu(){
     // 2. 대상선정 ////////
     // 2-1. 점수입력요소 : input#jumsu
     var jumsu = document.querySelector('#jumsu');
-    console.log("선택요소:",jumsu);
+
+    // 2-2. 출력요소 : .jexp
+    var jexp = document.querySelector('.jexp');
+
+    // 2-3. 칭찬스티커요소 : .jshow
+    var jshow = document.querySelector('.jshow');
+
+    console.log("선택요소:",jumsu, jexp, jshow);
 } /////////// showJumsu함수 /////////////
