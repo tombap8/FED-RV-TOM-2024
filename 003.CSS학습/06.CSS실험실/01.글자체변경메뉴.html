@@ -26,20 +26,40 @@
         }
         /* 메뉴 박스 */
         .menu{
-            
+            width: 600px;
+            margin: 0 auto;
+            background-color: lightgreen;
+            padding: 15px;
+            border: 2px solid lightseagreen;
+            border-radius: 15px;
         }
         .menu li{
-            
+            height: 80px;
+            /* 바깥에 나간 자식요소 숨기기 oh */
+            overflow: hidden;
         }
         /* 메뉴 span */
         .menu span{
-          
+          /* 블록으로 위아래 배치 */
+          display: block;
+          font-size: 40px;
+          /* li 높이값의 세로중간에 오도록 줄간격주기 */
+          line-height: 80px;
         }
         /* 두번째 메뉴만 글씨체변경 */
         .menu span:last-child{
           
         }
         /* 메뉴에 오버시 애니메이션 */
+
+        /* 
+          a요소 대상(단, a는 블록으로 변경)
+          
+          [방법1 : 마진값 활용]
+          margin-top: -80px;
+          display: block;
+          transition: .5s;
+        */
 
 
     </style>
@@ -48,31 +68,31 @@
     <nav class="menu">
       <ul>
         <li>
-          <a href="">
+          <a href="#">
             <span>EVENTS</span>
             <span>Events</span>
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="#">
             <span>WHO WE ARE</span>
             <span>Who we are</span>
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="#">
             <span>ON DEMAND</span>
             <span>On demand</span>
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="#">
             <span>WHAT WE DO</span>
             <span>What we do</span>
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="#">
             <span>HANDY TOOLS</span>
             <span>Party tools</span>
           </a>
