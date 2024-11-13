@@ -37,26 +37,39 @@ function showJumsu(){
     // 4. 점수에 따른 분기하여 결과 출력 //////
     // if/else if를 사용하면 구간설정 불필요!
 
+    // 평가텍스트 변수
+    var expText = "";
+    // 평가결과 글자색 변수
+    var expColor = "";
+    // 칭찬스티커 위치값 변수
+    var jshowPos = "";
+
     // 4-1. 90점 이상 : 매우잘함
     if(score >= 90){
-        jexp.innerHTML = "매우잘함";
+        expText = "매우잘함";
     }
     // 4-2. 80점 이상 : 잘함
     else if(score >= 80){
-        jexp.innerHTML = "잘함";
+        expText = "잘함";
     }
     // 4-3. 70점 이상 : 보통
     else if(score >= 70){
-        jexp.innerHTML = "보통";
+        expText = "보통";
     }
     // 4-4. 60점 이상 : 노력요함
     else if(score >= 60){
-        jexp.innerHTML = "노력요함";
+        expText = "노력요함";
     }
     // 4-5. 60점 미만 : 재시험
     else{
-        jexp.innerHTML = "재시험";
+        expText = "재시험";
     }
+
+    // 5. 화면출력 변경하기 //////
+    // 5-1. 텍스트 변경하기
+    jexp.innerText = "평가결과는 " + expText;
+    // 5-2. 글자색 변경하기
+    // 5-3. 칭찬스티커 변경하기
 
 
 } /////////// showJumsu함수 /////////////
