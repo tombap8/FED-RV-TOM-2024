@@ -119,6 +119,24 @@
         height: 100%; */
       }
 
+      /* 배경분할 박스 순서 바꾸기
+      flex하위 order속성으로! */
+      .flex-box li:nth-child(1) {
+        order: 3;
+      }
+      .flex-box li:nth-child(2) {
+        order: 4;
+      }
+      .flex-box li:nth-child(3) {
+        order: 2;
+      }
+      .flex-box li:nth-child(4) {
+        order: 5;
+      }
+      .flex-box li:nth-child(5) {
+        order: 1;
+      }
+
       /* 등분할 박스 li 개별셋팅 */
       .flex-box li:nth-child(1) {
         background: url(./images/m01_bg.jpg)
@@ -348,8 +366,8 @@
         right: 10px;
         width: 400px;
         height: 250px;
-        /* 트랜스폼 해제 */
-        transform: none;
+        /* 트랜스폼 트랜스레이트 해제 */
+        translate: none;
         /* 플렉스박스 */
         display: flex;
         /* 플렉스 랩핑박스
