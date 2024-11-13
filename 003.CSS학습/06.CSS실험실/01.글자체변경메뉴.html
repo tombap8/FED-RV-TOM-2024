@@ -53,27 +53,32 @@
         /* 메뉴에 오버시 애니메이션 */
 
         /* 
-        
+        ((==== 메뉴 오버시 이동방법 ===))
+
         [방법1 : 마진값 활용]
-        -> a요소 대상(단, a는 블록으로 변경)
+        -> a요소 대상
           margin-top: -80px;
           display: block;
           transition: .5s;
+        (단, a는 블록으로 변경, 
+        이유는 마진값은 인라인에 적용안됨!)
 
         [방법2 : 포지션 활용]
         -> a요소 대상
-         position: relative;
-        top: -80px;
-        transition: .5s;
-        (단, 트랜지션은 변경전에 top:0 설정필수!
-        왜? 기본값은 top:auto이기때문)
+          position: relative;
+          top: -80px;
+          transition: .5s;
+          (단, 트랜지션은 변경전에 top:0 설정필수!
+          왜? 기본값은 top:auto 이기때문)
 
         [방법3 : 트랜스폼 활용]
-        -> a요소 대상(단, a는 블록으로 변경)
-        translate : 0 -50%;
-        display: block;
-        transition: .5s
-
+        -> a요소 대상
+          translate : 0 -50%;
+          display: block;
+          transition: .5s
+          (단, a는 블록으로 변경, 이유는 트랜스폼이
+          인라인요소에 적용되지 않기때문. 그리고 기본값
+          설정이 불필요한 이유는 기본값이 0이기때문)
 
         */
 
