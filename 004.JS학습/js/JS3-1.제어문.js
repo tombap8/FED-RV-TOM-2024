@@ -35,6 +35,29 @@ function showJumsu(){
     console.log("입력된값:",score);
 
     // 4. 점수에 따른 분기하여 결과 출력 //////
+    // if/else if를 사용하면 구간설정 불필요!
+
+    // 4-1. 90점 이상 : 매우잘함
+    if(score >= 90){
+        jexp.innerHTML = "매우잘함";
+    }
+    // 4-2. 80점 이상 : 잘함
+    else if(score >= 80){
+        jexp.innerHTML = "잘함";
+    }
+    // 4-3. 70점 이상 : 보통
+    else if(score >= 70){
+        jexp.innerHTML = "보통";
+    }
+    // 4-4. 60점 이상 : 노력요함
+    else if(score >= 60){
+        jexp.innerHTML = "노력요함";
+    }
+    // 4-5. 60점 미만 : 재시험
+    else{
+        jexp.innerHTML = "재시험";
+    }
+
 
 } /////////// showJumsu함수 /////////////
 
