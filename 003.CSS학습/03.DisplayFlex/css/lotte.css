@@ -1,0 +1,167 @@
+@charset "utf-8";
+
+/* 롯데월드 사이트 CSS - lotte.css */
+
+/* 외부파일 합치기 */
+@import url(./reset.css);
+
+/************** 1.상단영역 **************/
+/* 타이틀 공통 */
+.tit {
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    left: 50%;
+    /* 가로중앙이동:트랜스폼(트랜스레이트) */
+    transform: translateX(-50%);
+    /* 자신의 크기 절반(50%)만큼 왼쪽방향(-)이동 */
+
+    width: 500px;
+    /* height: 100px; */
+    /* border: 5px double #fff; */
+}
+
+/* 타이틀 하위 공통 li */
+.tit > li {
+    /* 박스셋팅 */
+    width: 50px;
+    height: 50px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    background-color: red;
+    text-align: center;
+    /* 글자셋팅 - font: 스두크/줄체 */
+    font: bold 14px/50px Verdana;
+    color: #fff;
+}
+
+/* 타이틀박스 7 */
+.t7 {
+    width: 450px;
+    /* height: 200px; */
+
+    /* 플렉스박스 */
+    display: flex;
+    /* 랩핑박스 */
+    flex-wrap: wrap;
+    /* 수평정렬 : 등분할공간 */
+    justify-content: space-evenly;
+    /* 수직정렬(여러줄) : 중앙 */
+    align-content: center;
+}
+/* 자체응용 - 줄바꿈을 위한 li */
+/* 원리는 줄바꿈을 할 부분에서
+가로크기 100%를 차지하게 해서
+줄바꿈효과를 준다! */
+.t7 li.brk{
+    /* width: 100%; */
+    flex-basis: 100%;
+    /* flex-basis는 width와
+    동일하지만 flex에서만 사용가능! */
+
+    /* 기존의 디자인 없애기 */
+    height: 0;
+    border: none;
+
+    /* 윗쪽 마진으로 간격주기 */
+    margin-top: 40px;
+}
+/************** 2.메인영역 **************/
+/* 파티션 박스 ul */
+.cont>ul{
+    /* 플렉스박스 */
+    display: flex;
+    /* 높이값을 보이는 화면기준 채우기 */
+    height: 100vh;
+}
+/* 파티션 박스 li */
+.cont>ul>li{
+    position: relative;
+    /* 부모자격 - 하위 img */
+
+    /* 플렉스 자식요소 등분할 설정 */
+    flex: 1;
+    /* 가로는 등분할, 세로는 100%채움! */
+
+    /* 커서 손가락모양 */
+    cursor: pointer;
+
+    /* 트랜지션: 속시이지 */
+    transition: all .4s ease-out;
+}
+/* 파티션 li박스 가상요소로 오버레이 효과주기 */
+.cont>ul>li::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    /* 앱솔루트 사방채우기 */
+    background-color: #000;
+    opacity: 0.5;
+
+    /* 트랜지션: 속시이지 */
+    transition: all .4s ease-out;
+}
+
+/* 파티션 li에 마우스 오버시 */
+/* li넓어지기 */
+.cont>ul>li:hover{
+    flex: 1.4;
+    /* 
+        flex: 1 -> 등분할 설정
+        -> 여기에 다른 숫자를 쓰면
+        기존 1로 등분할 된 것에 비교하여
+        2를 쓰면 2배... 이런식의
+        배수를 셋팅하게 됨!
+    */
+}
+/* 가상요소 암전 밝아지기 */
+.cont>ul>li:hover::before{
+    opacity: 0;
+}
+
+
+/* 각 파티션 박스에 배경 이미지 넣기 */
+.cont > ul > li:first-child {
+    background: url(../images/m01_bg.jpg) no-repeat center/cover;
+}
+.cont > ul > li:nth-child(2) {
+    background: url(../images/m02_bg.jpg) no-repeat center/cover;
+}
+.cont > ul > li:nth-child(3) {
+    background: url(../images/m03_bg.jpg) no-repeat center/cover;
+}
+.cont > ul > li:nth-child(4) {
+    background: url(../images/m04_bg.jpg) no-repeat center/cover;
+}
+.cont > ul > li:nth-child(5) {
+    background: url(../images/m05_bg.jpg) no-repeat center/cover;
+}
+
+/* 타이틀 + 로고 이미지 공통 셋팅 */
+.cont>ul>li>img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(70%,250px);
+    /* 부모박스의 70%적용시 최대 250px한계설정 */
+}
+/* 로고만 셋팅변경 */
+.cont>ul>li>img:last-child{
+    top: 80%;
+    width: auto;
+}
+
+/************** 3.하단영역 **************/
+.info{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 7px 0;
+    background-color: #da041c;
+}
