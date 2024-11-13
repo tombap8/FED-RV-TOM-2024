@@ -82,6 +82,7 @@ function showJumsu(){
     // 5-2. 글자색 변경하기
     jexp.style.color = expColor;
     // 5-3. 칭찬스티커 변경하기
+    jshow.style.backgroundPosition = jshowPos;
 
 
 } /////////// showJumsu함수 /////////////
