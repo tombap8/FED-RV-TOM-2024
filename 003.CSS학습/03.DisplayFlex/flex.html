@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>플렉스 디스플레이</title>
     <style>
       /*
@@ -110,37 +113,36 @@
             예) flex: 2;
           */
 
-
-
         /* 기존 float속성으로 셋팅하기 */
         /* float: left;
         width: 20%;
         height: 100%; */
       }
 
-      
-
-    
-
       /* 등분할 박스 li 개별셋팅 */
       .flex-box li:nth-child(1) {
-        background: url(./images/m01_bg.jpg) no-repeat center/cover;
+        background: url(./images/m01_bg.jpg)
+          no-repeat center/cover;
       }
       .flex-box li:nth-child(2) {
-        background: url(./images/m02_bg.jpg) no-repeat center/cover;
+        background: url(./images/m02_bg.jpg)
+          no-repeat center/cover;
       }
       .flex-box li:nth-child(3) {
-        background: url(./images/m03_bg.jpg) no-repeat center/cover;
+        background: url(./images/m03_bg.jpg)
+          no-repeat center/cover;
       }
       .flex-box li:nth-child(4) {
-        background: url(./images/m04_bg.jpg) no-repeat center/cover;
+        background: url(./images/m04_bg.jpg)
+          no-repeat center/cover;
       }
       .flex-box li:nth-child(5) {
-        background: url(./images/m05_bg.jpg) no-repeat center/cover;
+        background: url(./images/m05_bg.jpg)
+          no-repeat center/cover;
       }
 
       /* 타이틀 공통 */
-      .tit{
+      .tit {
         position: absolute;
         top: 100px;
         /* 가로중앙셋팅 */
@@ -166,11 +168,10 @@
       }
 
       /* 타이틀1 */
-      .t1{
+      .t1 {
         /* 플렉스 디스플레이 */
         display: flex;
 
-        
         justify-content: space-evenly;
         /* 
         [ justify-content 속성 ]
@@ -208,8 +209,149 @@
         */
       }
 
+      /* 타이틀 2 */
+      .t2 {
+        top: 250px;
+        /* 플렉스 박스 : df */
+        display: flex;
+        /* 진행방향정렬 : jcspb */
+        justify-content: space-between;
+        /* 진행방향수직정렬 : aib */
+        align-items: baseline;
+        /* baseline은 글자 하단라인을 기준한다! */
+      }
+      /* 줄간격 조정 */
+      .t2 li:nth-child(2) {
+        line-height: 80px;
+      }
+      .t2 li:nth-child(4) {
+        line-height: 30px;
+      }
 
-      
+      /* 타이틀 3 */
+      .t3 {
+        top: 400px;
+        /* 플렉스박스 */
+        display: flex;
+        /* 진행방향수직정렬 : aic */
+        align-items: center;
+      }
+      /* 4번째 li부터 오른쪽 끝으로 보내기 */
+      .t3 li:nth-child(4) {
+        /* 선택요소의 떨어뜨리려는
+        방향으로 마진을 auto처리하면
+        flex박스 오른쪽 끝으로 이동시켜준다! */
+      }
+      /* 타이틀박스 4 */
+      /* 오른쪽을 기준한 박스 */
+      .t4 {
+        left: 10px;
+        transform: none;
+        width: 150px;
+        height: 500px;
+
+        /* 플렉스 박스 */
+        display: flex;
+        /* 플렉스 진행방향 : fxdc */
+        /* 
+            [ flex-direction 속성 ]
+            - 진행방향과 순서를 정함
+
+            1) row : 좌->우(기본값)
+            2) row-reverse : 우->좌
+            3) column : 위->아래
+            4) column-reverse : 아래->위
+        */
+
+        /* 진행방향수직정렬 : aic */
+        /* 진행방향정렬은? jcc */
+        /* justify-content: center; */
+      }
+      /* 수직방향일때 3번째 li부터 끝으로 보내기 */
+      .t4 li:nth-child(3) {
+        /* 윗쪽마진 auto면 끝으로 감! */
+      }
+      /* 타이틀박스 5 */
+      .t5 {
+        top: 10px;
+        width: 150px;
+        height: 80px;
+
+        /* 플렉스 박스 */
+        display: flex;
+      }
+      /* 자식 플렉스 박스의
+    flex-shrink:1 이 기본값임!
+    줄어들래? 응(1) 이것을 수정해야
+    강제로 줄어든 박스의 크기를
+    유지해야할 경우 변경해야한다! */
+      .t5 li {
+        /* 
+        [flex-shrink 속성 ]
+        부모박스가 줄어들때 같이 자동으로 줄어들래?
+        설정의 기본값은 1이다! 즉 줄어든다!
+        0으로 변경하면 자기크기를 유지한다!
+        */
+      }
+      /* 타이틀박스 6 */
+      .t6 {
+        top: 520px;
+        height: 250px;
+
+        /* 플렉스박스 */
+        display: flex;
+        /* 플렉스 랩핑박스
+        -> 내용이 넘치면 줄바꿈함 */
+        /* 진행방향 정렬 중앙: jcc */
+        justify-content: center;
+        /* 진행방향수직정렬 여러줄
+        align-content속성! */
+        /* 
+        [ align-content 속성 ]
+
+        - 진행방향의 수직으로 정렬
+        - 진행방향의 수직으로 여러줄이므로 content!
+
+        1) flex-start : 처음위치(기본값)
+        2) flex-end : 끝위치
+        3) center : 중앙
+        4) space-between : 
+            아이템요소 양쪽끝에 붙고 사이간격 일정
+        5) space-around : 
+            아이템요소 양쪽간격 일정
+        6) space-evenly : 
+            아이템요소 양쪽과 사이간격 일정
+        7) stretch :
+            높이값이 auto인 경우 등분할 늘려주기!
+    */
+      }
+      /* 마진으로 한줄에 오는
+    글자를 조정하기 */
+      .t6 li {
+      }
+
+      /* 마진없이 플렉스 랩핑박스 줄바꿈하기! */
+      .t7 {
+        top: 10px;
+        /* 기존 left값 해제 */
+        left: auto;
+        /* right 기준 새로셋팅 */
+        right: 10px;
+        width: 400px;
+        height: 250px;
+        /* 트랜스폼 해제 */
+        transform: none;
+        /* 플렉스박스 */
+        display: flex;
+        /* 플렉스 랩핑박스
+        -> 자식요소에 flex-shrink:0 
+        하지 않아도 자동처리됨! */
+        flex-wrap: wrap;
+        /* 진행방향 정렬 균등간격 : jcspe */
+        justify-content: space-evenly;
+        /* 진행방향수직정렬(여러줄) 중앙 : acc */
+        align-content: center;
+      }
     </style>
   </head>
   <body>
