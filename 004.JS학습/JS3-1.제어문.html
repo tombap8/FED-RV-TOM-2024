@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS3-1. 제어문 - if문, switch case문, for문, while문</title>
+    <!-- JS코드구역 -->
+    
+
+    <!-- CSS코드구역 -->
+    <style>
+      h1 {
+        font-size: 4vw;
+      }
+      h2 {
+        font-size: 3vw;
+      }
+      body,
+      h3,
+      input,
+      button,
+      select {
+        font-size: 2vw;
+      }
+      .tit {
+        text-align: center;
+        background-image: linear-gradient(to bottom, lightgreen, lightsalmon);
+      }
+
+      body {
+        text-align: center;
+      }
+
+      /* 칭찬스티커박스 */
+      .jshow {
+        position: absolute;
+        top: 18vw;
+        left: 74vw;
+        /* 부모는? .bx-if */
+        width: 15vw;
+        height: 15vw;
+        outline: 5px dotted lightgreen;
+        border-radius: 50%;
+        background: url(./images/ifshow.jpg) no-repeat;
+        /* 배경위치 : 처음에 안보임 */
+        background-position: -50% 0%;
+        /* 배경크기 */
+        background-size: 300%;
+
+        /* 트랜지션 : 배경위치만! */
+        transition: background-position 1s;
+      }
+      /* 가상요소로 글자넣기 */
+      .jshow::before {
+        content: "칭찬스티커";
+        position: relative;
+        z-index: -1;
+        /* 글자를 배경보다 아래로 
+        하려면 z-index -1주면됨
+        이때 포지션 있어야함! */
+        line-height: 15vw;
+        font-size: 2vw;
+        color: lightseagreen;
+        font-weight: bold;
+      }
+      /* 가상요소 하트 */
+      .jshow::after {
+        content: "♥";
+        position: absolute;
+        top: 2%;
+        left: 50%;
+        /* 하트중앙이동 */
+        transform: translateX(-50%);
+        z-index: -1;
+        /* 글자를 배경보다 아래로 
+        하려면 z-index -1주면됨
+        이때 포지션 있어야함! */
+        font-size: 4vw;
+        color: red;
+        font-weight: bold;
+      }
+
+      /* 구구단 출력박스 */
+      .gugu {
+        width: 40vw;
+        height: 40vw;
+        border: 2px dashed blue;
+        text-align: center;
+        margin: 3vh auto;
+        /* 박스 y축 스크롤 : 박스보다 내용 많으면
+        스크롤바생김(스크롤바 트랙나와있음) */
+        overflow-y: scroll;
+        font-size: 2.5vw;
+      }
+      .gugu h2 {
+        font-size: 3vw;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="tit">JS 제어문</h1>
+    <hr />
+    <!-- if문 연습 -->
+    <div class="bx-if">
+      <h2 class="tit">if문 연습</h2>
+      <h3 class="jexp">평가출력</h3>
+      <label for="jumsu">점수입력:</label>
+      <input
+        type="text"
+        id="jumsu"
+        placeholder="점수를 입력하세요!"
+        maxlength="3"
+      />
+      
+      <!-- 
+            [ label요소 ]
+            input요소의 설명라벨요소
+            - for속성 : 클릭시 아이디 input요소로 포커스이동
+    
+            [ input 요소 : 입력요소 ]
+            - type = "text" -> 글자입력창
+            - placeholder  -> 안내문구출력
+            - maxlength -> 최대입력 글자수 제한
+         -->
+      <button class="sbtn">평가하기</button>
+      <!-- 칭찬스티커 박스 -->
+      <div class="jshow"></div>
+    </div>
+
+    <br /><br />
+    <hr />
+
+    <!-- switch case문 연습 -->
+    <h2 class="tit">switch case문 연습</h2>
+    <h3 id="info">국번안내</h3>
+    <label for="local">지역명 입력:</label>
+    <input
+      type="text"
+      id="local"
+      placeholder="지역명을 '도'를 빼고 쓰세요!"
+      maxlength="10"
+    />
+    <button class="sbtn">국번문의</button>
+
+    <br /><br />
+    <hr />
+
+    <!-- for문 연습 -->
+    <h2 class="tit">for문 연습</h2>
+    <h3>구구단 출력하기</h3>    
+    <div class="gugu g1"></div>
+
+    <br /><br />
+    <hr />
+
+    <!-- while문 연습 -->
+    <h2 class="tit">while문 연습</h2>
+    <h3>구구단 출력하기</h3>
+    
+    <!-- 구구단 출력박스 -->
+    <div class="gugu g2"></div>
+  </body>
+</html>
