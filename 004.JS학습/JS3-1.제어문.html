@@ -128,7 +128,22 @@
         id="jumsu"
         placeholder="점수를 입력하세요!"
         maxlength="3"
+        onkeypress="if(event.keyCode==13)showJumsu()"
       />
+      <!-- 
+        [ onkeypress 이벤트 속성 ]
+        -> 키보드를 치면 발생하는 이벤트 속성
+        if조건문
+        조건식 : event.keyCode === 13
+        -> 키보드의 키코드가 13번이냐? 엔터키 눌렀냐?
+        -> 엔터키의 키코드는 13번이다!
+        -> true이면 showJumsu() 라는 함수를 호출해라!
+        -> event 브라우저 내장객체 : 이벤트관련 객체
+
+        참고) 키코드 참조: 아스키코드 
+        (리턴키는 carriage return)
+        https://www.w3schools.com/charsets/ref_html_ascii.asp
+       -->
 
       <!-- 
             [ label요소 ]
