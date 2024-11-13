@@ -128,7 +128,14 @@
         id="jumsu"
         placeholder="점수를 입력하세요!"
         maxlength="3"
-        onkeypress="if(event.keyCode==13)showJumsu()"
+        onkeypress="
+          if(event.keyCode==13){
+            showJumsu();
+          }
+          // 키코드 확인하기
+          console.log('키코드:',event.keyCode);
+          console.log('키이름:',event.key);
+        "
       />
       <!-- 
         [ onkeypress 이벤트 속성 ]
