@@ -49,26 +49,31 @@ function showJumsu(){
     if(score >= 90){
         expText = "매우잘함";
         expColor = "blue";
+        jshowPos = "100% 50%";
     }
     // 4-2. 80점 이상 : 잘함
     else if(score >= 80){
         expText = "잘함";
         expColor = "green";
+        jshowPos = "0% 100%";
     }
     // 4-3. 70점 이상 : 보통
     else if(score >= 70){
         expText = "보통";
         expColor = "purple";
+        jshowPos = "50% 50%";
     }
     // 4-4. 60점 이상 : 노력요함
     else if(score >= 60){
         expText = "노력요함";
         expColor = "orange";
+        jshowPos = "100% 100%";
     }
     // 4-5. 60점 미만 : 재시험
     else{
         expText = "재시험";
         expColor = "red";
+        jshowPos = "100% 0%";
     }
 
     // 5. 화면출력 변경하기 //////
