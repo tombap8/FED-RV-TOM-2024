@@ -238,21 +238,24 @@
       }
       /* 4번째 li부터 오른쪽 끝으로 보내기 */
       .t3 li:nth-child(4) {
+        margin-left: auto;
         /* 선택요소의 떨어뜨리려는
         방향으로 마진을 auto처리하면
         flex박스 오른쪽 끝으로 이동시켜준다! */
       }
+
       /* 타이틀박스 4 */
       /* 오른쪽을 기준한 박스 */
       .t4 {
         left: 10px;
-        transform: none;
+        translate: none;
         width: 150px;
         height: 500px;
 
         /* 플렉스 박스 */
         display: flex;
         /* 플렉스 진행방향 : fxdc */
+        flex-direction: column;
         /* 
             [ flex-direction 속성 ]
             - 진행방향과 순서를 정함
@@ -264,11 +267,13 @@
         */
 
         /* 진행방향수직정렬 : aic */
+        align-items: center;
         /* 진행방향정렬은? jcc */
         /* justify-content: center; */
       }
       /* 수직방향일때 3번째 li부터 끝으로 보내기 */
       .t4 li:nth-child(3) {
+        margin-top: auto;
         /* 윗쪽마진 auto면 끝으로 감! */
       }
       /* 타이틀박스 5 */
@@ -286,6 +291,7 @@
     강제로 줄어든 박스의 크기를
     유지해야할 경우 변경해야한다! */
       .t5 li {
+        flex-shrink: 0;
         /* 
         [flex-shrink 속성 ]
         부모박스가 줄어들때 같이 자동으로 줄어들래?
@@ -302,10 +308,12 @@
         display: flex;
         /* 플렉스 랩핑박스
         -> 내용이 넘치면 줄바꿈함 */
+        flex-wrap: wrap;
         /* 진행방향 정렬 중앙: jcc */
         justify-content: center;
         /* 진행방향수직정렬 여러줄
         align-content속성! */
+        align-content: space-around;
         /* 
         [ align-content 속성 ]
 
@@ -328,6 +336,7 @@
       /* 마진으로 한줄에 오는
     글자를 조정하기 */
       .t6 li {
+        margin: 0px 22px;
       }
 
       /* 마진없이 플렉스 랩핑박스 줄바꿈하기! */
@@ -351,6 +360,20 @@
         justify-content: space-evenly;
         /* 진행방향수직정렬(여러줄) 중앙 : acc */
         align-content: center;
+      }
+
+      /* 줄바꿈 클래스 셋팅 */
+      .t7 li.brk{
+        /* width: 100%; */
+        flex-basis: 100%;
+        /* flex-basis는 width와 동일하지만
+        flex에서만 사용가능한 가로크기속성 */
+
+        /* 기존디자인 변경 */
+        height: 0;
+        border: none;
+        /* 사이간격조정 */
+        margin-top: 40px;
       }
     </style>
   </head>
@@ -377,43 +400,43 @@
     </ol>
 
     <!-- 타이틀박스 2 -->
-    <!-- <ol class="tit t2">
+    <ol class="tit t2">
       <li>W</li>
       <li>O</li>
       <li>R</li>
       <li>L</li>
       <li>D</li>
-    </ol> -->
+    </ol>
 
     <!-- 타이틀박스 3 -->
-    <!-- <ol class="tit t3">
+    <ol class="tit t3">
       <li>W</li>
       <li>O</li>
       <li>R</li>
       <li>L</li>
       <li>D</li>
-    </ol> -->
+    </ol>
 
     <!-- 타이틀박스 4 -->
-    <!-- <ol class="tit t4">
+    <ol class="tit t4">
       <li>W</li>
       <li>O</li>
       <li>R</li>
       <li>L</li>
       <li>D</li>
-    </ol> -->
+    </ol>
 
     <!-- 타이틀박스 5 -->
-    <!-- <ol class="tit t5">
+    <ol class="tit t5">
       <li>W</li>
       <li>O</li>
       <li>R</li>
       <li>L</li>
       <li>D</li>
-    </ol> -->
+    </ol>
 
     <!-- 타이틀박스 6 -->
-    <!-- <ol class="tit t6">
+    <ol class="tit t6">
       <li>L</li>
       <li>O</li>
       <li>T</li>
@@ -431,10 +454,10 @@
       <li>T</li>
       <li>T</li>
       <li>E</li>
-    </ol> -->
+    </ol>
 
     <!-- 타이틀박스 7 -->
-    <!-- <ol class="tit t7">
+    <ol class="tit t7">
       <li>L</li>
       <li>O</li>
       <li>T</li>
@@ -448,6 +471,6 @@
       <li>R</li>
       <li>L</li>
       <li>D</li>
-    </ol> -->
+    </ol>
   </body>
 </html>
