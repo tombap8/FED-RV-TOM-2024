@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>한국 최신 드라마 리스트</title>
+    <!-- 외부 CSS불러오기 -->
+     <link rel="stylesheet" href="./css/drama_table.css">
 </head>
 <body>
     <!-- 테이블 풀팩키지를 사용한 리스트 -->
@@ -134,6 +136,34 @@
           -->
 
      </table>
+
+     <!-- 구분테이블 박스 -->
+     <div class="gubun">
+        <table id="gubun" class="tbl">
+            <tr>
+                <td rowspan="4">구분</td>
+                <td>월화:월화드라마</td>
+                <!-- 
+                    [ 테이블 rowspan 속성 ]
+                    - 같은 tr의 td셀을 세로방향으로 합칠때 사용
+                    - row(가로줄) + span(범위)
+                    - 합칠 td의 개수만큼 숫자를 쓴다!
+                 -->
+            </tr>
+            <tr>
+                <!-- <td>구분</td> -->
+                <td>수목:수목드라마</td>
+            </tr>
+            <tr>
+                <!-- <td>구분</td> -->
+                <td>금토:금토드라마</td>
+            </tr>
+            <tr>
+                <!-- <td>구분</td> -->
+                <td>토일:토일드라마</td>
+            </tr>
+        </table>
+    </div>
     
     <!-- 
             [ 가장 복잡한 그룹요소인 테이블 !!! ]
