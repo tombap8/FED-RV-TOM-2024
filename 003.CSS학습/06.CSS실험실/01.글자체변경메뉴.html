@@ -48,9 +48,17 @@
         }
         /* 두번째 메뉴만 글씨체변경 */
         .menu span:last-child{
-          
+          font-style: italic;
+          font-family: "Dancing Script";
         }
         /* 메뉴에 오버시 애니메이션 */
+        .menu a{
+          display: block;
+          transition: .4s ease-out;
+        }
+        .menu li:hover a{
+          transform: translateY(-50%);
+        }
 
         /* 
         ((==== 메뉴 오버시 이동방법 ===))
