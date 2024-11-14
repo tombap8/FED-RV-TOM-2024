@@ -134,3 +134,20 @@ function showJumsu(){
 
         if(aa>10) my = "ㅎㅎㅎ";
     ***************************************/
+
+    // if문 튜닝~~~
+    if(true){
+        console.log("조건통과1!!!");
+    }
+
+    if(false){
+        console.log("조건통과2!!!");
+    }
+    else{
+        console.log("불통과!!!");
+    }
+
+    // 변수를 사용한 불린값 체크
+    var condition;
+
+    console.log();
