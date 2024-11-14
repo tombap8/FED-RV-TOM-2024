@@ -14,7 +14,7 @@ console.log("나, 제어문 테스트!");
 // 이름있는 함수를 선언적 함수라고함!
 function showJumsu(){
     // 1. 함수호출확인!
-    console.log("내 평가를 알려줘!");
+    // console.log("내 평가를 알려줘!");
 
     // 2. 대상선정 ////////
     // 2-1. 점수입력요소 : input#jumsu
@@ -26,13 +26,32 @@ function showJumsu(){
     // 2-3. 칭찬스티커요소 : .jshow
     var jshow = document.querySelector('.jshow');
 
-    console.log("선택요소:",jumsu, jexp, jshow);
+    // console.log("선택요소:",jumsu, jexp, jshow);
 
 
     // 3. 점수입력값 읽어오기 : jumsu변수의 input요소값
     var score = jumsu.value;
     // value속성 - 입력된 input값을 읽어오는 속성
-    console.log("입력된값:",score);
+    // console.log("입력된값:",score);
+
+    /**************************************** 
+        [ if문을 이용하여 데이터 필터링하기!]
+        (1) 문자이면 돌려보내기
+        (2) 숫자범위가 아니면 돌려보내기
+        -> 공통 : 메시지 찍기 + 초기화
+    ****************************************/
+   // 3.5-1. 문자이면 돌려보내기
+   // 숫자가 아니니? is Not a Number?
+   // JS 내장함수 isNaN(보낼값) -> 결과는?
+   // 숫자가 아니면 true, 숫자이면 false
+   if(isNaN(score)){
+        console.log("숫자가 아니구만~! 나가!!!");
+        // 함수를 나가는 키워드는? return
+        return;
+   } /// if ///
+
+
+
 
     // 4. 점수에 따른 분기하여 결과 출력 //////
     // if/else if를 사용하면 구간설정 불필요!
@@ -195,6 +214,9 @@ function showJumsu(){
     // -> 아예 에러가 발생함!
     // condition = mymymy;
     // showResult("테스트 5 : 선언된적이 없는 변수");
+
+    // 상단 콘솔출력 지우기
+    console.clear();
 
 
 
