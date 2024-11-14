@@ -10,3 +10,37 @@
 var btns = document.querySelectorAll(".btns");
 console.log("대상:",btns);
 
+// 2. 이벤트 걸기 ////////
+btns[0].onclick = changeImage;
+btns[1].onclick = changeImage;
+btns[2].onclick = changeImage;
+btns[3].onclick = changeImage;
+
+
+// 3. 함수만들기
+function changeImage() {
+    // 1. 함수호출확인!
+    console.log("알라딘딘딘!!!",this);
+    // this키워드는 함수를 호출한 요소 자신!
+
+    // 2. 호출한 요소(버튼)의 텍스트 읽기
+    var bTxt = this.innerText;
+    console.log("버튼텍스트:",bTxt);
+
+    // 3. 이미지 경로 if문으로 분기하여 만들기
+    var isrc = "";
+    if(bTxt === "포스터"){
+        isrc = "./images/ala1.jpg";
+    }
+    else if(bTxt === "장면1"){
+        isrc = "./images/ala4.jpg";
+    }
+    else if(bTxt === "장면2"){
+        isrc = "./images/ala2.jpg";
+    }
+    else if(bTxt === "장면3"){
+        isrc = "./images/ala3.jpg";
+    }
+
+} /////// changeImage함수 ///////
+
