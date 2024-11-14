@@ -40,6 +40,7 @@ function showJumsu() {
         [ if문을 이용하여 데이터 필터링하기!]
         (1) 문자이면 돌려보내기
         (2) 숫자범위가 아니면 돌려보내기
+        (3) 빈값이면 돌려보내기
         -> 공통 : 메시지 찍기 + 초기화
     ****************************************/
   // 3.5-1. 문자이면 돌려보내기 ////////
@@ -60,6 +61,9 @@ function showJumsu() {
     // (3) 칭찬스티커 변경하기
     jshow.style.backgroundPosition =
       "-50% 0%";
+    // (4) 입력값 지우고 포커스 보내기
+    jumsu.value = "";
+    jumsu.focus();
 
     // 함수를 나가는 키워드는? return
     return;
@@ -80,6 +84,32 @@ function showJumsu() {
     // (3) 칭찬스티커 변경하기
     jshow.style.backgroundPosition =
       "-50% 0%";
+    // (4) 입력값 지우고 포커스 보내기
+    jumsu.value = "";
+    jumsu.focus();
+
+    // 함수를 나가는 키워드는? return
+    return;
+  } /// else if ///
+  // 3.5-3. 빈값이면 돌려보내기 /////
+  // 빈값 확인용
+  else if (score == "") {
+    console.log(
+      "비었구만! 나가!!!"
+    );
+
+    // 초기화하기 ////////////
+    // (1) 텍스트 변경하기
+    jexp.innerText =
+      "값을 꼭 입력하세요! 제발~!";
+    // (2) 글자색 변경하기
+    jexp.style.color = "black";
+    // (3) 칭찬스티커 변경하기
+    jshow.style.backgroundPosition =
+      "-50% 0%";
+    // (4) 입력값 지우고 포커스 보내기
+    jumsu.value = "";
+    jumsu.focus();
 
     // 함수를 나가는 키워드는? return
     return;
