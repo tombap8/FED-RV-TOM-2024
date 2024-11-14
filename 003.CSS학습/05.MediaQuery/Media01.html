@@ -391,11 +391,30 @@
       *****************************************/
 
       /* 세로모드 시작 */
-
+      @media screen and (orientation:portrait) and (max-width:500px){
+        /* TV배경이미지 세로크기 변경 */
+        .bx{
+          background-size: auto 70%;
+        }
+      }
       /* 세로모드 끝 */
 
       /* 가로모드 시작 */
-
+      @media screen and (orientation:landscape) and (max-width:1000px) {
+        /* TV배경이미지 위치,크기 변경 */
+        .bx{
+          background-position: center -24%;
+          background-size: auto 71%;
+        }
+        /* 스크린 위치변경 */
+        .screen{
+          top: 134px;
+        }
+        /* 타이틀 패딩변경 */
+        .tit{
+          padding: 10px 0;
+        }
+      }
       /* 가로모드 끝 */
     </style>
   </head>
