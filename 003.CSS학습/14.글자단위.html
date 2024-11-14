@@ -67,7 +67,7 @@
          */
 
          html{
-            
+            font-size: 16px;
             /* 기본글자크기가 16px이라고 해 놓고 왜?
             여기에 글자크기를 셋팅하는가?
             브라우저 글꼴크기는 달라질 수 있기 때문에
@@ -82,7 +82,7 @@
 
          /* 32px */
          .f1{
-            font-size: 14px;
+            font-size: 2em;
             /* 
                 상속된px * 배수 = 몇px
                 16px * x = 32px
@@ -97,13 +97,13 @@
 
          /* 24px */
          .f2{
-            font-size: 14px;
+            font-size: .75em;
             /* 0.75em = 24px / 32px */
          }
 
          /* 14px */
          .f3{
-            font-size: 14px;
+            font-size: .58em;
             /* 0.58em = 14px / 24px */
          }
 
@@ -111,21 +111,21 @@
 
          /* 32px */
          .rf1{
-            font-size: 14px;
+            font-size: 2rem;
             /* rem = 원하는px / html의px
                   = 32px / 16px = 2rem */
          }
 
          /* 24px */
          .rf2{
-            font-size: 14px;
+            font-size: 1.5rem;
             /* rem = 원하는px / html의px
                   = 24px / 16px = 1.5rem */
          }
 
          /* 14px */
          .rf3{
-            font-size: 14px;
+            font-size: .87rem;
             /* rem = 원하는px / html의px
                   = 14px / 16px = 0.87rem */
          }
@@ -134,17 +134,17 @@
          /* % 단위 -> em단위 * 100 */
          /* 32px */
          .pf1{
-            font-size: 14px;
+            font-size: 200%;
             /* 2em * 100 = 200% */
          }
          /* 24px */
          .pf2{
-            font-size: 14px;
+            font-size: 75%;
             /* 0.75em * 100 = 75% */
          }
          /* 16px */
          .pf3{
-            font-size: 14px;
+            font-size: 58%;
             /* 0.58em * 100 = 58% */
          }
 
@@ -178,7 +178,7 @@
             html크기를 기준하는데 
             변경사항이 없기 때문! */
             body{
-                font-size: 14px;
+                font-size: 30px;
             }
          } /* 1000px 이하 */
 
@@ -189,7 +189,7 @@
             왜? body크기는 변경되어 있으므로
             영향을 주지 못해 em/%단위는 변경없음 */
             html{
-                font-size: 14px;
+                font-size: 40px;
             }
          } /* 800px 이하 */
 
@@ -198,7 +198,7 @@
             /* 상대단위를 개별적으로
             부분상대변경을 할 경우! */
             .wrap{
-                font-size: 14px;
+                font-size: 50px;
             }
          } /* 700px 이하 */
 
