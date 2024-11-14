@@ -150,4 +150,52 @@ function showJumsu(){
     // 변수를 사용한 불린값 체크
     var condition;
 
-    console.log();
+    console.log("할당안된변수값:",condition);
+
+    // if문 처리결과 찍기 함수 //////////
+    var showResult = function(txt){ // txt - 전달변수
+        // 호출확인 + 검사종류 타이틀 찍기
+        console.log("♥"+txt+"♥");
+        // if문 테스트하기!
+        if(condition){
+            console.log(condition,"if문 통과!");
+        }
+        else{
+            console.log(condition,": false처리!");
+        }
+    }; //////////// showResult함수 /////////////
+
+    // 테스트 1 : undefined
+    // 선언후 할당되지 않은 변수값은 undefined임!
+    showResult("테스트 1 : undefined");
+
+    // 테스트 2 : 숫자
+    // -> 0 은 false, 이외의 숫자는 true
+    // true는 1, false는 0과 1:1매칭됨!
+    condition = 1;
+    showResult("테스트 2 : 숫자");
+    condition = 0;
+    showResult("테스트 2 : 숫자");
+    condition = -545665156456415;
+    showResult("테스트 2 : 숫자");
+    
+    // 테스트 3 : null
+    // -> null은 '빈값'을 의미하는 데이터
+    condition = null;
+    showResult("테스트 3 : null");
+    
+    // 테스트 4 : 비교연산자
+    // -> 비교연산자는 결과로 true/false를 리턴함
+    condition = 34 < 1;
+    showResult("테스트 4 : 비교연산자 (34 < 1)");
+    condition = 34 > 1;
+    showResult("테스트 4 : 비교연산자 (34 > 1)");
+    
+    // 테스트 5 : 선언된적이 없는 변수
+    // -> 아예 에러가 발생함!
+    // condition = mymymy;
+    // showResult("테스트 5 : 선언된적이 없는 변수");
+
+
+
+
