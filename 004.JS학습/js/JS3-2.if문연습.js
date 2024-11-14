@@ -45,8 +45,11 @@ function changeImage() {
         isrc = "./images/ala3.jpg";
     }
 
+    // 5. 이미지 나가게 하기 : 클래스 off 넣기
+    scene.classList.add("off");
+
     // 4. 이미지 변경하기
-    scene.src = isrc;
+    // scene.src = isrc;
 
 } /////// changeImage함수 ///////
 
