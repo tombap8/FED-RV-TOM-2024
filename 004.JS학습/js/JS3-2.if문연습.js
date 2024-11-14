@@ -45,11 +45,22 @@ function changeImage() {
         isrc = "./images/ala3.jpg";
     }
 
-    // 5. 이미지 나가게 하기 : 클래스 off 넣기
+    // 4. 이미지 나가게 하기 : 클래스 off 넣기
     scene.classList.add("off");
 
-    // 4. 이미지 변경하기
-    // scene.src = isrc;
+    // 일정시간뒤에 코드 실행하기
+    // 타임아웃!!! 셋타임아웃!!!
+    // setTimeout(함수,시간)
+    // 함수에는 실행코드, 시간은 1/1000초 (단위안쓰고)
+
+    setTimeout(function(){
+        // 5. 이미지 변경하기
+        scene.src = isrc;
+        // 6. 클래스 off 제거하기
+        scene.classList.remove("off");
+        // 7. 클래스 on 넣기
+        scene.classList.add("on");
+    },500);
 
 } /////// changeImage함수 ///////
 
