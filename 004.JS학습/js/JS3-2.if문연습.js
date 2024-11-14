@@ -71,3 +71,23 @@ function changeImage() {
 
 } /////// changeImage함수 ///////
 
+
+
+ /********************************* 
+    [ 클래스를 컨트롤하는 JS classList 객체 ]
+    1. 클래스 넣기 : add(클래스명)
+    예) document.querySelector('.my').classList.add('on')
+    2. 클래스 빼기 : remove(클래스명)
+    예) document.querySelector('.my').classList.remove('on')
+    3. 클래스 토글 : toggle(클래스명)
+    예) document.querySelector('.my').classList.toggle('on')
+
+    [ 타이밍 내장함수 : setTimeout(함수,시간) ]
+    -> 함수호출 또는 코드실행을 일정시간후 할 수 있는 JS내장함수
+    사용법:
+      setTimeout(함수/익명함수코드구역,시간)
+      시간은 1/1000초 를 사용함(예: 1000을쓰면 1초임)
+      ->시간에 s단위를 쓰지 않는다!
+
+  *********************************/
+
