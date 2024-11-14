@@ -5,5 +5,8 @@
 // (2) 버튼 클릭시 먼저 이미지가 왼쪽으로 사라진후
 // 오른쪽에서 변경된 이미지가 들어온다!
 
-// 1. 
+// 1. 대상선정
+// 1-1. 이벤트 버튼들 : .btns
+var btns = document.querySelectorAll(".btns");
+console.log("대상:",btns);
 
