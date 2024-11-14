@@ -53,14 +53,21 @@ function changeImage() {
     // setTimeout(함수,시간)
     // 함수에는 실행코드, 시간은 1/1000초 (단위안쓰고)
 
+    // 0.5초후 코드 실행 //////
     setTimeout(function(){
         // 5. 이미지 변경하기
         scene.src = isrc;
-        // 6. 클래스 off 제거하기
+        // 6. 클래스 off 제거하기 : 왼쪽바깥에 투명
         scene.classList.remove("off");
-        // 7. 클래스 on 넣기
+        // 7. 클래스 on 넣기 : 오른쪽바깥에 투명
         scene.classList.add("on");
     },500);
+
+    // 1초후 코드실행 : 위의 타임아웃보다 0.5초후 ////
+    setTimeout(function(){
+        // 8. 클래스 on 제거하기 : 원래위치로 등장!
+        scene.classList.remove("on");
+    },1000);
 
 } /////// changeImage함수 ///////
 
