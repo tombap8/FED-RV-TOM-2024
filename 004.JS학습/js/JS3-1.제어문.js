@@ -92,8 +92,10 @@ function showJumsu() {
     return;
   } /// else if ///
   // 3.5-3. 빈값이면 돌려보내기 /////
-  // 빈값 확인용
-  else if (score == "") {
+  // 공백문자열 제거 내장함수는? trim()
+  // -> 문자열 앞뒤공백제거 기능
+  // -> 공백만 쓰면 공백자체가 제거된다!
+  else if (score.trim() == "") {
     console.log(
       "비었구만! 나가!!!"
     );
