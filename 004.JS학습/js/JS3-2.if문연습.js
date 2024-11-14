@@ -45,5 +45,8 @@ function changeImage() {
         isrc = "./images/ala3.jpg";
     }
 
+    // 4. 이미지 변경하기
+    scene.src = isrc;
+
 } /////// changeImage함수 ///////
 
