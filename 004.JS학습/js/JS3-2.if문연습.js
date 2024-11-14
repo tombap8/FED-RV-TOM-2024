@@ -6,9 +6,12 @@
 // 오른쪽에서 변경된 이미지가 들어온다!
 
 // 1. 대상선정
-// 1-1. 이벤트 버튼들 : .btns
+// 1-1. 이벤트 대상 : 버튼들 - .btns
 var btns = document.querySelectorAll(".btns");
-console.log("대상:",btns);
+// 1-2. 변경 대상 : 메인 이미지 - #scene
+var scene = document.querySelector("#scene");
+
+console.log("대상:",btns,scene);
 
 // 2. 이벤트 걸기 ////////
 btns[0].onclick = changeImage;
