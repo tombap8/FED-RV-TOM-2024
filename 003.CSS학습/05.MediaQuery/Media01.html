@@ -209,15 +209,40 @@
 
       /* 1200px 이하 미디어쿼리 시작 */
       @media screen and (max-width: 1200px) {
+        /* 1. 타이틀 변경 */
         .tit::after {
           content: "1200px이하";
           color: lime;
+        }
+        /* 2. 이미지 변경 */
+        /* 이전이미지 숨기기 */
+        .screen img:nth-child(1) {
+          display: none;
+        }
+        /* 다음이미지 보이기 */
+        .screen img:nth-child(2) {
+          display: inline;
         }
       }
       /* 1200px 이하 미디어쿼리 끝 */
 
       /* 1100px 이하 미디어쿼리 시작 */
-
+      @media screen and (max-width: 1100px) {
+        /* 1. 타이틀 변경 */
+        .tit::after {
+          content: "1100px이하";
+          color: pink;
+        }
+        /* 2. 이미지 변경 */
+        /* 이전이미지 숨기기 */
+        .screen img:nth-child(2) {
+          display: none;
+        }
+        /* 다음이미지 보이기 */
+        .screen img:nth-child(3) {
+          display: inline;
+        }
+      }
       /* 1100px 이하 미디어쿼리 끝 */
 
       /* 1000px 이하 미디어쿼리 시작 */
