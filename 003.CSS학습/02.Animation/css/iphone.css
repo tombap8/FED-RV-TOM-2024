@@ -82,7 +82,7 @@ body {
   width: var(--ip-width);
   height: var(--ip-height);
 
-  outline: 2px solid blue;
+  /* outline: 2px solid blue; */
 
   /* [ CSS 트랜스폼 입체설정하기 ] 
   - 입체를 만들 부모요소에 해준다!
@@ -93,55 +93,91 @@ body {
   transform-style: preserve-3d;
 
   /* 회전적용 */
-  transform: 
-  rotateX(10deg) rotateY(30deg);
+  transform: rotateX(10deg)
+    rotateY(30deg);
 }
 
 /* 아이폰 각면 공통 */
-.iphone span{
-    position: absolute;
-    width: var(--ip-width);
-    height: var(--ip-height);
+.iphone span {
+  position: absolute;
+  width: var(--ip-width);
+  height: var(--ip-height);
 
-    /* 배경공통 */
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+  /* 배경공통 */
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  /* 배경 투명부분을 흰색으로 채움 */
+  background-color: #fff;
 }
 
 /* 1. 앞면 */
-.iphone span:nth-child(1){
-    background-image: 
-    url(../images/ip01.png);
+.iphone span:nth-child(1) {
+  background-image: url(../images/ip01.png);
 
-    /* z축 이동하기 */
-    /* transform: translateZ(20px); */
-    translate: 0 0 10px;
-
-    display: none;
+  /* z축 이동하기 */
+  /* transform: translateZ(20px); */
+  translate: 0 0 10px;
 }
 /* 2. 뒷면 */
-.iphone span:nth-child(2){
-    background-image: 
-    url(../images/ip02.png);
+.iphone span:nth-child(2) {
+  background-image: url(../images/ip02.png);
 
-    /* z축 이동하기 */
-    translate: 0 0 -10px;
-    /* 뒤집어 보여야함 */
-    rotate: y 180deg;
+  /* z축 이동하기 */
+  translate: 0 0 -10px;
+  /* 뒤집어 보여야함 */
+  rotate: y 180deg;
 }
 /* 3. 오른쪽면 */
-.iphone span:nth-child(3){
-    background-image: 
-    url(../images/ip03.png);
+.iphone span:nth-child(3) {
+  background-image: url(../images/ip03.png);
 
-    /* 가로크기 재설정 */
-    width: var(--ip-side-size);
+  /* 오른쪽끝으로 이동 */
+  right: -10px;
 
-    /* x축 이동하기 */
-    /* calc(가로크기 - 두께/2) */
-    translate: calc(
-        var(--ip-width) - var(--ip-side-size)/2);
+  /* 가로크기 재설정 */
+  width: var(--ip-side-size);
 
-    /* y축회전 90도 */
-    rotate: y 90deg;
+  /* y축회전 90도 */
+  rotate: y 90deg;
+}
+/* 4. 왼쪽면 */
+.iphone span:nth-child(4) {
+  background-image: url(../images/ip04.png);
+
+  /* 가로크기 재설정 */
+  width: var(--ip-side-size);
+
+  /* 왼쪽끝으로 이동 */
+  left: -10px;
+
+  /* y축회전 -90도 */
+  rotate: y -90deg;
+}
+
+/* 5. 아랫면 */
+.iphone span:nth-child(5) {
+  background-image: url(../images/ip05.png);
+
+  /* 세로크기 재설정 */
+  height: var(--ip-side-size);
+
+  /* 아랫쪽끝으로 이동 */
+  bottom: -10px;
+
+  /* x축회전 90도 */
+  rotate: x 90deg;
+}
+
+/* 6. 아랫면 */
+.iphone span:nth-child(6) {
+  background-image: url(../images/ip06.png);
+
+  /* 세로크기 재설정 */
+  height: var(--ip-side-size);
+
+  /* 윗쪽끝으로 이동 */
+  top: -10px;
+
+  /* x축회전 90도 */
+  rotate: x 90deg;
 }
