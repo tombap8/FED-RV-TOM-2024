@@ -305,8 +305,8 @@ console.clear();
   var infoLocal = document.querySelector("#info");
   // 1-3. 입력창 : input#local
   var inputLocal = document.querySelector("#local");
-  
-  console.log("대상찍어:",btnLocal,infoLocal,inputLocal);
+
+  // console.log("대상찍어:",btnLocal,infoLocal,inputLocal);
 
   // 2. 이벤트 설정하기
   btnLocal.onclick = showLocal;
@@ -321,6 +321,11 @@ console.clear();
 function showLocal() {
   // 1. 함수호출확인
   console.log("국번을 알려줘~~!");
+
+  // 2. 입력값 읽어오기
+  var inputText = inputLocal.value;
+  console.log("입력값:", inputText);
+
 } /////////////// showLocal함수 /////////////
 
 
