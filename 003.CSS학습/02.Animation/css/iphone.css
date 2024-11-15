@@ -80,4 +80,25 @@ body {
   height: var(--ip-height);
 
   outline: 2px solid blue;
+
+  /* 회전적용 */
+  transform: 
+  rotateX(10deg) rotateY(30deg);
+}
+
+/* 아이폰 각면 공통 */
+.iphone span{
+    position: absolute;
+    width: var(--ip-width);
+    height: var(--ip-height);
+
+    /* 배경공통 */
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+/* 1. 앞면 */
+.iphone span:nth-child(1){
+    background-image: 
+    url(../images/ip01.png);
 }
