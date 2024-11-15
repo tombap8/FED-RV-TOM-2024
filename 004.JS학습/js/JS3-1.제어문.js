@@ -329,6 +329,13 @@ function showLocal() {
   // 3. switch문으로 분기하여 메시지 만들기
   var msg = "";
 
+  switch(inputLocal){
+    case "서울": msg = "02"; break;
+    case "경기": msg = "031"; break;
+    case "부산": msg = "051"; break;
+    case "제주": msg = "064"; break;
+  }
+
 } /////////////// showLocal함수 /////////////
 
 /********************************************** 
