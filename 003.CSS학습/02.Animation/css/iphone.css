@@ -43,7 +43,10 @@
 :root {
   /* 아이폰 가로크기 */
   --ip-width: 200px;
+  /* 아이폰 세로크기 */
   --ip-height: 400px;
+  /* 아이폰 두께크기 */
+  --ip-side-size: 20px;
 
   /* 그라데이션 색상 */
   --grad-color1: #fff;
@@ -81,6 +84,14 @@ body {
 
   outline: 2px solid blue;
 
+  /* [ CSS 트랜스폼 입체설정하기 ] 
+  - 입체를 만들 부모요소에 해준다!
+  (1) flat : 2D설정(기본값)
+  (2) preserve-3d : 3D설정
+  -> 3D설정후 Z축 이동 및 회전 사용가능
+  */
+  transform-style: preserve-3d;
+
   /* 회전적용 */
   transform: 
   rotateX(10deg) rotateY(30deg);
@@ -101,4 +112,36 @@ body {
 .iphone span:nth-child(1){
     background-image: 
     url(../images/ip01.png);
+
+    /* z축 이동하기 */
+    /* transform: translateZ(20px); */
+    translate: 0 0 10px;
+
+    display: none;
+}
+/* 2. 뒷면 */
+.iphone span:nth-child(2){
+    background-image: 
+    url(../images/ip02.png);
+
+    /* z축 이동하기 */
+    translate: 0 0 -10px;
+    /* 뒤집어 보여야함 */
+    rotate: y 180deg;
+}
+/* 3. 오른쪽면 */
+.iphone span:nth-child(3){
+    background-image: 
+    url(../images/ip03.png);
+
+    /* 가로크기 재설정 */
+    width: var(--ip-side-size);
+
+    /* x축 이동하기 */
+    /* calc(가로크기 - 두께/2) */
+    translate: calc(
+        var(--ip-width) - var(--ip-side-size)/2);
+
+    /* y축회전 90도 */
+    rotate: y 90deg;
 }
