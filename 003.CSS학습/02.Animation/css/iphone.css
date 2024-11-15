@@ -1,6 +1,12 @@
 @charset "utf-8";
 /* 아이폰 회전 애니 CSS */
 
+/* 웹폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+/* font-family: 'Anton', sans-serif; */
+
+
 /* 
     [ CSS의 변수사용 ]
      1. 최상위 영역에 변수를 셋팅하여
@@ -202,3 +208,29 @@ body {
       */
   }
 }
+
+
+/* 흘러가는 글자박스 부모 */
+.fbx{
+    position: absolute;
+    width: 100vw;
+}
+/* 텍스트박스 */
+.tbx{
+    /* 플렉스 박스 : 하위 ul흘러감 */
+    display: flex;
+}
+/* 텍스트박스 하위 ul 2개 공통
+- 2개인 이유는 반복단위 최소 개수임 */
+.tbx ul{
+    /* 플렉스 박스 */
+    display: flex;
+    /* 부모에게 플렉스하면 자식이 흘러감! */
+
+    /* 기본초기화 */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
