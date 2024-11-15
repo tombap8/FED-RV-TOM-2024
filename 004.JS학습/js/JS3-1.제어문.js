@@ -291,3 +291,37 @@ showResult(
 
 // 상단 콘솔출력 지우기
 console.clear();
+
+////////////////////////////////////////////
+// switch 문 연습 ////////////
+// 여기에서 직접 요소에 이벤트를 설정해 보자!
+// 함수바깥영역은 바로실행되므로 이 파일을 불러오는
+// 설정에서 속성으로 defer를 써서 코딩하자!
+  
+  // 1. 대상선정
+  // 1-1. 이벤트 대상 : button.btn-local
+  var btnLocal = document.querySelector(".btn-local");
+  // 1-2. 국번출력 : #info
+  var infoLocal = document.querySelector("#info");
+  // 1-3. 입력창 : input#local
+  var inputLocal = document.querySelector("#local");
+  
+  console.log("대상찍어:",btnLocal,infoLocal,inputLocal);
+
+  // 2. 이벤트 설정하기
+  btnLocal.onclick = showLocal;
+  // 주의! 선언된 함수를 할당할때 뒤에 소괄호를 하지말자!
+  // 바로 실행되니까~~! 
+
+
+/******************************************* 
+  함수명 : showLocal
+  기능 : 지역명을 입력하면 지역국번을 안내한다!
+*******************************************/
+function showLocal() {
+  // 1. 함수호출확인
+  console.log("국번을 알려줘~~!");
+} /////////////// showLocal함수 /////////////
+
+
+
