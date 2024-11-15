@@ -213,24 +213,57 @@ body {
 /* 흘러가는 글자박스 부모 */
 .fbx{
     position: absolute;
+    top: 5vh;
     width: 100vw;
 }
 /* 텍스트박스 */
 .tbx{
     /* 플렉스 박스 : 하위 ul흘러감 */
     display: flex;
+    /* ul이 2개니까 2배 크기로 만들어서
+    바깥에 하나 나가있게 함! */
+    width: 200vw;
 }
 /* 텍스트박스 하위 ul 2개 공통
 - 2개인 이유는 반복단위 최소 개수임 */
 .tbx ul{
-    /* 플렉스 박스 */
+    /* 플렉스 박스 : 하위 li가 흘러감 */
     display: flex;
     /* 부모에게 플렉스하면 자식이 흘러감! */
+
+    /* outline: 4px dotted red; */
+
+    /* ul은 또 플렉스 부모의 자식임! 등분할 */
+    flex: 1;
 
     /* 기본초기화 */
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+/* 하위 li 공통셋팅 */
+.tbx li{
+    /* 플렉스 자식 등분할! */
+    flex: 1;
+    /* outline: 2px dashed blue; */
+
+    text-align: center;
+    font-family: 'Anton';
+    font-size: 4vw;
+    color: #a0a0a0;
+}
+
+/* 글자애니 클래스 */
+.txt-ani1{
+    animation: txt-flow-ani 10s linear infinite;
+}
+
+/* 글자 흐르게 하기 키프레임 */
+@keyframes txt-flow-ani {
+    to{
+        translate: -50%;
+    }
 }
 
 
