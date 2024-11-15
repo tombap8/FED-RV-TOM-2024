@@ -1,28 +1,83 @@
 @charset "utf-8";
 /* 아이폰 회전 애니 CSS */
 
-html,body{
-    margin: 0;
-    padding: 0;
+/* 
+    [ CSS의 변수사용 ]
+     1. 최상위 영역에 변수를 셋팅하여
+     특정 부분의 값을 한번에 컨트롤 할 수 있다
+     2. 설정방법:
+     :root{
+        --변수명:값;
+     }
+    3. 사용방법:
+        var(--변수명)
+    4. 변수명명법:
+        일반적으로 -- 기호 뒤에 영문자를 쓰고
+        단어구분마다 데쉬(-)를 사용하는 케밥케이스로 쓴다!
+    예) 
+
+    :root{
+        --box-size1: 100px;
+        --box-size2: 400px;
+        --box-size3: 20vw;
+    }
+
+    div.my{
+        width: var(--box-size1);
+    }
+
+    5. 변수사용의 유용성 : 
+    (1) 반복적으로 사용되는 값의 업데이트시
+    한번에 제어할 수 있음(재사용성)
+    (2) 미디어쿼리에서 값 변경시 변수값만 업데이트하면
+    전체 컨트를 가능함
+
+    6. 변수사용의 범위 : 
+    (1) 특정 사이즈크기값
+    (2) 사이트 지정 색상값
+    (3) 특정 변경가능한 모든 지정값
+
+*/
+
+/* CSS변수 설정하기 */
+:root {
+  /* 아이폰 가로크기 */
+  --ip-width: 200px;
+  --ip-height: 400px;
+
+  /* 그라데이션 색상 */
+  --grad-color1: #fff;
+  --grad-color2: skyblue;
 }
 
-body{
-    height: 100vh;
-    background-image: 
-    linear-gradient(to bottom, #fff 20%,skyblue 40%,#fff);
-    /* 넘치는 자식요소 숨기기 */
-    overflow: hidden;
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  background-image: linear-gradient(
+    to bottom,
+    var(--grad-color1) 20%,
+    var(--grad-color2) 40%,
+    var(--grad-color1)
+  );
+  /* 넘치는 자식요소 숨기기 */
+  overflow: hidden;
 }
 
 /* 아이폰박스 */
-.iphone{
-    position: absolute;
-    /* 박스 정중앙 보내기 */
-    top: calc(50% - 400px/2);
-    left: calc(50% - 200px/2);
-    /* calc() CSS계산함수 */
-    width: 200px;
-    height: 400px;
+.iphone {
+  position: absolute;
+  /* 박스 정중앙 보내기 */
+  top: calc(50% - var(--ip-height) / 2);
+  left: calc(50% - var(--ip-width) / 2);
+  /* calc() CSS계산함수
+    - 더하기, 빼기 사용시 기호앞뒤공백 필수 */
+  width: var(--ip-width);
+  height: var(--ip-height);
 
-    outline: 2px solid blue;
+  outline: 2px solid blue;
 }
