@@ -213,9 +213,21 @@ body {
 /* 흘러가는 글자박스 부모 */
 .fbx{
     position: absolute;
-    top: 5vh;
     width: 100vw;
 }
+
+/* 각각 위치잡기 */
+.f1{
+    top: 5vh;
+}
+.f2{
+    bottom: 5vh;
+}
+/* 아랫쪽 박스는 tbx가 왼쪽에 나가 있도록 함! */
+.f2 .tbx{
+    translate: -50%;
+}
+
 /* 텍스트박스 */
 .tbx{
     /* 플렉스 박스 : 하위 ul흘러감 */
@@ -254,15 +266,27 @@ body {
     color: #a0a0a0;
 }
 
-/* 글자애니 클래스 */
+/* 글자애니 클래스1 */
 .txt-ani1{
-    animation: txt-flow-ani 10s linear infinite;
+    animation: txt-flow-ani1 10s linear infinite;
 }
 
-/* 글자 흐르게 하기 키프레임 */
-@keyframes txt-flow-ani {
+/* 글자 흐르게 하기 키프레임1 */
+@keyframes txt-flow-ani1 {
     to{
         translate: -50%;
+    }
+}
+
+/* 글자애니 클래스2 */
+.txt-ani2{
+    animation: txt-flow-ani2 10s linear infinite;
+}
+
+/* 글자 흐르게 하기 키프레임2 */
+@keyframes txt-flow-ani2 {
+    to{
+        translate: 0%;
     }
 }
 
