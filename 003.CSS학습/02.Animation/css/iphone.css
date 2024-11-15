@@ -181,3 +181,24 @@ body {
   /* x축회전 90도 */
   rotate: x 90deg;
 }
+
+/* 애니호출 클래스 */
+.ip-ani {
+    /* 애니메이션 : 이시이지반방마 */
+    animation: ip-rotate-ani 2s ease-in-out 1s 2 alternate;
+    /* 이름 시간(3초) 이징 지연(1초) 반복(2회) 방향(번갈아설정) */
+}
+
+/* 아이폰 회전 키프레임 */
+@keyframes ip-rotate-ani {
+  to {
+    transform: rotateX(370deg)
+      rotateY(-330deg);
+      /* 각도 설정시 유의사항 */
+      /* 
+        360도 설정시 이미 회전된 각도를
+        고려하여 같은 방향이면 + 반대방향이면 -로 쓰고
+        실제 각도를 더하거나 빼준다!
+      */
+  }
+}
