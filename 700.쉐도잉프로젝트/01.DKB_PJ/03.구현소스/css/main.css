@@ -12,3 +12,14 @@
 body * {
   outline: 2px dashed #ccc;
 }
+
+/* 임시 높이 */
+.main-area .inbox{
+  height: 500px;
+}
+/* 임시 타이틀 */
+h1,h2{
+  text-align: center;
+  font-size: 5vw;
+  color: #ccc;
+}
