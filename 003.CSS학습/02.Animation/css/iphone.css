@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* 아이폰 회전 애니 CSS */
+
+html,body{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100vh;
+    background-image: 
+    linear-gradient(to bottom, #fff 20%,skyblue 40%,#fff);
+    /* 넘치는 자식요소 숨기기 */
+    overflow: hidden;
+}
+
+/* 아이폰박스 */
+.iphone{
+    position: absolute;
+    /* 박스 정중앙 보내기 */
+    top: calc(50% - 400px/2);
+    left: calc(50% - 200px/2);
+    /* calc() CSS계산함수 */
+    width: 200px;
+    height: 400px;
+
+    outline: 2px solid blue;
+}
