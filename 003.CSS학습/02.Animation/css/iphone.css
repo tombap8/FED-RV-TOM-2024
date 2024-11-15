@@ -291,3 +291,19 @@ body {
 }
 
 
+/* 3번째 박스(반대방향주기 다른방법) */
+.f3{
+    bottom: 15vh;
+}
+.f3:hover .tbx{
+    /* 마우스 오버시 멈추게하기 */
+    animation-play-state: paused;
+}
+/* 글자애니 클래스3 */
+.txt-ani3{
+    animation: txt-flow-ani1 5s linear infinite reverse;
+    /* 방향 속성 값을 reverse로 하면 기존 애니가 반대로 적용된다! */
+}
+
+
+
