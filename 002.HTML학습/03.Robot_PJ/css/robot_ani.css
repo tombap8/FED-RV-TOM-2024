@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* 로봇 PJ 애니메이션 - 키프레임, 호출구현 : robot_ani.css */
+
+/* 호출 */
+.robot-box{
+    animation: move-robot-ani 4s ease-in-out 1s forwards;
+}
+
+/* 1. 로봇 이동 애니 */
+@keyframes move-robot-ani {
+    to{
+
+    }
+}

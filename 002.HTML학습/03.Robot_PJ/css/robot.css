@@ -97,17 +97,18 @@ h1.logo{
 }
 
 /* 2-1. 로봇박스 */
-.robot-box {
+.robot-box {  
   /* 로봇 fixed변경! */
   position: fixed;
   top: 0;
-  left: 50%;
+  /* ((애니)) left값변경애니 84% -> 50%(중앙) */
+  left: 84%;
   /* 중앙이동 */
   translate: -50%;
-  /* 축소 */
-  scale: .8;
+  /* ((애니)) 축소 : 0.4 -> 0.8 확대애니 */
+  scale: 0.4;
   /* 트랜스폼 기준변경: center center -> center 20% */
-  transform-origin: center 20%;
+  transform-origin: center 40%;
 
   /* display: none; */
   /* 위,아래 패딩으로 공간확보 */
