@@ -50,7 +50,7 @@
 /* 3. 왼쪽팔 올리기1 */
 @keyframes move-arm-ani1 { 
     to{
-        rotate: 30deg
+        rotate: 34deg
     }
 }
 /* 호출 */
@@ -70,7 +70,7 @@
 /* 4. 왼쪽팔뚝 올리기2 */
 @keyframes move-arm-ani2 { 
     to{
-        rotate: -65deg;
+        rotate: -93deg;
     }
 }
 /* 호출 */
@@ -81,8 +81,111 @@
     /* 애니메이션: 이시이지반방마 */
     animation: move-arm-ani2 .4s 5s forwards;
     /* 
-        이름(move-arm-ani2)
+        이름(move-arm-ani2) 
         시간(.4s) 이징(ease) 지연(5s) 
         반복(1) 방향() 마지막상태(forwards)
+    */
+}
+/* 5. 왼쪽손목 올리기3 */
+@keyframes move-arm-ani3 { 
+    to{
+        rotate: 85deg;
+    }
+}
+/* 호출 */
+/* 왼손목 */
+.arm1 span::after{
+    /* 축변경 (위) */
+    transform-origin: top;
+    /* 애니메이션: 이시이지반방마 */
+    animation: move-arm-ani3 .4s 5s forwards;
+    /* 
+        이름(move-arm-ani3) 
+        시간(.4s) 이징(ease) 지연(5s) 
+        반복(1) 방향() 마지막상태(forwards)
+    */
+}
+
+/* 6. 오른쪽팔 올리기1 */
+@keyframes move-arm2-ani1 { 
+    to{
+        rotate: -150deg
+    }
+}
+/* 흔들기 */
+@keyframes move-arm2-waving-ani1 { 
+    to{
+        rotate: -140deg
+    }
+}
+/* 호출 */
+/* 오른팔 */
+.arm2{
+    /* 축변경 (위) */
+    transform-origin: top;
+    /* 애니메이션: 이시이지반방마 */
+    animation: 
+    move-arm2-ani1 .4s 6s forwards,
+    /* 
+        이름(move-arm2-ani1)
+        시간(.4s) 이징(ease) 지연(6s) 
+        반복(1) 방향() 마지막상태(forwards)
+    */
+    move-arm2-waving-ani1 .4s ease-in-out 6.4s infinite alternate;
+    /* 
+        이름(move-arm2-waving-ani1)
+        시간(.4s) 이징(ease-in-out) 지연(6.4s) 
+        반복(infinite) 방향(alternate) 마지막상태()
+    */
+}
+/* 7. 오른쪽뚝팔 흔들기1 */
+/* 먼저 올리기 */
+@keyframes move-arm2-ani2 { 
+    to{
+        rotate: 20deg
+    }
+}
+/* 흔들기 */
+@keyframes move-arm2-waving-ani2 { 
+    to{
+        rotate: 40deg
+    }
+}
+/* 호출 */
+/* 오른팔뚝 */
+.arm2 span{
+    /* 축변경 (위) */
+    transform-origin: top;
+    /* 애니메이션: 이시이지반방마 */
+    animation:     
+    move-arm2-ani2 .4s 6s forwards,
+    /* 
+        이름(move-arm2-ani2)
+        시간(.4s) 이징(ease) 지연(6s) 
+        반복(1) 방향() 마지막상태(forwards)
+    */
+    move-arm2-waving-ani2 .4s ease-in-out 6.4s infinite alternate;
+    /* 
+        이름(move-arm2-waving-ani2)
+        시간(.4s) 이징(ease-in-out) 지연(6.4s) 
+        반복(infinite) 방향(alternate) 마지막상태()
+    */
+}
+
+/* 손목돌리기 */
+@keyframes rotate-ani {
+    to{
+        /* 역방향회전(y축) */
+        rotate: y 180deg;
+        /* 위치이동(x축) */
+        translate: 18% 0;
+    }
+}
+.arm2 span::after{
+    animation: rotate-ani .1s 6.4s forwards;
+     /* 
+        이름(rotate-ani)
+        시간(.1s) 이징(ease) 지연(6.4s) 
+        반복() 방향() 마지막상태(forwards)
     */
 }
