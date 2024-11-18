@@ -1,11 +1,6 @@
 @charset "utf-8";
 /* 로봇 PJ 애니메이션 - 키프레임, 호출구현 : robot_ani.css */
 
-/* 호출 */
-.robot-box {
-  animation: move-robot-ani 4s
-    ease-in-out 1s forwards;
-}
 
 /* 1. 로봇 이동 애니 */
 @keyframes move-robot-ani {
@@ -15,6 +10,21 @@
     /* ((애니)) 축소 : 0.4 -> 0.8 확대애니 */
     scale: 0.8;
   }
+}
+
+/* 호출 */
+.robot-box {
+    animation: move-robot-ani 4s
+      ease-in-out 1s forwards;
+  }
+
+
+/* 2. 다리구르기 애니 */
+@keyframes step-walk-ani {
+    to{
+        translate: 0 -30%;
+        /* translate: 가로(0) 세로(-30%) */
+    }
 }
 
 /* 호출 */
@@ -37,10 +47,42 @@
     시간(.5s) 지연(1.5s) 반복(8) 방향(alternate) */
 }
 
-/* 2. 다리구르기 애니 */
-@keyframes step-walk-ani {
+/* 3. 왼쪽팔 올리기1 */
+@keyframes move-arm-ani1 { 
     to{
-        scale: 1 .7;
-        /* scale: 가로(1) 세로(0.7) */
+        rotate: 30deg
     }
+}
+/* 호출 */
+/* 왼팔 */
+.arm1{
+    /* 축변경 (위) */
+    transform-origin: top;
+    /* 애니메이션: 이시이지반방마 */
+    animation: move-arm-ani1 .4s 5s forwards;
+    /* 
+        이름(move-arm-ani1)
+        시간(.4s) 이징(ease) 지연(5s) 
+        반복(1) 방향() 마지막상태(forwards)
+    */
+}
+
+/* 4. 왼쪽팔뚝 올리기2 */
+@keyframes move-arm-ani2 { 
+    to{
+        rotate: -65deg;
+    }
+}
+/* 호출 */
+/* 왼팔뚝 */
+.arm1 span{
+    /* 축변경 (위) */
+    transform-origin: top;
+    /* 애니메이션: 이시이지반방마 */
+    animation: move-arm-ani2 .4s 5s forwards;
+    /* 
+        이름(move-arm-ani2)
+        시간(.4s) 이징(ease) 지연(5s) 
+        반복(1) 방향() 마지막상태(forwards)
+    */
 }
