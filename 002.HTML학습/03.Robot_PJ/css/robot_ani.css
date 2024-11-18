@@ -2,13 +2,17 @@
 /* 로봇 PJ 애니메이션 - 키프레임, 호출구현 : robot_ani.css */
 
 /* 호출 */
-.robot-box{
-    animation: move-robot-ani 4s ease-in-out 1s forwards;
+.robot-box {
+  animation: move-robot-ani 4s
+    ease-in-out 1s forwards;
 }
 
 /* 1. 로봇 이동 애니 */
 @keyframes move-robot-ani {
-    to{
-
-    }
+  to {
+    /* ((애니)) left값변경애니 84% -> 50%(중앙) */
+    left: 50%;
+    /* ((애니)) 축소 : 0.4 -> 0.8 확대애니 */
+    scale: 0.8;
+  }
 }
