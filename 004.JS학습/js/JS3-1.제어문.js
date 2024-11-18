@@ -453,5 +453,23 @@ function showLocal() {
   var selbx = document.querySelector("#selbx");
   // 1-2. 변경 대상 : 출력대상 - .g1
   var g1 = document.querySelector(".g1");
-  
-  console.log("선택대상:",selbx,g1);
+  // DOM 선택이 된 이유는 외부JS호출시 
+  // defer 로 호출했기때문에
+  // html태그 로딩후 실행됨!
+  // console.log("선택대상:",selbx,g1);
+
+  // 2. 이벤트 설정하기 ////
+  selbx.onchange = makeGugu;
+  // 함수를 그대로 할당하면 이벤트 발생시 함수를 실행함!
+
+  // 3. 함수만들기 ////////////
+  function makeGugu(){
+    // 함수를 호출한 요소 자신은? this!
+
+    // 1. 선택값 option의 value값
+    var optVal = this.value;
+
+    // 2. 함수호출확인
+    console.log("구구단을 쓰자!", optVal);
+
+  } //////////// makeGugu 함수 ///////////////
