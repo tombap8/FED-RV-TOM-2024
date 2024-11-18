@@ -142,13 +142,13 @@
 /* 먼저 올리기 */
 @keyframes move-arm2-ani2 { 
     to{
-        rotate: 20deg
+        rotate: -20deg
     }
 }
 /* 흔들기 */
 @keyframes move-arm2-waving-ani2 { 
     to{
-        rotate: 40deg
+        rotate: -40deg
     }
 }
 /* 호출 */
@@ -158,16 +158,16 @@
     transform-origin: top;
     /* 애니메이션: 이시이지반방마 */
     animation:     
-    move-arm2-ani2 .4s 6s forwards,
+    move-arm2-ani2 .4s 6.4s forwards,
     /* 
         이름(move-arm2-ani2)
-        시간(.4s) 이징(ease) 지연(6s) 
+        시간(.4s) 이징(ease) 지연(6.4s) 
         반복(1) 방향() 마지막상태(forwards)
     */
-    move-arm2-waving-ani2 .4s ease-in-out 6.4s infinite alternate;
+    move-arm2-waving-ani2 .4s ease-in-out 6.8s infinite alternate;
     /* 
         이름(move-arm2-waving-ani2)
-        시간(.4s) 이징(ease-in-out) 지연(6.4s) 
+        시간(.4s) 이징(ease-in-out) 지연(6.8s) -> 올린시간 더 기다림(0.4초)
         반복(infinite) 방향(alternate) 마지막상태()
     */
 }
