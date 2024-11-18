@@ -465,11 +465,12 @@ function showLocal() {
   // 3. 함수만들기 ////////////
   function makeGugu(){
     // 함수를 호출한 요소 자신은? this!
+    // this === select#selbx요소
 
     // 1. 선택값 option의 value값
     var optVal = this.value;
 
     // 2. 함수호출확인
-    console.log("구구단을 쓰자!", optVal);
+    console.log("구구단을 쓰자!", optVal, this);
 
   } //////////// makeGugu 함수 ///////////////
