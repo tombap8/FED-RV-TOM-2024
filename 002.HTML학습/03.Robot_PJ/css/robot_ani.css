@@ -16,3 +16,31 @@
     scale: 0.8;
   }
 }
+
+/* 호출 */
+/* 왼다리 */
+.leg1{
+    /* 트랜스폼 축변경(상단:top) */
+    transform-origin: top;
+    /* 애니메이션 */
+    animation: step-walk-ani .5s 1s 8 alternate;
+    /* 이름(step-walk-ani) 
+    시간(.5s) 지연(1s) 반복(8) 방향(alternate) */
+}
+/* 오른다리 */
+.leg2{
+    /* 트랜스폼 축변경(상단:top) */
+    transform-origin: top;
+    /* 애니메이션 */
+    animation: step-walk-ani .5s 1.5s 8 alternate;
+    /* 이름(step-walk-ani) 
+    시간(.5s) 지연(1.5s) 반복(8) 방향(alternate) */
+}
+
+/* 2. 다리구르기 애니 */
+@keyframes step-walk-ani {
+    to{
+        scale: 1 .7;
+        /* scale: 가로(1) 세로(0.7) */
+    }
+}
