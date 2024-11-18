@@ -5,6 +5,12 @@
 @import url(./core.css);
 @import url(./reset.css);
 
+/* 스크롤 이동 애니설정 */
+html{
+  /* 루트인 html에 부드러운 스크롤 설정하기 */
+  scroll-behavior: smooth;
+}
+
 /* 초기화 */
 html,
 body {
