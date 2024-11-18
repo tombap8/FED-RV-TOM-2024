@@ -19,7 +19,14 @@
         지역변수를 선언하여 사용하면 전역변수와
         연결성이 끊어지고 지역변수만을 지칭하게됨!
 
-        5. 같은 영역에서 같은 이름의 변수를 다시
+        5. 함수내에서 선언없이 변수를 사용하면
+        자동으로 전역변수로 등록되어 사용된다!
+        편리한듯 보이지만 변수가 선언없이 전역이 됨으로
+        변수관리의 혼잡성이 증가하여 코드관리가
+        여러워지는 제1원인을 제공하게 된다!!!
+        -> 왜 let, const가 등장했는지에 대한 이유도됨!
+
+        6. 같은 영역에서 같은 이름의 변수를 다시
         선언하면 재선언하여 관리함(덮어쓰기함!)
 
         _________________________________
@@ -75,25 +82,34 @@
         var usa = "미국";
         console.log("3.함수안 지역 usa:", usa);
 
+        console.log("4-1.함수안 전역 korea 변경전:", korea);
         // 함수내에서 전역변수 korea값 변경하기
-        // korea = "코리아";
-        // console.log("4.함수안 전역 korea:", korea);
+        korea = "코리아";
+        console.log("4-2.함수안 전역 korea 변경후:", korea);
 
         // 함수내에서 전역uk찍기
-        // console.log("5.함수내 전역 uk:", uk);
+        console.log("5.함수내 전역 uk:", uk);
 
         // 전역변수에 선언된 uk변수와 같은 이름의
         // uk지역변수 만들기
-        // var uk = "유케이";
-        // console.log("6.함수내 지역 uk:", uk);
+        var uk = "유케이";
+        console.log("6.함수내 지역 uk:", uk);
 
-        // undefined  결과 이해하기
-        // var 나변수;
-        // console.log("할당안된변수값은?", 나변수);
+        // [ undefined  결과 이해하기 ]
+        // -> 전역변수 uk를 지역변수에서 같은이름으로
+        // 사용할 경우 전역변수 uk는 연결이 끊어지고
+        // 사용할 수 없게 됨! 따라서 지역변수가
+        // 위쪽에서 정의되지 않은 값으로 찍힘!
+        // 의문? 변수선언전에 그 변수를 위에서 호출가능한가?
+        // 아래쪽 변수를 위에서 당겨서 사용하는 것을
+        // 변수 호이스팅(hoisting)이라고 함!
+
+        var 나변수;
+        console.log("할당안된변수값은?", 나변수);
 
         // 선언한적이 없는 변수를 바로 사용해보자!
-        // rabbit = "토끼";
-        // console.log("7.함수내 선언없는 rabbit:", rabbit);
+        rabbit = "토끼";
+        console.log("7.함수내 선언없는 rabbit:", rabbit);
       } ////////// callMe 함수 ///////////////
       ////////////////////////////////////////
 
@@ -101,18 +117,18 @@
       var korea = "한국";
       var uk = "영국";
 
-      // console.log("1.함수밖 전역 korea:", korea);
-      // console.log("2.함수밖 전역 uk:", uk);
+      console.log("1.함수밖 전역 korea:", korea);
+      console.log("2.함수밖 전역 uk:", uk);
 
       // callMe 함수 호출하기
-      // callMe();
+      callMe();
 
       // 함수내에서 전역변수 변경후 변수찍기
-      // console.log("8.함수밖 전역 korea:", korea);
+      console.log("8.함수밖 전역 korea:", korea);
 
       // 함수안에서 선언없이 할당한 변수 rabbit 바깥에서 찍기
 
-      // console.log("9.함수밖 선언없는 rabbit:", rabbit);
+      console.log("9.함수밖 선언없는 rabbit:", rabbit);
 
       //// 2. if문에서 중괄호 var /////////////////
       // if (true) {
