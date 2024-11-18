@@ -476,8 +476,12 @@ function showLocal() {
     // 3. 구구단 만들기 ///
     var hcode = `<h2>${optVal}단</h2>`;
 
-    // 구구단 넣기 ///
-    hcode += `${optVal} × 1 ＝ ${optVal*1} <br>`;
+    // 구구단 넣기 : for문 사용! ///
+    // for(시;한;증){코드}
+    for(var i=1;i<10;i++){
+      hcode += `${optVal} × ${i} ＝ ${optVal*i} <br>`;
+
+    } /// for /////////
 
     // 4. 화면요소에 출력하기 ////
     // 출력대상은 g1변수 -> .g1박스
