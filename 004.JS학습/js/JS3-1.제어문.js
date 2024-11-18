@@ -446,3 +446,12 @@ function showLocal() {
       없으면 이 부분이 실행됨(단, 필요시 사용)
       -> default문에는 break를 쓰지 않는다!
   **********************************************/
+
+  // [ for문 구구단 출력을 위한 코드 ] /////
+  // 1. 대상선정 - 이벤트대상, 변경대상
+  // 1-1. 이벤트 대상 : select#selbx
+  var selbx = document.querySelector("#selbx");
+  // 1-2. 변경 대상 : 출력대상 - .g1
+  var g1 = document.querySelector(".g1");
+  
+  console.log("선택대상:",selbx,g1);
