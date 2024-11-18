@@ -202,7 +202,52 @@
     <!-- for문 연습 -->
     <h2 class="tit">for문 연습</h2>
     <h3>구구단 출력하기</h3>
+    <!-- 선택박스로 구구단 선택만들기 -->
+     <select name="selbx" id="selbx">
+      <option value="1">구구단을 선택하세요!</option>
+      <option value="2">2단</option>
+      <option value="3">3단</option>
+      <option value="4">4단</option>
+      <option value="5">5단</option>
+      <option value="6">6단</option>
+      <option value="7">7단</option>
+      <option value="8">8단</option>
+      <option value="9">9단</option>
+      <option value="10">10단</option>
+      <option value="11">11단</option>
+      <option value="12">12단</option>
+      <option value="13">13단</option>
+      <option value="14">14단</option>
+      <option value="15">15단</option>
+      <option value="16">16단</option>
+      <option value="17">17단</option>
+      <option value="18">18단</option>
+      <option value="19">19단</option>
+      <option value="20">20단</option>
+     </select>
     <div class="gugu g1"></div>
+
+    <!-- 
+        [ select 요소 ]
+
+        1. 보통 정해진 선택값을 나열하여 선택입력을
+        할 수 있는 입력요소
+
+        2. form요소 내부에 주로 사용되고 데이터를
+        DB에 전송하는 목적을 많이 이용됨!
+
+        3. id를 설정할때 name속성을 같이 셋팅할 경우가
+        많은데 이는 post방식 데이터 전송시 서버사이드에서
+        name으로 데이터를 읽어가기 때문에 일반적으로 씀.
+        보통 id명과 동일하게 이름짓는다
+
+        4. 필수하위 요소 : option
+            -> 속성으로 value를 쓰고 값을 사용하면
+                JS등 프로그래밍에서 이 값을 읽어감!
+            -> value속성을 셋팅하지 않으면
+                option의 데이터를 읽어감!
+
+     -->
 
     <br /><br />
     <hr />
