@@ -131,38 +131,38 @@
       console.log("9.함수밖 선언없는 rabbit:", rabbit);
 
       //// 2. if문에서 중괄호 var /////////////////
-      // if (true) {
-      //   var who = "누구?";
-      //   console.log("if문안 who:", who);
-      // } ///////// if문 ////////////
+      if (true) {
+        var who = "누구?";
+        console.log("if문안 who:", who);
+      } ///////// if문 ////////////
 
-      // console.log("if문밖 who:", who);
+      console.log("if문밖 who:", who);
       // if문의 중괄호 안에서 변수를 선언하면
       // 즉 중괄호가 지역역할을 못함!
 
       //// 2. if문에서 중괄호 : let 비교 ////
-      // if (true) {
-      //   let what = "뭣이?";
-      //   console.log("if문안 what:", what);
-      // } ///////// if문 ////////////
+      if (true) {
+        let what = "뭣이?";
+        console.log("if문안 what:", what);
+      } ///////// if문 ////////////
 
-    //   console.log("if문밖 what:", what);
+      // console.log("if문밖 what:", what);
       // if문 중괄호 안의 let은 지역변수이므로 바깥에서 못씀!
 
       /// 3. for문 중괄호 var //////////////
-      // for (var i = 3; i > 0; i--) {
-      //   // console.log("for문안 i:", i);
-      // } //////// for문 /////////
+      for (var i = 3; i > 0; i--) {
+        console.log("for문안 i:", i);
+      } //////// for문 /////////
 
-      // console.log("for문밖 i:", i);
+      console.log("for문밖 i:", i);
       // for문의 중괄호도 지역변수 역할을 못함!
 
       /// 3. for문 중괄호 : let비교 //////////////
-      // for (let j = 3; j > 0; j--) {
-      //   console.log("for문안 j:", j);
-      // } //////// for문 /////////
+      for (let j = 3; j > 0; j--) {
+        console.log("for문안 j:", j);
+      } //////// for문 /////////
 
-    //   console.log("for문밖 j:", j);
+      // console.log("for문밖 j:", j);
       // for문의 소괄호안의 셋팅은 중괄호 안으로 들어가므로
       // let 변수 선언시 for중괄호 안에 선언으로 처리된다!
       // 따라서 지역변수로 처리된다는말!!!
@@ -183,38 +183,60 @@
       /**********************************************/
       {
         // 블록영역 내부에서 전역변수 찍기 앞
-        // console.log('블록영역 내부에서 전역변수 찍기 앞');
-        // console.log('seoul:',seoul);
+        console.log('블록영역 내부에서 전역변수 찍기 앞');
+        console.log('seoul:',seoul);
 
         // console.log('toktok:',toktok);
+        // 아래쪽 let 재선언때문에 지역화되어 선언전에 호출불가!
 
         // 블록에서 변수 재선언하기!
-        // var seoul = "강남구";
+        var seoul = "강남구";
+        // -> 전역변수와 같은이름을 재선언할당하면
+        // var는 전역변수를 다시 선언할당 한것으로 봄
+        // 따라서 var 는 중괄호를 기준하지 않음을 알수 있음!
 
-        // console.log('jeju:',jeju);
+        console.log('jeju:',jeju);
+        // 아래쪽 let 재선언후 에러발생:
+        // Uncaught ReferenceError: 
+        // Cannot access 'jeju' before initialization
+        // -> 여기서 에러나는 이유는?
+        // let으로 아래쪽에 선언하면 지역변수가 됨!
+        // 이때 중괄호 구역에 전역변수 호출하던 부분이
+        // 이제는 지역변수가 되는데 let은 
+        // 위쪽에서 선언전에 호출하는 것을 금지한다!
+        // 이것을 전문용어로 "변수 호이스팅 금지!"라고함!
+        // 즉, 위쪽에서 변수선언전에 변수호출을 금지한다!
 
-
-        // let jeju = "마라도";
-        // console.log('jeju:',jeju);
+        let jeju = "마라도";
+        console.log('jeju:',jeju);
 
         // 전역변수에 let으로 선언된 같은 이름의 변수만들기
-        // let toktok = "라인";
-        // console.log('toktok:',toktok);
+        let toktok = "라인";
+        console.log('toktok:',toktok);
+        // 위에서 toktok호출불가!!!
 
         // let으로 선언된 전역변수 sport를
         // 중괄호 안에서 var로 다시 선언하면?
         // var sport = '배구';
+
+        // 에러남!
+        // Uncaught SyntaxError: 
+        // Identifier 'sport' has already been declared
+        // 이미 전역변수에 let으로 같은 이름변수가
+        // 선언되어 있으므로 var는 이것을 허용하지만
+        // let은 이것을 허용하지 않는다!
+        // 같은 영역에 같은변수이름 선언금지!!!
         
 
         // 블록영역 내부에서 전역변수 찍기 뒤
-        // console.log('블록영역 내부에서 전역변수 찍기 뒤');
-        // console.log('seoul:',seoul);
+        console.log('블록영역 내부에서 전역변수 찍기 뒤');
+        console.log('seoul:',seoul);
       }
       /**********************************************/
 
       // 블록바깥에서 전역변수 찍기!
-      // console.log('블록영역 바깥에서 전역변수 찍기');
-      // console.log('seoul:',seoul);
+      console.log('블록영역 바깥에서 전역변수 찍기');
+      console.log('seoul:',seoul);
       // console.log('jeju:',jeju);
       // console.log('toktok:',toktok);
 
