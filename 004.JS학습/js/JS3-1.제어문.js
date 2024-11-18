@@ -317,9 +317,9 @@ btnLocal.onclick = showLocal;
 // 주의! 선언된 함수를 할당할때 뒤에 소괄호를 하지말자!
 // 바로 실행되니까~~!
 // 추가로 입력창에 onkeypress이벤트 발생시 함수호출처리
-inputLocal.onkeypress = function(){
+inputLocal.onkeypress = function () {
   // 1. enter키가 입력되었는지 확인
-  if(event.keyCode == 13){
+  if (event.keyCode == 13) {
     // 2. showLocal()호출
     showLocal();
   }
@@ -447,50 +447,55 @@ function showLocal() {
       -> default문에는 break를 쓰지 않는다!
   **********************************************/
 
-  // [ for문 구구단 출력을 위한 코드 ] /////
-  // 1. 대상선정 - 이벤트대상, 변경대상
-  // 1-1. 이벤트 대상 : select#selbx
-  var selbx = document.querySelector("#selbx");
-  // 1-2. 변경 대상 : 출력대상 - .g1
-  var g1 = document.querySelector(".g1");
-  // DOM 선택이 된 이유는 외부JS호출시 
-  // defer 로 호출했기때문에
-  // html태그 로딩후 실행됨!
-  // console.log("선택대상:",selbx,g1);
+// [ for문 구구단 출력을 위한 코드 ] /////
+// 1. 대상선정 - 이벤트대상, 변경대상
+// 1-1. 이벤트 대상 : select#selbx
+var selbx =
+  document.querySelector("#selbx");
+// 1-2. 변경 대상 : 출력대상 - .g1
+var g1 = document.querySelector(".g1");
+// DOM 선택이 된 이유는 외부JS호출시
+// defer 로 호출했기때문에
+// html태그 로딩후 실행됨!
+// console.log("선택대상:",selbx,g1);
 
-  // 2. 이벤트 설정하기 ////
-  selbx.onchange = makeGugu;
-  // 함수를 그대로 할당하면 이벤트 발생시 함수를 실행함!
+// 2. 이벤트 설정하기 ////
+selbx.onchange = makeGugu;
+// 함수를 그대로 할당하면 이벤트 발생시 함수를 실행함!
 
-  // 3. 함수만들기 ////////////
-  function makeGugu(){
-    // 함수를 호출한 요소 자신은? this!
-    // this === select#selbx요소
+// 3. 함수만들기 ////////////
+function makeGugu() {
+  // 함수를 호출한 요소 자신은? this!
+  // this === select#selbx요소
 
-    // 1. 선택값 option의 value값
-    var optVal = this.value;
+  // 1. 선택값 option의 value값
+  var optVal = this.value;
 
-    // 2. 함수호출확인
-    console.log("구구단을 쓰자!", optVal, this);
+  // 2. 함수호출확인
+  console.log(
+    "구구단을 쓰자!",
+    optVal,
+    this
+  );
 
-    // 3. 구구단 만들기 ///
-    var hcode = `<h2>${optVal}단</h2>`;
+  // 3. 구구단 만들기 ///
+  var hcode = `<h2>${optVal}단</h2>`;
 
-    // 구구단 넣기 : for문 사용! ///
-    // for(시;한;증){코드}
-    for(var i=1;i<10;i++){
-      hcode += `${optVal} × ${i} ＝ ${optVal*i} <br>`;
+  // 구구단 넣기 : for문 사용! ///
+  // for(시;한;증){코드}
+  
+  for (var i = 1; i < 10; i--) {
+    hcode += `${optVal} × ${i} ＝ ${
+      optVal * i
+    } <br>`;
+  } /// for /////////
 
-    } /// for /////////
+  // 4. 화면요소에 출력하기 ////
+  // 출력대상은 g1변수 -> .g1박스
+  g1.innerHTML = hcode;
+} //////////// makeGugu 함수 ///////////////
 
-    // 4. 화면요소에 출력하기 ////
-    // 출력대상은 g1변수 -> .g1박스
-    g1.innerHTML = hcode;
-
-  } //////////// makeGugu 함수 ///////////////
-
-
-  /***************************************** 
+/***************************************** 
    [ for문 ]
     - 어떤 실행문을 순서대로 여러번 반복
     실행할 경우 사용하는 제어문
@@ -515,4 +520,11 @@ function showLocal() {
     6. 조건에 맞는 동안 중괄호 안의 코드를 실행함
     7. 중앙의 한계값 조건에 맞지 않으면(false)
         for문을 빠져나온다!
+
+    ((참고 : 무한루프))
+    for문의 범위를 잘못 설정하여 무한히
+    for문을 돌게 되는 것을 무한루프에 빠졌다!
+    라고 한다. 이때 최신 브라우저 엔진은
+    범위에러로 처리하여 브라우저 자체가
+    다운되지 않도록 처리한다!
 *****************************************/
