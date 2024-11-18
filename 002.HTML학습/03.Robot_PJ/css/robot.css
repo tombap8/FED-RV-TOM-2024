@@ -31,8 +31,10 @@ body {
 /* 1-1.로고 */
 h1.logo{
   position: fixed;
-  top: calc(50% - 10vw);
-  left: calc(50% - 10vw);
+  top: 0;
+  left: 0;
+  /* top: calc(50% - 10vw);
+  left: calc(50% - 10vw); */
   width: 20vw;
   height: 20vw;
   border-radius: 50%;
@@ -89,8 +91,24 @@ h1.logo{
 }
 
 /************* 2. 메인영역 *************/
+/* 메인영역 속박스 */
+.main-area{
+  padding-top: 100vh;
+}
+
 /* 2-1. 로봇박스 */
 .robot-box {
+  /* 로봇 fixed변경! */
+  position: fixed;
+  top: 0;
+  left: 50%;
+  /* 중앙이동 */
+  translate: -50%;
+  /* 축소 */
+  scale: .8;
+  /* 트랜스폼 기준변경: center center -> center 20% */
+  transform-origin: center 20%;
+
   /* display: none; */
   /* 위,아래 패딩으로 공간확보 */
   padding-top: 100px;
