@@ -31,10 +31,8 @@ body {
 /* 1-1.로고 */
 h1.logo{
   position: fixed;
-  top: 0;
-  left: 0;
-  /* top: calc(50% - 10vw);
-  left: calc(50% - 10vw); */
+  top: calc(50% - 10vw);
+  left: calc(50% - 10vw);
   width: 20vw;
   height: 20vw;
   border-radius: 50%;
@@ -105,10 +103,10 @@ h1.logo{
   left: 84%;
   /* 중앙이동 */
   translate: -50%;
-  /* ((애니)) 축소 : 0.4 -> 0.8 확대애니 */
+  /* ((애니)) 축소 : 0.4 -> 0.65 확대애니 */
   scale: 0.4;
   /* 트랜스폼 기준변경: center center -> center 20% */
-  transform-origin: center 40%;
+  transform-origin: center 20%;
 
   /* display: none; */
   /* 위,아래 패딩으로 공간확보 */
