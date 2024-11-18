@@ -195,7 +195,8 @@
         // var는 전역변수를 다시 선언할당 한것으로 봄
         // 따라서 var 는 중괄호를 기준하지 않음을 알수 있음!
 
-        console.log('jeju:',jeju);
+        // console.log('jeju:',jeju);
+
         // 아래쪽 let 재선언후 에러발생:
         // Uncaught ReferenceError: 
         // Cannot access 'jeju' before initialization
@@ -237,8 +238,8 @@
       // 블록바깥에서 전역변수 찍기!
       console.log('블록영역 바깥에서 전역변수 찍기');
       console.log('seoul:',seoul);
-      // console.log('jeju:',jeju);
-      // console.log('toktok:',toktok);
+      console.log('jeju:',jeju);
+      console.log('toktok:',toktok);
 
       //////////////////////////////////////////////
 
@@ -246,44 +247,70 @@
       //// 변수 호이스팅(Variable Hoisting) /////
       //////////////////////////////////////////
 
-      // cat = "고양이"; // 변수할당 먼저
-      // console.log("cat:", cat);
-      // var cat; // 변수선언 나중
+      cat = "고양이"; // 변수할당 먼저
+      console.log("cat:", cat);
+      var cat; // 변수선언 나중
 
       /// let은 변수 호이스팅을 허용하는가? ////
+      let dog;
+      dog = "강아지";
+      console.log("dog:", dog);
       // let dog;
-      // dog = "강아지";
-      // console.log("dog:", dog);
-    //   let dog;
 
-      // var cat = "먼치킨";
-      // console.log("cat:", cat);
+      // var는 재선언이 가능함!
+      var cat = "먼치킨";
+      console.log("cat:", cat);
 
-    //   let dog = "시바견";
+      // let dog = "시바견";
+      // -> let은 재선언 못함! -> let을 쓰는 이유중 하나!
+
 
       //////////// 상수 테스트 /////////////
 
-    //   const fish;
-    //   fish = "고등어";
+      // const fish;
+      // fish = "고등어";
 
-      // const fish = "고등어";
-      // console.log("상수 fish:", fish);
-      // 원칙1 : 
+      const fish = "고등어";
+      console.log("상수 fish:", fish);
+      // 원칙1 : 상수는 선언과 동시에 할당해야함!
 
-    //   fish = "참치";
-      // 원칙2 : 
+      // fish = "참치";
+      // 원칙2 : 상수는 재할당 불가!
+      // 에러 : Uncaught TypeError: 
+      // Assignment to constant variable.
 
       // 상수는 배열, 객체, 함수를 할당하여 많이 사용함!!!
+      // 상수는 값을 바꿀 수 없다!
+      // 그런데 배열, 객체, 함수는 그 형식을 상수 할당후
+      // 변경못하며 다만 내부의 값은 변경가능함!
+      // 함수는 내부 코드변경 가능함!
 
       //////////////////////////////////////////////
       //////// const의 활용 : 배열, 객체, 함수 /////
       //////////////////////////////////////////////
 
       // [1. 배열 ] //////////////////
+      const arr1 = ["aa","bb","cc"];
+      console.log("const로 배열사용:",arr1);
+      // arr1 = []; -> 상수는 재할당 불가!
+      // 그런데 값은 변경가능!
+      arr1[1] = "나야나";
+      console.log("const로 배열사용:",arr1);
+      // 코드 보안상 const많이 사용함!
 
       // [2. 객체] ///////////////////
+      const obj1 = {"이름":"김수현","나이":"35"};
+      console.log("const로 객체사용:",obj1);
+      // obj1 = 33; 재할당은 불가!
+      obj1["이름"] = "공유";
+      obj1["나이"] = "43";
+      console.log("const로 객체사용:",obj1);
 
       // [3. 함수] ////////////////////
+      const func1 = function(){console.log("나함수!");};
+      // 재할당 불가, 함수내용은 변경가능!
+      func1();
+      
     </script>
   </head>
   <body></body>
