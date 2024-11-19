@@ -332,4 +332,13 @@ body {
   list-style: none;
 }
 
+/* 플렉스 자식 li셋팅 */
+.evt-bx li{
+  /* 가로 5등분 */
+  width: 20vw;
+  /* 세로 3등분 */
+  height: 33.333vh;
+  outline: 2px dashed lightsalmon;
+}
+
 
