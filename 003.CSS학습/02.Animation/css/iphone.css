@@ -131,11 +131,24 @@ body {
 .iphone span:nth-child(1)::after {
   content: '';
   position: absolute;
-  top: 20%;
+  /* 중앙위치 */
+  top: 50%;
   left: 10%;
   width: 80%;
-  height: 60%;
+  /* 높이값 0 */
+  height: 0%;
   background: url(../images/avatar.jpg) no-repeat center/cover;
+  /* 애니메이션 : 이시이지반방마 */
+  animation: avatar-ani .5s ease-in-out 5s forwards;
+}
+/* 아바타 가운데서 펼쳐짐 */
+@keyframes avatar-ani {
+  to{
+    /* 위로 올라가고 높이값 생김
+    - 중앙에서 펼쳐지는 모양 */
+    top: 20%;
+    height: 60%;
+  }
 }
 /* 2. 뒷면 */
 .iphone span:nth-child(2) {
