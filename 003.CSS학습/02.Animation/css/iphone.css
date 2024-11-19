@@ -308,4 +308,28 @@ body {
 }
 
 
+/* 아이폰 이벤트 박스 : 따라보기 */
+.evt-bx{
+  position: fixed;
+  /* 사방 당겨서 화면 채우기 */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  /* 맨위에 위치 */
+  z-index: 999;
+}
+/* 하위 ul초기화 */
+.evt-bx ul{
+  /* 플렉스박스 */
+  display: flex;
+  /* 랩핑박스:아래로 떨어져 계속감 */
+  flex-wrap: wrap;
+
+  /* 기본초기화 */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 
