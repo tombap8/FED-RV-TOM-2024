@@ -65,3 +65,14 @@ console.log("arr1:",
 const target = document.querySelectorAll(".cont");
 
 console.log("출력대상:", target);
+
+// 여기서 출력대상은 .cont중 첫번째것!
+target[0].innerHTML = `
+    이름: ${arr1[5]}/
+    키: ${arr1[1]}/
+    몸무게: ${arr1[2]}/
+    대표작: ${arr1[4]}/
+    데뷔년도: ${arr1[3][0]}
+`;
+// 배열안에 배열이 또 있으면 대괄호를 추가하여
+// 해당 순번을 써준다! 변수[순번][순번]
