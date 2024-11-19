@@ -36,3 +36,12 @@
 
 ***********************************************/
 
+
+// 1. 대상선정 //////////////////////
+// 1-1. 이벤트 대상 : .mini
+let mini = document.querySelectorAll('.mini');
+// 1-2. 변경 대상 : .mini-space
+let miniSpace = document.querySelector('.mini-space');
+
+console.log("선택요소:",mini,miniSpace);
+
