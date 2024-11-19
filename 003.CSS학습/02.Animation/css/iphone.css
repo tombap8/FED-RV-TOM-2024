@@ -132,11 +132,10 @@ body {
   content: '';
   position: absolute;
   top: 20%;
-  left: 0;
-  width: 100%;
+  left: 10%;
+  width: 80%;
   height: 60%;
   background: url(../images/avatar.jpg) no-repeat center/cover;
-
 }
 /* 2. 뒷면 */
 .iphone span:nth-child(2) {
