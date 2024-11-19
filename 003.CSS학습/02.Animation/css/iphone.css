@@ -321,6 +321,8 @@ body {
   right: 0;
   /* 맨위에 위치 */
   z-index: 999;
+  /* 처음에 안보임 */
+  display: none;
 }
 /* 하위 ul초기화 */
 .evt-bx ul{
@@ -341,7 +343,7 @@ body {
   width: 20vw;
   /* 세로 3등분 */
   height: 33.333vh;
-  outline: 2px dashed lightsalmon;
+  /* outline: 2px dashed lightsalmon; */
 }
 
 
