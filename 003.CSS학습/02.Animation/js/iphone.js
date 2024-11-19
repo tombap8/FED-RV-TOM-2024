@@ -79,3 +79,11 @@ for (let i = 0; i < eleCnt; i++) {
     rotateY(${yVal[y1]}deg)`;   
   }; ///////// mouseenter 함수 ////////////
 } //// for ////
+
+
+// 처음에 .evt-bx가 display:none 이므로
+// 애니메이션 끝난 후 즉, 약 5초후에 보이게함!
+setTimeout(function(){
+    document.querySelector('.evt-bx')
+    .style.display = "block";
+},5000);
