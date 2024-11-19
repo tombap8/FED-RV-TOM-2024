@@ -71,6 +71,11 @@ for (let i = 0; i < miniCnt; i++) {
 
 
 // 3. 함수 만들기 ///////////////////////////
+// 미니언즈 이미지 개수를 저장할 변수를
+// 함수구역 바깥에 만들고 전역변수로 설정하여
+// 함수에서 변경시 그 값이 유지되도록 설정한다!
+let miniCount = 0;
+
 function insertMini() {
   // this -> 호출한 요소 자신!
 
@@ -98,9 +103,14 @@ function insertMini() {
       miniSpace.innerHTML += `
         <img src="./images/Minions.png" alt="미니언즈">
       `;
+      // 미니언즈 개수 증가하기
+      miniCount++;
+
   } //// for ////  
 
   // 4. 미니언즈 개수 표시하기 ///////
   // 대상: .stxt span -> stxt변수
+  stxt.innerText = miniCount*3;
+  // 미니언즈 이미지에 3개씩 있으므로 곱하기3
 
 } ////////// insertMini 함수 ////////////////
