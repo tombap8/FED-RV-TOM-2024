@@ -56,4 +56,5 @@ for (let i = 0; i < eleCnt; i++) {
     else y1 = 0;
 
   console.log("나돌아?", x1, y1);
+  console.log("xVal", xVal[x1], "/yVal", yVal[y1]);
 } //// for ////
