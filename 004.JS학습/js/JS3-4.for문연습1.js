@@ -47,11 +47,15 @@ let miniSpace = document.querySelector(
 // 1-3. 개수출력요소 : .stxt span
 let stxt = document.querySelector('.stxt span');
 
+// 1-4. 리셋버튼 : 
+let rbtn = document.querySelector('.rbtn');
+
 // console.log("선택요소:",
-//     mini,
-//     mini.length+"개",
-//     miniSpace,
-//     stxt);
+    // mini,
+    // mini.length+"개",
+    // miniSpace,
+    // stxt,
+    // rbtn);
 
 // 2. 이벤트 속성 셋팅하기 ///////////////
 // 이벤트 대상에게 click이벤트와 함수를 연결한다!
@@ -114,3 +118,16 @@ function insertMini() {
   // 미니언즈 이미지에 3개씩 있으므로 곱하기3
 
 } ////////// insertMini 함수 ////////////////
+
+// 4. 리셋버튼 클릭시 초기화기능 ////////////////
+// 이벤트 대상: .rbtn -> rbtn변수
+rbtn.onclick = function(){
+    // 1. 함수호출확인
+    console.log("다~지워~~!");
+
+    // 2. 리셋버튼을 클릭하면 파란박스의 
+    // 미니언즈 이미지 모두가 삭제 된다.
+
+    // 3. 이때 미니언즈 개수도 0으로 초기화한다.
+    
+}; ////// click 이벤트함수 /////////////
