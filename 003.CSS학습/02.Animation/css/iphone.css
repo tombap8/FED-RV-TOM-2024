@@ -101,6 +101,9 @@ body {
   /* 회전적용 */
   transform: rotateX(10deg)
     rotateY(30deg);
+
+  /* 트랜지션 적용 */
+  transition: .4s ease-out;
 }
 
 /* 아이폰 각면 공통 */
