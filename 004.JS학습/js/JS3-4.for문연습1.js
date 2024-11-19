@@ -127,7 +127,12 @@ rbtn.onclick = function(){
 
     // 2. 리셋버튼을 클릭하면 파란박스의 
     // 미니언즈 이미지 모두가 삭제 된다.
+    miniSpace.innerHTML = "";
 
     // 3. 이때 미니언즈 개수도 0으로 초기화한다.
-    
+    stxt.innerText = '0';
+
+    // 4. 미니언즈 개수 전역변수도 초기화!
+    miniCount = 0;
+
 }; ////// click 이벤트함수 /////////////
