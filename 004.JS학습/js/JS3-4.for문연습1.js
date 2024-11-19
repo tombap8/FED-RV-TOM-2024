@@ -17,7 +17,7 @@
     [2] 미니언즈 개수 표시하기
     1. 미니언즈를 넣을때 실시간 반영 개수를 표시한다.
     2. 이때 미니언즈 이미지가 3개씩 있으므로
-    3의 배수로 표시해 준다!
+        3의 배수로 표시해 준다!
 
     ((대상선정))
     (1) 이벤트대상 : .mini (click이벤트)
@@ -44,8 +44,14 @@ let mini =
 let miniSpace = document.querySelector(
   ".mini-space"
 );
+// 1-3. 개수출력요소 : .stxt span
+let stxt = document.querySelector('.stxt span');
 
-// console.log("선택요소:",mini,mini.length+"개",miniSpace);
+// console.log("선택요소:",
+//     mini,
+//     mini.length+"개",
+//     miniSpace,
+//     stxt);
 
 // 2. 이벤트 속성 셋팅하기 ///////////////
 // 이벤트 대상에게 click이벤트와 함수를 연결한다!
@@ -62,6 +68,7 @@ const miniCnt = mini.length;
 for (let i = 0; i < miniCnt; i++) {
   mini[i].onclick = insertMini;
 } /// for ///
+
 
 // 3. 함수 만들기 ///////////////////////////
 function insertMini() {
@@ -92,5 +99,8 @@ function insertMini() {
         <img src="./images/Minions.png" alt="미니언즈">
       `;
   } //// for ////  
+
+  // 4. 미니언즈 개수 표시하기 ///////
+  // 대상: .stxt span -> stxt변수
 
 } ////////// insertMini 함수 ////////////////
