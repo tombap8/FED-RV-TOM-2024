@@ -107,3 +107,9 @@ const arr2 = [
 
 console.log("arr2는 배열인가? ", 
     Array.isArray(arr2)?"응":"아니");
+
+// 출력대상 : target의 두번째
+target[1].innerHTML = `
+    ${arr2[0]}은 ${arr2[2]}년에 일제에 항거하여
+    ${arr2[1]}를 들고 일어난 민중봉기를 기념하는 날이다!
+`;
