@@ -52,8 +52,13 @@ for(let i=0; i<btnCnt; i++){
 
   // 3.  함수만들기
   function controlTV(){
-    // 1. 함수호출확인!
-    console.log("티비틀어!");
+    // this - 호출한 요소 자신!
+    // 1. 이벤트호출요소의 클래스명 읽어오기
+    // 속성명은 getAttribute('class')
+    let className = this.getAttribute('class');
+
+    // 2. 함수호출확인!
+    console.log("티비틀어!",className);
 
   } ///// controlTV 함수 //////////////
 
