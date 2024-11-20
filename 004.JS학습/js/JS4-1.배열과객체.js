@@ -49,13 +49,16 @@ const arr1 = new Array(
     alert("김태리 멋찜!!!");
     // 1.호출한요소 박스에 김태리 사진 이미지를 넣고(+=대입연산자로 기존 데이터 살림!)
     this.innerHTML += `
-      <img src="https://nimage.g-enews.com/phpwas/restmb_allidxmake.php?idx=5&simg=2024010817235408666436d3abae512155028.jpg" alt="김태리이미지"
+      <img src="https://cdn.mhnse.com/news/photo/202410/333921_379284_5123.jpg" alt="김태리이미지"
         style="
           position: absolute;
           top: 0;
           left: 0;
-          width: 230px;
-          height: 300px;
+          width: 150px;
+          height: 200px;
+          border-radius: 20px;
+          border: 4px ridge hotpink;        
+          transition: all 0.5s ease-out;  
         "
         id="kim"
       >
@@ -63,6 +66,8 @@ const arr1 = new Array(
 
     // 앱솔루트의 부모자격을 this에게 준다!
     this.style.position = "relative";
+
+    const aa = document.querySelector("#kim")
 
     // 2.마우스 오버시 나타나고
     this.onmouseenter = ()=>{
@@ -75,6 +80,29 @@ const arr1 = new Array(
       .style.display = "none";
     };
     // 4.마우스 움직이면 따라다니게 해요!
+    // mousemove 이벤트 : 
+    // 마우스 포인터가 대상요소 위에서 움직일때 계속발생
+    this.onmousemove = (헐) => {
+      // "헐" 변수는 이벤트 전달변수임!
+      // 어떤 함수도 전달값이 없는데 변수하나를 쓰면
+      // 곧 그것이 이벤트 전달변수가 됨!
+      // 그 요소에서 발생하는 이벤트를 객체로 가지고 있음
+      // 대체해서 event 라고 직접 전체 이벤트 객체를 쓸 수 있음!
+
+
+      // 이벤트 객체하위 pageX, pageY는 최상단, 최왼쪽으로부터
+      // 마우스 커서의 위치를 x,y축으로 단위없는 px값을 리턴한다!
+      // 이 값은 사이트 전체를 이동하는 어떤 요소를 구현할때
+      // 많이 사용함
+      // console.log("pageX:",헐.pageX);
+      // console.log("pageY:",헐.pageY);
+
+      // 여기서는 본 박스 안에서만 그 위치를 알면 되므로
+      // -> offsetX, offsetY -> 해당부모요소 박스로 부터
+      // 위치를 리턴함!
+      console.log("offsetX:",헐.offsetX);
+      console.log("offsetY:",헐.offsetY);
+    };
 
   }
 );
