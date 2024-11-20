@@ -30,7 +30,7 @@
 **********************************************/
 
 // 1. 배열 셋팅하고 출력하기 ////////////////
-// 1-1. new 키워드로 배열선언 및 할당하기
+// 1-1. new 키워드로 배열선언 및 할당하기 /////////////////
 // 그런데 배열은 굳이 new키워드로 선언할 필요는 없다!
 // 배열 리터럴로 생성할 수 있다!
 const arr1 = new Array(
@@ -44,7 +44,7 @@ const arr1 = new Array(
     "정년이",
   ],
   "김태리",
-  function(){
+  function () {
     // this는 누구? 호출한 요소자신!!!
     // alert("김태리 멋찜!!!");
 
@@ -62,6 +62,7 @@ const arr1 = new Array(
           display: none; 
           transition: .4s ease-out;
           translate: -50% -50%;
+          z-index: 100;
           pointer-events: none;
         "
         id="kim"
@@ -80,18 +81,19 @@ const arr1 = new Array(
     this.style.position = "relative";
 
     // 위에서 생성된 id="kim" 요소를 변수에 할당함!
-    const kim = document.querySelector("#kim");
+    const kim =
+      document.querySelector("#kim");
 
     // 2.마우스 오버시 나타나고
-    this.onmouseenter = ()=>{
+    this.onmouseenter = () => {
       kim.style.display = "block";
     };
     // 3.마우스 아웃시 사라지고
-    this.onmouseleave = ()=>{
+    this.onmouseleave = () => {
       kim.style.display = "none";
     };
     // 4.마우스 움직이면 따라다니게 해요!
-    // mousemove 이벤트 : 
+    // mousemove 이벤트 :
     // 마우스 포인터가 대상요소 위에서 움직일때 계속발생
     this.onmousemove = (헐) => {
       // "헐" 변수는 이벤트 전달변수임!
@@ -99,7 +101,6 @@ const arr1 = new Array(
       // 곧 그것이 이벤트 전달변수가 됨!
       // 그 요소에서 발생하는 이벤트를 객체로 가지고 있음
       // 대체해서 event 라고 직접 전체 이벤트 객체를 쓸 수 있음!
-
 
       // 이벤트 객체하위 pageX, pageY는 최상단, 최왼쪽으로부터
       // 마우스 커서의 위치를 x,y축으로 단위없는 px값을 리턴한다!
@@ -111,14 +112,19 @@ const arr1 = new Array(
       // 여기서는 본 박스 안에서만 그 위치를 알면 되므로
       // -> offsetX, offsetY -> 해당부모요소 박스로 부터
       // 위치를 리턴함!
-      console.log("offsetX:",헐.offsetX);
-      console.log("offsetY:",헐.offsetY);
+      console.log(
+        "offsetX:",
+        헐.offsetX
+      );
+      console.log(
+        "offsetY:",
+        헐.offsetY
+      );
 
       // 위치값 반영대상 : 김태리 이미지 -> #kim
       kim.style.left = `${헐.offsetX}px`;
       kim.style.top = `${헐.offsetY}px`;
     };
-
   }
 );
 
@@ -162,16 +168,14 @@ target[0].innerHTML = `
 
 // 김태리 기능추가!
 // 배열마지막 번호 == 배열개수-1
-target[0].onclick = arr1[arr1.length - 1];
+target[0].onclick =
+  arr1[arr1.length - 1];
 
 // click 이벤트 강제 실행!
 // click() 메서드 호출!
 target[0].click();
 
-
-
-
-// 1-2. 배열 리터럴 방식의 선언과 할당
+// 1-2. 배열 리터럴 방식의 선언과 할당 /////////////////////
 // 배열변수명 = [값1, 값2,...]
 // new 키워드 없이 바로 쓸 수 있는 객체임!
 // 이런 배열과 같은 객체를 정적객체(Static Object)라고 함!
@@ -183,7 +187,7 @@ const arr2 = [
   function () {
     alert("대한독립만세~!");
     // this는 누구인가? 호출한 요소자신!
-    console.log("this:",this);
+    console.log("this:", this);
     // 배경넣기
     this.style.background = `
     url(https://blog.kakaocdn.net/dn/H4k8p/btqUUqx7TLT/VAMfjsV79wqyKIfOGXn5P0/img.jpg) repeat-x 0/auto 100%`;
@@ -191,7 +195,8 @@ const arr2 = [
     this.style.scale = "1.5";
     this.style.rotate = "720deg";
     // 트랜지션 : 2초 ease-in-out
-    this.style.transition = "2s ease-in-out";
+    this.style.transition =
+      "2s ease-in-out";
 
     // 4초후에 다시 원래크기로 돌아가기
     // setTimeout(함수,시간)
@@ -208,8 +213,10 @@ const arr2 = [
 // function(){} 익명함수 - 이름없고 코드만 저장
 // -> 배열값으로 문자,숫자,배열,객체,함수 등 사용가능!
 
-console.log("arr2는 배열인가? ", 
-    Array.isArray(arr2)?"응":"아니");
+console.log(
+  "arr2는 배열인가? ",
+  Array.isArray(arr2) ? "응" : "아니"
+);
 
 // 출력대상 : target의 두번째
 target[1].innerHTML = `
@@ -221,8 +228,22 @@ target[1].innerHTML = `
 target[1].onclick = arr2[3];
 
 // 두번째 박스에 타이틀 출력
-target[1].title = "클릭하시면 만세를 합니다!";
+target[1].title =
+  "클릭하시면 만세를 합니다!";
 // 두번째 박스에 손가락표시
 target[1].style.cursor = "pointer";
 
 // console.log("배열안의 함수:",arr2[3]);
+
+// 1-3. 배열을 미리 생성하여 각각 할당하기 //////////
+// 배열변수명 = [] -> 배열리터럴
+// 배열변수명.length = 숫자 -> 숫자만큼 배열이 생성됨
+// 배열변수명.length 는 배열개수를 읽기/쓰기 모두 가능함!
+
+const arr3 = [];
+// const 상수로 리터럴선언, 할당후
+// 배열값 변경은 자유롭다!
+// 그러나 배열형을 변경할 수 없다! 즉, 재할당불가!!!
+// 그래서 상수임! (코드 보안상, 안전상 이유로 많이씀)
+
+console.log("arr3배열:",arr3);
