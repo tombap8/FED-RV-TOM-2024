@@ -57,6 +57,7 @@ const arr1 = new Array(
           width: 230px;
           height: 300px;
         "
+        id="kim"
       >
     `;
 
@@ -64,7 +65,15 @@ const arr1 = new Array(
     this.style.position = "relative";
 
     // 2.마우스 오버시 나타나고
+    this.onmouseenter = ()=>{
+      document.querySelector("#kim")
+      .style.display = "block";
+    };
     // 3.마우스 아웃시 사라지고
+    this.onmouseleave = ()=>{
+      document.querySelector("#kim")
+      .style.display = "none";
+    };
     // 4.마우스 움직이면 따라다니게 해요!
 
   }
