@@ -157,6 +157,15 @@ __________________________________________________
 - 추가할 코드:
 "editor.hover.enabled": false
 
+[ 테마 외에 글자색 변경하기 : 코멘트, 따옴표글자, 속성명 ]
+- settings.json에서 변경한다. 아래코드 추가함
+"editor.tokenColorCustomizations": {
+        "comments": "#49ff79",
+        "strings": "#eaff00",
+        "keywords": "#ffbd42"
+    },
+- 색상은 본인이 원하는 것으로 함!
+
 [ 외부 JS에서 제이쿼리 자동완성 안나오는 문제 ]
 -> 인터널 코드로 JS를 html페이지에 코딩할 경우
 제이쿼리 자동완성이 나온다. 그러나 외부JS로
