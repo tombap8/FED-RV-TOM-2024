@@ -264,3 +264,23 @@ arr3[4] = "나비같이";
 arr3[5] = "훨훨";
 arr3[6] = "훠얼훨";
 arr3[7] = "날아서~!";
+
+// 배열전체값 출력하기 : valueOf()
+console.log("arr3배열전체값:",arr3.toString());
+console.log("arr3배열전체값:",arr3.valueOf().toString());
+// 현재 브라우저는 valueOf()안해도 배열값을 보여준다!
+// toString() 출력은 배열값을 콤마로 연결한 문자열로 변환한다!
+
+// 변수값 사이에 구분자 넣고 문자형으로 배열값 변경하기
+// join(구분자) -> 구분자 넣고 문자값 생성
+console.log("arr3배열 join():",arr3.join("♥"));
+
+// 배열값 맨뒤에 값 추가하기 메서드 : push()
+arr3.push("김창환작사");
+
+// 배열값을 세번째 target박스에 출력하기
+// join()으로 사이에 별표 넣고 문자열 변환출력
+target[2].innerHTML = arr3.join("★");
+
+// -> 배열 메서드는 중요하므로 별도로 훈련함!!!
+
