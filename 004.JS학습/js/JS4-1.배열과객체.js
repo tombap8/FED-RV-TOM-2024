@@ -95,6 +95,16 @@ const arr2 = [
   1919,
   function () {
     alert("대한독립만세~!");
+    // this는 누구인가? 호출한 요소자신!
+    console.log("this:",this);
+    // 배경넣기
+    this.style.background = `
+    url(https://blog.kakaocdn.net/dn/H4k8p/btqUUqx7TLT/VAMfjsV79wqyKIfOGXn5P0/img.jpg) repeat-x 0/auto 100%`;
+    // 트랜스폼 변경 : 스케일 1.5, 회전 720도
+    this.style.scale = "1.5";
+    this.style.rotate = "720deg";
+    // 트랜지션 : 2초 ease-in-out
+    this.style.transition = "2s ease-in-out";
   },
 ];
 // 배열끝에 콤마는 원래는 쓰면 에러나지만
@@ -113,3 +123,13 @@ target[1].innerHTML = `
     ${arr2[0]}은 ${arr2[2]}년에 일제에 항거하여
     ${arr2[1]}를 들고 일어난 민중봉기를 기념하는 날이다!
 `;
+
+// 두번째 출력박스를 클릭하면 배열 값에 있는 함수 호출하기
+target[1].onclick = arr2[3];
+
+// 두번째 박스에 타이틀 출력
+target[1].title = "클릭하시면 만세를 합니다!";
+// 두번째 박스에 손가락표시
+target[1].style.cursor = "pointer";
+
+// console.log("배열안의 함수:",arr2[3]);
