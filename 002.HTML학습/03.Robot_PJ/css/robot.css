@@ -553,6 +553,9 @@ h1.logo{
   z-index: 2;
   /* 배경이미지 */
   background: url(../images/tv.jpg) no-repeat 0/100% 100%;
+  /* 로봇전체가 축소되어 TV조금 확대 */
+  scale: 1.4;
+  border-radius: 10px;
 }
 
 /* 스크린 */
