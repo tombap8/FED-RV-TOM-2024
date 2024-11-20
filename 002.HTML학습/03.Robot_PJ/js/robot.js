@@ -85,7 +85,8 @@ function loadFn() {
       "티비틀어!",
       className,
       scaleValue,
-      scaleValue == "1.4"
+      scaleValue == "1.4",
+      getComputedStyle(tv).width
     );
 
     // 3. tv에 트랜지션 주기
