@@ -70,9 +70,12 @@ function loadFn() {
     // 2. 함수호출확인!
     console.log("티비틀어!", className);
 
-    // 3. 기능별 분기하기
+    // 3. tv에 트랜지션 주기
+    tv.style.transition = ".6s ease-in-out";
+
+    // 4. 기능별 분기하기
     switch (className) {
-      case "scale": tv.style.scale = "2"; break;
+      case "scale": tv.style.scale = "3"; break;
     }
   } ///// controlTV 함수 //////////////
 } //////////// loadFn 함수 //////////////
