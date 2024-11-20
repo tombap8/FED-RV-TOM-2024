@@ -72,7 +72,7 @@ function loadFn() {
 
     // 3. 기능별 분기하기
     switch (className) {
-      case "scale":
+      case "scale": tv.style.scale = "2"; break;
     }
   } ///// controlTV 함수 //////////////
 } //////////// loadFn 함수 //////////////
