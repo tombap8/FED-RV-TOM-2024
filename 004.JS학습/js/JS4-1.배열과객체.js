@@ -46,7 +46,8 @@ const arr1 = new Array(
   "김태리",
   function(){
     // this는 누구? 호출한 요소자신!!!
-    alert("김태리 멋찜!!!");
+    // alert("김태리 멋찜!!!");
+
     // 1.호출한요소 박스에 김태리 사진 이미지를 넣고(+=대입연산자로 기존 데이터 살림!)
     this.innerHTML += `
       <img src="https://cdn.mhnse.com/news/photo/202410/333921_379284_5123.jpg" alt="김태리이미지"
@@ -146,8 +147,12 @@ target[0].innerHTML = `
 // 해당 순번을 써준다! 변수[순번][순번]
 
 // 김태리 기능추가!
-// 함수호출! : 배열마지막 번호 == 배열개수-1
+// 배열마지막 번호 == 배열개수-1
 target[0].onclick = arr1[arr1.length - 1];
+
+// click 이벤트 강제 실행!
+// click() 메서드 호출!
+target[0].click();
 
 
 
