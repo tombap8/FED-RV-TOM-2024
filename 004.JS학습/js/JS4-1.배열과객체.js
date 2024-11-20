@@ -58,27 +58,37 @@ const arr1 = new Array(
           width: 150px;
           height: 200px;
           border-radius: 20px;
-          border: 4px ridge hotpink;        
-          transition: all 0.5s ease-out;  
+          border: 4px ridge hotpink;    
+          display: none; 
+          transition: .4s ease-out;
+          translate: -50% -50%;
+          pointer-events: none;
         "
         id="kim"
       >
     `;
 
+    // [위의 CSS 코드 체크!!!]
+    // pointer-events: none -> 실제 이벤트는 부모박스인데
+    // 자식요소인 이미지가 매번 가림으로 인해 이벤트가
+    // 순간 없어졌가 다시 걸렸다가 함으로 떨림증상발생!!!
+    // 이 설정으로 본 이미지는 이벤트를 없애고 아래쪽 요소가
+    // 그대로 이벤트를 발생하게됨! 따라다니는 기능에서
+    // 매우 중요한 설정임!!!
+
     // 앱솔루트의 부모자격을 this에게 준다!
     this.style.position = "relative";
 
-    const aa = document.querySelector("#kim")
+    // 위에서 생성된 id="kim" 요소를 변수에 할당함!
+    const kim = document.querySelector("#kim");
 
     // 2.마우스 오버시 나타나고
     this.onmouseenter = ()=>{
-      document.querySelector("#kim")
-      .style.display = "block";
+      kim.style.display = "block";
     };
     // 3.마우스 아웃시 사라지고
     this.onmouseleave = ()=>{
-      document.querySelector("#kim")
-      .style.display = "none";
+      kim.style.display = "none";
     };
     // 4.마우스 움직이면 따라다니게 해요!
     // mousemove 이벤트 : 
@@ -103,6 +113,10 @@ const arr1 = new Array(
       // 위치를 리턴함!
       console.log("offsetX:",헐.offsetX);
       console.log("offsetY:",헐.offsetY);
+
+      // 위치값 반영대상 : 김태리 이미지 -> #kim
+      kim.style.left = `${헐.offsetX}px`;
+      kim.style.top = `${헐.offsetY}px`;
     };
 
   }
