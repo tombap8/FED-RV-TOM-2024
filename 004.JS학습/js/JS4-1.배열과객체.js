@@ -105,6 +105,12 @@ const arr2 = [
     this.style.rotate = "720deg";
     // 트랜지션 : 2초 ease-in-out
     this.style.transition = "2s ease-in-out";
+
+    // 4초후에 다시 원래크기로 돌아가기
+    // setTimeout(함수,시간)
+    setTimeout(() => {
+      this.style.scale = "1";
+    }, 4000);
   },
 ];
 // 배열끝에 콤마는 원래는 쓰면 에러나지만
