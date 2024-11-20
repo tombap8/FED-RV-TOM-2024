@@ -64,18 +64,36 @@ function loadFn() {
     // this - 호출한 요소 자신!
     // 1. 이벤트호출요소의 클래스명 읽어오기
     // 속성명은 getAttribute('class')
-    let className =
-      this.getAttribute("class");
+    // 클래스명은 특별하므로 className으로 가져옴
+    // 참고)class라고 못하는 이유는 class가 따로있음!
+    // 아이디명도 특별하므로 id로 가져옴
+    let className = this.className;
+    //   this.getAttribute("class");
 
     // 2. 함수호출확인!
     console.log("티비틀어!", className);
 
     // 3. tv에 트랜지션 주기
-    tv.style.transition = ".6s ease-in-out";
+    tv.style.transition =
+      ".6s ease-in-out";
 
     // 4. 기능별 분기하기
     switch (className) {
-      case "scale": tv.style.scale = "3"; break;
+      case "scale":
+        tv.style.scale = "3";
+        break;
+      case "ch1":
+        mv.src =
+          "https://www.youtube.com/embed/RMD91n01DuA?autoplay=1";
+        break;
+      case "ch2":
+        mv.src =
+          "https://www.youtube.com/embed/3P1CnWI62Ik?autoplay=1";
+        break;
+      case "ch3":
+        mv.src =
+          "https://www.youtube.com/embed/xLD8oWRmlAE?autoplay=1";
+        break;
     }
   } ///// controlTV 함수 //////////////
 } //////////// loadFn 함수 //////////////
