@@ -38,28 +38,41 @@ function loadFn() {
     document.querySelectorAll(
       ".btns button"
     );
+  // 1-2. 변경대상 : .tv
+  const tv =
+    document.querySelector(".tv");
 
-  console.log("대상:", btns);
+  // 1-3. 변경대상 : .tv iframe (동영상변경)
+  const mv = tv.querySelector("iframe");
+
+  console.log("대상:", btns, tv, mv);
 
   // 2. 이벤트 설정하기 : addEventListener사용!
   // 버튼개수변수
   const btnCnt = btns.length;
   // for문으로 돌면서 이벤트 한꺼번에 설정하기
-//   for(시;한;증){코드}
-for(let i=0; i<btnCnt; i++){
-    btns[i].addEventListener('click',controlTV);
-} ///// for /////
+  //   for(시;한;증){코드}
+  for (let i = 0; i < btnCnt; i++) {
+    btns[i].addEventListener(
+      "click",
+      controlTV
+    );
+  } ///// for /////
 
   // 3.  함수만들기
-  function controlTV(){
+  function controlTV() {
     // this - 호출한 요소 자신!
     // 1. 이벤트호출요소의 클래스명 읽어오기
     // 속성명은 getAttribute('class')
-    let className = this.getAttribute('class');
+    let className =
+      this.getAttribute("class");
 
     // 2. 함수호출확인!
-    console.log("티비틀어!",className);
+    console.log("티비틀어!", className);
 
+    // 3. 기능별 분기하기
+    switch (className) {
+      case "scale":
+    }
   } ///// controlTV 함수 //////////////
-
 } //////////// loadFn 함수 //////////////
