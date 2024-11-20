@@ -39,8 +39,8 @@ h1.logo{
   position: fixed;
   top: calc(50% - 10vw);
   left: calc(50% - 10vw);
-  width: 20vw;
-  height: 20vw;
+  width: max(20vw,100px);
+  height: max(20vw,100px);
   border-radius: 50%;
   z-index: 999;
   background: pink url(../images/robot_03.png) no-repeat center/auto 100%;
@@ -62,14 +62,13 @@ h1.logo{
   position: fixed;
   bottom: 3vw;
   right: 3vw;
-
-  width: 5vw;
-  height: 5vw;
+  width: max(5vw,50px);
+  height: max(5vw,50px);
   border-radius: 50%;
   border: 5px outset #fff;
   background-color: #ccc;
-
   z-index: 10;
+  box-sizing: content-box;
 }
 
 /* a요소 확장 */
@@ -81,7 +80,7 @@ h1.logo{
   /* 글자셋팅 */
   color: blue;
   text-decoration: none;
-  font: 1.4vw/5vw 'Black Ops One';
+  font: max(1.4vw,15px)/max(5vw,50px) 'Black Ops One';
   /* font: 스두크/줄체; */
 }
 /* 오버시 설정 */
@@ -130,22 +129,19 @@ h1.logo{
   /* 로봇쪽에서 커지게 하기위해
   트랜스폼 기준 변경(왼쪽아래) */
   transform-origin: left bottom;
-  width: 40vw;
-  height: 20vw;
-
+  width: max(40vw,300px);
+  height: max(20vw,150px);
   border-radius: 50%;
   background-color: #fff;
   text-align: center;
-  line-height: 20vw;
-
+  line-height: max(20vw,150px);
   text-decoration: none;
   color: orangered;
-  font-size: 5vw;
-
+  font-size: max(5vw,40px);
   border: 10px dashed orangered;
   box-sizing: border-box;
-
 }
+
 /* 가상요소로 삼각형 만들기 */
 .link-title::after{
   content: '';

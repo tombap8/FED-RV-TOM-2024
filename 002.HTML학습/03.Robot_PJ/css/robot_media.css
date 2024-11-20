@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* 로봇 PJ 미디어쿼리 */
+
+/*************** 950px이하 시작 ***************/
+@media screen and (max-width: 950px) {
+  /* 내용단락 */
+  .text-box p {
+    column-count: 2;
+  }
+  /* 말풍선 위치 */
+  .link-title {
+    top: -19vw;
+    left: -9%;
+  }
+}
+/*************** 950px이하 종료 ***************/
+
+/*************** 570px이하 시작 ***************/
+@media screen and (max-width: 570px) {
+  /* 내용단락 */
+  .text-box p {
+    column-count: 1;
+  }
+  /* 말풍선 위치 */
+  .link-title {
+    top: -27vw;
+    left: -42%;
+}
+}
+/*************** 570px이하 종료 ***************/
