@@ -70,17 +70,45 @@ function loadFn() {
     let className = this.className;
     //   this.getAttribute("class");
 
+    // 4. 스타일시트 scale값 읽어오기
+    let scaleValue =
+      getComputedStyle(tv).scale;
+    // 값이 1.4 이면 3, 3이면 1.4로 변경하기
+    scaleValue =
+      scaleValue === "1.4"
+        ? "3"
+        : "1.4";
+    // 삼항연산자의 결과가 scaleValue값을 덮어쓴다!
+
     // 2. 함수호출확인!
-    console.log("티비틀어!", className);
+    console.log(
+      "티비틀어!",
+      className,
+      scaleValue,
+      scaleValue == "1.4"
+    );
 
     // 3. tv에 트랜지션 주기
     tv.style.transition =
       ".6s ease-in-out";
 
-    // 4. 기능별 분기하기
+    // [ CSS 스타일값 읽기방법 2가지 ]
+    // 1) style.속성명 방법 (인라인CSS만 읽어옴)
+    // -> 왜 인라인만인가? style.속성명=값 설정을
+    // 생각해 보면 이것이 인라인 CSS를 설정하는 방법이기때문
+    // 2) getComputedStyle(대상요소).속성명 방법
+    // -> 2번 방법은 실제로 화면에 셋팅된 CSS값을 읽어옴
+
+    // 5. 기능별 분기하기
     switch (className) {
       case "scale":
-        tv.style.scale = "3";
+        /* 축소/확대 css변경하기 */
+        tv.style.scale = scaleValue;
+        /* 클릭된 스케일 버튼 title변경하기 */
+        this.title =
+          scaleValue == "3"
+            ? "축소"
+            : "확대";
         break;
       case "ch1":
         mv.src =
