@@ -43,7 +43,31 @@ const arr1 = new Array(
     "리틀 포레스트",
     "정년이",
   ],
-  "김태리"
+  "김태리",
+  function(){
+    // this는 누구? 호출한 요소자신!!!
+    alert("김태리 멋찜!!!");
+    // 1.호출한요소 박스에 김태리 사진 이미지를 넣고(+=대입연산자로 기존 데이터 살림!)
+    this.innerHTML += `
+      <img src="https://nimage.g-enews.com/phpwas/restmb_allidxmake.php?idx=5&simg=2024010817235408666436d3abae512155028.jpg" alt="김태리이미지"
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 230px;
+          height: 300px;
+        "
+      >
+    `;
+
+    // 앱솔루트의 부모자격을 this에게 준다!
+    this.style.position = "relative";
+
+    // 2.마우스 오버시 나타나고
+    // 3.마우스 아웃시 사라지고
+    // 4.마우스 움직이면 따라다니게 해요!
+
+  }
 );
 
 // new 키워드로 선언과 할당을 동시에 할 수 있다!
@@ -83,6 +107,13 @@ target[0].innerHTML = `
 `;
 // 배열안에 배열이 또 있으면 대괄호를 추가하여
 // 해당 순번을 써준다! 변수[순번][순번]
+
+// 김태리 기능추가!
+// 함수호출! : 배열마지막 번호 == 배열개수-1
+target[0].onclick = arr1[arr1.length - 1];
+
+
+
 
 // 1-2. 배열 리터럴 방식의 선언과 할당
 // 배열변수명 = [값1, 값2,...]
