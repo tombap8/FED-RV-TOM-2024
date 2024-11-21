@@ -590,3 +590,33 @@ tomObj.trailer = function () {
 
 // 객체확인
 console.log("나의객체:", tomObj);
+
+// 화면에 정보를 보여주는 함수
+const showMovieInfo = function () {
+  // 함수호출 확인
+  console.log("영화정보!!!");
+
+  // 1. 출력대상: target[5]
+  // 2. 내용넣기
+  target[5].innerHTML = `
+      ♣ 영화명 : ${tomObj.title}
+      ♣ 감독 : ${tomObj.director} <br>
+      ♣ 배우 : ${tomObj.actor}
+      ♣ 장르 : ${tomObj.genre}
+      ♣ 등급 : ${tomObj.ratings}
+    `;
+
+  // 툴팁 보이기
+  target[5].title = `클릭하시면 ${tomObj.title}예고편을 보실 수 있습니다!`;
+
+  // 예고편 메서드 호출
+  target[5].onclick = tomObj.trailer;
+}; ////// showMovieInfo 함수 //////////
+
+// 출력박스 CSS조정하기
+target[5].style.lineHeight = "34px";
+target[5].style.cursor = "pointer";
+target[5].style.fontSize = "14px";
+
+// 할당형 함수는 바로 호출시 하단에서 해야함!
+showMovieInfo();
