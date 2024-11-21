@@ -80,7 +80,7 @@ hdwObj.ratings = "청소년관람불가";
 hdwObj.trailer = function () {
   console.log("ㅎㅎ");
   // 예고편 플레이 함수호출!
-  playMovie("NVDLUJa5dac0");
+  playMovie("AubJhjH0MfY");
 }; ////// trailer 메서드 ////////
 
 ////////// 4. 이민경 객체 ///////////////
