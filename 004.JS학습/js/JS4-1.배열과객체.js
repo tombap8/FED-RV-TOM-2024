@@ -591,7 +591,9 @@ tomObj.trailer = function () {
 // 객체확인
 console.log("나의객체:", tomObj);
 
-// 화면에 정보를 보여주는 함수
+///////////////////////////////
+// 화면에 정보를 보여주는 함수 //
+///////////////////////////////
 const showMovieInfo = function () {
   // 함수호출 확인
   console.log("영화정보!!!");
@@ -616,7 +618,94 @@ const showMovieInfo = function () {
 // 출력박스 CSS조정하기
 target[5].style.lineHeight = "34px";
 target[5].style.cursor = "pointer";
-target[5].style.fontSize = "14px";
+target[5].style.fontSize = "20px";
 
 // 할당형 함수는 바로 호출시 하단에서 해야함!
 showMovieInfo();
+
+/*****************************************
+    함수명 : playMovie
+    기능 : 영화예고편 화면 띄우기
+*****************************************/
+function playMovie(mcode) {
+  // mcode 영화아이디
+  // 함수호출 및 전달값 확인
+  console.log(
+    "예고편상영이요~~!",
+    mcode
+  );
+
+  // 1. 대상선정 : #mvbox
+  let mvbox =
+    document.querySelector("#mvbox");
+
+  // 2. 영화박스에 아이프레임 넣기
+  mvbox.innerHTML = `
+    <div id="mv">
+      <!-- 유튜브 아이프레임 -->
+      <iframe src="https://www.youtube.com/embed/${mcode}?autoplay=1" allow="autoplay"></iframe>
+      <!-- 닫기버튼 -->
+      <button class="cbtn">×</button>
+    </div>
+            `;
+
+  // 3. 삽입된 동영상 박스 CSS설정하기
+  let mv =
+    document.querySelector("#mv");
+  let css = mv.style;
+
+  css.position = "fixed";
+  css.top = "50%";
+  css.left = "50%";
+  css.transform =
+    "translate(-50%, -50%)";
+  css.width = "700px";
+  css.height = "450px";
+  css.backgroundColor = "#000";
+
+  // 4. 아이프레임 CSS설정
+  let ifr = mv.querySelector("iframe");
+  let ifrcss = ifr.style;
+  ifrcss.border = "none";
+  ifrcss.width = "100%";
+  ifrcss.height = "100%";
+
+  // 5. 닫기버튼  CSS셋팅하기
+  let cbtn = mv.querySelector(".cbtn");
+  // style.cssText 로 셋팅하자!
+  // 개별셋팅과 차이점은 이 설정은 모든 style속성의
+  // CSS 설정을 덮어씀! 주의!!!
+  // 반면 한 속성씩 셋팅하는 것은 한껀씩 개별 업데이트됨!
+  cbtn.style.cssText = `
+    position : absolute;
+    top : 0;
+    right : -70px;
+    width : 50px;
+    height : 50px;
+    border : none;
+    color : #fff;
+    background-color : blue;
+    font-size : 40px;
+    font-weight : bold;
+    border-radius: 50%;
+    cursor : pointer;
+    line-height : 50px;
+  `;
+
+  // 6. 닫기버튼 클릭시 #mv 제거하기
+  cbtn.onclick = function () {
+    mv.remove();
+    // remove() 는 DOM 메서드임!
+    // 선택요소를 제거함!
+
+    // body 암전효과 클래스 on 제거하기
+    document.body.classList.remove(
+      "on"
+    );
+  }; //////// 닫기버튼 이벤트함수 ///////
+
+  // 7. body 요소에 클래스 on주기
+  // 동영상 배경 암전효과
+  document.body.classList.add("on");
+} ///////////// playMovie 함수 ///////////
+///////////////////////////////////////////
