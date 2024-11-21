@@ -382,6 +382,14 @@ target[3].title =
 
 // 손가락모양 커서
 target[3].style.cursor = "pointer";
-
+let aa = "생일"
 // 출력하기
-target[3].innerHTML = ``;
+target[3].innerHTML = `
+  당신이 좋아하는 남자배우는? 
+  ${SSG["너의 이름은?"]}
+  / 몸무게를 아세요? ${SSG.몸무게} <br>
+  생년월일은? ${SSG["생일"]}
+  / 대표작은? ${SSG.대표작}
+`;
+
+
