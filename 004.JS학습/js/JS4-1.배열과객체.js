@@ -466,15 +466,42 @@ const GU = {
   weight: "74kg",
   com: "매니지먼트숲",
   work: "도깨비,부산행",
-  msgFn: function(txt){
+  msgFn: function(txt,ele){
+    // txt - 메시지, ele - 호출요소
     // 1. 메시지 띄우기(호출확인!)
     alert("팬레터:"+txt);
+
     // this의 의미는?
     // 1)만약 함수를 별도로 호출하였으면
     // 객체안의 메서드이므로 객체자신임!
     // 2)만약 이벤트설정이 직접 할당되었으면
     // 호출한 요소 자신이 this임!
     console.log("this:",this);
+    
+    // 2. CSS변경하기
+    let mycss = ele.style;
+
+    // 2-1.배경이미지넣기
+    mycss.background =
+      "url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Gong_Yoo_%28Sep_2016%29.png/250px-Gong_Yoo_%28Sep_2016%29.png) repeat-x top/auto 100%";
+
+    //2-2. 글자색
+    mycss.color = "#fff";
+
+    //2-3. 글자그림자
+    mycss.textShadow = "0 0 5px #000";
+
+    //2-4. 줄간격
+    mycss.lineHeight = "30px";
+
+    //2-5. 높이값 변경
+    mycss.height = "100px";
+
+    //2-6. 상단패딩
+    mycss.paddingTop = "100px";
+
+    //2-7. 트랜지션
+    mycss.transition = "2s ease-in-out .5s";
 
 
   },
@@ -515,7 +542,16 @@ target[4].addEventListener("click",
     // 이벤트에 바로 연결된 익명함수안에서
     // this의 의미는?
     console.log("원본함수내this:",this);
-    GU.msgFn("공유오빠, 오징어게임 싸다구 멋쪘어요! \n차기작도 기대해요! 화이팅!!");
+
+    // 메시지변수
+    let msg = "공유오빠, 오징어게임 싸다구 멋쪘어요! \n차기작도 기대해요! 화이팅!!";
+
+    // 호출시 this를 보내준다!
+    // 왜? 객체의 메서드에서 this의미가 다르니까!
+    GU.msgFn(msg,this);
+    // GU.msgFn(값1,값2)
+    // 값1 - 메시지문자
+    // 값2 - this (호출요소)
   });
 
 
