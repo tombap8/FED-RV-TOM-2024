@@ -620,7 +620,6 @@ target[5].style.lineHeight = "34px";
 target[5].style.cursor = "pointer";
 target[5].style.fontSize = "20px";
 
-tomObj = ssgObj;
 
 // 할당형 함수는 바로 호출시 하단에서 해야함!
 showMovieInfo();
@@ -631,15 +630,15 @@ showMovieInfo();
 // 버튼에 사용할 이름 배열만들기
 const choiceName = [
   "탐쌤",
-  "훈련생1",
-  "훈련생2",
-  "훈련생3",
-  "훈련생4",
-  "훈련생5",
-  "훈련생6",
-  "훈련생7",
-  "훈련생8",
-  "훈련생9",
+  "김혜민",
+  "양현석",
+  "황대웅",
+  "이민경",
+  "이민지",
+  "전정훈",
+  "윤고은",
+  "김다영",
+  "강수현",
   "훈련생10",
 ];
 
@@ -725,43 +724,43 @@ for (let i = 0; i < cntBtn; i++) {
       // 자기자신 오브젝트
       case "탐쌤초이스":
         // 객체의 내용을 덮어쓰기 변경함
+        tomObj = myObj;
+        break;
+
+      case "김혜민초이스":
+        tomObj = khmObj;
+        break;
+
+      case "양현석초이스":
+        tomObj = yhsObj;
+        break;
+
+      case "황대웅초이스":
+        tomObj = hdwObj;
+        break;
+
+      case "이민경초이스":
+        tomObj = lmkObj;
+        break;
+
+      case "이민지초이스":
+        tomObj = mimObj;
+        break;
+
+      case "전정훈초이스":
+        tomObj = jjhObj;
+        break;
+
+      case "윤고은초이스":
+        tomObj = ygeObj;
+        break;
+
+      case "김다영초이스":
         tomObj = ssgObj;
         break;
 
-      case "훈련생1초이스":
-        tomObj = ssgObj;
-        break;
-
-      case "훈련생2초이스":
-        tomObj = ssgObj;
-        break;
-
-      case "훈련생3초이스":
-        tomObj = ssgObj;
-        break;
-
-      case "훈련생4초이스":
-        tomObj = ssgObj;
-        break;
-
-      case "훈련생5초이스":
-        tomObj = ssgObj;
-        break;
-
-      case "훈련생6초이스":
-        tomObj = ssgObj;
-        break;
-
-      case "훈련생7초이스":
-        tomObj = ssgObj;
-        break;
-
-      case "훈련생8초이스":
-        tomObj = ssgObj;
-        break;
-
-      case "훈련생9초이스":
-        tomObj = ssgObj;
+      case "강수현초이스":
+        tomObj = shkObj;
         break;
 
       case "훈련생10초이스":
