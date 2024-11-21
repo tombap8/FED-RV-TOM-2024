@@ -511,6 +511,11 @@ target[4].style.cursor = "pointer";
 // 바로 실행된다... 따라서
 // 이 호출함수를 익명함수로 감싸준다!!!
 target[4].addEventListener("click",
-  GU.msgFn);
+  function(){
+    // 이벤트에 바로 연결된 익명함수안에서
+    // this의 의미는?
+    console.log("원본함수내this:",this);
+    GU.msgFn("공유오빠, 오징어게임 싸다구 멋쪘어요! \n차기작도 기대해요! 화이팅!!");
+  });
 
 
