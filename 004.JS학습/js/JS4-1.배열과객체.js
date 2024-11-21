@@ -366,3 +366,22 @@ const SSG = new Object({
 }); ///// SSG 객체 ///////////
 
 console.log("석구객체:",SSG);
+
+// 박스에 출력전 셋팅변경 ///
+// 대상박스 : target[3] 네번째 박스
+
+// 줄간격 2줄이니까 조정
+target[3].style.lineHeight = "40px";
+
+// 툴팁 넣기
+// 객체호출법 2가지 : 
+// 1) 객체명.속성명
+// 2) 객체명[문자형속성명]
+target[3].title = 
+`여기를 클릭하여 ${SSG["너의 이름은?"]}팬레터를 확인하세요!`;
+
+// 손가락모양 커서
+target[3].style.cursor = "pointer";
+
+// 출력하기
+target[3].innerHTML = ``;
