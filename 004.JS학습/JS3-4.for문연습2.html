@@ -21,6 +21,21 @@
             padding: 0;
             list-style: none;
         }
+        /* 랩핑박스 */
+        .wrap{
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* 내부 플렉스박스 */
+        .wrap ul{
+            display: flex;
+            /* 랩핑박스 - 줄바꿈됨 */
+            flex-wrap: wrap;
+            /* 사이간격: gap */
+            /* gap: 위아래 양쪽 */
+            gap: 10px 20px;
+        }
 
     </style>
     <script src="./js/JS3-4.for문연습2.js"></script>
@@ -28,7 +43,18 @@
 <body>
     <h1 class="tit">JS3-4.for문연습2 - 갤러리 for문</h1>
     <section class="wrap">
-
+        <ul>
+            <li>
+                <img src="./images/dress/1.jpg" alt="dress">
+                <h3>옷이름</h3>
+                <h4>가격</h4>
+            </li>
+            <li>
+                <img src="./images/dress/2.jpg" alt="dress">
+                <h3>옷이름</h3>
+                <h4>가격</h4>
+            </li>
+        </ul>
     </section>
     
 </body>
