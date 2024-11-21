@@ -370,7 +370,21 @@ const SSG = new Object({
 
     // 1. 배경변경
     mycss.background = 
-    "url(https://file.mk.co.kr/meet/neds/2022/05/image_readtop_2022_456627_16533579475052374.jpeg) repeat-x top/auto 100%"
+    "url(https://file.mk.co.kr/meet/neds/2022/05/image_readtop_2022_456627_16533579475052374.jpeg) repeat-x top/auto 100%";
+    // 2. 글자색
+    mycss.color = "#fff";
+    // 3. 글자그림자
+    mycss.textShadow = "0 0 5px #000";
+    // 4. 줄간격변경
+    mycss.lineHeight = "84px";
+    // 5. 박스 확대
+    mycss.scale = "1.2";
+    // 6. 트랜지션
+    mycss.transition = "1s ease-out 1s";
+
+    // 7. 글자내용변경
+    this.innerText = 
+    `손석구 최고 멋쨍이! 승승장구! 화이팅!!!`;
 
 
   },
