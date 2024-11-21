@@ -34,7 +34,31 @@
             flex-wrap: wrap;
             /* 사이간격: gap */
             /* gap: 위아래 양쪽 */
-            gap: 10px 20px;
+            gap: 10px 1%;
+            /* 주의: 사이간격은 width 에 관련되므로
+            가로크기의 %로 설정해야 한줄에 오는
+            개수를 유지할 수 있다! */
+        }
+
+        .wrap li{
+            /* 한줄에 5개 오는 설정값을 찾음 */
+            width: 19.2%;
+            padding: 10px;
+            /* 패딩, 보더를 크기에 포함하기 */
+            box-sizing: border-box;
+            outline: 1px solid #ccc;
+        }
+
+        /* 이미지태그를 배경처럼 넣기 */
+        .wrap img{
+            width: 100%;
+            /* height: 100%; */
+            object-fit: cover;
+            /* object-fit속성
+            이미지를 해당박스에서 이미지처럼
+            넘치는 부분을 적당히 잘라서 안보이게하며
+            비율 유지를 할 수 있게 해주는 속성
+            그 값으로 cover를 사용함! */
         }
 
     </style>
@@ -42,20 +66,7 @@
 </head>
 <body>
     <h1 class="tit">JS3-4.for문연습2 - 갤러리 for문</h1>
-    <section class="wrap">
-        <ul>
-            <li>
-                <img src="./images/dress/1.jpg" alt="dress">
-                <h3>옷이름</h3>
-                <h4>가격</h4>
-            </li>
-            <li>
-                <img src="./images/dress/2.jpg" alt="dress">
-                <h3>옷이름</h3>
-                <h4>가격</h4>
-            </li>
-        </ul>
-    </section>
+    <section class="wrap"></section>
     
 </body>
 </html>
