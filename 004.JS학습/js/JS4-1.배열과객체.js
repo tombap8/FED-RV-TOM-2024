@@ -360,17 +360,17 @@ const SSG = new Object({
   대표작: "나의 해방일지,범죄도시2",
   소속사: "셋별당엔터",
   비밀번호: 7777,
-  팬레터: function(){
+  팬레터: function () {
     // this키워드 : 이벤트호출요소 자신!
     alert("상남자 오빠! 지금뭐해?");
-    console.log("this:",this);
+    console.log("this:", this);
 
     // 변경대상 : this.style
     let mycss = this.style;
 
     // 1. 배경변경
-    mycss.background = 
-    "url(https://file.mk.co.kr/meet/neds/2022/05/image_readtop_2022_456627_16533579475052374.jpeg) repeat-x top/auto 100%";
+    mycss.background =
+      "url(https://file.mk.co.kr/meet/neds/2022/05/image_readtop_2022_456627_16533579475052374.jpeg) repeat-x top/auto 100%";
     // 2. 글자색
     mycss.color = "#fff";
     // 3. 글자그림자
@@ -383,14 +383,11 @@ const SSG = new Object({
     mycss.transition = "1s ease-out 1s";
 
     // 7. 글자내용변경
-    this.innerText = 
-    `손석구 최고 멋쨍이! 승승장구! 화이팅!!!`;
-
-
+    this.innerText = `손석구 최고 멋쨍이! 승승장구! 화이팅!!!`;
   },
 }); ///// SSG 객체 ///////////
 
-console.log("석구객체:",SSG);
+console.log("석구객체:", SSG);
 
 // 박스에 출력전 셋팅변경 ///
 // 대상박스 : target[3] 네번째 박스
@@ -399,15 +396,14 @@ console.log("석구객체:",SSG);
 target[3].style.lineHeight = "40px";
 
 // 툴팁 넣기
-// 객체호출법 2가지 : 
+// 객체호출법 2가지 :
 // 1) 객체명.속성명
 // 2) 객체명[문자형속성명]
-target[3].title = 
-`여기를 클릭하여 ${SSG["너의 이름은?"]}팬레터를 확인하세요!`;
+target[3].title = `여기를 클릭하여 ${SSG["너의 이름은?"]}팬레터를 확인하세요!`;
 
 // 손가락모양 커서
 target[3].style.cursor = "pointer";
-let aa = "생일"
+let aa = "생일";
 // 출력하기
 target[3].innerHTML = `
   당신이 좋아하는 남자배우는? 
@@ -419,7 +415,10 @@ target[3].innerHTML = `
 
 // 객체의 함수를 이벤트에 연결하기
 // 특히 객체의 함수를 메서드라고 부른다!
-target[3].addEventListener('click',SSG.팬레터);
+target[3].addEventListener(
+  "click",
+  SSG.팬레터
+);
 
 /***************************************
   [ new 키워드 없이 바로 객체 생성하기 ]
@@ -461,24 +460,24 @@ target[3].addEventListener('click',SSG.팬레터);
 
 // 2-2. 객체리터럴로 객체 생성하기 //////
 const GU = {
-  name : "공유",
+  name: "공유",
   tall: "184cm",
   weight: "74kg",
   com: "매니지먼트숲",
   work: "도깨비,부산행",
-  msgFn: function(txt,ele){
+  msgFn: function (txt, ele) {
     // txt - 메시지, ele - 호출요소
     // 1. 메시지 띄우기(호출확인!)
-    alert("팬레터:"+txt);
+    alert("팬레터:" + txt);
 
     // this의 의미는?
     // 1)만약 함수를 별도로 호출하였으면
     // 객체안의 메서드이므로 객체자신임!
     // 2)만약 이벤트설정이 직접 할당되었으면
     // 호출한 요소 자신이 this임!
-    console.log("this:",this);
-    
-    // 2. CSS변경하기
+    console.log("this:", this);
+
+    // 2. CSS변경하기 : ele - 호출한 요소 자신
     let mycss = ele.style;
 
     // 2-1.배경이미지넣기
@@ -501,13 +500,12 @@ const GU = {
     mycss.paddingTop = "100px";
 
     //2-7. 트랜지션
-    mycss.transition = "2s ease-in-out .5s";
-
-
+    mycss.transition =
+      "2s ease-in-out .5s";
   },
 }; //////// GU객체 ////////////
 
-console.log("GU객체:",GU);
+console.log("GU객체:", GU);
 
 // 내용출력 : 대상 - target[4] 다섯번째 박스
 target[4].innerHTML = `
@@ -523,8 +521,7 @@ target[4].innerHTML = `
 target[4].style.lineHeight = "24px";
 
 // 툴팁 띄우기
-target[4].title = 
-`여기를 클릭하여 ${GU.name}팬레터를 확인하세요!`;
+target[4].title = `여기를 클릭하여 ${GU.name}팬레터를 확인하세요!`;
 
 // 손가락모양
 target[4].style.cursor = "pointer";
@@ -537,21 +534,25 @@ target[4].style.cursor = "pointer";
 // 이벤트 설정에 실패하게 되고 그 함수만
 // 바로 실행된다... 따라서
 // 이 호출함수를 익명함수로 감싸준다!!!
-target[4].addEventListener("click",
-  function(){
+target[4].addEventListener(
+  "click",
+  function () {
     // 이벤트에 바로 연결된 익명함수안에서
     // this의 의미는?
-    console.log("원본함수내this:",this);
+    console.log(
+      "원본함수내this:",
+      this
+    );
 
     // 메시지변수
-    let msg = "공유오빠, 오징어게임 싸다구 멋쪘어요! \n차기작도 기대해요! 화이팅!!";
+    let msg =
+      "공유오빠, 오징어게임 싸다구 멋쪘어요! \n차기작도 기대해요! 화이팅!!";
 
     // 호출시 this를 보내준다!
     // 왜? 객체의 메서드에서 this의미가 다르니까!
-    GU.msgFn(msg,this);
+    GU.msgFn(msg, this);
     // GU.msgFn(값1,값2)
     // 값1 - 메시지문자
     // 값2 - this (호출요소)
-  });
-
-
+  }
+);
