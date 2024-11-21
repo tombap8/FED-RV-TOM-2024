@@ -112,14 +112,14 @@ const arr1 = new Array(
       // 여기서는 본 박스 안에서만 그 위치를 알면 되므로
       // -> offsetX, offsetY -> 해당부모요소 박스로 부터
       // 위치를 리턴함!
-      console.log(
-        "offsetX:",
-        헐.offsetX
-      );
-      console.log(
-        "offsetY:",
-        헐.offsetY
-      );
+      // console.log(
+      //   "offsetX:",
+      //   헐.offsetX
+      // );
+      // console.log(
+      //   "offsetY:",
+      //   헐.offsetY
+      // );
 
       // 위치값 반영대상 : 김태리 이미지 -> #kim
       kim.style.left = `${헐.offsetX}px`;
@@ -361,7 +361,18 @@ const SSG = new Object({
   소속사: "셋별당엔터",
   비밀번호: 7777,
   팬레터: function(){
+    // this키워드 : 이벤트호출요소 자신!
     alert("상남자 오빠! 지금뭐해?");
+    console.log("this:",this);
+
+    // 변경대상 : this.style
+    let mycss = this.style;
+
+    // 1. 배경변경
+    mycss.background = 
+    "url(https://file.mk.co.kr/meet/neds/2022/05/image_readtop_2022_456627_16533579475052374.jpeg) repeat-x top/auto 100%"
+
+
   },
 }); ///// SSG 객체 ///////////
 
@@ -392,4 +403,6 @@ target[3].innerHTML = `
   / 대표작은? ${SSG.대표작}
 `;
 
-
+// 객체의 함수를 이벤트에 연결하기
+// 특히 객체의 함수를 메서드라고 부른다!
+target[3].addEventListener('click',SSG.팬레터)
