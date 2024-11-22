@@ -58,7 +58,42 @@
         font-size: max(3vw, 25px);
       }
       /* 그리드박스 */
-      .grid {}
+      .grid {
+        display: grid;
+
+        /* 박스중앙위치 및 최대크기설정 */
+        max-width: 1200px;
+        margin: 0 auto;
+        outline: 2px dashed lightcoral;
+
+        /************************************** 
+          [ 가로 그리드 템플릿 ]
+           grid-template-columns
+          _________________________
+
+          1. 가로사이즈 단위를 띄어쓰기로
+          나열하면 개수만큼 그 크기를 세로
+          컬럼이 생성됨!
+          예)
+          grid-template-columns: 100px 200px 300px;
+          만약 auto를 쓰면 전체로 늘리고 나머지를 채움
+          grid-template-columns: 100px 200px auto 300px;
+
+          2. 비율 단위(fr)를 사용하여 비를 쓴만큼
+          컬럼이 생성된다!
+          
+          
+          **************************************/
+      }
+
+
+      /* 이미지 공통 셋팅 */
+      .grid img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
 
       /* 그리드 각 박스 공통 */
       
