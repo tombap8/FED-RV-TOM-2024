@@ -121,7 +121,30 @@
     <!-- 타이틀 -->
     <h1 class="tit">그리드1 - 이미지갤러리</h1>
     <!-- 그리드 레이아웃박스 -->
-    <div class="grid"></div>
+    <div class="grid">
+      
+
+    </div>
+    <script>
+      // 위의 .grid에 태그 반복해서 넣기
+      // 50개의 이미지를 for문으로 반복하여 태그생성후
+      // 요소에 삽입한다!
+      let hCode = "";
+      for(let i=1; i<=50;i++){
+        hCode += `
+          <div>
+            <img src="./images/${i}.jpg" alt="dress">
+            <aside>
+              <h2>상품명${i}</h2>
+              <h3>상품가격${i}</h3>
+            </aside>
+          </div>
+        `;
+      } ///// for //////
+
+      // .grid에 요소출력
+      document.querySelector(".grid").innerHTML = hCode;
+    </script>
     
   </body>
 </html>
