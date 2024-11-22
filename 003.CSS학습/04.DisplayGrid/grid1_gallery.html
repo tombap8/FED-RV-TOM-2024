@@ -72,20 +72,57 @@
           _________________________
 
           1. 가로사이즈 단위를 띄어쓰기로
-          나열하면 개수만큼 그 크기를 세로
-          컬럼이 생성됨!
-          예)
-          grid-template-columns: 100px 200px 300px;
-          만약 auto를 쓰면 전체로 늘리고 나머지를 채움
-          grid-template-columns: 100px 200px auto 300px;
+            나열하면 개수만큼 그 크기를 세로
+            컬럼이 생성됨!
+              예)
+              grid-template-columns: 
+              100px 200px 300px;
+              만약 auto를 쓰면 전체로 늘리고 나머지를 채움
+              grid-template-columns: 
+              100px 200px auto 300px;
 
           2. 비율 단위(fr)를 사용하여 비를 쓴만큼
-          컬럼이 생성된다!
-          
+            컬럼이 생성된다!(단, 전체채우기에서 비율로 나눔)
+            fr 은 fraction(부분) 단어에서 유래~
+              예)
+              grid-template-columns: 
+              1fr 3fr 2fr 4fr;
+
+          3. repeat(수치의 반복수, 반복수치)
+            - 수치의 반복수 : 나열된 수치를 반복할 횟수
+            - 반복수치 : 컬럼설정수의 나열(띄어쓰기구분)
+
+            ->> 단순하게 특정개수만큼 등분할 셋팅하기에 많이사용
+            grid-template-columns: repeat(컬럼수,1fr) 
+
+            예1)
+            grid-template-columns: 
+            repeat(2, 100px 200px 300px);
+
+            예2)
+            grid-template-columns: repeat(5,1fr);
           
           **************************************/
+          grid-template-columns: repeat(5,1fr);
+
       }
 
+      /* 그리드 각 박스 공통 */
+      .grid > div {
+        position: relative;
+        /* 부모자격 */
+        aspect-ratio: 7/10;
+      }
+      /* 설명박스 */
+      .grid > div aside {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        background-color: #00000076;
+        font-size: 12px;
+      }
 
       /* 이미지 공통 셋팅 */
       .grid img{
