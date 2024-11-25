@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>Grid1 - Gallery</title>
     <style>
       /**************************************************** 
@@ -103,9 +106,12 @@
             grid-template-columns: repeat(5,1fr);
           
           **************************************/
-          grid-template-columns: repeat(5,1fr);
+        grid-template-columns: repeat(
+          5,
+          1fr
+        );
 
-          /******************************************** 
+        /******************************************** 
             [ 세로 그리드 템플릿 ]
             grid-template-rows
             ______________________
@@ -151,16 +157,13 @@
         /* [ 컬럼+로 종합간격: 
         grid-gap: 로 컬럼 (하나만쓰면 한번에 모두셋팅) ] */
         /* grid-gap: 10px 20px; */
-        grid-gap: min(1.5vw,15px) min(1vw,10px);
-        
+        grid-gap: min(1.5vw, 15px)
+          min(1vw, 10px);
+
         /* flex 사이간격 속성은? gap: 로 컬럼
         -> 그리드에도 적용됨!!! */
         /* gap: 10px 20px; */
-
-
-
       }
-
 
       /* 그리드 각 박스 공통 */
       .grid > div {
@@ -181,7 +184,7 @@
       }
 
       /* 이미지 공통 셋팅 */
-      .grid img{
+      .grid img {
         width: 100%;
         height: 100%;
         /* 이미지를 배경처럼 박스에서
@@ -194,11 +197,9 @@
         vertical-align: middle;
       }
 
-
       /* 그리드 각 박스 공통 */
-      
 
-    /************************************* 
+      /************************************* 
         
         [ 그리드 위치 영역 속성 ]
 
@@ -210,6 +211,9 @@
 
         3. 가로/세로 방향 위치속성 한번에 쓰기
             grid-area: 로시작 / 컬럼시작 / 로끝 / 컬럼끝;
+            grid-area: 로/컬/로/컬;
+            
+            로컬로컬은 왼쪽위점, 오른쪽아래점을 의미함!
 
         -> 각 위치값은 그리드 기준선 번호를 참고함
         (브라우저에서 그리드 소스 버튼을 클릭하여
@@ -233,40 +237,70 @@
     */
 
       /* 그리드 구성박스 변경주기 */
-      
+      .first {
+        grid-area: 1 / 1 / 3 / 3;
+      }
+      .second {
+        grid-area: 7 / 3 / 9 / 5;
+      }
 
       /* 1200px 이하 미디어쿼리 시작 */
       @media screen and (max-width: 1200px) {
-        .grid{
+        .grid {
           /* 컬럼수 4개 */
-          grid-template-columns: repeat(4,1fr);
+          grid-template-columns: repeat(
+            4,
+            1fr
+          );
         }
       }
       /* 1200px 이하 미디어쿼리 종료 */
 
       /* 1000px 이하 미디어쿼리 시작 */
       @media screen and (max-width: 1000px) {
-        .grid{
+        .grid {
           /* 컬럼수 3개 */
-          grid-template-columns: repeat(3,1fr);
+          grid-template-columns: repeat(
+            3,
+            1fr
+          );
+        }
+        /* 없어진 라인번호 변경 */
+        .second {
+          grid-area: 7 / 2 / 9 / 4;
         }
       }
       /* 1000px 이하 미디어쿼리 종료 */
 
       /* 800px 이하 미디어쿼리 시작 */
       @media screen and (max-width: 800px) {
-        .grid{
+        .grid {
           /* 컬럼수 2개 */
-          grid-template-columns: repeat(2,1fr);
+          grid-template-columns: repeat(
+            2,
+            1fr
+          );
         }
+        /* 없어진 라인번호 변경 */
+        .second {
+            grid-area: 7 / 1 / 9 / 3;
+          }
       }
       /* 800px 이하 미디어쿼리 종료 */
 
       /* 500px 이하 미디어쿼리 시작 */
       @media screen and (max-width: 500px) {
-        .grid{
+        .grid {
           /* 컬럼수 1개 */
-          grid-template-columns: repeat(1,1fr);
+          grid-template-columns: repeat(
+            1,
+            1fr
+          );
+        }
+        /* .first, .second 모두 초기화
+        기본값 초기화는 auto임! */
+        .first,.second{
+          grid-area: auto;
         }
       }
       /* 500px 이하 미디어쿼리 종료 */
@@ -274,20 +308,25 @@
   </head>
   <body>
     <!-- 타이틀 -->
-    <h1 class="tit">그리드1 - 이미지갤러리</h1>
+    <h1 class="tit">
+      그리드1 - 이미지갤러리
+    </h1>
     <!-- 그리드 레이아웃박스 -->
-    <div class="grid">
-      
-
-    </div>
+    <div class="grid"></div>
     <script>
       // 위의 .grid에 태그 반복해서 넣기
       // 50개의 이미지를 for문으로 반복하여 태그생성후
       // 요소에 삽입한다!
       let hCode = "";
-      for(let i=1; i<=50;i++){
+      for (let i = 1; i <= 50; i++) {
         hCode += `
-          <div>
+          <div ${
+            i == 1
+              ? 'class="first"'
+              : i == 33
+              ? 'class="second"'
+              : ""
+          }>
             <img src="./images/${i}.jpg" alt="dress">
             <aside>
               <h2>상품명${i}</h2>
@@ -298,8 +337,9 @@
       } ///// for //////
 
       // .grid에 요소출력
-      document.querySelector(".grid").innerHTML = hCode;
+      document.querySelector(
+        ".grid"
+      ).innerHTML = hCode;
     </script>
-    
   </body>
 </html>
