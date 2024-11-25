@@ -2,8 +2,13 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>018.클리핑과 마스킹 기법</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>
+      018.클리핑과 마스킹 기법
+    </title>
     <style>
       html,
       body {
@@ -33,7 +38,9 @@
       .clip-circle {
         /* clip-path: 
            circle(123px at 123px 143px); */
-        clip-path: circle(30% at 40% 50%);
+        clip-path: circle(
+          30% at 40% 50%
+        );
       }
       /* 2. 타원클리핑 
             clip-path: 
@@ -43,7 +50,9 @@
       .clip-ellipse {
         /* clip-path: 
             ellipse(176px 72px at 182px 154px); */
-        clip-path: ellipse(41% 29% at 42% 53%);
+        clip-path: ellipse(
+          41% 29% at 42% 53%
+        );
       }
       /* 3. 다각형클리핑 
             clip-path: polygon(x1 y1,x2 y2,...)
@@ -79,6 +88,11 @@
         clip-path: url(#myClip2);
       }
 
+      /* 동영상 플레이 되는 박스에 클립핑하기! */
+      .clip-svg3 {
+        clip-path: url(#myClip3);
+      }
+
       /* 
             [ CSS Masking ] - 2023-12 웹표준기술됨!
             - 이미지의 일부를 자연스럽게 감추는 기법
@@ -90,8 +104,11 @@
             url()로 호출하여 사용하면 마스킹효과가 적용됨!
         */
       .masking1 {
-        mask-image: 
-        linear-gradient(to right,black 30%,transparent 80%);
+        mask-image: linear-gradient(
+          to right,
+          black 30%,
+          transparent 80%
+        );
       }
       .masking2 {
         /* 배경설정과 유사한 셋팅으로 설정함! */
@@ -104,22 +121,63 @@
   </head>
   <body>
     <!-- 클리핑효과주기 -->
-    <img src="images/img2.jpg" alt="image" class="clip-circle" />
-    <img src="images/img1.jpg" alt="image" class="clip-ellipse" />
-    <img src="images/img3.jpg" alt="image" class="clip-polygon" />
-    <img src="images/img5.jpg" alt="image" class="clip-svg" />
-    <img src="images/img5.jpg" alt="image" class="clip-svg2" />
+    <img
+      src="images/img2.jpg"
+      alt="image"
+      class="clip-circle"
+    />
+    <img
+      src="images/img1.jpg"
+      alt="image"
+      class="clip-ellipse"
+    />
+    <img
+      src="images/img3.jpg"
+      alt="image"
+      class="clip-polygon"
+    />
+    <img
+      src="images/img5.jpg"
+      alt="image"
+      class="clip-svg"
+    />
+    <img
+      src="images/img5.jpg"
+      alt="image"
+      class="clip-svg2"
+    />
+
+    <!-- 동영상 플레이 되는 박스에 클립핑하기! -->
+    <div class="clip-svg3">
+      <iframe width="400" height="300" src="https://www.youtube.com/embed/uOzcSOSGb3w?autoplay=1&mute=1" title="[미션 임파서블: 파이널 레코닝] 1차 예고편" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
 
     <!-- 마스킹효과주기1 -->
-    <img src="images/img4.jpg" alt="image" class="masking1" />
+    <img
+      src="images/img4.jpg"
+      alt="image"
+      class="masking1"
+    />
     <!-- 마스킹효과주기2 -->
-    <img src="images/img4.jpg" alt="image" class="masking2" />
-    
+    <img
+      src="images/img4.jpg"
+      alt="image"
+      class="masking2"
+    />
+
     <svg>
       <defs>
         <clippath id="myClip">
-          <circle cx="90" cy="100" r="40"></circle>
-          <circle cx="90" cy="200" r="70"></circle>
+          <circle
+            cx="90"
+            cy="100"
+            r="40"
+          ></circle>
+          <circle
+            cx="90"
+            cy="200"
+            r="70"
+          ></circle>
         </clippath>
       </defs>
     </svg>
@@ -136,5 +194,18 @@
       </defs>
     </svg>
 
+    <!-- 동영상 플레이 되는 박스에 클립핑하기! svg -->
+    <svg viewBox="0 0 400 300">
+      <defs>
+        <clippath id="myClip3">
+          <text x="100" y="100" style="font-size:20vw;font-weight:bold">
+            LOVE
+          </text>
+          <text x="100" y="200" style="font-size:20vw;font-weight:bold">
+            YOU
+          </text>
+        </clippath>
+      </defs>
+    </svg>
   </body>
 </html>
