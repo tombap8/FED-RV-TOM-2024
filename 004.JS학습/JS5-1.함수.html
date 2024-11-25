@@ -499,6 +499,26 @@
 
         // 3. 순차적으로 li에 클래스 on넣어서 장면넘기기
         // -> setInterval() 타이밍 내장함수 사용!
+        // li순번 변수
+        let liNum = 0;
+
+        // 일정시간 간격으로 함수를 실행
+        setInterval(() => {
+          // 1. 현재순번 클래스 on 지우기
+          bgbox.querySelectorAll("li")[liNum]
+          .classList.remove("on");
+
+          // 2. 순번 증가하기
+          liNum++;
+          // 만약 한계수 이면 처음으로 돌려보냄
+          // 배열개수만큼 li가 생성되었음
+          // 그래서 한계수는 배열개수임!
+          if(liNum >= cntScene) liNum = 0;
+
+          // 다음순번 클래스 on 넣기
+          bgbox.querySelectorAll("li")[liNum]
+          .classList.add("on");
+        }, 3000);
         
       } /////////// loadFn 함수 /////////////////
       //////////////////////////////////////////
