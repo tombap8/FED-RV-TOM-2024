@@ -265,10 +265,6 @@ li+li 앞에 li가 있는 li선택
 }
 
 /*************** 3. 하단영역 ***************/
-.footer-area {
-  height: 100px;
-}
-
 .footer-area{
   /* 플렉스 박스 */
   display: flex;
