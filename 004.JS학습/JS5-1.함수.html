@@ -438,10 +438,11 @@
         console.log("퐈이어~~!");
 
         // 2.대상선정: .fireworks
-        
+        let fireworks = 
+        document.querySelector(".fireworks");
 
         // 3.변경 적용하기 : 보이게하기
-        
+        fireworks.style.display = "block";
 
         // 4. 3초후 다시 안보이게 처리하기
         // setTimeout(함수,시간)
@@ -513,6 +514,7 @@
           // 만약 한계수 이면 처음으로 돌려보냄
           // 배열개수만큼 li가 생성되었음
           // 그래서 한계수는 배열개수임!
+
           if(liNum >= cntScene) liNum = 0;
 
           // 다음순번 클래스 on 넣기
