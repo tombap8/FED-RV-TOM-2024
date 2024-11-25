@@ -68,7 +68,8 @@
         width: 100vw;
         height: 100vh;
         z-index: 100;
-        background: url(./images/fireworks.gif) center;
+        background: url(./images/fireworks.gif)
+          center;
         display: none;
 
         font-size: 6vw;
@@ -398,26 +399,48 @@
       *********************************************/
       function myFn() {
         // 전달변수가 전혀 없음!
-        console.log("내함수!", arguments);
+        console.log(
+          "내함수!",
+          arguments
+        );
         // arguments파라미터 변수에 담긴값을
         // for문을 돌려서 h2태그에 넣고 .letters박스에
         // 출력시키기
 
-       
+        // 전달값 개수
+        let cnt = arguments.length;
+
+        // 출력대상 : .letters
+        let txtBox =
+          document.querySelector(
+            ".letters"
+          );
+
+        // for문으로 반복하여 글자를 <h2>태그로 싼후 출력함
+        // for(시;한;증){코드}
+        for (let i = 0; i < cnt; i++) {
+          txtBox.innerHTML += `<h2>${arguments[i]}</h2>`;
+        } /// for ////
       } //////////////// myFn 함수 /////////////////
       /////////////////////////////////////////////
 
       // 윈도우 컨텐츠 로딩후 호출
-      window.addEventListener("load", function () {
-        // 함수호출하기
-         myFn(
-          "&lt;애국가&gt;",
-          "동해물과 백두산이 마르고 닳도록",
-          "하느님이 보우하사 우리나라 만세",
-          "무궁화 삼천리 화려 강산",
-          "대한 사람 대한으로 길이 보전하세"
-        );
-      });
+      window.addEventListener(
+        "load",
+        function () {
+          // 함수호출하기
+          myFn(
+            "&lt;아파트&gt;",
+            "아파트 아파트",
+            "아파트 아파트",
+            "아파트 아파트",
+            "Uh, uh huh uh huh",
+            "아파트 아파트",
+            "아파트 아파트"
+          );
+        }
+      );
+
 
       // 함수의 전달변수가 없어도 보내는 전달값이 있으면
       // 함수의 arguments라는 전달변수인 [유사배열객체]에
@@ -444,23 +467,29 @@
         console.log("퐈이어~~!");
 
         // 2.대상선정: .fireworks
-        let fireworks = 
-        document.querySelector(".fireworks");
+        let fireworks =
+          document.querySelector(
+            ".fireworks"
+          );
 
         // 3.변경 적용하기 : 보이게하기
-        fireworks.style.display = "block";
+        fireworks.style.display =
+          "block";
 
         // 4. 3초후 다시 안보이게 처리하기
         // setTimeout(함수,시간)
         setTimeout(function () {
-          fireworks.style.display = "none";
+          fireworks.style.display =
+            "none";
         }, 3000); // 3초후 1번만 실행!
-
       } ////////// showFireworks 함수 ////////////
       ////////////////////////////////////////////
 
       // 로딩시 호출설정 ///////////////
-      window.addEventListener("load", loadFn);
+      window.addEventListener(
+        "load",
+        loadFn
+      );
 
       /*****************************************
        * 함수명 : loadFn
@@ -472,12 +501,18 @@
 
         // [배경박스에 ul>li를 넣고 배경이미지 셋팅하기]
         // 1.대상선정 : .bgbox
-        const bgbox = document.querySelector(".bgbox");
+        const bgbox =
+          document.querySelector(
+            ".bgbox"
+          );
 
         // 2.html 넣기 : 기준은 scene 배열변수 만큼 넣기
         // 2-1.배열개수구하기
         let cntScene = scene.length;
-        console.log("배열개수:", cntScene);
+        console.log(
+          "배열개수:",
+          cntScene
+        );
 
         // 2-2.배열개수만큼 for문 돌려서 li 만들기
         // html 코드를 담을 변수
@@ -490,11 +525,17 @@
         // -> 해석: i가 0인가?
         // 맞으면(true) 'class="on"'
         // 틀리면(false) 빈 문자값
-        for (let i = 0; i < cntScene; i++) {
+        for (
+          let i = 0;
+          i < cntScene;
+          i++
+        ) {
           hcode += `
         <li
           ${i === 0 ? 'class="on"' : ""}
-          style="background:url(${scene[i]}) no-repeat center/cover"
+          style="background:url(${
+            scene[i]
+          }) no-repeat center/cover"
         ></li>`;
         } ////// for /////
 
@@ -515,8 +556,11 @@
         // 일정시간 간격으로 함수를 실행
         setInterval(() => {
           // 1. 현재순번 클래스 on 지우기
-          bgbox.querySelectorAll("li")[liNum]
-          .classList.remove("on");
+          bgbox
+            .querySelectorAll("li")
+            [liNum].classList.remove(
+              "on"
+            );
 
           // 2. 순번 증가하기
           liNum++;
@@ -524,13 +568,14 @@
           // 배열개수만큼 li가 생성되었음
           // 그래서 한계수는 배열개수임!
 
-          if(liNum >= cntScene) liNum = 0;
+          if (liNum >= cntScene)
+            liNum = 0;
 
           // 다음순번 클래스 on 넣기
-          bgbox.querySelectorAll("li")[liNum]
-          .classList.add("on");
+          bgbox
+            .querySelectorAll("li")
+            [liNum].classList.add("on");
         }, 3000);
-        
       } /////////// loadFn 함수 /////////////////
       //////////////////////////////////////////
     </script>
@@ -548,13 +593,16 @@
     showFireworks();
     "
     >
-      우리나라 대한민국 만세 프로젝트 시작!
+      우리나라 대한민국 만세 프로젝트
+      시작!
     </button>
 
     <!-- 애국가 가사 타이틀 넣기박스 -->
     <div class="letters"></div>
 
     <!-- 불꽃놀이 박스 -->
-    <div class="fireworks">우리나라 대한민국 만세!!!</div>
+    <div class="fireworks">
+      우리나라 대한민국 만세!!!
+    </div>
   </body>
 </html>
