@@ -10,6 +10,10 @@
       018.클리핑과 마스킹 기법
     </title>
     <style>
+      /* 웹폰트 : 아톤체 */
+      @import url("https://fonts.googleapis.com/css2?family=Anton&family=Bagel+Fat+One&display=swap");
+      /* font-family: "Anton", sans-serif; */
+      
       html,
       body {
         margin: 0;
@@ -149,7 +153,16 @@
 
     <!-- 동영상 플레이 되는 박스에 클립핑하기! -->
     <div class="clip-svg3">
-      <iframe width="400" height="300" src="https://www.youtube.com/embed/uOzcSOSGb3w?autoplay=1&mute=1" title="[미션 임파서블: 파이널 레코닝] 1차 예고편" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe
+        width="1280"
+        height="720"
+        src="https://www.youtube.com/embed/uOzcSOSGb3w?autoplay=1&mute=1"
+        title="[미션 임파서블: 파이널 레코닝] 1차 예고편"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
     </div>
 
     <!-- 마스킹효과주기1 -->
@@ -195,14 +208,28 @@
     </svg>
 
     <!-- 동영상 플레이 되는 박스에 클립핑하기! svg -->
-    <svg viewBox="0 0 400 300">
+    <svg viewBox="0 0 1280 720">
       <defs>
         <clippath id="myClip3">
-          <text x="100" y="100" style="font-size:20vw;font-weight:bold">
-            LOVE
+          <text
+            x="5vw"
+            y="25vh"
+            style="
+              font-size: 20vh;
+              font-weight: bold;
+            "
+          >
+            MISSION
           </text>
-          <text x="100" y="200" style="font-size:20vw;font-weight:bold">
-            YOU
+          <text
+            x="10vw"
+            y="45vh"
+            style="
+              font-size: 20vh;
+              font-weight: bold;
+            "
+          >
+            IMPASSIBLE
           </text>
         </clippath>
       </defs>
