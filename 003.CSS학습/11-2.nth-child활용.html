@@ -60,14 +60,14 @@
 
         /* 1. 짝수번째
         nth-child(even) -> 짝수번째 */
-        .뭘까{
+        #rdo1:checked ~ ul li:nth-child(even){
             background-color: lightgreen;
         }
 
       
         /* 2. 홀수번째
         nth-child(odd) -> 홀수번째 */
-        .뭘까{
+        #rdo2:checked ~ ul li:nth-child(odd){
             background-color: lightcoral;
         }
 
@@ -76,7 +76,7 @@
         /* 3. 3의배수번째
         nth-child(3n) -> 3의배수번째
         n에 0부터 대입된 결과임! */
-        .뭘까{
+        #rdo3:checked ~ ul li:nth-child(3n){
             background-color: lightseagreen;
         }
 
@@ -86,7 +86,7 @@
         /* 4. 2의배수+1번째
         nth-child(2n+1) -> 2의배수+1번째
         n에 0부터 대입된 결과임! */
-        .뭘까{
+        #rdo4:checked ~ ul li:nth-child(2n+1){
             background-color: lightskyblue;
         }
         
@@ -97,7 +97,7 @@
         n에 0부터 대입된 결과임! 
         -n이므로 뒤에서부터 선택되어 첫번째까지
         선택됨 -> (20-n)라고 쓰면 문법오류임! */
-        .뭘까{
+        #rdo5:checked ~ ul li:nth-child(-n+20){
             background-color: limegreen;
         }        
         
@@ -107,7 +107,9 @@
         -> 출발은 20번째 요소 뒤인 21번부터 출발
         n에 0부터 대입된 결과임! 끝에서부터 거꾸로
         번호를 선택함!*/
-        .뭘까 
+        #rdo6:checked ~ 
+        ul li:nth-child(20) ~
+        li:nth-child(-n+37)
         {
             background-color: aqua;
         }  
