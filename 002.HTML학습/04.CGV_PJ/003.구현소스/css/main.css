@@ -56,21 +56,34 @@ body * {
   bottom: 10px;
   right: 10px;
   /* 부모는? .top-area */
+  z-index: 999;
+  /* 서브메뉴가 위로 올라오도록 위치 위로! */
 }
 /* 글자일반 셋팅 */
 .gnb ul{
+  /* 플렉스 박스 */
+  display: flex;
+  /* 사이간격은 gap : 로간격 컬럼간격 */
+  gap: 0 1.5rem;
+
   font-family: 'Jua', sans-serif;
-  font-size: 20px;
+  font-size: 2rem;
 }
 /* 리스트 옆으로 흐름 */
 .gnb ul>li{
-  float: left;
+  /* 서브메뉴를 위한 부모자격 */
+  position: relative;
+  /* float: left; */
+  padding-bottom: 1rem;
+  /* 하단부분 서브메뉴와 연결되게
+  간격만들고 조정함! 이벤트가 끊김! */
 }
 /* 리스트 사이간격
-li+li 두번째 li부터 선택 */
-.gnb ul>li+li{
+li+li 두번째 li부터 선택
+-> 플렉스박스일 경우 gap속성으로 셋팅함 */
+/* .gnb ul>li+li{
   margin-left: 20px;
-}
+} */
 
 /* 서브메뉴 */
 .smenu{
