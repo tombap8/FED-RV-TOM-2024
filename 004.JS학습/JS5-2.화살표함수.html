@@ -105,14 +105,34 @@
 
       // addEventListener 함수 짧게 만들기! ////
       const addEvt = 
-      (ele, evt, fn) => ele.addEvtListener(evt, fn);
+      (ele, evt, fn) => ele.addEventListener(evt, fn);
       // ele - 대상요소, evt - 이벤트명, fn - 함수
-
+      
       /// 화면에 출력된 버튼에 이벤트 걸기 /////
       // 로드구역 만들기 : addEvt()
       addEvt(window,'load',()=>{
         // 함수호출확인
         console.log('로딩완료!');
+
+        // 1. 대상선정 : .btn
+        let btn = qsa('.btn');
+
+        console.log('버튼들:',btn);
+
+        // 2. 변경 반영하기 ////
+        // 2-1. 버튼 요소 클릭시 글자바꾸기 (익명함수로!)
+        btn[0].onclick = function(){
+          // 익명함수 안에서 this키워드의 의미는?
+          console.log('익명함수의 this는?',this);
+
+        }; /////// 클릭 이벤트함수 ///////
+
+        // 2-2. 버튼 요소 클릭시 글자바꾸기 (화살표함수로!)
+        btn[1].onclick = () => {
+          // 화살표함수 안에서 this키워드의 의미는?
+          console.log('화살표함수의 this는?',this);
+          
+        }; /////// 클릭 이벤트함수 ///////
 
       }); /////// addEvt함수 //////////
 
