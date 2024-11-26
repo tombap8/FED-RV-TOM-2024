@@ -207,6 +207,20 @@ li+li 두번째 li부터 선택
   }
 }
 
+/* 가상요소로 상영스크린 만들기 */
+.cam::after{
+  content: '';
+  position: absolute;
+  /* 메뉴,빔보다 아래 */
+  z-index: -2;
+
+  top: 0;
+  right: 0;
+  width: 129px;
+  height: 66px;
+  background: url(../images/screen.gif) no-repeat -50% center/auto 80%;
+}
+
 
 /*************** 2. 메인영역 ***************/
 .main-area {
