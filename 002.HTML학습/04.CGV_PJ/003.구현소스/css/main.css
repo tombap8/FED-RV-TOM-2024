@@ -214,11 +214,23 @@ li+li 두번째 li부터 선택
   /* 메뉴,빔보다 아래 */
   z-index: -2;
 
-  top: 0;
-  right: 0;
-  width: 129px;
+  top: -15px;
+  right: 120px;
+  /* 트랜지션 대상: opacity */
+  width: 0;
+  opacity: 0;
+
   height: 66px;
   background: url(../images/screen.gif) no-repeat -50% center/auto 80%;
+  /* 트랜지션 */
+  transition: opacity .3s;
+}
+/* GNB오버시 스크린 보이기 */
+.gnb:hover .cam::after{
+  width: 129px;
+  opacity: 1;
+  /* 트랜지션 딜레이 */
+  transition-delay: .6s;
 }
 
 
