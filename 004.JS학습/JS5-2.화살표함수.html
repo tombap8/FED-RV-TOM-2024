@@ -61,53 +61,60 @@
     ****************************************************/
 
       // 일반적인 할당형 함수 /////
-      const x = function(a,b){
-        return a*b;
+      const x = function (a, b) {
+        return a * b;
       }; /////// x함수 ////////
 
       // 함수호출하기
-      console.log("x(100,20) 함수호출:", x(100,20));
-      
+      console.log("x(100,20) 함수호출:", x(100, 20));
+
       // 축약형 화살표 함수 /////
-      const y = (a,b)=>{
-        return a*b;
+      const y = (a, b) => {
+        return a * b;
       }; /////// y함수 ////////
-      
+
       // 함수호출하기
-      console.log("y(300,20) 함수호출:", y(300,20));
-      
-      
+      console.log("y(300,20) 함수호출:", y(300, 20));
+
       // 축약형 화살표 함수 좀 더 축약! /////
-      const z = (a,b)=>a*b;
+      const z = (a, b) => a * b;
       /////// z함수 ////////
-      
+
       // 함수호출하기
-      console.log("z(400,20) 함수호출:", z(400,20));
-      
+      console.log("z(400,20) 함수호출:", z(400, 20));
 
       // 일반적인 할당형 함수 /////
-      
+      const my = function (x) {
+        return `나는 ${x}다!`;
+      }; /////// my함수 /////////
 
       // 함수호출하기
-      
-
+      console.log(my("프론트엔드 개발자"));
 
       // 화살표 함수 완전축약형! /////
-      
+      const we = (x) => `우리는 ${x}다!`;
+      /////// we함수 /////////
 
       // 함수호출하기
-      
-
+      console.log(we("끝내주는 개발자들이"));
       ////////////////////////////////////
 
       // querySelector 함수 짧게 만들기! ////
-      
+      const qs = (x) => document.querySelector(x);
+      const qsa = (x) => document.querySelectorAll(x);
 
       // addEventListener 함수 짧게 만들기! ////
-      
+      const addEvt = 
+      (ele, evt, fn) => ele.addEvtListener(evt, fn);
+      // ele - 대상요소, evt - 이벤트명, fn - 함수
 
       /// 화면에 출력된 버튼에 이벤트 걸기 /////
-      // 로드구역 만들기
+      // 로드구역 만들기 : addEvt()
+      addEvt(window,'load',()=>{
+        // 함수호출확인
+        console.log('로딩완료!');
+
+      }); /////// addEvt함수 //////////
 
       /************************************ 
           화살표함수를 사용할때
@@ -126,9 +133,6 @@
           코딩해야함!
 
       ************************************/
-
-
-
     </script>
   </head>
 
