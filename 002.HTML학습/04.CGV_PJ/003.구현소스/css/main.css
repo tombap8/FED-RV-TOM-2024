@@ -157,6 +157,28 @@ li+li 두번째 li부터 선택
   content: '📣';
 }
 
+/* 영사기 박스 */
+.cam{
+  position: absolute;
+  top: -10px;
+  right: -65px;
+}
+/* 영사기 이미지 */
+.cam img{
+  width: 50px;
+}
+/* 빔박스 */
+.beam{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 70px;
+  background: url(../images/bim.png) no-repeat right/auto 100%;
+
+  outline: 2px dashed yellow;
+}
+
 
 /*************** 2. 메인영역 ***************/
 .main-area {
