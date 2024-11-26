@@ -333,14 +333,14 @@ li+li 앞에 li가 있는 li선택
   /* 줄간격 : lh */
   line-height: 2;
   /* 패딩탑 : pt35 */
-  padding-top: min(3.5rem,2vw);
+  padding-top: min(3.5rem,2.6vw);
   /* 패딩,보더 크기포함박스 : bxb */
   box-sizing: border-box;
 
   /* 글자체 */
   font-family: "Cute Font", cursive;
   /* 글자크기 */
-  font-size: min(1.6rem,1.3vw);
+  font-size: min(1.6rem,1.2vw);
 
   /* 트랜지션 : trs 속시이지 */
   transition: .3s ease-out;
