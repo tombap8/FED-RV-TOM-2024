@@ -333,7 +333,7 @@ li+li 앞에 li가 있는 li선택
   /* 줄간격 : lh */
   line-height: 2;
   /* 패딩탑 : pt35 */
-  padding-top: 35px;
+  padding-top: min(3.5rem,2vw);
   /* 패딩,보더 크기포함박스 : bxb */
   box-sizing: border-box;
 
