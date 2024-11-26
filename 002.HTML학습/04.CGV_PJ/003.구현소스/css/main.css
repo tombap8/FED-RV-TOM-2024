@@ -270,9 +270,14 @@ li+li 두번째 li부터 선택
 /* 2-2. 포스터 메뉴 */
 .poster-menu {
   position: absolute;
-  bottom: 43px;
-  left: 226px;
+  bottom: 3.5%;
+  left: 50%;
   /* 나의 부모는? .main-area */
+  translate: -50%;
+}
+/* li상위 ul 플렉스박스 만들기 */
+.poster-menu ul {
+  display: flex;
 }
 
 /* 메뉴 리스트 ul>li 상위 li만 선택 */
@@ -282,8 +287,8 @@ li+li 두번째 li부터 선택
   /* 부모자격에서 넘치는 자식요소 숨기기설정!
   oh */
   overflow: hidden;
-  /* 블록 옆으로 흐르게 : float */
-  float: left;
+  /* 블록 옆으로 흐르게 : float 사용안함! */
+  /* float: left; */
 }
 
 /* ul>li 사이간격 
