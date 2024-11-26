@@ -166,17 +166,34 @@ li+li 두번째 li부터 선택
 /* 영사기 이미지 */
 .cam img{
   width: 50px;
+  rotate: 30deg;
+  /* 트랜지션: trs */
+  transition: .3s;
+}
+/* GNB에 오버시 영사기 이미지 회전 */
+.gnb:hover .cam img{
+  rotate: 0deg;
 }
 /* 빔박스 */
 .beam{
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 200px;
+  z-index: -1;
+  /* 스테틱 이미지보다 아래 */
+  top: -16px;
+  right: 9px;
+  width: 0px;
   height: 70px;
   background: url(../images/bim.png) no-repeat right/auto 100%;
+  /* 트랜지션: trs */
+  transition: .3s;
 
-  outline: 2px dashed yellow;
+  /* outline: 2px dashed yellow; */
+}
+/* GNB에 오버시 빔박스 보이기 */
+.gnb:hover .beam{
+  width: 200px;
+  /* 영사기 이미지 .3s 돌동안 대기하기 */
+  transition-delay: .3s;
 }
 
 
