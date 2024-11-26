@@ -124,6 +124,8 @@
         btn[0].onclick = function(){
           // 익명함수 안에서 this키워드의 의미는?
           console.log('익명함수의 this는?',this);
+          // this는 호출한 버튼 요소자신임!
+          this.innerText = '올드익명함수다!';
 
         }; /////// 클릭 이벤트함수 ///////
 
@@ -131,7 +133,16 @@
         btn[1].onclick = () => {
           // 화살표함수 안에서 this키워드의 의미는?
           console.log('화살표함수의 this는?',this);
-          
+          // 화살표함수의 this는 싸고 있는 설정대상임!
+          // 여기서는 window임!!!
+          // 이벤트 객체를 이용하여 호출한 버튼 자신을
+          // 선택할 수 있다! event.currentTarget
+          console.log("이벤트객체 현재타겟:",
+          event.currentTarget);
+          // event는 브라우저 이벤트관련 객체임!
+          // currentTarget 은 이벤트가 발생한 요소임!
+          event.currentTarget.innerText =
+          `나는 화살표함수다!`;          
         }; /////// 클릭 이벤트함수 ///////
 
       }); /////// addEvt함수 //////////
@@ -145,7 +156,7 @@
           즉, 여기서는 window로딩구역안에 생성되어서
           window객체를 가리키고 만약 이것이 어떤
           Object안에 메서드라면 그 Object를 가리킴!)
-          
+
           -> 기본적으로 화살표함수의 this는 자신을 싸고 있는
           설정 요소가 된다! 바깥으로 나감!!!(자기자신 아님!)
 
