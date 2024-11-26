@@ -1,0 +1,11 @@
+@charset "utf-8";
+/* CGV PJ 미디어쿼리 CSS - media.css */
+
+/********** 최대크기 1350px 이하 시작 **********/
+@media screen and (max-width: 1350px) {
+    /* GNB 위치변경 */
+    .gnb{
+        right: 70px;
+    }
+}
+/********** 최대크기 1350px 이하 종료 **********/
