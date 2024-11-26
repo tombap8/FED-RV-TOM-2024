@@ -270,6 +270,10 @@ li+li 두번째 li부터 선택
 /* 2-2. 포스터 메뉴 */
 .poster-menu {
   position: absolute;
+  /* 비율유지 부모박스 기준 % */
+  width: 60%;
+  aspect-ratio: 4/1;
+  outline: 2px dashed yellow;
   bottom: 3.5%;
   left: 50%;
   /* 나의 부모는? .main-area */
@@ -278,6 +282,10 @@ li+li 두번째 li부터 선택
 /* li상위 ul 플렉스박스 만들기 */
 .poster-menu ul {
   display: flex;
+  /* 마진대신 gap으로 간격셋팅 */
+  gap: 0 1%;
+  /* 비율유지 부모박스 높이값 채우기 */
+  height: 100%;
 }
 
 /* 메뉴 리스트 ul>li 상위 li만 선택 */
@@ -286,6 +294,7 @@ li+li 두번째 li부터 선택
   position: relative;
   /* 부모자격에서 넘치는 자식요소 숨기기설정!
   oh */
+  flex: 1;
   overflow: hidden;
   /* 블록 옆으로 흐르게 : float 사용안함! */
   /* float: left; */
@@ -294,14 +303,16 @@ li+li 두번째 li부터 선택
 /* ul>li 사이간격 
 li+li 앞에 li가 있는 li선택
 즉, 첫번째 li빼고 다 선택 */
-.poster-menu ul > li + li {
-  /* 왼쪽마진 : ml */
+/* 왼쪽마진 : ml */
+/* .poster-menu ul > li + li {
   margin-left: 10px;
-}
+} */
 
 /* 포스터 이미지 */
 .poster-menu img {
-  height: 170px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 /* 영화정보박스 */
