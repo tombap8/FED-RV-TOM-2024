@@ -23,6 +23,10 @@
     flex-direction: column;
     /* 메뉴만 숨기기 */
     display: none;
+    /* 영상기와 연결되게 셋팅!
+    이유: 마우스오버시 이벤트 끊어지지 않게함! */
+    padding-top: 10px;
+    margin-top: -10px;
   }
   /* GNB오버시 메뉴 보이기
   보일때는 원래 display로! 여기선 flex! */
