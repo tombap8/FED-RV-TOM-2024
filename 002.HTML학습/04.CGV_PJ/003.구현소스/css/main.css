@@ -292,9 +292,10 @@ li+li 두번째 li부터 선택
 .poster-menu ul > li {
   /* 렐러티브 포지션 : 부모자격 (.mv-info) */
   position: relative;
-  /* 부모자격에서 넘치는 자식요소 숨기기설정!
-  oh */
+  /* 플렉스박스 자식요소 등분할(높이는 자동채움) */
   flex: 1;
+  /* 부모자격에서 넘치는 
+  자식요소 숨기기설정! oh */
   overflow: hidden;
   /* 블록 옆으로 흐르게 : float 사용안함! */
   /* float: left; */
