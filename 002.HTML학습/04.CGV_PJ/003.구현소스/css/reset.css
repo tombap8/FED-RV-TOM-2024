@@ -34,12 +34,12 @@ figcaption {
 ul,ol{
     list-style: none;
 }
-/* float해제 셋팅 */
-ul::after, ol::after{
+/* float해제 셋팅 -> flex박스엔 불필요! */
+/* ul::after, ol::after{
     content: '';
     display: block;
     clear: both;
-}
+} */
 
 /* a요소 리셋 */
 a{
