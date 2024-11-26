@@ -64,7 +64,35 @@
 }
 /********** 최대크기 840px 이하 종료 **********/
 
-/********** 최대크기 1000px 이하 시작 **********/
-@media screen and (max-width: 1000px) {
+/********** 최대크기 700px 이하 시작 **********/
+@media screen and (max-width: 700px) {
+  /* 메인 박스 비율변경 + 배경조정 */
+  .main-area {
+    aspect-ratio: 1/1.4;
+    background: url(../images/bg.jpg) no-repeat center top/146%;
+  }
+  /* 스크린 크기,위치조정 */
+  .screen {
+    top: 11.7%;
+    left: 8.2%;
+    width: 85.4%;
+    height: 34.7%;
+  }
+
+  /* 포스터 박스 비율 및 크기변경  */
+  .poster-menu {
+    width: 68%;
+    aspect-ratio: 1;
+    bottom: 0;
+  }
+  /* 플렉스 박스 랩핑설정, 갭조정 */
+  .poster-menu ul {
+    gap: 2%;
+    flex-wrap: wrap;
+  }
+  /* 한줄에 3개씩 오도록 가로크기설정 */
+  .poster-menu ul > li {
+    flex-basis: 31.3%;
+  }
 }
-/********** 최대크기 1000px 이하 종료 **********/
+/********** 최대크기 700px 이하 종료 **********/
