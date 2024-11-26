@@ -94,5 +94,14 @@
   .poster-menu ul > li {
     flex-basis: 31.3%;
   }
+  /* 영화정보 패딩, 글자크기 조정 */
+  .mv-info {
+    padding-top: 7vw;
+    font-size: 3vw;
+  }
+  /* 제목 글자크기 조정 */
+  .mv-info ol li:first-child {
+    font-size: 4vw;
+  }
 }
 /********** 최대크기 700px 이하 종료 **********/
