@@ -30,7 +30,7 @@
   }
   /* GNB오버시 메뉴 보이기
   보일때는 원래 display로! 여기선 flex! */
-  .gnb:hover ul{
+  .gnb:hover ul {
     display: flex;
   }
   .gnb ul > li {
@@ -49,6 +49,20 @@
   }
 }
 /********** 최대크기 1000px 이하 종료 **********/
+
+/********** 최대크기 840px 이하 시작 **********/
+@media screen and (max-width: 840px) {
+  /* 하단 영역 플렉스 박스 세로정렬 */
+  .footer-area {
+    gap: 14px 20px;
+    flex-direction: column;
+  }
+  /* 기존 끝으로 보내기 설정 초기화 */
+  .sns-box {
+    margin-left: 0;
+  }
+}
+/********** 최대크기 840px 이하 종료 **********/
 
 /********** 최대크기 1000px 이하 시작 **********/
 @media screen and (max-width: 1000px) {
