@@ -238,7 +238,11 @@ li+li 두번째 li부터 선택
 .main-area {
   position: relative;
   /* 부모자격 - .screen */
-  height: 788px;
+
+  /* 비율설정하기 : 이때 높이값 주면 안됨!!! */
+  aspect-ratio: 1200 / 788;
+
+  /* height: 788px; */
   /* 배경이미지 */
   background: url(../images/bg.jpg)
     no-repeat center/cover;
@@ -247,11 +251,11 @@ li+li 두번째 li부터 선택
 .screen {
   /* 앱솔루트 포지션 : poa */
   position: absolute;
-  top: 136px;
-  left: 257px;
+  top: 17.2%;
+  left: 21.3%;
   /* 나의 부모는? .main-area */
-  width: 701px;
-  height: 397px;
+  width: 58.6%;
+  height: 50.6%;
   /* 기본배경색 검정! */
   background-color: #000;
 }

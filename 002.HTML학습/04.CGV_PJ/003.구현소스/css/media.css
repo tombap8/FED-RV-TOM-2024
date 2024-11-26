@@ -5,7 +5,7 @@
 @media screen and (max-width: 1350px) {
     /* GNB 위치변경 */
     .gnb{
-        right: 70px;
+        right: 75px;
     }
 }
 /********** 최대크기 1350px 이하 종료 **********/
