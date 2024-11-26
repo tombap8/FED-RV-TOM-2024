@@ -167,12 +167,14 @@ li+li 두번째 li부터 선택
 .cam img{
   width: 50px;
   rotate: 30deg;
-  /* 트랜지션: trs */
-  transition: .3s;
+  /* 트랜지션: trs 양방향공통 */
+  transition: .3s .3s;
 }
 /* GNB에 오버시 영사기 이미지 회전 */
 .gnb:hover .cam img{
   rotate: 0deg;
+  /* 트랜지션 지연시간 오버시엔 없앰! */
+  transition-delay: 0s;
 }
 /* 빔박스 */
 .beam{
@@ -194,6 +196,15 @@ li+li 두번째 li부터 선택
   width: 200px;
   /* 영사기 이미지 .3s 돌동안 대기하기 */
   transition-delay: .3s;
+  /* 빔떨림 애니메이션 호출 */
+  animation: beam-ani .05s linear infinite alternate;
+  /* 0.05초간 등속도(linear)로 계속(infinite) 번갈아(alternate) */
+}
+/* 빔떨림 애니 키프레임 */
+@keyframes beam-ani {
+  to{
+    opacity: 0.5;
+  }
 }
 
 
