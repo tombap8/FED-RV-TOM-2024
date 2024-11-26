@@ -3,9 +3,50 @@
 
 /********** 최대크기 1350px 이하 시작 **********/
 @media screen and (max-width: 1350px) {
-    /* GNB 위치변경 */
-    .gnb{
-        right: 75px;
-    }
+  /* GNB 위치변경 */
+  .gnb {
+    right: 75px;
+  }
 }
 /********** 최대크기 1350px 이하 종료 **********/
+
+/********** 최대크기 1000px 이하 시작 **********/
+@media screen and (max-width: 1000px) {
+  /* GNB 위치변경 */
+  .gnb {
+    bottom: auto;
+    top: 80px;
+    right: 18px;
+  }
+  /* 플렉스 진행방향 컬럼으로 변경 */
+  .gnb ul {
+    flex-direction: column;
+    /* 메뉴만 숨기기 */
+    display: none;
+  }
+  /* GNB오버시 메뉴 보이기
+  보일때는 원래 display로! 여기선 flex! */
+  .gnb:hover ul{
+    display: flex;
+  }
+  .gnb ul > li {
+    /* 글자 오른쪽 정렬로 변경 */
+    text-align: right;
+  }
+  /* 마우스 오버시 서브메뉴 안나오게함 */
+  .gnb ul > li:hover .smenu {
+    display: none;
+  }
+  /* 영사기 위치변경 */
+  .cam {
+    position: absolute;
+    top: -56px;
+    right: -5px;
+  }
+}
+/********** 최대크기 1000px 이하 종료 **********/
+
+/********** 최대크기 1000px 이하 시작 **********/
+@media screen and (max-width: 1000px) {
+}
+/********** 최대크기 1000px 이하 종료 **********/
