@@ -4,11 +4,10 @@
 console.log("나야나 로딩!");
 
 // 화살표함수로 선택함수 만들기
-const qs = x => document.querySelector(x);
-const qsa = x => document.querySelectorAll(x);
+const qs = (x) => document.querySelector(x);
+const qsa = (x) => document.querySelectorAll(x);
 // 화살표함수로 이벤트설정 함수 만들기
-const addEvt = 
-(ele,evt,fn) => ele.addEventListener(evt,fn);
+const addEvt = (ele, evt, fn) => ele.addEventListener(evt, fn);
 
 /********************************************* 
     [ 요구사항분석 ]
@@ -22,8 +21,8 @@ const addEvt =
 *********************************************/
 // 1. 대상선정 : 이벤트대상 + 변경대상
 // 1-1. 이벤트 대상 : .poster-menu ul > li
-const menu = qsa('.poster-menu ul > li');
-console.log("메뉴:",menu);
+const menu = qsa(".poster-menu ul > li");
+console.log("메뉴:", menu);
 // 1-2. 변경대상 : 이벤트대상과 동일함!
 
 // 2. 이벤트 설정하기 //////////
@@ -35,6 +34,15 @@ console.log("메뉴:",menu);
 // 너무나 뻔함! -> for of문으로 쉽게 할 수 있음!
 // [ for of 구문 ]
 // for(변수 of 요소들){코드}
-for(let x of menu){
-    console.log("for of의 값:",x);
+for (let x of menu) {
+  console.log("for of의 값:", x);
+  // 클릭 이벤트 설정하기
+  // addEvt(요소,이벤트명,함수)
+  addEvt(x, "click", () => {
+    console.log("나?메뉴!");
+    // (1) li모두 클래스 "on"지우기
+    for (let y of menu) y.classList.remove("on");
+    // (2) 클릭된 li에 클래스 "on"넣기
+    x.classList.add("on");
+  }); ///// addEvt //////
 } /////// for of 문 //////////
