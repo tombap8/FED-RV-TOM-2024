@@ -313,9 +313,10 @@ li+li 두번째 li부터 선택
   transition: rotate .4s ease-out;
 
 }
-/* li에 오버시 x축회전하여 일어나기 */
-
-.poster-menu ul > li:hover {
+/* li에 오버시 x축회전하여 일어나기
++ li의 클래스가 "on"일 경우 동일 디자인 */
+.poster-menu ul > li:hover,
+.poster-menu ul > li.on {
   /* x축 0도 회전 */
   rotate: x 0deg;
   /* 다른 li보다 위 */
@@ -369,8 +370,10 @@ li+li 앞에 li가 있는 li선택
   transition: .3s ease-out;
 }
 
-/* 상위 ul>li 오버시 영화정보 보이기 */
-.poster-menu ul>li:hover .mv-info{
+/* 상위 ul>li 오버시 영화정보 보이기
++ li가 클래스"on"일 경우도 동일 디자인! */
+.poster-menu ul>li:hover .mv-info,
+.poster-menu ul>li.on .mv-info{
     top: 0;
     /* 값이 100% -> 0으로 변경됨! */
 }
