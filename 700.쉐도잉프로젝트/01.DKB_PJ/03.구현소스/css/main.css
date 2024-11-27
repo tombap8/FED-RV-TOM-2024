@@ -19,7 +19,12 @@ body * {
 }
 /* 임시 타이틀 */
 h1,h2{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: -1;
   text-align: center;
-  font-size: 5vw;
+  font-size: 4vw;
   color: #ccc;
+  outline: none;
 }
