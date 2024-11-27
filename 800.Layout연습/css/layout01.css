@@ -13,9 +13,9 @@ html,body,h1,h2,ul,ol{
 }
 
 /* 공사중표시 */
-body * {
+/* body * {
     outline: 2px dashed red;
-}
+} */
 
 /* 공통클래스 */
 /* 중앙속박스 */
@@ -23,9 +23,13 @@ body * {
     /* 최대가로크기 */
     max-width: 1200px;
     /* 블록박스 중앙정렬 -> 마.영.오! */
-    margin: 0 auto;
-    
+    margin: 0 auto;    
 }
+/* 파티션박스 */
+.cont-box{
+    height: 100%;
+}
+
 /* 임시 타이틀 */
 .temp-tit{
     position: absolute;   

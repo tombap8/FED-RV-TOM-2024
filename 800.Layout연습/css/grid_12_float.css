@@ -21,8 +21,9 @@
 대괄호[]는 속성선택자임! */
 [class*="col-"] {
     float: left;
-    padding: 15px;
-    border: 1px solid red;
+    height: 100%;
+    padding: 10px;
+    border: 1px solid gray;
     /* 패딩,보더 포함설정 : bxb */
     box-sizing: border-box;
 }
