@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CGV에 오신것을 환영합니다!</title>
+    <!-- 폰트어썸 아이콘 CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- 메인 CSS -->
+    <link rel="stylesheet" href="./css/main.css" />
+    <!-- 미디어쿼리 CSS : 
+     덮어쓸 수 있게 메인 CSS 아래쪽에 위치해야함! -->
+    <link rel="stylesheet" href="./css/media.css" />
+
+    <!-- 자바스크립트 실행구역
+      이 구역 안에서는 반드시 JS문법만 사용가능! -->
+    <script>
+      // JS주석(한줄)
+      /* JS주석(여러줄) */
+      // 콘솔찍기(F12-Console탭에서 확인!)
+      console.log("여긴어디?난누구?");
+      // JS는 코드를 만나는 즉시 실행함!
+      // 호출시에만 실행하고 싶으면 함수!
+      // 함수 -> function 함수명(전달변수){코드}
+      // 함수실행원리:
+      // 함수이름을 이벤트속성에서 불러준다!
+      // 이벤트속성은 모든 요소안에 있다!
+      // <태그 on이벤트명="값">
+      // 예) <div onclick="멍멍이()">
+
+      // 함수작성! 함수는 코드저장소임!
+      function 멍멍이(먹이) {
+        // 알림창 띄우기
+        // alert("나야나!"+먹이);
+
+        // 콘솔창 띄우기(F12 Console창)
+        console.log("나야나!" + 먹이);
+
+        // 소방대장 도착!
+        // 설계도 가져와! -> document
+        document.getElementById("ifr").src =
+          "https://www.youtube.com/embed/" + 먹이 + "?autoplay=1&playsinline=1";
+        // document : 현재 전체 웹문서 객체
+        // .(점) : 하위 속성/메서드 접근
+        // getElementById(아이디명) :
+        // -> 아이디접근 메서드
+        // JS에서 이퀄(=)은 왼쪽값이 오른쪽에
+        // 들어감(할당)을 의미함!
+      } //////// 멍멍이 함수 //////////
+    </script>
+
+    <!-- 추가 기능 JS 외부파일
+     defer속성은 html태그 로딩후 실행함! -->
+     <script src="./js/main.js" defer></script>
+  </head>
+  <body>
+    <!-- 1. 상단영역 -->
+    <header class="top-area part">
+      <!-- 1-1.타이틀 -->
+      <h1 class="tit">CGV 예고편 상영관</h1>
+      <!-- 1-2.GNB 메뉴 -->
+      <nav class="gnb">
+        <ul>
+          <li>
+            <a href="#">영화</a>
+            <!-- 서브메뉴 -->
+            <div class="smenu">
+              <ol>
+                <li>
+                  <a href="#">무비차트</a>
+                </li>
+                <li>
+                  <a href="#">HD 트레일러</a>
+                </li>
+                <li>
+                  <a href="#">무비파인더</a>
+                </li>
+                <li class="bd-top">
+                  <a href="#">CGV아트하우스</a>
+                </li>
+              </ol>
+            </div>
+          </li>
+          <li>
+            <a href="#">예매</a>
+            <!-- 서브메뉴 -->
+            <div class="smenu">
+              <ol>
+                <li>
+                  <a href="#">빠른예매</a>
+                </li>
+                <li>
+                  <a href="#">상영시간표</a>
+                </li>
+              </ol>
+            </div>
+          </li>
+          <li>
+            <a href="#">극장</a>
+            <!-- 서브메뉴 -->
+            <div class="smenu">
+              <ol>
+                <li>
+                  <a href="#">CGV 극장</a>
+                </li>
+                <li>
+                  <a href="#">특별관</a>
+                </li>
+                <li class="bd-top">
+                  <a href="#">CLUB 서비스</a>
+                </li>
+              </ol>
+            </div>
+          </li>
+          <li>
+            <a href="#">이벤트&amp;컬처</a>
+            <!-- 서브메뉴 -->
+            <div class="smenu">
+              <ol>
+                <li>
+                  <a href="#">이벤트</a>
+                </li>
+                <li>
+                  <a href="#">기프트샵</a>
+                </li>
+                <li>
+                  <a href="#">매거진</a>
+                </li>
+              </ol>
+            </div>
+          </li>
+        </ul>
+        <!-- 영사기 박스 -->
+        <aside class="cam">
+          <!-- 영사기 이미지 -->
+          <img src="./images/gnb.png" alt="영사기" />
+          <!-- 빔박스 -->
+          <div class="beam"></div>
+        </aside>
+      </nav>
+    </header>
+    <!-- 2. 메인영역 -->
+    <main class="main-area part">
+      <!-- 2-1. 스크린 -->
+      <div class="screen">
+        <!-- 유튜브 아이프레임
+             iframe(인라인프레임) 다른 시스템의 페이지를
+             웹 페이지에 삽입할때 사용함!
+             필수속성은  src(소스경로) -->
+        <iframe
+          id="ifr"
+          src="https://www.youtube.com/embed/rgSLRhN1Flk?autoplay=1&mute=1&loop=1&playlist=rgSLRhN1Flk&playsinline=1"
+          allow="autoplay"
+        ></iframe>
+
+        <!-- 특정시간대 영상 재생가능 -->
+        <!-- <iframe id="ifr" src="https://www.youtube.com/embed/rgSLRhN1Flk?autoplay=1&mute=1&start=20&end=24" allow="autoplay"></iframe> -->
+      </div>
+      <!-- 2-2. 포스터 메뉴 -->
+      <nav class="poster-menu">
+        <ul>
+          <li>
+            <a href="#" onclick="멍멍이('nxbmhop7D1M')">
+              <!-- 포스터 이미지 -->
+              <img src="./images/m1.jpg" alt="아마존 활명수" />
+              <!-- 영화정보박스 -->
+              <div class="mv-info">
+                <ol>
+                  <li>아마존 활명수</li>
+                  <li>류승룡, 진선규</li>
+                  <li>코미디</li>
+                </ol>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="멍멍이('soCtsN0JYUg')">
+              <!-- 포스터 이미지 -->
+              <img src="./images/m2.jpg" alt="베놈: 라스트 댄스" />
+              <!-- 영화정보박스 -->
+              <div class="mv-info">
+                <ol>
+                  <li>베놈: 라스트 댄스</li>
+                  <li>톰 하디</li>
+                  <li>액션, SF, 스릴러</li>
+                </ol>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="멍멍이('n3BJGVnUjaQ')">
+              <!-- 포스터 이미지 -->
+              <img src="./images/m3.jpg" alt="제목" />
+              <!-- 영화정보박스 -->
+              <div class="mv-info">
+                <ol>
+                  <li>데드라인</li>
+                  <li>공승연, 박지일</li>
+                  <li>드라마</li>
+                </ol>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="멍멍이('eCO6NOFLXYY')">
+              <!-- 포스터 이미지 -->
+              <img src="./images/m4.jpg" alt="제목" />
+              <!-- 영화정보박스 -->
+              <div class="mv-info">
+                <ol>
+                  <li>글래디에이터 2</li>
+                  <li>폴 메스칼</li>
+                  <li>액션, 사극</li>
+                </ol>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="멍멍이('mGhUIExGY4Y')">
+              <!-- 포스터 이미지 -->
+              <img src="./images/m5.jpg" alt="제목" />
+              <!-- 영화정보박스 -->
+              <div class="mv-info">
+                <ol>
+                  <li>청설</li>
+                  <li>홍경, 노윤서</li>
+                  <li>드라마, 멜로</li>
+                </ol>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="멍멍이('ZuV0obhqBXM')">
+              <!-- 포스터 이미지 -->
+              <img src="./images/m6.jpg" alt="제목" />
+              <!-- 영화정보박스 -->
+              <div class="mv-info">
+                <ol>
+                  <li>4분 44초</li>
+                  <li>유지애, 함연지</li>
+                  <li>공포,스릴러</li>
+                </ol>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+    <!-- 3. 하단영역 -->
+    <footer class="footer-area part">
+      <!-- 3-1.하단로고 -->
+      <div class="logo">
+        <img src="./images/blogo.png" alt="하단로고" />
+      </div>
+      <!-- 3-2.회사정보 -->
+      <div class="co-info">
+        <address>
+          (04377)서울특별시 용산구 한강대로 23길 55, 아이파크몰 6층(한강로동)
+          <br />
+          대표이사 : 최병환사업자등록번호 : 104-81-45690통신판매업신고번호 :
+          2017-서울용산-0662 <br />
+          개인정보보호 책임자 : 정종민대표이메일 : cjcgvmaster@cj.netCGV고객센터
+          : 1544-1122
+        </address>
+      </div>
+      <!-- 3-3.SNS -->
+      <div class="sns-box">
+        <ol>
+          <!-- 페이스북 -->
+          <li>
+            <a class="fa-brands fa-square-facebook" href="#"></a>
+          </li>
+          <!-- 트위터X -->
+          <li>
+            <a class="fa-brands fa-square-x-twitter" href="#"></a>
+          </li>
+          <!-- 인스타그램 -->
+          <li>
+            <a class="fa-brands fa-square-instagram" href="#"></a>
+          </li>
+          <!-- 유튜브 -->
+          <li>
+            <a class="fa-brands fa-square-youtube" href="#"></a>
+          </li>
+        </ol>
+      </div>
+    </footer>
+  </body>
+</html>
