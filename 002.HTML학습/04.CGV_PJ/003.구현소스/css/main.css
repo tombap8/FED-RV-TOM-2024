@@ -320,6 +320,8 @@ li+li 두번째 li부터 선택
   rotate: x 0deg;
   /* 다른 li보다 위 */
   z-index: 1;
+  /* 선택요소 외곽선 보이기 */
+  outline: 1px solid aquamarine;
 }
 
 /* ul>li 사이간격 
