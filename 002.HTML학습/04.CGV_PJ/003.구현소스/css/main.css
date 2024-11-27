@@ -286,6 +286,8 @@ li+li 두번째 li부터 선택
   gap: 0 1%;
   /* 비율유지 부모박스 높이값 채우기 */
   height: 100%;
+  /* 직계자식요소를 3D원근 설정하기 */
+  perspective: 100vh;
 }
 
 /* 메뉴 리스트 ul>li 상위 li만 선택 */
@@ -299,6 +301,25 @@ li+li 두번째 li부터 선택
   overflow: hidden;
   /* 블록 옆으로 흐르게 : float 사용안함! */
   /* float: left; */
+
+  /* x축 회전하여 누워있게 셋팅 */
+  rotate: x 45deg;
+  /* 원래속성 transform: rotateX(45deg); */
+
+  /* 회전축 변경하기 : bottom */
+  transform-origin: bottom;
+
+  /* 트랜지션: trs 속시이지 */
+  transition: rotate .4s ease-out;
+
+}
+/* li에 오버시 x축회전하여 일어나기 */
+
+.poster-menu ul > li:hover {
+  /* x축 0도 회전 */
+  rotate: x 0deg;
+  /* 다른 li보다 위 */
+  z-index: 1;
 }
 
 /* ul>li 사이간격 
