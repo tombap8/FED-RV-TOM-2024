@@ -32,16 +32,18 @@
             /* 처음에 뒷면보이게 Y축회전! */
 
             /* 입체 트랜스폼 구성
-            .card하위 가상요소가 입체대상 */
+            .card하위 가상요소가 입체대상
+            z축을 살려서 위아래를 만들어서
+            회전시 뒤장 카드모양 보이게함! */
             transform-style: preserve-3d;
 
-            /* 트랜스폼 */
-            transition: .3s;
+            /* 트랜지션 */
+            transition: 1s;
         }
         /* 카드에 마우스 오버시 Y축회전
         카드박스에 오버를 걸어야 안정적임! */
         .card-box:hover .card{
-            
+            rotate: y 180deg;
         }
         /* 카드 앞뒤면을 가상요소로 구성함 */
         /* 카드앞면 */
@@ -53,11 +55,15 @@
             width: 100%;
             height: 100%;
             border-radius: 10px;
-            
+            /* 배경이미지 넣기 */
+            background: url(./images/card_front.png) no-repeat 0/100% 100%;
+            /* 입체에서 앞면을 z축으로 앞으로 이동 */
+            translate: 0 0 1px;
         }
         /* 카드뒷면 */
         .card::before{
-            content: '';
+            content: '나야나';
+            text-align: center;
             position: absolute;
             top: 0;
             left: 0;
@@ -65,8 +71,12 @@
             height: 100%;
             border-radius: 11px;
             
+            /* 배경이미지 넣기 */
+            background: url(./images/card_back.jpg) no-repeat 0/100% 100%;
             /* 뒷면이미지를 정상이미지로
-            보려면 사실 180deg Y축회전필요! */
+            보려면 사실 180deg Y축회전필요!
+            -> "나야나"글자 주목! */
+            rotate: y 180deg;
         }
 
         /* 카드를 더 입체적으로 보이도록
