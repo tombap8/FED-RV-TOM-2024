@@ -8,18 +8,54 @@
     <script>
       // 제이쿼리 함수명은? $
       // $(()=>{}) : 제이쿼리로딩구역
-      $(()=>{
+      $(() => {
         // 이 구역안에 코딩하면 html로딩후 실행!
         // 요소 선택법은? $(CSS선택자)
         // -> ul > li 를 선택
         // -> 여러개의 요소도 for문없이 코딩가능!!!
-        $('ul li').css({
-          color:'red',
-          fontSize:'40px'
-        })
-        .click(()=>{
-          console.log('나야나!');
-        });
+        $("ul li")
+          .css({
+            color: "red",
+            fontSize: "40px",
+          })
+          .click((e) => {
+            // e.currentTarget 이벤트발생요소
+            let iam = e.currentTarget;
+            console.log("나야나!", iam);
+            // 클릭된 요소는? iam 변수
+            // 요구사항: 글자크기 70px
+            // 글자색 aquamarine, translate 100px 200px
+            // 글자그림자
+            // 트랜지션 1s ease-out
+            $(iam).css({
+              fontSize: "70px",
+              color: "aquamarine",
+              transform: "translate(100px, 200px)",
+              textShadow: "2px 2px 5px gray",
+              // text-shadow: x y blur spread color
+              transition: "1s ease-out",
+            }); /// css ///
+          }); /// click ///
+
+          // 미션: h2요소를 선택후 클릭하면
+          // css를 변경: 글자크기 50px
+          // rotate 360도, 글자색 핫핑크
+          // 트랜지션 0.7초
+          $("h2")
+           .click((e) => {
+              // 나자신
+              let iam = e.currentTarget;
+              // h2요소 css변경
+              $(iam).css({
+                fontSize: "50px",
+                transform: "rotate(360deg)",
+                color: "hotpink",
+                transition: "0.7s ease-out",
+              });
+            }); /// click ///
+
+
+
         // css({속성:값})
 
         // 같은 li에 클릭설정하기
@@ -30,10 +66,8 @@
         //   x.style.color ='red';
         //   x.style.fontSize ='40px';
         // }
-
       });
     </script>
-    
   </head>
 
   <body>
