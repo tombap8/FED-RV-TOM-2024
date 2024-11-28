@@ -37,13 +37,17 @@
             회전시 뒤장 카드모양 보이게함! */
             transform-style: preserve-3d;
 
+            /* 처음에 뒤집어 놓기 */
+            rotate: y 180deg;
+
             /* 트랜지션 */
             transition: 1s;
         }
         /* 카드에 마우스 오버시 Y축회전
         카드박스에 오버를 걸어야 안정적임! */
         .card-box:hover .card{
-            rotate: y 180deg;
+            /* 앞면으로 회전 */
+            rotate: y 0deg;
         }
         /* 카드 앞뒤면을 가상요소로 구성함 */
         /* 카드앞면 */
@@ -62,7 +66,7 @@
         }
         /* 카드뒷면 */
         .card::before{
-            content: '나야나';
+            content: '카드에 오버시 뒤집어집니다!';
             text-align: center;
             position: absolute;
             top: 0;
@@ -75,7 +79,7 @@
             background: url(./images/card_back.jpg) no-repeat 0/100% 100%;
             /* 뒷면이미지를 정상이미지로
             보려면 사실 180deg Y축회전필요!
-            -> "나야나"글자 주목! */
+            -> 카드글자 주목! */
             rotate: y 180deg;
         }
 
