@@ -22,23 +22,37 @@
         height: 50px;
         background-color: #333;
         border-radius: 25px;
-
-        /* 트랜지션 : trs 속시이지 */
-        transition: .3s;
       }
 
       /* 처음 바 셋팅상태 */
       /* 첫번째 바 */
       .hambtn span:nth-child(1){
         top: 0;
+        /* 트랜지션
+        - rotate은 .3s
+        - top는 .3s 기다림 */
+        transition: 
+        top .3s .3s,
+        rotate .3s;
       }
       /* 두번째 바 */
       .hambtn span:nth-child(2){
         top: 100px;
+        
+        /* 트랜지션 : 겹쳐질때
+        까지 기다린 후 나타남 */
+        transition: 
+        width .01s .3s;
       }
       /* 세번째 바 */
       .hambtn span:nth-child(3){
         top: 200px;
+        /* 트랜지션
+        - rotate는 .3s
+        - top은 .3s 기다림 */
+        transition: 
+        top .3s .3s,
+        rotate .3s;
       }
 
       /* 클래스 on일때 바 셋팅상태 */
