@@ -95,7 +95,33 @@
 
       // 로딩함수
       function loadFn() {
-        
+        // 0.함수호출 확인
+        console.log('호출확인!');
+
+        // 1. 대상선정 : 이벤트대상+변경대상
+        // 1-1. 이벤트대상 : 버튼들 - .btngo
+        const btns = document.querySelectorAll('.btngo');
+
+        // 1-2. 변경대상 : 데이터 표시박스들 - .minfo
+        const boxes = document.querySelectorAll('.minfo');
+
+        // console.log('대상들:',btns,boxes);
+
+
+        // 2. 이벤트 설정하기 //////
+        // 원래 for문으로 셋팅해야함. 그러나... for of있음!
+        for(let x of btns){
+          // x는 누구? 각 버튼요소
+          // console.log("x는?",x);
+
+          // 2-1. 클릭이벤트 설정
+          x.onclick = () => {
+            console.log("나클릭!",x);
+
+          }; ///// click이벤트 함수 //////
+
+        } /////////// for of //////
+
       } //////////// loadFn 함수 ///////////
       //////////////////////////////////////
 
