@@ -185,11 +185,30 @@ a{
 /* 상위메뉴 오버시 밑줄애니 */
 .uline ul>li>a::after{
     content: '';
+    display: block;
+    width: 0%;
+    height: 2px;
+    margin-top: 4px;
+    background-color: #fff;
+
+    /* 마우스 아웃시는 여기에
+    셋팅해야함 따라서 바깥으로
+    나가는 모양을 만들기 위해
+    왼쪽마진값을 100%로 설정함 */
+    margin-left: 100%;
+
+    transition: .3s;
     
 }
 /* 오버시 밑줄박스 애니 */
 .uline ul>li:hover>a::after{
-    
+    width: 100%;
+    /* 왼쪽마진 시작위치로!
+    단, 트랜지션 안되게해야함! */
+    margin-left: 0;
+    /* 오버시 트랜지션은
+    width만 먹히게함!!! */
+    transition: width .3s;
 }
 
 /* 다국어 메뉴파트 */
