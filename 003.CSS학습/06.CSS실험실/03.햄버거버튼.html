@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02.햄버거버튼 애니메이션</title>
+    <style>
+      .hambtn {
+        position: relative;
+        /* 부모자격: span */
+        width: 400px;
+        height: 250px;
+        margin: 50px auto;
+        outline: 5px dotted lightpink;
+        /* 손가락보이기 */
+        cursor: pointer;
+      }
+      /* 햄버거 바 공통 */
+      .hambtn span {
+        position: absolute;
+        width: 100%;
+        height: 50px;
+        background-color: #333;
+        border-radius: 25px;
+      }
+      
+      
+    </style>
+  </head>
+  <body>
+    <div class="hambtn" 
+    onclick="this.classList.toggle('on')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="hambtn hambtn2" 
+    onclick="this.classList.toggle('on')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <!-- 
+        this.classList.toggle('on')
+        _____________________________
+
+        1. this 
+        -> 햄버거버튼 자신(.hambtn)
+        2. classList 
+        -> 클래스를 제어하는 객체
+        3. toggle(클래스명) 
+        -> 설정한 클래스가 없으면 넣고 있으면 빼는 메서드
+     -->
+  </body>
+</html>
