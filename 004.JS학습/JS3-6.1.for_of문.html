@@ -96,32 +96,62 @@
       // 로딩함수
       function loadFn() {
         // 0.함수호출 확인
-        console.log('호출확인!');
+        console.log("호출확인!");
 
         // 1. 대상선정 : 이벤트대상+변경대상
         // 1-1. 이벤트대상 : 버튼들 - .btngo
-        const btns = document.querySelectorAll('.btngo');
+        const btns = document.querySelectorAll(".btngo");
 
         // 1-2. 변경대상 : 데이터 표시박스들 - .minfo
-        const boxes = document.querySelectorAll('.minfo');
+        const boxes = document.querySelectorAll(".minfo");
 
         // console.log('대상들:',btns,boxes);
 
-
         // 2. 이벤트 설정하기 //////
         // 원래 for문으로 셋팅해야함. 그러나... for of있음!
-        for(let x of btns){
+        for (let x of btns) {
           // x는 누구? 각 버튼요소
           // console.log("x는?",x);
 
           // 2-1. 클릭이벤트 설정
           x.onclick = () => {
-            console.log("나클릭!",x);
+            // (1) 클릭된 버튼 텍스트 읽기
+            let btxt = x.innerText;
+            console.log("나클릭!", btxt);
+
+            // (2) 버튼 텍스트로 데이터 매칭하기
+            let selData; // 선택데이터 변수
+            switch (btxt) {
+              case "조제":
+                selData = mv1;
+                break;
+              case "원더 우먼 1984":
+                selData = mv2;
+                break;
+              case "도굴":
+                selData = mv3;
+                break;
+              case "공조2: 인터내셔날":
+                selData = mv4;
+                break;
+              case "육사오(6/45)":
+                selData = mv5;
+                break;
+              case "더 퍼스트 슬램덩크":
+                selData = mv6;
+                break;
+              case "바빌론":
+                selData = mv7;
+                break;
+              case "무빙":
+                selData = mv8;
+                break;
+            } //////// switch //////////
+
+            console.log("선택배열:",selData);
 
           }; ///// click이벤트 함수 //////
-
         } /////////// for of //////
-
       } //////////// loadFn 함수 ///////////
       //////////////////////////////////////
 
