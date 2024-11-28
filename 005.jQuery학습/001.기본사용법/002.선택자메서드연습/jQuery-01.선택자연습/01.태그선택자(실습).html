@@ -5,6 +5,34 @@
     <title>태그 선택자</title>
     <!-- jQuery library 가장위에 있어야함!!! -->
     <script src="../jquery-3.6.3.min.js"></script>
+    <script>
+      // 제이쿼리 함수명은? $
+      // $(()=>{}) : 제이쿼리로딩구역
+      $(()=>{
+        // 이 구역안에 코딩하면 html로딩후 실행!
+        // 요소 선택법은? $(CSS선택자)
+        // -> ul > li 를 선택
+        // -> 여러개의 요소도 for문없이 코딩가능!!!
+        $('ul li').css({
+          color:'red',
+          fontSize:'40px'
+        })
+        .click(()=>{
+          console.log('나야나!');
+        });
+        // css({속성:값})
+
+        // 같은 li에 클릭설정하기
+
+        // 원래 JS문법에서는 여러개는 for문 필수임!
+        // const mymy = document.querySelectorAll('ul li');
+        // for(let x of mymy){
+        //   x.style.color ='red';
+        //   x.style.fontSize ='40px';
+        // }
+
+      });
+    </script>
     
   </head>
 
