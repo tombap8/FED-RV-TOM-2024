@@ -32,12 +32,6 @@ a{
     color: #fff;
     text-decoration: none;
 }
-/* 공통클래스 : 클리어설정 */
-ul::after,ol::after,.clb::after{
-    content: '';
-    display: block;
-    clear: both;
-}
 /* 중앙속박스 */
 .inbox{
     max-width: 1650px;
@@ -51,11 +45,6 @@ ul::after,ol::after,.clb::after{
 }
 
 /* GNB 메뉴 */
-.gnb{
-    /* ul이 플렉스 박스이므로
-    정렬은 ul에서 하도록 함! */
-    /* margin-left: 63px; */
-}
 /* GNB 메뉴 하위 a요소 */
 .gnb a{
     display: block;
@@ -64,9 +53,9 @@ ul::after,ol::after,.clb::after{
 
 /* 메뉴 플렉스박스 설정 */
 .gnb ul{
-    display: flex;
+    
     /* 진행방향 오른쪽끝정렬 */
-    justify-content: flex-end;
+    
 
     /* 메뉴 글자 줄바꿈방지 */
     white-space: nowrap;
@@ -120,7 +109,7 @@ ul::after,ol::after,.clb::after{
 }
 /* 상위li오버시 서브메뉴 보이기 */
 .gnb ul>li:hover .smenu{
-    max-height: 210px;
+    
     /* max-height로 셋팅하는 원리:
     최대높이값은 컨텐츠내용이 적을때 auto하게
     내용물 만큼만 높이값이 셋팅된다!
@@ -159,7 +148,7 @@ ul::after,ol::after,.clb::after{
 }
 /* 상위메뉴 오버시 */
 .gnb ul>li:hover .smenu li{
-    opacity: 1;
+    
 }
 /* 하위메뉴 a요소 투명도 조정 */
 .gnb ul>li .smenu li a{
@@ -196,28 +185,11 @@ ul::after,ol::after,.clb::after{
 /* 상위메뉴 오버시 밑줄애니 */
 .uline ul>li>a::after{
     content: '';
-    /* 디자인 적용위해 block */
-    display: block;
-    /* position: absolute; */
-    /* 앱솔루트는 자동블록됨! -> 안씀! */
-    /* top: 53px; */
-    /* 마우스 나갈때 margin-left값 밀기 */
-    margin-left: 100%;
-    /* 글자와의 간격조정은 마진탑으로! */
-    margin-top: 2px;
-    width: 0;
-    height: 2px;
-    background-color: #fff;
-    /* 아웃시 트랜지션 */
-    transition: .3s;
+    
 }
 /* 오버시 밑줄박스 애니 */
 .uline ul>li:hover>a::after{
-    margin-left: 0;
-    width: 100%;
-    /* 오버시 트랜지션 
-    ->>> margin-left 는 트랜지션 적용말것!!! */
-    transition: width .3s;
+    
 }
 
 /* 다국어 메뉴파트 */
