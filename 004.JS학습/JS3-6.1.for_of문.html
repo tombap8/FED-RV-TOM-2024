@@ -162,6 +162,12 @@
             } ///// for of /////
           }; ///// click이벤트 함수 //////
         } /////////// for of //////
+
+        // 따라오는 포스터 기능 셋팅함수 호출하기!!!
+        followPoster(boxes);
+        // boxes는 .minfo를 수집한 html 컬렉션이다!
+
+
       } //////////// loadFn 함수 ///////////
       //////////////////////////////////////
 
@@ -170,7 +176,11 @@
         기능: 컨텐츠 박스 위에 오버시
             마우스무브 이벤트동안 포스터 따라오기
       *******************************************/
-      function followPoster() {
+      function followPoster(minfo) {
+        // 로딩함수에서 호출시 boxes변수에 담긴
+        // .minfo컬렉션 요소를 전달받는다!
+        console.log("전달된 컬렉션:",minfo);
+
         // 1. 대상선정
         // 1-1.이벤트 대상 : .wrap
         const wrap = document.querySelector(".wrap");
