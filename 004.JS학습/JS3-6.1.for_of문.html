@@ -148,7 +148,14 @@
                 break;
             } //////// switch //////////
 
-            console.log("선택배열:",selData);
+            // console.log("선택배열:",selData,
+            // "/배열인가?",Array.isArray(selData));
+
+            // (3) 선택된 배열만큼 돌면서 화면에 넣기
+            for(let y of selData){
+              console.log('배열돌아?',y);
+              // 넣을 대상요소 컬렉션은? 
+            } ///// for of /////
 
           }; ///// click이벤트 함수 //////
         } /////////// for of //////
