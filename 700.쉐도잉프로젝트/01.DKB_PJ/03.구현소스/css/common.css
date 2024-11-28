@@ -7,6 +7,21 @@
 .top-area{
   height: 120px;
 }
+/* 1-1. 탑메뉴 */
+.top-menu{
+  font-size: 1.3rem;
+}
+.top-menu ul{
+  justify-content: flex-end;
+}
+
+/* 1-2. GNB메뉴 */
+.gnb{
+  font-size: 1.6rem;
+}
+.gnb ul{
+  justify-content: flex-end;
+}
 
 /**************** 2. 하단영역 ****************/
 .footer-area{
