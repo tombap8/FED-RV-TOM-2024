@@ -5,7 +5,9 @@
 
 /**************** 1. 상단영역 ****************/
 .top-area {
-  height: 120px;
+  /* 최소높이설정 : 최소높이보다 컨텐츠가
+  많아지면 높이값이 auto로 전환되어 늘어남! */
+  min-height: 120px;
 }
 /* 1-1.로고영역 - 로고 */
 .logo {
@@ -31,7 +33,7 @@
   font-size: 1.3rem;
 }
 .top-menu ul {
-  gap: 16px;
+  gap: 1.6rem;
 }
 
 /*  1-2. 메뉴영역/메뉴박스/GNB메뉴 */
@@ -39,7 +41,16 @@
   font-size: 1.6rem;
 }
 .gnb ul {
-  gap: 32px;
+  gap: 3.2rem;
+}
+/* gnb a요소 오버시 */
+.gnb a:hover{
+  color: red;
+}
+/* 아래화살표 아이콘 */
+.gnb i {
+  font-size: 1rem;
+  vertical-align: 0.3rem;
 }
 
 /**************** 2. 하단영역 ****************/
