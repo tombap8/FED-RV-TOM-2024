@@ -4,35 +4,45 @@
 /* 공유기능 요소 셋팅 */
 
 /**************** 1. 상단영역 ****************/
-.top-area{
+.top-area {
   height: 120px;
 }
 /* 1-1.로고영역 - 로고 */
-.logo{
+.logo {
   padding: 18px 10px;
 }
 /* 1-2. 메뉴영역/메뉴박스 */
-.menu-box{
+.menu-box {
   display: flex;
+  /* row사이간격 */
+  gap: 42px;
+  /* 세로진행방향 */
   flex-direction: column;
+  /* 진행방향 정렬 */
+  justify-content: flex-end;
+  /* 진행방향수직 정렬 */
+  align-items: flex-end;
+
+  /* 높이값 부모박스만큼 */
+  height: 100%;
 }
 /* 1-2. 메뉴영역/메뉴박스/탑메뉴 */
-.top-menu{
+.top-menu {
   font-size: 1.3rem;
 }
-.top-menu ul{
-  /* justify-content: flex-end; */
+.top-menu ul {
+  gap: 16px;
 }
 
 /*  1-2. 메뉴영역/메뉴박스/GNB메뉴 */
-.gnb{
+.gnb {
   font-size: 1.6rem;
 }
-.gnb ul{
-  /* justify-content: flex-end; */
+.gnb ul {
+  gap: 32px;
 }
 
 /**************** 2. 하단영역 ****************/
-.footer-area{
+.footer-area {
   height: 320px;
 }
