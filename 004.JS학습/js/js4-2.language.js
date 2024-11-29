@@ -31,8 +31,12 @@ console.log('나의함수객체:',myFn);
 // -> 이벤트 종류 : change 이벤트
 const selBox = myFn.qs('.sel');
 
+// 2-2. 변경대상 : GNB메뉴, 메인이미지, 하단주소
+// (1) GNB메뉴 : #gnb a
+const gnbList = myFn.qsa('#gnb a');
 
-console.log('대상요소:',selBox);
+
+console.log('대상요소:',selBox, gnbList);
 
 
 
