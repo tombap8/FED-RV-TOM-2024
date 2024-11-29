@@ -31,4 +31,33 @@ h2.temp{
 
 /*************** 메인영역 ***************/
 /*************** 2. 배너파트 ***************/
-
+/* 배너 영역 */
+.ban-area{
+  height: 530px;
+}
+/* 배너 슬라이드박스 */
+.ban-box{
+  height: 530px;
+  /* 넘치는 자식요소 숨기기 */
+  overflow: hidden;
+}
+/* 슬라이드 플렉스박스 */
+.ban-box ul{
+  display: flex;
+  /* 부모박스의 3배(슬라이드 3장) */
+  width: 300%;
+  height: 100%;
+}
+/* 슬라이드 플렉스 자식요소 */
+.ban-box ul li{
+  /* 등분할 플렉스: 높이는 자동100% */
+  flex: 1;
+}
+/* 슬라이드 이미지 */
+.ban-box ul li img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 오브젝트 핏 포지션 top변경 */
+  object-position: top;
+}
