@@ -35,8 +35,14 @@ const selBox = myFn.qs('.sel');
 // (1) GNB메뉴 : #gnb a
 const gnbList = myFn.qsa('#gnb a');
 
+// (2) 메인이미지 : #cont img
+const mainImg = myFn.qs('#cont img');
 
-console.log('대상요소:',selBox, gnbList);
+// (3) 하단주소 : #info address
+const addrBox = myFn.qs('#info address');
+
+
+console.log('대상요소:',selBox, gnbList, mainImg, addrBox);
 
 
 
