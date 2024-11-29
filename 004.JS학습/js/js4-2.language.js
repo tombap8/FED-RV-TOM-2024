@@ -7,6 +7,17 @@
 // script요소에 줘야함!!!
 
 // import 변수 from 파일경로 with {type:'json'}
+// -> 제이슨 파일을 부를 땐 with {type:'json'}
+// 즉, 함께하는 것은 타입 제이슨!!!
+// -> 경로는 반드시 모듈문법에서 상대경로를 사용해야함!
+// 현재위치는 ./ , 한 폴더위는 ../
 import langData from './data_lang.json' with {type:'json'};
 
-console.log(langData);
+console.log("다국어 셋팅객체:",langData);
+
+/// 1. 다국어 요구사항 
+// - 언어박스에서 언어를 변경하면 코드에 맞게 다국어 데이터를
+// 제이슨 파일에서 읽어와 본 페이지의 해당 요소를 변경한다!
+
+
+
