@@ -13,9 +13,14 @@
       }
     </style>
     <script>
+      // 배열로 색상 데이터 넣기
+      const bgColor = ['lime','purple','orange'];
+
+
        // 미션: 클래스가 group인 요소를 선택하여
-        // li를 클릭할 경우 배경색을 lime
-        // 글자크기는 52px로 변경하시오.
+        // li를 클릭할 경우 배경색을 bgColor배열
+        // 변수에 있는 순서대로 나오게하시오.
+        // 글자크기는 6vw로 변경하시오.
         // 단, transition 을 "all .6s"로
         // 설정하여 애니메이션 되게 하시오.
         // 그리고 개별적으로 적용되게할것!(this사용)
@@ -24,7 +29,20 @@
           // click() 메서드 사용
           $('.group li').click(
             function(){
-            console.log('나야나!',this);
+              // 클릭된 li의 순번은?
+              // index() 메서드
+              let idx = $(this).index();
+
+            console.log('나야나!',
+            this, idx, bgColor[idx]);
+
+            // this가 주인공이므로
+            // $(this)하여 구현한다!
+            $(this).css({
+              backgroundColor: bgColor[idx],
+              fontSize: '6vw',
+              transition: '.6s'
+            });
           }); //// click ////
 
 
