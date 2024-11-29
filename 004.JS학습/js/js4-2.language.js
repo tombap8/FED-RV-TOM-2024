@@ -22,11 +22,11 @@ import myFn from './my_function.js';
 console.log('나의함수객체:',myFn);
 
 
-/// 1. 다국어 요구사항 
+/// 1. 다국어 요구사항 //////////////
 // - 언어박스에서 언어를 변경하면 코드에 맞게 다국어 데이터를
 // 제이슨 파일에서 읽어와 본 페이지의 해당 요소를 변경한다!
 
-// 2. 대상선정
+// 2. 대상선정 ///////////////
 // 2-1. 이벤트 대상 : .sel (드롭다운 선택박스)
 // -> 이벤트 종류 : change 이벤트
 const selBox = myFn.qs('.sel');
@@ -41,8 +41,9 @@ const mainImg = myFn.qs('#cont img');
 // (3) 하단주소 : #info address
 const addrBox = myFn.qs('#info address');
 
+// console.log('대상요소:',selBox, gnbList, mainImg, addrBox);
 
-console.log('대상요소:',selBox, gnbList, mainImg, addrBox);
-
+// 3. 이벤트 설정 ///////////////////////
+myFn.addEvt(selBox, 'change', 내가만든함수);
 
 
