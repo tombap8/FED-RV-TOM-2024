@@ -14,6 +14,16 @@
         // 단, transition 을 "all .6s"로
         // 설정하여 애니메이션 되게 하시오.
         // 그리고 개별적으로 적용되게할것!(this사용)
+        $(()=>{ /// jQB /////////////////////
+          // 대상: .group li
+          // click() 메서드 사용
+          $('.group li').click(
+            function(){
+            console.log('나야나!',this);
+          }); //// click ////
+
+
+        }); ///////////// jQB ///////////////
     </script>
     
   </head>
