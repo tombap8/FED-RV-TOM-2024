@@ -44,6 +44,13 @@ const addrBox = myFn.qs('#info address');
 // console.log('대상요소:',selBox, gnbList, mainImg, addrBox);
 
 // 3. 이벤트 설정 ///////////////////////
-myFn.addEvt(selBox, 'change', 내가만든함수);
+myFn.addEvt(selBox, 'change', setLang);
+
+// 4. 함수만들기 /////////////////////
+function setLang(){
+    // 1. 함수호출확인
+    console.log('언어셋팅해!');
+
+} ///////////// setLang 함수 ////////////////
 
 
