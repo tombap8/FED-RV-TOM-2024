@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>forEach 메서드</title>
     <script>
-    /************************************************** 
+      /************************************************** 
       [ forEach메서드 : 배열과 컬렉션을 위한 메서드 ]
       -> ES5에서 새롭게 등장함!
 
@@ -156,13 +156,60 @@
         // console.log('대상들:',btns,boxes);
 
         // 2. 이벤트 설정하기 //////
-        
+        btns.forEach((ele) => {
+          // console.log(ele);
+
+          // 2-1. 클릭이벤트 설정하기
+          ele.onclick = () => {
+            // (1) 클릭한 버튼 텍스트 읽기
+            let btxt = ele.innerText;
+            console.log(btxt);
+
+            // (2) 버튼 텍스트로 데이터 매칭하기
+            let selData; // 선택데이터 변수
+            switch (btxt) {
+              case "조제":
+                selData = mv1;
+                break;
+              case "원더 우먼 1984":
+                selData = mv2;
+                break;
+              case "도굴":
+                selData = mv3;
+                break;
+              case "공조2: 인터내셔날":
+                selData = mv4;
+                break;
+              case "육사오(6/45)":
+                selData = mv5;
+                break;
+              case "더 퍼스트 슬램덩크":
+                selData = mv6;
+                break;
+              case "바빌론":
+                selData = mv7;
+                break;
+              case "무빙":
+                selData = mv8;
+                break;
+            } //////// switch //////////
+
+            console.log("선택배열:", selData);
+
+            // (3) 배열순번과 같은 순번의 .minfo
+            // 컬렉션 요소에 텍스트 데이터를 넣기
+            // .minfo는 boxes변수에 담김
+            selData.forEach((val, idx) => {
+              // val - 배열값, idx - 배열순번
+              boxes[idx].innerText = val;
+              // 배열순번값으로 넣을 박스순번값을 넣어줌
+            }); ///// forEach //////
+          }; //// click 이벤트함수 ///
+        }); ///// forEach //////
 
         // 따라오는 포스터 기능 셋팅함수 호출하기!!!
         followPoster(boxes);
         // boxes는 .minfo를 수집한 html 컬렉션이다!
-
-
       } //////////// loadFn 함수 ///////////
       //////////////////////////////////////
 
@@ -174,14 +221,13 @@
       function followPoster(minfo) {
         // 로딩함수에서 호출시 boxes변수에 담긴
         // .minfo컬렉션 요소를 전달받는다!
-        console.log("전달된 컬렉션:",minfo);
+        console.log("전달된 컬렉션:", minfo);
 
         // 1. 대상선정
         // 1-1.이벤트 대상 : .wrap
         const wrap = document.querySelector(".wrap");
         // 1-2.변경대상 :  .flying-poster
-        const moving = 
-        document.querySelector(".flying-poster");
+        const moving = document.querySelector(".flying-poster");
 
         console.log(wrap, moving);
 
