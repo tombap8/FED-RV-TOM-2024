@@ -76,6 +76,11 @@ function setLang(){
     // 만들어져 있으므로 이미지명을 optVal로 넣어준다!
     mainImg.src = `images/${optVal}.jpg`;
 
+    // 4. 하단주소 변경하기
+    // 대상: addrBox
+    // 데이터: 선택데이터의 "주소" 속성값
+    addrBox.innerText = selData['주소'];
+
 } ///////////// setLang 함수 ////////////////
 
 
