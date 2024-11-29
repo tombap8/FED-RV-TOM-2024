@@ -46,13 +46,21 @@
             console.log('나야나!',
             this, idx, bgColor[idx], emoji[idx]);
 
+            
+            
             // this가 주인공이므로
             // $(this)하여 구현한다!
             $(this).css({
               backgroundColor: bgColor[idx],
               fontSize: '6vw',
               transition: '.6s'
-            });
+            })
+            // 이모지로 텍스트 넣기
+            .text(emoji[idx]);
+            // 선택은 한번만 하고
+            // 메서드를 계속 이어서
+            // 코딩할 수 있다!
+            // 이것은 제이쿼리 메서드체인이라고 함!
           }); //// click ////
 
 
