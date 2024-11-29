@@ -8,65 +8,59 @@
     <!-- 제이쿼리 UI는 색상애니, 드래그기능 등 추가모듈 -->
     <script src="../jquery-ui.min.js"></script>
     <style>
-      body{
+      body {
         font-size: 4vw;
       }
     </style>
     <script>
       // 배열로 색상 데이터 넣기
-      const bgColor = ['lime','purple','orange'];
+      const bgColor = ["lime", "purple", "orange"];
 
       // 이모티콘 글자 데이터 넣기
-      const emoji = ['🎂','🎪','🎯'];
+      const emoji = ["🎂", "🎪", "🎯"];
 
+      // 미션: 클래스가 group인 요소를 선택하여
+      // li를 클릭할 경우 배경색을 bgColor배열
+      // 변수에 있는 순서대로 나오게하시오.
+      // 글자크기는 6vw로 변경하시오.
+      // 단, transition 을 "all .6s"로
+      // 설정하여 애니메이션 되게 하시오.
+      // 그리고 개별적으로 적용되게할것!(this사용)
+      // ((추가요구사항))
+      // 클릭된 li의 기존 글자를 변경하여
+      // 아이콘 모양 글자(임티)를 넣어준다
+      // 단, 배열로 3개를 만들어서 순서대로 다른
+      // 임티를 넣는다! -> 사용메서드는? text()
+      // 참고로 html변경은 html() 메서드
+      $(() => {
+        /// jQB /////////////////////
+        // 대상: .group li
+        // click() 메서드 사용
+        $(".group li").click(function () {
+          // 클릭된 li의 순번은?
+          // index() 메서드
+          let idx = $(this).index();
+          // 배열변수의 순번으로 사용함!
 
-       // 미션: 클래스가 group인 요소를 선택하여
-        // li를 클릭할 경우 배경색을 bgColor배열
-        // 변수에 있는 순서대로 나오게하시오.
-        // 글자크기는 6vw로 변경하시오.
-        // 단, transition 을 "all .6s"로
-        // 설정하여 애니메이션 되게 하시오.
-        // 그리고 개별적으로 적용되게할것!(this사용)
-        // ((추가요구사항))
-        // 클릭된 li의 기존 글자를 변경하여
-        // 아이콘 모양 글자(임티)를 넣어준다
-        // 단, 배열로 3개를 만들어서 순서대로 다른
-        // 임티를 넣는다! -> 사용메서드는? text()
-        // 참고로 html변경은 html() 메서드
-        $(()=>{ /// jQB /////////////////////
-          // 대상: .group li
-          // click() 메서드 사용
-          $('.group li').click(
-            function(){
-              // 클릭된 li의 순번은?
-              // index() 메서드
-              let idx = $(this).index();
-              // 배열변수의 순번으로 사용함!
+          console.log("나야나!", this, idx, bgColor[idx], emoji[idx]);
 
-            console.log('나야나!',
-            this, idx, bgColor[idx], emoji[idx]);
-
-            
-            
-            // this가 주인공이므로
-            // $(this)하여 구현한다!
-            $(this).css({
+          // this가 주인공이므로
+          // $(this)하여 구현한다!
+          $(this)
+            .css({
               backgroundColor: bgColor[idx],
-              fontSize: '6vw',
-              transition: '.6s'
+              fontSize: "6vw",
+              transition: ".6s",
             })
             // 이모지로 텍스트 넣기
             .text(emoji[idx]);
-            // 선택은 한번만 하고
-            // 메서드를 계속 이어서
-            // 코딩할 수 있다!
-            // 이것은 제이쿼리 메서드체인이라고 함!
-          }); //// click ////
-
-
-        }); ///////////// jQB ///////////////
+          // 선택은 한번만 하고
+          // 메서드를 계속 이어서
+          // 코딩할 수 있다!
+          // 이것을 제이쿼리 메서드체인이라고 함!
+        }); //// click ////
+      }); ///////////// jQB ///////////////
     </script>
-    
   </head>
 
   <body>
