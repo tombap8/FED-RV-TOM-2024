@@ -25,3 +25,15 @@ import myFn from './my_function.js';
 const wrap =  myFn.qs('.wrap');
 
 console.log('대상:', wrap);
+
+// 3. 이벤트 셋팅하기 ////////
+// 이벤트 대상인 window를 load이벤트와 함수로 연결
+// 나의 함수에서 addEvt()사용!
+// myFn.addEvt(선택요소,이벤트,함수)
+myFn.addEvt(window,'load',makeList)
+
+// 4. 함수만들기 ////////////
+function makeList(){
+    // (1) 함수호출 확인
+    console.log('나야나!!!');
+} /////// makeList 함수 ////////////////
