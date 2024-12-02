@@ -109,9 +109,9 @@ function wrapTag(txt){
         // console.log('x:',x); 
         // 공백문자일 경우 처리(글자없는 i태그)
         if(x==' ') 
-        hCode += `<i></i>`;
+            hCode += `<i></i>`;
         else // 글자있으면 span태그 랩핑처리!
-        hCode += `<span>${x}</span>`;
+            hCode += `<span>${x}</span>`;
     } /// for of ////
 
     // 결과값 리턴하기!
