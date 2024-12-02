@@ -106,7 +106,7 @@ function wrapTag(txt){
     // 한글자씩 자르기는? for of문 사용!
     // 반드시 대입연산자(+=)로 결과 저장할것!
     for(let x of txt){
-        hCode += `<span>${x}</span>`;
+        hCode += `<b>${x}</b>`;
     } /// for of ////
 
     // 결과값 리턴하기!
