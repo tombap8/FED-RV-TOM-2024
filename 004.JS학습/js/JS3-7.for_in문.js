@@ -43,23 +43,26 @@ function makeList(){
           <div class="minfo">
               <!-- 1. 포스터 -->
               <div class="photo">
-                  <img src="https://movie-phinf.pstatic.net/20201116_276/1605491658399poUOC_JPEG/movie_image.jpg?type=m99_141_2" alt="조제의 포스터">  
+                  <img 
+                  src=${movieInfo['영웅']['포스터']} 
+                  alt="영화${movieInfo['영웅']['제목']}의 포스터">  
               </div>
               <div class="cont">
                   <!-- 2. 제목 -->
                   <h2 class="tit">
-                      조제</h2>
+                  ${movieInfo['영웅']['제목']}
+                  </h2>
                   <!-- 3. 개요 -->
                   <h3 class="sum">
-                    ★장르 : 멜로/로맨스, 드라마
+                    ★장르 : ${movieInfo['영웅']['개요']}
                   </h3>
                   <!-- 4. 감독 -->
                   <h3 class="dir">
-                    ★감독 : 김종관
+                    ★감독 : ${movieInfo['영웅']['감독']}
                   </h3>
                   <!-- 5. 출연 -->
                   <h3 class="act">
-                    ★배우 : 한지민, 남주혁
+                    ★배우 : ${movieInfo['영웅']['출연']}
                   </h3>
               </div>
           </div>
@@ -68,7 +71,7 @@ function makeList(){
           <h2 class="showtit">♥ 영화한마디!</h2>
           <!-- 6. 문구 -->
           <div class="show">
-              <span>조</span><span>제</span>&nbsp;&nbsp;<span>보</span><span>러</span>&nbsp;&nbsp;<span>오</span><span>세</span><span>요</span>
+          ${movieInfo['영웅']['문구']}
           </div>
       </section>
     `;
@@ -76,3 +79,25 @@ function makeList(){
     // (3) 변경대상에 코드넣기
     wrap.innerHTML = hCode;
 } /////// makeList 함수 ////////////////
+
+
+/******************************************** 
+    [ 객체를 위한 for in문 ]
+    (1) 구문 :
+    for(변수 in 객체){코드}
+    -> 객체를 순회하면 변수에 담는 것은 속성(key)이다!
+    for(key in Object){코드}
+    -> 객체의 구성은 속성(key)과 값(value)이다!
+    -> {key:value,key:value,...}
+
+    (2) 작동원리:
+    - 객체의 개수 만큼 순서대로 속성 즉, key를 가져옴!
+    - 그러므로 변수에 담기는 것은 속성이다!
+    
+    (3) for in문에서 객체값 가져오기
+    - 객체[속성]
+    - Object[key]
+
+********************************************/
+
+
