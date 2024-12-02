@@ -6,7 +6,7 @@
 // import 변수명 from 상대경로 with {type:'json'}
 import movieInfo from './data_movie.json' with {type:'json'};
 
-// console.log('제이슨 데이터:',movieInfo);
+console.log('제이슨 데이터:',movieInfo);
 
 // 나의 함수 불러오기
 import myFn from './my_function.js';
@@ -54,17 +54,17 @@ function makeList(){
     // ((1)) Object.keys(객체) -> 키배열!
     // ((2)) Object.values(객체) -> 값배열!
 
-    console.log('키배열:',Object.keys(movieInfo));
-    console.log('값배열',Object.values(movieInfo));
+    // console.log('키배열:',Object.keys(movieInfo));
+    // console.log('값배열',Object.values(movieInfo));
 
+    // 객체를 키배열로 변환하여 새로운 변수에 할당!
     const newVal = Object.keys(movieInfo);
+    console.log('키배열로 변환:',newVal);
 
-    // 제이슨 객체 데이터 만큼 반복하여 코드 생성하기
-    // for(key in Object){코드}
-    for(let x in movieInfo){
-        // console.log('x는 무엇?',x);
-        // x변수에 담긴값은 객체의 속성(key)이다!
+    // 결론적으로 키배열을 forEach메서드로 돌리면
+    // for in문으로 돌린것 처럼 키값을 순회하여 셋팅가능함!!!
 
+    newVal.forEach(x=>{ // x - 배열값(객체의 키)
         // 반복할 코드 대입연산자(+=)로 계속저장함!
         hCode += `
             <section class="cbx">
@@ -103,8 +103,8 @@ function makeList(){
               </div>
           </section>
         `;
-    } //////// for in문 ///////////////
-    
+
+    }); ////// forEach 메서드 /////////////
 
     // (3) 변경대상에 코드넣기
     wrap.innerHTML = hCode;
@@ -119,7 +119,7 @@ function wrapTag(txt){
     let hCode = '';
 
     // (1) 함수호출 확인
-    console.log('wrapTag호출!',txt);
+    // console.log('wrapTag호출!',txt);
 
     // (2) 태그로 싸기
     // 한글자씩 자르기는? for of문 사용!
