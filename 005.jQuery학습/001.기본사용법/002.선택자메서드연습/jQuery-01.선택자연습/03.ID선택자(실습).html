@@ -80,27 +80,47 @@
                 // 2. 아이디가 main인 요소의 글자를 "공유"라고 쓰고
                 // 배경색은 파란색, 글자색은 흰색, 테두리는 13px 노란색,
                 // 글자크기는 100px로 변경하시오.
-                $("#main").text("공유").animate(
-                  // (1) CSS속성셋팅
-                  {
-                    backgroundColor: "blue",
-                    color: "white",
-                    borderColor: "yellow",
-                    borderWidth: "13px",
-                    fontSize: "100px",
-                  },
-                  //(2) 시간(안주면 기본시간400)
-                  1000,
-                  //(3) 이징(https://easings.net/ko)
-                  "easeOutBounce"
-                );
-              }
+                $("#main")
+                  .text("공유")
+                  .animate(
+                    // (1) CSS속성셋팅
+                    {
+                      backgroundColor: "blue",
+                      color: "white",
+                      borderColor: "yellow",
+                      borderWidth: "13px",
+                      fontSize: "100px",
+                    },
+                    //(2) 시간(안주면 기본시간400)
+                    1000,
+                    //(3) 이징(https://easings.net/ko)
+                    "easeOutElastic",
+                    //(4) 콜백함수(애니후실행)
+                    () => {
+                      // 3. 아이디가 total인 요소의 글자를 "싸랑해요~!"라고 쓰고
+                      // 배경색은 검은색, 글자색은 빨간색, 테두리는 20px 보라색,
+                      // 글자크기는 152px로 변경하시오.
+                      $("#total")
+                      .text("싸랑해요~!")
+                      .animate(
+                        //(1) CSS속성
+                        {
+                          backgroundColor: "black",
+                          color: "red",
+                          borderColor: "purple",
+                          borderWidth: "20px",
+                          fontSize: "152px",
+                        },
+                        //(2) 시간
+                        1000,
+                        //(3) 이징
+                        "easeOutBack"
+                      );
+                    } // 콜백함수 ///
+                  ); /// animate ///
+              } // 콜백함수 ///
             ); /// animate ///
         }); //// click ////
-
-        // 3. 아이디가 total인 요소의 글자를 "싸랑해요~!"라고 쓰고
-        // 배경색은 검은색, 글자색은 빨간색, 테두리는 20px 보라색,
-        // 글자크기는 152px로 변경하시오.
 
         // 위의 세가지 아이디를 1초간격으로 애니메이션 설정하시오
         //(transition) - 기본은 "all .8s 지연시간"
