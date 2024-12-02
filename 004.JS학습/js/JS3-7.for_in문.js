@@ -36,4 +36,43 @@ myFn.addEvt(window,'load',makeList)
 function makeList(){
     // (1) 함수호출 확인
     console.log('나야나!!!');
+
+    // (2) 코드만들기
+    let hCode = `
+        <section class="cbx">
+          <div class="minfo">
+              <!-- 1. 포스터 -->
+              <div class="photo">
+                  <img src="https://movie-phinf.pstatic.net/20201116_276/1605491658399poUOC_JPEG/movie_image.jpg?type=m99_141_2" alt="조제의 포스터">  
+              </div>
+              <div class="cont">
+                  <!-- 2. 제목 -->
+                  <h2 class="tit">
+                      조제</h2>
+                  <!-- 3. 개요 -->
+                  <h3 class="sum">
+                    ★장르 : 멜로/로맨스, 드라마
+                  </h3>
+                  <!-- 4. 감독 -->
+                  <h3 class="dir">
+                    ★감독 : 김종관
+                  </h3>
+                  <!-- 5. 출연 -->
+                  <h3 class="act">
+                    ★배우 : 한지민, 남주혁
+                  </h3>
+              </div>
+          </div>
+
+          <!-- 영화 한마디 -->
+          <h2 class="showtit">♥ 영화한마디!</h2>
+          <!-- 6. 문구 -->
+          <div class="show">
+              <span>조</span><span>제</span>&nbsp;&nbsp;<span>보</span><span>러</span>&nbsp;&nbsp;<span>오</span><span>세</span><span>요</span>
+          </div>
+      </section>
+    `;
+
+    // (3) 변경대상에 코드넣기
+    wrap.innerHTML = hCode;
 } /////// makeList 함수 ////////////////
