@@ -38,43 +38,54 @@ function makeList(){
     console.log('나야나!!!');
 
     // (2) 코드만들기
-    let hCode = `
-        <section class="cbx">
-          <div class="minfo">
-              <!-- 1. 포스터 -->
-              <div class="photo">
-                  <img 
-                  src=${movieInfo['영웅']['포스터']} 
-                  alt="영화${movieInfo['영웅']['제목']}의 포스터">  
-              </div>
-              <div class="cont">
-                  <!-- 2. 제목 -->
-                  <h2 class="tit">
-                  ${movieInfo['영웅']['제목']}
-                  </h2>
-                  <!-- 3. 개요 -->
-                  <h3 class="sum">
-                    ★장르 : ${movieInfo['영웅']['개요']}
-                  </h3>
-                  <!-- 4. 감독 -->
-                  <h3 class="dir">
-                    ★감독 : ${movieInfo['영웅']['감독']}
-                  </h3>
-                  <!-- 5. 출연 -->
-                  <h3 class="act">
-                    ★배우 : ${movieInfo['영웅']['출연']}
-                  </h3>
-              </div>
-          </div>
+    let hCode = ''; // 변수 선언 및 초기화!
 
-          <!-- 영화 한마디 -->
-          <h2 class="showtit">♥ 영화한마디!</h2>
-          <!-- 6. 문구 -->
-          <div class="show">
-          ${movieInfo['영웅']['문구']}
-          </div>
-      </section>
-    `;
+    // 제이슨 객체 데이터 만큼 반복하여 코드 생성하기
+    // for(key in Object){코드}
+    for(let x in movieInfo){
+        // console.log('x는 무엇?',x);
+        // x변수에 담긴값은 객체의 속성(key)이다!
+
+        // 반복할 코드 대입연산자(+=)로 계속저장함!
+        hCode += `
+            <section class="cbx">
+              <div class="minfo">
+                  <!-- 1. 포스터 -->
+                  <div class="photo">
+                      <img 
+                      src=${movieInfo[x]['포스터']} 
+                      alt="영화${movieInfo[x]['제목']}의 포스터">  
+                  </div>
+                  <div class="cont">
+                      <!-- 2. 제목 -->
+                      <h2 class="tit">
+                      ${movieInfo[x]['제목']}
+                      </h2>
+                      <!-- 3. 개요 -->
+                      <h3 class="sum">
+                        ★장르 : ${movieInfo[x]['개요']}
+                      </h3>
+                      <!-- 4. 감독 -->
+                      <h3 class="dir">
+                        ★감독 : ${movieInfo[x]['감독']}
+                      </h3>
+                      <!-- 5. 출연 -->
+                      <h3 class="act">
+                        ★배우 : ${movieInfo[x]['출연']}
+                      </h3>
+                  </div>
+              </div>
+    
+              <!-- 영화 한마디 -->
+              <h2 class="showtit">♥ 영화한마디!</h2>
+              <!-- 6. 문구 -->
+              <div class="show">
+              ${movieInfo[x]['문구']}
+              </div>
+          </section>
+        `;
+    } //////// for in문 ///////////////
+    
 
     // (3) 변경대상에 코드넣기
     wrap.innerHTML = hCode;
