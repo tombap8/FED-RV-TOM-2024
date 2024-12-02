@@ -106,7 +106,7 @@ function makeList(){
 
     }); ////// forEach 메서드 /////////////
 
-    // (3) 변경대상에 코드넣기
+    // (4) 변경대상에 코드넣기
     wrap.innerHTML = hCode;
 } /////// makeList 함수 ////////////////
 
