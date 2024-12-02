@@ -80,7 +80,7 @@ function makeList(){
               <h2 class="showtit">♥ 영화한마디!</h2>
               <!-- 6. 문구 -->
               <div class="show">
-              ${movieInfo[x]['문구']}
+              ${wrapTag(movieInfo[x]['문구'])}
               </div>
           </section>
         `;
@@ -90,6 +90,29 @@ function makeList(){
     // (3) 변경대상에 코드넣기
     wrap.innerHTML = hCode;
 } /////// makeList 함수 ////////////////
+
+/******************************************** 
+    함수명: wrapTag
+    기능: 글자를 하나씩 span태그로 싸서 보내줌
+********************************************/
+function wrapTag(txt){
+    // 결과변수
+    let hCode = '';
+
+    // (1) 함수호출 확인
+    console.log('wrapTag호출!',txt);
+
+    // (2) 태그로 싸기
+    // 한글자씩 자르기는? for of문 사용!
+    // 반드시 대입연산자(+=)로 결과 저장할것!
+    for(let x of txt){
+        hCode += `<span>${x}</span>`;
+    } /// for of ////
+
+    // 결과값 리턴하기!
+    return hCode;
+
+} /////////// wrapTag 함수 ///////////////////
 
 
 /******************************************** 
