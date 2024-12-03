@@ -52,9 +52,33 @@ btn.forEach(el=>{ // el - 각각의 버튼요소
 }); ////// forEach /////
 
 // 3. 함수만들기 ////////////
+// 이미지번호변수(전역변수)
+let iNum = 1;
 function changeImg(){
     // (1) 함수호출 확인(this확인)
     console.log('나야나!',this);
+
+    // (2) 오른쪽 버튼인지 여부판별
+    let isR = this.classList.contains('rb');
+    console.log("오른쪽인가?",isR);
+
+    // (3) 이미지 번호 증감 분기하기
+    if(isR){ // 오른쪽버튼일때 이미지번호 증가
+        iNum++;
+        // 한계값 체크(끝번호 다음은 첫번호)
+        if(iNum>7) iNum = 1;
+    } /// if ///
+    else{
+        iNum--;        
+        // 한계값 체크(첫번호 이전은 끝번호)
+        if(iNum<1) iNum = 7;
+    } /// else ///
+
+    // (4) 이미지 src변경하기
+    // 변경대상은 mbox변수에 할당
+    mbox.setAttribute('src',`./images/img${iNum}.jpg`);
+    // 속성읽기 JS메서드 - getAttribute(속성명)
+    // 속성쓰기 JS메서드 - setAttribute(속성명,값)
 
 } ////// changeImg 함수 ///////////
 
