@@ -14,11 +14,11 @@ body * {
 }
 
 /* 임시 높이 */
-.main-area .inbox{
+.main-area .inbox {
   height: 500px;
 }
 /* 임시 타이틀 */
-h2.temp{
+h2.temp {
   position: absolute;
   left: 0;
   width: 100%;
@@ -34,10 +34,10 @@ h2.temp{
 /* 배너 영역 : 중앙영역(인디케이터)
 -> 배너와 겹쳐지게 앱솔루트로 구성함! */
 /* 배너 겉박스 부모자격 필요! */
-#ban-area{
+#ban-area {
   position: relative;
 }
-.main-area .ban-area{
+.main-area .ban-area {
   position: absolute;
   top: 0;
   /* 나의 부모는? #ban-area */
@@ -51,25 +51,25 @@ h2.temp{
   height: 530px;
 }
 /* 배너 슬라이드박스 */
-.ban-box{
+.ban-box {
   height: 530px;
   /* 넘치는 자식요소 숨기기 */
   overflow: hidden;
 }
 /* 슬라이드 플렉스박스 */
-.ban-box ul{
+.ban-box ul {
   display: flex;
   /* 부모박스의 3배(슬라이드 3장) */
   width: 300%;
   height: 100%;
 }
 /* 슬라이드 플렉스 자식요소 */
-.ban-box ul li{
+.ban-box ul li {
   /* 등분할 플렉스: 높이는 자동100% */
   flex: 1;
 }
 /* 슬라이드 이미지 */
-.ban-box ul li img{
+.ban-box ul li img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -78,8 +78,47 @@ h2.temp{
 }
 
 /********** 3. 캐릭터소개영역 **********/
-.main-area .cat-area{
+.main-area .cat-area {
   /* 비율적용을 위해 높이값을 없앤다! */
   height: auto;
   aspect-ratio: 1320/190;
+}
+/* 캐릭터박스 */
+.cat-box {
+  /* 플렉스박스 */
+  display: flex;
+  /* 사이간격 */
+  gap: 1%;
+}
+/* 직계자식요소 div 4개 */
+.cat-box > div {
+  /* 플렉스자식 등분할설정 */
+  flex: 1;
+}
+/* 캐릭터 이미지만 선택 */
+.cat-box figure > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* 캐릭터 이름 이미지박스 */
+.cat-box figcaption {
+  text-align: center;
+  margin-top: -17%;
+}
+/* 이름이미지 공통 */
+.cat-box figcaption img{
+  width: 35%;
+}
+/* 첫번째 이름이미지 처음에 안보임 */
+.cat-box figcaption img:first-child {
+  display: none;
+}
+/* 캐릭터 개별박스에 오버시 이름변경
+-> 첫번째 보이고 두번째 숨기기 */
+.cat-box>div:hover figcaption img:first-child{
+  display: inline;
+}
+.cat-box>div:hover figcaption img:last-child{
+  display: none;
 }
