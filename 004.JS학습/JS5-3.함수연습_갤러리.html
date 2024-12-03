@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolling Gallery</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            /* 보이는 화면 기준채우기 */
+        }
+
+        body {
+            background: url(./images/space.jpg) no-repeat center/auto 200%;
+        }
+
+        /* a요소 */
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        /* 갤러리 부모박스 */
+        .wrap {
+            position: relative;
+            /* 부모자격 - #mini */
+            width: 520px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 20px;
+            /* outline: 2px dotted red; */
+        }
+
+        /* 메인이미지박스 */
+        #mbox {
+            display: inline-block;
+        }
+
+        /* 이미지 중간맞추기 */
+        #mbox img {
+            vertical-align: -79px;
+        }
+
+        /* 이미지 텍스트 출력박스 */
+        .imgtxt {
+            text-align: center;
+            color: red;
+            text-shadow: 1px 1px 1px #777;
+        }
+
+        /* 자동넘김 버튼박스 */
+        .abtn {
+            text-align: center;
+        }
+
+        .abtn button {
+            font-size: 1.5rem;
+        }
+
+        /* 처음에 멈춤버튼 숨기기 */
+        .stop {
+            display: none;
+        }
+
+        /* 미니언즈 */
+        #mini {
+            position: absolute;
+            top: 80%;
+            left: -20%;
+            /* 부모는? #wrap */
+            width: 150px;
+            transform: rotate(720deg);
+            transition: all 1.5s ease-out;
+        }
+
+        /* 미니언즈 변경클래스1 */
+        #mini.on1 {
+            top: 0;
+            left: 0;
+            transform: rotate(0deg);
+        }
+
+        /* 미니언즈 변경클래스2 */
+        #mini.on2 {
+            top: 0;
+            left: 80%;
+            transform: rotate(-720deg);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 갤러리 박스 -->
+    <div class="wrap">
+        <!-- 타이틀 -->
+        <h1>Rolling Gallery</h1>
+        <!-- 왼쪽이동버튼 -->
+        <a href="#" class="btn lb">
+            <img src="./images/left_btn.png" alt="왼쪽버튼">
+        </a>
+        <!-- 메인이미지박스 -->
+        <div id="mbox">
+            <img src="./images/img1.jpg" alt="메인이미지">
+        </div>
+        <!-- 오른쪽이동버튼 -->
+        <a href="#" class="btn rb">
+            <img src="./images/right_btn.png" alt="오른쪽버튼">
+        </a>
+        <!-- 미니언즈 -->
+        <img src="./images/Minions.png" alt="미니언즈" id="mini">
+    </div>
+
+    <!-- 이미지별 설명 텍스트 출력박스 -->
+    <h2 class="imgtxt"></h2>
+
+    <!-- 자동넘김 버튼박스 -->
+    <div class="abtn">
+        <button class="start">자동넘김</button>
+        <button class="stop">멈춤</button>
+    </div>
+
+</body>
+
+</html>
