@@ -104,6 +104,7 @@ h2.temp {
 마진탑 올리기 */
 .cat-box>div:hover figure{
   margin-top: -250px;
+  /* margin-top: max(-200px,-15vw); */
 }
 /* 캐릭터 이미지만 선택 */
 .cat-box figure > img {
@@ -145,6 +146,7 @@ h2.temp {
 /* 각 캐릭터박스에 오버시 설명박스 보이기 */
 .cat-box>div:hover aside{
   height: 250px;
+  /* height: min(200px,15vw); */
 }
 /* 캐릭터 타이틀 */
 .cat-box aside h3{
