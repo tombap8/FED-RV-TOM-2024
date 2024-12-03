@@ -122,3 +122,27 @@ h2.temp {
 .cat-box>div:hover figcaption img:last-child{
   display: none;
 }
+
+/* 캐릭터 설명박스 */
+.cat-box aside{
+
+}
+/* 캐릭터 타이틀 */
+.cat-box aside h3{
+  font-family: 'Gugi';
+  font-size: 2.4rem;
+  font-weight: normal;
+  padding: 1.5rem 1rem .5rem;
+  /* 자간 letter-spacing */
+  letter-spacing: -1px;
+}
+/* 캐릭터 설명 */
+.cat-box aside p{
+  font-family: 'Single Day';
+  font-size: 1.8rem;
+  padding: 1.5rem;
+  line-height: 1.6;
+  /* 양쪽정렬 justify */
+  text-align: justify;
+}
+
