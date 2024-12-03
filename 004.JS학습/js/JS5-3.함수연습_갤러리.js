@@ -35,19 +35,18 @@ _____________________________________
 *********************************************/
 // 공통변수 ////
 // [1] 이미지설명 배열변수
- const iTxt = [
-    "노랑잉꼬가 먹이를 꼭꼭 찍어먹어요~",
-    "분홍장미가 머리칼을 너풀너풀 날려요~",
-    "백조같은 거위가 뚱하니 바라보아요~",
-    "바이킹이 너무 어지러워 토가 나와요~",
-    "눈사람이 가짜인데 진짜같아 보여요~",
-    "이 양은 보통양이 아니고 복제양 돌리예요~",
-    "잉꼬 한쌍이 영화를 찍어요~"
+const iTxt = [
+  "노랑잉꼬가 먹이를 꼭꼭 찍어먹어요~",
+  "분홍장미가 머리칼을 너풀너풀 날려요~",
+  "백조같은 거위가 뚱하니 바라보아요~",
+  "바이킹이 너무 어지러워 토가 나와요~",
+  "눈사람이 가짜인데 진짜같아 보여요~",
+  "이 양은 보통양이 아니고 복제양 돌리예요~",
+  "잉꼬 한쌍이 영화를 찍어요~",
 ];
 
 // [2] 이미지 설명 글자색 배열변수
-const tColor = [
-    "red","orange","yellow","green","blue","navy","purple"];
+const tColor = ["red", "orange", "yellow", "green", "blue", "navy", "purple"];
 
 // 1. 대상선정
 // 1-1. 이벤트 대상: .btn
@@ -143,3 +142,32 @@ function changeImg() {
     아래 함수를 호출한다!
     ->>> clearTimeout(변수)
 ******************************************/
+
+// 타임아웃 함수로 미니언즈 애니하기!!! ////
+// 원리: 미리셋팅된 클래스를 미니언즈요소에
+// 일정시간 후 넣고/빼고/넣기를 해준다!
+// 변경대상: #mini
+const mini = document.querySelector("#mini");
+// console.log(mini);
+
+// 2초후 미니언즈 class "on1" 넣기
+setTimeout(() => {
+  mini.classList.add("on1");
+  // mini.classList.add("on1","바보야","멍멍아");
+}, 2000);
+
+// 4초후 미니언즈 class "on1" 빼기
+setTimeout(() => {
+  mini.classList.remove("on1");
+  // mini.classList.remove("on1","멍멍아");
+}, 4000);
+
+// 6초후 미니언즈 class "on2" 넣기
+setTimeout(() => {
+  mini.classList.toggle("on2");
+}, 6000);
+
+// 8초후 미니언즈 class "on2"를 "on1" 으로 바꾸기
+setTimeout(() => {
+  mini.classList.replace("on2", "on1");
+}, 8000);
