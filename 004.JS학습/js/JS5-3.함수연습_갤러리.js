@@ -44,3 +44,34 @@ const btn = myFn.qsa('.btn');
 const mbox = myFn.qs('#mbox img');
 
 console.log('대상:',btn, mbox);
+
+// 2. 이벤트 설정하기 /////////
+// 이벤트 대상은 btn변수에 할당
+btn.forEach(el=>{ // el - 각각의 버튼요소
+    myFn.addEvt(el,'click',changeImg);
+}); ////// forEach /////
+
+// 3. 함수만들기 ////////////
+function changeImg(){
+    // (1) 함수호출 확인(this확인)
+    console.log('나야나!',this);
+
+} ////// changeImg 함수 ///////////
+
+
+/****************************************** 
+    [ JS 클래스 관련 내장함수 ]
+    classList 객체
+    -> 클래스를 요소에 넣거나 빼거나 클래스여부 판별
+    ((관련메서드))
+    1. add(클래스명) : 클래스추가
+    2. remove(클래스명) : 클래스제거
+    3. toggle(클래스명) : 클래스추가/제거
+    4. contains(클래스명) : 클래스명 일치시 true
+    5. replace(이전클래스명,변경클래스명)
+        : 특정클래스를 다른 클래스로 변경
+
+    -> 클래스 추가나 제거시 콤마로 구분하여
+    여러개의 클래스를 추가하거나 제거할 수 있다!
+    예) 요소.classList.add("tt","cc","dd")
+******************************************/
