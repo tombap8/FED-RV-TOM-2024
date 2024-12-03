@@ -179,8 +179,8 @@ setTimeout(() => {
     - "멈춤"버튼 클릭시 정지됨
 *****************************************/
 // 이벤트 대상: .abtn button
-const abtn = document.querySelectorAll(".abtn button");
-//   console.log(abtn);
+const abtn = myFn.qsa(".abtn button");
+// console.log(abtn);
 
 // 인터발용변수
 let autoI;
@@ -189,16 +189,18 @@ let autoI;
 for (let x of abtn) {
   x.onclick = () => {
     // 1. 클릭된 요소의 클래스가 "start"인지 여부
-    let isB = x.classList.contains("start");
+    let isStart = x.classList.contains("start");
     // classList.contains(클래스명)
     // -> 클래스가 해당요소에 있으면 true
-    console.log(".start인가?", isB);
+    console.log(".start인가?", isStart);
 
     // 2. 조건분기
     // 2-1. true이면 자동넘김
-    if (isB) {
+    if (isStart) {
       // setInterval(함수,시간)
-      autoI = setInterval(() => goSlide(1), 1000);
+      // 오른쪽버튼 클릭강제발생하기는 click() 메서드 사용!
+      // 오른쪽버튼은 btn[1]
+      autoI = setInterval(() => {btn[1].click()}, 1000);
     } //////// if ////////
 
     // 2-2. false이면 멈춤
@@ -211,8 +213,8 @@ for (let x of abtn) {
     // 항상 클릭된 버튼은 숨긴다!
     x.style.display = "none";
     // "멈춤"/"자동넘김" 버튼 전환하며 보이기
-    abtn[isB ? 1 : 0].style.display = "inline-block";
-    // isB? "자동넘김"버튼인가?
+    abtn[isStart ? 1 : 0].style.display = "inline-block";
+    // isStart? "자동넘김"버튼인가?
     // true이면 1 즉 두번째 버튼 보이기
     // false이면 0 즉 첫번째버튼 보이기
 
