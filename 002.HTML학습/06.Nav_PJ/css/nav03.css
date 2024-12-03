@@ -116,15 +116,19 @@ body {
 }
 /* 전체박스에 오버시 첫째이미지 숨기기 */
 #top-area:hover .gnb dt img:nth-child(1) {
+  display: none;
 }
 /* 전체박스에 오버시 둘째이미지 보이기 */
 #top-area:hover .gnb dt img:nth-child(2) {
+  display: inline;
 }
 /* 전체박스에 오버시, dl에 오버시 둘째이미지 숨기기 */
 #top-area:hover .gnb dl:hover dt img:nth-child(2) {
+  display: none;
 }
 /* 전체박스에 오버시, dl에 오버시 셋째이미지 보이기 */
 #top-area:hover .gnb dl:hover dt img:nth-child(3) {
+  display: inline;
 }
 
 /* 상위메뉴 dd */
@@ -188,24 +192,30 @@ li 형제요소들을 선택함
 }
 /* 최상위 박스 오버시 첫번째 이미지 숨기기 */
 #top-area:hover .lang li:nth-child(1) ~ li img:nth-child(1) {
+  display: none;
 }
 /* 최상위 박스 오버시 두번째 이미지 보이기 */
 #top-area:hover .lang li:nth-child(1) ~ li img:nth-child(2) {
+  display: inline;
 }
 /* 최상위 박스 오버시, 동시에 a요소 오버시 
 두번째 이미지 숨기기 */
 #top-area:hover .lang li:nth-child(1) ~ li a:hover img:nth-child(2) {
+  display: none;
 }
 /* 최상위 박스 오버시, 동시에 a요소 오버시 
 세번째 이미지 보이기 */
 #top-area:hover .lang li:nth-child(1) ~ li a:hover img:nth-child(3) {
+  display: inline;
 }
 
 /* 최상위 오버시 글자색 회색 */
 #top-area:hover .lang a {
+  color: #222;
 }
 /* 최상위 오버시 동시에 a오버시 글자색 빨강 */
 #top-area:hover .lang a:hover {
+  color: red;
 }
 
 /* 타이틀 글자 */
