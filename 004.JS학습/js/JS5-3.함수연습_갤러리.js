@@ -35,7 +35,7 @@ _____________________________________
 *********************************************/
 // 공통변수 ////
 // [1] 이미지설명 배열변수
- const itxt = [
+ const iTxt = [
     "노랑잉꼬가 먹이를 꼭꼭 찍어먹어요~",
     "분홍장미가 머리칼을 너풀너풀 날려요~",
     "백조같은 거위가 뚱하니 바라보아요~",
@@ -46,7 +46,7 @@ _____________________________________
 ];
 
 // [2] 이미지 설명 글자색 배열변수
-const tcolor = [
+const tColor = [
     "red","orange","yellow","green","blue","navy","purple"];
 
 // 1. 대상선정
@@ -57,7 +57,15 @@ const btn = myFn.qsa(".btn");
 // 1-2. 변경 대상: #mbox img
 const mbox = myFn.qs("#mbox img");
 
-console.log("대상:", btn, mbox);
+// 1-3. 변경 대상: .imgtxt
+const imgTxt = myFn.qs(".imgtxt");
+
+console.log("대상:", btn, mbox, imgTxt);
+
+// 1-4. 초기화
+// -> 처음에 첫번째 배열글자와 글자색 적용하기!
+imgTxt.innerText = iTxt[0];
+imgTxt.style.color = tColor[0];
 
 // 2. 이벤트 설정하기 /////////
 // 이벤트 대상은 btn변수에 할당
@@ -95,6 +103,10 @@ function changeImg() {
   mbox.setAttribute("src", `./images/img${iNum}.jpg`);
   // 속성읽기 JS메서드 - getAttribute(속성명)
   // 속성쓰기 JS메서드 - setAttribute(속성명,값)
+
+  // (5) 이미지 설명 변경하기
+  imgTxt.innerText = iTxt[iNum - 1];
+  imgTxt.style.color = tColor[iNum - 1];
 } ////// changeImg 함수 ///////////
 
 /****************************************** 
@@ -112,4 +124,22 @@ function changeImg() {
     -> 클래스 추가나 제거시 콤마로 구분하여
     여러개의 클래스를 추가하거나 제거할 수 있다!
     예) 요소.classList.add("tt","cc","dd")
+
+    **************************************
+    [ JS 타이밍 함수 : Timing Function ]
+
+    1. setInterval(함수,시간)
+    - 일정시간 간격으로 함수를 호출!
+    - 시간은 1/1000초, 단위안씀(예:1000->1초)
+    -> 인터발함수를 지울때는 변수에 담고
+    아래 함수를 호출한다!
+    ->>> clearInterval(변수)
+    ____________________________________
+
+    1. setTimeout(함수,시간)
+    - 일정시간 후 한번만 함수를 호출!
+    - 시간은 1/1000초, 단위안씀
+    -> 타임아웃을 지울때는 변수에 담고
+    아래 함수를 호출한다!
+    ->>> clearTimeout(변수)
 ******************************************/
