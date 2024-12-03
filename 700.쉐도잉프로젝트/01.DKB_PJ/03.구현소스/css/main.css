@@ -95,6 +95,16 @@ h2.temp {
   /* 플렉스자식 등분할설정 */
   flex: 1;
 }
+/* 캐릭터 이미지박스 */
+.cat-box figure {  
+  /* 트랜지션 */
+  transition: .4s ease-out;
+}
+/* 캐릭터 각 박스 오버시 캐릭터박스
+마진탑 올리기 */
+.cat-box>div:hover figure{
+  margin-top: -250px;
+}
 /* 캐릭터 이미지만 선택 */
 .cat-box figure > img {
   width: 100%;
@@ -125,7 +135,16 @@ h2.temp {
 
 /* 캐릭터 설명박스 */
 .cat-box aside{
-
+  height: 0;
+  overflow: auto;
+  /* 배경 */
+  background: url(../images/eachBG.jpg) no-repeat bottom/cover;
+  /* 트랜지션 */
+  transition: .4s ease-out;
+}
+/* 각 캐릭터박스에 오버시 설명박스 보이기 */
+.cat-box>div:hover aside{
+  height: 250px;
 }
 /* 캐릭터 타이틀 */
 .cat-box aside h3{
