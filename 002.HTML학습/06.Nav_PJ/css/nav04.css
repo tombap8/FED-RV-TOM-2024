@@ -152,26 +152,31 @@ h1 {
 
   /* 메뉴 숨기기 
       - 높이값0,overflow:hidden */
-  height: 0;
+  max-height: 0;
   overflow: hidden;
   /* 주의: 숨기는 박스에 상하패딩이
-       있으면 완전히 숨길 수 없다! */
-
+  있으면 완전히 숨길 수 없다! */
+  
   /* 배경색 
-      - 상위메뉴 오버시 배경색과 동일 */
+  - 상위메뉴 오버시 배경색과 동일 */
   background-color: darkblue;
   /* 둥근모서리 - 양쪽아래만 */
   border-radius: 0 0 5px 5px;
-
+  
   /* 트랜지션: 속시이지 */
-  transition: height 0.4s ease-out;
+  transition: max-height 0.4s ease-out;
 }
 
 /* 상위메뉴 li오버시 서브메뉴 보이기
-    - 두번째 메뉴 */
-/* .gnb > ul > li:nth-child(2):hover .smenu {
-  height: 170px;
-} */
+- 두번째 메뉴 */
+.gnb > ul > li:hover .smenu {
+  max-height: 170px;
+  /* 일반높이값 말고 최대높이값을
+  활용하면 오버시 높이값을 각각 잡아주지 않아도
+  가장 큰값으로 설정하면  그것보다 작은
+  높이는 거기까지만 늘어남! */
+}
+/*  */
 /* 상위메뉴 li오버시 서브메뉴 보이기
     - 세번째 메뉴 */
 /* .gnb > ul > li:nth-child(3):hover .smenu {
