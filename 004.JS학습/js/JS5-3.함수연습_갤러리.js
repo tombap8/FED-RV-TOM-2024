@@ -171,3 +171,53 @@ setTimeout(() => {
 setTimeout(() => {
   mini.classList.replace("on2", "on1");
 }, 8000);
+
+/***************************************** 
+    [ 자동넘김 기능 구현하기 ]
+    - "자동넘김"버튼 클릭시 일정시간간격으로
+    롤링갤러리가 넘어감
+    - "멈춤"버튼 클릭시 정지됨
+*****************************************/
+// 이벤트 대상: .abtn button
+const abtn = document.querySelectorAll(".abtn button");
+//   console.log(abtn);
+
+// 인터발용변수
+let autoI;
+
+// 버튼에 클릭이벤트 설정하기 //////
+for (let x of abtn) {
+  x.onclick = () => {
+    // 1. 클릭된 요소의 클래스가 "start"인지 여부
+    let isB = x.classList.contains("start");
+    // classList.contains(클래스명)
+    // -> 클래스가 해당요소에 있으면 true
+    console.log(".start인가?", isB);
+
+    // 2. 조건분기
+    // 2-1. true이면 자동넘김
+    if (isB) {
+      // setInterval(함수,시간)
+      autoI = setInterval(() => goSlide(1), 1000);
+    } //////// if ////////
+
+    // 2-2. false이면 멈춤
+    else {
+      // clearInterval(인터발변수)
+      clearInterval(autoI);
+    } //////// else ////////
+
+    // 3. 버튼 보이기/숨기기
+    // 항상 클릭된 버튼은 숨긴다!
+    x.style.display = "none";
+    // "멈춤"/"자동넘김" 버튼 전환하며 보이기
+    abtn[isB ? 1 : 0].style.display = "inline-block";
+    // isB? "자동넘김"버튼인가?
+    // true이면 1 즉 두번째 버튼 보이기
+    // false이면 0 즉 첫번째버튼 보이기
+
+    // console.log("autoI변수:",autoI);
+    // 숫자가 찍힘 -> Number형으로 체크됨
+    // 인터발함수의 특징임
+  }; //////// click //////////
+} //////////// for of /////////////////
