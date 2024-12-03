@@ -81,5 +81,5 @@ h2.temp{
 .main-area .cat-area{
   /* 비율적용을 위해 높이값을 없앤다! */
   height: auto;
-  aspect-ratio: calc(328*4)/186;
+  aspect-ratio: 1320/190;
 }
