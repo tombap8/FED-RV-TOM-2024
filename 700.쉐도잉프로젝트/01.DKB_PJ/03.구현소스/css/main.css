@@ -109,8 +109,10 @@ h2.temp {
 /* 캐릭터 각 박스 오버시 캐릭터박스
 마진탑 올리기 */
 .cat-box>div:hover figure{
-  margin-top: -250px;
-  /* margin-top: max(-200px,-15vw); */
+  /* 브라우저 화면크기를 중앙속박스 크기로 맞추고
+  최대크기 px,vw를 조정한다! 이때 마이너스니까
+  min이 아니고 max로 조정함! */
+  margin-top: max(-200px,-15vw);
 }
 /* 캐릭터 이미지만 선택 */
 .cat-box figure > img {
@@ -151,8 +153,9 @@ h2.temp {
 }
 /* 각 캐릭터박스에 오버시 설명박스 보이기 */
 .cat-box>div:hover aside{
-  height: 250px;
-  /* height: min(200px,15vw); */
+  /* 중앙박스 최대크기에서 px과 vw크기를 맞추고
+  최소크기 출력을 테스트하면 잘된다! */
+  height: min(200px,15vw);
 }
 /* 캐릭터 타이틀 */
 .cat-box aside h3{
