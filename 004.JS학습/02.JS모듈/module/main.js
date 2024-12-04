@@ -6,7 +6,9 @@
 // 별칭으로 가져오기 {원래변수 as 새이름}
 import { 
     mTitle as 큰제목, 
-    sTitle as 소제목 
+    sTitle as 소제목,
+    personInfo as 개인정보,
+    mvData as 영화정보
 } from "./text_data.js";
 
 // 프리티어 자동완성시 JS파일 뒤에 확장자가 없는 것은
@@ -58,6 +60,9 @@ let hCode = '';
 hCode += msgFn('공유',46);
 hCode += msgFn('톰행크스',60);
 hCode += msgFn('안젤리나 졸리',49);
+// 개인정보 배열 데이터를 돌면서 메시지함수 호출하기
+개인정보.forEach(v=>hCode += msgFn(v[0],v[1]));
+console.log(개인정보);
 
 // 화면출력
 demo.innerHTML = hCode;
