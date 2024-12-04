@@ -15,6 +15,11 @@ import {
 
 // console.log("확인:", mTitle);
 
+// 메시지함수 불러오기 ////
+import msgFn from "./msg_format.js";
+
+console.log("메시지함수:",msgFn);
+
 // 나의 함수 가져오기 ///
 // default로 내보낸것은 어떤변수로 받아도됨
 // 그런데 내보낼때 쓴 변수를 일반적으로 사용함!
@@ -41,6 +46,21 @@ console.log("나의함수:", 헐);
     <h2>${큰제목}</h2>
     <h3>${소제목}</h3>
 `;
+
+// 2. 두번째 요소 #demo에 이름나이 메시지 출력하기
+// 대상요소
+const demo = 헐.qs('#demo');
+
+// 코드변수
+let hCode = '';
+
+// 코드에 메시지 넣기(메시지 함수호출함!)
+hCode += msgFn('공유',46);
+hCode += msgFn('톰행크스',60);
+hCode += msgFn('안젤리나 졸리',49);
+
+// 화면출력
+demo.innerHTML = hCode;
 
 /**********************************************     
     [ import 형식 ]
