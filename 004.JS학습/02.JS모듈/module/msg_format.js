@@ -26,6 +26,12 @@
         export default {};
         // 화살표 함수인 경우
         export default ()=>{};
+        // 익명함수인 경우
+        export default function(){};
+        // 선언적함수인 경우
+        export default function 함수명(){};
+        // -> 선언적함수의 함수이름은 꼭 써야하나
+        // 받는 곳에서 이 함수명은 변경가능함!
 
  
  

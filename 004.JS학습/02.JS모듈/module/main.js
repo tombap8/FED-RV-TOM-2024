@@ -1,12 +1,19 @@
 // 모듈 연습 메인 JS - main.js
 
 // 데이터 JS 가져오기
-import { mTitle } from "./text_data.js";
+// import { mTitle,sTitle } from "./text_data.js";
+
+// 별칭으로 가져오기 {원래변수 as 새이름}
+import { 
+    mTitle as 큰제목, 
+    sTitle as 소제목 
+} from "./text_data.js";
+
 // 프리티어 자동완성시 JS파일 뒤에 확장자가 없는 것은
 // SPA 노드개발환경에서 가능한 방식이다!
 // 그러나 일반 JS에서는 반드시 확장자 .js를 써야함!
 
-console.log('확인:',mTitle);
+// console.log("확인:", mTitle);
 
 // 나의 함수 가져오기 ///
 // default로 내보낸것은 어떤변수로 받아도됨
@@ -23,14 +30,17 @@ console.log('확인:',mTitle);
 // console.log('나의함수:',myFn);
 
 import 헐 from "./my_function.js";
-console.log('나의함수:',헐);
+console.log("나의함수:", 헐);
 
 // default로 내보낼때 변수에 담아서 내보내는 것이
 // 아니고 하나의 값만 전달한다! 따라서 받을때
 // 변수명은 내맘대로다!!!
 
 // 1. 첫번째 요소 .tpart에 타이틀 데이터 출력하기
-
+헐.qs(".tpart").innerHTML = `
+    <h2>${큰제목}</h2>
+    <h3>${소제목}</h3>
+`;
 
 /**********************************************     
     [ import 형식 ]
