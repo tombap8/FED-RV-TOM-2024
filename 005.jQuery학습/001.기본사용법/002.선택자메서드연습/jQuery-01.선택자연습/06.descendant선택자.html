@@ -10,7 +10,7 @@
         //////// jQB ///////////////////
 
         // 미션:
-        // (1) 아래의 각 li에 미니언즈 이미지를 웹으로 찾아서 html로 넣고 이미지크기를 width: 100px로 고정한다.
+        // (1) 아래의 각 li에 미니언즈 이미지를 웹으로 찾아서 html로 넣고 
         $("#first").html(
           '<img src="https://hercanberra.com.au/wp-content/uploads/2019/06/Minions_feature.jpg" alt="미니언즈">'
         );
@@ -20,6 +20,13 @@
         $("#third").html(
           '<img src="https://5.imimg.com/data5/XQ/KP/MY-40305254/kids-toy-500x500.jpg" alt="미니언즈">'
         );
+
+        // 이미지크기를 width: 100px로 고정한다.
+        $('.list img').css({width:'100px'});
+
+
+
+
         // (2) 각 이미지 클릭시 이미지크기가 클릭할때마다 10px씩 커지게함과
         // 동시에 한번은 오른쪽, 한번은 왼쪽으로 10도씩 기울어지게 애니메이션 하시오.
       }); //////////// jQB ///////////////////
