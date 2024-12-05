@@ -48,9 +48,28 @@ const slide = myFn.qsEl(slideBox,'.slide');
 
 // 2. 이벤트 설정하기 ////////////////////
 abtn.forEach(el=>{
-    console.log('요소:',el);
+    // console.log('요소:',el);
+    // 각 요소에 이벤트 설정하기
+    // click이벤트를 addEventListener로 설정!
+    myFn.addEvt(el,'click',goSlide);
 
-}); //////// forEach //////////
+}); //////////// forEach ////////////////
+
+// 3. 함수만들기 /////////////////////
+function goSlide(){
+    // 1. 함수호출확인
+    // console.log('나함수!',this);
+    
+    // 2. 오른쪽버튼여부 확인
+    let isRight = this.classList.contains('ab2');
+    // classList.contains(클래스명) -> 클래스있으면 true
+    console.log('나함수!',isRight);
+
+} ////////// goSlide함수 /////////////
+
+
+
+
 
 myFn.qs('.ab2').onclick = ()=>{
     // 순번1증가
