@@ -169,7 +169,10 @@
       /* 미디어쿼리 700px이하 시작 */
       @media screen and (max-width: 700px) {
         .grid > div {
-          
+          /* 컬럼을 한줄 다 차지하게 변경 */
+          grid-column: 1/13;
+          /* 기존에 조정된 로를 auto로 변경 */
+          grid-row: auto;
         }
       }
 
