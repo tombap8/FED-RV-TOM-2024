@@ -75,7 +75,7 @@ aside.smenu {
 }
 /* 마우스 오버시 보이기 */
 .gnb > ul > li:hover .smenu {
-  height: 300px;
+  height: 250px;
 }
 /* 서브 속박스 */
 .smenu > div {
@@ -86,6 +86,7 @@ aside.smenu {
 /* 서브제목 */
 .smenu h2 {
   font-size: 3rem;
+  margin-top: 10px;
   margin-bottom: 20px;
 }
 /* 서브 리스트 */
