@@ -44,7 +44,13 @@ const abtn = myFn.qsaEl(slideBox,'.abtn');
 // 변경대상: .slide
 const slide = myFn.qsEl(slideBox,'.slide');
 
-console.log("대상:",slideBox,abtn,slide);
+// console.log("대상:",slideBox,abtn,slide);
+
+// 2. 이벤트 설정하기 ////////////////////
+abtn.forEach(el=>{
+    console.log('요소:',el);
+
+}); //////// forEach //////////
 
 myFn.qs('.ab2').onclick = ()=>{
     // 순번1증가
