@@ -24,9 +24,9 @@ const myText = [
 ];
 
 // 배열만큼 돌면서 셋팅하기 : forEach() 메서드
-myText.forEach((v,i) => {
+myText.forEach((v, i) => {
   // v - 배열값, i - 순번
-  console.log(v,i);
+  console.log(v, i);
   // 한글자씩 잘라서 순회하는 제어문은? for of
   let result = ""; // 결과변수
   let dTime = 0; // 지연시간변수
@@ -39,14 +39,14 @@ myText.forEach((v,i) => {
     // 문자값이면 span으로 싸기 + 트랜지션 지연시간
     // 지연시간은 0.08초에 0,1,2,3,...을 순서대로 곱한다
     else {
-        result += `
+      result += `
         <span 
-        style="transition-delay:${0.08*dTime}s">
+        style="transition-delay:${0.08 * dTime}s">
         ${x}</span>`;
-        
-        // 다음순회시 dTime 1씩증가하기 - 문자일때만!
-        console.log('지연시간곱할수:',dTime);
-        dTime++;
+
+      // 다음순회시 dTime 1씩증가하기 - 문자일때만!
+      console.log("지연시간곱할수:", dTime);
+      dTime++;
     }
   } //// for of ///
 
@@ -56,5 +56,17 @@ myText.forEach((v,i) => {
   stage[i].innerHTML = result;
 
   // 5. 글자박스에 클래스 style1,style2,style3 넣기
-  stage[i].classList.add("style"+(i+1));
+  stage[i].classList.add("style" + (i + 1));
 }); ///////// forEach //////////
+
+// 6. 일정시간후 stage에 클래스 on넣어서 글자등장하기
+// 시간셋팅 배열변수
+const startTime = [2000, 3500, 5000];
+stage.forEach((el, idx) => {
+  // el - 출력할요소 , idx - 요소순번
+  console.log("요소:", el, "/순번:", idx);
+  // 타임아웃 셋팅하기 ///
+  setTimeout(() => {
+    el.classList.add("on");
+  }, startTime[idx]);
+}); /// forEach ////
