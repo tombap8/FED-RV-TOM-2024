@@ -34,20 +34,24 @@ let seqNum = 0;
 ////////////////////////////////
 
 // 1. 대상선정 //////////////////
-// 전체 슬라이드 박스 : .slide-box
+// (1) 전체 슬라이드 박스 : .slide-box
 const slideBox = myFn.qs(".slide-box");
 // 전체 박스 하위의 요소로 상대적으로 잡아준다!
 // 이유는 다른 슬라이드 박스를 카피하여 만든경우
 // 동일한 기능이 될 수 있게 해준다!
-// 이벤트대상: .abtn
+
+// (2) 이벤트대상: .abtn
 const abtn = myFn.qsaEl(slideBox, ".abtn");
-// 변경대상: .slide
+// 처음에 첫번째 버튼 숨기기
+abtn[0].style.display = "none";
+
+// (3) 변경대상: .slide
 const slide = myFn.qsEl(slideBox, ".slide");
 // 슬라이드 개수 변수할당!
 // 보통 변경없이 사용하는 변수는 상수라고 하고
 // 상수는 보통 대문자로 쓰고 스네이크 케이스 사용함!
-const SLIDE_CNT = myFn.qsaEl(slide,'li').length;
-console.log("슬라이드개수:",SLIDE_CNT);
+const SLIDE_CNT = myFn.qsaEl(slide, "li").length;
+console.log("슬라이드개수:", SLIDE_CNT);
 
 // console.log("대상:",slideBox,abtn,slide);
 
@@ -73,21 +77,37 @@ function goSlide() {
   // (1) 오른쪽일때 증가
   if (isRight) {
     seqNum++;
-    // 한계값 설정 : 
+    // 한계값 설정 :
     // -> 마지막 슬라이드 순번보다 크면 마지막번호고정
-    if(seqNum > 4) seqNum = 4;
+    // 위에서 슬라이드개수는 상수 SLIDE_CNT에 있음!
+    if (seqNum > SLIDE_CNT - 1) seqNum = SLIDE_CNT - 1;
   } /// if ///
   // (2) 왼쪽일때 감소
   else {
     seqNum--;
-    // 한계값설정 : 
+    // 한계값설정 :
     // -> 0보다 작아지면 0으로 고정
-    if(seqNum < 0) seqNum = 0;
+    if (seqNum < 0) seqNum = 0;
   } /// else ///
 
-  console.log('슬순번:',seqNum);
+  console.log("슬순번:", seqNum);
 
   // 4. 슬라이드 CSS변경하여 슬라이드 이동하기
   slide.style.translate = seqNum * -100 + "%";
   slide.style.transition = ".4s ease-in-out";
+
+  // 5. 순번이 끝번호일때 버튼 숨기기 보이기 처리
+  if (seqNum === 0) {
+    // 처음슬라이드 왼쪽버튼 숨기기
+    abtn[0].style.display = "none";
+  } /// if ///
+  else if (seqNum === SLIDE_CNT - 1) {
+    // 마지막슬라이드 오른쪽버튼 숨기기
+    abtn[1].style.display = "none";
+  } // else if ///
+  else {
+    // 기타경우 모두보이기
+    abtn[0].style.display = "block";
+    abtn[1].style.display = "block";
+  } /// else ///
 } ////////// goSlide함수 /////////////
