@@ -2,10 +2,7 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- 
         [ 뷰포트(viewport)란? ]
         - 모바일 기기에서 볼때 모바일 기기의 랜더링 화면사이즈를
@@ -24,9 +21,7 @@
             디스플레이할때는 1080px로 보여진다!
             이때 viewport를 쓰면 414px로 변환해서 보여준다!
      -->
-    <title>
-      미디어쿼리 기본개념 연습
-    </title>
+    <title>미디어쿼리 기본개념 연습</title>
     <style>
       /* 
             [ 미디어쿼리(Media Query)란? ]
@@ -148,8 +143,7 @@
       /* 전체박스 */
       .bx {
         height: 1000px;
-        background: url(./images/oldTVON.png)
-          no-repeat center/auto 100%;
+        background: url(./images/oldTVON.png) no-repeat center/auto 100%;
       }
 
       /* 타이틀 */
@@ -391,27 +385,27 @@
       *****************************************/
 
       /* 세로모드 시작 */
-      @media screen and (orientation:portrait) and (max-width:500px){
+      @media screen and (orientation: portrait) and (max-width: 500px) {
         /* TV배경이미지 세로크기 변경 */
-        .bx{
+        .bx {
           background-size: auto 70%;
         }
       }
       /* 세로모드 끝 */
 
       /* 가로모드 시작 */
-      @media screen and (orientation:landscape) and (max-width:1000px) {
+      @media screen and (orientation: landscape) and (max-width: 1000px) {
         /* TV배경이미지 위치,크기 변경 */
-        .bx{
+        .bx {
           background-position: center -24%;
           background-size: auto 71%;
         }
         /* 스크린 위치변경 */
-        .screen{
+        .screen {
           top: 134px;
         }
         /* 타이틀 패딩변경 */
-        .tit{
+        .tit {
           padding: 10px 0;
         }
       }
@@ -422,46 +416,16 @@
     <div class="bx">
       <h1 class="tit">이정재 컬렉션</h1>
       <div class="screen">
-        <img
-          src="./images/sc_noise.png"
-          alt="노이즈화면"
-        />
-        <img
-          src="./images/jeong1.jpg"
-          alt="이정재1"
-        />
-        <img
-          src="./images/jeong2.jpg"
-          alt="이정재2"
-        />
-        <img
-          src="./images/jeong3.jpg"
-          alt="이정재3"
-        />
-        <img
-          src="./images/jeong4.jpg"
-          alt="이정재4"
-        />
-        <img
-          src="./images/jeong5.jpg"
-          alt="이정재5"
-        />
-        <img
-          src="./images/jeong6.jpg"
-          alt="이정재6"
-        />
-        <img
-          src="./images/jeong7.jpg"
-          alt="이정재7"
-        />
-        <img
-          src="./images/jeong8.jpg"
-          alt="이정재8"
-        />
-        <img
-          src="./images/jeong9.jpg"
-          alt="이정재9"
-        />
+        <img src="./images/sc_noise.png" alt="노이즈화면" />
+        <img src="./images/jeong1.jpg" alt="이정재1" />
+        <img src="./images/jeong2.jpg" alt="이정재2" />
+        <img src="./images/jeong3.jpg" alt="이정재3" />
+        <img src="./images/jeong4.jpg" alt="이정재4" />
+        <img src="./images/jeong5.jpg" alt="이정재5" />
+        <img src="./images/jeong6.jpg" alt="이정재6" />
+        <img src="./images/jeong7.jpg" alt="이정재7" />
+        <img src="./images/jeong8.jpg" alt="이정재8" />
+        <img src="./images/jeong9.jpg" alt="이정재9" />
       </div>
     </div>
   </body>
