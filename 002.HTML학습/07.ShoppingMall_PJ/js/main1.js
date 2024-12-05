@@ -11,7 +11,7 @@ import myFn from "./my_function.js";
     4. 기능 설계:
 
         (1) 오른쪽 버튼 클릭시 다음 슬라이드가
-            나타나도록 슬라이드 박스의 left값을
+            나타나도록 슬라이드 박스의 translate값을
             -100%로 변경시킨다.
             -> 슬라이드 이동후!!! 
             바깥에 나가있는 첫번째 슬라이드
@@ -20,7 +20,7 @@ import myFn from "./my_function.js";
 
         (2) 왼쪽버튼 클릭시 이전 슬라이드가
             나타나도록 하기위해 우선 맨뒤 li를
-            맨앞으로 이동하고 동시에 left값을
+            맨앞으로 이동하고 동시에 translate값을
             -100%로 변경한다.
             그 후 left값을 0으로 애니메이션하여
             슬라이드가 왼쪽에서 들어온다.
@@ -40,15 +40,17 @@ import myFn from "./my_function.js";
     3. 상수 : 모든글자 대문자(연결은 언더스코어-스네이크 케이스)
 */
 
-
-// 초기 테스트
-// 오른쪽 버튼 클릭시 ul.slide의 css를 변경하여 왼쪽으로 이동
-// 이벤트대상: .ab2
-// 변경대상: .slide
-const slide = myFn.qs('.slide');
-
-// 순번변수
+// 전역변수구역 ///////////////
+// (1) 순번변수
 let seqNum = 0;
+
+// 1. 대상선정 //////////////////
+// 전체 슬라이드 박스 : .slide-box
+const slideBox = myFn.qs('.slide-box');
+// 이벤트대상: .abtn
+// 변경대상: .slide
+const slide = myFn.qsEl(slideBox,'.slide');
+
 myFn.qs('.ab2').onclick = ()=>{
     // 순번1증가
     seqNum++;
