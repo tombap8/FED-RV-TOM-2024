@@ -32,6 +32,11 @@ body {
     /* 트랜스폼 적용위해 */
     display: block;
 }
+/* 글자사이 떨어지게 하는 박스 */
+.stage-letters b{
+    margin-left: 2vw;
+}
+
 /* 글자등장 스타일1 */
 .style1 span{
     /* 현재위치로 부터 이동 */
