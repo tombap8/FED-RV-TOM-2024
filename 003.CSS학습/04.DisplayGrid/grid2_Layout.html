@@ -136,39 +136,48 @@
       /* 미디어쿼리 1024px이하 시작 */
       @media screen and (max-width: 1024px) {
         /* CSS변수값 변경하기 */
-        
+        :root {
+          /* 영역별 높이값 */
+          --ht1: 100px;
+          --ht2: 300px;
+          --ht3: 200px;
+          /* 영역별 배경색 */
+          --bc1: rgb(251, 253, 112);
+          --bc2: rgb(255, 122, 248);
+          --bc3: rgb(170, 255, 148);
+        }
 
         /* 1. 로고 - 2개영역 */
         .logo {
-          
+          grid-column: 1/5;
         }
         /* 2. GNB - 7개영역 */
         .gnb {
-          
+          grid-column: 5/13;
         }
         /* 3. 상단사이드 - 3개영역 */
         .side {
-          
+          display: none;
         }
         /* 4. 배너 - 10개영역 */
         .ban {
-          
+          grid-column: 1/13;
         }
         /* 5. 배너사이드 - 2개영역 */
         .bnside {
-          
+          display: none;
         }
         /* 6. 하단좌측 - 3개영역 */
         .bleft {
-          
+          display: none;
         }
         /* 7. 하단정보 - 6개영역 */
         .binfo {
-          
+          grid-column: 1/9;
         }
         /* 8. 하단우측 - 3개영역 */
         .bright {
-          
+          grid-column: 9/13;
         }
       }
 
