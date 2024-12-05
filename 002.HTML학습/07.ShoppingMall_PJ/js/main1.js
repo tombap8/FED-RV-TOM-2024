@@ -43,6 +43,11 @@ const slideBox = myFn.qs(".slide-box");
 const abtn = myFn.qsaEl(slideBox, ".abtn");
 // 변경대상: .slide
 const slide = myFn.qsEl(slideBox, ".slide");
+// 슬라이드 개수 변수할당!
+// 보통 변경없이 사용하는 변수는 상수라고 하고
+// 상수는 보통 대문자로 쓰고 스네이크 케이스 사용함!
+const SLIDE_CNT = myFn.qsaEl(slide,'li').length;
+console.log("슬라이드개수:",SLIDE_CNT);
 
 // console.log("대상:",slideBox,abtn,slide);
 
