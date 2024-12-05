@@ -35,47 +35,54 @@ let seqNum = 0;
 
 // 1. 대상선정 //////////////////
 // 전체 슬라이드 박스 : .slide-box
-const slideBox = myFn.qs('.slide-box');
+const slideBox = myFn.qs(".slide-box");
 // 전체 박스 하위의 요소로 상대적으로 잡아준다!
 // 이유는 다른 슬라이드 박스를 카피하여 만든경우
 // 동일한 기능이 될 수 있게 해준다!
 // 이벤트대상: .abtn
-const abtn = myFn.qsaEl(slideBox,'.abtn');
+const abtn = myFn.qsaEl(slideBox, ".abtn");
 // 변경대상: .slide
-const slide = myFn.qsEl(slideBox,'.slide');
+const slide = myFn.qsEl(slideBox, ".slide");
 
 // console.log("대상:",slideBox,abtn,slide);
 
 // 2. 이벤트 설정하기 ////////////////////
-abtn.forEach(el=>{
-    // console.log('요소:',el);
-    // 각 요소에 이벤트 설정하기
-    // click이벤트를 addEventListener로 설정!
-    myFn.addEvt(el,'click',goSlide);
-
+abtn.forEach((el) => {
+  // console.log('요소:',el);
+  // 각 요소에 이벤트 설정하기
+  // click이벤트를 addEventListener로 설정!
+  myFn.addEvt(el, "click", goSlide);
 }); //////////// forEach ////////////////
 
 // 3. 함수만들기 /////////////////////
-function goSlide(){
-    // 1. 함수호출확인
-    // console.log('나함수!',this);
-    
-    // 2. 오른쪽버튼여부 확인
-    let isRight = this.classList.contains('ab2');
-    // classList.contains(클래스명) -> 클래스있으면 true
-    console.log('나함수!',isRight);
+function goSlide() {
+  // 1. 함수호출확인
+  // console.log('나함수!',this);
 
-} ////////// goSlide함수 /////////////
+  // 2. 오른쪽버튼여부 확인
+  let isRight = this.classList.contains("ab2");
+  // classList.contains(클래스명) -> 클래스있으면 true
+  console.log("나함수!", isRight);
 
-
-
-
-
-myFn.qs('.ab2').onclick = ()=>{
-    // 순번1증가
+  // 3. 분기하여 슬라이드순번 변수 증감하기
+  // (1) 오른쪽일때 증가
+  if (isRight) {
     seqNum++;
-    // 슬라이드 CSS변경하기
-    slide.style.translate = (seqNum*-100)+'%';
-    slide.style.transition = '.4s ease-in-out';
-};
+    // 한계값 설정 : 
+    // -> 마지막 슬라이드 순번보다 크면 마지막번호고정
+    if(seqNum > 4) seqNum = 4;
+  } /// if ///
+  // (2) 왼쪽일때 감소
+  else {
+    seqNum--;
+    // 한계값설정 : 
+    // -> 0보다 작아지면 0으로 고정
+    if(seqNum < 0) seqNum = 0;
+  } /// else ///
 
+  console.log('슬순번:',seqNum);
+
+  // 4. 슬라이드 CSS변경하여 슬라이드 이동하기
+  slide.style.translate = seqNum * -100 + "%";
+  slide.style.transition = ".4s ease-in-out";
+} ////////// goSlide함수 /////////////
