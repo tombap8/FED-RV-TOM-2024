@@ -1,45 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title> child(&gt;)선택자  </title>
-<!-- jQuery library -->
-<script src="../jquery-3.6.3.min.js"></script>
-<script>
-  $(()=>{ //////// jQB ///////////////////
-// 미션: #container 를 클릭하면 이것의 직계자식인 p태그의 배경색을 노란색, 글자색은 녹색, 글지크기는 42px, 테두리는 5px 점선 빨간색으로 설정하시오!
-  }); //////////// jQB ///////////////////
-</script>
-</head>
-  
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <title>child(&gt;)선택자</title>
+    <!-- jQuery library -->
+    <script src="../jquery-3.6.3.min.js"></script>
+    <script>
+      $(() => {
+        //////// jQB ///////////////////
+        // 미션: #container 를 클릭하면 이것의 직계자식인 p태그의 배경색을 노란색, 글자색은 녹색, 글지크기는 42px, 테두리는 5px 점선 빨간색으로 설정하시오!
 
-<div id="container">
+        $('#container').click(
+          function () {
+          $(this).find('p')
+          .css({
+            backgroundColor: 'yellow',
+            color: 'green',
+            fontSize: '42px',
+            border: '5px dotted red',
+          });
+        });
+      }); //////////// jQB ///////////////////
+    </script>
+  </head>
 
- <header>
-   <h2> Welcome mySite </h2>
-	 <p>나는 손자 p태그다!</p>
- </header>
+  <body>
+    <div id="container">
+      <header>
+        <h2>Welcome mySite</h2>
+        <p>나는 손자 p태그다!</p>
+      </header>
 
- <nav>
-   <ul class="list">
-   <li id="first">One</li>
-   <li id="second">Two</li>
-   <li id="third">Three</li>
-  </ul>
- </nav>
- 
-  <p>
-    나는 직계자식 p태그다! 
- </p>
- 
-</div>
+      <nav>
+        <ul class="list">
+          <li id="first">One</li>
+          <li id="second">Two</li>
+          <li id="third">Three</li>
+        </ul>
+      </nav>
 
-<!---------- jQuery code Start ---------->
-<script>
-  
-</script>
+      <p>나는 직계자식 p태그다!</p>
+    </div>
 
-</body>
+    <!---------- jQuery code Start ---------->
+    <script></script>
+  </body>
 </html>
-
