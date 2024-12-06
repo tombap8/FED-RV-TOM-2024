@@ -207,34 +207,23 @@ const rimgCnt = rimg.length;
 // 이미지를 칼라로 약간커지게 클래스 on을 주어서 변경함!
 
 // 2. 대상선정: .imbx
-const imbx = mFn.qs(".imbx");
+const imbx = myFn.qs(".imbx");
 
 // 3. 이미지넣기
 // 배열만큼 이미지 넣기
 
-// map으로 이미지넣기
-imbx.innerHTML = rimg
-  .map(
-    (v) => `
-      <div>
-          <img src="${v}" alt="드라마 포스터">
-      </div>
-  `
-  )
-  .join("");
-
 // forEach로 배열을 먼저 사용하여 이미지 넣기
-// rimg.forEach(v=>{
-//     imbx.innerHTML +=
-//     `
-//         <div>
-//             <img src="${v}" alt="드라마 포스터">
-//         </div>
-//     `;
-// })
+rimg.forEach(v=>{
+    imbx.innerHTML +=
+    `
+        <div>
+            <img src="${v}" alt="드라마 포스터">
+        </div>
+    `;
+})
 
 // 4. 랜덤 처리 대상 div 선택하기
-const target = mFn.qsa(".imbx div");
+const target = myFn.qsa(".imbx div");
 console.log("랜덤대상:", target);
 
 // 전에 발생한 난수 저장변수(함수호출전 선언해야함!)
