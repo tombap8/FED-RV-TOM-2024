@@ -74,11 +74,11 @@ function showTime() {
   S = 5;
 
   // (1) 오전/오후
-  //   tt[4].innerText =
+  tt[4].innerText = H < 12 ? "오전" : "오후";
 
   // -> 시/분/초 공통으로 한자리수는 앞에 "0"을 넣어준다
   // 0넣기 함수 만들기 ///
-  const addZero = x => x < 10 ? '0' + x : x;
+  const addZero = (x) => (x < 10 ? "0" + x : x);
 
   // (2) 시
   // -> 24시간제로 표시됨 그래서 12초과시 12를뺌
