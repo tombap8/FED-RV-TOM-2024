@@ -25,7 +25,7 @@ setInterval(showTime, 1000);
 *****************************/
 function showTime() {
   // 호출확인
-  console.log("시간찍어~!!");
+  //   console.log("시간찍어~!!");
 
   // 1. 날짜객체 생성하기 : Data객체
   const today = new Date();
@@ -213,14 +213,13 @@ const imbx = myFn.qs(".imbx");
 // 배열만큼 이미지 넣기
 
 // forEach로 배열을 먼저 사용하여 이미지 넣기
-rimg.forEach(v=>{
-    imbx.innerHTML +=
-    `
+rimg.forEach((v) => {
+  imbx.innerHTML += `
         <div>
             <img src="${v}" alt="드라마 포스터">
         </div>
     `;
-})
+});
 
 // 4. 랜덤 처리 대상 div 선택하기
 const target = myFn.qsa(".imbx div");
