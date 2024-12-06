@@ -53,7 +53,10 @@ const slide = myFn.qsEl(slideBox, ".slide");
 const SLIDE_CNT = myFn.qsaEl(slide, "li").length;
 console.log("슬라이드개수:", SLIDE_CNT);
 
-// console.log("대상:",slideBox,abtn,slide);
+// (4) 인디케이터 블릿대상
+const indic = myFn.qsaEl(slideBox,'.indic li')
+
+// console.log("대상:",slideBox,abtn,slide,indic);
 
 // 2. 이벤트 설정하기 ////////////////////
 abtn.forEach((el) => {
@@ -111,8 +114,10 @@ function goSlide() {
     abtn[1].style.display = "block";
   } /// else ///
 
-  // 6. 인디케이터 변경하기
-  
+  // 6. 인디케이터 변경하기 : 대상 .indic li
+  indic.forEach(el=>{
+    console.log(el);
+  }); /// forEach ////
   // -> seqNum 값 즉, 슬라이드 순번과
   // 인디케이터 li 순번이 같으므로
   // 해당순번의 li에 클래스"on"을 넣고
