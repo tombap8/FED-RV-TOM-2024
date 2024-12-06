@@ -150,6 +150,9 @@ h2.temp {
   background: url(../images/eachBG.jpg) no-repeat bottom/cover;
   /* 트랜지션 */
   transition: .4s ease-out;
+  /* 둥근모서리 설정 */
+  border-radius: 10px 5px 5px 10px;
+  margin-top: 10px;
 }
 /* 각 캐릭터박스에 오버시 설명박스 보이기 */
 .cat-box>div:hover aside{

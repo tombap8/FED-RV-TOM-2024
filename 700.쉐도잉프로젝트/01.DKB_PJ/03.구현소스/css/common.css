@@ -50,6 +50,10 @@
 .gnb ul {
   gap: 3.2rem;
 }
+/* gnb 상위 a요소 */
+.gnb ul>li>a{
+  padding-bottom: 10px;
+}
 /* gnb 상위 li 오버시 a요소
 + 서브메뉴 a오버시 */
 .gnb ul>li:hover>a,
@@ -58,11 +62,14 @@
 }
 /* gnb 상위 li 오버시 a요소
 밑줄 디자인 보이기 */
-.gnb ul>li:hover>a::after{
+.gnb ul>li>a::after{
   content: '';
-  position: absolute;
-  width: 100%;
+  display: block;
+  margin-top: 5px;
   height: 4px;
+  background-color: #fff;
+}
+.gnb ul>li:hover>a::after{
   background-color: #222;
 }
 
@@ -84,6 +91,8 @@ aside.smenu {
   /* 부모는? 최상위 상단영역 #top-area */
   background-color: white;
   overflow: hidden;
+  /* 상단보더 */
+  border-top: 2px solid #ccc;
 }
 /* 마우스 오버시 보이기 */
 .gnb > ul > li:hover .smenu {
