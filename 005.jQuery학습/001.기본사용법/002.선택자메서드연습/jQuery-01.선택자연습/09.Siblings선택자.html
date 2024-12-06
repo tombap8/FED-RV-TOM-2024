@@ -9,9 +9,29 @@
       $(() => {
         //////// jQB ///////////////////
         //미션: li중 하나를 클릭하면  그 뒤의 형제요소의 li들이 모두 width: 500px, height: 300px로 변경되고 배경이미지를 넣으시오.(배경이미지는 웹경로로 넣고 트랜지션 설정도 하시오.)
+        $("li")
+          .css({
+            // 트랜지션위해 초기값 설정
+            width: "100px",
+            height: "50px",
+          }) /// css ///
+          .click(function () {
+            $("~li", this).css({
+              width: "500px",
+              height: "300px",
+              transition: "all 1s",
+              backgroundImage: `url(https://i5.walmartimages.com/asr/8dd82ca6-adb0-4827-a6c4-c88aec06940d_1.ff23051db200c4ccd38a5e028ba659f6.jpeg)`,
+            }); /// css ///
+          }); /// click ///
 
-		// 참고 이미지 url
-		// https://i5.walmartimages.com/asr/8dd82ca6-adb0-4827-a6c4-c88aec06940d_1.ff23051db200c4ccd38a5e028ba659f6.jpeg
+        // 참고 이미지 url
+        // https://i5.walmartimages.com/asr/8dd82ca6-adb0-4827-a6c4-c88aec06940d_1.ff23051db200c4ccd38a5e028ba659f6.jpeg
+
+        // JS에서는 반드시 다수개이면 for문 돌려야함!
+        //   document.querySelectorAll('.list li')
+        //   .forEach(el=>{
+        // 	el.onclick=()=>{console.log('ㅎㅎㅎ');}
+        //   })
       }); //////////// jQB ///////////////////
     </script>
   </head>
