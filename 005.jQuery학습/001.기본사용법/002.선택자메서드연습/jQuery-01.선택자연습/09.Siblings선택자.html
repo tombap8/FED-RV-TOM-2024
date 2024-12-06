@@ -16,17 +16,19 @@
             height: "50px",
           }) /// css ///
           .click(function () {
-            // $("~li", this)
-            // 틸드(~) 다음형제들 선택자사용!
+            $("~li", this)
+              // 틸드(~) 다음형제들 선택자사용!
 
-            // 트래버싱 메서드 사용법
-            // nextAll() - 다음의 모든 형제들 선택
-            $(this).nextAll().css({
-              width: "500px",
-              height: "300px",
-              transition: "all 1s",
-              backgroundImage: `url(https://i5.walmartimages.com/asr/8dd82ca6-adb0-4827-a6c4-c88aec06940d_1.ff23051db200c4ccd38a5e028ba659f6.jpeg)`,
-            }); /// css ///
+              // 트래버싱 메서드 사용법
+              // nextAll() - 다음의 모든 형제들 선택
+              // $(this).nextAll()
+
+              .css({
+                width: "500px",
+                height: "300px",
+                transition: "all 1s",
+                backgroundImage: `url(https://i5.walmartimages.com/asr/8dd82ca6-adb0-4827-a6c4-c88aec06940d_1.ff23051db200c4ccd38a5e028ba659f6.jpeg)`,
+              }); /// css ///
           }); /// click ///
 
         // 참고 이미지 url
