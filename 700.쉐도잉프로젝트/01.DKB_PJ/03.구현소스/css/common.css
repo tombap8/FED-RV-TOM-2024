@@ -50,10 +50,22 @@
 .gnb ul {
   gap: 3.2rem;
 }
-/* gnb a요소 오버시 */
-.gnb a:hover {
+/* gnb 상위 li 오버시 a요소
++ 서브메뉴 a오버시 */
+.gnb ul>li:hover>a,
+.smenu a:hover {
   color: red;
 }
+/* gnb 상위 li 오버시 a요소
+밑줄 디자인 보이기 */
+.gnb ul>li:hover>a::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: #222;
+}
+
 /* 아래화살표 아이콘 */
 .gnb i {
   font-size: 1rem;
