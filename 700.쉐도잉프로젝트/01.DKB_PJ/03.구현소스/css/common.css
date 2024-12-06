@@ -67,15 +67,15 @@ aside.smenu {
   width: 100%;
   /* 숨길 박스는 패딩주지말것!(하위박스에 줘라)
   왜? height 0 할때 패딩이 보임! */
-  height: 0;
-  transition: height 0.6s ease-in-out;
+  max-height: 0;
+  transition: max-height 0.6s ease-in-out;
   /* 부모는? 최상위 상단영역 #top-area */
   background-color: white;
   overflow: hidden;
 }
 /* 마우스 오버시 보이기 */
 .gnb > ul > li:hover .smenu {
-  height: 250px;
+  max-height: 300px;
 }
 /* 서브 속박스 */
 .smenu > div {
