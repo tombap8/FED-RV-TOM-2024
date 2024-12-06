@@ -19,9 +19,9 @@
           // $('p',this)
 
           // [ 직계자식선택 3가지 방법 ]
-          $('#container > p')
-          // $(this).find('p')
-          // $('p',this)
+          // $('#container > p')
+          // $(this).children('p')
+          $('>p',this)
           .css({
             backgroundColor: 'yellow',
             color: 'green',
