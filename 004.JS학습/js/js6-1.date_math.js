@@ -13,6 +13,12 @@ const tt = myFn.qsa(".tt");
 // 시간날짜함수 최초호출
 showTime();
 
+// 1초간격으로 계속 호출셋팅하기!
+setInterval(showTime, 1000);
+
+// 참고: canvas를 이용한 아날로그 시계
+// https://www.w3schools.com/graphics/tryit.asp?filename=trycanvas_clock_start
+
 /***************************** 
     함수명 : showTime
     기능: 날짜와 시간을 찍어준다
@@ -69,9 +75,9 @@ function showTime() {
   let S = today.getSeconds();
 
   // 테스트용 시분초 할당
-  H = 16;
-  M = 7;
-  S = 5;
+  //   H = 23;
+  //   M = 30;
+  //   S = 50;
 
   // (1) 오전/오후
   tt[4].innerText = H < 12 ? "오전" : "오후";
