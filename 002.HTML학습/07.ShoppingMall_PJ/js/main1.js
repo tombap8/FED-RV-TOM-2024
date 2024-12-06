@@ -110,4 +110,11 @@ function goSlide() {
     abtn[0].style.display = "block";
     abtn[1].style.display = "block";
   } /// else ///
+
+  // 6. 인디케이터 변경하기
+  
+  // -> seqNum 값 즉, 슬라이드 순번과
+  // 인디케이터 li 순번이 같으므로
+  // 해당순번의 li에 클래스"on"을 넣고
+  // 나머지는 "on"을 제거한다!
 } ////////// goSlide함수 /////////////
