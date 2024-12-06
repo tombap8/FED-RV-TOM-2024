@@ -18,8 +18,25 @@
             color: 'green',
             fontSize: '42px',
             border: '5px dotted red',
-          });
-        });
+          });// css //
+        }); // click //
+
+        // this를 이용한 자손선택법은?
+        // $(선택자,this)
+        // 예) $('p',this)
+        // -> 자손선택 트래버싱 메서드
+        // -> find()
+        // 예) $(this).find('p')
+
+        // this를 이용한 직계자식선택법은?
+        // $('>선택자',this)
+        // 예) $('>p',this)
+        // -> 직계자식선택 트래버싱 메서드
+        // -> children()
+        // 예) $(this).children('p')
+
+
+
       }); //////////// jQB ///////////////////
     </script>
   </head>
