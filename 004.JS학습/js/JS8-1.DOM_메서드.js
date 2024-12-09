@@ -91,7 +91,34 @@ function linkFn(){
     // (2) 함수호출 확인!
     console.log('링크이동!!!',txt);
 
+    // (3) 링크 이동하기 - 링크주소리턴 함수 호출!
+    window.open(getLink(txt));
+    // window.open(주소) - 새창열기
+
+    // 참고: 현재창에서 열기는? location.href = 주소
+    // location.href = 'https://www.google.com';
+
+    // 참고: 만약 히스토리 없이 현재창 열기하려면?
+    // -> location.replace(이동주소) 
+    // -> 이전으로 가기가 안됨!(보안이 필요한 경우 사용)
+    // location.replace('https://www.google.com');
+
 } ////// linkFn함수 ////////////////////
+
+// 이동링크 주소 리턴함수 //////
+function getLink(txt){ // txt - 링크구분명
+    // (1) 함수호출 및 전달값 확인
+    console.log('url받아와!',txt);
+
+    // (2) 결과담을 변수
+    let url;
+
+
+
+    // 결과 url리턴하기 ///
+    return 'https://www.naver.com';
+
+} //////////// getLink /////////////////
 
 // 4. 페이지 이동하기 ////
 
