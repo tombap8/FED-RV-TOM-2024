@@ -219,6 +219,17 @@ const box2 = myFn.qs('#div02 ul');
 
 console.log('새리스트 대상:',btnNew,box2);
 
+// 2. 이벤트 설정하기 ///////
+myFn.addEvt(btnNew,'click', makeElement);
+
+// 3. 함수만들기 ///////
+function makeElement(){
+    // (1) 함수호출 확인
+    console.log('만들어라!');
+} //////// makeElement 함수 ////////
+
+
+
 /////////////////////////////////////
 // [ 맨뒤이동 버튼 클릭시 ] /////////
 // 맨앞요소를 맨뒤로 이동하기 ///
