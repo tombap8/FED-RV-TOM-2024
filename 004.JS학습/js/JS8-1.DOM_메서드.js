@@ -113,6 +113,73 @@ function getLink(txt){ // txt - 링크구분명
     // (2) 결과담을 변수
     let url;
 
+    // (3) url주소 분기하여 할당하기
+    switch (txt) {
+        case "Google":
+          url = "https://www.google.com/";
+          break;
+        case "Naver":
+          url = "http://www.naver.com";
+          break;
+        case "Daum":
+          url = "http://www.daum.net";
+          break;
+        case "Nate":
+          url = "http://www.nate.com";
+          break;
+        case "SK":
+          url = "http://www.sktelecom.com";
+          break;
+        case "KT":
+          url = "http://www.kt.com";
+          break;
+        case "Uplus":
+          url = "http://www.uplus.co.kr";
+          break;
+        case "CGV":
+          url = "http://www.cgv.co.kr";
+          break;
+        case "MEGABOX":
+          url = "http://www.megabox.co.kr";
+          break;
+        case "LOTTE CINEMA":
+          url = "https://www.lottecinema.co.kr/NLCHS";
+          break;
+        case "GMARKET":
+          url = "http://www.gmarket.co.kr";
+          break;
+        case "11번가":
+          url = "http://www.11st.co.kr";
+          break;
+        case "Auction":
+          url = "http://www.auction.co.kr";
+          break;
+        case "스토어팜":
+          url = "https://shopping.naver.com/";
+          break;
+        case "인터파크":
+          url = "http://www.interpark.co.kr";
+          break;
+        case "쿠팡":
+          url = "http://www.coopang.co.kr";
+          break;
+        case "Apple":
+          url = "http://www.apple.com";
+          break;
+        case "Samsung":
+          url = "http://www.samsung.com";
+          break;
+        case "넷마블":
+          url = "http://www.netmarble.net";
+          break;
+        case "넥슨":
+          url = "https://www.nexon.com";
+          break;
+        case "IMC":
+          url = "http://www.imc.co.kr";
+          break;
+      } /////// switch case문 ////////
+
 
 
     // 결과 url리턴하기 ///
