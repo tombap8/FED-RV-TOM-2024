@@ -31,8 +31,14 @@ function setList(el,idx){
     // 2.이벤트 설정하기
     // (1) mouseenter
     myFn.addEvt(el,'mouseenter',()=>{
+        // 마우스 오버시 하위 div 서브메뉴박스
         let tg = myFn.qsEl(el,'div');
         console.log('하위대상:',tg);
+
+        // 마우스 오버시 하위 div 내부ol박스 높이값
+        let boxH = myFn.qsEl(tg,'ol').offsetHeight;
+        console.log('서브ol높이값:',boxH);
+
         // 높이값 주기
         tg.style.height = '100px';
         tg.style.transition = 'height .4s ease-out';
