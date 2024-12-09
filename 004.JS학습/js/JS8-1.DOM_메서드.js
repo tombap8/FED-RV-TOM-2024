@@ -266,7 +266,10 @@ function makeElement(){
     newEl.appendChild(imgEl);
     // console.log(newEl);
 
-    // (2-7) 변경대상에 새로운 li추가하여 넣기
+    // (2-7) li화면 출력전 클릭이벤트 설정으로 지우기셋팅
+    newEl.onclick = () => newEl.remove();
+
+    // 3. 변경대상에 새로운 li추가하여 넣기
     // appendChild(요소) DOM메서드 사용!
     box2.appendChild(newEl);
 } //////// makeElement 함수 ////////
