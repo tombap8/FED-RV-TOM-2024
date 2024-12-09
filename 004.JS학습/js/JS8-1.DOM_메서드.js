@@ -16,6 +16,35 @@ const smenu = myFn.qsa('.smenu');
 
 console.log('대상:',smenu);
 
+// 2. 이벤트 설정하기 ///////////
+smenu.forEach(setList);
+
+// 3. 함수 만들기 //////////////
+function setList(el,idx){
+    // forEach메서드 호출함수 이므로
+    // 전달변수는 순서대로 
+    // el: li요소, idx: li요소의 index
+
+    // 1.함수호출확인
+    console.log('나야나!',el,idx);
+
+    // 2.이벤트 설정하기
+    // (1) mouseenter
+    myFn.addEvt(el,'mouseenter',()=>{
+        // 높이값 주기
+        el.style.height = '100px';
+        el.style.transition = 'height .4s ease-out';
+    }); //// mouseenter 함수 ////
+    
+    // (2) mouseleave
+    myFn.addEvt(el,'mouseleave',()=>{
+        // 높이값 0
+        el.style.height = '0';
+    }); ///// mouseleave 함수 ////
+
+
+} ////////// setList 함수 ///////////
+
 
 
 /*************************************************** 
