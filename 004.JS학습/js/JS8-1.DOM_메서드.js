@@ -3,7 +3,7 @@
 // 나의 함수 가져오기 /////
 import myFn from "./my_function.js";
 
-console.log(myFn);
+// console.log(myFn);
 
 /**************************** 
     마우스오버시 
@@ -14,7 +14,7 @@ console.log(myFn);
 // 1. 대상선정 : .smenu -> 각 li의 공통 클래스
 const smenu = myFn.qsa(".smenu");
 
-console.log("대상:", smenu);
+// console.log("대상:", smenu);
 
 // 2. 이벤트 설정하기 ///////////
 smenu.forEach(setList);
@@ -217,7 +217,7 @@ const btnNew = myFn.qs('.nbt');
 // (2) 변경대상
 const box2 = myFn.qs('#div02 ul');
 
-console.log('새리스트 대상:',btnNew,box2);
+// console.log('새리스트 대상:',btnNew,box2);
 
 // 2. 이벤트 설정하기 ///////
 myFn.addEvt(btnNew,'click', makeElement);
@@ -226,6 +226,46 @@ myFn.addEvt(btnNew,'click', makeElement);
 function makeElement(){
     // (1) 함수호출 확인
     console.log('만들어라!');
+
+    // 할일 : 새로운 li요소를 만들어서 넣기
+    // 변경대상은 ul임!
+    // DOM메서드를 이용하여 메모리상에
+    // 먼저 요소를 생성한다!
+
+    // (2) 넣을 요소 만들기 ///
+    // (2-1) 새로운 li를 생상하여 변수에 할당
+    let newEl = document.createElement("li");
+
+    // (2-2) 이미지 요소 변수에 할당하기
+    let imgEl = document.createElement("img");
+
+    // (2-3) 이미지 속성 셋팅하기
+    let isrc = document.createAttribute("src");
+    let ialt = document.createAttribute("alt");
+    let itit = document.createAttribute("title");
+
+    // 1~5 사이랜덤수
+    // Math.ceil(Math.random()*최대수)
+    let rdm = Math.ceil(Math.random()*5);
+    console.log('랜덤수:',rdm);
+
+    // (2-4) 메모리상 속성에 값 셋팅하기 : value로 셋팅
+    isrc.value = `images/ab${rdm}.jpg`;
+    ialt.value = '아이언맨';
+    itit.value = '클릭하시면 지워집니다!';
+
+    // (2-5) 메모리상 생성된 이미지 속성을 이미지에 넣기
+    imgEl.setAttributeNode(isrc);
+    imgEl.setAttributeNode(ialt);
+    imgEl.setAttributeNode(itit);
+
+    // (2-6) 메모리상에 생성된 li에 생성된 img넣기
+    newEl.appendChild(imgEl);
+    // console.log(newEl);
+
+    // (2-7) 변경대상에 새로운 li추가하여 넣기
+    // appendChild(요소) DOM메서드 사용!
+    box2.appendChild(newEl);
 } //////// makeElement 함수 ////////
 
 
