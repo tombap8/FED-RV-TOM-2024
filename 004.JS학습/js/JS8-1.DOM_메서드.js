@@ -31,15 +31,18 @@ function setList(el,idx){
     // 2.이벤트 설정하기
     // (1) mouseenter
     myFn.addEvt(el,'mouseenter',()=>{
+        let tg = myFn.qsEl(el,'div');
+        console.log('하위대상:',tg);
         // 높이값 주기
-        el.style.height = '100px';
-        el.style.transition = 'height .4s ease-out';
+        tg.style.height = '100px';
+        tg.style.transition = 'height .4s ease-out';
     }); //// mouseenter 함수 ////
     
     // (2) mouseleave
     myFn.addEvt(el,'mouseleave',()=>{
+        let tg = myFn.qsEl(el,'div');
         // 높이값 0
-        el.style.height = '0';
+        tg.style.height = '0';
     }); ///// mouseleave 함수 ////
 
 
