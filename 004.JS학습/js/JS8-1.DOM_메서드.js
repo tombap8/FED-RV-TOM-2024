@@ -213,89 +213,102 @@ function getLink(txt) {
 // 변경대상: #div02 ul
 // 1. 대상선정
 // (1) 버튼대상
-const btnNew = myFn.qs('.nbt');
+const btnNew = myFn.qs(".nbt");
 // (2) 변경대상
-const box2 = myFn.qs('#div02 ul');
+const box2 = myFn.qs("#div02 ul");
 
 // console.log('새리스트 대상:',btnNew,box2);
 
 // 2. 이벤트 설정하기 ///////
-myFn.addEvt(btnNew,'click', makeElement);
+myFn.addEvt(btnNew, "click", makeElement);
 
 // 3. 함수만들기 ///////
-function makeElement(){
-    // (1) 함수호출 확인
-    console.log('만들어라!');
+function makeElement() {
+  // (1) 함수호출 확인
+  console.log("만들어라!");
 
-    // 할일 : 새로운 li요소를 만들어서 넣기
-    // 변경대상은 ul임!
-    // DOM메서드를 이용하여 메모리상에
-    // 먼저 요소를 생성한다!
+  // 할일 : 새로운 li요소를 만들어서 넣기
+  // 변경대상은 ul임!
+  // DOM메서드를 이용하여 메모리상에
+  // 먼저 요소를 생성한다!
 
-    // (2) 넣을 요소 만들기 ///
-    // (2-1) 새로운 li를 생상하여 변수에 할당
-    let newEl = document.createElement("li");
+  // (2) 넣을 요소 만들기 ///
+  // (2-1) 새로운 li를 생상하여 변수에 할당
+  let newEl = document.createElement("li");
 
-    // (2-2) 이미지 요소 변수에 할당하기
-    let imgEl = document.createElement("img");
+  // (2-2) 이미지 요소 변수에 할당하기
+  let imgEl = document.createElement("img");
 
-    // (2-3) 이미지 속성 셋팅하기
-    let isrc = document.createAttribute("src");
-    let ialt = document.createAttribute("alt");
-    let itit = document.createAttribute("title");
+  // (2-3) 이미지 속성 셋팅하기
+  let isrc = document.createAttribute("src");
+  let ialt = document.createAttribute("alt");
+  let itit = document.createAttribute("title");
 
-    // 1~5 사이랜덤수
-    // Math.ceil(Math.random()*최대수)
-    let rdm = Math.ceil(Math.random()*5);
-    console.log('랜덤수:',rdm);
+  // 1~5 사이랜덤수
+  // Math.ceil(Math.random()*최대수)
+  let rdm = Math.ceil(Math.random() * 5);
+  console.log("랜덤수:", rdm);
 
-    // 순번에 맞는 이미지 설명 배열
-    const altText = ['아이언맨','딱딱이','토르','닥스','스타로드'];
+  // 순번에 맞는 이미지 설명 배열
+  const altText = ["아이언맨", "딱딱이", "토르", "닥스", "스타로드"];
 
-    // (2-4) 메모리상 속성에 값 셋팅하기 : value로 셋팅
-    isrc.value = `images/ab${rdm}.jpg`;
-    ialt.value = altText[rdm-1];
-    itit.value = '클릭하시면 지워집니다!';
+  // (2-4) 메모리상 속성에 값 셋팅하기 : value로 셋팅
+  isrc.value = `images/ab${rdm}.jpg`;
+  ialt.value = altText[rdm - 1];
+  itit.value = "클릭하시면 지워집니다!";
 
-    // (2-5) 메모리상 생성된 이미지 속성을 이미지에 넣기
-    imgEl.setAttributeNode(isrc);
-    imgEl.setAttributeNode(ialt);
-    imgEl.setAttributeNode(itit);
+  // (2-5) 메모리상 생성된 이미지 속성을 이미지에 넣기
+  imgEl.setAttributeNode(isrc);
+  imgEl.setAttributeNode(ialt);
+  imgEl.setAttributeNode(itit);
 
-    // (2-6) 메모리상에 생성된 li에 생성된 img넣기
-    newEl.appendChild(imgEl);
-    // console.log(newEl);
+  // (2-6) 메모리상에 생성된 li에 생성된 img넣기
+  newEl.appendChild(imgEl);
+  // console.log(newEl);
 
-    // (2-7) li화면 출력전 클릭이벤트 설정으로 지우기셋팅
-    newEl.onclick = () => newEl.remove();
+  // (2-7) li화면 출력전 클릭이벤트 설정으로 지우기셋팅
+  newEl.onclick = () => newEl.remove();
 
-    // 3. 변경대상에 새로운 li추가하여 넣기
-    // appendChild(요소) DOM메서드 사용!
-    box2.appendChild(newEl);
+  // 3. 변경대상에 새로운 li추가하여 넣기
+  // appendChild(요소) DOM메서드 사용!
+  box2.appendChild(newEl);
 } //////// makeElement 함수 ////////
 
 // 처음부터 들어가 있는 li 5개를 돌면서 지우기 셋팅하기
-myFn.qsaEl(box2,'li')
-.forEach(el=>{
-    // 클릭시 지우기(li)
-    el.onclick = () => el.remove();
-    // 이미지에 title속성 넣기
-    myFn.qsEl(el,'img').title = '클릭하시면 지워집니다!';
-
+myFn.qsaEl(box2, "li").forEach((el) => {
+  // 클릭시 지우기(li)
+  el.onclick = () => el.remove();
+  // 이미지에 title속성 넣기
+  myFn.qsEl(el, "img").title = "클릭하시면 지워집니다!";
 }); ////// forEach //////
-
-
 
 /////////////////////////////////////
 // [ 맨뒤이동 버튼 클릭시 ] /////////
 // 맨앞요소를 맨뒤로 이동하기 ///
 // 이벤트 대상: .mvl
-// 변경대상: #div02 ul
+// 변경대상: #div02 ul -> box2에 할당됨!
+myFn.qs(".mvl").onclick = () => {
+  // box2 아래 li 선택
+  let list = myFn.qsaEl(box2, "li");
+  // 변경대상의 첫번째 요소 선택 -> list[0]
+  // 맨앞요소 맨뒤로 이동 -> appendChild(맨앞요소)
+  box2.appendChild(list[0]);
+}; //////// click ////////
 
 /// [ 맨앞이동버튼 클릭시 ] ////////////
 // 맨뒤li가 맨 앞으로 이동됨
 // 이벤트 대상: .mvf
-// 변경대상: #div02 ul
+// 변경대상: #div02 ul -> box2에 할당됨!
+myFn.qs(".mvf").onclick = () => {
+  // box2 아래 li 선택
+  let list = myFn.qsaEl(box2, "li");
+  // 변경대상의 마지막 요소 선택 -> list[개수-1]
+  // 변경대상의 첫번째 요소 선택 -> list[0]
+  // 맨뒤요소 맨앞으로 이동
+  // -> insertBefore(넣을놈,넣을놈전놈)
+  // -> insertBefore(마지막요소,첫번째요소)
+  box2.insertBefore(list[list.length - 1], list[0]);
+}; //////// click ////////
 
 /************************************************** 
     ※ appendChild() 와 insertBefore()는 
