@@ -274,6 +274,16 @@ function makeElement(){
     box2.appendChild(newEl);
 } //////// makeElement 함수 ////////
 
+// 처음부터 들어가 있는 li 5개를 돌면서 지우기 셋팅하기
+myFn.qsaEl(box2,'li')
+.forEach(el=>{
+    // 클릭시 지우기(li)
+    el.onclick = () => el.remove();
+    // 이미지에 title속성 넣기
+    myFn.qsEl(el,'img').title = '클릭하시면 지워집니다!';
+
+}); ////// forEach //////
+
 
 
 /////////////////////////////////////
