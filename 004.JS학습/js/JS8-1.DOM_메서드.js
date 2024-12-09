@@ -76,11 +76,22 @@ function setList(el,idx){
 ///////////////////////////////////////////////////
 // [ 추가기능 : 링크 클릭시 페이지 새창이동하기 ] ////
 // 1. 대상선정 : .smenu ol a
+const link = myFn.qsa('.smenu ol a');
 
 // 2. forEach로 순회하며 링크이동함수 호출하기
 // 클릭이벤트 설정
+link.forEach(el=>myFn.addEvt(el,'click', linkFn));
 
 // 3. 이동함수 만들기
+function linkFn(){
+    // (1) 클릭된 요소의 글자읽어오기
+    let txt = this.innerText;
+    // this는 클릭된 요소
+
+    // (2) 함수호출 확인!
+    console.log('링크이동!!!',txt);
+
+} ////// linkFn함수 ////////////////////
 
 // 4. 페이지 이동하기 ////
 
