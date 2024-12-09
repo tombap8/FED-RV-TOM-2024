@@ -249,9 +249,12 @@ function makeElement(){
     let rdm = Math.ceil(Math.random()*5);
     console.log('랜덤수:',rdm);
 
+    // 순번에 맞는 이미지 설명 배열
+    const altText = ['아이언맨','딱딱이','토르','닥스','스타로드'];
+
     // (2-4) 메모리상 속성에 값 셋팅하기 : value로 셋팅
     isrc.value = `images/ab${rdm}.jpg`;
-    ialt.value = '아이언맨';
+    ialt.value = altText[rdm-1];
     itit.value = '클릭하시면 지워집니다!';
 
     // (2-5) 메모리상 생성된 이미지 속성을 이미지에 넣기
