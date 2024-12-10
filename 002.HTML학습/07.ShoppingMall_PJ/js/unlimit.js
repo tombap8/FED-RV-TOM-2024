@@ -95,6 +95,10 @@ function goSlide() {
         // [2] 맨앞li 선택하여 맨뒤로 이동하기
         // 슬라이드.appendChild(맨앞li)
         slide.appendChild(myFn.qsaEl(slide,'li')[0]);
+        // 이때 translate값 0으로 초기화함!
+        slide.style.translate = '0';
+        // 초기화할 경우 트랜지션 없애기
+        slide.style.transition = 'none';
         
     }, 400); /// setTimeout ///
   } /////////// if ///////////
