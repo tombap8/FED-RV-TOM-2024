@@ -86,41 +86,43 @@ function goSlide() {
   // (1) 오른쪽버튼 클릭시 : 왼쪽으로 이동
   if (isRight) {
     // [1] translate x축방향 -100% 이동
-    slide.style.translate = '-100%';
-    slide.style.transition = '.4s ease-in-out';
+    slide.style.translate = "-100%";
+    slide.style.transition = ".4s ease-in-out";
 
     // [ 슬라이드 이동후 실행해야함 ]
     // 따라서 setTimeout으로 시간 지연실행코드작성
     setTimeout(() => {
-        // [2] 맨앞li 선택하여 맨뒤로 이동하기
-        // 슬라이드.appendChild(맨앞li)
-        slide.appendChild(myFn.qsaEl(slide,'li')[0]);
-        // 이때 translate값 0으로 초기화함!
-        slide.style.translate = '0';
-        // 초기화할 경우 트랜지션 없애기
-        slide.style.transition = 'none';
-        
+      // [2] 맨앞li 선택하여 맨뒤로 이동하기
+      // 슬라이드.appendChild(맨앞li)
+      slide.appendChild(myFn.qsaEl(slide, "li")[0]);
+      // [3] 이때 translate값 0으로 초기화함!
+      slide.style.translate = "0";
+      // [4] 초기화할 경우 트랜지션 없애기
+      slide.style.transition = "none";
     }, 400); /// setTimeout ///
   } /////////// if ///////////
   // (2) 왼쪽버튼 클릭시 : 오른쪽으로 이동
   else {
-    
+    // 현재 li수집
+    const list = myFn.qsaEl(slide, "li");
+    // [1] 맨뒤li 맨앞으로 이동하기
+    // 슬라이드.insertBefore(맨뒤li,맨앞li)
+    slide.insertBefore(list[list.length - 1], list[0]);
+    // 맨뒤 li순번은 (개수-1)임!
   } ///////// else ///////
 
-  
-
   // 6. 인디케이터 변경하기 : 대상 .indic li
-//   indic.forEach((el, idx) => {
-//     // console.log(el,idx);
-//     // (1) 페이지번호와 일치하는 순번li에 클래스 "on"넣기
-//     if (idx === seqNum) {
-//       el.classList.add("on");
-//     } /// if ///
-//     // (2) 나머지 li는 "on" 제거하기
-//     else {
-//       el.classList.remove("on");
-//     } /// else ///
-//   }); /// forEach ////
+  //   indic.forEach((el, idx) => {
+  //     // console.log(el,idx);
+  //     // (1) 페이지번호와 일치하는 순번li에 클래스 "on"넣기
+  //     if (idx === seqNum) {
+  //       el.classList.add("on");
+  //     } /// if ///
+  //     // (2) 나머지 li는 "on" 제거하기
+  //     else {
+  //       el.classList.remove("on");
+  //     } /// else ///
+  //   }); /// forEach ////
 
   // -> seqNum 값 즉, 슬라이드 순번과
   // 인디케이터 li 순번이 같으므로
