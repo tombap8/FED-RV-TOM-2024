@@ -20,12 +20,13 @@
         //////// jQB /////////////////
 
         // 글자변경
-        $("헐").css({
+        $("#selnum,.nav1").css({
           fontSize: "42px",
           textShadow: "0 0 10px #333",
           cursor: "pointer",
           width: "400px",
           whiteSpace: "nowrap",
+          userSelect: "none" // 더블클릭, 드래그시 영역안잡힘
         });
 
         // 1차 미션: .nav1 아래 li를 클릭시 클릭된 li의
@@ -47,7 +48,7 @@
         // 배열순번변수
         let cseq = 0;
 
-        $("헐").click((e) => {
+        $(".nav1 li").click((e) => {
           // e-이벤트전달값
           // 클릭된 자신은 this지만
           // 화살표함수는 e.currentTarget
@@ -65,7 +66,7 @@
         //동시에 배경이미지를 body에 해당이름과 매칭하여 넣으시오.
 
         // 이벤트 대상: #selnum
-        $("헐").change(function () {
+        $("#selnum").change(function () {
           // 선택값읽어오기
           let opt = $(this).val();
           // val() 선택요소의 값을 읽어오는 메서드
