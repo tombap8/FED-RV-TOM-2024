@@ -48,8 +48,6 @@ const slideBox = myFn.qs(".slide-box");
 
 // (2) 이벤트대상: .abtn
 const abtn = myFn.qsaEl(slideBox, ".abtn");
-// 처음에 첫번째 버튼 숨기기
-abtn[0].style.display = "none";
 
 // (3) 변경대상: .slide
 const slide = myFn.qsEl(slideBox, ".slide");
@@ -93,10 +91,12 @@ function goSlide() {
     // 따라서 setTimeout으로 시간 지연실행코드작성
     setTimeout(() => {
       // [2] 맨앞li 선택하여 맨뒤로 이동하기
-      // 슬라이드.appendChild(맨앞li)
       slide.appendChild(myFn.qsaEl(slide, "li")[0]);
+      // 슬라이드.appendChild(맨앞li)
+
       // [3] 이때 translate값 0으로 초기화함!
       slide.style.translate = "0";
+
       // [4] 초기화할 경우 트랜지션 없애기
       slide.style.transition = "none";
     }, 400); /// setTimeout ///
@@ -105,10 +105,21 @@ function goSlide() {
   else {
     // 현재 li수집
     const list = myFn.qsaEl(slide, "li");
-    // [1] 맨뒤li 맨앞으로 이동하기
-    // 슬라이드.insertBefore(맨뒤li,맨앞li)
+
+    // [1] 맨뒤li 맨앞으로 이동하기 /////////
     slide.insertBefore(list[list.length - 1], list[0]);
+    // 슬라이드.insertBefore(맨뒤li,맨앞li)
     // 맨뒤 li순번은 (개수-1)임!
+
+    // [2] 이때 슬라이드 translate값을 -100%로 설정
+    slide.style.translate = "-100%";
+    slide.style.transition = "none";
+
+    // [3] translate값을 0으로 변경하여 들어오기
+    slide.style.translate = "0";
+
+    // [4] 이때 트랜지션 애니메이션 설정
+    slide.style.transition = ".4s ease-in-out";
   } ///////// else ///////
 
   // 6. 인디케이터 변경하기 : 대상 .indic li
