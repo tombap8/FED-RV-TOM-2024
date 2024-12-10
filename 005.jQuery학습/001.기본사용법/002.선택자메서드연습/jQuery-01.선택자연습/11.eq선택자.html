@@ -26,7 +26,7 @@
           cursor: "pointer",
           width: "400px",
           whiteSpace: "nowrap",
-          userSelect: "none" // 더블클릭, 드래그시 영역안잡힘
+          userSelect: "none", // 더블클릭, 드래그시 영역안잡힘
         });
 
         // 1차 미션: .nav1 아래 li를 클릭시 클릭된 li의
@@ -44,6 +44,17 @@
           "purple",
           "pink",
           "skyblue",
+        ];
+        const bgcolor = [
+          "lightblue",
+          "lightyellow",
+          "lightgreen",
+          "lightcoral",
+          "lightred",
+          "lightgreen",
+          "lightskyblue",
+          "lightcoral",
+          "lightyellow",
         ];
         // 배열순번변수
         let cseq = 0;
@@ -82,7 +93,7 @@
           // 어떤 값을 함수호출한 곳으로 가져갈때 사용!
 
           // 초기화!(모두 투명)
-          $("헐").css({ backgroundColor: "transparent" });
+          $(".nav1 li").css({ backgroundColor: "transparent" });
 
           // 순번을 사용하여 .nav1 li의 같은
           // 순번배경색 변경
@@ -90,16 +101,17 @@
           // :eq(순번) -> 제이쿼리 전용!
           // sequnce에서 나온말! (순번)
           // 순번은 0부터 시작!
-          $(`헐`)
+          $(`.nav1 li:eq(${opt})`)
             // eq(n) -> 제이쿼리 트래버싱 메서드가
             // 더 많이 쓰임!
+            // $(".nav1 li").eq(opt)
 
             .css({
-              backgroundColor: rcolor[opt],
+              backgroundColor: bgcolor[opt],
             });
 
           // 배경이미지 넣기
-          $("헐").css({
+          $("body").css({
             background: `
 			url(img/${opt}.jpg) no-repeat center/cover`,
           }); ///// css ///////
