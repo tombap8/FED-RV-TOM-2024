@@ -58,9 +58,9 @@ const firstSlide = myFn.qsaEl(slide, "li");
 // 최초슬라이드 li에 data-seq 속성 만들고 순번넣기
 // 왜 넣는가? 슬라이드 li순서가 계속 변경되므로
 // 블릿 인디케이터의 표시 순서를 잡기 위해 넣어준다!
-firstSlide.forEach((el,idx)=>{
-    // 속성셋팅은 setAttribute(속성명,값)
-    el.setAttribute('data-seq',idx);
+firstSlide.forEach((el, idx) => {
+  // 속성셋팅은 setAttribute(속성명,값)
+  el.setAttribute("data-seq", idx);
 }); ////// forEach /////////////
 
 // 슬라이드 개수 변수할당!
@@ -89,13 +89,13 @@ const TIME_ANI = 600;
 
 // 3. 함수만들기 /////////////////////
 function goSlide() {
-    // 광클금지 설정 ///////
-    if(stsClick) return; // 함수를 나가!
-    stsClick = true; // 문잠금!
-    setTimeout(() => {
-        stsClick = false; // 잠금해제!
-    }, TIME_ANI);
-    //////////////////////
+  // 광클금지 설정 ///////
+  if (stsClick) return; // 함수를 나가!
+  stsClick = true; // 문잠금!
+  setTimeout(() => {
+    stsClick = false; // 잠금해제!
+  }, TIME_ANI);
+  //////////////////////
 
   // 1. 함수호출확인
   // console.log('나함수!',this);
@@ -105,18 +105,21 @@ function goSlide() {
   // classList.contains(클래스명) -> 클래스있으면 true
   console.log("나함수!", isRight);
 
-  // 3. 분기하여 슬라이드순번 변수 증감하기
+  // 3. 현재 변경된 li수집
+  const list = myFn.qsaEl(slide, "li");
+
+  // 3. 분기하여 슬라이드 이동하기 /////////
   // (1) 오른쪽버튼 클릭시 : 왼쪽으로 이동
   if (isRight) {
     // [1] translate x축방향 -100% 이동
     slide.style.translate = "-100%";
-    slide.style.transition = TIME_ANI+"ms ease-in-out";
+    slide.style.transition = TIME_ANI + "ms ease-in-out";
 
     // [ 슬라이드 이동후 실행해야함 ]
     // 따라서 setTimeout으로 시간 지연실행코드작성
     setTimeout(() => {
       // [2] 맨앞li 선택하여 맨뒤로 이동하기
-      slide.appendChild(myFn.qsaEl(slide, "li")[0]);
+      slide.appendChild(list[0]);
       // 슬라이드.appendChild(맨앞li)
 
       // [3] 이때 translate값 0으로 초기화함!
@@ -128,9 +131,6 @@ function goSlide() {
   } /////////// if ///////////
   // (2) 왼쪽버튼 클릭시 : 오른쪽으로 이동
   else {
-    // 현재 li수집
-    const list = myFn.qsaEl(slide, "li");
-
     // [1] 맨뒤li 맨앞으로 이동하기 /////////
     slide.insertBefore(list[list.length - 1], list[0]);
     // 슬라이드.insertBefore(맨뒤li,맨앞li)
@@ -148,7 +148,7 @@ function goSlide() {
       slide.style.translate = "0";
 
       // [4] 이때 트랜지션 애니메이션 설정
-      slide.style.transition = TIME_ANI+"ms ease-in-out";
+      slide.style.transition = TIME_ANI + "ms ease-in-out";
     }, 0);
   } ///////// else ///////
 
@@ -161,18 +161,25 @@ function goSlide() {
   //   console.log('3');
   //   console.log('4');
 
-  // 6. 인디케이터 변경하기 : 대상 .indic li
-  //   indic.forEach((el, idx) => {
-  //     // console.log(el,idx);
-  //     // (1) 페이지번호와 일치하는 순번li에 클래스 "on"넣기
-  //     if (idx === seqNum) {
-  //       el.classList.add("on");
-  //     } /// if ///
-  //     // (2) 나머지 li는 "on" 제거하기
-  //     else {
-  //       el.classList.remove("on");
-  //     } /// else ///
-  //   }); /// forEach ////
+  // 4. 인디케이터 변경하기 : 대상 .indic li
+  indic.forEach((el, idx) => {
+    // console.log(el,idx);
+    // (1) 슬라이드 data-seq값과
+    // 일치하는 순번li에 클래스 "on"넣기
+    // 이때 오른쪽버튼은 1번, 왼쪽버튼은 0번째 li의
+    // data-seq값을 읽어온다!
+    let num = list[isRight ? 1 : 0].getAttribute("data-seq");
+
+    console.log("num:", num, typeof num);
+
+    if (idx === num) {
+      el.classList.add("on");
+    } /// if ///
+    // (2) 나머지 li는 "on" 제거하기
+    else {
+      el.classList.remove("on");
+    } /// else ///
+  }); /// forEach ////
 
   // -> seqNum 값 즉, 슬라이드 순번과
   // 인디케이터 li 순번이 같으므로
