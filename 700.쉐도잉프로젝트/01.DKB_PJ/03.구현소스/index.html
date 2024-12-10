@@ -68,34 +68,34 @@
                         <i class="fa-solid fa-chevron-down"></i>
                       </a>
                       <!-- 서브메뉴 -->
-                       <aside class="smenu">
-                          <div class="inbox">
-                            <h2>드라마</h2>
-                            <ol>
-                              <li>
-                                <a href="#">[예정] 별들에게 물어봐</a>
-                              </li>
-                              <li>
-                                <a href="#">[종영] 정년이</a>
-                              </li>
-                              <li>
-                                <a href="#">[예정] 원경</a>
-                              </li>
-                              <li>
-                                <a href="#">[종영] 엄마친구아들</a>
-                              </li>
-                              <li>
-                                <a href="#">[월화] 가석방 심사관 이한신</a>
-                              </li>
-                              <li>
-                                <a href="#">[종영] 손해 보기 싫어서</a>
-                              </li>
-                              <li>
-                                <a href="#">[토일] 사랑은 외나무 다리에서</a>
-                              </li>
-                            </ol>
-                          </div>
-                       </aside>
+                      <aside class="smenu">
+                        <div class="inbox">
+                          <h2>드라마</h2>
+                          <ol>
+                            <li>
+                              <a href="#">[예정] 별들에게 물어봐</a>
+                            </li>
+                            <li>
+                              <a href="#">[종영] 정년이</a>
+                            </li>
+                            <li>
+                              <a href="#">[예정] 원경</a>
+                            </li>
+                            <li>
+                              <a href="#">[종영] 엄마친구아들</a>
+                            </li>
+                            <li>
+                              <a href="#">[월화] 가석방 심사관 이한신</a>
+                            </li>
+                            <li>
+                              <a href="#">[종영] 손해 보기 싫어서</a>
+                            </li>
+                            <li>
+                              <a href="#">[토일] 사랑은 외나무 다리에서</a>
+                            </li>
+                          </ol>
+                        </div>
+                      </aside>
                     </li>
                     <li>
                       <a href="#">
@@ -123,7 +123,9 @@
                               <a href="#">[월] 문과vs이과, 놀라운 증명</a>
                             </li>
                             <li>
-                              <a href="#">[목] 텐트 밖은 유럽 로맨틱 이탈리아</a>
+                              <a href="#"
+                                >[목] 텐트 밖은 유럽 로맨틱 이탈리아</a
+                              >
                             </li>
                             <li>
                               <a href="#">[토] 웰컴투불로촌</a>
@@ -154,7 +156,7 @@
                             </li>
                           </ol>
                         </div>
-                     </aside>
+                      </aside>
                     </li>
                     <li>
                       <a href="#">
@@ -174,7 +176,7 @@
                             </li>
                           </ol>
                         </div>
-                     </aside>
+                      </aside>
                     </li>
                     <li>
                       <a href="#">동영상</a>
@@ -203,8 +205,8 @@
       <div id="ban-area">
         <!-- 배너기능박스는 바깥에 있음! -->
         <!-- 슬라이드박스 -->
-        <section class="ban-box">
-          <ul>
+        <section class="ban-box slide-box">
+          <ul class="slide">
             <li>
               <img src="./images/banner/ban01.jpg" alt="배너이미지" />
             </li>
@@ -215,15 +217,38 @@
               <img src="./images/banner/ban03.jpg" alt="배너이미지" />
             </li>
           </ul>
+
+          <!--이동버튼-->
+          <a href="#" class="abtn ab1">
+            <img src="images/banner/etc/left_btn.png" alt="왼쪽이동버튼" />
+          </a>
+          <a href="#" class="abtn ab2">
+            <img src="images/banner/etc/right_btn.png" alt="오른쪽이동버튼" />
+          </a>
+
+          <!--블릿버튼-->
+          <ol class="indic">
+            <li class="on">
+              <img src="images/banner/etc/dot1.png" alt="흰색" />
+              <img src="images/banner/etc/dot2.png" alt="회색" />
+            </li>
+            <li>
+              <img src="images/banner/etc/dot1.png" alt="흰색" />
+              <img src="images/banner/etc/dot2.png" alt="회색" />
+            </li>
+            <li>
+              <img src="images/banner/etc/dot1.png" alt="흰색" />
+              <img src="images/banner/etc/dot2.png" alt="회색" />
+            </li>
+          </ol>
         </section>
         <!-- 배너박스(인박스:인디케이터 등) -->
-        <section class="ban-area inbox">
+        <!-- <section class="ban-area inbox">
           <h2 class="blind">2.배너박스</h2>
-          <!-- 파티션박스 -->
           <div class="cont-box">
             <div class="col-12"></div>
           </div>
-        </section>
+        </section> -->
         <!-- 캐릭터소개박스 -->
         <section class="cat-area inbox">
           <h2 class="blind">캐릭터소개박스</h2>
