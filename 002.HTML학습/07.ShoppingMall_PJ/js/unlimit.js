@@ -51,10 +51,22 @@ const abtn = myFn.qsaEl(slideBox, ".abtn");
 
 // (3) 변경대상: .slide
 const slide = myFn.qsEl(slideBox, ".slide");
+
+// (4) 최초 슬라이드 li 수집하기
+const firstSlide = myFn.qsaEl(slide, "li");
+
+// 최초슬라이드 li에 data-seq 속성 만들고 순번넣기
+// 왜 넣는가? 슬라이드 li순서가 계속 변경되므로
+// 블릿 인디케이터의 표시 순서를 잡기 위해 넣어준다!
+firstSlide.forEach((el,idx)=>{
+    // 속성셋팅은 setAttribute(속성명,값)
+    el.setAttribute('data-seq',idx);
+}); ////// forEach /////////////
+
 // 슬라이드 개수 변수할당!
 // 보통 변경없이 사용하는 변수는 상수라고 하고
 // 상수는 보통 대문자로 쓰고 스네이크 케이스 사용함!
-const SLIDE_CNT = myFn.qsaEl(slide, "li").length;
+const SLIDE_CNT = firstSlide.length;
 console.log("슬라이드개수:", SLIDE_CNT);
 
 // (4) 인디케이터 블릿대상
