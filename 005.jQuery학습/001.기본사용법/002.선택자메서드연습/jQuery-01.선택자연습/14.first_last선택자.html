@@ -14,13 +14,13 @@
         // ------> 각 그룹에서 첫번째, 마지막째임!
 
         // 미션: 전체 li에서 첫번째 li는 빨간 배경색
-        $("헐").css({ backgroundColor: "red" });
+        $("li:first").css({ backgroundColor: "red" });
         // 전체 li에서 마지막 li는 파란 배경색
-        $("헐").css({ backgroundColor: "blue" });
+        $("li:last").css({ backgroundColor: "blue" });
         //	그룹별 첫번째 li는 노란색 글자
-        $("헐").css({ color: "yellow" });
+        $("li:first-child").css({ color: "yellow" });
         //	그룹별 마지막 li는 빨간색 글자로 변경하시오.
-        $("헐").css({ color: "red" });
+        $("li:last-child").css({ color: "red" });
       }); ///////////////// jQB ////////////////////
     </script>
   </head>
