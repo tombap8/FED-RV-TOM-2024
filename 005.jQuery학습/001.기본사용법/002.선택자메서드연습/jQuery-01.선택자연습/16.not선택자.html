@@ -16,10 +16,10 @@
         // 변경하고 글자크기를 72px로 , 글자색은 빨간색으로
         // 변경과 동시에 나머지 li는 사라지게 하시오.
 
-        $("헐").click(function () {
+        $("li").click(function () {
           // text(글자)
           // this는 클릭된 li
-          $("헐").text("왕").css({
+          $(this).text("왕").css({
             fontSize: "72px",
             color: "red",
             transition: "2s",
@@ -30,7 +30,7 @@
           // :not(:eq(n))
 
           // 클릭된 li순번
-          let idx = $("헐").index();
+          let idx = $(this).index();
           // index() 메서드
           // - 선택요소의 형제 중 순번을 리턴함!
           console.log("클릭된 li의 순번:", idx);
@@ -42,7 +42,7 @@
 
           // 해당순번이 아닌요소 모두!
           // -> li:not(:eq(순번))
-          $("헐").delay(2000).hide(2000);
+          $(`li:not(:eq(${idx}))`).delay(2000).hide(2000);
           // 2초후 2초간 사라짐!
         }); ////// click /////////
       }); //////////////// jQB ////////////////////
