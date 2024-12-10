@@ -70,8 +70,21 @@ abtn.forEach((el) => {
   myFn.addEvt(el, "click", goSlide);
 }); //////////// forEach ////////////////
 
+// 광클금지 상태변수
+let stsClick = false;
+// 슬라이드 애니시간상수
+const TIME_ANI = 600;
+
 // 3. 함수만들기 /////////////////////
 function goSlide() {
+    // 광클금지 설정 ///////
+    if(stsClick) return; // 함수를 나가!
+    stsClick = true; // 문잠금!
+    setTimeout(() => {
+        stsClick = false; // 잠금해제!
+    }, TIME_ANI);
+    //////////////////////
+
   // 1. 함수호출확인
   // console.log('나함수!',this);
 
@@ -85,7 +98,7 @@ function goSlide() {
   if (isRight) {
     // [1] translate x축방향 -100% 이동
     slide.style.translate = "-100%";
-    slide.style.transition = ".4s ease-in-out";
+    slide.style.transition = TIME_ANI+"ms ease-in-out";
 
     // [ 슬라이드 이동후 실행해야함 ]
     // 따라서 setTimeout으로 시간 지연실행코드작성
@@ -99,7 +112,7 @@ function goSlide() {
 
       // [4] 초기화할 경우 트랜지션 없애기
       slide.style.transition = "none";
-    }, 400); /// setTimeout ///
+    }, TIME_ANI); /// setTimeout ///
   } /////////// if ///////////
   // (2) 왼쪽버튼 클릭시 : 오른쪽으로 이동
   else {
@@ -115,12 +128,26 @@ function goSlide() {
     slide.style.translate = "-100%";
     slide.style.transition = "none";
 
-    // [3] translate값을 0으로 변경하여 들어오기
-    slide.style.translate = "0";
+    // 코드 실행순서를 분리하여 비동기처리하면
+    // 위의 변경사항과 같은 변경이 시차를 두고
+    // 실행됨! 큐에서 대기하고 스택에서 실행된다!
+    setTimeout(() => {
+      // [3] translate값을 0으로 변경하여 들어오기
+      slide.style.translate = "0";
 
-    // [4] 이때 트랜지션 애니메이션 설정
-    slide.style.transition = ".4s ease-in-out";
+      // [4] 이때 트랜지션 애니메이션 설정
+      slide.style.transition = TIME_ANI+"ms ease-in-out";
+    }, 0);
   } ///////// else ///////
+
+  // 명령어 코드는 콜 스택(Call Stack)에서 순서대로 실행됨
+  //   console.log('1');
+  // 타임아웃메서드는 태스크 큐(Task Queue)에 대기하다가
+  // 콜 스택의 명령어가 모두 실행후 큐에 쌓인 명령어를
+  // 스택으로 옮겨서 순서대로 실행함!
+  //   setTimeout(()=>console.log('2'),0);
+  //   console.log('3');
+  //   console.log('4');
 
   // 6. 인디케이터 변경하기 : 대상 .indic li
   //   indic.forEach((el, idx) => {
