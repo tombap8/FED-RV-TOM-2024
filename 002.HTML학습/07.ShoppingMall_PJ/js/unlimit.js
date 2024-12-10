@@ -105,8 +105,8 @@ function goSlide() {
   // classList.contains(클래스명) -> 클래스있으면 true
   console.log("나함수!", isRight);
 
-  // 3. 현재 변경된 li수집
-  const list = myFn.qsaEl(slide, "li");
+  // 3. 현재 변경된 li수집용 변수
+  let list = myFn.qsaEl(slide, "li");
 
   // 3. 분기하여 슬라이드 이동하기 /////////
   // (1) 오른쪽버튼 클릭시 : 왼쪽으로 이동
@@ -161,18 +161,23 @@ function goSlide() {
   //   console.log('3');
   //   console.log('4');
 
+  // 위에서 변경된 li를 다시 읽어들인다!
+  list = myFn.qsaEl(slide, "li");
+
+  // 슬라이드 data-seq값과
+  // 일치하는 순번li에 클래스 "on"넣기
+  // 이때 오른쪽버튼은 1번, 왼쪽버튼은 0번째 li의
+  // data-seq값을 읽어온다!
+  let num = list[isRight ? 1 : 0].getAttribute("data-seq");
+  console.log("num:", num, typeof num);
+
   // 4. 인디케이터 변경하기 : 대상 .indic li
   indic.forEach((el, idx) => {
-    // console.log(el,idx);
-    // (1) 슬라이드 data-seq값과
-    // 일치하는 순번li에 클래스 "on"넣기
-    // 이때 오른쪽버튼은 1번, 왼쪽버튼은 0번째 li의
-    // data-seq값을 읽어온다!
-    let num = list[isRight ? 1 : 0].getAttribute("data-seq");
+    // console.log(el,idx,typeof idx);
 
-    console.log("num:", num, typeof num);
-
-    if (idx === num) {
+    // 속성값은 문자형이므로 비교시 === 형까지 비교할 경우
+    // 반드시 숫자형으로 변환해야한다! Number(문자형숫자)
+    if (idx === Number(num)) {
       el.classList.add("on");
     } /// if ///
     // (2) 나머지 li는 "on" 제거하기
