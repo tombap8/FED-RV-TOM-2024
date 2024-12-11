@@ -6,15 +6,18 @@
     <!-- jQuery library -->
     <script src="../jquery-3.6.3.min.js"></script>
     <script src="../jquery-ui.min.js"></script>
+    <!-- 색상변경 애니는 반드시 제이쿼리UI를 
+     불러와야함! 그리고 라이브러리 아래 위치해야함! -->
     <script>
       $(() => {
+        $("body").css({fontSize:"3vw"});
         /* 
           :hidden 선택자 -> display:none인 요소를 선택함
           :visible 선택자 -> display:none이 아닌 요소를 선택함
         */
 
         // 미션: li의 보이지 않는 display:none인 요소를 찾아서
-        $("헐")
+        $("li:hidden")
           // 처음로딩후 2초후에 1초동안 나타나게하고(show)
           .delay(2000)
           .show(1000)
@@ -24,14 +27,14 @@
         // 시간 지연은 delay를 사용하시오.
 
         // 미션2 : display가 보이는 요소를 선택하여
-        // 위의 첫번째 미션 6초후에 글자크기를 32px,
-        // 글자색을 red로 애니메이션 하시오.(2초간)
-        $("헐").delay(6000).animate(
+        // 위의 첫번째 미션 6초후에 글자크기를 7vw,
+        // 글자색을 red로 애니메이션 하시오.(1초간)
+        $("li:visible").delay(6000).animate(
           {
-            fontSize: "32px",
+            fontSize: "7vw",
             color: "red", //제이쿼리UI필수!
           },
-          2000
+          1000
         ); ////// animate ///////
       }); //jQuery실행구역
     </script>
@@ -39,14 +42,14 @@
   <body>
     <div id="container">
       <ul class="nav1">
-        <li style="display: none">apple</li>
+        <li style="display: none">나는 사과!</li>
         <li>banana</li>
         <li>grape</li>
       </ul>
 
       <ul class="nav2">
         <li>lion</li>
-        <li style="display: none">tiger</li>
+        <li style="display: none">나는 호랭이!</li>
         <li>fox</li>
       </ul>
     </div>
