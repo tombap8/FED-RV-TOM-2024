@@ -111,13 +111,20 @@ body {
   /* 투명도 0 */
   opacity: 0;
   /* 트랜지션: 속시이지 */
-  transition: 0.3s ease-in;
+  transition: 0.8s ease-in;
+  /* transition: 0.8s cubic-bezier(1, 0.52, 0.26, 1.58); */
 }
 /* 스테이지로 들어오기 */
 .stage.on span {
   transform: translate(0, 0);
   opacity: 1;
 }
+
+/* 글자사이 떨어지게 하는 박스 */
+.stage b{
+    margin-left: 2vw;
+}
+
 
 
 /* 떨어지는 여자 */

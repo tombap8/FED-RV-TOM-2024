@@ -8,6 +8,9 @@ import callLetter from "./call_letter.js";
 
 // console.log(callLetter);
 
+// 글자등장함수 호출하기
+callLetter('.stage','신카이 마코토',1500);
+
 
 /**************************************************** 
     [ 스크롤 이벤트를 활용한 요소 등장액션 기능구현하기 ]
