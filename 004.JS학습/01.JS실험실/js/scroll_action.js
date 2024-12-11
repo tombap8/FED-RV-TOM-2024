@@ -60,7 +60,7 @@ const scrollAct = myFn.qsa(".scroll-act");
 // (3) 변경대상 : .tit
 const tit = myFn.qs(".tit");
 // 타이틀요소에 트랜지션
-tit.style.transition = '.4s ease-in-out';
+tit.style.transition = ".4s ease-in-out";
 
 // console.log("대상:", scrollAct,tit);
 
@@ -68,17 +68,15 @@ tit.style.transition = '.4s ease-in-out';
 // offsetTop은 맨위에서 부터 요소의 위치값
 // 배열변수에 순서대로 담는다!
 const posEl = [];
-scrollAct.forEach((el,idx)=>posEl[idx] = el.offsetTop);
+scrollAct.forEach((el, idx) => (posEl[idx] = el.offsetTop));
 
 console.log("위치값:", posEl);
 
-
-
 // 2. 이벤트 설정하기 ////////
-// (1) 스크롤시 요소등장 함수 호출 
-myFn.addEvt(window, 'scroll', showEl);
+// (1) 스크롤시 요소등장 함수 호출
+myFn.addEvt(window, "scroll", showEl);
 // (2) 타이틀 요리조리 피하기 함수 호출
-myFn.addEvt(window,'scroll', moveTit);
+myFn.addEvt(window, "scroll", moveTit);
 
 // 기준값 만들기 : 화면 높이값을 사용(화면의 2/3)
 const CRITERIA = (window.innerHeight / 3) * 2;
@@ -104,22 +102,23 @@ function showEl() {
 } /////// showEl함수 ////////////////
 
 // (2) 요리조리 타이틀 움직이는 함수 ///
-function moveTit(){
-    // 스크롤 위치값
-    let scY = window.scrollY;
-    // console.log(scrollY);
+function moveTit() {
+  // 스크롤 위치값
+  let scY = window.scrollY;
+  // console.log(scrollY);
 
-    //(1) 함수호출확인
-    console.log('요리조리!',scY);
+  //(1) 함수호출확인
+  console.log("요리조리!", scY);
 
-    // 제일 큰값 기준부터 차례로 범위를 만들면 간단해진다!
-    if(scY >= posEl[2]) // 3번째 요소
-        tit.style.left = '30%';
-    else if(scY >= posEl[1]) // 2번째 요소
-        tit.style.left = '78%';
-    else if(scY > posEl[0]) // 1번째 요소
-        tit.style.left = '28%';
-    else 
-        tit.style.left = '50%';
-
+  // 제일 큰값 기준부터 차례로 범위를 만들면 간단해진다!
+  if (scY >= posEl[2])
+    // 3번째 요소
+    tit.style.left = "30%";
+  else if (scY >= posEl[1])
+    // 2번째 요소
+    tit.style.left = "78%";
+  else if (scY > posEl[0])
+    // 1번째 요소
+    tit.style.left = "28%";
+  else tit.style.left = "50%";
 } //////// moveTit 함수 //////////////
