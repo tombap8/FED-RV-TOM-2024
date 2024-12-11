@@ -18,7 +18,7 @@ body {
   top: 0;
   /* width: 100%; */
   left: 50%;
-  transform: translateX(-50%);
+  translate: -50%;
   /* 중앙이동하기 */
   font-family: "Nanum Brush Script", cursive;
   margin: 0;
