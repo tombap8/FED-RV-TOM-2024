@@ -1,5 +1,12 @@
 // JS실험실 : 02.스크롤액션 JS
 
+// 나의 함수 불러오기
+import myFn from "./my_function.js";
+
+// 글자등장 함수 불러오기
+import callLetter from "./call_letter.js";
+
+// console.log(callLetter);
 
 
 /**************************************************** 
