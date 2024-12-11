@@ -53,3 +53,31 @@ callLetter('.stage','신카이 마코토',1500);
      공통적으로 경계선 아래쪽은 양수, 윗쪽은 음수
 
 ****************************************************/
+
+
+// 1. 대상선정 : 
+// (1) 이벤트 대상 : window
+// (2) 변경대상 : .scroll-act
+const scrollAct = myFn.qsa('.scroll-act');
+console.log('대상:',scrollAct);
+
+// 2. 이벤트 설정하기 ////////
+myFn.addEvt(window,'scroll',showEl);
+
+// 3. 함수만들기 //////////
+function showEl(){
+    // (1) 함수호출확인
+    // console.log('나야나!',window.scrollY);
+
+
+    scrollAct.forEach(el=>{
+        // 테스트 : 첫번째 요소의 바운딩 top값
+        let bcrVal = myFn.getBCR(el);
+        // console.log(bcrVal,
+        //     el.getBoundingClientRect());
+    
+        if(bcrVal<0) el.classList.add('on');
+
+    })
+
+} /////// showEl함수 ////////////////

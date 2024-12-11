@@ -8,6 +8,8 @@ const myFn = {
   // 이벤트 셋팅함수
   addEvt: (el, evt, fn) => 
     el.addEventListener(evt, fn),
+  // 바운딩 함수
+  getBCR: (x) => x.getBoundingClientRect().top,
 }; ///// myFn 객체 ///////
 
 // import해서 사용할 파일이므로 객체를 내보내야함!

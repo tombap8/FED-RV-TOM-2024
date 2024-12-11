@@ -18,7 +18,7 @@ export default function callLetter(target, txt, startTime) {
   // -> 전달받은 선택요소 선택자 target넣기
   const stage = myFn.qs(target);
 
-  console.log("대상:", stage);
+  // console.log("대상:", stage);
 
   // 3. 변경내용 적용하기
   // - 박스에 글자를 span으로 싸서 하나씩 모두넣기
@@ -45,7 +45,7 @@ export default function callLetter(target, txt, startTime) {
         ${x}</span>`;
 
       // 다음순회시 dTime 1씩증가하기 - 문자일때만!
-      console.log("지연시간곱할수:", dTime);
+      // console.log("지연시간곱할수:", dTime);
       dTime++;
     }
   } //// for of ///
