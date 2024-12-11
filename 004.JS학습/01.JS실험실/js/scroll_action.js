@@ -9,8 +9,7 @@ import callLetter from "./call_letter.js";
 // console.log(callLetter);
 
 // 글자등장함수 호출하기
-callLetter('.stage','신카이 마코토',1500);
-
+callLetter(".stage", "신카이 마코토", 1500);
 
 /**************************************************** 
     [ 스크롤 이벤트를 활용한 요소 등장액션 기능구현하기 ]
@@ -54,35 +53,33 @@ callLetter('.stage','신카이 마코토',1500);
 
 ****************************************************/
 
-
-// 1. 대상선정 : 
+// 1. 대상선정 :
 // (1) 이벤트 대상 : window
 // (2) 변경대상 : .scroll-act
-const scrollAct = myFn.qsa('.scroll-act');
-console.log('대상:',scrollAct);
+const scrollAct = myFn.qsa(".scroll-act");
+console.log("대상:", scrollAct);
 
 // 2. 이벤트 설정하기 ////////
-myFn.addEvt(window,'scroll',showEl);
+myFn.addEvt(window, "scroll", showEl);
 
-// 기준값 만들기 : 화면 높이값을 사용
-const CRITERIA = window.innerHeight/3*2;
-console.log('기준값:',CRITERIA);
+// 기준값 만들기 : 화면 높이값을 사용(화면의 2/3)
+const CRITERIA = (window.innerHeight / 3) * 2;
+console.log("기준값:", CRITERIA);
 
 // 3. 함수만들기 //////////
-function showEl(){
-    // (1) 함수호출확인
-    // console.log('나야나!',window.scrollY);
+function showEl() {
+  // (1) 함수호출확인
+  // console.log('나야나!',window.scrollY);
 
+  scrollAct.forEach((el) => {
+    // 각 등장요소의 바운딩 top값
+    let bcrVal = myFn.getBCR(el);
+    // console.log(bcrVal,
+    //     el.getBoundingClientRect());
 
-    scrollAct.forEach(el=>{
-        // 테스트 : 첫번째 요소의 바운딩 top값
-        let bcrVal = myFn.getBCR(el);
-        // console.log(bcrVal,
-        //     el.getBoundingClientRect());
-    
-        if(bcrVal<CRITERIA) el.classList.add('on');
-        else el.classList.remove('on');
-
-    })
-
+    // 화면의 2/3위치에서 클래스 넣기(등장)
+    if (bcrVal < CRITERIA) el.classList.add("on");
+    // 기준값 전에는 다시 클래스 제거(원위치)
+    else el.classList.remove("on");
+  }); ///// forEach /////
 } /////// showEl함수 ////////////////
