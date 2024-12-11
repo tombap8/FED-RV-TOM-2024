@@ -14,34 +14,36 @@
         */
 
         // 미션: 공포특집....... #container를 클릭하면
-        $("헐").click(function () {
+        $("#container")
+        .css({fontSize:'2vw'})
+        .click(function () {
           //   body가 10초간 서서히 검은색이 되고....
-          $("헐").animate(
+          $("body").animate(
             {
               backgroundColor: "#000",
             },
             10000,
             function () {
               //애니후
-              // 10초 후 5초간 빈요소에 글자가 9px빨간색으로
-              // 무섭지? 라는 글자로 서서히 24px까지 5초간 커지다가
-              $("헐")
+              // 10초 후 5초간 빈요소에 글자가 2vw빨간색으로
+              // 무섭지? 라는 글자로 서서히 5vw까지 5초간 커지다가
+              $("li:empty")
                 .text("무섭지?")
                 .css({
-                  fontSize: "9px",
+                  fontSize: "2vw",
                   color: "red",
                   fontFamily: "궁서체",
                 }) //////// css ///////////
                 .animate(
                   {
-                    fontSize: "24px",
+                    fontSize: "5vw",
                   },
                   5000
                 ) //// animate ///////
-                // 0.5초간 72px로 갑자기 커진다!
+                // 0.5초간 10vw로 갑자기 커진다!
                 .animate(
                   {
-                    fontSize: "72px",
+                    fontSize: "10vw",
                   },
                   500
                 ); /////// animate //////
@@ -60,9 +62,11 @@
       </ul>
 
       <ul class="nav2">
-        <li></li>
+        <li> </li>
         <li>tiger</li>
-        <li></li>
+        <li>
+
+        </li>
       </ul>
     </div>
 
