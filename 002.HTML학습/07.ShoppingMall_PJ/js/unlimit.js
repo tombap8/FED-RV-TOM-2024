@@ -214,8 +214,8 @@ function goSlide() {
 /**************************************** 
         인터발 호출 설정하기
 ****************************************/
-// 인터발설정을 지우기 위해 변수에 할당한다!
-let autoI;
+// 인터발 및 타임아웃설정을 지우기 위해 변수에 할당한다!
+let autoI, autoT;
 // 인터발함수 최초호출
 autoSlide();
 
@@ -229,4 +229,8 @@ function autoSlide(){
 function clearAuto(){
   // (1) 인터발 지우기
   clearInterval(autoI);
+  // (2) 타임아웃 지우기(실행쓰나미방지)
+  clearTimeout(autoT);
+  // (3) 일정시간후 인터발 재호출(최종하나만 남는다!)
+  autoT = setTimeout(autoSlide, 5000);
 } /////// clearAuto 함수 ////////
