@@ -64,6 +64,10 @@ console.log('대상:',scrollAct);
 // 2. 이벤트 설정하기 ////////
 myFn.addEvt(window,'scroll',showEl);
 
+// 기준값 만들기 : 화면 높이값을 사용
+const CRITERIA = window.innerHeight/3*2;
+console.log('기준값:',CRITERIA);
+
 // 3. 함수만들기 //////////
 function showEl(){
     // (1) 함수호출확인
@@ -76,7 +80,8 @@ function showEl(){
         // console.log(bcrVal,
         //     el.getBoundingClientRect());
     
-        if(bcrVal<0) el.classList.add('on');
+        if(bcrVal<CRITERIA) el.classList.add('on');
+        else el.classList.remove('on');
 
     })
 
