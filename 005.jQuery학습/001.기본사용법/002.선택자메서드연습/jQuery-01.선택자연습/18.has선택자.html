@@ -23,13 +23,15 @@
       */
 
         // 미션: #container를 클릭하면
-        $("#container").click(function () {
+        $("#container")
+        .css({fontSize:'2vw'})
+        .click(function () {
           // 1. span태그를 포함하고 있는 li를 선택하여
           $("li:has('span')") // 주인공!
             // 글자크기를 9px로 2초간 애니메이션하고
             .animate(
               {
-                fontSize: "9px",
+                fontSize: "1vw",
               },
               2000
             ) ///// animate /////
@@ -53,7 +55,7 @@
                 }) /////// css ///////////////////
                 .animate(
                   {
-                    fontSize: "72px", //애니
+                    fontSize: "5vw", //애니
                     color: "yellow",
                     //색상애니메이션은 반드시 제이쿼리UI가 있어야함!
                     //제이쿼리UI는 제이쿼리 라이브러리 아래에 위치함!
