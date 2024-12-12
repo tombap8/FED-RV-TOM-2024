@@ -54,7 +54,8 @@ h2.temp {
 .ban-box {
   position: relative;
   /* 부모자격 - 이동버튼, 인디케이터 */
-  height: 530px;
+  /* height: 530px; */
+  aspect-ratio: 2.3;
   /* 넘치는 자식요소 숨기기 */
   overflow: hidden;
 }

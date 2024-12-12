@@ -64,10 +64,24 @@ export default function slideFn() {
     //////////////////////
 
     // 1. 함수호출확인
-    // console.log('나함수!',this);
+    console.log("나함수!", this, this.classList);
 
-    // 2. 오른쪽버튼여부 확인
-    let isRight = this.classList.contains("ab2");
+    // 2. 오른쪽버튼여부 확인(기본값 true할당)
+    let isRight = true;
+    // 만약 this.classList가 undefined가 아니면
+    // 클래스 오른쪽 여부를 판단한다!
+    if (this.classList) 
+      isRight = this.classList.contains("ab2");
+    // 일반적으로 버튼을 클릭하지 않고 호출하면
+    // window객체가 this로 잡히므로 classList객체가 없어서
+    // undefined로 나오고 하위 클래스인 contains()가
+    // 없으므로 에러 메시지가 나온다! 따라서 이런 경우를
+    // 대비하여 기본값으로 isRight변수에 true를 주고
+    // 직접호출시 오른쪽으로 이동하게 해준다!
+    // 만약 버튼을 클릭하면 if문에서 걸러주므로
+    // 실제 버튼 클래스 존재 여부를 판단하여 오른쪽/왼쪽
+    // 이동버튼 분기가 작동된다!
+
     // classList.contains(클래스명) -> 클래스있으면 true
     console.log("나함수!", isRight);
 
@@ -157,4 +171,28 @@ export default function slideFn() {
     // 해당순번의 li에 클래스"on"을 넣고
     // 나머지는 "on"을 제거한다!
   } ////////// goSlide함수 /////////////
+
+  /**************************************** 
+        인터발 호출 설정하기
+****************************************/
+  // 인터발 및 타임아웃설정을 지우기 위해 변수에 할당한다!
+  let autoI, autoT;
+  // 인터발함수 최초호출
+  autoSlide();
+
+  // [1] 인터발 설정함수 ////
+  function autoSlide() {
+    autoI = setInterval(goSlide, 2000);
+  } ///// autoSlide 함수 //////
+
+  // [2] 인터발 지우기 함수 ////
+  // -> 버튼 직접 조작시 호출함!
+  function clearAuto() {
+    // (1) 인터발 지우기
+    clearInterval(autoI);
+    // (2) 타임아웃 지우기(실행쓰나미방지)
+    clearTimeout(autoT);
+    // (3) 일정시간후 인터발 재호출(최종하나만 남는다!)
+    autoT = setTimeout(autoSlide, 5000);
+  } /////// clearAuto 함수 ////////
 } ////////// slideFn 함수 /////////
