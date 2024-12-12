@@ -155,11 +155,32 @@ const docH = document.body.clientHeight;
 const scLimit = docH - winH;
 
 console.log(
-  '문서높이:',docH,
-  '\n윈도우높이:',winH,
-  '\n스크롤한계값:',scLimit
+  "문서높이:",
+  docH,
+  "\n윈도우높이:",
+  winH,
+  "\n스크롤한계값:",
+  scLimit
 );
 
+// 2. 대상선정 : 떨어지는 여자요소
+const woman = myFn.qs("#woman");
 
+// console.log('떨녀:',woman);
 
+// 3. 이벤트 설정하기 : window가 이벤트 대상임!
+myFn.addEvt(window, "scroll", moveWoman);
 
+// 4. 함수만들기 /////////
+function moveWoman() {
+  // (1) 스크롤바 위치값 -> 스크롤 이동값
+  let scY = window.scrollY;
+
+  // (2) 떨녀 top값 구하기 : 이미지 이동값
+  // 이이 = 윈높 * 스이 / 스한
+  // 이이 = winH * scY / scLimit
+  let womanTop = (winH * scY) / scLimit;
+
+  // 호출확인 및 스크롤바 위치값, 떨녀 top값
+  console.log("스이:", scY, "\n이이:", womanTop);
+} //////////// moveWoman 함수 /////////////
