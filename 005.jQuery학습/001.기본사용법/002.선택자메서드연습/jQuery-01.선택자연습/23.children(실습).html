@@ -24,6 +24,7 @@
         // 미션: #container를 클릭하면 직계자식인 p태그를 찾아서 배경색을 노란색으로 바꾸고 동시에
         // 직계자식인 div 를 찾아서  배경색을 빨간색으로 변경하시오.
         $("#container")
+        .css({scale: '5', transformOrigin: 'left top'})
         .click(function () {
           // 직계자식 p태그 배경색 노란색
           $(this).children('p').css({
