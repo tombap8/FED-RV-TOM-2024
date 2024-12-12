@@ -35,10 +35,27 @@
               .animate({ backgroundColor: "green" }, 500);
           }); /// click ////
 
-        $(".sub").css({ 
-          scale: "3", 
+        // 추가미션:
+        // .sub 아래 마지막 p태그를 클릭하면
+        // 이전 p태그 모두를 배경색 yellow,
+        // 가로,세로 크기 100px로 원으로 변경
+        // 애니메이션 하시오!
+        // prevAll() 사용!
+        $(".sub").css({
+          scale: "3",
           translate: "0 50vh",
           transformOrigin: "left top",
+        })
+        .find('p').last() // 마지막 p요소
+        .click(function(){
+          $(this) // 클릭된 마지막 p요소
+          .prevAll() // 이전모든 형제요소선택
+          .animate({
+            backgroundColor: 'yellow',
+            width: '100px',
+            height: '100px',
+            borderRadius: '50%',
+          },1000);
         });
       }); //jQuery실행구역
     </script>
