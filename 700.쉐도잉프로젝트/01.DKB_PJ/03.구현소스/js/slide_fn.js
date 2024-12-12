@@ -46,6 +46,8 @@ export default function slideFn() {
     // 각 요소에 이벤트 설정하기
     // click이벤트를 addEventListener로 설정!
     myFn.addEvt(el, "click", goSlide);
+    // 이동버튼 클릭시 인터발지우기함수 호출
+    myFn.addEvt(el, "click", ()=>{clearAuto()});
   }); //////////// forEach ////////////////
 
   // 광클금지 상태변수
@@ -182,7 +184,7 @@ export default function slideFn() {
 
   // [1] 인터발 설정함수 ////
   function autoSlide() {
-    autoI = setInterval(goSlide, 2000);
+    autoI = setInterval(goSlide, 3000);
   } ///// autoSlide 함수 //////
 
   // [2] 인터발 지우기 함수 ////
