@@ -5,7 +5,7 @@
 // arranged by Tom Brace Parker
 
 // startSS()함수를 호출하여 사용
-function startSS() {
+export default function startSS() {
   // 전체 스크롤 대상일때 document를 보냄
   new SmoothScroll(document, 30, 30);
   // 특정박스일 경우 document.querySelector(선택요소)를 씀!

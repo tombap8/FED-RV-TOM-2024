@@ -8,6 +8,13 @@ import callLetter from "./call_letter.js";
 
 // console.log(callLetter);
 
+// 부드러운 스크롤 함수 불러오기
+import startSS from "./smoothScroll23.js";
+
+// 부드러운 스크롤 함수호출
+startSS();
+
+
 // 글자등장함수 호출하기
 callLetter(".stage", "신카이 마코토", 1500);
 
@@ -183,4 +190,10 @@ function moveWoman() {
 
   // 호출확인 및 스크롤바 위치값, 떨녀 top값
   console.log("스이:", scY, "\n이이:", womanTop);
+
+  // (3) 떨녀에게 적용하기
+  woman.style.top = womanTop + 'px';
+
+  // (4) 맨위일때 윗쪽으로 숨기기
+  if(scY < 50) woman.style.top = '-20%';
 } //////////// moveWoman 함수 /////////////
