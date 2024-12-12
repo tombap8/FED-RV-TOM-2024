@@ -1,68 +1,84 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title> Traversal- prev </title>
-<!-- jQuery library -->
-<script src="../jquery-3.6.3.min.js"></script>
-<!-- 색상변경 애니위해 제이쿼리UI 가져옴! -->
-<script src="../jquery-ui.min.js"></script>
-<script>
-  $(()=> {  
-    // [3. prev() -  선택요소 이전형제요소 선택]
-    // [4. prevAll() -  선택요소 이전형제요소 전부선택]
-    
-    // 미션: 마지막 p태그를 클릭하면 0.5초 간격으로 이전 형제요소의 배경색을 차례로 넣으시오.
-    $("#container")    
-    .css({scale: '5', transformOrigin: 'left top'})
-    .children('p') // 직계p요소
-    .last() // 마지막요소 선택
-    .click(function(){
-      // console.log('나야나!');
-      $(this) // 클릭된 요소자신!
-      // .animate({CSS설정},시간,이징,콜백함수)
-      .animate({backgroundColor: 'red'},500)
-      .prev() // 이전형제요소로 이동!->p
-      .delay(1000) // 1초후
-      //(지연시간은 애니메이션 앞에서만 효과가 있다!)
-      .animate({backgroundColor: 'aqua'},500)
-      .prev() // 이전형제요소로 이동!->p
-      .delay(2000) // 2초후
-      .animate({backgroundColor: 'lime'},500)
-      .prev() // 이전형제요소로 이동!->div
-      .find('p') // 하위요소 p선택
-      .delay(3000) // 3초후
-      .animate({backgroundColor: 'green'},500)
+  <head>
+    <meta charset="utf-8" />
+    <title>Traversal- prev</title>
+    <!-- jQuery library -->
+    <script src="../jquery-3.6.3.min.js"></script>
+    <!-- 색상변경 애니위해 제이쿼리UI 가져옴! -->
+    <script src="../jquery-ui.min.js"></script>
+    <script>
+      $(() => {
+        // [3. prev() -  선택요소 이전형제요소 선택]
+        // [4. prevAll() -  선택요소 이전형제요소 전부선택]
 
-    }); /// click ////
-  });//jQuery실행구역
-  </script>
+        // 미션: 마지막 p태그를 클릭하면 0.5초 간격으로 이전 형제요소의 배경색을 차례로 넣으시오.
+        $("#container")
+          .css({ scale: "5", transformOrigin: "left top" })
+          .children("p") // 직계p요소
+          .last() // 마지막요소 선택
+          .click(function () {
+            // console.log('나야나!');
+            $(this) // 클릭된 요소자신!
+              // .animate({CSS설정},시간,이징,콜백함수)
+              .animate({ backgroundColor: "red" }, 500)
+              .prev() // 이전형제요소로 이동!->p
+              .delay(1000) // 1초후
+              //(지연시간은 애니메이션 앞에서만 효과가 있다!)
+              .animate({ backgroundColor: "aqua" }, 500)
+              .prev() // 이전형제요소로 이동!->p
+              .delay(2000) // 2초후
+              .animate({ backgroundColor: "lime" }, 500)
+              .prev() // 이전형제요소로 이동!->div
+              .find("p") // 하위요소 p선택
+              .delay(3000) // 3초후
+              .animate({ backgroundColor: "green" }, 500);
+          }); /// click ////
 
-<style>
-  div, p {float:left;margin:10px; background-color:#FFF;}
-  div#sub { width:80px; height:80px; border:#000 thin solid;}
-  p { width:50px; height:50px; border:#000 thin solid;}
-</style>
-</head>
-<body>
-<div id="container">
+        $(".sub").css({ 
+          scale: "2", 
+          transformOrigin: "right top",
+        });
+      }); //jQuery실행구역
+    </script>
 
-    <div id = "sub">
-      <p>div p</p>
+    <style>
+      div,
+      p {
+        float: left;
+        margin: 10px;
+        background-color: #fff;
+      }
+      div.sub {
+        position: absolute;
+        right: 0;
+        width: 80px;
+        height: 80px;
+        border: #000 thin solid;
+      }
+      p {
+        width: 50px;
+        height: 50px;
+        border: #000 thin solid;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="sub">
+        <p>div p</p>
+      </div>
+      <p id="part1">p</p>
+      <p>p</p>
+      <p>p:나를클릭해!</p>
     </div>
-    <p id="part1">p</p>
-    <p>p</p>
-    <p>p:나를클릭해!</p>
 
-</div>
-
-<div class="sub">
-  <p>p</p>
-  <p>p</p>
-  <p>p</p>
-  <p>p</p>
-  <p>p:나도클릭!</p>
-</div>
-
-</body>
+    <div class="sub">
+      <p>p</p>
+      <p>p</p>
+      <p>p</p>
+      <p>p</p>
+      <p>p:나도클릭!</p>
+    </div>
+  </body>
 </html>
