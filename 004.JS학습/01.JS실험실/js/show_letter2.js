@@ -22,6 +22,7 @@ const myText =
 const newText = myText.split(' ');
 console.log('잘라배열:',newText);
 
+
 // 5. 글자데이터 변환하기
 // - span태그로 싸서 대상박스에 넣기
 // 대상: stage 
@@ -60,4 +61,18 @@ console.log('다시 aa배열:',aa);
 // 배열.map().join('')
 // 배열값 변형 맵죠잉~!
 
-// 
+// 등장액션 기준값설정(윈도우화면 절반크기)
+const CRITERIA =   window.innerHeight/2;
+console.log('기준값:',CRITERIA);
+
+// 6. 스크롤 시 글자박스에 클래스 넣기
+myFn.addEvt(window,'scroll',()=>{
+    // (1) 대상요소 위치값 : getBoundingClientRect()
+    // 대상: stage
+    let pos = myFn.getBCR(stage);
+    
+    console.log('스크롤~~~',pos);
+
+
+
+}); /////// addEvt /////////////
