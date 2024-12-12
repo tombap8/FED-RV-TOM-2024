@@ -6,7 +6,17 @@
 <!-- jQuery library -->
 <script src="../jquery-3.6.3.min.js"></script>
 <script src="../jquery-ui.min.js"></script>
-
+<script>
+  $(()=> {  
+    // [3. prev() -  선택요소 이전형제요소 선택]
+    // [4. prevAll() -  선택요소 이전형제요소 전부선택]
+    
+    // 미션: 마지막 p태그를 클릭하면 0.5초 간격으로 이전 형제요소의 배경색을 차례로 넣으시오.
+    $("#container")    
+    .css({scale: '5', transformOrigin: 'left top'})
+    
+  });//jQuery실행구역
+  </script>
 
 <style>
   div, p {float:left;margin:10px; background-color:#FFF;}
