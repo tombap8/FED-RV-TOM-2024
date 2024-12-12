@@ -70,8 +70,13 @@ myFn.addEvt(window,'scroll',()=>{
     // (1) 대상요소 위치값 : getBoundingClientRect()
     // 대상: stage
     let pos = myFn.getBCR(stage);
-    
+
     console.log('스크롤~~~',pos);
+
+    // (2) 바운딩값이 기준값보다 작을때 
+    // 대상요소에 클래스 "on"넣기
+    if(pos<CRITERIA) stage.classList.add('on');
+    else stage.classList.remove('on');
 
 
 
