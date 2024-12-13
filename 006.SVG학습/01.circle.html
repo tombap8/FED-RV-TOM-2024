@@ -172,7 +172,7 @@
         background: url(./images/doc.jpg) no-repeat top/cover;
         /* 다각형 클리핑 적용하기 
         clip-path: polygon(x1 y1,x2 y2,...) */
-        
+        clip-path: polygon(50% 0, 100% 33%, 100% 66%, 50% 100%, 0% 66%, 0% 33%);
       }
 
       /* 다각형 */
@@ -189,7 +189,7 @@
       }
       /* 오버시 선보이기 */
       .svg3:hover .pg1 {
-        
+        stroke-dashoffset: 0;
       }
 
       /* 4. 완다 : path */
