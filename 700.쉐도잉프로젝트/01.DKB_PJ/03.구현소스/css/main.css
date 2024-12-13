@@ -29,7 +29,7 @@ h2.temp {
   outline: none;
 }
 
-/************ 1.5.드라마 파트메뉴영역 ************/
+/************ 2.5.드라마 파트메뉴영역 ************/
 #spart-menu {
   /* 스티키 포지션 - 상단스크롤 걸림! */
   position: sticky;
@@ -308,3 +308,78 @@ h2.temp {
   /* 양쪽정렬 justify */
   text-align: justify;
 }
+
+/*********** 방송편성소개파트 : .intro-part ***********/
+.main .intro-part .partbox {
+  height: 455px;
+  padding: 10px;
+}
+/* 서브타이틀 */
+.intro-part .stit {
+  padding-bottom: 0;
+}
+/* 하위제목+아이콘 박스 */
+.intro-desc {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 2.5rem;
+}
+.intro-desc h3 {
+  margin-right: 10px;
+}
+.intro-desc ul {
+  display: flex;
+  gap: 0 15px;
+}
+/* 설명박스 */
+.intro-txt {
+  padding: 20px;
+  font-size: 2.2rem;
+  line-height: 2;
+  color: #555;
+}
+/* 인트로버튼 */
+.intro-btn {
+  padding: 20px 50px;
+  border-radius: 10px;
+  font-size: 1.8rem;
+  background-color: transparent;
+  border: 1px solid #000;
+  font-weight: bold;
+}
+
+/* 인트로 동영상 박스 */
+.intro-mv-img {
+  position: relative;
+  /* 부모자격 */
+  aspect-ratio: 2/1.1;
+}
+/* 가상요소로 플레이버튼 만들기
+-> .off를 준 경우에만 가상요소 버튼보임
+따라서 비디오태그 넣을 경우 .off 지울것! */
+.intro-mv-img.off::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  background: url(../images/icon_play.png) no-repeat;
+  cursor: pointer;
+}
+
+/* 하위 이미지/동영상 */
+.intro-mv-img img,
+.intro-mv-img video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+/* 동영상 설명박스 */
+.intro-mv-box figcaption {
+  font-size: 2rem;
+  padding-top: 10px;
+}
+
