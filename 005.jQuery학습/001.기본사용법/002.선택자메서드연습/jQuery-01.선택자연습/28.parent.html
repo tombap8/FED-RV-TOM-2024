@@ -42,14 +42,17 @@
 
           e.stopPropagation();
           // propagation은 전파,전달 이라는 단어!
+
           // preventDefault()는 기본기능 막기다!
           e.preventDefault();
           // 기본적으로 a요소는 #일때 페이지위로 이동함
           // 이런 a요소의 이동특성을 없애는것!
 
-          $(this).parents("p").animate({ backgroundColor: "yellow" }, 500);
+          $(this).parents("p")
+          .animate({ backgroundColor: "yellow" }, 500);
 
-          $(this).parents("#sub").animate({ backgroundColor: "green" }, 1000);
+          $(this).parents("#sub")
+          .animate({ backgroundColor: "green" }, 1000);
         }); /////////// click ///////////
 
         // a요소의 부모인 p요소 클릭설정
