@@ -47,7 +47,12 @@ export default function slideFn() {
     // click이벤트를 addEventListener로 설정!
     myFn.addEvt(el, "click", goSlide);
     // 이동버튼 클릭시 인터발지우기함수 호출
-    myFn.addEvt(el, "click", ()=>{clearAuto()});
+    myFn.addEvt(el, "click", 
+      (e)=>{
+        // a요소 기본이동기능 막기
+        e.preventDefault();
+        clearAuto();
+      });
   }); //////////// forEach ////////////////
 
   // 광클금지 상태변수

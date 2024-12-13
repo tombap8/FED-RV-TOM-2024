@@ -29,6 +29,73 @@ h2.temp {
   outline: none;
 }
 
+/************ 1.5.드라마 파트메뉴영역 ************/
+#spart-menu {
+  /* 스티키 포지션 - 상단스크롤 걸림! */
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 999;
+}
+/* 인박스 높이값 초기화 */
+.spart-menu.inbox{
+  height: auto;
+}
+.spart-menu ul {
+  /* 플렉스박스 */
+  display: flex;
+  padding: 12px 0;
+  transition: 0.4s ease-out;
+}
+/* 도깨비메뉴 상위메뉴a */
+.spart-menu ul > li > a {
+  color: #999;
+  font-size: 1.8rem;
+  display: block;
+  padding: 9px 24px;
+  /* 줄바꿈방지 */
+  white-space: nowrap;
+}
+/* 도깨비메뉴 상위li 오버시 a */
+.spart-menu ul > li:hover > a {
+  color: #222;
+}
+/* 하위메뉴가 있는 li만 하위 표시하기 */
+.spart-menu ul > li.be-sub > a::after {
+  content: "∨";
+  display: inline-block;
+  transform: scale(0.5, 0.3);
+  margin-left: 3px;
+}
+/* 현재 선택된 메뉴 li.on 클래스 */
+.spart-menu ul > li.on > a {
+  background-color: red;
+  color: #fff;
+  border-radius: 30px;
+}
+
+/* 도깨비 서브메뉴 */
+.spart-sub-menu {
+  position: absolute;
+  border: 1px solid red;
+  border-radius: 20px;
+  width: 180px;
+  background-color: #fff;
+
+  /* 처음에 숨김 */
+  display: none;
+}
+/* 상위li에 마우스 오버시 서브 보이기 */
+.spart-menu ul > li:hover .spart-sub-menu {
+  display: block;
+}
+/* 도깨비 서브메뉴 a */
+.spart-sub-menu a {
+  display: block;
+  padding: 10px 15px;
+  font-size: 1.8rem;
+}
+
 /*************** 메인영역 ***************/
 /*************** 2. 배너파트 ***************/
 /* 배너 영역 : 중앙영역(인디케이터)
@@ -109,33 +176,33 @@ h2.temp {
 }
 
 /*블릿버튼*/
-.indic-box{
+.indic-box {
   position: absolute;
   top: 20px;
   left: 30px;
-  width: min(450px,32.8vw);
+  width: min(450px, 32.8vw);
   height: 5px;
   z-index: 1;
 }
-.indic{
+.indic {
   display: flex;
   gap: 0 15px;
 }
-.indic li{
+.indic li {
   width: 150px;
   height: 5px;
   background-color: #ffffff66;
 }
 /* 가상요소바 */
-.indic li::before{
-  content: '';
+.indic li::before {
+  content: "";
   display: block;
   width: 0;
   height: 5px;
   background-color: #fff;
 }
 /* li.on일 경우 가상요소 width변경 */
-.indic li.on::before{
+.indic li.on::before {
   width: 100%;
   transition: width 3s linear;
 }
@@ -145,7 +212,7 @@ h2.temp {
   position: relative;
   /* 형제 배너박스보다 밑에 깔리므로
   포지션을 줘서 나중에 오는 박스가 위로 오게함! */
-  
+
   /* 비율적용을 위해 높이값을 없앤다! */
   height: auto;
   aspect-ratio: 1320/190;
@@ -163,17 +230,17 @@ h2.temp {
   flex: 1;
 }
 /* 캐릭터 이미지박스 */
-.cat-box figure {  
+.cat-box figure {
   /* 트랜지션 */
-  transition: .4s ease-out;
+  transition: 0.4s ease-out;
 }
 /* 캐릭터 각 박스 오버시 캐릭터박스
 마진탑 올리기 */
-.cat-box>div:hover figure{
+.cat-box > div:hover figure {
   /* 브라우저 화면크기를 중앙속박스 크기로 맞추고
   최대크기 px,vw를 조정한다! 이때 마이너스니까
   min이 아니고 max로 조정함! */
-  margin-top: max(-200px,-15vw);
+  margin-top: max(-200px, -15vw);
 }
 /* 캐릭터 이미지만 선택 */
 .cat-box figure > img {
@@ -187,7 +254,7 @@ h2.temp {
   margin-top: -17%;
 }
 /* 이름이미지 공통 */
-.cat-box figcaption img{
+.cat-box figcaption img {
   width: 35%;
 }
 /* 첫번째 이름이미지 처음에 안보임 */
@@ -196,49 +263,48 @@ h2.temp {
 }
 /* 캐릭터 개별박스에 오버시 이름변경
 -> 첫번째 보이고 두번째 숨기기 */
-.cat-box>div:hover figcaption img:first-child{
+.cat-box > div:hover figcaption img:first-child {
   display: inline;
 }
-.cat-box>div:hover figcaption img:last-child{
+.cat-box > div:hover figcaption img:last-child {
   display: none;
 }
 
 /* 캐릭터 설명박스 */
-.cat-box aside{
+.cat-box aside {
   height: 0;
   overflow: auto;
   /* 배경 */
   background: url(../images/eachBG.jpg) no-repeat bottom/cover;
   /* 트랜지션 */
-  transition: .4s ease-out;
+  transition: 0.4s ease-out;
   /* 둥근모서리 설정 */
   border-radius: 10px 5px 5px 10px;
   margin-top: 10px;
 }
 /* 각 캐릭터박스에 오버시 설명박스 보이기 */
-.cat-box>div:hover aside{
+.cat-box > div:hover aside {
   /* 중앙박스 최대크기에서 px과 vw크기를 맞추고
   최소크기 출력을 테스트하면 잘된다! */
-  height: min(200px,15vw);
+  height: min(200px, 15vw);
 }
 /* 캐릭터 타이틀 */
-.cat-box aside h3{
-  font-family: 'Gugi';
+.cat-box aside h3 {
+  font-family: "Gugi";
   /* 글자 최대크기를 min으로 설정 */
-  font-size: min(2.4rem,1.8vw);
+  font-size: min(2.4rem, 1.8vw);
   font-weight: normal;
-  padding: 1.5rem 1rem .5rem;
+  padding: 1.5rem 1rem 0.5rem;
   /* 자간 letter-spacing */
   letter-spacing: -1px;
 }
 /* 캐릭터 설명 */
-.cat-box aside p{
-  font-family: 'Single Day';
+.cat-box aside p {
+  font-family: "Single Day";
   /* 글자 최대크기를 min으로 설정 */
-  font-size: min(1.8rem,1.3vw);
+  font-size: min(1.8rem, 1.3vw);
   padding: 1.5rem;
   line-height: 1.6;
   /* 양쪽정렬 justify */
   text-align: justify;
 }
-
