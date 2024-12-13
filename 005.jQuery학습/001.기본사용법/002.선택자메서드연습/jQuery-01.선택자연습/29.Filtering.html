@@ -61,9 +61,13 @@
         // 아닌경우 "아님"이라고 출력하시오!(배경색회색)
         $("p").click(function () {
           if ($(this).is(".my")) {
-            $(this).text("나야나!").css({ backgroundColor: "lime" });
+            $(this).text("나야나!").css({
+              backgroundColor: "lime",
+            });
           } else {
-            $(this).text("아님!").css({ backgroundColor: "gray" });
+            $(this).text("아님!").css({
+              backgroundColor: "gray",
+            });
           }
         }); // click /////////////////
       }); //jQuery실행구역
