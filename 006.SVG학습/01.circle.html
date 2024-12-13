@@ -196,14 +196,18 @@
       .svg4 svg {
         background: url(./images/wan.jpg) no-repeat top/cover;
         /* 클리핑 SVG모양대로 보이게함 */
-        
+        clip-path: url(#myClip);
       }
       /* 패스 */
       .pa1{        
-        
+        fill: none;
+        stroke: orangered;
+        stroke-width: 20;
+        stroke-linecap: round;
 
         /* 데쉬선 설정 */
-        
+        stroke-dasharray: 340%;
+        stroke-dashoffset: 340%;
         /* 트랜지션 */
         transition: .7s ease-out;
       }
