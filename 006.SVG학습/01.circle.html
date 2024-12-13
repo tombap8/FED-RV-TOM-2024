@@ -177,7 +177,13 @@
 
       /* 다각형 */
       .pg1 {        
-        
+        fill: none;
+        stroke: lightgreen;
+        stroke-width: 20;
+        stroke-linecap: round;
+        /* 데쉬선 */
+        stroke-dasharray: 300%;
+        stroke-dashoffset: 300%;
         /* 트랜지션 */
         transition: 0.6s;
       }
@@ -247,7 +253,7 @@
         <div class="cbx svg3">
           <svg>
             <polygon
-              style="stroke:url(#grad1)"
+              
               class="pg1"
               points="150,10 290,100 290,200 150,290 10,200 10,100"
             />
