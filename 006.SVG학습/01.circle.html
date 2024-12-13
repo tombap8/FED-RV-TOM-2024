@@ -79,6 +79,8 @@
         -> 하위 백터요소에는 일반 트랜스폼
         적용안됨! 부모요소인 svg는 적용됨! */
         
+        /* rotate: -90deg; */
+
       }
 
       /* circle 설정 */
@@ -87,9 +89,9 @@
         transparent - 투명색
         none - 채우기없앰(아래쪽 터치가능)
         */
-        
+        fill: none;
         /* 선색 stroke (기존은 안나옴) */
-        
+        stroke: red;
         /* 선두께 stroke-width
         기본두께 1px, 단위생략가능 */
         stroke-width: 20;
@@ -100,7 +102,7 @@
         속성임!
         - 원리가 선으로 모두 채우고
         선크기만큼 밀어서 공백부터 나오게함*/
-        
+        stroke-dasharray: calc(50%*6);
         /* 
           데쉬설정 선으로 채우기 방법:
           1. 값으로 50%를 줘본다!
@@ -114,6 +116,7 @@
         */
         /* 데쉬시작선 밀기 속성 
         stroke-dashoffset */
+        stroke-dashoffset: calc(50%*6);
         
 
         /* 선끝 둥글게하기 
@@ -122,7 +125,7 @@
             2) square : 끝에 사각형으로 덮음
             3) round : 끝에 둥근모양으로 덮음
         */
-        
+        stroke-linecap: round;
 
         /* 시작위치를 위에서부터 하기위해
         트랜스폼 rotate를 여기서 주면?
@@ -135,7 +138,7 @@
       }
       /* 오버시 선보이기 */
       .svg1:hover .c1 {
-        
+        stroke-dashoffset: 0;
       }
 
       /* 끝날때 빠져나가는 다른방식 연구~ */
@@ -221,6 +224,7 @@
         <div class="cbx svg1">
           <svg>
             <circle class="c1" cx="150" cy="150" r="140" />
+            <!-- <circle class="c1" cx="150" cy="150" r="140" transform="rotate(-90,150,150)" /> -->
           </svg>
         </div>
       </section>
