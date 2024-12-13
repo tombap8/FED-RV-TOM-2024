@@ -14,7 +14,12 @@
         // has(선택자) : 선택요소 내부에서 특정요소를 포함하는 것을 선택함.
 
         // 미션: #main을 클릭할때 각 미션을 수행하라!
-        $("#main").click(function () {
+        $("#main")
+        .css({
+          scale: "2.5",
+          transformOrigin: "left top",
+        })
+        .click(function () {
           // 1. p태그를 찾아 그 중 첫번째 요소의 배경색 red
           $("p").first().css({ backgroundColor: "red" });
 
