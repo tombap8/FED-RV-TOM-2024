@@ -16,13 +16,40 @@
         ///// jQB //////////////////
         // [5. next() - 선택요소의 다음 형제요소를 선택함]
         // [6. nextAll() - 선택요소의 다음 형제요소를 전부선택함]
+
+        $("#container").css({
+          scale: "2",
+          transformOrigin: "left top",
+        });
+
         /// 미션: #part1 을 클릭하면 다음형제요소의
         // 크기를 width: 200px, height: 200px로 애니메이션 하시오.
         // 내부의 글자를 "안녕하세요~!"라고 변경하시오.
         // text(내용) - 글자변경 메서드
+        $("#part1").click(function () {
+          $(this)
+            .next()
+            .animate(
+              {
+                width: "200px",
+                height: "200px",
+              },
+              1000
+            )
+            .text("안녕하세요~!");
+        }); /// click ///
+
         // 추가미션: #sub를 클릭하면
         // 다음의 형제 요소모두를
         // 빨간배경색변경 애니메이션 하시오!
+        $("#sub").click(function () {
+          $(this).nextAll().animate(
+            {
+              backgroundColor: "aqua",
+            },
+            1000
+          ); /// animate ///
+        }); /// click ///
       }); ///////// jQB //////////////////
     </script>
 
