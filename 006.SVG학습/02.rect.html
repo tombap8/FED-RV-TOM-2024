@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사각형 + 다각형 SVG</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            color: #fff;
+            background-color: #000;
+            text-align: center;
+        }
+
+        /* 이미지박스 */
+        .ibox {
+            width: 400px;
+            height: 300px;
+            margin: 0 auto;
+            background:
+                url(./images/img1.jpg) no-repeat center/cover;
+        }
+
+        /* 사각형 svg */
+        .rsvg {
+            width: 100%;
+            height: 100%;
+            /* svg는 보통 가로,세로 크기를 주는 것부터 시작!
+            svg 가 백터 그래픽의 스테이지다! */
+        }
+
+        /* rect요소 */
+        .rsvg rect {}
+
+        /* 버튼에 마우스 오버시 */
+        .ib1:hover rect {
+            stroke-dashoffset: 0;
+            /* 선이 다시나옴!!! */
+        }
+
+        /* 두번째 rect박스 */
+        .ib2 {
+            width: 200px;
+            height: 150px;
+            /* 가로,세로 비율을 4:3으로! */
+            margin-top: 50px;
+        }
+
+        /* 다각형 부모박스 */
+        .pbx{
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+            background: url(images/earth.png) no-repeat center 83%/50%;
+            /* outline: 5px solid lime; */
+        }
+        /* 다각형 svg요소 */
+        .psvg{
+            width: 100%;
+            height: 100%;
+        }
+        /* polygon요소 */
+        .psvg polygon{}
+        /* 마우스 오버시 */
+        .psvg:hover polygon{}
+
+
+        /* 크기가 유동적인 비율유지 박스 */
+        .pbx2{
+            position: relative;
+            /* 부모자격! */
+            width: 40%;
+            height: auto;
+            background-image: url(images/sun.png);
+        }
+        /* 가상요소로 비율만들기 */
+        .pbx2::before{
+            content: '';
+            display: block;
+            padding-top: 100%;
+        }
+        .pbx2 .psvg{
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* 부모는? .pbx2 */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>사각형 SVG</h1>
+
+    <div class="ibox ib1">
+        
+    </div>
+    <div class="ibox ib1 ib2">
+        
+    </div>
+    
+    <h1>다각형 SVG</h1>
+    
+    <div class="pbx">
+        
+    </div>
+
+    <!-- 크기가 변경되는 비율유지박스 -->
+    <div class="pbx pbx2">
+        
+    </div>
+
+    <!-- 
+        
+    ********************************************************
+        [ rect 요소 - 사각형을 그리는 svg ]
+        1. 구성속성: 
+            (1) 가로크기 - width
+            (2) 세로크기 - height
+            (3) x축위치 - x
+            (3) y축위치 - y
+        2. 표현법:
+          - svg 요소 하위에 rect 요소를 코딩한다
+
+        [ polygon 요소 - 다각형을 그리는 svg ]
+        1. 구성속성:
+            - points : 다각형의 점들의 좌표값을 셋팅함
+        2. 좌표값 표현
+            - points의 값으로 아래와 같이 표기함
+            points="x1,y1 x2,y2 x3,y3 ..."
+            - x,y좌표를 콤마로 구분하고 다른좌표는 띄어쓰기로 구분함
+    
+    ********************************************************
+     -->
+
+</body>
+
+</html>
