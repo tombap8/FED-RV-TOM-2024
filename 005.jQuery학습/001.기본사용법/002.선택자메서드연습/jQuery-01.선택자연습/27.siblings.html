@@ -1,39 +1,60 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title> Traversal- siblings </title>
-<!-- jQuery library -->
-<script src="../jquery-3.6.3.min.js"></script>
-<script src="../jquery-ui.min.js"></script>
+  <head>
+    <meta charset="utf-8" />
+    <title>Traversal- siblings</title>
+    <!-- jQuery library -->
+    <script src="../jquery-3.6.3.min.js"></script>
+    <script src="../jquery-ui.min.js"></script>
+    <script>
+      $(() => {
+        /* 
+          [7. siblings() 메서드]
+          - 선택요소를 제외한 나머지 형제요소를 선택함!
+          
+          ->>> siblings(필터) 메서드
+          - 필터에 특정요소나 요소명을 쓰면
+          다른 형제요소들 중 특정요소만 선택함!
+        */
 
+        // 미션: 미니언즈 이미지 300개를 셋팅하고 미니언즈 중 하나를 클릭하면 클릭된 이미지만 width를 200px로 변경, 나머지는 모두 50px로 변경되도록 애니메이션 하시오.
 
-<style>
-  div, p {float:left;margin:10px; background-color:#FFF;}
-  div#sub { width:80px; height:80px; border:#000 thin solid;}
-  p { width:50px; height:50px; border:#000 thin solid;}
-  .my{
-      border-radius: 50%;
-      animation: rot 2s linear infinite;
-    }
-    @keyframes rot {
-      to{transform: rotate(360deg);}
-    }
+        // 전체박스
+        let tg = $("#container");
+      }); //jQuery실행구역
+    </script>
 
-</style>
-</head>
-<body>
-<div id="container">
-
-	
-	
-	
-	
-</div>
-<!---------- jQuery code Start ---------->
-<script>
-
-</script>
-
-</body>
+    <style>
+      div,
+      p {
+        float: left;
+        margin: 10px;
+        background-color: #fff;
+      }
+      div#sub {
+        width: 80px;
+        height: 80px;
+        border: #000 thin solid;
+      }
+      p {
+        width: 50px;
+        height: 50px;
+        border: #000 thin solid;
+      }
+      .my {
+        border-radius: 50%;
+        animation: rot 2s linear infinite;
+      }
+      @keyframes rot {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <!---------- jQuery code Start ---------->
+    <script></script>
+  </body>
 </html>
