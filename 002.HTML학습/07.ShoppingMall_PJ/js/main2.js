@@ -31,45 +31,69 @@
 
 // [ 1. 대상선정 ]
 // 이벤트 대상: 이동버튼(.abtn)
-const $btnMove = $('.abtn');
+const $btnMove = $(".abtn");
 // 변경 대상: 슬라이드 박스(.slide)
-const $slide = $('.slide');
+const $slide = $(".slide");
+
+// 광클금지 상태변수
+let stsClick = false;
+// 슬라이드 애니시간상수
+const TIME_ANI = 500;
 
 // [ 2. 이벤트 설정 및 함수구현 ]
-$btnMove.click(function(){
-    // (1) 방향구분하기 : 아랫쪽버튼(.ab2)이면 true
-    let isBtn = $(this).is('.ab2');
-    console.log('나야나!',this,isBtn);
+$btnMove.click(function () {
+  // 광클금지 설정 ///////
+  if (stsClick) return; // 함수를 나가!
+  stsClick = true; // 문잠금!
+  setTimeout(() => {
+    stsClick = false; // 잠금해제!
+  }, TIME_ANI);
+  //////////////////////
 
-    // (2) 방향별 분기하기
-    // (2-1) 윗쪽방향으로 이동
-    if(isBtn){ 
-        // 슬라이드의 translate Y값을 -100%
-        // 제이쿼리 animate로 transform은 적용안됨!
-        // CSS로만 적용함
-        // (2-1.1) 윗쪽방향으로 이동
-        $slide.css({translate:'0 -100%',transition:'.5s'});
-        // (2-1.2) 이동후 맨앞요소 맨뒤로 이동
-        setTimeout(() => {
-            $slide
-            // 맨앞것 맨뒤로 이동
-            .append($slide.find('li').first())
-            // 이때 translate값 초기화
-            .css({translate:'0 0',transition:'none'});
-        }, 500);
-    } /// if ///
-    // (2-2) 아랫쪽방향으로 이동
-    else{ 
-        // (2-2.1) 맨뒤요소 맨앞으로 이동
-        $slide
-        .prepend($slide.find('li').last())
-        // (이때 translate Y축값 -100% 변경 )
-        .css({translate:'0 -100%',transition:'none'})
-        // (2-2.2) translate Y축값을 0으로 위쪽에서 들어오기
-        // 실행구역을 setTimeout으로 분리함!
-        setTimeout(() => {
-            $slide.css({translate:'0 0',transition:'.5s'});
-        }, 0);
-        
-    } /// else ///
+  // (1) 방향구분하기 : 아랫쪽버튼(.ab2)이면 true
+  let isBtn = $(this).is(".ab2");
+  console.log("나야나!", this, isBtn);
+
+  // (2) 방향별 분기하기
+  // (2-1) 윗쪽방향으로 이동
+  if (isBtn) {
+    // 슬라이드의 translate Y값을 -100%
+    // 제이쿼리 animate로 transform은 적용안됨!
+    // CSS로만 적용함
+    // (2-1.1) 윗쪽방향으로 이동
+    $slide.css({
+      translate: "0 -100%",
+      transition: TIME_ANI + "ms",
+    });
+    // (2-1.2) 이동후 맨앞요소 맨뒤로 이동
+    setTimeout(() => {
+      $slide
+        // 맨앞것 맨뒤로 이동
+        .append($slide.find("li").first())
+        // 이때 translate값 초기화
+        .css({
+          translate: "0 0",
+          transition: "none",
+        });
+    }, TIME_ANI);
+  } /// if ///
+  // (2-2) 아랫쪽방향으로 이동
+  else {
+    // (2-2.1) 맨뒤요소 맨앞으로 이동
+    $slide
+      .prepend($slide.find("li").last())
+      // (이때 translate Y축값 -100% 변경 )
+      .css({
+        translate: "0 -100%",
+        transition: "none",
+      });
+    // (2-2.2) translate Y축값을 0으로 위쪽에서 들어오기
+    // 실행구역을 setTimeout으로 분리함!
+    setTimeout(() => {
+      $slide.css({
+        translate: "0 0",
+        transition: TIME_ANI + "ms",
+      });
+    }, 0);
+  } /// else ///
 }); /// click ///
