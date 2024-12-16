@@ -37,7 +37,26 @@ const $slide = $('.slide');
 
 // [ 2. 이벤트 설정 및 함수구현 ]
 $btnMove.click(function(){
-    // (1) 방향구분하기
+    // (1) 방향구분하기 : 아랫쪽버튼(.ab2)이면 true
     let isBtn = $(this).is('.ab2');
     console.log('나야나!',this,isBtn);
+
+    // (2) 방향별 분기하기
+    if(isBtn){ // 윗쪽방향으로 이동
+        // 슬라이드의 translate Y값을 -100%
+        // 제이쿼리 animate로 transform은 적용안됨!
+        // CSS로만 적용함
+        $slide.css({translate:'0 -100%',transition:'.5s'});
+        // 이동후 맨앞요소 맨뒤로 이동
+        setTimeout(() => {
+            $slide
+            // 맨앞것 맨뒤로 이동
+            .append($slide.find('li').first())
+            // 이때 translate값 초기화
+            .css({translate:'0 0',transition:'none'});
+        }, 500);
+    } /// if ///
+    else{ // 아랫쪽방향으로 이동
+
+    } /// else ///
 }); /// click ///
