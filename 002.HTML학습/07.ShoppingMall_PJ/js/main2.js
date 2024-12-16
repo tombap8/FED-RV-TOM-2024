@@ -28,3 +28,16 @@
             li에 클래스 "on"주기(나머진 빼기->초기화!)
 
 *****************************************************/
+
+// [ 1. 대상선정 ]
+// 이벤트 대상: 이동버튼(.abtn)
+const $btnMove = $('.abtn');
+// 변경 대상: 슬라이드 박스(.slide)
+const $slide = $('.slide');
+
+// [ 2. 이벤트 설정 및 함수구현 ]
+$btnMove.click(function(){
+    // (1) 방향구분하기
+    let isBtn = $(this).is('.ab2');
+    console.log('나야나!',this,isBtn);
+}); /// click ///
