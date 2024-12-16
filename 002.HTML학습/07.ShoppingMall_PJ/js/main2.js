@@ -100,6 +100,10 @@ $btnMove.click(function () {
 
 // [3. 처음 슬라이드에 고유번호 속성넣기 ]
 // 제이쿼리 순회 메서드 : each((순번,요소)=>{})
-$slide.find('li').each((idx,el)=>{
-    console.log('돌아~!',idx,el);
+$slide.find("li").each((idx, el) => {
+  console.log("돌아~!", idx, el);
+  // 각 요소의 속성추가하기
+  // 속성명: data-seq
+  // 제이쿼리 속성셋팅 메서드 : attr(속성명,값)
+  $(el).attr("data-seq", idx);
 }); //// each ////
