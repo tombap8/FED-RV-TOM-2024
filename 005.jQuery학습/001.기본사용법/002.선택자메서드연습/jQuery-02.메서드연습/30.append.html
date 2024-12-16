@@ -13,13 +13,24 @@
 			기존 요소를 이동하는 기능의 메서드
 			비교) JS내장함수 : appendChild() 와 유사
 		********************************************/
+
+		$('body,button').css({fontSize:'40px'});
 		
 		// 미션: #container를 클릭하면 자식요소 p태그에 
 		// "내가 좋아하는 배우는 아무개입니다."라고 써서 추가하시오.
+		$('#container').click((e)=>{
+			$(e.currentTarget) // 클릭된 요소자신
+			.append('<p>내가 좋아하는 배우는 차은우입니다!</p>')
+		});
 		
 
 		// 추가미션: #btngo버튼 클릭시 #container의 첫번째 p요소를
 		// 맨뒤로 이동하시오! -> 첫번째 p요소 -> p:first
+		$('#btngo').click(()=>{
+			$('#container').append(
+				$('#container p').first()
+			);
+		});
 		
 
 	

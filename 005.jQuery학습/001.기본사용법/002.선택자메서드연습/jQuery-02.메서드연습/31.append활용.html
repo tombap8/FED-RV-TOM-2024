@@ -7,11 +7,29 @@
 <script src="jquery-1.7.2.min.js"></script>
 	<script>
 	$(function(){// jQB //////////////////////////
-		// 미션: 추가버튼을 클릭하면 이미지가 랜덤하게 #container에 추가되게하시오.
-		// 추가버튼 - #append
+		$('body,button').css({fontSize:'40px'});
 
-		// 변경대상 - #container
 		
+		// 1. 대상선정 :
+		// (1) 변경대상 - #container
+		const target = $('#container');
+		// (2) 이벤트 대상 - 버튼들
+		const btnAdd = $('#append');
+		const btnAuto = $('#auto');
+		const btnStop = $('#stop');
+
+		// 디자인조정
+		target.css({marginTop:'20px',padding:'20px'});
+		
+		// 미션: 추가버튼을 클릭하면 이미지가 랜덤하게 
+		// #container에 추가되게하시오.
+		btnAdd.click(()=>{
+			// 랜덤수 만들기 : 1~5
+			let rdmNum = Math.ceil(Math.random()*5);
+			// 대상요소에 이미지 넣기
+			target.append(`
+			<img src="./th_pic${rdmNum}.jpg" alt="이미지">`);
+		});
 
 		// 추가미션: 자동버튼(#auto)클릭시 인터발함수로
 		// 랜덤수 이미지 계속 추가하기 기능만들기 + 멈춤버튼(#stop)
