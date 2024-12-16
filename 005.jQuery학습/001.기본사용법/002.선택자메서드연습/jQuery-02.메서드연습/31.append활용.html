@@ -35,6 +35,25 @@
 		// 랜덤수 이미지 계속 추가하기 기능만들기 + 멈춤버튼(#stop)
 		// 클릭시 인터발함수 멈추기!
 
+		// 인터발용변수
+		let autoI;
+
+		btnAuto.click(()=>{
+			// 전역변수에 담아서 clearInterval하도록함!
+			console.log('autoI:',autoI);
+			if(!autoI){ // 할당전일때만 한번 들어옴!
+				console.log('autoI:',autoI);
+				autoI = setInterval(() => {
+					// trigger() 메서드
+					// 이벤트대상.trigger(이벤트명)
+					// -> 선택요소의 이벤트 강제발생함!
+					btnAdd.trigger('click');
+					
+				}, 200);
+
+			} /// if ///
+		});
+
 		
 		
 		
