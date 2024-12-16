@@ -18,19 +18,26 @@ slideFn();
 // 데이터: previewData
 // map메서드 사용!!!
 // 배열값 변형출력은? 맵죠잉!!!
+// -> 원래는 일반 JS에서 html넣을때
+// 배열값을 직접 넣으면 사이에 콤마가 출력됨
+// 그래서 join('')으로 없애고 출력함!
+// -> 제이쿼리 html() 메서드에서는 join()없이
+// 콤마없애고 출력해줌!!!
 
-$('.preview-box').html(
+$('.preview-box ul').html(
     previewData.map(v=>`
-        <li data-idx="2">
-                  <h3>2화 미리보기</h3>
-                  <p>
-                    방송일 : 2016-12-03 ▶ 캐나다에서 꿈같은 하루를 보내는
-                    도깨비(공유)와 은탁(김고은). 자신을 향한 은탁의 맑은 미소에
-                    순간 신의 마음이 일렁이는데...! ▶ 도깨비 신과
-                    저승사자(이동욱)의 천둥번개 몰아치는 동거 라이프! 2016년
-                    마지막을 장식할 tvN 10주년 특별기획 &lt;도깨비&gt; 매주
-                    금.토 저녁 8시 tvN 방송
-                  </p>
-                </li>
-    `).join('')
+        <li>
+            <h3>${v.title}</h3>
+            <p>${v.story}</p>
+        </li>
+    `)
 );
+
+// document.querySelector('.preview-box ul')
+// .innerHTML = previewData.map(v=>`
+//     <li>
+//         <h3>${v.title}</h3>
+//         <p>${v.story}</p>
+//     </li>
+// `)
+// .join('')
