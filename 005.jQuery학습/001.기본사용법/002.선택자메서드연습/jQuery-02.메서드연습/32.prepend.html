@@ -17,19 +17,24 @@
 
         // 대상선정
         // 변경대상 : #pic
-        const picBox = $('#pic');
+        const picBox = $("#pic");
         // 이벤트대상 : #container p
-        const evtTg = $('#container p');
+        const evtTg = $("#container p");
+        // 배열순번변수
+        let arrSeq = 0;
 
-        //미션: p태그의 글자를 클릭하면 #pic 요소의 내부에 
+        //미션: p태그의 글자를 클릭하면 #pic 요소의 내부에
         // 자식요소로 웹 경로 이미지가 번갈아서 앞쪽에 추가되게하시오.
-        evtTg.click(()=>{
-            // 앞에 추가하기
-            picBox.prepend(`
-            <img src="${isrc[0]}" alt="선재포스터">`);
+        evtTg.click(() => {
+          // 앞에 추가하기
+          picBox.prepend(`
+            <img src="${isrc[arrSeq]}" alt="선재포스터">`);
 
-            // 이미지 크기조정
-            picBox.find('img').css({height:'300px'});
+          // 배열순번 전환하기
+          arrSeq = arrSeq === 0 ? 1 : 0;
+
+          // 이미지 크기조정
+          picBox.find("img").css({ height: "300px" });
         }); /// click ///
       }); /// jQB ////////////////////////////
     </script>
