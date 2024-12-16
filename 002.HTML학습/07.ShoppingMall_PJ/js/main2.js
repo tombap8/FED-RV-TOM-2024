@@ -97,3 +97,9 @@ $btnMove.click(function () {
     }, 0);
   } /// else ///
 }); /// click ///
+
+// [3. 처음 슬라이드에 고유번호 속성넣기 ]
+// 제이쿼리 순회 메서드 : each((순번,요소)=>{})
+$slide.find('li').each((idx,el)=>{
+    console.log('돌아~!',idx,el);
+}); //// each ////
