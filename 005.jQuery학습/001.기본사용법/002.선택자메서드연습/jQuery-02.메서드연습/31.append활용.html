@@ -51,7 +51,15 @@
 				}, 200);
 
 			} /// if ///
-		});
+		}); /// click ///
+
+		// 인터발 멈추기 구현 ///
+		btnStop.click(()=>{
+			// 인터발 멈추기
+			clearInterval(autoI);
+			// 다시 인터발 처리되도록 autoI값 초기화
+			autoI = false;
+		});/// click ///
 
 		
 		
