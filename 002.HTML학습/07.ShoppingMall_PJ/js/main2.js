@@ -42,12 +42,14 @@ $btnMove.click(function(){
     console.log('나야나!',this,isBtn);
 
     // (2) 방향별 분기하기
-    if(isBtn){ // 윗쪽방향으로 이동
+    // (2-1) 윗쪽방향으로 이동
+    if(isBtn){ 
         // 슬라이드의 translate Y값을 -100%
         // 제이쿼리 animate로 transform은 적용안됨!
         // CSS로만 적용함
+        // (2-1.1) 윗쪽방향으로 이동
         $slide.css({translate:'0 -100%',transition:'.5s'});
-        // 이동후 맨앞요소 맨뒤로 이동
+        // (2-1.2) 이동후 맨앞요소 맨뒤로 이동
         setTimeout(() => {
             $slide
             // 맨앞것 맨뒤로 이동
@@ -56,7 +58,18 @@ $btnMove.click(function(){
             .css({translate:'0 0',transition:'none'});
         }, 500);
     } /// if ///
-    else{ // 아랫쪽방향으로 이동
-
+    // (2-2) 아랫쪽방향으로 이동
+    else{ 
+        // (2-2.1) 맨뒤요소 맨앞으로 이동
+        $slide
+        .prepend($slide.find('li').last())
+        // (이때 translate Y축값 -100% 변경 )
+        .css({translate:'0 -100%',transition:'none'})
+        // (2-2.2) translate Y축값을 0으로 위쪽에서 들어오기
+        // 실행구역을 setTimeout으로 분리함!
+        setTimeout(() => {
+            $slide.css({translate:'0 0',transition:'.5s'});
+        }, 0);
+        
     } /// else ///
 }); /// click ///
