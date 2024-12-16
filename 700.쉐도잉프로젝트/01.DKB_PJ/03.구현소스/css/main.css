@@ -38,7 +38,7 @@ h2.temp {
   z-index: 999;
 }
 /* 인박스 높이값 초기화 */
-.spart-menu.inbox{
+.spart-menu.inbox {
   height: auto;
 }
 .spart-menu ul {
@@ -383,3 +383,52 @@ h2.temp {
   padding-top: 10px;
 }
 
+/************** 4. 미리보기영역 **************/
+.main-area .preview-area {
+  height: auto;
+  /* height: 803px; 
+    -> 높이값을 지정하면 내용만큼 자동으로
+    높이값이 잡히지 않아서 매번 크기에 따라
+    값을 셋팅해야하므로 auto로 두자!
+    */
+}
+.preview-box ul {
+  gap: 20px;
+}
+/* 리스트박스 */
+.preview-box li {
+  /* 한줄에 4개 플렉스 배치 - gap값 고려해서뺌 */
+  flex-basis: calc(100% / 4 - 15px);
+  padding: 24px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #22222240;
+  box-sizing: border-box;
+}
+/* 리스트 타이틀 */
+.preview-box li h3 {
+  font-size: 2rem;
+  color: #000;
+  font-weight: normal;
+}
+/* 리스트 내용 */
+.preview-box li p {
+  font-size: 1.5rem;
+  margin-top: 1.4rem;
+  color: #00000099;
+  line-height: 1.7;
+
+  /* 여러줄 말줄임표시 셋팅하기 */
+  display: -webkit-box;
+  overflow: hidden;
+  /* 말줄임표시 */
+  text-overflow: ellipsis;
+  /* 보여줄 라인수 셋팅속성 */
+  -webkit-line-clamp: 7;
+  /* 라인진행방향 셋팅 */
+  -webkit-box-orient: vertical;
+}
+/* 리스트박스 오버시 내용글자색 */
+.preview-box li:hover p {
+  color: #000;
+}

@@ -13,6 +13,12 @@
     />
     <!-- 메인 CSS 불러오기 -->
     <link rel="stylesheet" href="./css/main.css" />
+
+    <!-- 제이쿼리 라이브러리 -->
+     <script src="./js/jquery-3.7.1.min.js"></script>
+    <!-- 제이쿼리UI -->
+     <script src="./js/jquery-ui.min.js"></script>
+
     <!-- 메인 JS 불러오기 -->
     <script type="module" src="./js/main.js"></script>
   </head>
@@ -510,7 +516,10 @@
             <div class="col-6 col-2nd-12">
               <figure class="intro-mv-box">
                 <div class="intro-mv-img off">
-                  <img src="./images/intro_mv_img.jpg" alt="인트로 동영상 이미지">
+                  <img
+                    src="./images/intro_mv_img.jpg"
+                    alt="인트로 동영상 이미지"
+                  />
                 </div>
                 <figcaption>
                   [예고]끝나지 않은 깨요일! 공동재부터 깨비.저승 커플 키스신
@@ -522,12 +531,13 @@
         </section>
       </div>
       <!-- 4.회차정보파트 -->
-      <div>
-        <section class="inbox">
-          <h2 class="temp">4.회차정보파트</h2>
-          <!-- 파티션박스 -->
+      <div id="preview-area">
+        <section class="preview-area inbox">
+          <h2 class="stit">미리보기</h2>
           <div class="cont-box">
-            <div class="col-12"></div>
+            <div class="col-12 preview-box">
+              <ul class="fx-box" data-db="previewData"></ul>
+            </div>
           </div>
         </section>
       </div>
