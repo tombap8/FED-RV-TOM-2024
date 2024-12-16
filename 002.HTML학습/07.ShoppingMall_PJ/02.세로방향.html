@@ -9,7 +9,7 @@
     <script src="js/main2.js"></script>
     <style>
         /* 플렉스 방향 변경 덮어쓰기 */
-        #slide {
+        .slide {
             flex-direction: column;
         }
 
@@ -36,19 +36,62 @@
         <!--탑영역-->
         <header><img src="images/index_01.jpg" width="1381" height="222" alt="메뉴"></header>
         <!--슬라이드 배너 영역-->
-        <section>
+        <section class="slide-box">
             <!--슬라이드-->
-            <ul id="slide"></ul>
-            
+            <ul class="slide">
+              <li>
+                <img src="./images/slide01.jpg" alt="slide">
+              </li>
+              <li>
+                <img src="./images/slide02.jpg" alt="slide">
+              </li>
+              <li>
+                <img src="./images/slide03.jpg" alt="slide">
+              </li>
+              <li>
+                <img src="./images/slide04.jpg" alt="slide">
+              </li>
+              <li>
+                <img src="./images/slide05.jpg" alt="slide">
+              </li>
+            </ul>
+    
             <!--이동버튼-->
-            <a href="#" class="abtn ab1"><img src="images/left_btn.png" alt="왼쪽이동버튼"></a>
-            <a href="#" class="abtn ab2"><img src="images/right_btn.png" alt="오른쪽이동버튼"></a>
-
+            <a href="#" class="abtn ab1">
+              <img src="images/left_btn.png" alt="왼쪽이동버튼" />
+            </a>
+            <a href="#" class="abtn ab2">
+              <img src="images/right_btn.png" alt="오른쪽이동버튼" />
+            </a>
+    
             <!--블릿버튼-->
-            <ol class="indic"></ol>
-
-
-        </section>
+            <ol class="indic">
+              <li class="on">
+                  <img src="images/dot1.png" alt="흰색">
+                  <img src="images/dot2.png" alt="회색">
+              </li>
+              
+              <li>
+                  <img src="images/dot1.png" alt="흰색">
+                  <img src="images/dot2.png" alt="회색">
+              </li>
+              
+              <li>
+                  <img src="images/dot1.png" alt="흰색">
+                  <img src="images/dot2.png" alt="회색">
+              </li>
+              
+              <li>
+                  <img src="images/dot1.png" alt="흰색">
+                  <img src="images/dot2.png" alt="회색">
+              </li>
+              
+              <li>
+                  <img src="images/dot1.png" alt="흰색">
+                  <img src="images/dot2.png" alt="회색">
+              </li>
+              </ol>
+          </section>
         <!--사이드 영역-->
         <aside><img src="images/index_03.jpg" width="467" height="564" alt="03"></aside>
         <!--하단영역-->
