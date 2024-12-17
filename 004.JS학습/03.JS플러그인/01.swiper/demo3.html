@@ -40,7 +40,7 @@
         object-fit: cover;
       }
       /* 안쪽에 넣은 스와이퍼 부모박스 */
-      .my-slide2{
+      .my-slide2 {
         width: 100%;
         height: 100%;
       }
@@ -50,10 +50,8 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
-      // [ 스와이퍼 가이드 사이트 ]
-      // https://swiperjs.com/
       window.addEventListener("DOMContentLoaded", () => {
-        //스와이퍼 인스턴스 생성하기
+        // 바깥쪽 스와이퍼 ///////////
         const swiper = new Swiper(".my-slide", {
           // 세로방향 슬라이드 설정
           direction: "vertical",
@@ -61,6 +59,8 @@
           slidesPerView: 1,
           // 슬라이드 사이 간격(숫자는 px단위임)
           spaceBetween: 0,
+          // 마우스 휠 활성화하기
+          mousewheel: true,
           // 루프설정 true (기본값은 false)
           // loop: true,
           // 자동넘김 설정
@@ -85,8 +85,7 @@
           //   // 왼쪽 이전이동버튼
           //   prevEl: ".swiper-button-prev",
           // },
-        });//// swiper ////
-
+        }); //// swiper ////
 
         // 두번째 스와이퍼
         const swiper2 = new Swiper(".my-slide2", {
@@ -112,17 +111,13 @@
             clickable: true,
           },
           // 양쪽이동버튼 설정
-          // navigation: {
-          //   // 오른쪽 다음이동버튼
-          //   nextEl: ".swiper-button-next",
-          //   // 왼쪽 이전이동버튼
-          //   prevEl: ".swiper-button-prev",
-          // },
+          navigation: {
+            // 오른쪽 다음이동버튼
+            nextEl: ".swiper-button-next",
+            // 왼쪽 이전이동버튼
+            prevEl: ".swiper-button-prev",
+          },
         });
-
-
-
-
       }); //////////// load구역 ///////////////////
     </script>
   </head>
@@ -180,8 +175,8 @@
                 <img src="./images/pic13.jfif" alt="" />
               </div>
             </div>
-            <!-- <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div> -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
           </div>
         </div>
