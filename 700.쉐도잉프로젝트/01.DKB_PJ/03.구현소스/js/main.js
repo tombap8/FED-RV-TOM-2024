@@ -11,7 +11,6 @@ console.log(previewData);
 // 1. 슬라이드함수 호출하여 실행하기
 slideFn();
 
-
 // 2. 데이터 셋팅하기 ////
 // (1) 미리보기 데이터 셋팅하기
 // 대상: .previewBox ul
@@ -24,13 +23,15 @@ slideFn();
 // -> 제이쿼리 html() 메서드에서는 join()없이
 // 콤마없애고 출력해줌!!!
 
-$('.preview-box ul').html(
-    previewData.map(v=>`
+$(".preview-box ul").html(
+  previewData.map(
+    (v) => `
         <li>
             <h3>${v.title}</h3>
             <p>${v.story}</p>
         </li>
-    `)
+    `
+  )
 );
 
 // document.querySelector('.preview-box ul')
@@ -41,3 +42,12 @@ $('.preview-box ul').html(
 //     </li>
 // `)
 // .join('')
+
+//스와이퍼 인스턴스 생성하기
+const swiper = new Swiper(".clip-box", {
+  // 한화면에 볼 슬라이드수
+  slidesPerView: 4,
+  // 슬라이드 사이 간격(숫자는 px단위임)
+  spaceBetween: 0,
+  
+}); /// swiper /////
