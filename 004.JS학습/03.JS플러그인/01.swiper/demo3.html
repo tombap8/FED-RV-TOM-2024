@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스와이퍼 데모3</title>
+
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <style>
+      h1 {
+        text-align: center;
+      }
+      /* 스와이퍼 부모박스 */
+      .demo-box {
+        max-width: 1000px;
+        /* height: 450px; */
+        aspect-ratio: 16/9;
+        margin: 0 auto;
+        outline: 2px solid #ccc;
+      }
+
+      /* 각 스와이퍼 개별 슬라이드 디자인 */
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      /* 각 스와이퍼 슬라이드 하위 이미지 */
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      /* 안쪽에 넣은 스와이퍼 부모박스 */
+      .my-slide2{
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+      // [ 스와이퍼 가이드 사이트 ]
+      // https://swiperjs.com/
+      window.addEventListener("DOMContentLoaded", () => {
+        //스와이퍼 인스턴스 생성하기
+        const swiper = new Swiper(".my-slide", {
+          // 세로방향 슬라이드 설정
+          direction: "vertical",
+          // 한화면에 볼 슬라이드수
+          slidesPerView: 1,
+          // 슬라이드 사이 간격(숫자는 px단위임)
+          spaceBetween: 0,
+          // 루프설정 true (기본값은 false)
+          // loop: true,
+          // 자동넘김 설정
+          // autoplay: {
+          //   // 중간 지연시간
+          //   delay: 2500,
+          //   // 상호작용없애기 설정
+          //   disableOnInteraction: false,
+          //   // -> false해야 잠시후 다시작동함!
+          // },
+          // 하단 블릿 인디케이터
+          pagination: {
+            // 사용할 요소이름(CSS명이 이것으로 되어있음)
+            el: ".swiper-pagination",
+            // 블릿 클릭으로 슬라이드 이동여부설정
+            clickable: true,
+          },
+          // 양쪽이동버튼 설정
+          // navigation: {
+          //   // 오른쪽 다음이동버튼
+          //   nextEl: ".swiper-button-next",
+          //   // 왼쪽 이전이동버튼
+          //   prevEl: ".swiper-button-prev",
+          // },
+        });//// swiper ////
+
+
+        // 두번째 스와이퍼
+        const swiper2 = new Swiper(".my-slide2", {
+          // 한화면에 볼 슬라이드수
+          slidesPerView: 3,
+          // 슬라이드 사이 간격(숫자는 px단위임)
+          spaceBetween: 10,
+          // 루프설정 true (기본값은 false)
+          // loop: true,
+          // 자동넘김 설정
+          // autoplay: {
+          //   // 중간 지연시간
+          //   delay: 2500,
+          //   // 상호작용없애기 설정
+          //   disableOnInteraction: false,
+          //   // -> false해야 잠시후 다시작동함!
+          // },
+          // 하단 블릿 인디케이터
+          pagination: {
+            // 사용할 요소이름(CSS명이 이것으로 되어있음)
+            el: ".swiper-pagination",
+            // 블릿 클릭으로 슬라이드 이동여부설정
+            clickable: true,
+          },
+          // 양쪽이동버튼 설정
+          // navigation: {
+          //   // 오른쪽 다음이동버튼
+          //   nextEl: ".swiper-button-next",
+          //   // 왼쪽 이전이동버튼
+          //   prevEl: ".swiper-button-prev",
+          // },
+        });
+
+
+
+
+      }); //////////// load구역 ///////////////////
+    </script>
+  </head>
+  <body>
+    <h1>Infinite Loop</h1>
+    <div class="demo-box swiper my-slide">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="./images/banner/ban01.jfif" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./images/banner/ban02.jfif" alt="" />
+        </div>
+        <!-- 3번째 슬라이드 안에 스와이퍼넣기 시작 -->
+        <div class="swiper-slide">
+          <div class="swiper my-slide2">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="./images/pic01.jfif" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/pic02.png" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/pic03.jfif" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/pic15.jfif" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/pic05.jfif" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/pic06.jfif" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/pic07.jfif" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/pic08.jfif" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/pic09.jfif" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/pic10.jpg" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/pic11.jfif" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/pic12.jfif" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/pic13.jfif" alt="" />
+              </div>
+            </div>
+            <!-- <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div> -->
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+        <!-- 3번째 슬라이드 안에 스와이퍼넣기 종료 -->
+        <div class="swiper-slide">
+          <img src="./images/banner/ban03.jfif" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./images/banner/ban04.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./images/banner/ban05.jfif" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./images/banner/ban06.jfif" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./images/banner/ban07.jfif" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./images/banner/ban08.jfif" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./images/banner/ban09.jfif" alt="" />
+        </div>
+      </div>
+      <!-- <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div> -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </body>
+</html>
