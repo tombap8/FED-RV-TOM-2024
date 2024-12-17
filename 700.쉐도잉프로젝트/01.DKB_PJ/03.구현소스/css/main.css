@@ -434,6 +434,10 @@ h2.temp {
 }
 
 /************** 7. 최신동영상영역 **************/
+.banbx{
+  position: relative;
+  /* 앱솔루트 양쪽이동버튼의 부모자격 */
+}
 .main-area .clip-video-area {
   height: auto;
 }
@@ -446,8 +450,9 @@ h2.temp {
   left: 0; /* 이동초기값 */
   display: flex;
   /* gap: 0 2%; */
-  /* 트랜지션 */
-  transition: left 0.3s ease-out;
+  /* 트랜지션 
+  -> 스와이퍼 랩퍼일 경우 트랜지션 주지말것! */
+  /* transition: left 0.3s ease-out; */
   user-select: none;
   -webkit-user-drag: none;
 }
@@ -516,7 +521,7 @@ h2.temp {
 .btn-box button {
   position: absolute;
   z-index: 999;
-  top: 43%;
+  top: 50%;
   border-radius: 50%;
   width: 70px;
   height: 70px;
@@ -548,6 +553,6 @@ h2.temp {
 .btn-box.right button:last-child {
   display: inline-block;
 }
-.btn-box.right button:first-child {
+/* .btn-box.right button:first-child {
   display: none;
-}
+} */
