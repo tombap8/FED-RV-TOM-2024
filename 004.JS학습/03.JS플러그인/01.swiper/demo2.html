@@ -115,6 +115,20 @@
             swiper.slidePrev();
           } // else //
         } ////////// controlSwp함수 /////////
+
+        const bgColor = ['pink','lightgreen','lightyellow','limegreen'];
+        let arrNum = 0;
+
+        // 스와이퍼 슬라이드 변경시 배경색 바꾸기
+        swiper.on("slideChange", function () {
+          console.log("slide changed");
+          // 색상변경
+          document.body.style.backgroundColor = 
+          bgColor[arrNum];
+          // 배열수 증가
+          arrNum++;
+          if(arrNum>3)arrNum=0;
+        });
       }); //////////// load구역 ///////////////////
     </script>
   </head>
