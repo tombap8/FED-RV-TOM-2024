@@ -95,6 +95,16 @@
         document.querySelectorAll('.btn-box button');
         console.log('대상:',myBtns);
 
+        // 클릭이벤트 설정하기
+        myBtns.forEach(el=>{
+          el.addEventListener('click',controlSwp);
+        });
+
+        // 기능구현함수
+        function controlSwp(){
+
+        } ////////// controlSwp함수 /////////
+
 
       }); //////////// load구역 ///////////////////
     </script>
