@@ -101,7 +101,19 @@
 
         // 기능구현함수
         function controlSwp() {
-          console.log("나야나!");
+          // 버튼구분하기
+          let isBtn = this.classList.contains("btn-next");
+          console.log("나야나!", isBtn);
+
+          // 분기하기
+          // 다음버튼
+          if (isBtn) {
+            swiper.slideNext();
+          } // if //
+          // 이전버튼
+          else {
+            swiper.slidePrev();
+          } // else //
         } ////////// controlSwp함수 /////////
       }); //////////// load구역 ///////////////////
     </script>
