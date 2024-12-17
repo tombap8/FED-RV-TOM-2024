@@ -41,11 +41,11 @@
       }
 
       /* 개별조작버튼박스 */
-      .btn-box{
+      .btn-box {
         text-align: center;
         padding: 5vh;
       }
-      .btn-box button{
+      .btn-box button {
         font-size: 30px;
       }
     </style>
@@ -91,21 +91,18 @@
 
         // 스와이퍼 API를 이용한 개별 코딩
         // 내가 만든 버튼에 이동 기능 부여하기!
-        const myBtns = 
-        document.querySelectorAll('.btn-box button');
-        console.log('대상:',myBtns);
+        const myBtns = document.querySelectorAll(".btn-box button");
+        console.log("대상:", myBtns);
 
         // 클릭이벤트 설정하기
-        myBtns.forEach(el=>{
-          el.addEventListener('click',controlSwp);
+        myBtns.forEach((el) => {
+          el.addEventListener("click", controlSwp);
         });
 
         // 기능구현함수
-        function controlSwp(){
-
+        function controlSwp() {
+          console.log("나야나!");
         } ////////// controlSwp함수 /////////
-
-
       }); //////////// load구역 ///////////////////
     </script>
   </head>
