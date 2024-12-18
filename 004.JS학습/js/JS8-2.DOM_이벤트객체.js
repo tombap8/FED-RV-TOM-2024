@@ -9,7 +9,7 @@ import myFn from "./my_function.js";
 const showEvtLog = x => 
     console.log(x,":",
     "\n currentTarget:",event.currentTarget,
-    "\n tg:",event.target,
+    "\n target:",event.target,
     "\n cancelable:",event.cancelable,
     "\n bubbles:",event.bubbles,
     "\n type:",event.type,
