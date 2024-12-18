@@ -25,12 +25,19 @@ const showEvtLog = x =>
 // 1. 아들방 ///////
 myFn.qs('a').onclick = (e) => {
     // e - 이벤트 전달변수
+    // 이벤트 버블링 막기
     // event.stopPropagation();
+    
     e.currentTarget // 이벤트발생요소
     .style.backgroundColor = 'red';
-
+    
     // 이벤트 로그 찍기
     showEvtLog('아들방(a)');
+
+    // 기본기능막기(a요소는 이동특성이 있음. 이것을 막음!)
+    // event.preventDefault();
+    return false;
+    // 리턴시 false를 쓰면 기본기능막기가 됨!
 }; /// click ///
 
 // 2. 엄마집 ///////
@@ -44,6 +51,7 @@ myFn.qs('p').onclick = function(e)  {
     // 이벤트 로그 찍기
     showEvtLog('엄마집(p)');
 }; /// click ///
+
 
 
 // 3. 친척네집 //////
