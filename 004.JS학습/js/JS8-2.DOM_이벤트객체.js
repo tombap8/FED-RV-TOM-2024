@@ -116,16 +116,16 @@ myFn.qs('body').onclick = (e) => {
     현재 이벤트를 처리중인 element
 ★(2) target (element) : 이벤트 타깃
 
-4. 이벤트 메서드
-★(1) preventDefault() (Function) 
+4. 이벤트 메서드 (Function) 
+★(1) preventDefault()
     이벤트의 기본행동 취소, 
     (cancelable가 true일때)
+    -> return false로 대체될 수 있음!
 ★(2) stopImmediatePropagation() 
-    (Function) : 
     이벤트캡처링,이벤트버블링 모두 취소. 
     다른 이벤트 핸들러 호출을 막음. 
     (같은 이벤트로 여러기능설정시)
-★(3) stopPropagation() (Function) 
+★(3) stopPropagation()
     이벤트캡처링,이벤트버블링 모두 취소 
     (bubbles가 true일때)
 
