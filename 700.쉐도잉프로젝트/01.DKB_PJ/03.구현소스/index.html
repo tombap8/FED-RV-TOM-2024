@@ -20,7 +20,7 @@
     <script src="./js/jquery-ui.min.js"></script>
 
     <!-- 스와이퍼 JS -->
-     <script src="./js/swiper.min.js"></script>
+    <script src="./js/swiper.min.js"></script>
 
     <!-- 메인 JS 불러오기 -->
     <script type="module" src="./js/main.js"></script>
@@ -545,22 +545,154 @@
         </section>
       </div>
       <!-- 5.현장포토파트 -->
-      <div>
-        <section class="inbox">
-          <h2 class="temp">5.현장포토파트</h2>
-          <!-- 파티션박스 -->
+      <div id="real-photo-area">
+        <section class="real-photo-area inbox">
+          <h2 class="stit">현장포토</h2>
           <div class="cont-box">
-            <div class="col-12"></div>
+            <div class="col-12 live-box">
+              <ul data-db="liveData">
+                <li data-idx="1">
+                  <figure>
+                    <img
+                      src="./images/live_photo/live_photo7.jpg"
+                      alt="다 드립니다 ♡"
+                    />
+                    <figcaption>다 드립니다 ♡</figcaption>
+                  </figure>
+                </li>
+
+                <li data-idx="2">
+                  <figure>
+                    <img
+                      src="./images/live_photo/live_photo6.jpg"
+                      alt="비하인드 짤털이~"
+                    />
+                    <figcaption>비하인드 짤털이~</figcaption>
+                  </figure>
+                </li>
+
+                <li data-idx="3">
+                  <figure>
+                    <img
+                      src="./images/live_photo/live_photo5.jpg"
+                      alt="꿀 떨어지는 도깨비 내외"
+                    />
+                    <figcaption>꿀 떨어지는 도깨비 내외</figcaption>
+                  </figure>
+                </li>
+
+                <li data-idx="4">
+                  <figure>
+                    <img
+                      src="./images/live_photo/live_photo8.jpg"
+                      alt="사랑이 넘치네요"
+                    />
+                    <figcaption>사랑이 넘치네요</figcaption>
+                  </figure>
+                </li>
+
+                <li data-idx="5">
+                  <figure>
+                    <img
+                      src="./images/live_photo/live_photo4.jpg"
+                      alt="덕화에게서 낯선 향기가 난다"
+                    />
+                    <figcaption>덕화에게서 낯선 향기가 난다</figcaption>
+                  </figure>
+                </li>
+
+                <li data-idx="6">
+                  <figure>
+                    <img
+                      src="./images/live_photo/live_photo3.jpg"
+                      alt="안녕하세요"
+                    />
+                    <figcaption>안녕하세요</figcaption>
+                  </figure>
+                </li>
+
+                <li data-idx="7">
+                  <figure>
+                    <img
+                      src="./images/live_photo/live_photo2.jpg"
+                      alt="시청자여러분"
+                    />
+                    <figcaption>시청자여러분</figcaption>
+                  </figure>
+                </li>
+
+                <li data-idx="8">
+                  <figure>
+                    <img
+                      src="./images/live_photo/live_photo1.jpg"
+                      alt="도깨비를마니마니"
+                    />
+                    <figcaption>도깨비를마니마니</figcaption>
+                  </figure>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
       </div>
       <!-- 6.대표포스터파트 -->
-      <div>
-        <section class="inbox">
-          <h2 class="temp">6.대표포스터파트</h2>
-          <!-- 파티션박스 -->
+      <div id="main-photo-area">
+        <section class="main-photo-area inbox">
+          <h2 class="stit">대표포스터</h2>
           <div class="cont-box">
-            <div class="col-12"></div>
+            <div class="col-12 poster-box">
+              <ul data-db="posterData">
+                <li data-idx="1">
+                  <figure>
+                    <img
+                      src="./images/poster_img/poster5.jpg"
+                      alt="도깨비 5인 단체 포스터"
+                    />
+                    <figcaption>도깨비 5인 단체 포스터</figcaption>
+                  </figure>
+                </li>
+
+                <li data-idx="2">
+                  <figure>
+                    <img
+                      src="./images/poster_img/poster4.jpg"
+                      alt="공유, 김고은 커플 포스터"
+                    />
+                    <figcaption>공유, 김고은 커플 포스터</figcaption>
+                  </figure>
+                </li>
+
+                <li data-idx="3">
+                  <figure>
+                    <img
+                      src="./images/poster_img/poster3.jpg"
+                      alt="이동욱, 유인나 커플 포스터"
+                    />
+                    <figcaption>이동욱, 유인나 커플 포스터</figcaption>
+                  </figure>
+                </li>
+
+                <li data-idx="4">
+                  <figure>
+                    <img
+                      src="./images/poster_img/poster2.jpg"
+                      alt="공유, 이동욱 포스터"
+                    />
+                    <figcaption>공유, 이동욱 포스터</figcaption>
+                  </figure>
+                </li>
+
+                <li data-idx="5">
+                  <figure>
+                    <img
+                      src="./images/poster_img/poster1.jpg"
+                      alt="공유, 이동욱, 육성재 포스터"
+                    />
+                    <figcaption>공유, 이동욱, 육성재 포스터</figcaption>
+                  </figure>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
       </div>
@@ -570,10 +702,7 @@
           <h2 class="stit">최신동영상</h2>
           <div class="cont-box banbx">
             <div class="clip-box col-12">
-              <ul
-                class="slide swiper-wrapper"
-                data-db="clipData"
-              >
+              <ul class="slide swiper-wrapper" data-db="clipData">
                 <li class="swiper-slide" data-idx="1" data-seq="0">
                   <div class="clip-mv-box">
                     <img
