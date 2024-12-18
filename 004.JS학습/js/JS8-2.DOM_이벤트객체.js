@@ -25,7 +25,7 @@ const showEvtLog = x =>
 // 1. 아들방 ///////
 myFn.qs('a').onclick = (e) => {
     // e - 이벤트 전달변수
-    event.stopPropagation();
+    // event.stopPropagation();
     e.currentTarget // 이벤트발생요소
     .style.backgroundColor = 'red';
 
@@ -36,7 +36,7 @@ myFn.qs('a').onclick = (e) => {
 // 2. 엄마집 ///////
 myFn.qs('p').onclick = function(e)  {
     // e - 이벤트 전달변수
-    e.stopPropagation();
+    // e.stopPropagation();
     e.currentTarget // 이벤트발생요소
     .style.backgroundColor = 'yellow';
     // return false;
