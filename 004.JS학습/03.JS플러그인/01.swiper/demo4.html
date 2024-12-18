@@ -14,11 +14,11 @@
       h1 {
         text-align: center;
       }
-      /* 스와이퍼 부모박스 */
+      /* 스와이퍼 부모박스 - 높이값 있음! */
       .demo-box {
         max-width: 1000px;
-        /* height: 450px; */
-        aspect-ratio: 16/9;
+        height: 560px;
+        /* aspect-ratio: 16/9; */
         margin: 0 auto;
         outline: 2px solid #ccc;
         /* 배경검정색 */
@@ -88,6 +88,25 @@
             // 왼쪽 이전이동버튼
             prevEl: ".swiper-button-prev",
           },
+          // [ 반응형 설정 속성 ]
+          // Responsive breakpoints
+          breakpoints: {
+            // when window width is >= 10px
+            10: {
+              slidesPerView: 1,
+              // spaceBetween: 10,
+            },
+            // when window width is >= 500px
+            500: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            // when window width is >= 900px
+            900: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+          },
         }); /// swiper /////
 
         // 스와이퍼 API를 이용한 개별 코딩
@@ -117,18 +136,17 @@
           } // else //
         } ////////// controlSwp함수 /////////
 
-        const bgColor = ['pink','lightcoral','lightyellow','lightcyan'];
+        const bgColor = ["pink", "lightcoral", "lightyellow", "lightcyan"];
         let arrNum = 0;
 
         // 스와이퍼 슬라이드 변경시 배경색 바꾸기
         swiper.on("slideChange", function () {
           console.log("slide changed");
           // 색상변경
-          document.body.style.backgroundColor = 
-          bgColor[arrNum];
+          document.body.style.backgroundColor = bgColor[arrNum];
           // 배열수 증가
           arrNum++;
-          if(arrNum>3)arrNum=0;
+          if (arrNum > 3) arrNum = 0;
         });
       }); //////////// load구역 ///////////////////
     </script>
