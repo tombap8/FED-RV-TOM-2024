@@ -5,6 +5,56 @@ import myFn from "./my_function.js";
 
 // console.log(myFn);
 
+/// 이벤트 객체의 이벤트 로그찍기함수 ///
+const showEvtLog = x => 
+    console.log(x,":",
+    "\n currentTarget:",event.currentTarget,
+    "\n tg:",event.target,
+    "\n cancelable:",event.cancelable,
+    "\n bubbles:",event.bubbles,
+    "\n type:",event.type,
+    "\n view:",event.view,
+    "\n eventPhase:",event.eventPhase,
+    "\n isTrusted:",event.isTrusted,
+
+);
+
+
+// 이벤트 전달을 관찰하기 위한 클릭이벤트 설정 ///
+
+// 1. 아들방 ///////
+myFn.qs('a').onclick = (e) => {
+    // e - 이벤트 전달변수
+    event.stopPropagation();
+    e.currentTarget // 이벤트발생요소
+    .style.backgroundColor = 'red';
+}; /// click ///
+
+// 2. 엄마집 ///////
+myFn.qs('p').onclick = function(e)  {
+    // e - 이벤트 전달변수
+    e.stopPropagation();
+    e.currentTarget // 이벤트발생요소
+    .style.backgroundColor = 'yellow';
+    // return false;
+}; /// click ///
+
+
+// 3. 친척네집 //////
+myFn.qs('div').onclick = (e) => {
+    // e - 이벤트 전달변수
+    e.currentTarget // 이벤트발생요소
+    .style.backgroundColor = 'green';
+}; /// click ///
+
+// 4. 대한민국 전체 /////
+myFn.qs('body').onclick = (e) => {
+    // e - 이벤트 전달변수
+    e.currentTarget // 이벤트발생요소
+    .style.backgroundColor = 'blue';
+}; /// click ///
+
+
 
 /**************************************************
     
@@ -53,7 +103,8 @@ import myFn from "./my_function.js";
 ★(2) stopImmediatePropagation() 
     (Function) : 
     이벤트캡처링,이벤트버블링 모두 취소. 
-    다른 이벤트 핸들러 호출을 막음. (같은 이벤트로 여러기능설정시)
+    다른 이벤트 핸들러 호출을 막음. 
+    (같은 이벤트로 여러기능설정시)
 ★(3) stopPropagation() (Function) 
     이벤트캡처링,이벤트버블링 모두 취소 
     (bubbles가 true일때)
