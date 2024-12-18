@@ -28,6 +28,9 @@ myFn.qs('a').onclick = (e) => {
     event.stopPropagation();
     e.currentTarget // 이벤트발생요소
     .style.backgroundColor = 'red';
+
+    // 이벤트 로그 찍기
+    showEvtLog('아들방(a)');
 }; /// click ///
 
 // 2. 엄마집 ///////
@@ -37,6 +40,9 @@ myFn.qs('p').onclick = function(e)  {
     e.currentTarget // 이벤트발생요소
     .style.backgroundColor = 'yellow';
     // return false;
+
+    // 이벤트 로그 찍기
+    showEvtLog('엄마집(p)');
 }; /// click ///
 
 
@@ -45,6 +51,9 @@ myFn.qs('div').onclick = (e) => {
     // e - 이벤트 전달변수
     e.currentTarget // 이벤트발생요소
     .style.backgroundColor = 'green';
+    
+    // 이벤트 로그 찍기
+    showEvtLog('친척네집(div)');
 }; /// click ///
 
 // 4. 대한민국 전체 /////
@@ -52,6 +61,9 @@ myFn.qs('body').onclick = (e) => {
     // e - 이벤트 전달변수
     e.currentTarget // 이벤트발생요소
     .style.backgroundColor = 'blue';
+    
+    // 이벤트 로그 찍기
+    showEvtLog('대한민국전체(body)');
 }; /// click ///
 
 
