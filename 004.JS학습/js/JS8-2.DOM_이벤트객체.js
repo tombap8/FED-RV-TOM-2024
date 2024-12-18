@@ -31,6 +31,31 @@ const showEvtLog = (x) =>
 // 이벤트 전달을 관찰하기 위한 클릭이벤트 설정 ///
 
 // 1. 아들방 ///////
+
+// 아들방 a요소에 추가적인 이벤트설정 가능함!
+// addEventListener로 할 수 있음!!!
+
+// 추가 이벤트 설정
+myFn.addEvt(myFn.qs('a'),'click',mySon);
+
+// 추가기능함수
+function mySon(e){
+    // 이벤트 버블링 막기
+    // e.stopPropagation();
+
+    // e.stopImmediatePropagation();
+    // 이벤트 버블링 막기에서 
+    // stopImmediatePropagation 다른점은
+    // 버블링 막기 + 나중에 등록된 같은 이벤트실행 막기
+    // 여기서는 아랫쪽에 등록된 onclick 이벤트 함수기능이
+    // 막아져서 버블링 막기와 함께 실행중지됨!
+    // 현재 여기에 구현된 기능만 실행됨!
+    
+    e.currentTarget
+    .style.outline = '20px dotted hotpink';
+} //// mySon ///////
+
+
 myFn.qs("a").onclick = (e) => {
   // e - 이벤트 전달변수
   // 이벤트 버블링 막기
@@ -46,6 +71,8 @@ myFn.qs("a").onclick = (e) => {
   return false;
   // 리턴시 false를 쓰면 기본기능막기가 됨!
 }; /// click ///
+
+
 
 // 2. 엄마집 ///////
 myFn.qs("p").onclick = function (e) {
