@@ -72,14 +72,14 @@ function slideAuto(){
     autoI = setInterval(()=>{
         $target.append($target.find('div').first());
     }, 2000);
-}
+} /// slideAuto함수 ///
 
 // 2. 지우기 함수 ////
 function clearAuto(){
     clearInterval(autoI);
     clearTimeout(autoT);
     autoT = setTimeout(slideAuto, 5000);
-}
+} /// clearAuto 함수 ////
 
 // 3. 버튼 클릭시 지우기 함수 호출 셋팅 ///
 $('.abtn').click(clearAuto);
