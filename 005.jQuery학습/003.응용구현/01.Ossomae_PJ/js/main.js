@@ -7,10 +7,13 @@ import mFn from "./my_function.js";
         버튼 클릭시 갤러리박스를 잘라서 앞/뒤로 이동함
 
     1-1. 오른쪽버튼 클릭시 - 맨앞div 맨뒤로 이동
-        -> 갤러리부모박스.appendChild(맨앞자식div)
+        JS -> 갤러리부모박스.appendChild(맨앞자식div)
+        제이쿼리 -> 갤러리부모박스.append(맨앞자식div)
 
     1-2. 왼쪽버튼 클릭시 - 맨뒤div 맨앞으로 이동
-        -> 갤러리부모박스.insertBefore(맨뒤자식div,맨앞자식div)
+        JS -> 갤러리부모박스.insertBefore(맨뒤자식div,맨앞자식div)
+        제이쿼리 -> 갤러리부모박스.prepend(맨뒤자식div)
+        
  ***********************************************************/
 
    
