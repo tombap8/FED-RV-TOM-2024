@@ -22,6 +22,31 @@
 		$('#main').find('p').first()
 		.click(function(){
 			console.log('나야나!');
+			$(this) // 주인공 첫번째p요소
+			.next() // 두번째 p요소
+			.html(`
+				<img src="pic1.jpg" alt="이미지"/>
+				<img src="pic2.jpg" alt="이미지"/>
+				<img src="pic3.jpg" alt="이미지"/>
+				<img src="pic4.jpg" alt="이미지"/>
+				<img src="pic5.jpg" alt="이미지"/>
+			`)
+			.find('img') // 위에서 넣은 이미지들 선택!
+			.css({
+				position: 'absolute',
+				left: '0',
+			})
+			.first() // 이미지중 첫번째 이미지
+			.css({width: '300px'})
+			.next() // 다음 이미지(두번째)
+			.css({width: '250px'})
+			.next() // 다음 이미지(세번째)
+			.css({width: '200px'})
+			.next() // 다음 이미지(네번째)
+			.css({width: '150px'})
+			.next() // 다음 이미지(다섯번째)
+			.css({width: '100px'})
+			
 		});/// click ///
 		
 		
