@@ -69,6 +69,18 @@
 			.delay(2000) // 2초후
 			.animate({top: '200px'},500) // 아래쪽으로 이동
 
+			// 홀수번째 이미지(사실 짝수번째)
+			.parent().find('img:odd').first() // 홀수중 1번
+			.delay(2000) // 위의 총액션시간 + 2초기다림
+			.animate({top:'-50px'},500) 
+
+			// 홀수번째 이미지(사실 짝수번째)
+			.parent().find('img:odd').last() // 홀수중 끝번
+			.delay(2000) // 위의 총액션시간 + 2초기다림
+			.animate({top:'50px'},500); // 마무리!!!
+
+			////////// html 태그 읽어와서 찍기 /////
+			console.log('현재html:',$('#main').html());
 
 			
 		});/// click ///
