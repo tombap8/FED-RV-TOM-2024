@@ -9,9 +9,9 @@
 @import url(./grid_12_flex.css);
 
 /* 공사중 표시 */
-body * {
+/* body * {
   outline: 2px dashed #ccc;
-}
+} */
 
 /* 임시 높이 */
 .main-area .inbox {
