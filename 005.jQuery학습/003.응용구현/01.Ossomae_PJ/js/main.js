@@ -51,7 +51,7 @@ function blockCode(){
     clickSts = true;//잠금
     setTimeout(()=>{
         clickSts = false;//잠금 해제
-    }, 400); // 4초후 실행
+    }, 400); // 0.4초후 실행
 
     // 3. 광클상태 false이면 전역셋팅후 리턴 false
     return false;
