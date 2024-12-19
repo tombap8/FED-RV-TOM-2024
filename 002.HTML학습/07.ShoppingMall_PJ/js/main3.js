@@ -46,3 +46,17 @@ $('.ab2').click(()=>{
     $indic.eq(sNum).addClass('on')
     .siblings().removeClass('on');
 });
+// 2-2. 왼쪽 버튼
+$('.ab1').click(()=>{
+    // 슬라이드 번호감소(한계값 설정)
+    sNum--;
+    if(sNum == -1) sNum = SLIDE_CNT-1;
+
+    // 슬라이드에 클래스 넣기 (지우기)
+    $slide.eq(sNum).addClass('on')
+    .siblings().removeClass('on');
+    
+    // 블릿변경
+    $indic.eq(sNum).addClass('on')
+    .siblings().removeClass('on');
+});
