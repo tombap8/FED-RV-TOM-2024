@@ -51,25 +51,25 @@
   gap: 3.2rem;
 }
 /* gnb 상위 a요소 */
-.gnb ul>li>a{
+.gnb ul > li > a {
   padding-bottom: 10px;
 }
 /* gnb 상위 li 오버시 a요소
 + 서브메뉴 a오버시 */
-.gnb ul>li:hover>a,
+.gnb ul > li:hover > a,
 .smenu a:hover {
   color: red;
 }
 /* gnb 상위 li 오버시 a요소
 밑줄 디자인 보이기 */
-.gnb ul>li>a::after{
-  content: '';
+.gnb ul > li > a::after {
+  content: "";
   display: block;
   margin-top: 5px;
   height: 4px;
   background-color: #fff;
 }
-.gnb ul>li:hover>a::after{
+.gnb ul > li:hover > a::after {
   background-color: #222;
 }
 
@@ -120,6 +120,60 @@ aside.smenu {
 }
 
 /**************** 2. 하단영역 ****************/
-.footer-area {
-  height: 320px;
+#footer-area {
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+  padding-bottom: 80px;
+  background: url(../images/footer_bg_tvn-pc.png) no-repeat center/cover;
+}
+
+/* 하단링크박스 */
+.info-link ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 15px;
+}
+.info-link a {
+  font-size: 1.4rem;
+  line-height: 2.5;
+  white-space: nowrap;
+}
+/* 바로가기 콤보박스 영역 */
+.combo-area {
+  text-align: right;
+}
+.combo-area select {
+  width: 170px;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(230, 230, 230);
+  font-size: 1.5rem;
+  margin: 5px;
+}
+/* 하단로고박스 */
+.footer__logo {
+  padding: 20px 0;
+}
+/* 회사주소박스 */
+.corp-info {
+  font-style: normal;
+  font-size: 1.5rem;
+  line-height: 1.8;
+}
+/* SNS박스 */
+.sns-box ul {
+  display: flex;
+  gap: 0 5px;
+}
+.sns-box li {
+  width: 35px;
+  height: 35px;
+  /* 플렉스 강제줄이기 해제 */
+  flex-shrink: 0;
+  line-height: 38px;
+  font-size: 1.8rem;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid gray;
 }
