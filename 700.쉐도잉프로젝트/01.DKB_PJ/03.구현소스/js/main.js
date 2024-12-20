@@ -77,3 +77,17 @@ function controlSwp() {
     swiper.slidePrev();
   } // else //
 } ////////// controlSwp함수 /////////
+
+
+/////////////////////////////////////////////////
+///////// 리스트 내용 서브 페이지 별창형 구현 /////
+/////////////////////////////////////////////////
+// 공통변경대상 : .sub-cont
+const $subCont = $('.sub-cont');
+
+
+// 1. 미리보기영역 클릭시 세부내용 보기 ////
+// 이벤트 대상 : .preview-box li
+$('.preview-box li').click(function(){
+  console.log('미리봐봐~!');
+}); //// click ///
