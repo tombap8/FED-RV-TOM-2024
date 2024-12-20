@@ -114,10 +114,10 @@
 			$('.gnb>ul>li').hover(
 				function(){ // over ///
 					// $(this).find('.smenu')
-					$('.smenu',this).slideDown(400);
+					$('.smenu',this).stop().slideDown(400);
 				},/// over ///
 				function(){ // out ///
-					$('.smenu',this).slideUp(400);					
+					$('.smenu',this).stop().slideUp(400);					
 				} /// out ///
 			); /// hover ///
 
