@@ -1,14 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title> easing 처리 </title>
-<!-- jQuery library -->
-<script src="../jquery-3.6.3.min.js"></script>
-<script src="../jquery-ui.min.js"></script>
-	<script>
-	$(function(){/// jQB ///
-		/*
+  <head>
+    <meta charset="utf-8" />
+    <title>easing 처리</title>
+    <!-- jQuery library -->
+    <script src="../jquery-3.6.3.min.js"></script>
+    <script src="../jquery-ui.min.js"></script>
+    <script>
+      $(function () {
+        /// jQB ///
+        /*
 		이징(easing) 효과란?
 
 		- 애니메이션 시작과 끝에 가속도를 변경해주는 옵션
@@ -24,62 +25,44 @@
 		https://api.jqueryui.com/easings/
 		
 		*/
-		
-		//기능구현: 버튼을 클릭할때 버튼의 text의 이징명으로 slideUp, slideDown 애니메이션을 지정하시오.
-		
-		//이벤트(click)  대상선정: button
-		
-		
-		
-		
-		
-	});//// jQB /////////////////////////////////////////
-	
-	
-	
-	
-	
-	
-	
-	
-	</script>
-	
-	
-	
-	
-<style>
 
-</style>
-</head>
-<body>
+        //기능구현: 버튼을 클릭할때 버튼의 text의 이징명으로 slideUp, slideDown 애니메이션을 지정하시오.
 
-<div id="box">
-	<img src="ease.jpg" alt="" width="450"/>
-</div>
+        //이벤트(click)  대상선정: button
+        $("button").click(function () {
+          // 1. 이징명 가져오기
+          let easing = $(this).text();
+          console.log("이징명:", easing);
 
+          //2. 대상박스 닫았다 열기(이징적용!)
+          $("#box").slideUp(800, easing).slideDown(800, easing);
+        }); ////////// click ///////////
+      }); //// jQB /////////////////////////////////////////
+    </script>
 
-<button>easeOutQuart</button>
-<button>easeInOutElastic</button>
-<button>easeOutBack</button>
-<button>easeOutBounce</button><br>
+    <style></style>
+  </head>
+  <body>
+    <div id="box">
+      <img src="ease.jpg" alt="" width="450" />
+    </div>
 
-<button>easeInOutExpo</button>
-<button>easeInOutSine</button>
-<button>easeOutCubic</button>
-<button>easeOutCirc</button><br>
+    <button>easeOutQuart</button>
+    <button>easeInOutElastic</button>
+    <button>easeOutBack</button>
+    <button>easeOutBounce</button><br />
 
-<button>easeOutQuad</button>
-<button>easeInOutSine</button>
-<button>easeOutCubic</button>
-<button>easeOutCirc</button><br>
+    <button>easeInOutExpo</button>
+    <button>easeInOutSine</button>
+    <button>easeOutCubic</button>
+    <button>easeOutCirc</button><br />
 
+    <button>easeOutQuad</button>
+    <button>easeInOutSine</button>
+    <button>easeOutCubic</button>
+    <button>easeOutCirc</button><br />
 
-<!---------- jQuery code Start ---------->
-<script>
-
-
-
-</script>
-
-</body>
+    <!---------- jQuery code Start ---------->
+    <script></script>
+  </body>
 </html>
