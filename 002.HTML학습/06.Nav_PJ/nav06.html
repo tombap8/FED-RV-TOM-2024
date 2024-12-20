@@ -6,10 +6,8 @@
     <title>유형6. 가로네비 서브별 드롭다운 전체창</title>
     <!-- 메인CSS -->
     <link rel="stylesheet" href="./css/nav06.css" />
-    <!-- 메뉴data JS -->
-    <script src="./js/mdata.js"></script>
     <!-- 메인 JS -->
-    <script src="./js/nav06.js" defer></script>
+    <script src="./js/nav06.js" type="module"></script>
   </head>
   <body>
     <!-- 1. 상단영역 -->
@@ -34,18 +32,44 @@
       <!-- 배너영역 -->
       <section class="banbx">
         <!--슬라이드-->
-        <ul class="slide dtg"></ul>
+        <ul class="slide ban-slide"></ul>
 
         <!--이동버튼-->
-        <a href="#" class="abtn ab1">
+        <a href="#" class="controls abtn ab1">
           <span class="ir">왼쪽버튼</span>
         </a>
-        <a href="#" class="abtn ab2">
+        <a href="#" class="controls abtn ab2">
           <span class="ir">오른쪽버튼</span>
         </a>
-        
+
         <!--블릿버튼-->
-        <ol class="indic"></ol>
+        <ol class="controls indic"></ol>
+      </section>
+
+      <!-- 배너 하단 영역 -->
+      <section class="sub-cont">
+        <!-- 왼쪽박스 -->
+        <div>
+          <h2>신상품 보기</h2>
+        </div>
+        <!-- 오른쪽박스 -->
+        <div class="cont-right-box">
+          <section class="banbx sub-banbx">
+            <!--슬라이드-->
+            <ul class="slide sub-slide"></ul>
+
+            <!--이동버튼-->
+            <a href="#" class="controls abtn ab1">
+              <span class="ir">왼쪽버튼</span>
+            </a>
+            <a href="#" class="controls abtn ab2">
+              <span class="ir">오른쪽버튼</span>
+            </a>
+
+            <!--블릿버튼-->
+            <ol class="controls indic"></ol>
+          </section>
+        </div>
       </section>
     </main>
   </body>

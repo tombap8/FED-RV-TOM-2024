@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System 2D Animation</title>
+    <link rel="stylesheet" href="./css/solar2d.css">
+</head>
+<body>
+    <!-- 타이틀 -->
+    <h1 class="tit">
+        <span>Solar System 2D</span>
+    </h1>
+
+    <!-- 태양계박스 -->
+    <div id="solar">
+        <!-- 태양 -->
+        <div id="sun">
+            <img src="../images/sun.png" alt="태양">
+        </div>
+        <!-- 지구+달 랩핑박스 -->
+        <div class="earth-wrap planet">            
+            <!-- 달 -->
+            <div id="moon" class="planet">
+                <span class="ir">달</span>
+                <!-- 달정보 -->
+                <div class="info">
+                    <h2>달 (Moon)</h2>
+                    <p>
+                        달은 지구의 유일한 영구적 자연위성이고, 태양계의 위성 중 5번째로 크다. 행성의 크기와 비교하여, 자연위성 중 가장 크다. 지구 중심으로부터 달 중심까지의 거리는 평균 38만 4400 km로, 지구가 30개가 들어가는 거리이며, 지구에서 태양까지 거리의 1/389 보다 작다.
+
+                    </p>
+                </div>
+            </div>
+            <!-- 지구 -->
+            <div id="earth">
+                <span class="ir">지구</span>
+                <!-- 지구정보 -->
+                <div class="info">
+                    <h2>지구 (Earth)</h2>
+                    <p>
+                        지구는 태양으로부터 세 번째 행성이며, 조금 두꺼운 대기층으로 둘러싸여 있고, 지금까지 발견된 지구형 행성 가운데 가장 크다.
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+        <!-- 목성 -->
+        <div id="jupiter" class="planet">
+            <span class="ir">목성</span>
+            <!-- 목성정보 -->
+            <div class="info">
+                <h2>목성 (Jupiter)</h2>
+                <p>
+                    목성은 태양계의 다섯번째 행성이자 가장 큰 행성이다. 태양 질량의 1,000분의 1배에 달하는 거대행성으로, 태양계에 있는 다른 모든 행성들을 합한 질량의 약 2.5배에 이른다. 
+                </p>
+            </div>
+        </div>
+        <!-- 토성 -->
+        <div id="saturn" class="planet">
+            <span class="ir">토성</span>
+            <!-- 토성정보 -->
+            <div class="info">
+                <h2>토성 (Saturnus)</h2>
+                <p>
+                    토성은 태양으로부터 여섯 번째에 있는 태양계의 행성이다. 토성은 태양계 내의 행성 중 목성에 이어 두 번째로 크며, 지름은 약 12만 km로, 지구의 9.1배이며 부피는 760배에 달한다.
+                </p>
+            </div>
+        </div>
+        <!-- 명왕성 -->
+        <div id="pluto" class="planet">
+            <span class="ir">명왕성</span>
+            <!-- 명왕성정보 -->
+            <div class="info">
+                <h2>명왕성 (Pluto)</h2>
+                <p>
+                    명왕성은 태양계의 왜행성 중 하나로, 최초로 발견된 카이퍼 벨트 천체이다. 현재까지 크기가 확인된 해왕성 바깥 태양계 천체 가운데에서 가장 큰 천체이다.
+                </p>
+            </div>
+        </div>
+
+        <!-- 행성경로 -->
+        <div class="path-way">
+            <div class="earth"></div>
+            <div class="jupiter"></div>
+            <div class="saturn"></div>
+            <div class="pluto"></div>
+        </div>
+    </div>
+    
+</body>
+</html>
