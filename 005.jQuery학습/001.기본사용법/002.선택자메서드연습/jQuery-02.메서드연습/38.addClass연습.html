@@ -134,8 +134,13 @@
     </style>
     <script src="../jquery-3.6.3.min.js"></script>
     <script>
-      $(() => {
-        /////////// jQB ////////////////////
+      $(() => {/////////// jQB ///////////////////
+        $('.ham').click(function(){
+            // 햄버거자신에게 on넣기/빼기
+            $(this).toggleClass('on');
+            // 전체메뉴박스(.gbx)에 on넣기/빼기
+            $('.gbx').toggleClass('on');
+        }); /// click ///
       }); /////////////// jQB ////////////////////
     </script>
   </head>
