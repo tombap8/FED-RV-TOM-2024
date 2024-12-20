@@ -22,27 +22,17 @@ jQuery.fn.함수명 = function(전달변수){
 //// 함수기능: 배경색과 왼쪽마진, 시간값을 받아서/////
 ///             애니메이션 처리함 ////////////////
 ////////////////////////////////////////////////
-jQuery.fn.myAction = function(color,ml,tt){
-    // 파라미터변수: color-배경색,ml-왼쪽마진,tt-시간
-    console.log("전달값:"+color+"/"+ml+"/"+tt);
-    
-    // 기능구현하기 
-    $(this).animate({
-        backgroundColor:color,
-        marginLeft: ml + "px"
-    },tt);////// animate ///////
-    
-    
-};///////////// myAction 함수 ///////////////////
+jQuery.fn.myAction = function (color, ml, tt) {
+  // 파라미터변수: color-배경색,ml-왼쪽마진,tt-시간
+  console.log("전달값:" + color + "/" + ml + "/" + tt);
+
+  // 기능구현하기
+  $(this).animate(
+    {
+      backgroundColor: color,
+      marginLeft: ml + "px",
+    },
+    tt
+  ); ////// animate ///////
+}; ///////////// myAction 함수 ///////////////////
 ////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
