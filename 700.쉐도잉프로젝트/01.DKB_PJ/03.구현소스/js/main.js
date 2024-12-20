@@ -85,7 +85,7 @@ function controlSwp() {
 // 공통변경대상 : .sub-cont
 const $subCont = $('.sub-cont');
 // 닫기버튼 셋팅
-$subCont.find(닫기버튼).click(function(){$(this).hide()});
+$subCont.find('.cbtn').click(()=>$subCont.fadeOut());
 
 
 // 1. 미리보기영역 클릭시 세부내용 보기 ////
@@ -102,7 +102,8 @@ $('.preview-box li').click(function(){
   $subCont.find('.sub-item').text(currCont);
 
   // 3. 서브컨텐츠 박스 보이기
-  $subCont.show();
+  $subCont.fadeIn();
+  // fadeIn(시간) -> 시간안쓰면 400
 
 
 }); //// click ///
