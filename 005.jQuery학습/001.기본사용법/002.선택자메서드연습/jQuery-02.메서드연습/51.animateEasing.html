@@ -35,7 +35,9 @@
           console.log("이징명:", easing);
 
           //2. 대상박스 닫았다 열기(이징적용!)
-          $("#box").slideUp(800, easing).slideDown(800, easing);
+          $("#box")
+		  .slideUp(800, easing)
+		  .slideDown(800, easing);
         }); ////////// click ///////////
       }); //// jQB /////////////////////////////////////////
     </script>
