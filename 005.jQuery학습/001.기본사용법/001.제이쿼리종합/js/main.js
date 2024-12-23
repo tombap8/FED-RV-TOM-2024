@@ -75,3 +75,42 @@ const msgTxt = [
   // 9번방
   "악!;;;; 좀비!<br>어서피하자!",
 ];
+
+// console.log('대상:',$mi,$room,$btns,$msg);
+
+
+// 1. 건물 각 방에 번호넣기 + 좀비/주사기 넣기
+// 대상: .building li -> room변수
+// 사용 제이쿼리 메서드
+// (1) each((순번,요소)=>{코드})
+// -> 요소 개수만큼 순서대로 돌아줌!
+// (2) append(요소) : 선택요소 내부에 자식요소 추가(이동)
+
+$room.each((idx,el)=>{
+    // console.log(idx,el);
+
+    // 1. 각 방에 숫자로 순번넣기
+    $(el).text(idx);
+
+    // 2. 좀비/주사기 넣기
+    switch(idx){
+        case 9:
+            $(el).append(mz1);
+            break;
+        case 7:
+            $(el).append(mz2);
+            break;
+        case 2:
+            $(el).append(inj);
+            break;
+        case 1:
+            $(el).append(zom);
+            break;
+
+    } //// switch //////
+
+}); //// each 메서드 ////
+
+
+
+
