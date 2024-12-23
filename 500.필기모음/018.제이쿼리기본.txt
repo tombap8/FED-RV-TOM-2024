@@ -3,7 +3,7 @@
 >>>> jquery.com <<<<<
 ***********************
 샘플 PJ
-https://tombap8.github.io/KITA-FED212/004.jQuery학습/001.기본사용법/001.제이쿼리종합/index.html
+https://tombap8.github.io/FED-RF-2nd-2024-TOM/005.jQuery%ED%95%99%EC%8A%B5/001.%EA%B8%B0%EB%B3%B8%EC%82%AC%EC%9A%A9%EB%B2%95/001.%EC%A0%9C%EC%9D%B4%EC%BF%BC%EB%A6%AC%EC%A2%85%ED%95%A9/
 _____________________________________________________
 
 1. 제이쿼리는 무엇인가?
