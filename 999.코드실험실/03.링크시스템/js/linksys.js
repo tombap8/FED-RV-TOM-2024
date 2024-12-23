@@ -19,7 +19,10 @@ $('.gnb a').click(function(e){
     // 페이지 이동하기
     // 같은 시스템은 같은 창에서 이동함
     // location.href = 이동할주소
-    location.href = `./${url}.html`;
+    // 전환효과때문에 지연시간 셋팅함!
+    setTimeout(() => {
+        location.href = `./${url}.html`;
+    }, 800);
 
 
 });
