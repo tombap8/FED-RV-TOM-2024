@@ -16,7 +16,7 @@ $('.gnb a').click(function(e){
         case 'CONTACT': url = 'sub2'; break;
     }
 
-    // 페이지 이동하기
+    // [ 페이지 이동하기 ]
     // 같은 시스템은 같은 창에서 이동함
     // location.href = 이동할주소
     // 전환효과때문에 지연시간 셋팅함!
