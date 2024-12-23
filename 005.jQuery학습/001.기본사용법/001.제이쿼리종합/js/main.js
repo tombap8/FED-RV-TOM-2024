@@ -23,19 +23,55 @@
 
 // 0. 주인공들 변수에 할당!
 // (1) 미니언즈
-const $mi = $('.mi');
+const $mi = $(".mi");
 
 // (2) 건물 리스트(li요소)
-const $room = $('.building li');
+const $room = $(".building li");
 
 // (3) 버튼들
-const $btns = $('.btns button');
+const $btns = $(".btns button");
 
 // (4) 메시지 박스
-const $msg = $('.msg');
+const $msg = $(".msg");
 
 // (5) 좀비, 주사기 요소 변수처리
 let mz1 = `<img src="./images/mz1.png" alt="좀비1" class="mz">`;
 let mz2 = `<img src="./images/mz2.png" alt="좀비2" class="mz">`;
 let zom = `<img src="./images/zom.png" alt="좀비들" class="mz">`;
 let inj = `<img src="./images/inj.png" alt="주사기" class="inj">`;
+
+// (6) 메시지 배열 셋팅
+const msgTxt = [
+  // 0번방
+  `도와줘요!!!`,
+  // 1번방
+  `이제 곧 탈출이닷!`,
+  // 2번방
+  `이제 조금만 더<br>가면 탈출이닷!`,
+  // 3번방
+  `어서 윗층으로 가자!`,
+  // 4번방
+  [
+    [
+      "무",
+      "무.",
+      "무.서",
+      "무.서.",
+      "무.서.워",
+      "무.서.워.",
+      "무.서.워..",
+      "무.서.워...",
+    ],
+    `아~악! 물렸다!<br>어서 치료주사방으로!`,
+  ],
+  // 5번방
+  "",
+  // 6번방
+  [`여긴없겠지?`, `그래도 무서우니<br>윗층으로 가자!`],
+  // 7번방
+  [`여긴없겠지?`, `악, 여기도!!!`],
+  // 8번방
+  `와~! 아늑하다!<br>옆방으로 가보자!`,
+  // 9번방
+  "악!;;;; 좀비!<br>어서피하자!",
+];
