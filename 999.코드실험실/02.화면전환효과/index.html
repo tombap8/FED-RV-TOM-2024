@@ -13,18 +13,17 @@
       }
 
       /* 페이지 전환효과용 가림막 */
-      body::after {
-        content: "";
-        display: block;
+      .pg-cover {
         position: fixed;
         z-index: 9999;
         top: 0;
         left: 0;
         width: 100vw;
-        height: 0; /* 변경요소 */
+        /* height: 100vh;
+        display: none; */
         background-color: lightseagreen;
         /* 트랜지션: 속시이지 */
-        transition: all 0.8s ease-in-out;
+        /* transition: all 0.8s ease-in-out; */
       }
       /* 1단계:body.on일때 가상요소 after적용 */
       body.on::after {
