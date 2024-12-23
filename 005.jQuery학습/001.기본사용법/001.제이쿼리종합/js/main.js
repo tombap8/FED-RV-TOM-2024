@@ -21,3 +21,21 @@
 
 ***********************************/
 
+// 0. 주인공들 변수에 할당!
+// (1) 미니언즈
+const $mi = $('.mi');
+
+// (2) 건물 리스트(li요소)
+const $room = $('.building li');
+
+// (3) 버튼들
+const $btns = $('.btns button');
+
+// (4) 메시지 박스
+const $msg = $('.msg');
+
+// (5) 좀비, 주사기 요소 변수처리
+let mz1 = `<img src="./images/mz1.png" alt="좀비1" class="mz">`;
+let mz2 = `<img src="./images/mz2.png" alt="좀비2" class="mz">`;
+let zom = `<img src="./images/zom.png" alt="좀비들" class="mz">`;
+let inj = `<img src="./images/inj.png" alt="주사기" class="inj">`;
