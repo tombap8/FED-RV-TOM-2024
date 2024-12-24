@@ -279,9 +279,33 @@ $btns
     actMini(this, 3, fn);
   }) //////////// click ////////////
 
+  // 11. "1번방으로!" 버튼 클릭시 ////////
+  .next() // 두번째버튼
+  .click(function () {
+    // (1) 버튼별 기능구현 (콜백함수) //////
+    const fn =
+      // function(){ // -> this는 $mi
+      () => {
+        // 다음버튼 보이기함수 호출
+        showNextBtn(this);
+      }; //// fn 콜백함수 ////
 
-// 
-// 
-// 
-// 1번방으로!
-// 헬기를 호출!
+    // (2) actMini() 함수 호출
+    actMini(this, 1, fn);
+  }) //////////// click ////////////
+
+  // 12. "헬기를 호출!" 버튼 클릭시 ////////
+  .next() // 두번째버튼
+  .click(function () {
+    // (1) 버튼별 기능구현 (콜백함수) //////
+    const fn =
+      // function(){ // -> this는 $mi
+      () => {
+        // 다음버튼 보이기함수 호출
+        showNextBtn(this);
+      }; //// fn 콜백함수 ////
+
+    // (2) actMini() 함수 호출
+    actMini(this, 0, fn);
+  }) //////////// click ////////////
+
