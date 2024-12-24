@@ -118,3 +118,16 @@ $('.mz').hide();
 // 대상: .btns button -> $btns변수
 $btns.hide().first().show();
 // 버튼모두.숨겨().첫번째버튼().보여()
+
+
+// 3. 미니언즈 공통 기능함수 ///////
+
+
+// 4. "들어가기" 버튼 클릭시
+$btns.first()
+.click(function(){
+    // 0-1. 메시지 숨기기
+    $msg.fadeOut(300);
+    // 0-2. 버튼자신 없애기(애니)
+    $(this).slideUp(400);
+}) /// click ///
