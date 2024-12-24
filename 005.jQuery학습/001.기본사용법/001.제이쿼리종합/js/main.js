@@ -125,7 +125,10 @@ $btns.hide().first().show();
 
 // 4. "들어가기" 버튼 클릭시
 $btns.first()
-.click(function(){
+.click(
+    function(){ // -> 내부화살표함수의 this가 여기에 걸림!
+    // ()=>{ // -> 화살표함수는 this가 바깥으로 나감
+
     // 0-1. 메시지 숨기기
     $msg.fadeOut(300);
     // 0-2. 버튼자신 없애기(애니)
@@ -140,5 +143,32 @@ $btns.first()
     pos['top'] = myRoom.offset().top;
     // (2) left 위치값
     pos['left'] = myRoom.offset().left;
+    // left값을 방 중앙으로 오도록 보정한다!
+    pos['left'] = 
+    pos['left'] + myRoom.width()/2 - $mi.width()/2;
+    // -> left값 + 방width절반 - 미니언즈width절반
+    // 제이쿼리 가로크기 width(), 세로크기 height()
+
     console.log('top:',pos.top,'\nleft:',pos.left);
+
+
+    // 2. 위치이동하기 ////
+    $mi.animate({
+        top: pos.top,
+        left: pos.left
+    },800,"easeOutElastic",
+    // 콜백함수(애니후실행)
+    // function(){ // -> this는 $mi
+    ()=>{ // -> this는 싸고 있는 $btns.first() 버튼
+
+        // -> 화살표함수의 this는 바깥으로 나간다!
+        // -> 올라가다가 function(){}에 걸린다!
+        // -> 화살표로 계속 나가면 window를 만난다!
+        // 메시지 변경하기
+        $msg.html(msgTxt[8]).delay(1000).fadeIn(300);
+        // 다음버튼 보이기
+        console.log('나자신은?',this);
+        $(this).next().delay(1000).fadeIn(300);
+    })
+
 }) /// click ///
