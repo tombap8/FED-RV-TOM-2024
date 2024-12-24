@@ -130,4 +130,15 @@ $btns.first()
     $msg.fadeOut(300);
     // 0-2. 버튼자신 없애기(애니)
     $(this).slideUp(400);
+
+    // 1. 특정방으로 이동하기위한 위치값 읽기
+    // 이동할 li방 위치값을 읽은 후 이동함
+    let myRoom = $room.eq(8);
+    // 위치값을 담을 객체변수
+    const pos = {};
+    // (1) top 위치값
+    pos['top'] = myRoom.offset().top;
+    // (2) left 위치값
+    pos['left'] = myRoom.offset().left;
+    console.log('top:',pos.top,'\nleft:',pos.left);
 }) /// click ///
