@@ -321,6 +321,8 @@ $('body').append(`
 // 2. 눈내리는 박스 셋팅
 $('.snowing').css({
     position: 'fixed',
+    // 맨위에 올때 아래쪽 이벤트살리기
+    pointerEvents: 'none',
     zIndex: 99999,
     top: 0,
     left: 0,
