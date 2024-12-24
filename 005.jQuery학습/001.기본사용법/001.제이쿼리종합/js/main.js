@@ -309,3 +309,25 @@ $btns
     actMini(this, 0, fn);
   }) //////////// click ////////////
 
+
+
+/////////////////////////////////////////
+///////// 추가 애니 구현하기 ///////////
+// 1. 눈내리는 박스 넣기
+$('body').append(`
+    <div class="snowing"></div>
+`);
+
+// 2. 눈내리는 박스 셋팅
+$('.snowing').css({
+    position: 'fixed',
+    zIndex: 99999,
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    background: 'url(./images/snowing.gif)',
+})
+
+
+
