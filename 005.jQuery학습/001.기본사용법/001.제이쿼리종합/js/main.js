@@ -315,7 +315,7 @@ $btns
 $("body").append(`
     <div class="snowing"></div>
     <img class="santa" 
-        src="./images/santa.webp" 
+        src="./images/santa.png" 
         alt="산타썰매">
 `);
 
