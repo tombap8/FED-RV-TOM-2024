@@ -329,12 +329,12 @@ a {
 
 .desc > a {
   display: block;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .desc > a:hover {
-    color: aqua;
-    scale: 1.3;
+  color: aqua;
+  scale: 1.3;
 }
 
 .two {
@@ -531,6 +531,12 @@ a {
 }
 
 @media only screen and (max-width: 1200px) {
+  html,
+  body {
+    /* 가로스크롤방지 */
+    overflow-x: hidden;
+  }
+
   /*큰제목*/
   .mainTit {
     position: absolute;
@@ -594,7 +600,7 @@ a {
 
   .sbox {
     position: absolute;
-    margin-top: 15vh;
+    /* margin-top: 15vh; */
     left: 150%;
     /* transform: translate(-50%, -50%); */
     width: max(100vw, 370px);
@@ -675,7 +681,7 @@ a {
   }
 
   .s1 > li .kw {
-    background-image: linear-gradient(to bottom, #f8b2d8 10%, #c7207a 70%);
+    background-image: linear-gradient(to bottom, #92ceff 10%, #207cc7 70%);
     animation: updown2 0.5s ease-in-out infinite alternate;
   }
 
@@ -720,12 +726,13 @@ a {
     );
     z-index: 3;
   }
-
+  
+  
   .s1 > li:hover .kw {
     background-image: radial-gradient(
       farthest-side at 30% 30%,
-      #f8b2d8 10%,
-      #c7207a 70%
+      #3387cb 10%,
+      #0e3b60 70%
     );
     z-index: 3;
   }
@@ -743,9 +750,20 @@ a {
     background: rgba(0, 0, 0, 0.7);
     font-size: 3vh;
     margin: 0;
-    padding: 10px;
-    text-align: left;
+    padding: 20px;
+    /* text-align: left; */
     line-height: 5vh;
+  }
+  .desc > a {
+    transition: none;
+  }
+  .desc > a:hover {
+    color: #fff;
+    scale: 1;
+  }
+
+  .cbox > div:last-child img {
+    height: 15vh;
   }
 
   .mtit {
