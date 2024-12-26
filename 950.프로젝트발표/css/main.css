@@ -2,7 +2,9 @@
 
 /* 발표자료 공통 CSS - main.css */
 
+/* 웹폰트 */
 @import url("https://fonts.googleapis.com/css2?family=Poor+Story&display=swap");
+
 html,
 body {
   margin: 0;
@@ -44,7 +46,7 @@ a {
   transform: translateX(-50%) rotateY(5deg);
   width: 40vw;
   text-align: center;
-  background: url(./../images/1st/title_bg.png) no-repeat center/cover;
+  background: url(./../images/1st/title_bg.jpg) no-repeat center/cover;
   border-radius: 20px;
   border: 10px double rgb(0, 208, 255);
   color: #fff;
@@ -400,7 +402,7 @@ a {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: url(../images/1st/circle.png) no-repeat center/cover;
+  background: url(../images/1st/circle.jpg) no-repeat center/cover;
 }
 
 /* 내부글자 */
