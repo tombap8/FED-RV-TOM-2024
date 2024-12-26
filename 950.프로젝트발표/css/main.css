@@ -35,7 +35,7 @@ ul::after {
 a {
   text-decoration: none;
   color: #fff;
-  font-size: 23px;
+  font-size: 30px;
 }
 
 /*큰제목*/
@@ -307,7 +307,7 @@ a {
   margin: 0;
   padding: 10px;
   text-align: left;
-  line-height: 25px;
+  line-height: 40px;
 }
 
 .desc::-webkit-scrollbar {
