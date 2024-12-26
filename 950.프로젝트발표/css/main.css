@@ -156,7 +156,7 @@ a {
 .sbox li {
   position: relative;
   flex-shrink: 0;
-  flex-basis: calc(100% / 4 - 2%);
+  flex-basis: calc(100% / 5 - 2%);
 }
 
 .cbox {
