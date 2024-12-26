@@ -53,7 +53,7 @@ $(function () {
       borderRadius: "5px",
     })
     .click(function () {
-      location.href = "../../index.html";
+    //   location.href = "../../index.html";
     });
 }); ///////// jQB /////////////////////
 /////////////////////////////////////
