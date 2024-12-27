@@ -48,10 +48,11 @@ $(".preview-box ul").html(
 
 /// 현장포토영역 : 데이터 연결하여 태그 만들기 ///
 // 대상: .live-box
-$('.live-box ul').html(
+$('.live-box').html(
+  "<ul>"+
   dkbData.liveData.map(v=>`
-    <li data-idx="1">
-      <figure>ㅋㅋㅋ
+    <li data-idx="${v.idx}">
+      <figure>
         <img
           src="./images/live_photo/${v.imgName[0]}.jpg"
           alt="${v.title}"
@@ -59,7 +60,8 @@ $('.live-box ul').html(
         <figcaption>${v.title}</figcaption>
       </figure>
     </li>
-  `)
+  `) 
+  + "</ul>"
 );
 
 
