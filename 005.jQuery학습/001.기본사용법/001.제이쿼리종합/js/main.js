@@ -311,11 +311,17 @@ $btns
             $msg.html(msgTxt[4][1])
             .css({left:'-84%'});
             // 미니언즈 좀비 이미지 변경
-          })
-        })
+            $mi.find('img').delay(2000)
+            .fadeIn(200,()=>{// 콜백함수
+              $mi.find('img')
+              .attr('src','./images/mz1.png');
 
-        // 다음버튼 보이기함수 호출
-        // showNextBtn(this);
+              // 다음버튼 보이기함수 호출
+              showNextBtn(this);
+            });/// fadeIn ///
+          }); /// animate ///
+        }); /// fadeIn ///
+
       }; //// fn 콜백함수 ////
 
     // (2) actMini() 함수 호출
