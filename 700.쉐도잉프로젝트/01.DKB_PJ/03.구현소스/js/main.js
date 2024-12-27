@@ -46,8 +46,16 @@ $(".preview-box ul").html(
 // `)
 // .join('')
 
+///////////////////////////////////////////////
 /// 현장포토영역 : 데이터 연결하여 태그 만들기 ///
+///////////////////////////////////////////////
+
 // 대상: .live-box
+// 주의: 제이쿼리 html() 메서드의 값으로 map변환만 쓰면
+// join('') 자동 변환되지만 다른 태그 합칠경우
+// 서비스 기능이 비활성화 된다!
+// 이런경우 JS기본 사용법 대로 아래처럼 "맵죠잉~?"
+// 배열.map().join('')
 $('.live-box').html(
   "<ul>"+
   dkbData.liveData.map(v=>`
@@ -60,8 +68,30 @@ $('.live-box').html(
         <figcaption>${v.title}</figcaption>
       </figure>
     </li>
-  `) 
+  `).join('')
   + "</ul>"
+);
+
+
+/////////////////////////////////////////////////
+/// 대표포스터영역 : 데이터 연결하여 태그 만들기 ///
+/////////////////////////////////////////////////
+
+// 대상: .poster-box
+$('.poster-box').html(
+  '<ul>' +
+  dkbData.posterData.map(v=>`
+    <li data-idx="${v.idx}">
+      <figure>
+        <img
+          src="./images/poster_img/${v.imgName}.jpg"
+          alt="${v.title}"
+        />
+        <figcaption>${v.title}</figcaption>
+      </figure>
+    </li>
+  `).join('')
+  + '</ul>'
 );
 
 
