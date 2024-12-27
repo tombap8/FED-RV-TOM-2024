@@ -200,13 +200,14 @@ $btns
         $room.eq(9) // 9번방
         .find('.mz') // 이방의 좀비
         .delay(2000) // 2초후
-        .fadeIn(400,()=>{ // 좀비 나타난후 액션
-          // 메시지보이기
-          $msg.html(msgTxt[9]).fadeIn(300)
+        .fadeIn(400,()=>{ // 콜백함수 : 좀비 나타난후 액션
+          // 메시지넣기/위치조정하기/보이기
+          $msg.html(msgTxt[9])
+          .css({left:'-88%'}).fadeIn(300);
+          // 다음버튼 보이기함수 호출
+          showNextBtn(this);
         }) /// fadeIn ///
 
-        // 다음버튼 보이기함수 호출
-        // showNextBtn(this);
       }; //// fn 콜백함수 ////
 
     // (2) actMini() 함수 호출
@@ -214,14 +215,20 @@ $btns
   }) //////////// click ////////////
 
   // 6. "윗층으로 도망가!" 버튼 클릭시 ////////
-  .next() // 두번째버튼
+  .next() // 세번째버튼
   .click(function () {
     // (1) 버튼별 기능구현 (콜백함수) //////
     const fn =
       // function(){ // -> this는 $mi
       () => {
+        // 첫대사출력: 배열안의 배열(다차원배열)
+        $msg.text(msgTxt[7][0]).fadeIn(300);
+        // 좀비나타남
+        
+        // 두번째대사출력
+
         // 다음버튼 보이기함수 호출
-        showNextBtn(this);
+        // showNextBtn(this);
       }; //// fn 콜백함수 ////
 
     // (2) actMini() 함수 호출
