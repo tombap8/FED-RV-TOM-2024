@@ -442,7 +442,7 @@ $btns
         // (6) 지연후 헬기 계속이동
         .animate({
           left: '70%',
-          rotate: '25deg'
+          rotate: '15deg'
         },4000,'easeInOutCirc',function(){
           // (7) 조종사 좀비된 이미지로 변경
           $(this).attr('src','./images/heli3.png');
