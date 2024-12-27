@@ -249,12 +249,15 @@ $btns
       () => {
         // 첫번째 대사
         $msg.html(msgTxt[6][0])
+        .fadeIn(300)
+        .delay(2000) // 지연시간2초
+        // 지연시간을 주기위해 fadeIn을 다시줌!
         .fadeIn(300,()=>{
           // 쉬었다가 두번째 대사
           $msg.html(msgTxt[6][1]);
           // 다음버튼 보이기함수 호출
           showNextBtn(this);
-        }); //// fadeIn ///
+        }); /// fadeIn ///
       }; //// fn 콜백함수 ////
 
     // (2) actMini() 함수 호출
