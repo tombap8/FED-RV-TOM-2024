@@ -508,6 +508,10 @@ $btns
                 textShadow: "0 0 5px #000",
                 fontFamily: "vladimir script",
               })
+              .hide() // 숨기기
+              .fadeIn(1000) // 페이드로 보이기
+              .animate({color: 'red'},1000);
+              // 마지막 글자색 빨간색으로 마무리!!!
 
             });/// animate ///
             
