@@ -420,9 +420,17 @@ $btns
         $room.eq(1)
         .find('.mz')
         .fadeIn(300)
-        .anmate({
+        .animate({
           right: '100%'
-        },3000,'easeInCirc')
+        },3000,'easeInCirc');
+
+        // (3) 헬기등장 : .heli
+        $('.heli')
+        .css({rotate:'15deg'})
+        .animate({
+          left: '24%',
+          rotate: '0deg'
+        },3000,'easeOutBack')
         
       }; //// fn 콜백함수 ////
 
