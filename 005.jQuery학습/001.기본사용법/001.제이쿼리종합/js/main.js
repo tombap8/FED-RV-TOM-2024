@@ -329,14 +329,36 @@ $btns
   }) //////////// click ////////////
 
   // 9. "치료주사방으로!" 버튼 클릭시 ////////
-  .next() // 두번째버튼
+  .next() // 여섯번째버튼
   .click(function () {
     // (1) 버튼별 기능구현 (콜백함수) //////
     const fn =
       // function(){ // -> this는 $mi
       () => {
-        // 다음버튼 보이기함수 호출
-        showNextBtn(this);
+        // 주사기 돌리기
+        // 주사기 회전 애니 되게하려고 jquery.rotate.js사용
+        $('.inj')
+        .css({zIndex:'9999'})
+        .delay(500)
+        .animate({
+          rotate: '-150deg'
+        },500,'easeInOutCirc',
+        ()=>{ // 콜백함수: 주사기회전후
+          // 미니언즈 이미지변경
+          $mi.find('img')
+          .attr('src','./images/m2.png')
+          // 그레이스케일 원상복구
+          .css({filter:'grayscale(0)'});
+          
+          // 주사기 없애기
+          $('.inj').hide();
+
+          // 대사날리기
+          $msg.html(msgTxt[2])
+
+          // 다음버튼 보이기함수 호출
+          showNextBtn(this);
+        }); /// animate ///
       }; //// fn 콜백함수 ////
 
     // (2) actMini() 함수 호출
