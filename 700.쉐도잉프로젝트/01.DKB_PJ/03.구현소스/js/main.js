@@ -4,9 +4,12 @@
 import slideFn from "./slide_fn.js";
 
 // 도깨비 PJ 데이터 불러오기
-import { previewData } from "../data/dkb_data.js";
+import * as dkbData from "../data/dkb_data.js";
+// 넘겨준것을 모두 받는 방법은 별(*)로 받고
+// as로 별칭을 지어주면 객체화되어 담겨진다!
+// import { previewData } from "../data/dkb_data.js";
 
-console.log(previewData);
+console.log(dkbData);
 
 // 1. 슬라이드함수 호출하여 실행하기
 slideFn();
@@ -24,7 +27,7 @@ slideFn();
 // 콤마없애고 출력해줌!!!
 
 $(".preview-box ul").html(
-  previewData.map(
+  dkbData.previewData.map(
     (v) => `
         <li>
             <h3>${v.title}</h3>
@@ -43,7 +46,28 @@ $(".preview-box ul").html(
 // `)
 // .join('')
 
-//스와이퍼 인스턴스 생성하기
+/// 현장포토영역 : 데이터 연결하여 태그 만들기 ///
+// 대상: .live-box
+$('.live-box ul').html(
+  dkbData.liveData.map(v=>`
+    <li data-idx="1">
+      <figure>ㅋㅋㅋ
+        <img
+          src="./images/live_photo/${v.imgName[0]}.jpg"
+          alt="${v.title}"
+        />
+        <figcaption>${v.title}</figcaption>
+      </figure>
+    </li>
+  `)
+);
+
+
+
+
+//////////////////////////////
+//스와이퍼 인스턴스 생성하기 ///
+//////////////////////////////
 const swiper = new Swiper(".clip-box", {
   // 한화면에 볼 슬라이드수
   slidesPerView: 4,
