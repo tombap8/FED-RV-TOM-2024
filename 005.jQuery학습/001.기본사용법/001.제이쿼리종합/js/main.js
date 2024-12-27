@@ -265,14 +265,33 @@ $btns
   }) //////////// click ////////////
 
   // 8. "무서우니 윗층으로!" 버튼 클릭시 ////////
-  .next() // 두번째버튼
+  .next() // 다섯번째버튼
   .click(function () {
     // (1) 버튼별 기능구현 (콜백함수) //////
     const fn =
       // function(){ // -> this는 $mi
       () => {
+        // 무.서.워... 메시지 시간차 업데이트
+        $msg
+        .html(msgTxt[4][0][0])
+        .fadeIn(200)
+        .delay(500)
+        .fadeIn(200,()=>$msg.html(msgTxt[4][0][1]))
+        .delay(500)
+        .fadeIn(200,()=>$msg.html(msgTxt[4][0][2]))
+        .delay(500)
+        .fadeIn(200,()=>$msg.html(msgTxt[4][0][3]))
+        .delay(500)
+        .fadeIn(200,()=>$msg.html(msgTxt[4][0][4]))
+        .delay(500)
+        .fadeIn(200,()=>$msg.html(msgTxt[4][0][5]))
+        .delay(500)
+        .fadeIn(200,()=>$msg.html(msgTxt[4][0][6]))
+        .delay(500)
+        .fadeIn(200,()=>$msg.html(msgTxt[4][0][7]))
+
         // 다음버튼 보이기함수 호출
-        showNextBtn(this);
+        // showNextBtn(this);
       }; //// fn 콜백함수 ////
 
     // (2) actMini() 함수 호출
