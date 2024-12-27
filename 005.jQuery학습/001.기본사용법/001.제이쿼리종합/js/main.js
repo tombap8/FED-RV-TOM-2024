@@ -289,6 +289,13 @@ $btns
         .fadeIn(200,()=>$msg.html(msgTxt[4][0][6]))
         .delay(500)
         .fadeIn(200,()=>$msg.html(msgTxt[4][0][7]))
+        .delay(500)
+        .fadeIn(200,()=>{
+          // 무.서.워...대사후 좀비 올라와 달겨들기!
+          // 7번방의 좀비가 올라옴!
+          $room.eq(7).find('.mz')
+          .animate({})
+        })
 
         // 다음버튼 보이기함수 호출
         // showNextBtn(this);
