@@ -300,9 +300,18 @@ $btns
           },500,'easeOutBack')
           .delay(500)
           .animate({
+            // 방까지 뛰어오기
             right: '120%'
-          },1000,'easeOutBounce')
-          // 방까지 뛰어오기
+          },1000,'easeOutBounce',
+          ()=>{ // 좀비 도착후 실행
+            // 미니언즈 흑백처리
+            $mi.find('img')
+            .css({filter:'grayscale(100%)'});
+            // 물린후 대사
+            $msg.html(msgTxt[4][1])
+            .css({left:'-84%'});
+            // 미니언즈 좀비 이미지 변경
+          })
         })
 
         // 다음버튼 보이기함수 호출
