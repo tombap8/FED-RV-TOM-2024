@@ -349,12 +349,12 @@ $btns
           .attr('src','./images/m2.png')
           // 그레이스케일 원상복구
           .css({filter:'grayscale(0)'});
-          
+
           // 주사기 없애기
           $('.inj').hide();
 
           // 대사날리기
-          $msg.html(msgTxt[2])
+          $msg.html(msgTxt[2]).fadeIn(200);
 
           // 다음버튼 보이기함수 호출
           showNextBtn(this);
