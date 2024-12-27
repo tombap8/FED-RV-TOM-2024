@@ -234,8 +234,6 @@ $btns
           showNextBtn(this);
         }); /// fadeIn ////
 
-        // 두번째대사출력
-
       }; //// fn 콜백함수 ////
 
     // (2) actMini() 함수 호출
@@ -243,14 +241,20 @@ $btns
   }) //////////// click ////////////
 
   // 7. "다시옆방으로!" 버튼 클릭시 ////////
-  .next() // 두번째버튼
+  .next() // 네번째버튼
   .click(function () {
     // (1) 버튼별 기능구현 (콜백함수) //////
     const fn =
       // function(){ // -> this는 $mi
       () => {
-        // 다음버튼 보이기함수 호출
-        showNextBtn(this);
+        // 첫번째 대사
+        $msg.html(msgTxt[6][0])
+        .fadeIn(300,()=>{
+          // 쉬었다가 두번째 대사
+          $msg.html(msgTxt[6][1]);
+          // 다음버튼 보이기함수 호출
+          showNextBtn(this);
+        }); //// fadeIn ///
       }; //// fn 콜백함수 ////
 
     // (2) actMini() 함수 호출
