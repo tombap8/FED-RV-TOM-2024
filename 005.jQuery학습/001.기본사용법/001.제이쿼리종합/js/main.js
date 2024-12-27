@@ -405,14 +405,25 @@ $btns
   }) //////////// click ////////////
 
   // 12. "헬기를 호출!" 버튼 클릭시 ////////
-  .next() // 두번째버튼
+  .next() // 아홉번째버튼
   .click(function () {
     // (1) 버튼별 기능구현 (콜백함수) //////
     const fn =
       // function(){ // -> this는 $mi
       () => {
-        // 다음버튼 보이기함수 호출
-        showNextBtn(this);
+
+        // 마지막 최종 쇼쇼쇼~!!!
+        // (1) 마지막 메시지 보이기
+        $msg.html(msgTxt[0]).fadeIn(300);
+
+        // (2) 1번방의 단체좀비들 달겨들기!
+        $room.eq(1)
+        .find('.mz')
+        .fadeIn(300)
+        .anmate({
+          right: '100%'
+        },3000,'easeInCirc')
+        
       }; //// fn 콜백함수 ////
 
     // (2) actMini() 함수 호출
