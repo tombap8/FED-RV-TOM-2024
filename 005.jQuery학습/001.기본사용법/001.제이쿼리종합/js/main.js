@@ -196,8 +196,17 @@ $btns
     const fn =
       // function(){ // -> this는 $mi
       () => {
+        // 좀비 나타나기(2초후)
+        $room.eq(9) // 9번방
+        .find('.mz') // 이방의 좀비
+        .delay(2000) // 2초후
+        .fadeIn(400,()=>{ // 좀비 나타난후 액션
+          // 메시지보이기
+          $msg.html(msgTxt[9]).fadeIn(300)
+        }) /// fadeIn ///
+
         // 다음버튼 보이기함수 호출
-        showNextBtn(this);
+        // showNextBtn(this);
       }; //// fn 콜백함수 ////
 
     // (2) actMini() 함수 호출
