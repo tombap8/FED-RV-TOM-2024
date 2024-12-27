@@ -299,7 +299,9 @@ $btns
             bottom: '100%'
           },500,'easeOutBack')
           .delay(500)
-          // .animate()
+          .animate({
+            right: '120%'
+          },1000,'easeOutBounce')
           // 방까지 뛰어오기
         })
 
