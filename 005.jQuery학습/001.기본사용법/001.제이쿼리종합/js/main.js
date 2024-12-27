@@ -426,11 +426,34 @@ $btns
 
         // (3) 헬기등장 : .heli
         $('.heli')
-        .css({rotate:'15deg'})
+        .css({rotate:'25deg'})
         .animate({
           left: '24%',
           rotate: '0deg'
-        },3000,'easeOutBack')
+        },3000,'easeOutBack',function(){
+          // (4) 도착후 미니언즈 탄 이미지로 변경
+          $(this).attr('src','./images/heli2.png');
+          // this가 헬기가 되게 function(){}사용!
+
+          // (5) 이때 미니언즈 사라짐
+          $mi.hide();
+        }) /// animate ///
+        .delay(500) // 헬기를 0.5초지연
+        // (6) 지연후 헬기 계속이동
+        .animate({
+          left: '70%',
+          rotate: '25deg'
+        },4000,'easeInOutCirc',function(){
+          // (7) 조종사 좀비된 이미지로 변경
+          $(this).attr('src','./images/heli3.png');
+        })
+        .delay(300) // 0.3초지연
+        // (8) 지연후 헬기 천천히 화면바깥으로 나감!
+        .animate({
+          left: '110%'
+        },10000,'linear',()=>{
+          // (9) 최종애니 콜백함수(간판떨어져,건물무너져 등)
+        });/// animate ///
         
       }; //// fn 콜백함수 ////
 
