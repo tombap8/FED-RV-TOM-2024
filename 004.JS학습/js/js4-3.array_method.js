@@ -71,3 +71,24 @@ const delNum = myFn.qs("#delnum");
 // console.log('대상:',mbtn,showit,cont,sel,aNum,delNum);
 
 // 3. 초기화 작업 : 처음배열 출력 / 콤보박스 바인딩
+
+// 3-1. 처음 배열 출력 /////////////////////////
+// - fruit 배열 변경시 다시 출력해야하므로 함수로 만들기
+const showArray  = () => {
+    showit.innerText = fruit.join('♥');
+}; //////// showArray 함수 ///////
+
+// 처음배열출력함수 최초호출은 아랫쪽에서!!!
+showArray();
+
+
+// 4. 이벤트 설정하기 /////////////////////
+// -> 각 기능버튼에 클릭이벤트를 설정함 ////
+mbtn.forEach(el=>{
+    myFn.addEvt(el,'click',showFruit);
+}); //////// forEach /////////////
+
+// 5. 함수만들기 /////////////////////////
+function showFruit(){
+    console.log("보여줘! 과일!!!");
+} //////////// showFruit 함수 ////////////
