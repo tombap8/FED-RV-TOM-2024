@@ -122,6 +122,15 @@ function showFruit(){
         showArray();
 
     } //// else if /////
+    // (2-3) '뒷배열삭제요~!' 버튼 : pop() 메서드사용!
+    else if(btxt === '뒷배열삭제요~!'){
+        // let lastArr = fruit.pop();
+        // console.log('지우기찍기:',lastArr);
+        fruit.pop();
+        // 출력배열 업데이트함수 호출
+        showArray();
+
+    } //// else if /////
 
 
 } //////////// showFruit 함수 ////////////
