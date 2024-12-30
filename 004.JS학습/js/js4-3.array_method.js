@@ -90,5 +90,30 @@ mbtn.forEach(el=>{
 
 // 5. 함수만들기 /////////////////////////
 function showFruit(){
-    console.log("보여줘! 과일!!!");
+    // (1) 버튼 텍스트 읽기
+    let btxt = this.innerText;
+
+    console.log(btxt);
+
+    // (2) 버튼별 기능분기하기 /////
+    if(btxt === '과일주세요~!'){
+        // 출력대상: .cont -> cont변수
+        cont.innerHTML = `
+            <ul>
+            ${
+                fruit.map(v=>
+                    `<li
+                    style="
+                    background: 
+                    url(./addimg/${frObj[v]}.png)
+                    no-repeat center/cover"
+                    >${v}</li>`
+                ).join('')    
+            }
+            </ul>
+        `;
+
+    } //// if /////
+
+
 } //////////// showFruit 함수 ////////////
