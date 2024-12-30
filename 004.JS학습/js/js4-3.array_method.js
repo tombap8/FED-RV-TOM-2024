@@ -96,6 +96,7 @@ function showFruit(){
     console.log(btxt);
 
     // (2) 버튼별 기능분기하기 /////
+    // (2-1) '과일주세요~!' 버튼 : 하단박스에 과일이미지출력
     if(btxt === '과일주세요~!'){
         // 출력대상: .cont -> cont변수
         cont.innerHTML = `
@@ -114,6 +115,13 @@ function showFruit(){
         `;
 
     } //// if /////
+    // (2-2) '뒷배열추가요~!' 버튼 : push() 메서드사용!
+    else if(btxt === '뒷배열추가요~!'){
+        fruit.push('멜론');
+        // 출력배열 업데이트함수 호출
+        showArray();
+
+    } //// else if /////
 
 
 } //////////// showFruit 함수 ////////////
