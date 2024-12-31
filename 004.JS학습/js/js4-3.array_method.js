@@ -75,7 +75,11 @@ const delNum = myFn.qs("#delnum");
 // 3-1. 처음 배열 출력 /////////////////////////
 // - fruit 배열 변경시 다시 출력해야하므로 함수로 만들기
 const showArray  = () => {
+    // (1) 배열 보여주기 업데이트
     showit.innerText = fruit.join('♥');
+    // (2) 현재배열 선택박스 업데이트
+    aNum.innerHTML = 
+    fruit.map((v,i)=>`<option value="${i}">${v}</option>`);
 }; //////// showArray 함수 ///////
 
 // 처음배열출력함수 최초호출은 아랫쪽에서!!!
@@ -153,6 +157,16 @@ function showFruit(){
     // (2-5) '앞배열삭제요~!' 버튼 : shift() 메서드사용!
     else if(btxt === '앞배열삭제요~!'){
         fruit.shift();
+        // 출력배열 업데이트함수 호출
+        showArray();
+
+    } //// else if /////
+    // (2-6) '중간배열삭제' 버튼 : splice() 메서드사용!
+    // -> 삭제일 경우 옵션 : splice(순번,개수)
+    // -> 개수가 0이 아닐경우에 삭제함
+    // -> 순번만 쓰고 개수를 안쓰면 순번부터 뒤엣것 모두지움!
+    else if(btxt === '중간배열삭제'){
+        fruit.splice(1);
         // 출력배열 업데이트함수 호출
         showArray();
 
