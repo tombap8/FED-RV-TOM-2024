@@ -176,6 +176,17 @@ function showFruit(){
         showArray();
 
     } //// else if /////
+    // (2-7) '중간배열삽입' 버튼 : splice() 메서드사용!
+    // -> 삽입일 경우 옵션 : splice(순번,0,넣을값,넣을값,...)
+    // -> 선택순번 앞에 삽입된다!
+    // -> 개수를 0으로 셋팅!
+    // -> 뒤에 값을 넣고 컴마로 연결하면 여러개 삽입가능
+    else if(btxt === '중간배열삽입'){
+        fruit.splice(aNum.value, 0, sel.value);
+        // 출력배열 업데이트함수 호출
+        showArray();
+
+    } //// else if /////
 
 
 } //////////// showFruit 함수 ////////////
