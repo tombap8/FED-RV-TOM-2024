@@ -139,6 +139,9 @@ function movePage(evt,el,idx){
     window.scrollTo(0,pgPos);
 
     // 5) 이동한 페이지 전역변수 업데이트하기
+    pgNum = idx;
+    // 메뉴 a요소의 순번을 전역페이지수에 넣어준다!
+    // 결과로 휠 이동시 순번이 일치하게됨!
 
 } //////// movePage 함수 ////////
 
