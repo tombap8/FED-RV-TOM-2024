@@ -108,20 +108,25 @@ function wheelFn(e) {
 const gnb = myFn.qsa('.gnb a');
 
 // (5-2) 이벤트설정
-gnb.forEach((el,idx)=>{ // el-요소, idx-순번
+gnb.forEach((el,idx,list)=>{ 
+    // el-요소, idx-순번, list-전체컬렉션
     myFn.addEvt(el,'click',
-        (evt)=>movePage(evt,el,idx));
+        (evt)=>movePage(evt,el,idx,list));
 }); //////// forEach ////////////
 
 // (5-3) 함수만들기
-function movePage(evt,el,idx){
+function movePage(evt,el,idx,list){
     // evt - 이벤트 전달변수
     // (함수와 직접연결된 경우 자동전달됨!)
     // (그러나...호출되는 일반함수일 경우 전달해야함!)
     // el - 전달된 개별요소(this대신 사용함!)
     // idx - 요소의 순번 전달
+    // list - 전체 컬렉션 객체
     console.log(
-        'evt:',evt,'/el:',el,'/idx:',idx);
+        'evt:',evt,
+        '/el:',el,
+        '/idx:',idx,
+        '/list:',list);
     
     // 1) 기본이동막기
     evt.preventDefault();
