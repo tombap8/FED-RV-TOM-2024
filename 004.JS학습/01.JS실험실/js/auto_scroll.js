@@ -28,7 +28,7 @@ import myFn from './my_function.js';
 myFn.qs('html').style.scrollBehavior = 'smooth'; 
 
 // (1-2) body 에 오버플로우 히든 설정
-myFn.qs('body').style.overflow = 'hidden';
+// myFn.qs('body').style.overflow = 'hidden';
 
 // 2. 전역변수 설정하기 //////////////////////
 // (2-1) 페이지변수
@@ -46,11 +46,15 @@ const TOTAL_PAGE = pageEl.length;
 // 대상 : window
 // - 전체 페이지 휠 이벤트 대상은 window다!
 // 이벤트종류 : wheel
-myFn.addEvt(window, 'wheel', wheelFn);
+// myFn.addEvt(window, 'wheel', wheelFn);
+window.addEventListener('wheel',wheelFn,{passive:false});
 
 // 4. 함수만들기 /////////////////////////////
-function wheelFn(){
+function wheelFn(e){
     console.log('나야나!!!');
+
+    // 1. 기본기능막기
+    e.preventDefault();
 } ////////////// wheelFn 함수 //////////////
 
 
