@@ -1,7 +1,7 @@
 // 자동스크롤 JS - auto_scroll.js
 
 // 나의 함수 불러오기
-import myFn from './my_function.js';
+import myFn from "./my_function.js";
 
 /********************************************** 
     [ 자동스크롤 기능정의 ]
@@ -25,7 +25,7 @@ import myFn from './my_function.js';
 // 1. 자동스크롤 구현시 필요한 초기설정하기 /////
 
 // (1-1) html 에 부드러운 스크롤 설정
-myFn.qs('html').style.scrollBehavior = 'smooth'; 
+myFn.qs("html").style.scrollBehavior = "smooth";
 
 // (1-2) body 에 오버플로우 히든 설정
 // myFn.qs('body').style.overflow = 'hidden';
@@ -36,7 +36,7 @@ let pgNum = 0;
 // (2-2) 휠상태변수 (광휠금지상태:true-막기,false-허용)
 let stsWheel = false;
 // (2-3) 각 페이지요소 수집 (.page인 요소들)
-const pageEl = myFn.qsa('.page');
+const pageEl = myFn.qsa(".page");
 // (2-4) 전체 페이지수 상수
 const TOTAL_PAGE = pageEl.length;
 
@@ -47,32 +47,31 @@ const TOTAL_PAGE = pageEl.length;
 // - 전체 페이지 휠 이벤트 대상은 window다!
 // 이벤트종류 : wheel
 // myFn.addEvt(window, 'wheel', wheelFn);
-window.addEventListener('wheel',wheelFn,{passive:false});
+window.addEventListener("wheel", wheelFn, { passive: false });
 
 // 4. 함수만들기 /////////////////////////////
-function wheelFn(e){
-    console.log('나야나!!!');
+function wheelFn(e) {
+  // console.log('나야나!!!');
 
-    // (4-1) 기본기능막기
-    e.preventDefault();
+  // (4-1) 기본기능막기
+  e.preventDefault();
 
-    // (4-2) 휠방향 알아내기
-    // -> 델타값으로 알아낸다!
-    // 방향: 마이너스(아랫쪽), 플러스(윗쪽)
-    let delta = e.wheelDelta
-    // console.log('델타값:',delta);
+  // (4-2) 휠방향 알아내기
+  // -> 델타값으로 알아낸다!
+  // 방향: 마이너스(아랫쪽), 플러스(윗쪽)
+  let delta = e.wheelDelta;
+  // console.log('델타값:',delta);
 
-    // (4-3) 방향 분기하여 전역 페이지변수 증감하기
-    if(delta<0) pgNum++;
-    else pgNum--;
+  // (4-3) 방향 분기하여 전역 페이지변수 증감하기
+  if (delta < 0) pgNum++;
+  else pgNum--;
 
-    console.log('페이지번호:',pgNum);
+  // (4-4) 한계값 체크 (0과 페이지끝번호 기준)
+  if (pgNum < 0) pgNum = 0;
+  else if (pgNum > TOTAL_PAGE - 1) pgNum = TOTAL_PAGE - 1;
 
+  console.log("페이지번호:", pgNum);
 } ////////////// wheelFn 함수 //////////////
-
-
-
-
 
 /******************************************************* 
     [ window / document / body 세가지는
