@@ -77,9 +77,11 @@ const delNum = myFn.qs("#delnum");
 const showArray  = () => {
     // (1) 배열 보여주기 업데이트
     showit.innerText = fruit.join('♥');
+
     // (2) 현재배열 선택박스 업데이트
     aNum.innerHTML = 
     fruit.map((v,i)=>`<option value="${i}">${v}</option>`);
+
     // (3) 지울개수 선택박스 업데이트(개수만큼)
     delNum.innerHTML = 
     fruit.map((v,i)=>`<option>${i+1}</option>`);
@@ -169,7 +171,7 @@ function showFruit(){
     // -> 개수가 0이 아닐경우에 삭제함
     // -> 순번만 쓰고 개수를 안쓰면 순번부터 뒤엣것 모두지움!
     else if(btxt === '중간배열삭제'){
-        fruit.splice(1);
+        fruit.splice(aNum.value, delNum.value);
         // 출력배열 업데이트함수 호출
         showArray();
 
