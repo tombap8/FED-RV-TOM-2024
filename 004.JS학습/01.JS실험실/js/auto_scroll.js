@@ -90,28 +90,10 @@ function wheelFn(e) {
   // -> 페이지요소들[순번].위에서부터위치값
 
   // (4-7) 페이지번호와 일치하는 GNB에 클래스on넣기
-  gnb.forEach((el2, idx2) => {
-    // 해당요소는 a이므로 부모인 li로 올라가서
-    // 클래스를 줘야함! -> parentElement 사용!
-
-    if (idx2 == pgNum)
-      // 페이지번호와 같으면 on넣기
-      el2.parentElement.classList.add("on");
-    // 기타인 경우는 on제거하기
-    else el2.parentElement.classList.remove("on");
-  }); /// forEach ////
+  addOn(gnb);
 
   // (4-8) 페이지번호와 일치하는 인디케이터에 클래스on넣기
-  indic.forEach((el2, idx2) => {
-    // 해당요소는 a이므로 부모인 li로 올라가서
-    // 클래스를 줘야함! -> parentElement 사용!
-
-    if (idx2 == pgNum)
-      // 페이지번호와 같으면 on넣기
-      el2.parentElement.classList.add("on");
-    // 기타인 경우는 on제거하기
-    else el2.parentElement.classList.remove("on");
-  }); /// forEach ////
+  addOn(indic);
 } ////////////// wheelFn 함수 //////////////
 
 /// 추가분리함수 : 클래스 넣기함수 //////
