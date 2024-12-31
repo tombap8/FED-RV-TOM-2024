@@ -108,23 +108,32 @@ function wheelFn(e) {
 const gnb = myFn.qsa('.gnb a');
 
 // (5-2) 이벤트설정
-gnb.forEach(el=>{
-    myFn.addEvt(el,'click',movePage);
+gnb.forEach((el,idx)=>{ // el-요소, idx-순번
+    myFn.addEvt(el,'click',
+        (evt)=>movePage(evt,el,idx));
 }); //////// forEach ////////////
 
 // (5-3) 함수만들기
-function movePage(e){
+function movePage(evt,el,idx){
+    // evt - 이벤트 전달변수
+    // (함수와 직접연결된 경우 자동전달됨!)
+    // (그러나...호출되는 일반함수일 경우 전달해야함!)
+    // el - 전달된 개별요소(this대신 사용함!)
+    // idx - 요소의 순번 전달
+    console.log(
+        'evt:',evt,'/el:',el,'/idx:',idx);
     
     // 1) 기본이동막기
-    e.preventDefault();
+    evt.preventDefault();
     
     // 2) 클릭된 a요소의 href값 읽어오기(이동할 아이디)
     // -> 요소속성값 가져오기 : getAttribute(속성명)
-    let tgId = this.getAttribute('href');
+    let tgId = el.getAttribute('href');
+    // this대신 전달된 요소 자신인 el을 사용함!
     
     // 3) 이동할 페이지 위치값 구하기
     let pgPos = myFn.qs(tgId).offsetTop;
-    console.log('클릭!',this,tgId,pgPos);
+    console.log('클릭!',tgId,pgPos);
 
     // 4) 페이지 이동하기
     window.scrollTo(0,pgPos);
