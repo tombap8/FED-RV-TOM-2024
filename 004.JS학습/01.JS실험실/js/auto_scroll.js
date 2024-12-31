@@ -108,11 +108,13 @@ function wheelFn(e) {
 const gnb = myFn.qsa('.gnb a');
 
 // (5-2) 이벤트설정
-myFn.addEvt(gnb,'click',movePage);
+gnb.forEach(el=>{
+    myFn.addEvt(el,'click',movePage);
+}); //////// forEach ////////////
 
 // (5-3) 함수만들기
 function movePage(e){
-    console.log('클릭!');
+    console.log('클릭!',this);
 
     // 1) 기본이동막기
     e.preventDefault();
