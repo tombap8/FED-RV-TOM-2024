@@ -7,9 +7,9 @@ import myFn from "./my_function.js";
     [ 여기 등장하는 배열 메서드 정리 ]
 
     1. push(값) - 뒷배열추가!
-    2. pop() - 뒷배열삭제!(뒷배열값 읽기)
+    2. pop() - 뒷배열삭제!(뒷배열값 리턴함)
     3. unshift(값) - 앞배열추가!
-    4. shift() - 앞배열삭제!(앞배열값 읽기)
+    4. shift() - 앞배열삭제!(앞배열값 리턴함)
     5. splice(순번,0,값) - 중간배열삽입!
     6. splice(순번,개수) - 중간배열삭제!
     _________________________________
@@ -127,6 +127,13 @@ function showFruit(){
         // let lastArr = fruit.pop();
         // console.log('지우기찍기:',lastArr);
         fruit.pop();
+        // 출력배열 업데이트함수 호출
+        showArray();
+
+    } //// else if /////
+    // (2-4) '앞배열추가요~!' 버튼 : unshift() 메서드사용!
+    else if(btxt === '앞배열추가요~!'){
+        fruit.unshift('망고');
         // 출력배열 업데이트함수 호출
         showArray();
 
