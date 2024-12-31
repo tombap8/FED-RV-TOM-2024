@@ -60,7 +60,7 @@ function wheelFn(e){
     // -> 델타값으로 알아낸다!
     // 방향: 마이너스(아랫쪽), 플러스(윗쪽)
     let delta = e.wheelDelta
-    console.log('델타값:',delta);
+    // console.log('델타값:',delta);
 
     // (4-3) 방향 분기하여 전역 페이지변수 증감하기
     if(delta<0) pgNum++;
