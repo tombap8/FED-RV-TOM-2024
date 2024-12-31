@@ -126,5 +126,10 @@ function movePage(e){
     let pgPos = myFn.qs(tgId).offsetTop;
     console.log('클릭!',this,tgId,pgPos);
 
+    // 4) 페이지 이동하기
+    window.scrollTo(0,pgPos);
+
+    // 5) 이동한 페이지 전역변수 업데이트하기
+
 } //////// movePage 함수 ////////
 
