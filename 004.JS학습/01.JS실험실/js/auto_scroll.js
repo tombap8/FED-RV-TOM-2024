@@ -79,7 +79,7 @@ function wheelFn(e) {
 
    // (4-6) 페이지 이동하기 /////////
    window.scrollTo(0,pageEl[pgNum].offsetTop);
-   
+
    // 이동원리 : scrollTo(x축위치값,y축위치값) 사용이동
    // x축은 0, y축은 해당 순번의 .page박스 위치값 넣음
    // pageEl[pgNum].offsetTop
@@ -100,3 +100,22 @@ function wheelFn(e) {
     우리가 변경하여 사용해야함!
     요소.addEventListener(이벤트명,함수,{passive:false})
 *******************************************************/
+
+
+// 5. 메뉴클릭시 이동 추가기능 구현하기 ////
+
+// (5-1) 대상선정 : .gnb a
+const gnb = myFn.qsa('.gnb a');
+
+// (5-2) 이벤트설정
+myFn.addEvt(gnb,'click',movePage);
+
+// (5-3) 함수만들기
+function movePage(e){
+    console.log('클릭!');
+
+    // 1) 기본이동막기
+    e.preventDefault();
+
+} //////// movePage 함수 ////////
+
