@@ -74,17 +74,15 @@ const delNum = myFn.qs("#delnum");
 
 // 3-1. 처음 배열 출력 /////////////////////////
 // - fruit 배열 변경시 다시 출력해야하므로 함수로 만들기
-const showArray  = () => {
-    // (1) 배열 보여주기 업데이트
-    showit.innerText = fruit.join('♥');
+const showArray = () => {
+  // (1) 배열 보여주기 업데이트
+  showit.innerText = fruit.join("♥");
 
-    // (2) 현재배열 선택박스 업데이트
-    aNum.innerHTML = 
-    fruit.map((v,i)=>`<option value="${i}">${v}</option>`);
+  // (2) 현재배열 선택박스 업데이트
+  aNum.innerHTML = fruit.map((v, i) => `<option value="${i}">${v}</option>`);
 
-    // (3) 지울개수 선택박스 업데이트(개수만큼)
-    delNum.innerHTML = 
-    fruit.map((v,i)=>`<option>${i+1}</option>`);
+  // (3) 지울개수 선택박스 업데이트(개수만큼)
+  delNum.innerHTML = fruit.map((v, i) => `<option>${i + 1}</option>`);
 }; //////// showArray 함수 ///////
 
 // 처음배열출력함수 최초호출은 아랫쪽에서!!!
@@ -95,98 +93,81 @@ showArray();
 // 데이터 : frObj 객체 -> 키값으로 배열만들기
 // -> Object.keys(객체명) -> 키값 배열됨!
 
-sel.innerHTML = 
-    Object.keys(frObj)
-    .map(v=>`<option>${v}</option>`).join('');
-    // 오브젝트 키쓰 맵쬬잉~~!
+sel.innerHTML = Object.keys(frObj)
+  .map((v) => `<option>${v}</option>`)
+  .join("");
+// 오브젝트 키쓰 맵쬬잉~~!
 
 // 4. 이벤트 설정하기 /////////////////////
 // -> 각 기능버튼에 클릭이벤트를 설정함 ////
-mbtn.forEach(el=>{
-    myFn.addEvt(el,'click',showFruit);
+mbtn.forEach((el) => {
+  myFn.addEvt(el, "click", showFruit);
 }); //////// forEach /////////////
 
 // 5. 함수만들기 /////////////////////////
-function showFruit(){
-    // (1) 버튼 텍스트 읽기
-    let btxt = this.innerText;
+function showFruit() {
+  // (1) 버튼 텍스트 읽기
+  let btxt = this.innerText;
 
-    console.log(btxt);
+  console.log(btxt);
 
-    // (2) 버튼별 기능분기하기 /////
-    // (2-1) '과일주세요~!' 버튼 : 하단박스에 과일이미지출력
-    if(btxt === '과일주세요~!'){
-        // 출력대상: .cont -> cont변수
-        cont.innerHTML = `
+  // (2) 버튼별 기능분기하기 /////
+  // (2-1) '과일주세요~!' 버튼 : 하단박스에 과일이미지출력
+  if (btxt === "과일주세요~!") {
+    // 출력대상: .cont -> cont변수
+    cont.innerHTML = `
             <ul>
-            ${
-                fruit.map(v=>
-                    `<li
+            ${fruit
+              .map(
+                (v) =>
+                  `<li
                     style="
                     background: 
                     url(./addimg/${frObj[v]}.png)
                     no-repeat center/cover"
                     >${v}</li>`
-                ).join('')    
-            }
+              )
+              .join("")}
             </ul>
         `;
+  } //// if /////
+  // (2-2) '뒷배열추가요~!' 버튼 : push() 메서드사용!
+  else if (btxt === "뒷배열추가요~!") {
+    fruit.push(sel.value);
+    // sel.value는 선택박스의 value값임
+    // 만약 value속성이 없으면 요소의 데이터를 읽어감!
+  } //// else if /////
+  // (2-3) '뒷배열삭제요~!' 버튼 : pop() 메서드사용!
+  else if (btxt === "뒷배열삭제요~!") {
+    // let lastArr = fruit.pop();
+    // console.log('지우기찍기:',lastArr);
+    fruit.pop();
+  } //// else if /////
+  // (2-4) '앞배열추가요~!' 버튼 : unshift() 메서드사용!
+  else if (btxt === "앞배열추가요~!") {
+    fruit.unshift(sel.value);
+  } //// else if /////
+  // (2-5) '앞배열삭제요~!' 버튼 : shift() 메서드사용!
+  else if (btxt === "앞배열삭제요~!") {
+    fruit.shift();
+  } //// else if /////
+  // (2-6) '중간배열삭제' 버튼 : splice() 메서드사용!
+  // -> 삭제일 경우 옵션 : splice(순번,개수)
+  // -> 개수가 0이 아닐경우에 삭제함
+  // -> 순번만 쓰고 개수를 안쓰면 순번부터 뒤엣것 모두지움!
+  else if (btxt === "중간배열삭제") {
+    fruit.splice(aNum.value, delNum.value);
+  } //// else if /////
+  // (2-7) '중간배열삽입' 버튼 : splice() 메서드사용!
+  // -> 삽입일 경우 옵션 : splice(순번,0,넣을값,넣을값,...)
+  // -> 선택순번 앞에 삽입된다!
+  // -> 개수를 0으로 셋팅!
+  // -> 뒤에 값을 넣고 컴마로 연결하면 여러개 삽입가능
+  else if (btxt === "중간배열삽입") {
+    fruit.splice(aNum.value, 0, sel.value);
+  } //// else if /////
 
-    } //// if /////
-    // (2-2) '뒷배열추가요~!' 버튼 : push() 메서드사용!
-    else if(btxt === '뒷배열추가요~!'){
-        fruit.push(sel.value);
-        // sel.value는 선택박스의 value값임
-        // 만약 value속성이 없으면 요소의 데이터를 읽어감!
-
-        // 출력배열 업데이트함수 호출
-        showArray();
-
-    } //// else if /////
-    // (2-3) '뒷배열삭제요~!' 버튼 : pop() 메서드사용!
-    else if(btxt === '뒷배열삭제요~!'){
-        // let lastArr = fruit.pop();
-        // console.log('지우기찍기:',lastArr);
-        fruit.pop();
-        // 출력배열 업데이트함수 호출
-        showArray();
-
-    } //// else if /////
-    // (2-4) '앞배열추가요~!' 버튼 : unshift() 메서드사용!
-    else if(btxt === '앞배열추가요~!'){
-        fruit.unshift(sel.value);
-        // 출력배열 업데이트함수 호출
-        showArray();
-
-    } //// else if /////
-    // (2-5) '앞배열삭제요~!' 버튼 : shift() 메서드사용!
-    else if(btxt === '앞배열삭제요~!'){
-        fruit.shift();
-        // 출력배열 업데이트함수 호출
-        showArray();
-
-    } //// else if /////
-    // (2-6) '중간배열삭제' 버튼 : splice() 메서드사용!
-    // -> 삭제일 경우 옵션 : splice(순번,개수)
-    // -> 개수가 0이 아닐경우에 삭제함
-    // -> 순번만 쓰고 개수를 안쓰면 순번부터 뒤엣것 모두지움!
-    else if(btxt === '중간배열삭제'){
-        fruit.splice(aNum.value, delNum.value);
-        // 출력배열 업데이트함수 호출
-        showArray();
-
-    } //// else if /////
-    // (2-7) '중간배열삽입' 버튼 : splice() 메서드사용!
-    // -> 삽입일 경우 옵션 : splice(순번,0,넣을값,넣을값,...)
-    // -> 선택순번 앞에 삽입된다!
-    // -> 개수를 0으로 셋팅!
-    // -> 뒤에 값을 넣고 컴마로 연결하면 여러개 삽입가능
-    else if(btxt === '중간배열삽입'){
-        fruit.splice(aNum.value, 0, sel.value);
-        // 출력배열 업데이트함수 호출
-        showArray();
-
-    } //// else if /////
-
-
+  // (2-8) 출력배열 업데이트 함수 호출은 공통!
+  if (btxt !== "과일주세요~!") showArray();
+  // 조건 : '과일주세요~!'버튼이 아닐때만 실행!
 } //////////// showFruit 함수 ////////////
