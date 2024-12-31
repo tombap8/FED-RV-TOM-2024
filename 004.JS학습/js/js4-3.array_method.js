@@ -138,6 +138,13 @@ function showFruit(){
         showArray();
 
     } //// else if /////
+    // (2-5) '앞배열삭제요~!' 버튼 : shift() 메서드사용!
+    else if(btxt === '앞배열삭제요~!'){
+        fruit.shift();
+        // 출력배열 업데이트함수 호출
+        showArray();
+
+    } //// else if /////
 
 
 } //////////// showFruit 함수 ////////////
