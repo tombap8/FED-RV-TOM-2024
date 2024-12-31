@@ -89,11 +89,9 @@ function wheelFn(e) {
   // pageEl[pgNum].offsetTop
   // -> 페이지요소들[순번].위에서부터위치값
 
-  // (4-7) 페이지번호와 일치하는 GNB에 클래스on넣기
-  addOn(gnb);
+  // (4-7) 페이지번호와 일치하는 GNB와 인디케이터에 클래스on넣기
+  [gnb,indic].forEach(v=>addOn(v));
 
-  // (4-8) 페이지번호와 일치하는 인디케이터에 클래스on넣기
-  addOn(indic);
 } ////////////// wheelFn 함수 //////////////
 
 /// 추가분리함수 : 클래스 넣기함수 //////
