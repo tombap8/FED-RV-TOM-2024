@@ -57,9 +57,9 @@ function wheelFn(e) {
   e.preventDefault();
 
   // (4-2) 광휠막기 ///////
-  if(stsWheel) return;
-  stsWheel = true;
-  setTimeout(()=>stsWheel=false,600);
+  if(stsWheel) return; 
+  stsWheel = true; // 잠금!
+  setTimeout(()=>stsWheel=false,600); // 해제!
 
   // (4-3) 휠방향 알아내기 ///////
   // -> 델타값으로 알아낸다!
@@ -75,7 +75,16 @@ function wheelFn(e) {
   if (pgNum < 0) pgNum = 0;
   else if (pgNum > TOTAL_PAGE - 1) pgNum = TOTAL_PAGE - 1;
 
-  console.log("페이지번호:", pgNum);
+  console.log("페이지번호:", pgNum, pageEl[pgNum].offsetTop);
+
+   // (4-6) 페이지 이동하기 /////////
+   window.scrollTo(0,pageEl[pgNum].offsetTop);
+   
+   // 이동원리 : scrollTo(x축위치값,y축위치값) 사용이동
+   // x축은 0, y축은 해당 순번의 .page박스 위치값 넣음
+   // pageEl[pgNum].offsetTop
+   // -> 페이지요소들[순번].위에서부터위치값
+
 } ////////////// wheelFn 함수 //////////////
 
 /******************************************************* 
