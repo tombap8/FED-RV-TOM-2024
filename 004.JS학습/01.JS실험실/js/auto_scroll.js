@@ -23,9 +23,26 @@ import myFn from './my_function.js';
 **********************************************/
 
 // 1. 자동스크롤 구현시 필요한 초기설정하기 /////
+
 // (1-1) html 에 부드러운 스크롤 설정
 myFn.qs('html').style.scrollBehavior = 'smooth'; 
 
+// (1-2) body 에 오버플로우 히든 설정
+myFn.qs('body').style.overflow = 'hidden';
+
+// 2. 전역변수 설정하기 //////////////////////
+// (2-1) 페이지변수
+let pgNum = 0;
+// (2-2) 휠상태변수 (광휠금지상태:true-막기,false-허용)
+let stsWheel = false;
+// (2-3) 각 페이지요소 수집 (.page인 요소들)
+const pageEl = myFn.qsa('.page');
+// (2-4) 전체 페이지수 상수
+const TOTAL_PAGE = pageEl.length;
+
+// console.log(pageEl,TOTAL_PAGE);
+
+//
 
 
 
