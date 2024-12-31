@@ -148,5 +148,19 @@ function movePage(evt,el,idx,list){
     // 메뉴 a요소의 순번을 전역페이지수에 넣어준다!
     // 결과로 휠 이동시 순번이 일치하게됨!
 
+    // 6) a요소 컬렉션을 순회하며 해당순번과 같으면
+    // 클래스 on넣고 아니면 on제거
+    // 전달변수 list로 전체 컬렉션이 들어왔으므로
+    // 이것을 활용!!
+    list.forEach((el2,idx2)=>{
+        // 해당요소는 a이므로 부모인 li로 올라가서
+        // 클래스를 줘야함! -> parentElement 사용!
+        
+        if(idx2 == idx) // 해당순번과 같으면 on넣기
+            el2.parentElement.classList.add('on');
+        else // 기타인 경우는 on제거하기
+            el2.parentElement.classList.remove('on');
+    }); /// forEach ////
+
 } //////// movePage 함수 ////////
 
