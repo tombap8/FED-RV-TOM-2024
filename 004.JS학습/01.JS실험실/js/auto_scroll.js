@@ -53,20 +53,25 @@ window.addEventListener("wheel", wheelFn, { passive: false });
 function wheelFn(e) {
   // console.log('나야나!!!');
 
-  // (4-1) 기본기능막기
+  // (4-1) 기본기능막기 ///////
   e.preventDefault();
 
-  // (4-2) 휠방향 알아내기
+  // (4-2) 광휠막기 ///////
+  if(stsWheel) return;
+  stsWheel = true;
+  setTimeout(()=>stsWheel=false,600);
+
+  // (4-3) 휠방향 알아내기 ///////
   // -> 델타값으로 알아낸다!
   // 방향: 마이너스(아랫쪽), 플러스(윗쪽)
   let delta = e.wheelDelta;
   // console.log('델타값:',delta);
 
-  // (4-3) 방향 분기하여 전역 페이지변수 증감하기
+  // (4-4) 방향 분기하여 전역 페이지변수 증감하기 ///////
   if (delta < 0) pgNum++;
   else pgNum--;
 
-  // (4-4) 한계값 체크 (0과 페이지끝번호 기준)
+  // (4-5) 한계값 체크 (0과 페이지끝번호 기준) ///////
   if (pgNum < 0) pgNum = 0;
   else if (pgNum > TOTAL_PAGE - 1) pgNum = TOTAL_PAGE - 1;
 
