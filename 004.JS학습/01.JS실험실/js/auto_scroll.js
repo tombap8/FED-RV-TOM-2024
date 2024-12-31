@@ -22,6 +22,10 @@ import myFn from './my_function.js';
         마우스의 바퀴를 돌릴때 발생함!)
 **********************************************/
 
+// 1. 자동스크롤 구현시 필요한 초기설정하기 /////
+// (1-1) html 에 부드러운 스크롤 설정
+myFn.qs('html').style.scrollBehavior = 'smooth'; 
+
 
 
 
