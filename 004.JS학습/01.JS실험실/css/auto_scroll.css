@@ -13,9 +13,9 @@ h4 {
 }
 
 /* a요소 위치 이동시 부드러운 스크롤 애니설정 */
-html {
+/* html {
   scroll-behavior: smooth;
-}
+} */
 
 /* 자동스크롤 위해 스크롤바 없애기 */
 /* html,body{
