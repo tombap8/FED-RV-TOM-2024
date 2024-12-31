@@ -145,7 +145,7 @@ function showFruit(){
     } //// else if /////
     // (2-4) '앞배열추가요~!' 버튼 : unshift() 메서드사용!
     else if(btxt === '앞배열추가요~!'){
-        fruit.unshift('망고');
+        fruit.unshift(sel.value);
         // 출력배열 업데이트함수 호출
         showArray();
 
