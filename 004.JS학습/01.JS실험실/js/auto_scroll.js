@@ -53,8 +53,21 @@ window.addEventListener('wheel',wheelFn,{passive:false});
 function wheelFn(e){
     console.log('나야나!!!');
 
-    // 1. 기본기능막기
+    // (4-1) 기본기능막기
     e.preventDefault();
+
+    // (4-2) 휠방향 알아내기
+    // -> 델타값으로 알아낸다!
+    // 방향: 마이너스(아랫쪽), 플러스(윗쪽)
+    let delta = e.wheelDelta
+    console.log('델타값:',delta);
+
+    // (4-3) 방향 분기하여 전역 페이지변수 증감하기
+    if(delta<0) pgNum++;
+    else pgNum--;
+
+    console.log('페이지번호:',pgNum);
+
 } ////////////// wheelFn 함수 //////////////
 
 
