@@ -42,7 +42,18 @@ const TOTAL_PAGE = pageEl.length;
 
 // console.log(pageEl,TOTAL_PAGE);
 
-//
+// 3. 이벤트 등록하기 ///////////////////
+// 대상 : window
+// - 전체 페이지 휠 이벤트 대상은 window다!
+// 이벤트종류 : wheel
+myFn.addEvt(window, 'wheel', wheelFn);
+
+// 4. 함수만들기 /////////////////////////////
+function wheelFn(){
+    console.log('나야나!!!');
+} ////////////// wheelFn 함수 //////////////
+
+
 
 
 
