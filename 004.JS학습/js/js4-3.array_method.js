@@ -80,6 +80,9 @@ const showArray  = () => {
     // (2) 현재배열 선택박스 업데이트
     aNum.innerHTML = 
     fruit.map((v,i)=>`<option value="${i}">${v}</option>`);
+    // (3) 지울개수 선택박스 업데이트(개수만큼)
+    delNum.innerHTML = 
+    fruit.map((v,i)=>`<option>${i+1}</option>`);
 }; //////// showArray 함수 ///////
 
 // 처음배열출력함수 최초호출은 아랫쪽에서!!!
