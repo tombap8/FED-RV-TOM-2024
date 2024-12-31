@@ -89,7 +89,7 @@ showArray();
 sel.innerHTML = 
     Object.keys(frObj)
     .map(v=>`<option>${v}</option>`).join('');
-    // 오브젝트 맵쬬잉~~!
+    // 오브젝트 키쓰 맵쬬잉~~!
 
 // 4. 이벤트 설정하기 /////////////////////
 // -> 각 기능버튼에 클릭이벤트를 설정함 ////
@@ -126,7 +126,10 @@ function showFruit(){
     } //// if /////
     // (2-2) '뒷배열추가요~!' 버튼 : push() 메서드사용!
     else if(btxt === '뒷배열추가요~!'){
-        fruit.push('멜론');
+        fruit.push(sel.value);
+        // sel.value는 선택박스의 value값임
+        // 만약 value속성이 없으면 요소의 데이터를 읽어감!
+
         // 출력배열 업데이트함수 호출
         showArray();
 
