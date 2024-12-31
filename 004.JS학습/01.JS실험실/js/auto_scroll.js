@@ -114,10 +114,17 @@ gnb.forEach(el=>{
 
 // (5-3) 함수만들기
 function movePage(e){
-    console.log('클릭!',this);
-
+    
     // 1) 기본이동막기
     e.preventDefault();
+    
+    // 2) 클릭된 a요소의 href값 읽어오기(이동할 아이디)
+    // -> 요소속성값 가져오기 : getAttribute(속성명)
+    let tgId = this.getAttribute('href');
+    
+    // 3) 이동할 페이지 위치값 구하기
+    let pgPos = myFn.qs(tgId).offsetTop;
+    console.log('클릭!',this,tgId,pgPos);
 
 } //////// movePage 함수 ////////
 
