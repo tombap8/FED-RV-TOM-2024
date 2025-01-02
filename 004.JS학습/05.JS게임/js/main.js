@@ -163,6 +163,18 @@ function whoWinner() {
 
     // (2) 거북아 멈춰라! (거북멈춤상태값 true로 변경!)
     t1Stop = true;
+
+    // 승자판별변수(메시지때문에씀 : 토끼/거북/비김)
+    let winner;
+
+    // (3) 승자판별하기
+    if(r1pos > t1pos) winner = '토끼';
+    else if(t1pos > r1pos) winner = '거북';
+    else winner = '비김';
+
+    console.log('결과:',winner);
+
+
   } ////// if ///////
 } ///////// whoWinner 함수 ////////////////
 
