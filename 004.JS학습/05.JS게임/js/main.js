@@ -192,8 +192,21 @@ function whoWinner() {
     // (6) 메시지 박스에 메시지 넣기
     msg.innerText = lastMsg;
 
-    // (7) 메시지 박스 보이기
+    // (7) 메시지 박스 보이기 + 커버보다위(z-index)
     msg.style.display = "block";
+    msg.style.zIndex = '100';
+
+    // (8) 전체 반투명 커버 암전주기
+    myFn.qs('.cover').style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: black;
+        opacity: .5;
+        z-index: 99;
+    `;
 
 
   } ////// if ///////
