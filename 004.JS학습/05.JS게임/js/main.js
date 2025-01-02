@@ -69,25 +69,25 @@ btns.forEach((el) => myFn.addEvt(el, "click", goGame));
 function goGame() {
   // (1) 클릭된 버튼 텍스트 읽기
   let btxt = this.innerText;
-//   console.log("고고씽~!", btxt);
+  //   console.log("고고씽~!", btxt);
 
   // (2) 기능별 분기하기
 
   // (2-1) '토끼출발'일경우
-  if(btxt === '토끼출발'){
+  if (btxt === "토끼출발") {
     // 토끼자동이동함수 호출
     goR1();
   } /// if ///
 
   // (2-2) '거북출발'일경우
-  else if(btxt === '거북출발'){
+  else if (btxt === "거북출발") {
     // 1) 거북 위치값 증가
     t1pos += T1_NUM;
     // t1pos += 100;
     // t1pos = t1pos + 100;
 
     // 2) 거북요소 위치이동값 반영
-    t1.style.left = t1pos + 'px';
+    t1.style.left = t1pos + "px";
 
     // 3) 거북버튼 포커스 이동하여 엔터버튼 사용못하게함!
     this.blur();
@@ -99,7 +99,7 @@ function goGame() {
   } /// else if ///
 
   // (2-3) '처음으로'일경우
-  else if(btxt === '처음으로'){
+  else if (btxt === "처음으로") {
     // 페이지 리로드하기
     location.reload();
   } /// else if ///
@@ -114,12 +114,13 @@ let autoI;
 // console.log('autoI할당전:',autoI);
 // -> undefined는 if문에서 false처리됨!
 function goR1() {
-//   console.log("토끼자동이동!",autoI);
+  //   console.log("토끼자동이동!",autoI);
 
   // 인터발변수에 할당하여 멈출수 있게함
   // 이때 변수할당전에는 변수가 undefined 이므로
   // if문으로 한번 할당후엔 실행 못하게 막아준다!
-  if(!autoI){ // 할당전 false일때 !(Not연산자)로 true로 변경
+  if (!autoI) {
+    // 할당전 false일때 !(Not연산자)로 true로 변경
     // 인터발호출
     autoI = setInterval(() => {
       // 1) 토끼 위치값 변수 1씩증가
@@ -127,7 +128,7 @@ function goR1() {
       // console.log(r1pos);
 
       // 2) 토끼 위치값 요소에 반영
-      r1.style.left = r1pos + 'px';
+      r1.style.left = r1pos + "px";
 
       // 3) 승자판별함수 호출
       whoWinner();
@@ -136,8 +137,7 @@ function goR1() {
     // -> 레벨1 ~ 레벨7 : 10 ~ 4
 
     // 레벨 적용위해 드롭다운 선택값 읽어오기
-    console.log("레벨옵션값:",level.value);
-
+    console.log("레벨옵션값:", level.value);
   } /// if ///
 } ///////// goR1함수 //////////////////
 
@@ -147,7 +147,16 @@ function goR1() {
         승자를 판별하여 메시지를 보여준다!
 *****************************************/
 function whoWinner() {
-  console.log("승자판별!");
+  //   console.log("승자판별!",
+  //     '\n토끼위치:',r1pos,
+  //     '\n거북위치',t1pos);
+
+  // 1) 토끼 / 거북 위치값이 기준값 이상일때
+  // -> 토끼 인터발 멈추기 + 거북 클릭작동 막기
+  if (r1pos >= FINAL_NUM || t1pos >= FINAL_NUM) {
+    // (1) 토끼야 멈춰라!
+    clearInterval(autoI);
+  } ////// if ///////
 } ///////// whoWinner 함수 ////////////////
 
 /**************************************** 
