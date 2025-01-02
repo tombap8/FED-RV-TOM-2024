@@ -5,7 +5,7 @@ import myFn from "./my_function.js";
 
 // 결과 메시지 제이슨 불러오기
 import msgTxt from "./data_racing.json" with { type: "json" };
-console.log(msgTxt);
+// console.log(msgTxt);
 
 // (( 제이슨 호출형식 ))
 // import 내가지은제이슨담을변수
