@@ -102,15 +102,24 @@ function goGame() {
  ***********************************/
 // 인터발지우기용 변수
 let autoI;
+console.log('autoI할당전:',autoI);
+// -> undefined는 if문에서 false처리됨!
 function goR1() {
-  console.log("토끼자동이동!");
-  // 인터발호출
-  setInterval(() => {
-    // 토끼 위치값 변수
-    r1pos++;
-    r1.style.left = r1pos + 'px';
-    console.log(r1pos);
-  }, 10);
+  console.log("토끼자동이동!",autoI);
+
+  // 인터발변수에 할당하여 멈출수 있게함
+  // 이때 변수할당전에는 변수가 undefined 이므로
+  // if문으로 한번 할당후엔 실행 못하게 막아준다!
+  if(!autoI){ // 할당전 false일때 !(Not연산자)로 true로 변경
+    // 인터발호출
+    autoI = setInterval(() => {
+      // 토끼 위치값 변수
+      r1pos++;
+      r1.style.left = r1pos + 'px';
+      // console.log(r1pos);
+    }, 10);
+
+  } /// if ///
 } ///////// goR1함수 //////////////////
 
 /***************************************** 
