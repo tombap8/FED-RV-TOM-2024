@@ -119,6 +119,9 @@ function goR1() {
       // console.log(r1pos);
     }, 10);
 
+    // 레벨 적용위해 드롭다운 선택값 읽어오기
+    console.log("레벨옵션값:",level.value);
+
   } /// if ///
 } ///////// goR1함수 //////////////////
 
