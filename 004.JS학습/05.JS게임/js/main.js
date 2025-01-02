@@ -117,7 +117,9 @@ function goR1() {
       r1pos++;
       r1.style.left = r1pos + 'px';
       // console.log(r1pos);
-    }, 10);
+    }, level.value);
+    // -> 레벨옵션값을 읽어와서 넣어줌
+    // -> 레벨1 ~ 레벨7 : 10 ~ 4
 
     // 레벨 적용위해 드롭다운 선택값 읽어오기
     console.log("레벨옵션값:",level.value);
