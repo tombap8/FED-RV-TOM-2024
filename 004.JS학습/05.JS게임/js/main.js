@@ -72,7 +72,7 @@ function goGame() {
   console.log("고고씽~!", btxt);
 
   // (2) 기능별 분기하기
-  
+
   // (2-1) '토끼출발'일경우
   if(btxt === '토끼출발'){
 
@@ -80,7 +80,9 @@ function goGame() {
 
   // (2-2) '거북출발'일경우
   else if(btxt === '거북출발'){
-
+    // 거북 위치값 증가
+    t1pos += 100;
+    t1.style.left = t1pos + 'px';
   } /// else if ///
 
   // (2-3) '처음으로'일경우
