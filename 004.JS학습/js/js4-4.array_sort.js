@@ -284,4 +284,25 @@ const arrString = ["파", "타", "하", "가", "바", "사", "다", "라", "차"
 // );
 
 
+///////////////////////////////////////////////////////////////////////
+
+// [1] 숫자로만된 배열의 정렬
+
+// [1-1] 출력 대상: .showNum
+const showNum = myFn.qs('.showNum');
+
+// [1-2] 현재 숫자배열 출력하기
+// 배열대상: arrNumber
+showNum.innerHTML = arrNumber.map(v=>`
+    <img src="./images/num/num_0${v}.png" alt="숫자이미지">
+    `).join('');
+
+// [1-3] 정렬 선택박스 이벤트 설정하기
+myFn.qs('#sel').addEventListener('change',function(){
+    console.log(this.value);
+}); /////// addEventListener /////////////
+
+
+
+
 
