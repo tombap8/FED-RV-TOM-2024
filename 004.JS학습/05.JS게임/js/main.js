@@ -183,8 +183,11 @@ function whoWinner() {
     
     // (4) 선택된 객체의 배열값 개수로 랜덤수 만들기
     let rdmNum = Math.floor(Math.random() * msgTxt[winner].length);
+
+    // (5) 선택된 메시지 변수에 담기
+    let lastMsg = msgTxt[winner][rdmNum];
     
-    console.log('결과:',winner, msgTxt[winner], rdmNum);
+    console.log('결과:',winner, msgTxt[winner], rdmNum, lastMsg);
 
   } ////// if ///////
 } ///////// whoWinner 함수 ////////////////
