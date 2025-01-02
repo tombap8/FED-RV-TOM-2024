@@ -180,9 +180,11 @@ function whoWinner() {
     if(r1pos > t1pos) winner = '토끼';
     else if(t1pos > r1pos) winner = '거북';
     else winner = '비김';
-
-    console.log('결과:',winner);
-
+    
+    // (4) 선택된 객체의 배열값 개수로 랜덤수 만들기
+    let rdmNum = Math.floor(Math.random() * msgTxt[winner].length);
+    
+    console.log('결과:',winner, msgTxt[winner], rdmNum);
 
   } ////// if ///////
 } ///////// whoWinner 함수 ////////////////
