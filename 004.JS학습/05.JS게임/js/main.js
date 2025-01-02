@@ -4,12 +4,12 @@
 import myFn from "./my_function.js";
 
 // 결과 메시지 제이슨 불러오기
-import msgTxt from './data_racing.json' with {type:'json'}
+import msgTxt from "./data_racing.json" with { type: "json" };
 console.log(msgTxt);
 
 // (( 제이슨 호출형식 ))
-// import 내가지은제이슨담을변수 
-// from 제이슨파일경로 
+// import 내가지은제이슨담을변수
+// from 제이슨파일경로
 // with {type:'json'}
 
 /********************************************** 
@@ -90,9 +90,8 @@ function goGame() {
 
   // (2-2) '거북출발'일경우
   else if (btxt === "거북출발") {
-
     // 1) 거북멈춤 상태값이 true 이면 함수나가!
-    if(t1Stop) return;
+    if (t1Stop) return;
 
     // 2) 거북 위치값 증가
     t1pos += T1_NUM;
@@ -177,27 +176,27 @@ function whoWinner() {
     let winner;
 
     // (3) 승자판별하기
-    if(r1pos > t1pos) winner = '토끼';
-    else if(t1pos > r1pos) winner = '거북';
-    else winner = '비김';
-    
+    if (r1pos > t1pos) winner = "토끼";
+    else if (t1pos > r1pos) winner = "거북";
+    else winner = "비김";
+
     // (4) 선택된 객체의 배열값 개수로 랜덤수 만들기
     let rdmNum = Math.floor(Math.random() * msgTxt[winner].length);
 
     // (5) 선택된 메시지 변수에 담기
     let lastMsg = msgTxt[winner][rdmNum];
-    
-    console.log('결과:',winner, msgTxt[winner], rdmNum, lastMsg);
+
+    console.log("결과:", winner, msgTxt[winner], rdmNum, lastMsg);
 
     // (6) 메시지 박스에 메시지 넣기
     msg.innerText = lastMsg;
 
     // (7) 메시지 박스 보이기 + 커버보다위(z-index)
     msg.style.display = "block";
-    msg.style.zIndex = '100';
+    msg.style.zIndex = "100";
 
     // (8) 전체 반투명 커버 암전주기
-    myFn.qs('.cover').style.cssText = `
+    myFn.qs(".cover").style.cssText = `
         position: fixed;
         top: 0;
         left: 0;
@@ -208,7 +207,8 @@ function whoWinner() {
         z-index: 99;
     `;
 
-
+    // (9) 버튼박스 위로 올리기
+    myFn.qs("#btns").style.zIndex = 200;
   } ////// if ///////
 } ///////// whoWinner 함수 ////////////////
 
