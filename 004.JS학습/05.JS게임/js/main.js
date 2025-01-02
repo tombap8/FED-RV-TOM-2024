@@ -81,20 +81,24 @@ function goGame() {
 
   // (2-2) '거북출발'일경우
   else if (btxt === "거북출발") {
-    // 1) 거북 위치값 증가
+
+    // 1) 거북멈춤 상태값이 true 이면 함수나가!
+    if(t1Stop) return;
+
+    // 2) 거북 위치값 증가
     t1pos += T1_NUM;
     // t1pos += 100;
     // t1pos = t1pos + 100;
 
-    // 2) 거북요소 위치이동값 반영
+    // 3) 거북요소 위치이동값 반영
     t1.style.left = t1pos + "px";
 
-    // 3) 거북버튼 포커스 이동하여 엔터버튼 사용못하게함!
+    // 4) 거북버튼 포커스 이동하여 엔터버튼 사용못하게함!
     this.blur();
     // 초점이 들어가게 하는 메서드 : focus()
     // 초점이 빠지게 하는 메서드 : blur()
 
-    // 4) 이때 토끼자동호출
+    // 5) 이때 토끼자동호출
     goR1();
   } /// else if ///
 
@@ -156,6 +160,9 @@ function whoWinner() {
   if (r1pos >= FINAL_NUM || t1pos >= FINAL_NUM) {
     // (1) 토끼야 멈춰라!
     clearInterval(autoI);
+
+    // (2) 거북아 멈춰라! (거북멈춤상태값 true로 변경!)
+    t1Stop = true;
   } ////// if ///////
 } ///////// whoWinner 함수 ////////////////
 
