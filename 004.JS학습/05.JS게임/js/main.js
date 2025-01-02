@@ -3,6 +3,15 @@
 // DOM 메서드 모듈
 import myFn from "./my_function.js";
 
+// 결과 메시지 제이슨 불러오기
+import msgTxt from './data_racing.json' with {type:'json'}
+console.log(msgTxt);
+
+// (( 제이슨 호출형식 ))
+// import 내가지은제이슨담을변수 
+// from 제이슨파일경로 
+// with {type:'json'}
+
 /********************************************** 
             [ 게임 기능정의 ]
     _________________________________
