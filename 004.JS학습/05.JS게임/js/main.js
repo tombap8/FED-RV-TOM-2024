@@ -69,7 +69,7 @@ btns.forEach((el) => myFn.addEvt(el, "click", goGame));
 function goGame() {
   // (1) 클릭된 버튼 텍스트 읽기
   let btxt = this.innerText;
-  console.log("고고씽~!", btxt);
+//   console.log("고고씽~!", btxt);
 
   // (2) 기능별 분기하기
 
@@ -111,10 +111,10 @@ function goGame() {
  ***********************************/
 // 인터발지우기용 변수
 let autoI;
-console.log('autoI할당전:',autoI);
+// console.log('autoI할당전:',autoI);
 // -> undefined는 if문에서 false처리됨!
 function goR1() {
-  console.log("토끼자동이동!",autoI);
+//   console.log("토끼자동이동!",autoI);
 
   // 인터발변수에 할당하여 멈출수 있게함
   // 이때 변수할당전에는 변수가 undefined 이므로
@@ -122,10 +122,15 @@ function goR1() {
   if(!autoI){ // 할당전 false일때 !(Not연산자)로 true로 변경
     // 인터발호출
     autoI = setInterval(() => {
-      // 토끼 위치값 변수
+      // 1) 토끼 위치값 변수 1씩증가
       r1pos++;
-      r1.style.left = r1pos + 'px';
       // console.log(r1pos);
+
+      // 2) 토끼 위치값 요소에 반영
+      r1.style.left = r1pos + 'px';
+
+      // 3) 승자판별함수 호출
+      whoWinner();
     }, level.value);
     // -> 레벨옵션값을 읽어와서 넣어줌
     // -> 레벨1 ~ 레벨7 : 10 ~ 4
