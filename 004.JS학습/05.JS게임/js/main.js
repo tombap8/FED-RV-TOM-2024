@@ -58,6 +58,8 @@ let t1Stop = false;
 // console.log('대상:',t1,r1,btns,level,msg);
 
 // 2. 이벤트 설정하기 ////////////
+// 대상: 버튼 .bnts -> btns변수
+btns.forEach((el) => myFn.addEvt(el, "click", goGame));
 
 // 3. 함수 만들기 ///////////////////
 /*********************************** 
@@ -65,7 +67,9 @@ let t1Stop = false;
     기능: 버튼별 기능분기
 ***********************************/
 function goGame() {
-  console.log("고고씽~!");
+  // (1) 클릭된 버튼 텍스트 읽기
+  let btxt = this.innerText;
+  console.log("고고씽~!", btxt);
 } /////////// goGame 함수 ////////////
 
 /*********************************** 
@@ -74,8 +78,8 @@ function goGame() {
  ***********************************/
 // 인터발지우기용 변수
 let autoI;
-function goR1(){
-    console.log('토끼자동이동!');
+function goR1() {
+  console.log("토끼자동이동!");
 } ///////// goR1함수 //////////////////
 
 /***************************************** 
@@ -83,8 +87,8 @@ function goR1(){
     기능: 기준값 보다 레이서위치값이 큰경우
         승자를 판별하여 메시지를 보여준다!
 *****************************************/
-function whoWinner(){
-    console.log('승자판별!');
+function whoWinner() {
+  console.log("승자판별!");
 } ///////// whoWinner 함수 ////////////////
 
 /**************************************** 
