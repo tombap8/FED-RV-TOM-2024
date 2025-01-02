@@ -197,36 +197,91 @@ import myFn from "./my_function.js";
 // 숫자값 배열
 const arrNumber = [4, 5, 8, 10, 2, 1, 9, 3, 7, 6];
 
-
-console.log('숫자배열원본:',
-    arrNumber);
-console.log('숫자배열정렬-sort()',
-    arrNumber.sort());
-console.log('숫자배열정렬-sort((a,b)=>a-b)',
-    arrNumber.sort((a,b)=>a-b));
-console.log(
-    '숫자배열정렬-sort((닭가슴살,계란후라이)=>닭가슴살-계란후라이)',
-    arrNumber.sort((닭가슴살,계란후라이)=>닭가슴살-계란후라이));
-console.log(
-    '숫자배열정렬-sort((닭가슴살,계란후라이)=>계란후라이-닭가슴살)',
-    arrNumber.sort((닭가슴살,계란후라이)=>계란후라이-닭가슴살));
-console.log('숫자배열정렬-sort((a,b)=>{return a-b})',
-    arrNumber.sort((a,b)=>{return a-b}));
-console.log('숫자배열정렬-sort(function(a,b){return a-b})',
-    arrNumber.sort(function(a,b){return a-b}));
+// console.log("숫자배열원본:", arrNumber);
+// console.log("숫자배열정렬-sort()", arrNumber.sort());
+// console.log(
+//   "숫자배열정렬-sort((a,b)=>a-b)",
+//   arrNumber.sort((a, b) => a - b)
+// );
+// console.log(
+//   "숫자배열정렬-sort((닭가슴살,계란후라이)=>닭가슴살-계란후라이)",
+//   arrNumber.sort((닭가슴살, 계란후라이) => 닭가슴살 - 계란후라이)
+// );
+// console.log(
+//   "숫자배열정렬-sort((닭가슴살,계란후라이)=>계란후라이-닭가슴살)",
+//   arrNumber.sort((닭가슴살, 계란후라이) => 계란후라이 - 닭가슴살)
+// );
+// console.log(
+//   "숫자배열정렬-sort((a,b)=>{return a-b})",
+//   arrNumber.sort((a, b) => {
+//     return a - b;
+//   })
+// );
+// console.log(
+//   "숫자배열정렬-sort(function(a,b){return a-b})",
+//   arrNumber.sort(function (a, b) {
+//     return a - b;
+//   })
+// );
 
 // 예를 위한 숫자값 배열
 const arrNumber2 = [380, 1000, 245, 2278];
-console.log('숫자값배열원본:',arrNumber2);
-console.log('숫자값배열-sort():',arrNumber2.sort());
+// console.log("숫자값배열원본:", arrNumber2);
+// console.log("숫자값배열-sort():", arrNumber2.sort());
 
 // 문자값 배열
 const arrString = ["파", "타", "하", "가", "바", "사", "다", "라", "차"];
 
-console.log('문자값 배열원본:',arrString);
-console.log('문자값 배열-sort():',arrString.sort());
-console.log('문자값 배열-reverse():',arrString.reverse());
-console.log('문자값 배열-sort((a,b)=>a-b):',
-    arrString.sort((a,b)=>a-b));
-console.log('문자값 배열-sort((a,b)=>b-a):',
-    arrString.sort((a,b)=>b-a));
+// console.log("문자값 배열원본:", arrString);
+// console.log('문자값 배열-sort():',arrString.sort());
+// console.log('문자값 배열-reverse():',arrString.reverse());
+
+// 숫자가 아니면 빼기 연산을 못하므로 정렬불가!!!
+// console.log('문자값 배열-sort((a,b)=>a-b):',
+//     arrString.sort((a,b)=>a-b));
+// console.log('문자값 배열-sort((a,b)=>b-a):',
+//     arrString.sort((a,b)=>b-a));
+
+
+/************************************************* 
+ ★★★★★★★★★★★★★★★★★★★★★★★★★★
+    [ 숫자, 문자 모두 정렬가능한 함수 만들기 ]
+    - 숫자나 문자 모두 가능한 것은? 크다/작다/같다
+    -> 즉 비교연산자 사용함!
+
+    ((3가지 시그널))
+    1번 시그널 : 0 -> 변경없음
+    2번 시그널 : 음수(마이너스) -> 음, 그대로 유지
+    3번 시그널 : 양수(플러스) -> 양쪽을 바꿔서 유지
+
+    (1) 오름차순
+    sort((a,b) => a==b? 0 : a < b ? 음수:양수)
+    sort((a,b) => a==b? 0 : a < b ? -1 : 1)
+
+    (2) 내림차순
+    sort((a,b) => a==b? 0 : a > b ? 음수:양수)
+    sort((a,b) => a==b? 0 : a > b ? -1 : 1)
+★★★★★★★★★★★★★★★★★★★★★★★★★★
+*************************************************/
+
+// console.log(
+//   "문자값 배열-sort() 오름차순",
+//   arrString.sort((a, b) => (a == b ? 0 : a < b ? -1 : 1))
+// );
+
+// console.log(
+//   "문자값 배열-sort() 내림차순",
+//   arrString.sort((a, b) => (a == b ? 0 : a > b ? -1 : 1))
+// );
+// console.log(
+//   "숫자값 배열-sort() 오름차순",
+//   arrNumber.sort((a, b) => (a == b ? 0 : a < b ? -1 : 1))
+// );
+
+// console.log(
+//   "숫자값 배열-sort() 내림차순",
+//   arrNumber.sort((a, b) => (a == b ? 0 : a > b ? -1 : 1))
+// );
+
+
+
