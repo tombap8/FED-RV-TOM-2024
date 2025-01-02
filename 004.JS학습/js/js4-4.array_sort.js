@@ -197,6 +197,10 @@ import myFn from "./my_function.js";
 // 숫자값 배열
 const arrNumber = [4, 5, 8, 10, 2, 1, 9, 3, 7, 6];
 
+
+console.log('숫자배열원본:',arrNumber);
+console.log('숫자배열정렬-sort()',arrNumber.sort());
+
 // 예를 위한 숫자값 배열
 const arrNumber2 = [380, 1000, 245, 2278];
 
