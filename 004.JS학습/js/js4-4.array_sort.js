@@ -242,7 +242,6 @@ const arrString = ["파", "타", "하", "가", "바", "사", "다", "라", "차"
 // console.log('문자값 배열-sort((a,b)=>b-a):',
 //     arrString.sort((a,b)=>b-a));
 
-
 /************************************************* 
  ★★★★★★★★★★★★★★★★★★★★★★★★★★
     [ 숫자, 문자 모두 정렬가능한 함수 만들기 ]
@@ -283,26 +282,41 @@ const arrString = ["파", "타", "하", "가", "바", "사", "다", "라", "차"
 //   arrNumber.sort((a, b) => (a == b ? 0 : a > b ? -1 : 1))
 // );
 
-
 ///////////////////////////////////////////////////////////////////////
 
 // [1] 숫자로만된 배열의 정렬
 
 // [1-1] 출력 대상: .showNum
-const showNum = myFn.qs('.showNum');
+const showNum = myFn.qs(".showNum");
 
 // [1-2] 현재 숫자배열 출력하기
 // 배열대상: arrNumber
-showNum.innerHTML = arrNumber.map(v=>`
-    <img src="./images/num/num_0${v}.png" alt="숫자이미지">
-    `).join('');
+const showNumFn = () => {
+    showNum.innerHTML = arrNumber
+      .map(
+        (v) => `
+        <img src="./images/num/num_0${v}.png" alt="숫자이미지">
+        `
+      )
+      .join("");
+
+}; //////// showNumFn함수 //////
+// 최초호출
+showNumFn();
 
 // [1-3] 정렬 선택박스 이벤트 설정하기
-myFn.qs('#sel').addEventListener('change',function(){
-    console.log(this.value);
+myFn.qs("#sel").addEventListener("change", function () {
+  console.log(this.value);
+
+  if (this.value == 1)
+    // 오름차순
+    arrNumber.sort((a, b) => (a == b ? 0 : a < b ? -1 : 1));
+  else if (this.value == 2)
+    // 내림차순
+    arrNumber.sort((a, b) => (a == b ? 0 : a > b ? -1 : 1));
+
+
+    // 정렬후 화면출력
+    showNumFn();
+
 }); /////// addEventListener /////////////
-
-
-
-
-
