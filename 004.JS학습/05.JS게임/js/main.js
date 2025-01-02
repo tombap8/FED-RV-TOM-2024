@@ -189,6 +189,13 @@ function whoWinner() {
     
     console.log('결과:',winner, msgTxt[winner], rdmNum, lastMsg);
 
+    // (6) 메시지 박스에 메시지 넣기
+    msg.innerText = lastMsg;
+
+    // (7) 메시지 박스 보이기
+    msg.style.display = "block";
+
+
   } ////// if ///////
 } ///////// whoWinner 함수 ////////////////
 
