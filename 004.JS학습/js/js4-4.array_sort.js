@@ -198,11 +198,35 @@ import myFn from "./my_function.js";
 const arrNumber = [4, 5, 8, 10, 2, 1, 9, 3, 7, 6];
 
 
-console.log('숫자배열원본:',arrNumber);
-console.log('숫자배열정렬-sort()',arrNumber.sort());
+console.log('숫자배열원본:',
+    arrNumber);
+console.log('숫자배열정렬-sort()',
+    arrNumber.sort());
+console.log('숫자배열정렬-sort((a,b)=>a-b)',
+    arrNumber.sort((a,b)=>a-b));
+console.log(
+    '숫자배열정렬-sort((닭가슴살,계란후라이)=>닭가슴살-계란후라이)',
+    arrNumber.sort((닭가슴살,계란후라이)=>닭가슴살-계란후라이));
+console.log(
+    '숫자배열정렬-sort((닭가슴살,계란후라이)=>계란후라이-닭가슴살)',
+    arrNumber.sort((닭가슴살,계란후라이)=>계란후라이-닭가슴살));
+console.log('숫자배열정렬-sort((a,b)=>{return a-b})',
+    arrNumber.sort((a,b)=>{return a-b}));
+console.log('숫자배열정렬-sort(function(a,b){return a-b})',
+    arrNumber.sort(function(a,b){return a-b}));
 
 // 예를 위한 숫자값 배열
 const arrNumber2 = [380, 1000, 245, 2278];
+console.log('숫자값배열원본:',arrNumber2);
+console.log('숫자값배열-sort():',arrNumber2.sort());
 
 // 문자값 배열
 const arrString = ["파", "타", "하", "가", "바", "사", "다", "라", "차"];
+
+console.log('문자값 배열원본:',arrString);
+console.log('문자값 배열-sort():',arrString.sort());
+console.log('문자값 배열-reverse():',arrString.reverse());
+console.log('문자값 배열-sort((a,b)=>a-b):',
+    arrString.sort((a,b)=>a-b));
+console.log('문자값 배열-sort((a,b)=>b-a):',
+    arrString.sort((a,b)=>b-a));
