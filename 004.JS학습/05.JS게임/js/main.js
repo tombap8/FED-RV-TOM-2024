@@ -75,13 +75,18 @@ function goGame() {
 
   // (2-1) '토끼출발'일경우
   if(btxt === '토끼출발'){
-
+    // 토끼자동이동함수 호출
+    goR1();
   } /// if ///
 
   // (2-2) '거북출발'일경우
   else if(btxt === '거북출발'){
     // 거북 위치값 증가
-    t1pos += 100;
+    t1pos += T1_NUM;
+    // t1pos += 100;
+    // t1pos = t1pos + 100;
+
+    // 거북요소 위치이동값 반영
     t1.style.left = t1pos + 'px';
   } /// else if ///
 
@@ -99,6 +104,13 @@ function goGame() {
 let autoI;
 function goR1() {
   console.log("토끼자동이동!");
+  // 인터발호출
+  setInterval(() => {
+    // 토끼 위치값 변수
+    r1pos++;
+    r1.style.left = r1pos + 'px';
+    console.log(r1pos);
+  }, 10);
 } ///////// goR1함수 //////////////////
 
 /***************************************** 
