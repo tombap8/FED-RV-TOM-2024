@@ -387,4 +387,22 @@ const list1 = [
   },
 ]; /////////////// list1 /////////////
 
-// console.log(list1);
+console.log(list1);
+
+// [3-2]
+const showList3 = myFn.qs('.showList3');
+
+showList3.innerHTML = `
+    <table>
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>제목</th>
+          <th>내용</th>
+        </tr>
+      </thead>
+      <tbody>
+</tbody>
+    </table>
+
+`;
