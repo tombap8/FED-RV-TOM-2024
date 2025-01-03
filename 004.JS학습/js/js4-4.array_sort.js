@@ -284,7 +284,7 @@ const arrString = ["파", "타", "하", "가", "바", "사", "다", "라", "차"
 
 ///////////////////////////////////////////////////////////////////////
 
-// [1] 숫자로만된 배열의 정렬
+// [1] 숫자로만된 배열의 정렬 //////////////////
 
 // [1-1] 출력 대상: .showNum
 const showNum = myFn.qs(".showNum");
@@ -329,3 +329,22 @@ myFn.qs("#sel").addEventListener("change", function () {
 
   console.log("숫자배열원본:", arrNumber);
 }); /////// addEventListener /////////////
+
+
+
+// [2] 문자로만된 배열의 정렬 //////////////////
+
+// [2-1] 배열 태그변형후 출력하기 ////
+myFn.qs('.showNum2').innerHTML = 
+arrString.map(v=>`<span>${v}</span>`).join('');
+
+// [2-2] 선택박스 변경 이벤트 발생시 정렬변경하기
+myFn.addEvt(myFn.qs('#sel2'),'change',
+function(){
+    if(this.value == 1) // 오름차순
+    arrString.sort();
+    else if(this.value == 2) // 내림차순
+    arrString.reverse();
+
+    console.log('문자값 배열 원본:',arrString);
+}); ////// change 이벤트 함수 ///////
