@@ -51,6 +51,7 @@
       // ->>> 구조분해할당 방식으로 쉽게 처리~!
       const home = ["의자","TV","노트북"];
       console.log('기존배열:',home);
+
       // 변수를 배열기호안에 한꺼번에 순서대로 써줌
       const [chair, tv, notebook] = home;
       console.log("구조분해할당결과:",chair, tv, notebook);
@@ -94,6 +95,14 @@
       };
       // 객체 구조분해할당은 원래 객체속성명으로 받아야함!
       // const {객체속성명, 객체속성명} = 객체변수
+
+      const {carName, carColor} = newCar;
+      console.log("구조분해할당으로 객체값 변수할당:", carName, carColor);
+
+      // 객체의 구조분해 할당시 새로운 변수명 사용하기!
+      // const {기존이름:새이름} = 객체변수
+      const {carModel:cm, carType:ct} = newCar;
+      console.log("구조분해할당으로 객체값 새이름변수할당:", cm,ct);
       
 
       // 6. 모듈 문법 : 03.JS모듈
@@ -107,6 +116,13 @@
       const number1 = [24, 44, 35, 66];
       const number2 = [111, 444, 777, 999];
 
+      // 위 두 배열값을 스프레드 연산자로 합치기
+      // 문법: [...기존배열,...기존배열]
+      const addNumber = [number1,number2];
+      console.log('배열합치기시도1:',addNumber);
+      const addNumber2 = [...number1,...number2];
+      console.log('배열합치기시도2:',addNumber2);
+
       // 객체는 안되나???
       const cars = {
         brand: "현대",
@@ -115,9 +131,17 @@
       };
       const newCars = {
         type: "썬루프",
-        year: "2023",
+        year: "2025",
         color: "흰색", //같은 속성은 나중것이 덮어씀!
       };
+
+      // 스프레드 연산자로 객체합치기
+      // 예컨데 기존 자동차 속성에 새해에 새로운
+      // 속성이 추가된 경우 이것을 하나의 
+      // 자동차 속성으로 합칠 경우 사용할 수 있다!
+      const myNewCar  = {...cars, ...newCars};
+      console.log('새로운 자동차정보:',myNewCar);
+      // 결과는 합쳐졌고 같은 속성은 나중값으로 대체됨!
       
     </script>
   </head>
