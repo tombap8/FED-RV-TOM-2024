@@ -73,6 +73,27 @@
         year: 2021,
         color: "red",
       };
+      console.log('원본객체:', vehicleOne);
+
+      // 기존방식 : 새변수에 객체값 할당하기
+      let brand = vehicleOne.brand;
+      let model = vehicleOne.model;
+      let type = vehicleOne.type;
+      let year = vehicleOne.year;
+      let color = vehicleOne.color;
+      console.log("기존방식 각 변수할당:", 
+      brand, model, type, year, color);
+
+      // 구조분해방식으로 할당할 자동차정보 객체생성
+      const newCar = {
+        carName: "제네시스",
+        carModel: "제네2024",
+        carType: "세단형",
+        carYear: 2024,
+        carColor: "cyber gray",
+      };
+      // 객체 구조분해할당은 원래 객체속성명으로 받아야함!
+      // const {객체속성명, 객체속성명} = 객체변수
       
 
       // 6. 모듈 문법 : 03.JS모듈
