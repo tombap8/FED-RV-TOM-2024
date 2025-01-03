@@ -389,31 +389,39 @@ const list1 = [
 
 console.log(list1);
 
-// [3-2]
-const showList3 = myFn.qs('.showList3');
+// [3-2] 데이터 바인딩하기 : 함수화하여 재사용!
+// 바인딩 출력대상
+const showList3 = myFn.qs(".showList3");
 
-showList3.innerHTML = `
-    <table>
-      <thead>
-        <tr>
-          <th>번호</th>
-          <th>제목</th>
-          <th>내용</th>
-        </tr>
-      </thead>
-      <tbody>
-      ${
-        list1.map(v=>`            
+const showList3Fn = (newArray) => {
+    // newArray 데이터 바인딩할 배열
+    showList3.innerHTML = `
+        <table>
+          <thead>
             <tr>
-                <td>${v.idx}</td>
-                <td>${v.tit}</td>
-                <td>${v.cont}</td>
+              <th>번호</th>
+              <th>제목</th>
+              <th>내용</th>
             </tr>
-            `).join('')
+          </thead>
+          <tbody>
+          ${newArray
+            .map(
+              (v) => `            
+                <tr>
+                    <td>${v.idx}</td>
+                    <td>${v.tit}</td>
+                    <td>${v.cont}</td>
+                </tr>
+                `
+            )
+            .join("")}
+            
+            </tbody>
+                </table>
+    
+    `;
+}; //////// showList3Fn 함수 //////////
 
-      }
-        
-        </tbody>
-            </table>
-
-`;
+// 바인딩함수 최초호출!
+showList3Fn(list1);
