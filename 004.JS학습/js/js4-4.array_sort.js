@@ -291,32 +291,41 @@ const showNum = myFn.qs(".showNum");
 
 // [1-2] 현재 숫자배열 출력하기
 // 배열대상: arrNumber
-const showNumFn = () => {
-    showNum.innerHTML = arrNumber
-      .map(
-        (v) => `
+const showNumFn = (newArray) => {
+    // newArray는 변경할 배열전달
+    // map은 원본배열을 변경하지 않는다!
+  showNum.innerHTML = newArray
+    .map(
+      (v) => `
         <img src="./images/num/num_0${v}.png" alt="숫자이미지">
         `
-      )
-      .join("");
-
+    )
+    .join("");
 }; //////// showNumFn함수 //////
+
 // 최초호출
-showNumFn();
+showNumFn(arrNumber);
+console.log("숫자배열원본:", arrNumber);
 
 // [1-3] 정렬 선택박스 이벤트 설정하기
 myFn.qs("#sel").addEventListener("change", function () {
   console.log(this.value);
 
+  // 원본 배열을 보존하고자 깊은복사를 해줌!
+  const newArray = [...arrNumber];
+  // 스프레드 연산자로 처리함!
+
   if (this.value == 1)
     // 오름차순
-    arrNumber.sort((a, b) => (a == b ? 0 : a < b ? -1 : 1));
+    newArray.sort((a, b) => 
+        (a == b ? 0 : a < b ? -1 : 1));
   else if (this.value == 2)
     // 내림차순
-    arrNumber.sort((a, b) => (a == b ? 0 : a > b ? -1 : 1));
+    newArray.sort((a, b) => 
+        (a == b ? 0 : a > b ? -1 : 1));
 
+  // 정렬후 화면출력
+  showNumFn(newArray);
 
-    // 정렬후 화면출력
-    showNumFn();
-
+  console.log("숫자배열원본:", arrNumber);
 }); /////// addEventListener /////////////
