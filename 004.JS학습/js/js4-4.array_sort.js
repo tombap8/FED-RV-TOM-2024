@@ -446,19 +446,19 @@ myFn.addEvt(sel3, "change", function () {
   // 위의 깊은 복사가 아닌 JASON.parse()방식 써야함
   // newArray[0].idx = 999;
 
-  // (2) 정렬 기준값 읽어오기
+  // (2) 정렬 기준값 읽어오기 ///////
   let cta = cta3.value;
   console.log("정렬기준:", cta);
 
-  // (3) 정렬변경하기 /////
-  // (3-1) 오름차순
+  // (3) 정렬변경하기 /////////////
+  // (3-1) 오름차순 //////
   if (this.value == "1")
     newArray.sort((a, b) => (a[cta] == b[cta] ? 0 : a[cta] < b[cta] ? -1 : 1));
-  // (3-2) 내림차순
+  // (3-2) 내림차순 ///////
   else if (this.value == "2")
     newArray.sort((a, b) => (a[cta] == b[cta] ? 0 : a[cta] > b[cta] ? -1 : 1));
 
-  // (4) 화면출력
+  // (4) 화면출력 ////////////
   showList3Fn(newArray);
   console.log("객체배열원본:", list1);
 }); //////// change 이벤트함수 /////////
