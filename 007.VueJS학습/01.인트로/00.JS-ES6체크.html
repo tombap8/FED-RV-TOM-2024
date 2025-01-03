@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>00. JS ES6버전 문법 사전체크!</title>
+    <script>
+      // 아래 8가지 ES6버전의 문법이 뷰JS에서
+      // 주요하게 사용된다!
+
+      // 1. 클래스 : JS5-1.1, JS5-1.2
+
+      // 2. 화살표함수 : JS5-2
+
+      // 3. 새로운 변수선언 : JS2-2
+
+      // 4. 배열 메서드 : map()
+      // -> 배열을 자동으롤 돌면서 목록을 만들어 준다!
+      const arr1 = ["수박", "사과", "단감"];
+      // console.log('원래배열:',arr1);
+
+      // 5. JS 비구조화 할당(구조분해할당) //////////////////
+      // -> 배열의 값을 각각의 변수에 담는 방법
+      
+
+      // 객체도 구조분해할당으로 쉽게~!
+      // 자동차 객체 생성
+      const vehicleOne = {
+        brand: "Ford",
+        model: "Mustang",
+        type: "car",
+        year: 2021,
+        color: "red",
+      };
+      
+
+      // 6. 모듈 문법 : 03.JS모듈
+
+      // 7. 삼항연산자 : JS2-1
+
+      // 8. 스프레드 연산자 : ...
+      // (점3개로 표시 -> 배열/객체값 순서표시)
+      // -> 기본 배열/객체 전체나 일부를 배열이나 객체로
+      // 빠르게 복사!!!
+      const number1 = [24, 44, 35, 66];
+      const number2 = [111, 444, 777, 999];
+
+      // 객체는 안되나???
+      const cars = {
+        brand: "현대",
+        model: "그랜다이져",
+        color: "검정색",
+      };
+      const newCars = {
+        type: "썬루프",
+        year: "2023",
+        color: "흰색", //같은 속성은 나중것이 덮어씀!
+      };
+      
+    </script>
+  </head>
+  <body></body>
+</html>
