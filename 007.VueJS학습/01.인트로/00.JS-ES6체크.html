@@ -26,10 +26,43 @@
 
       // 새로운 배열 변수만들기
       const newArr = [];
+      // 기존 배열을 순회하여 새배열에 값 넣기
+      arr1.forEach(v=>{
+        newArr.push(`<span>${v}</span>`);
+      });
+      // 새 배열 출력
+      console.log('새로운배열:',newArr);
+
+      // map을 사용하면 간단하다!
+      console.log(arr1.map(v=>`<div>${v}</div>`));
+      // -> 이점: 
+      // 별도의 변수선언 불필요! 원본배열보존! 그자리출력!
 
       // 5. JS 비구조화 할당(구조분해할당) //////////////////
-      // -> 배열의 값을 각각의 변수에 담는 방법
-      
+      // -> 배열의 값을 각각의 변수에 담는 방법     
+      const list = ["현대","삼성","LG"]; 
+      console.log('기존배열:',list);
+      // 배열의 각 값을 변수에 따로 다시 담을 경우 아래처럼함!
+      let corp1 = list[0];
+      let corp2 = list[1];
+      let corp3 = list[2];
+      console.log(corp1, corp2, corp3);
+
+      // ->>> 구조분해할당 방식으로 쉽게 처리~!
+      const home = ["의자","TV","노트북"];
+      console.log('기존배열:',home);
+      // 변수를 배열기호안에 한꺼번에 순서대로 써줌
+      const [chair, tv, notebook] = home;
+      console.log("구조분해할당결과:",chair, tv, notebook);
+      // -> 만일 배열값 보다 적은 수의 변수를 써도 에러없이
+      // 해당 순번만큼만 구조분해할당됨!
+
+      const home2 = ["엄마", "아빠", "동생"];
+      // 변수를 한꺼번에 선언하여 배열값을 각각 할당함!
+      // 중간값을 건너 뛸 경우 콤마로 비워둔다!
+      let [mom, ,bro] = home2;
+      console.log("구조분해할당으로 배열값 변수할당:", mom,bro);
+
 
       // 객체도 구조분해할당으로 쉽게~!
       // 자동차 객체 생성
