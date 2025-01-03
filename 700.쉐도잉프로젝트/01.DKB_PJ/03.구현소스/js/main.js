@@ -75,6 +75,15 @@ slideFn();
 // -> 제이쿼리 html() 메서드에서는 join()없이
 // 콤마없애고 출력해줌!!!
 
+// 데이터 변경하기 : 15화부터 나오게 idx 내림차순
+// -> 데이터는 8개만씀 -> slice(시작순번,끝순번)
+// const newArrayData = 
+;
+console.log('미리보기변경:',
+  dkbData.previewData.sort(
+  (a,b) => a.idx == b.idx ? 0 : 
+  a.idx > b.idx ? -1 : 1));
+
 $(".preview-box ul").html(
   dkbData.previewData.map(
     (v) => `
