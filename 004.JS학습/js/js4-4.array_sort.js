@@ -394,8 +394,8 @@ console.log(list1);
 const showList3 = myFn.qs(".showList3");
 
 const showList3Fn = (newArray) => {
-    // newArray 데이터 바인딩할 배열
-    showList3.innerHTML = `
+  // newArray 데이터 바인딩할 배열
+  showList3.innerHTML = `
         <table>
           <thead>
             <tr>
@@ -425,3 +425,23 @@ const showList3Fn = (newArray) => {
 
 // 바인딩함수 최초호출!
 showList3Fn(list1);
+console.log("객체배열원본:",list1);
+
+// [3-3] 정렬하기 ////////////////
+// 대상: 기준선택박스 / 정렬선택박스
+const cta3 = myFn.qs("#cta3");
+const sel3 = myFn.qs("#sel3");
+
+// 이벤트 설정하기 : 대상 - sel3
+myFn.addEvt(sel3, "change", function () {
+  // 오름차순
+  if (this.value == "1")
+    list1.sort((a, b) => (a.idx == b.idx ? 0 : a.idx < b.idx ? -1 : 1));
+  // 내림차순
+  else if (this.value == "2")
+    list1.sort((a, b) => (a.idx == b.idx ? 0 : a.idx > b.idx ? -1 : 1));
+
+  // 화면출력
+  showList3Fn(list1);
+  console.log("객체배열원본:",list1);
+}); //////// change 이벤트함수 /////////
