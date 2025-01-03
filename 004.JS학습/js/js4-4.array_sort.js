@@ -402,7 +402,18 @@ showList3.innerHTML = `
         </tr>
       </thead>
       <tbody>
-</tbody>
-    </table>
+      ${
+        list1.map(v=>`            
+            <tr>
+                <td>${v.idx}</td>
+                <td>${v.tit}</td>
+                <td>${v.cont}</td>
+            </tr>
+            `).join('')
+
+      }
+        
+        </tbody>
+            </table>
 
 `;
