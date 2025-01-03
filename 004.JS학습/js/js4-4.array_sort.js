@@ -292,8 +292,8 @@ const showNum = myFn.qs(".showNum");
 // [1-2] 현재 숫자배열 출력하기
 // 배열대상: arrNumber
 const showNumFn = (newArray) => {
-    // newArray는 변경할 배열전달
-    // map은 원본배열을 변경하지 않는다!
+  // newArray는 변경할 배열전달
+  // map은 원본배열을 변경하지 않는다!
   showNum.innerHTML = newArray
     .map(
       (v) => `
@@ -317,12 +317,10 @@ myFn.qs("#sel").addEventListener("change", function () {
 
   if (this.value == 1)
     // 오름차순
-    newArray.sort((a, b) => 
-        (a == b ? 0 : a < b ? -1 : 1));
+    newArray.sort((a, b) => (a == b ? 0 : a < b ? -1 : 1));
   else if (this.value == 2)
     // 내림차순
-    newArray.sort((a, b) => 
-        (a == b ? 0 : a > b ? -1 : 1));
+    newArray.sort((a, b) => (a == b ? 0 : a > b ? -1 : 1));
 
   // 정렬후 화면출력
   showNumFn(newArray);
@@ -330,21 +328,34 @@ myFn.qs("#sel").addEventListener("change", function () {
   console.log("숫자배열원본:", arrNumber);
 }); /////// addEventListener /////////////
 
-
-
 // [2] 문자로만된 배열의 정렬 //////////////////
 
 // [2-1] 배열 태그변형후 출력하기 ////
-myFn.qs('.showNum2').innerHTML = 
-arrString.map(v=>`<span>${v}</span>`).join('');
+const showNum2 = myFn.qs(".showNum2");
+
+const showNum2Fn = (newArray) => {
+  // newArray는 처리할 배열전달
+  showNum2.innerHTML = newArray.map((v) => `<span>${v}</span>`).join("");
+}; ////// showNum2Fn 함수 ////////////
+
+// 최초호출
+showNum2Fn(arrString);
 
 // [2-2] 선택박스 변경 이벤트 발생시 정렬변경하기
-myFn.addEvt(myFn.qs('#sel2'),'change',
-function(){
-    if(this.value == 1) // 오름차순
-    arrString.sort();
-    else if(this.value == 2) // 내림차순
-    arrString.reverse();
+myFn.addEvt(myFn.qs("#sel2"), "change", function () {
+  // 원본보존을 위해 깊은복사로 처리
+  const newArray = [...arrString];
 
-    console.log('문자값 배열 원본:',arrString);
+  // 1) 오름차순/내림차순 변경처리 ///
+  if (this.value == 1)
+    // 오름차순
+    newArray.sort();
+  else if (this.value == 2)
+    // 내림차순
+    newArray.reverse();
+
+  // 2) 화면출력
+  showNum2Fn(newArray);
+
+  console.log("문자값 배열 원본:", arrString);
 }); ////// change 이벤트 함수 ///////
