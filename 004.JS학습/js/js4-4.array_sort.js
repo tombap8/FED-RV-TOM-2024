@@ -434,14 +434,18 @@ const sel3 = myFn.qs("#sel3");
 
 // 이벤트 설정하기 : 대상 - sel3
 myFn.addEvt(sel3, "change", function () {
+
+    // 깊은복사
+    const newArray = [...list1];
+
   // 오름차순
   if (this.value == "1")
-    list1.sort((a, b) => (a.idx == b.idx ? 0 : a.idx < b.idx ? -1 : 1));
+    newArray.sort((a, b) => (a.idx == b.idx ? 0 : a.idx < b.idx ? -1 : 1));
   // 내림차순
   else if (this.value == "2")
-    list1.sort((a, b) => (a.idx == b.idx ? 0 : a.idx > b.idx ? -1 : 1));
+    newArray.sort((a, b) => (a.idx == b.idx ? 0 : a.idx > b.idx ? -1 : 1));
 
   // 화면출력
-  showList3Fn(list1);
+  showList3Fn(newArray);
   console.log("객체배열원본:",list1);
 }); //////// change 이벤트함수 /////////
