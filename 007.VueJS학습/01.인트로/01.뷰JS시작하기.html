@@ -6,7 +6,10 @@
     <title>Vue JS 시작하기</title>
     <style>
       body {
-        font-size: 2.5vw !important;
+        font-size: 3vw !important;
+      }
+      button {
+        font-size: 4vw !important;
       }
     </style>
     <!-- 뷰JS 스탠드얼론 버전 가져오기! -->
@@ -18,7 +21,7 @@
         // -> 생성자함수이므로 new로 인스턴스를 생성함!
         new Vue({
           // (1) 적용할 요소 설정 속성 : el
-          el: '#app1',
+          el: "#app1",
           // (2) 데이터 설정 속성 : data
           data: {
             // 여기는 객체형식으로 데이터를 내가 셋팅함!
@@ -28,9 +31,30 @@
           // (3) 함수설정속성 : methods
           methods: {
             // 객체형식으로 함수를 만들 수 있다!
-            changeTxt: function(){구현부},
-            changeTxt: ()=>{구현부},
-            changeTxt(){구현부},
+            /* 
+              ((객체안의 함수를 사용하는 방법))
+              -> JS의 공식문법사항임!
+
+              (1) 일반익명함수사용
+                함수명: function(){구현부}
+
+              (2) 화살표함수 사용
+                함수명: ()=>{구현부}
+
+              (3) 메서드 표기법 사용
+                함수명(){구현부}
+            */
+            // 버튼글자를 변경하는 메서드만들기
+            changeTxt(e) { // e - 이벤트전달변수
+              console.log("메서드호출!", this);
+              // 메서드 안의 this는 현재객체자신!
+              // 그렇다면 버튼자신은? event.target
+
+              // (1) 버튼 자신의 글자 바꾸기
+              e.target.innerText = "변경사항이 반영되었습니다~!!!";
+              // (2) 버튼 자신의 배경색 바꾸기
+              e.target.style.backgroundColor = 'lime';
+            },
           },
         });
 
@@ -48,11 +72,10 @@
 
     <h2>1. 텍스트 바인딩(binding->데이터넣기!)</h2>
     <div id="app1">
+      <p>{{message}}</p>
       <p>
-        {{message}}
-      </p>
-      <p>
-        세상은 {{yo}} 너희가 {{yo}} 아는바 {{yo}} 그 {{yo}} 세상이 {{yo}} 아니란다!{{yo}}
+        세상은 {{yo}} 너희가 {{yo}} 아는바 {{yo}} 그 {{yo}} 세상이 {{yo}}
+        아니란다!{{yo}}
       </p>
       <!-- 
         {{}} 중복중괄호는 콧수염 표시자(Mustasch)
@@ -68,8 +91,7 @@
       -->
 
       <!-- 기능을 가진 버튼을 생성함 -->
-       <button>변경하기</button>
-
+      <button v-on:click="changeTxt">변경하기</button>
     </div>
     <hr />
 
