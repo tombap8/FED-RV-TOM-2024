@@ -4,14 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vue JS 시작하기</title>
-    <!-- 뷰JS 스탠드얼론 버전 가져오기! -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <style>
       body {
         font-size: 2.5vw !important;
       }
     </style>
-    
+    <!-- 뷰JS 스탠드얼론 버전 가져오기! -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+      window.addEventListener("load", () => {
+        // 1. 텍스트 바인딩(binding->데이터넣기!)
+        // 뷰JS 메인 생성자함수는? Vue()
+        // -> 생성자함수이므로 new로 인스턴스를 생성함!
+        new Vue({
+          // (1) 적용할 요소 설정 속성 : el
+          el: '#app1',
+          // (2) 데이터 설정 속성 : data
+          data: {
+            // 여기는 객체형식으로 데이터를 내가 셋팅함!
+            message: "나는 뷰JS를 잘 쓰는 프론트엔드 개발자다!",
+            yo: "😀요😍",
+          }
+        });
+
+        // 2. 반복 렌더링
+        // 3. 이벤트 사용하기
+        // 4. 입력 양식과 동기화하기
+        // 5. 조건분기
+      }); /////////// load //////////////////
+    </script>
   </head>
   <body>
     <h1>Vue JS 기초연습</h1>
@@ -19,7 +40,27 @@
     <hr />
 
     <h2>1. 텍스트 바인딩(binding->데이터넣기!)</h2>
-    <div id="app1"></div>
+    <div id="app1">
+      <p>
+        {{message}}
+      </p>
+      <p>
+        세상은 {{yo}} 너희가 {{yo}} 아는바 {{yo}} 그 {{yo}} 세상이 {{yo}} 아니란다!{{yo}}
+      </p>
+      <!-- 
+        {{}} 중복중괄호는 콧수염 표시자(Mustasch)
+        이 부분에 뷰JS 데이터를 넣는 자리다!
+        -> 콧수염 표시자는 주로 데이터를 합쳐서 표현할때
+        많이 사용된다!
+        -> 주의사항 : 
+        내용으로 표현식만 쓸것!
+        예) 표현식은 1+1과 같이 그자리에 값이 찍히는 것을 표현식이라고 보면됨!
+        -> 문장은 쓰지말것!!!
+        문장은 if문, for문 , 할당문
+        예) if(){}, for(){}, let x = "ㅎㅎ"
+      -->
+
+    </div>
     <hr />
 
     <h2>2. 반복 렌더링</h2>
