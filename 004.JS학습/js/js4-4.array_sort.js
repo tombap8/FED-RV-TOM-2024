@@ -581,4 +581,6 @@ let searchText2 = list2.find(v=>{
 });
 console.log('검색테스트1(find):',searchText1);
 console.log('검색테스트2(find):',searchText2);
-console.log('like검색기초(indexOf):',list2[0].tit);
+console.log('like검색기초(indexOf)대상문자:',list2[0].tit);
+console.log('like검색기초(indexOf)대상문자의 "당"문자순번:',list2[0].tit.indexOf('당'));
+console.log('like검색기초(indexOf)대상문자의 "가"문자순번:',list2[0].tit.indexOf('가'));
