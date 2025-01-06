@@ -613,8 +613,10 @@ myFn.addEvt(sbtn, "click", () => {
     let result = list2.filter((v) => {
       // 숫자형이 들어오면 indexOf()에러남!
       // 따라서 데이터를 문자형변환야함! String()
+      // if (String(v[sCta4.value])
+      //   .indexOf(stxt.value.trim()) !== -1) return true;
       if (String(v[sCta4.value])
-        .indexOf(stxt.value.trim()) !== -1) return true;
+        .includes(stxt.value.trim())) return true;
     });
     console.log("검색결과:", result);
   } /// else ////
