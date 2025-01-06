@@ -1,5 +1,9 @@
 // 도깨비 PJ 메인페이지 JS - main.js
 
+// 메뉴를 넣기위한 공통함수 불러오기
+import comFn from "./common.js";
+comFn();//실행!
+
 // 메인배너 슬라이드 기능함수 불러오기
 import slideFn from "./slide_fn.js";
 
