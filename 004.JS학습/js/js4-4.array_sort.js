@@ -584,3 +584,27 @@ console.log('검색테스트2(find):',searchText2);
 console.log('like검색기초(indexOf)대상문자:',list2[0].tit);
 console.log('like검색기초(indexOf)대상문자의 "당"문자순번:',list2[0].tit.indexOf('당'));
 console.log('like검색기초(indexOf)대상문자의 "가"문자순번:',list2[0].tit.indexOf('가'));
+console.log('like검색기초(indexOf)대상문자의 "헐"문자순번:',list2[0].tit.indexOf('헐'));
+// 결과적으로 -1은 문자열이 없다는 리턴값이다!
+// 반대로 결과가 있으면 -1이 아닌것이다!
+
+// 검색 테스트 3
+let searchText3 = list2.filter(v=>{
+  if(v.tit.indexOf('당')!==-1) return true;
+});
+
+console.log('검색테스트3(filter)"당"이 있는제목:',searchText3);
+
+// 검색 테스트 4
+let searchText4 = list2.filter(v=>{
+  if(v.tit.indexOf('다')!==-1) return true;
+});
+
+console.log('검색테스트4(filter)"다"가 있는제목:',searchText4);
+
+// 검색 테스트 5
+let searchText5 = list2.filter(v=>{
+  if(v.tit.indexOf('멍')!==-1) return true;
+});
+
+console.log('검색테스트5(filter)"멍"이 있는제목:',searchText5);
