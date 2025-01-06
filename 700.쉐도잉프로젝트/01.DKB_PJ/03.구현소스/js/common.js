@@ -8,4 +8,9 @@ import comData from "../data/common_data.js";
 export default function comFn(){
     console.log(comData);
 
+    // 상단/하단 공통 소스 제이쿼리로 넣기
+    $('body')
+    .prepend(comData.topArea)
+    .append(comData.footerArea);
+
 } ////////// comFn 함수 ////////////
