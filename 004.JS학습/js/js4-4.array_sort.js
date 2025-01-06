@@ -600,6 +600,8 @@ const sCta4 = myFn.qs("#search-cta4");
 const stxt = myFn.qs("#stxt");
 // 검색버튼 : .sbtn
 const sbtn = myFn.qs(".sbtn");
+// 전체버튼 : .fbtn
+const fbtn = myFn.qs(".fbtn");
 
 // (1) 버튼 클릭시 이벤트 설정하기 //////
 myFn.addEvt(sbtn, "click", () => {
@@ -608,19 +610,48 @@ myFn.addEvt(sbtn, "click", () => {
   if (stxt.value.trim() == "") {
     alert("검색어를 입력해주세요~!");
   } /// if ///
+  // 2) 검색어가 있으면 filter로 검색결과 배열만들기
   else {
     console.log("검색어:", stxt.value.trim());
-    let result = list2.filter((v) => {
-      // 숫자형이 들어오면 indexOf()에러남!
-      // 따라서 데이터를 문자형변환야함! String()
-      // if (String(v[sCta4.value])
-      //   .indexOf(stxt.value.trim()) !== -1) return true;
-      if (String(v[sCta4.value])
-        .includes(stxt.value.trim())) return true;
-    });
+    let result = list2.filter(v=>
+      String(v[sCta4.value]).includes(stxt.value.trim()));
+
+      // 이해를 위해 직접 값을 넣어본다!
+    // let result = list2.filter(v=>
+    //   v.tit.includes('당근'));
+
+
+    // let result = list2.filter((v) => {
+    //   // 숫자형이 들어오면 indexOf()에러남!
+    //   // 따라서 데이터를 문자형변환야함! String()
+    //   // if (String(v[sCta4.value])
+    //   //   .indexOf(stxt.value.trim()) !== -1) return true;
+    //   if (String(v[sCta4.value])
+    //     .includes(stxt.value.trim())) return true;
+    // });
     console.log("검색결과:", result);
+
+    // 
+    // 3) 결과배열을 화면 바인딩 함수를 호출시 보내준다!
+    showList4Fn(result);
   } /// else ////
+
 }); ///////// click 이벤트 함수 ///////
+
+// [4-5] 전체 버튼 클릭시 전체리스트 보이기
+myFn.addEvt(fbtn,'click',()=>{
+  // 1) 검색입력값 지우기
+  stxt.value = "";
+  // 2) 검색항목 초기화
+  sel4.value = "1";
+  // 3) 실제 전체항목 리스트보이기
+  showList4Fn(list2);
+}); /////// click 이벤트함수 ////////
+
+
+
+
+
 
 // 검색전 테스트하기 ///////////////////
 let searchText1 = list2.find((v) => {
