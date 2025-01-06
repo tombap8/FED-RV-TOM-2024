@@ -611,3 +611,14 @@ console.log('검색테스트5(filter)"멍"이 있는제목:',searchText5);
 // 데이터가 없으면 빈배열을 리턴함
 // 따라서 없다는 것은 배열길이가 0이라는 말
 // 배열.length==0 이 값이  true면 검색결과가 없는것!
+
+// indexOf말고 배열값 중 어떤 값을 포함하는지 여부를
+// 알아내는 함수는 includes(값) -> 있으면 true, 없으면 false
+
+// indexOf()와 includes()는 모두 배열에서도 사용하고
+// 문자열(String)에서도 사용하는 메서드이다!
+// 여기서는 배열값 중 특정 문자열값에서 찾는 역할을 한다!
+
+console.log("찾을대상:",list2[0].tit);
+console.log("includes('당'):",list2[0].tit.includes('당'));
+console.log("includes('멍'):",list2[0].tit.includes('멍'));
