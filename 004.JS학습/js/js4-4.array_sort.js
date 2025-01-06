@@ -536,15 +536,15 @@ const showList4Fn = (newArray) => {
 showList4Fn(list2);
 console.log("객체배열원본:", list2);
 
-// [3-3] 정렬하기 ////////////////
+// [4-3] 정렬하기 ////////////////
 // 대상: 기준선택박스 / 정렬선택박스
-const cta3 = myFn.qs("#cta3");
-const sel3 = myFn.qs("#sel3");
+const cta4 = myFn.qs("#cta4");
+const sel4 = myFn.qs("#sel4");
 
-// 이벤트 설정하기 : 대상 - sel3
-myFn.addEvt(sel3, "change", function () {
+// 이벤트 설정하기 : 대상 - sel4
+myFn.addEvt(sel4, "change", function () {
   // (1) 깊은복사 : 배열 순서를 바꾸는 경우엔 효과있음!
-  const newArray = list1.slice(); // -> slice() 방식!
+  const newArray = list2.slice(); // -> slice() 방식!
   // -> slice(시작순번,끝순번) -> 끝순번 앞에서 잘라서 새배열생성
   // 예)list1.slice(1,3) -> 1,2번째 배열값만 가져옴
   // -> slice() 아무것도 안쓰면 전체배열을 새로생성함!(부가기능)
@@ -556,7 +556,7 @@ myFn.addEvt(sel3, "change", function () {
   // newArray[0].idx = 999;
 
   // (2) 정렬 기준값 읽어오기 ///////
-  let cta = cta3.value;
+  let cta = cta4.value;
   console.log("정렬기준:", cta);
 
   // (3) 정렬변경하기 /////////////
@@ -568,6 +568,17 @@ myFn.addEvt(sel3, "change", function () {
     newArray.sort((a, b) => (a[cta] == b[cta] ? 0 : a[cta] > b[cta] ? -1 : 1));
 
   // (4) 화면출력 ////////////
-  showList3Fn(newArray);
-  console.log("객체배열원본:", list1);
+  showList4Fn(newArray);
+  console.log("객체배열원본:", list2);
 }); //////// change 이벤트함수 /////////
+
+// 검색전 테스트하기 ///////
+let searchText1 = list2.find(v=>{
+  if(v.tit=="점심에 뭐먹지? 당근이지!") return true;
+});
+let searchText2 = list2.find(v=>{
+  if(v.tit=="점심에 뭐먹지? 당근이지") return true;
+});
+console.log('검색테스트1(find):',searchText1);
+console.log('검색테스트2(find):',searchText2);
+console.log('like검색기초(indexOf):',list2[0].tit);
