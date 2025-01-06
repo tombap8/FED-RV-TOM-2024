@@ -608,3 +608,6 @@ let searchText5 = list2.filter(v=>{
 });
 
 console.log('검색테스트5(filter)"멍"이 있는제목:',searchText5);
+// 데이터가 없으면 빈배열을 리턴함
+// 따라서 없다는 것은 배열길이가 0이라는 말
+// 배열.length==0 이 값이  true면 검색결과가 없는것!
