@@ -496,15 +496,15 @@ const list2 = [
   },
 ]; /////////////// list1 /////////////
 
-console.log(list1);
+console.log(list2);
 
-// [3-2] 데이터 바인딩하기 : 함수화하여 재사용!
+// [4-2] 데이터 바인딩하기 : 함수화하여 재사용!
 // 바인딩 출력대상
-const showList3 = myFn.qs(".showList3");
+const showList4 = myFn.qs(".showList4");
 
-const showList3Fn = (newArray) => {
+const showList4Fn = (newArray) => {
   // newArray 데이터 바인딩할 배열
-  showList3.innerHTML = `
+  showList4.innerHTML = `
         <table>
           <thead>
             <tr>
@@ -530,11 +530,11 @@ const showList3Fn = (newArray) => {
                 </table>
     
     `;
-}; //////// showList3Fn 함수 //////////
+}; //////// showList4Fn 함수 //////////
 
 // 바인딩함수 최초호출!
-showList3Fn(list1);
-console.log("객체배열원본:", list1);
+showList4Fn(list2);
+console.log("객체배열원본:", list2);
 
 // [3-3] 정렬하기 ////////////////
 // 대상: 기준선택박스 / 정렬선택박스
