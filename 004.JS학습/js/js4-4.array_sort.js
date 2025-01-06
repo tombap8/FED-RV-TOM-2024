@@ -643,7 +643,7 @@ myFn.addEvt(fbtn,'click',()=>{
   // 1) 검색입력값 지우기
   stxt.value = "";
   // 2) 검색항목 초기화
-  sel4.value = "1";
+  sCta4.value = "tit";
   // 3) 실제 전체항목 리스트보이기
   showList4Fn(list2);
 }); /////// click 이벤트함수 ////////
