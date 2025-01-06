@@ -572,7 +572,33 @@ myFn.addEvt(sel4, "change", function () {
   console.log("객체배열원본:", list2);
 }); //////// change 이벤트함수 /////////
 
-// 검색전 테스트하기 ///////
+// [4-4] 검색하기 ///////////////////////
+// 대상 : 
+// 검색항목 : #search-cta4
+const sCta4 = myFn.qs('#search-cta4');
+// 검색입력창 : #stxt
+const stxt = myFn.qs('#stxt');
+// 검색버튼 : .sbtn
+const sbtn = myFn.qs('.sbtn');
+
+// (1) 버튼 클릭시 이벤트 설정하기 //////
+myFn.addEvt(sbtn,'click',()=>{
+  console.log('검색해~!!!');
+}); ///////// click 이벤트 함수 ///////
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 검색전 테스트하기 ///////////////////
 let searchText1 = list2.find(v=>{
   if(v.tit=="점심에 뭐먹지? 당근이지!") return true;
 });
@@ -622,3 +648,5 @@ console.log('검색테스트5(filter)"멍"이 있는제목:',searchText5);
 console.log("찾을대상:",list2[0].tit);
 console.log("includes('당'):",list2[0].tit.includes('당'));
 console.log("includes('멍'):",list2[0].tit.includes('멍'));
+
+
