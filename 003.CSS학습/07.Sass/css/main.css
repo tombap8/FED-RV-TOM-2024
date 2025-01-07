@@ -138,4 +138,24 @@ img {
 
 .top-area {
   color: #a31212;
+}
+.top-area h1 {
+  color: aqua;
+  font-size: 40px;
+  font-family: "Times New Roman";
+  text-align: center;
+  text-decoration: underline;
+  text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4901960784);
+  margin-bottom: 40px;
+  background-color: #e46d0b;
+  background-image: url(../images/flower.png);
+  background-position: center;
+  background-repeat: repeat-x;
+  background-size: 70px;
+  padding: 20px;
+}
+.top-area h2 {
+  font-size: 30px;
+  text-align: center;
+  padding: 20px 0;
 }/*# sourceMappingURL=main.css.map */

@@ -86,6 +86,9 @@
 
 
 *********************************************/
+// 변수 셋팅 sass 불러오기
+@import "./data/variables";
+
 // 초기화 셋팅 sass 불러오기
 @import "./common/reset";
 // 주의: 파일선택후 실제로 부분파일 앞에 언더바와
@@ -93,19 +96,49 @@
 
 // 전체 페이지 요소
 .wrapper {
-    max-width: 1000px;
-    margin: 0 auto;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-// 변수 셋팅하기 ///////
-$mainColor1: #a31212;
-$mainColor1-2: #e46d0b;
-$mainColor2: #204ffc;
-$mainColor2-2: #b0ddf2;
 
 
-// 상단영역 
+// 상단영역
 .top-area {
-    color: $mainColor1;
+    // 박스 글자
+  color: $mainColor1;
+  //[ 네스팅 기법 ]
+  h1 {
+    color: $orgAqua;
+    // [ 속성접두어 묶음기법 ]
+    font: {
+      size: $fontSize1;
+      family: "Times New Roman";
+    }
+    text: {
+      align: center;
+      decoration: underline;
+      shadow: 5px 5px 4px #0000007d;
+    }
+    // 하단마진
+    margin-bottom: $fontSize1;
 
+    // 배경설정
+    background: {
+      color: $mainColor1-2;
+      image: url(../images/flower.png);
+      position: center;
+      repeat: repeat-x;
+      size: 70px;
+    }
+    
+    // 패딩
+    padding: 20px;
+  }
+  // 서브 타이틀 박스
+  h2{
+    font-size: $fontSize3;
+    // 박스공통설정
+    text-align: center;
+    padding: 20px 0;
+  }
 }
