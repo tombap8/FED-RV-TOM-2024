@@ -102,8 +102,7 @@
               // e - 이벤트 전달변수
               // 현재 요소 타겟
               let tg = e.target;
-              console.log("버튼클릭!", 
-              tg, this, this.$el);
+              console.log("버튼클릭!", tg, this, this.$el);
               // 1. 버튼글자변경하기 "놀랐지?"
               tg.innerText = "놀랐지?";
               // 2. 2초후에 해당요소 아래에 새로운 div넣기
@@ -111,25 +110,51 @@
                 // 뷰인스턴스에서 this의 의미는 객체자신
                 // 인스턴스 자신의 요소는 $el 로 표시함!
                 // 즉, div#app3 요소를 나타냄
-                this.$el.innerHTML +=
-                "<div>하하하</div>";
+                this.$el.innerHTML += "<div>하하하</div>";
               }, 2000);
             },
             // 마우스오버이벤트 연결 메서드
             myOver(e) {
-              console.log('마우스오버!');
+              console.log("마우스오버!");
               // 1. 버튼글자변경 "오버하지마!"
+              e.target.innerText = "오버하지마!";
               // 2. 1초후 글자 다시 변경 "클릭해봐!"
+              setTimeout(() => {
+                e.target.innerText = "클릭해봐!";
+              }, 1000);
             },
             // 마우스 오버클릭시 이벤트 연결 메서드
-            overClick() {
-              console.log('오버후 클릭!');
+            overClick(txt) {
+              // txt - 문자값 전달변수
+              console.log("오버후 클릭!");
+              // 인스턴스 루트요소(this.$el)에 html넣기
+              this.$el.innerHTML += `<h1>내가 ${txt}야!</h1>`;
             },
           },
         });
 
-        // 4. 입력 양식과 동기화하기
-        // 5. 조건분기
+        // 4. 입력 양식과 동기화하기 ////
+        new Vue({
+          // 1. 대상
+          el: "#app4",
+          // 2. 데이터
+          data: {
+            msg: "여기에 입력해봐요~~~!",
+          },
+        }); ///// Vue ///////////////
+
+        // 5. 조건분기하기 //////////
+        new Vue({
+          // 1. 대상선정
+          el: "#app5",
+          // 2. 변수셋팅
+          data: {
+            show: false,
+            // show변수에 false를 담고 이것을
+            // v-if 조건문 디렉티브에 사용하면
+            // true이면 출력하고 false 이면 아예지운다!
+          }, /// data ///
+        }); /// Vue ///
       }); /////////// load //////////////////
     </script>
   </head>
@@ -233,9 +258,9 @@
         축약형
         @이벤트명="값"
       -->
-      <button 
-      @mouseover="myOver" 
-      @click="overClick">오버해봐!</button>
+      <button @mouseover="myOver" @click="overClick('뷰JS 후계자')">
+        오버해봐!
+      </button>
     </div>
     <hr />
 
