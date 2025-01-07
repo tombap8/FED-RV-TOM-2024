@@ -265,10 +265,40 @@
     <hr />
 
     <h2>4. 입력 양식과 동기화하기</h2>
-    <div id="app4"></div>
+    <div id="app4">
+      <input type="text" v-model="msg" />
+      <!-- 
+        v-model 디렉티브 속성은 요소 자신의 값이
+        타겟값으로 반영되게 해준다!
+        변경 데이터의 뷰JS의 동기화기능을 확인!
+       -->
+      <p>{{msg}}</p>
+    </div>
     <hr />
 
     <h2>5. 조건분기</h2>
-    <div id="app5"></div>
+    <div id="app5">
+      <button @click="show=!show">
+        뒤집어!{{show}}
+        <!-- 
+            해석: show=!show
+            show값이 true이면 false, false이면 true로
+            불린값을 반대로 해서 다시 할당함!
+            (이벤트값 설정구역에 코드를 쓸수 도 있음!)
+           -->
+      </button>
+      <p>
+        나는 사실 사람이 아니다!
+        <span v-if="show">뻥이요~!</span>
+        <!-- 
+            v-if 조건문 디렉티브
+            값으로 쓴 조건에 따라
+            해당요소가 화면에 출력될지 말지를
+            결정할 수 있다!
+            (결과적으로 가상돔에 출력을 안하면
+            실제돔에 출력되지 않는다!)
+           -->
+      </p>
+    </div>
   </body>
 </html>
