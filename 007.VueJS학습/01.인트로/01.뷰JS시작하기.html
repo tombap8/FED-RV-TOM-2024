@@ -102,12 +102,29 @@
               // e - 이벤트 전달변수
               // 현재 요소 타겟
               let tg = e.target;
-              console.log("버튼클릭!", tg, this);
+              console.log("버튼클릭!", 
+              tg, this, this.$el);
+              // 1. 버튼글자변경하기 "놀랐지?"
+              tg.innerText = "놀랐지?";
+              // 2. 2초후에 해당요소 아래에 새로운 div넣기
+              setTimeout(() => {
+                // 뷰인스턴스에서 this의 의미는 객체자신
+                // 인스턴스 자신의 요소는 $el 로 표시함!
+                // 즉, div#app3 요소를 나타냄
+                this.$el.innerHTML +=
+                "<div>하하하</div>";
+              }, 2000);
             },
             // 마우스오버이벤트 연결 메서드
-            myOver() {},
+            myOver(e) {
+              console.log('마우스오버!');
+              // 1. 버튼글자변경 "오버하지마!"
+              // 2. 1초후 글자 다시 변경 "클릭해봐!"
+            },
             // 마우스 오버클릭시 이벤트 연결 메서드
-            overClick() {},
+            overClick() {
+              console.log('오버후 클릭!');
+            },
           },
         });
 
@@ -216,7 +233,9 @@
         축약형
         @이벤트명="값"
       -->
-      <button @mouseover="myOver">오버해봐!</button>
+      <button 
+      @mouseover="myOver" 
+      @click="overClick">오버해봐!</button>
     </div>
     <hr />
 
