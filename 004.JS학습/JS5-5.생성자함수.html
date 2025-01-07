@@ -65,24 +65,28 @@
       // 생성자함수의 인스턴스 생성시 전달값 셋팅함!
       // this키워드로 생성한 속성과 메서드만 외부접근가능!
       // this의 의미는 인스턴스로 생성된 객체 자신을 의미!
-      function MovieInfo(포스터, 제목, 개요, 감독, 출연, 문구, 함수) {
-        this.포스터 = 포스터;
-        this.제목 = 제목;
-        this.개요 = 개요;
-        this.감독 = 감독;
-        this.출연 = 출연;
-        this.문구 = 문구;
-        this.함수 = 함수;
+      // function MovieInfo(포스터, 제목, 개요, 감독, 출연, 문구, 함수) {
+      function MovieInfo(val) { // val 배열값 전달변수
+        this.포스터 = val[0];
+        this.제목 = val[1];
+        this.개요 = val[2];
+        this.감독 = val[3];
+        this.출연 = val[4];
+        this.문구 = val[5];
+        this.함수 = ()=>`
+        영화 ${this.제목}의 감독님 이름은 
+        ${this.감독}입니다! ${val[6]}`;
 
       } ////////// MovieInfo 생성자함수 //////////
 
       // MovieInfo 인스턴스 생성
-      const mv1 = new MovieInfo("url",'나야나','성공해','탐쌤','톰소여','흥행해',function(){});
+      const mv1 = new MovieInfo(["url",'나야나','성공해','탐쌤','톰소여','흥행해','대박나라!']);
 
       console.log(mv1);
+      console.log(mv1.함수());
 
       // 생성자 함수의 데이터형은? function 즉, 함수임!
-      // console.log("생성자 함수의 데이터형:", typeof MovieInfo);
+      console.log("생성자 함수의 데이터형:", typeof MovieInfo);
 
       // 보다 현실적이 데이터는 DB로부터 넘겨받은
       // 배열데이터를 받게 된다!
@@ -116,11 +120,16 @@
         ],
       ];
 
+
+      // 위의 배열을 이용하여 인스턴스를 생성해 보자!
+      const mi = dbData.map(v=>new MovieInfo(v));
+      // 객체데이터가 재할당된 새로운 배열이 mi에 저장됨!
+
       // 로드시 셋팅함수 호출설정
-      // window.addEventListener("DOMContentLoaded", setCode);
+      window.addEventListener("DOMContentLoaded", setCode);
 
       function setCode() {
-        console.log("로딩완료");
+        console.log("코드셋팅함수호출!");
 
         // 한글자씩 span태그로 싸는 함수
         const wrapSpan = (x) => {
@@ -165,7 +174,10 @@
             <!-- 영화 한마디 -->
             <h2 class="showtit">♥ 영화한마디!</h2>
             <!-- 6. 문구 -->
-            <div class="show">
+            <div class="show" 
+            onclick="
+              alert(this.getAttribute('data-txt'))"
+            data-txt="${v.함수()}">
               ${wrapSpan(v.문구)}
             </div>
         </section>
@@ -173,6 +185,7 @@
           )
           .join("");
       } //////////////// setCode함수 ////////////////////
+
     </script>
     <style>
       h1,
