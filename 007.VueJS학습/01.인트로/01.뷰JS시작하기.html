@@ -16,7 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script>
       window.addEventListener("load", () => {
-        // 1. 텍스트 바인딩(binding->데이터넣기!)
+        // 1. 텍스트 바인딩(binding->데이터넣기!) //////
         // 뷰JS 메인 생성자함수는? Vue()
         // -> 생성자함수이므로 new로 인스턴스를 생성함!
         new Vue({
@@ -45,7 +45,8 @@
                 함수명(){구현부}
             */
             // 버튼글자를 변경하는 메서드만들기
-            changeTxt(e) { // e - 이벤트전달변수
+            changeTxt(e) {
+              // e - 이벤트전달변수
               console.log("메서드호출!", this);
               // 메서드 안의 this는 현재객체자신!
               // 그렇다면 버튼자신은? event.target
@@ -53,7 +54,7 @@
               // (1) 버튼 자신의 글자 바꾸기
               e.target.innerText = "변경사항이 반영되었습니다~!!!";
               // (2) 버튼 자신의 배경색 바꾸기
-              e.target.style.backgroundColor = 'lime';
+              e.target.style.backgroundColor = "lime";
               // (3) 뷰JS 인스턴스의 변수를 업데이트하기
               // this 현재 뷰JS 인스턴수 객체 자신
               this.message = "너는 누구냐?";
@@ -66,16 +67,16 @@
           },
         });
 
-        // 2. 반복 렌더링
+        // 2. 반복 렌더링 ////////////////////////
         new Vue({
           // (1) 대상선정
-          el: '#app2',
+          el: "#app2",
           // (2) 데이터 설정
           data: {
             // 배우명 배열리스트 : 배열데이터
-            list : ["김수현","공유","송강"],
+            list: ["김수현", "공유", "송강"],
             // 상품정보 배열리스트(값은 객체)
-            goods:[
+            goods: [
               {
                 상품명: "나이키",
                 코드: "nike2544",
@@ -89,7 +90,27 @@
             ],
           },
         });
-        // 3. 이벤트 사용하기
+
+        // 3. 이벤트 사용하기 //////////////
+        new Vue({
+          // (1) 대상요소
+          el: "#app3",
+          // (2) 메서드 설정
+          methods: {
+            // 클릭이벤트 연결 메서드
+            myClick(e) {
+              // e - 이벤트 전달변수
+              // 현재 요소 타겟
+              let tg = e.target;
+              console.log("버튼클릭!", tg, this);
+            },
+            // 마우스오버이벤트 연결 메서드
+            myOver() {},
+            // 마우스 오버클릭시 이벤트 연결 메서드
+            overClick() {},
+          },
+        });
+
         // 4. 입력 양식과 동기화하기
         // 5. 조건분기
       }); /////////// load //////////////////
@@ -146,20 +167,18 @@
     <h2>2. 반복 렌더링</h2>
     <div id="app2">
       <!-- 단순 배열데이터 찍기 -->
-       <ol>
-        <li v-for="배우명 in list"> {{배우명}} </li>
-       </ol>
-       <!-- 배열안에 반복되는 객체 데이터 찍기 -->
-        <div v-for="(item,idx) in goods">
-          <h4> {{"아이템아이디 : Item"+(idx+1)}} </h4>
-          <ul>
-            <li v-for="(val,name) in item">
-              {{name + " : " + val}}
-            </li>
-          </ul>
-        </div>
+      <ol>
+        <li v-for="배우명 in list">{{배우명}}</li>
+      </ol>
+      <!-- 배열안에 반복되는 객체 데이터 찍기 -->
+      <div v-for="(item,idx) in goods">
+        <h4>{{"아이템아이디 : Item"+(idx+1)}}</h4>
+        <ul>
+          <li v-for="(val,name) in item">{{name + " : " + val}}</li>
+        </ul>
+      </div>
     </div>
-  <!-- 
+    <!-- 
     [v-for 디렉티브]
     는 뷰JS에서 사용하는 반복구분이다!
     반복할 요소에 직접 속성형식으로 사용함
@@ -186,11 +205,19 @@
     배열값/객체값 이기 때문이다!!!    
 -->
 
-    
     <hr />
 
     <h2>3. 이벤트 사용하기</h2>
-    <div id="app3"></div>
+    <div id="app3">
+      <!-- <button v-on:click="myClick">클릭해봐~!</button> -->
+      <button @click="myClick">클릭해봐~!</button>
+      <!-- 
+        v-on:이벤트명="값"
+        축약형
+        @이벤트명="값"
+      -->
+      <button @mouseover="myOver">오버해봐!</button>
+    </div>
     <hr />
 
     <h2>4. 입력 양식과 동기화하기</h2>
