@@ -1,9 +1,5 @@
-// 메인 Sass : main.scss
-
-// 사스 주석문
-// 주석1
+@charset "UTF-8";
 /* 주석2 */
-
 /********************************************* 
     [ 사스 핵심 사용법 ]
 
@@ -75,7 +71,7 @@
         - 가상요소, 가상클래스, 특정클래스를
             현재 선택요소에 셋팅하는 방법임!
         - &(앰퍼센드)는 현재 선택요소 자신을 가리킴!
- 
+
     (7) 반복코드 확장 : @extend (extend는 연장하다,확장하다)
         1) 사용이유 : 반복되는 같은 셋팅의 클래스를 쉽게 도입한다
         2) 사용방법 : 선택자 코드 안에 (@extend 클래스명) 형식
@@ -86,26 +82,60 @@
 
 
 *********************************************/
-// 초기화 셋팅 sass 불러오기
-@import "./common/reset";
-// 주의: 파일선택후 실제로 부분파일 앞에 언더바와
-// 뒤에 scss 확장자는 사라진다!(안써도됨!)
+/* 기본 초기화 */
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+dl,
+dt,
+dd,
+p,
+figure,
+figcaption {
+  margin: 0;
+  padding: 0;
+}
 
-// 전체 페이지 요소
+/* ul,ol 순번,블릿없앰 */
+ul, ol {
+  list-style: none;
+}
+
+/* a요소 리셋 */
+a {
+  color: #222;
+  text-decoration: none;
+}
+
+/* heading 요소 글자크기 */
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  /* 박스 디자인시 글자크기로 인한
+  영향을 없애기 위한 초기화! */
+}
+
+/* 이미지 초기화 */
+img {
+  /* 이미지 링크시 서버에서 볼때
+  파란 테두리 없앰 */
+  border: none;
+  /* 박스에 이미지만 넣을때
+  엔터간극 4px 하단공백 없애기  */
+  vertical-align: middle;
+}
+
 .wrapper {
-    max-width: 1000px;
-    margin: 0 auto;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-// 변수 셋팅하기 ///////
-$mainColor1: #a31212;
-$mainColor1-2: #e46d0b;
-$mainColor2: #204ffc;
-$mainColor2-2: #b0ddf2;
-
-
-// 상단영역 
 .top-area {
-    color: $mainColor1;
-
-}
+  color: #a31212;
+}/*# sourceMappingURL=main.css.map */
