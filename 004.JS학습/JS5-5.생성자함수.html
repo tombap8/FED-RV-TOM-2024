@@ -65,6 +65,21 @@
       // 생성자함수의 인스턴스 생성시 전달값 셋팅함!
       // this키워드로 생성한 속성과 메서드만 외부접근가능!
       // this의 의미는 인스턴스로 생성된 객체 자신을 의미!
+      function MovieInfo(포스터, 제목, 개요, 감독, 출연, 문구, 함수) {
+        this.포스터 = 포스터;
+        this.제목 = 제목;
+        this.개요 = 개요;
+        this.감독 = 감독;
+        this.출연 = 출연;
+        this.문구 = 문구;
+        this.함수 = 함수;
+
+      } ////////// MovieInfo 생성자함수 //////////
+
+      // MovieInfo 인스턴스 생성
+      const mv1 = new MovieInfo("url",'나야나','성공해','탐쌤','톰소여','흥행해',function(){});
+
+      console.log(mv1);
 
       // 생성자 함수의 데이터형은? function 즉, 함수임!
       // console.log("생성자 함수의 데이터형:", typeof MovieInfo);
@@ -100,7 +115,6 @@
           "현빈은 북한공작원 전문배우입니다!",
         ],
       ];
-
 
       // 로드시 셋팅함수 호출설정
       // window.addEventListener("DOMContentLoaded", setCode);
