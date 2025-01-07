@@ -149,6 +149,15 @@
        <ol>
         <li v-for="배우명 in list"> {{배우명}} </li>
        </ol>
+       <!-- 배열안에 반복되는 객체 데이터 찍기 -->
+        <div v-for="(item,idx) in goods">
+          <h4> {{"아이템아이디 : Item"+(idx+1)}} </h4>
+          <ul>
+            <li v-for="(val,name) in item">
+              {{name + " : " + val}}
+            </li>
+          </ul>
+        </div>
     </div>
     <hr />
 
