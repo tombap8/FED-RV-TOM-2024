@@ -175,9 +175,11 @@
             <h2 class="showtit">♥ 영화한마디!</h2>
             <!-- 6. 문구 -->
             <div class="show" 
-            onclick="
+              onclick="
               alert(this.getAttribute('data-txt'))"
-            data-txt="${v.함수()}">
+              data-txt="${v.함수()}"
+              title="클릭하시면 메시지가 나옵니다!"
+              style="cursor:pointer">
               ${wrapSpan(v.문구)}
             </div>
         </section>
