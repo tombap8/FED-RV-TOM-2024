@@ -98,7 +98,7 @@
 // (1) 타이틀 디자인 믹스인
 // @mixin title-text { -> 전달변수없는 경우
 // @mixin title-text($selColor) { -> 전달변수있는 경우
-@mixin title-text($selColor: red, $icon: '🏀') {
+@mixin title-text($selColor: red, $icon: "🏀") {
   //->기본값 주기
   color: $selColor;
   // [ 속성접두어 묶음기법 ]
@@ -112,7 +112,7 @@
     shadow: 5px 5px 4px #0000007d;
   }
   // 가상요소 아이콘 넣기
-  &::before{
+  &::before {
     content: $icon;
   }
 }
@@ -130,7 +130,7 @@
   //[ 네스팅 기법 ]
   h1 {
     // 타이틀 믹스인 호출
-    @include title-text($orgAqua,'🎎');
+    @include title-text($orgAqua, "🎎");
     // @include 믹스인이름;
 
     // 하단마진
@@ -157,35 +157,51 @@
     @extend .box-basic;
     // text-align: center;
     // padding: 20px 0;
-    
+
     // 원모양 4개의 span ///
-    span{
+    span {
       position: absolute;
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      background-color: #000;
+      // background-color: #000;
 
       // 각 span위치잡기
-      &:nth-of-type(1){
-        top: 0;
-        left: 0;
+      @for $i from 1 through 4 {
+        &:nth-of-type(#{$i}) {
+          @if()top: 0;
+          left: 0;
+        }
       }
-      &:nth-of-type(2){
-        top: 0;
-        right: 0;
-      }
-      &:nth-of-type(3){
-        bottom: 0;
-        left: 0;
-      }
-      &:nth-of-type(4){
-        bottom: 0;
-        right: 0;
-      }
+      // &:nth-of-type(1) {
+      //   top: 0;
+      //   left: 0;
+      // }
+      // &:nth-of-type(2) {
+      //   top: 0;
+      //   right: 0;
+      // }
+      // &:nth-of-type(3) {
+      //   bottom: 0;
+      //   left: 0;
+      // }
+      // &:nth-of-type(4) {
+      //   bottom: 0;
+      //   right: 0;
+      // }
     }
   }
 }
+
+// 상단영역의 span원모양 색상 @each 제어문으로 넣기
+// 사용할 셋팅값은 객체형변수인 $colors를 사용함
+@each $key, $val in $colors {
+  .#{$key}-circle {
+    background-color: $val;
+  }
+}
+// #{}자리에 변수가 들어가서 속성이 할당됨!
+// $key, $val은 순서대로 앞에것이 속성, 뒤엣것이 값 이 들어옴!
 
 // 메인 영역 //////////
 .main-area {
@@ -258,7 +274,7 @@
   // 기본박스 클래스 적용하기
   @extend .box-basic;
   // 믹스인 타이틀 공통 디자인 불러오기
-  @include title-text(darkred,'🥽');
+  @include title-text(darkred, "🥽");
   // -> 글자 색상을 안보내면 기본설정색적용
   // 추가디자인
   margin-bottom: 50px;
