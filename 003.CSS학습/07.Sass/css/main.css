@@ -189,4 +189,32 @@ img {
   text-decoration-thickness: 5px;
   text-decoration-color: #204ffc;
   text-align: center;
+}
+.main-area section ul li:first-child,
+.main-area section ol li:first-child,
+.main-area section p li:first-child {
+  color: orchid;
+  font-weight: bold;
+  font-size: 30px;
+  text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000;
+}
+.main-area section ul li::before,
+.main-area section ol li::before,
+.main-area section p li::before {
+  content: "😘";
+}
+
+.button-basic {
+  display: inline-block;
+  border: 1px solid #222;
+  border-radius: 20px;
+  padding: 15px 30px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+.button-basic:hover {
+  background-color: hotpink;
+  text-decoration: overline;
+  text-decoration-style: wavy;
 }/*# sourceMappingURL=main.css.map */

@@ -187,7 +187,48 @@
           decoration-color: $mainColor2;
           align: center;
         }
+        // [ 네스팅 이어붙이기 기법(&) ]
+        &:first-child {
+          color: orchid;
+          font-weight: bold;
+          font-size: $fontSize3;
+          // 글자그림자로 글자테두리넣기
+          text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000;
+        }
+        // 가상요송 블릿넣기
+        &::before {
+          content: "😘";
+        }
       }
     }
   }
 }
+
+// 일반 박스 디자인
+.box-basic {
+}
+
+// 디자인 구성요소중 공통디자인을
+// 가져와서 넣기 -> @extend
+
+// 더보기 버튼 디자인
+.button-basic {
+  display: inline-block;
+  border: 1px solid #222;
+  border-radius: 20px;
+  padding: 15px 30px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 20px;
+
+  // 마우스오버시
+  &:hover {
+    background-color: hotpink;
+    text: {
+      decoration: overline;
+      decoration-style: wavy;
+    }
+  }
+}
+
+// 제출하기 버튼 디자인
