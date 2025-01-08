@@ -154,6 +154,9 @@ img {
   background-size: 70px;
   padding: 20px;
 }
+.top-area h1::before {
+  content: "🎎";
+}
 .top-area h2 {
   font-size: 30px;
   text-align: center;
@@ -174,6 +177,9 @@ img {
   text-align: center;
   text-decoration: underline;
   text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4901960784);
+}
+.main-area section h3::before {
+  content: "🏀";
 }
 .main-area section ul,
 .main-area section ol,
@@ -204,6 +210,24 @@ img {
   content: "😘";
 }
 
+.box-basic, .bottom-title, .button-box {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.bottom-title {
+  color: darkred;
+  font-size: 40px;
+  font-family: "Times New Roman";
+  text-align: center;
+  text-decoration: underline;
+  text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4901960784);
+  margin-bottom: 50px;
+}
+.bottom-title::before {
+  content: "🥽";
+}
+
 .button-basic, .button-report {
   display: inline-block;
   border: 1px solid #222;
@@ -217,6 +241,12 @@ img {
   background-color: hotpink;
   text-decoration: overline;
   text-decoration-style: wavy;
+}
+.button-basic.my, .my.button-report {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 10px;
+  text-decoration-thickness: 5px;
 }
 
 .button-report {

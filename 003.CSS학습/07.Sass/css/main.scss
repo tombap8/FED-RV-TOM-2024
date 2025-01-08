@@ -98,7 +98,7 @@
 // (1) 타이틀 디자인 믹스인
 // @mixin title-text { -> 전달변수없는 경우
 // @mixin title-text($selColor) { -> 전달변수있는 경우
-@mixin title-text($selColor: red) {
+@mixin title-text($selColor: red, $icon: '🏀') {
   //->기본값 주기
   color: $selColor;
   // [ 속성접두어 묶음기법 ]
@@ -110,6 +110,10 @@
     align: center;
     decoration: underline;
     shadow: 5px 5px 4px #0000007d;
+  }
+  // 가상요소 아이콘 넣기
+  &::before{
+    content: $icon;
   }
 }
 
@@ -126,7 +130,7 @@
   //[ 네스팅 기법 ]
   h1 {
     // 타이틀 믹스인 호출
-    @include title-text($orgAqua);
+    @include title-text($orgAqua,'🎎');
     // @include 믹스인이름;
 
     // 하단마진
@@ -206,6 +210,28 @@
 
 // 일반 박스 디자인
 .box-basic {
+  // 중앙정렬
+  text-align: center;
+  // 위아래 패딩
+  padding: 20px 0;
+}
+// 위의 일반 박스 디자인 공통 클래스를
+// 원하는 박스에 @extend로 적용하자!
+
+// 버튼박스
+.button-box {
+  // 기본박스 클래스 적용하기
+  @extend .box-basic;
+}
+// 최하단박스
+.bottom-title {
+  // 기본박스 클래스 적용하기
+  @extend .box-basic;
+  // 믹스인 타이틀 공통 디자인 불러오기
+  @include title-text(darkred,'🥽');
+  // -> 글자 색상을 안보내면 기본설정색적용
+  // 추가디자인
+  margin-bottom: 50px;
 }
 
 // 디자인 구성요소중 공통디자인을
@@ -229,10 +255,20 @@
       decoration-style: wavy;
     }
   }
+
+  // 별도의 클래스는 다르게 적용
+  &.my {
+    text: {
+      decoration: underline;
+      decoration-style: dotted;
+      underline-offset: 10px;
+      decoration-thickness: 5px;
+    }
+  }
 }
 
 // 제출하기 버튼 디자인
-.button-report{
+.button-report {
   // 기본 버튼 디자인 클래스 가져오기
   @extend .button-basic;
   // 기본과 다른 디자인 덮어쓰기
