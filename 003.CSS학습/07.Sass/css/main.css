@@ -145,6 +145,7 @@ img {
   font-family: "Times New Roman";
   text-align: center;
   text-decoration: underline;
+  text-underline-offset: 10px;
   text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4901960784);
   margin-bottom: 40px;
   background-color: #e46d0b;
@@ -213,6 +214,7 @@ img {
   font-family: "Times New Roman";
   text-align: center;
   text-decoration: underline;
+  text-underline-offset: 10px;
   text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4901960784);
 }
 .main-area section h3::before {
@@ -258,6 +260,7 @@ img {
   font-family: "Times New Roman";
   text-align: center;
   text-decoration: underline;
+  text-underline-offset: 10px;
   text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4901960784);
   margin-bottom: 50px;
 }
