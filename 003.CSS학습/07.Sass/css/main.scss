@@ -209,7 +209,7 @@
 }
 
 // 디자인 구성요소중 공통디자인을
-// 가져와서 넣기 -> @extend
+// 가져와서 넣기 -> @extend .클래스명
 
 // 더보기 버튼 디자인
 .button-basic {
@@ -232,3 +232,10 @@
 }
 
 // 제출하기 버튼 디자인
+.button-report{
+  // 기본 버튼 디자인 클래스 가져오기
+  @extend .button-basic;
+  // 기본과 다른 디자인 덮어쓰기
+  background-color: orange;
+  color: #fff;
+}

@@ -204,7 +204,7 @@ img {
   content: "😘";
 }
 
-.button-basic {
+.button-basic, .button-report {
   display: inline-block;
   border: 1px solid #222;
   border-radius: 20px;
@@ -213,8 +213,13 @@ img {
   cursor: pointer;
   margin-left: 20px;
 }
-.button-basic:hover {
+.button-basic:hover, .button-report:hover {
   background-color: hotpink;
   text-decoration: overline;
   text-decoration-style: wavy;
+}
+
+.button-report {
+  background-color: orange;
+  color: #fff;
 }/*# sourceMappingURL=main.css.map */
