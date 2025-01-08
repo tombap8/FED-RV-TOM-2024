@@ -234,6 +234,7 @@ img {
   text-decoration-thickness: 5px;
   text-decoration-color: #204ffc;
   text-align: center;
+  background-color: #ff0;
 }
 .main-area section ul li:first-child,
 .main-area section ol li:first-child,
@@ -242,6 +243,30 @@ img {
   font-weight: bold;
   font-size: 30px;
   text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000;
+}
+.main-area section ul li:nth-child(2),
+.main-area section ol li:nth-child(2),
+.main-area section p li:nth-child(2) {
+  border-left: 40px solid red;
+  border-right: 40px solid red;
+}
+.main-area section ul li:nth-child(3),
+.main-area section ol li:nth-child(3),
+.main-area section p li:nth-child(3) {
+  border-left: 60px solid red;
+  border-right: 60px solid red;
+}
+.main-area section ul li:nth-child(4),
+.main-area section ol li:nth-child(4),
+.main-area section p li:nth-child(4) {
+  border-left: 80px solid red;
+  border-right: 80px solid red;
+}
+.main-area section ul li:nth-child(5),
+.main-area section ol li:nth-child(5),
+.main-area section p li:nth-child(5) {
+  border-left: 100px solid red;
+  border-right: 100px solid red;
 }
 .main-area section ul li::before,
 .main-area section ol li::before,
