@@ -40,6 +40,7 @@ $colors: (color1: blue, color2: red, color3: green);
 
 2. each문으로 객체를 순회한다!
 -> 구문형식은 아래와 같다
+
 @each 속성변수, 값변수 in 객체변수{
   .클래스명#{속성변수} {css속성명: 값변수}
 }
