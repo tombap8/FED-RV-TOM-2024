@@ -31,33 +31,8 @@ function GetList(idx, name, img, price) {
   this.price = price;
 } ////// GetList 생성자함수 ///////
 
-// 배열로 상품이름 임의생성할 것 셋팅
-const goods = ["프레이컷", "아일렛기모", "베어블클", "포멀믹스톤"];
-
-// 객체 18개를 생성하자!
-const items = [];
-
-for (let i = 1; i < 19; i++) {
-  // 상품명 배열 랜덤번호(0~3)
-  let rdm = Math.floor(Math.random() * 4);
-  
-  // 가격 랜덤 곱할 수(4~20 -> 1~17 + 3)
-  let rdm2 = Math.ceil(Math.random() * 17) + 3;
-
-  // 배열변수에 값 넣기 ///
-  items.push(
-    new GetList(
-      i, // 일련번호
-      goods[rdm] + i, // 상품명
-      `nanda_${i}`, // 이미지명
-      2000 * rdm2 // 상품가격
-    )
-  ); // push ///
-} /// for ///
-
-console.log(items);
-
-// 1. 뷰JS 인스턴스 생성하기
+/////////////////////////////////
+// 1. 뷰JS 인스턴스 생성하기 //////
 const vm = new Vue({
   // (1) 대상선정
   el: "#vue-app",
@@ -81,4 +56,39 @@ const vm = new Vue({
                 alt="스난다 배너">
         `,
   },
+  // (3) 메서드 설정하기 ///////
+  methods: {},
+
+  // (4) 뷰인스턴스 초기화 단계 : created
+  created() {
+    // 상품 데이터 생성자 함수를 호출하여 데이터생성함
+    // 배열로 상품이름 임의생성할 것 셋팅
+    const goods = ["프레이컷", "아일렛기모", "베어블클", "포멀믹스톤"];
+
+    // 객체 18개를 생성하자!
+    const items = [];
+
+    for (let i = 1; i < 19; i++) {
+      // 상품명 배열 랜덤번호(0~3)
+      let rdm = Math.floor(Math.random() * 4);
+
+      // 가격 랜덤 곱할 수(4~20 -> 1~17 + 3)
+      let rdm2 = Math.ceil(Math.random() * 17) + 3;
+
+      // 배열변수에 값 넣기 ///
+      items.push(
+        new GetList(
+          i, // 일련번호
+          goods[rdm] + i, // 상품명
+          `nanda_${i}`, // 이미지명
+          2000 * rdm2 // 상품가격
+        )
+      ); // push ///
+    } /// for ///
+
+    console.log(items);
+  }, /////// created /////////////
+
+  // (5) 뷰 랜더링 완료단계 : mounted
+  mounted() {}, ///////// mounted ///////////
 });
