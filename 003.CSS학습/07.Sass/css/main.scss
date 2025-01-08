@@ -150,10 +150,40 @@
   }
   // 서브 타이틀 박스
   h2 {
+    // 자식span의 부모자격
+    position: relative;
     font-size: $fontSize3;
     // 박스공통설정
-    text-align: center;
-    padding: 20px 0;
+    @extend .box-basic;
+    // text-align: center;
+    // padding: 20px 0;
+    
+    // 원모양 4개의 span ///
+    span{
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #000;
+
+      // 각 span위치잡기
+      &:nth-of-type(1){
+        top: 0;
+        left: 0;
+      }
+      &:nth-of-type(2){
+        top: 0;
+        right: 0;
+      }
+      &:nth-of-type(3){
+        bottom: 0;
+        left: 0;
+      }
+      &:nth-of-type(4){
+        bottom: 0;
+        right: 0;
+      }
+    }
   }
 }
 
