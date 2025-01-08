@@ -169,8 +169,18 @@
       // 각 span위치잡기
       @for $i from 1 through 4 {
         &:nth-of-type(#{$i}) {
-          @if()top: 0;
-          left: 0;
+          @if ($i==1 or $i==2) {
+            top: -40px;
+          }
+          @if ($i==3 or $i==4) {
+            bottom: 0;
+          }
+          @if ($i==1 or $i==3) {
+            left: 0;
+          }
+          @if ($i==2 or $i==4) {
+            right: 0;
+          }
         }
       }
       // &:nth-of-type(1) {
