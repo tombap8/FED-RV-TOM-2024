@@ -100,11 +100,9 @@
   margin: 0 auto;
 }
 
-
-
 // 상단영역
 .top-area {
-    // 박스 글자
+  // 박스 글자
   color: $mainColor1;
   //[ 네스팅 기법 ]
   h1 {
@@ -130,15 +128,31 @@
       repeat: repeat-x;
       size: 70px;
     }
-    
+
     // 패딩
     padding: 20px;
   }
   // 서브 타이틀 박스
-  h2{
+  h2 {
     font-size: $fontSize3;
     // 박스공통설정
     text-align: center;
     padding: 20px 0;
+  }
+}
+
+// 메인 영역 //////////
+.main-area {
+  // 내부박스 section
+  section {
+    // 테두리
+    border: {
+      color: blue;
+      style: dashed;
+      width: 7px;
+    }
+    margin-bottom: 20px;
+    padding: 20px;
+
   }
 }

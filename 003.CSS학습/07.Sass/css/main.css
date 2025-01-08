@@ -158,4 +158,12 @@ img {
   font-size: 30px;
   text-align: center;
   padding: 20px 0;
+}
+
+.main-area section {
+  border-color: blue;
+  border-style: dashed;
+  border-width: 7px;
+  margin-bottom: 20px;
+  padding: 20px;
 }/*# sourceMappingURL=main.css.map */
