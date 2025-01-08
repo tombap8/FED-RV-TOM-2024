@@ -14,3 +14,13 @@ $orgAqua: aqua;
 $fontSize1: 40px;
 $fontSize2: 35px;
 $fontSize3: 30px;
+
+// (4) 객체변수 셋팅하기
+$colors: (
+  color1: blue,
+  color2: red,
+  color3: green,
+  color4: purple,
+);
+// 객체변수 사용법
+// 변수 : (속성:값, 속성:값, 속성:값)
