@@ -33,12 +33,16 @@
         <!-- <h1 class="tit">{{bitTit}}</h1> -->
 
             <!-- 1-2.로고 -->
-            <div class="logo"> {{logo}} </div>
+            <div class="logo" v-html="logo"></div>
+            <!-- v-html 디렉티브 : html출력속성 -->
+
+            <!-- <div class="logo"> {{logo}} </div> -->
+            <!-- 콧수염은 html태그 안받아줘 ㅠ.ㅠ -->
         </section>
 
         <!-- 2. 배너파트 -->
         <section class="part">
-            
+            <p class="banner" v-html="content"></p>
         </section>
 
         <!-- 3. 상품리스트파트 -->

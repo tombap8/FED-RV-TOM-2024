@@ -22,6 +22,35 @@
 
 ***************************************/
 
+
+// [ 상품정보를 만들어주는 생성자함수 만들기 ]
+function GetList(idx, name, img, price){
+    // 객체 {속성:값} 생성하기
+    this.idx = idx;
+    this.name = name;
+    this.img = img;
+    this.price = price;
+} ////// GetList 생성자함수 ///////
+
+// 배열로 상품이름 임의생성할 것 셋팅
+const goods = ["프레이컷","아일렛기모","베어블클","포멀믹스톤"];
+
+// 객체 18개를 생성하자!
+const items = [];
+
+for(let i=1; i<19; i++){
+    let rdm = Math.floor(Math.random()*4);
+    items.push(
+        new GetList(
+            i,
+            goods[rdm],
+            "",
+            (52470*i)+"원"
+        ));
+}
+
+console.log(items);
+
 // 1. 뷰JS 인스턴스 생성하기
 const vm = new Vue({
     // (1) 대상선정
