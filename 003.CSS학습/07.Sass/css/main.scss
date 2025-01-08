@@ -260,15 +260,16 @@
           text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000;
         }
         // 두번째 li요소부터 5번째까지 앞뒤 보더넣기
-        @for $i from 2 to 6 { // to는 끝수 불포함
-          &:nth-child(#{$i}){
+        @for $i from 2 to 6 {
+          // to는 끝수 불포함
+          &:nth-child(#{$i}) {
             border-left: ($i * 20px) solid red;
             border-right: ($i * 20px) solid red;
           }
         }
         // 변수구역인 #{}는 선택자부분, CSS속성부분에 사용
         // 값부분에 사용시엔 변수를 그대로 쓸 수 있다!
-        
+
         // 가상요소 블릿넣기
         &::before {
           content: "😘";
