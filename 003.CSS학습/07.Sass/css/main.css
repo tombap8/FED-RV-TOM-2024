@@ -166,4 +166,27 @@ img {
   border-width: 7px;
   margin-bottom: 20px;
   padding: 20px;
+}
+.main-area section h3 {
+  color: navy;
+  font-size: 40px;
+  font-family: "Times New Roman";
+  text-align: center;
+  text-decoration: underline;
+  text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4901960784);
+}
+.main-area section ul,
+.main-area section ol,
+.main-area section p {
+  line-height: 2;
+  font-size: 24px;
+}
+.main-area section ul li,
+.main-area section ol li,
+.main-area section p li {
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  text-decoration-thickness: 5px;
+  text-decoration-color: #204ffc;
+  text-align: center;
 }/*# sourceMappingURL=main.css.map */

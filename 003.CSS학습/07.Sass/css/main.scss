@@ -94,6 +94,25 @@
 // 주의: 파일선택후 실제로 부분파일 앞에 언더바와
 // 뒤에 scss 확장자는 사라진다!(안써도됨!)
 
+// @mixin 셋팅하기 ///////////////////
+// (1) 타이틀 디자인 믹스인
+// @mixin title-text { -> 전달변수없는 경우
+// @mixin title-text($selColor) { -> 전달변수있는 경우
+@mixin title-text($selColor: red) {
+  //->기본값 주기
+  color: $selColor;
+  // [ 속성접두어 묶음기법 ]
+  font: {
+    size: $fontSize1;
+    family: "Times New Roman";
+  }
+  text: {
+    align: center;
+    decoration: underline;
+    shadow: 5px 5px 4px #0000007d;
+  }
+}
+
 // 전체 페이지 요소
 .wrapper {
   max-width: 1000px;
@@ -106,17 +125,10 @@
   color: $mainColor1;
   //[ 네스팅 기법 ]
   h1 {
-    color: $orgAqua;
-    // [ 속성접두어 묶음기법 ]
-    font: {
-      size: $fontSize1;
-      family: "Times New Roman";
-    }
-    text: {
-      align: center;
-      decoration: underline;
-      shadow: 5px 5px 4px #0000007d;
-    }
+    // 타이틀 믹스인 호출
+    @include title-text($orgAqua);
+    // @include 믹스인이름;
+
     // 하단마진
     margin-bottom: $fontSize1;
 
@@ -154,5 +166,28 @@
     margin-bottom: 20px;
     padding: 20px;
 
+    // 타이틀 h3
+    h3 {
+      // 타이틀 믹스인 호출
+      @include title-text(navy);
+    }
+    // 리스트, 문단 디자인
+    ul,
+    ol,
+    p {
+      line-height: 2;
+      font-size: 24px;
+      // 하위 li요소
+      li {
+        text: {
+          decoration: underline;
+          // 언더라인 하단 간격 셋팅
+          underline-offset: 10px;
+          decoration-thickness: 5px;
+          decoration-color: $mainColor2;
+          align: center;
+        }
+      }
+    }
   }
 }
