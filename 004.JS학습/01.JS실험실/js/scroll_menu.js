@@ -9,7 +9,7 @@ const headerMenu = myFn.qs('#header');
 
 myFn.addEvt(window,'wheel',(e)=>{
     let delta = e.wheelDelta;
-    console.log('휠',delta);
+    // console.log('휠',delta);
 
     // wheelDelta값이 마이너스는 아랫방향
     // -> #header에 .on을 줘서 숨기기
