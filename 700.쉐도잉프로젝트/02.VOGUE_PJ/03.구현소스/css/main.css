@@ -35,6 +35,11 @@ font-family: 'Roboto Condensed', sans-serif;
 
 /* 보그 PJ 리셋 CSS - _reset.scss */
 /* 요소의 초기화 */
+/* 루트 글자크기 */
+html {
+  font-size: 10px;
+}
+
 /* 1. 마진,패딩 없애기 */
 html, body, h1, h2, h3, h4, h5, h6, ul, ol, dt, dd, p {
   margin: 0;
@@ -73,4 +78,27 @@ img {
   vertical-align: bottom;
   /* 박스 이미지 하단간극 없애기(약4px)
   값으로 top, middle등 도 효과있음! */
+}
+
+.top-area {
+  padding: 4rem;
+}
+
+.logo h1 {
+  text-align: center;
+}
+.logo h1 img {
+  height: 70px;
+}
+
+.gnb {
+  margin-top: 4rem;
+}
+.gnb ul {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.gnb ul li {
+  font-size: 16px;
 }/*# sourceMappingURL=main.css.map */
