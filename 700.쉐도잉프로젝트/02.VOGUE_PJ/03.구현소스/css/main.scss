@@ -32,3 +32,46 @@
         }
     }
 }
+
+// 2. 배너영역 /////////////
+
+// 배너박스
+.ban-box{
+    ul{
+        display: flex;
+        li{
+            position: relative;
+            width: 100vw;
+            // 비율박스
+            aspect-ratio: 1499/701;
+
+            // 배너이미지
+            img{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            // 글자박스
+            .post-content{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                text-align: center;
+                padding: $spacing-40;
+                color: #fff;
+                text-shadow: 0 0 5px #0000007d;
+
+                // 분류/날짜
+                p{
+                    font-size: $font-size-common;
+                }
+                // 큰 타이틀
+                h3{
+                    font-size: $font-size-x-large;
+                }
+            }
+        }
+    }
+}
