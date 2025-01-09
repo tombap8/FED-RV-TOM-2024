@@ -212,3 +212,14 @@ function movePage(evt, el, idx, list) {
     3. pageX, pageY : 
         스크롤을 포함한 브라우저 화면을 기준한 x,y 좌표
 *********************************************************/
+// 1. 모바일 이벤트 등록하기 //////////
+myFn.addEvt(window,'touchstart', touchStartFn);
+myFn.addEvt(window,'touchend', touchEndFn);
+
+// 2. 모바일 이벤트함수 만들기 /////////
+function touchStartFn(){
+  console.log('터치시작!');
+}
+function touchEndFn(){
+  console.log('터치끝!');
+}
