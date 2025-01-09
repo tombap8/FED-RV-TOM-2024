@@ -216,9 +216,15 @@ function movePage(evt, el, idx, list) {
 myFn.addEvt(window,'touchstart', touchStartFn);
 myFn.addEvt(window,'touchend', touchEndFn);
 
+// 터치시 위치값 변수
+// mPosStart 시작위치 / mPosEnd 끝위치
+let mPosStart = 0, mPosEnd = 0;
+
 // 2. 모바일 이벤트함수 만들기 /////////
-function touchStartFn(){
-  console.log('터치시작!');
+function touchStartFn(e){
+  // 필요한 위치값은 Y축
+  mPosStart = e.touches[0].screenY;
+  console.log('터치시작!', mPosStart, e.touches);
 }
 function touchEndFn(){
   console.log('터치끝!');
