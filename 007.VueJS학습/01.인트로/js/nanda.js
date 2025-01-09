@@ -128,5 +128,33 @@ const vm = new Vue({
   }, /////// created /////////////
 
   // (5) 뷰 랜더링 완료단계 : mounted /////////
-  mounted() {}, ///////// mounted ///////////
+  mounted() {
+    // 랜더링후 자동실행구역 ////
+    // 1) 제목 숨겼다 보이기
+    $(".tit").hide().delay(1000).slideDown(300);
+
+    // 2) 로고 왼쪽 날아오기
+    $(".logo")
+      .css({
+        translate: "-100vw",
+      })
+      .delay(2000)
+      .animate(
+        {
+          translate: "0",
+        },
+        800,
+        "easeOutElastic",
+        () => {
+          // 애니후 콜백함수
+          // 3) 리스트 위치로 스크롤 애니 이동
+          $("html,body").animate(
+            {
+              scrollTop: "500px",
+            },
+            600
+          );
+        }
+      );
+  }, ///////// mounted ///////////
 });
