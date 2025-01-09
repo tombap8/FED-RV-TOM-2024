@@ -47,7 +47,7 @@ a {
 /* 페이지 속박스 */
 .page .inbox {
   position: relative;
-  height: 100dvh;
+  height: 100vh;
 }
 
 /* 배경공통 클래스 */
