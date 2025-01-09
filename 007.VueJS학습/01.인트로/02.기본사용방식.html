@@ -50,7 +50,7 @@
         <ol class="glist" v-for="(val,idx) in items">
           <li v-html="makeImg(val.img)"></li>
           <li>아이템명 : {{val.name}}</li>
-          <li>가격 : {{val.price}}</li>
+          <li>가격 : ￦{{addCommas(val.price)}}</li>
         </ol>
       </section>
     </div>

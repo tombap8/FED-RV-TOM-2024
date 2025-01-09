@@ -93,9 +93,7 @@ const vm = new Vue({
       `;
     },
     // (3-2) 숫자 3자릿수 콤마찍어주는 메서드
-    addCommas(x) {
-      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    },
+    addCommas: (x) => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
   },
 
   // (4) 뷰인스턴스 초기화 단계 : created ///////////
