@@ -651,9 +651,12 @@ myFn.addEvt(fbtn,'click',()=>{
   stxt.value = "";
   // 2) 검색항목 초기화
   sCta4.value = "tit";
-  // 3) 검색에서 사용할 배열값 업데이트하기
+  // 3) 정렬항목 초기화
+  cta4.value = 'idx';
+  sel4.value = '0';
+  // 4) 검색에서 사용할 배열값 업데이트하기
   tgArray4 = list2.slice();
-  // 4) 실제 전체항목 리스트보이기
+  // 5) 실제 전체항목 리스트보이기
   showList4Fn(tgArray4);
 }); /////// click 이벤트함수 ////////
 
