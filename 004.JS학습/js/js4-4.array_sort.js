@@ -617,13 +617,13 @@ myFn.addEvt(sbtn, "click", () => {
   // 2) 검색어가 있으면 filter로 검색결과 배열만들기
   else {
     console.log("검색어:", stxt.value.trim());
-    let result = list2.filter(v=>
-      String(v[sCta4.value]).includes(stxt.value.trim()));
+    let result = list2.filter((v) =>
+      String(v[sCta4.value]).includes(stxt.value.trim())
+    );
 
-      // 이해를 위해 직접 값을 넣어본다!
+    // 이해를 위해 직접 값을 넣어본다!
     // let result = list2.filter(v=>
     //   v.tit.includes('당근'));
-
 
     // let result = list2.filter((v) => {
     //   // 숫자형이 들어오면 indexOf()에러남!
@@ -638,32 +638,141 @@ myFn.addEvt(sbtn, "click", () => {
     // 3) 검색에서 사용할 배열값 업데이트하기
     tgArray4 = result;
 
-    // 
+    //
     // 4) 결과배열을 화면 바인딩 함수를 호출시 보내준다!
     showList4Fn(result);
   } /// else ////
-
 }); ///////// click 이벤트 함수 ///////
 
 // [4-5] 전체 버튼 클릭시 전체리스트 보이기
-myFn.addEvt(fbtn,'click',()=>{
+myFn.addEvt(fbtn, "click", () => {
   // 1) 검색입력값 지우기
   stxt.value = "";
   // 2) 검색항목 초기화
   sCta4.value = "tit";
   // 3) 정렬항목 초기화
-  cta4.value = 'idx';
-  sel4.value = '0';
+  cta4.value = "idx";
+  sel4.value = "0";
   // 4) 검색에서 사용할 배열값 업데이트하기
   tgArray4 = list2.slice();
   // 5) 실제 전체항목 리스트보이기
   showList4Fn(tgArray4);
 }); /////// click 이벤트함수 ////////
 
+///////////////////////////////////////////
+// [5] 객체원본 배열로 변환하기 /////////////
+// [5-1] 객체데이터 객체원본
+// - 객체구조 :
+// (1) idx - 순번 / (2) tit - 제목 / (3) cont - 내용
+// -> 객체의 값으로 배열만들기
+// -> Object.values(객체)
+// 참고) 객체의 키로 배열만들기 -> Object.keys(객체)
+const temp = {
+  item1: {
+    idx: 45,
+    tit: "강남당근마켓에 가자",
+    cont: "다니엘 당근마켓이 정말로 싸고 좋다구~!",
+  },
+  item2: {
+    idx: 94,
+    tit: "나라점심에 뭐먹지?",
+    cont: "강남오스틴님 생일 서포트 안내",
+  },
+  item3: {
+    idx: 22,
+    tit: "다니엘 직돌이는 쉬고싶다~!",
+    cont: "마동석 활동정지에 대한 파생글 무통보 삭제 및 경고",
+  },
+  item4: {
+    idx: 111,
+    tit: "라면 올해는 다른 회사로 이직한다!",
+    cont: "나라 갈라콘 서포트에 많은 참여 부탁드립니다!",
+  },
+}; /////////////// temp 임시변수 /////////////
 
+// 아래서 사용할 객체값을 배열로 변환
+const list3 = Object.values(temp);
 
+console.log("객체값 배열변환:", list3);
+console.log("객체키 배열변환:", Object.keys(temp));
 
+// [5-2] 데이터 바인딩하기 : 함수화하여 재사용!
+// 바인딩 출력대상
+const showList5 = myFn.qs(".showList5");
 
+const showList5Fn = (newArray) => {
+  // newArray 데이터 바인딩할 배열
+  showList5.innerHTML = `
+        <table>
+          <thead>
+            <tr>
+              <th>번호</th>
+              <th>제목</th>
+              <th>내용</th>
+            </tr>
+          </thead>
+          <tbody>
+          ${newArray
+            .map(
+              (v) => `            
+                <tr>
+                    <td>${v.idx}</td>
+                    <td>${v.tit}</td>
+                    <td>${v.cont}</td>
+                </tr>
+                `
+            )
+            .join("")}
+            
+            </tbody>
+                </table>
+    
+    `;
+}; //////// showList5Fn 함수 //////////
+
+// 바인딩함수 최초호출!
+showList5Fn(list3);
+console.log("객체배열원본:", list3);
+
+// [5-3] 정렬하기 ////////////////
+// 대상: 기준선택박스 / 정렬선택박스
+const cta5 = myFn.qs("#cta5");
+const sel5 = myFn.qs("#sel5");
+
+// 정렬할 배열데이터 담을 변수
+let tgArray5 = list3.slice();
+// 처음엔 기본전체배열값 할당함!
+
+// 이벤트 설정하기 : 대상 - sel5
+myFn.addEvt(sel5, "change", function () {
+  // (1) 깊은복사 : 배열 순서를 바꾸는 경우엔 효과있음!
+  const newArray = tgArray5.slice(); // -> slice() 방식!
+  // -> slice(시작순번,끝순번) -> 끝순번 앞에서 잘라서 새배열생성
+  // 예)list1.slice(1,3) -> 1,2번째 배열값만 가져옴
+  // -> slice() 아무것도 안쓰면 전체배열을 새로생성함!(부가기능)
+  // const newArray = [...list1]; -> 스프레드 연산자방식!
+  // const newArray = list1;
+
+  // -> 객체데이터를 변경하는 경우엔
+  // 위의 깊은 복사가 아닌 JASON.parse()방식 써야함
+  // newArray[0].idx = 999;
+
+  // (2) 정렬 기준값 읽어오기 ///////
+  let cta = cta5.value;
+  console.log("정렬기준:", cta);
+
+  // (3) 정렬변경하기 /////////////
+  // (3-1) 오름차순 //////
+  if (this.value == "1")
+    newArray.sort((a, b) => (a[cta] == b[cta] ? 0 : a[cta] < b[cta] ? -1 : 1));
+  // (3-2) 내림차순 ///////
+  else if (this.value == "2")
+    newArray.sort((a, b) => (a[cta] == b[cta] ? 0 : a[cta] > b[cta] ? -1 : 1));
+
+  // (4) 화면출력 ////////////
+  showList5Fn(newArray);
+  console.log("객체배열원본:", list3);
+}); //////// change 이벤트함수 /////////
 
 // 검색전 테스트하기 ///////////////////
 let searchText1 = list2.find((v) => {
