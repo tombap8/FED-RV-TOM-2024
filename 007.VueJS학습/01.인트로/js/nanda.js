@@ -150,9 +150,12 @@ const vm = new Vue({
           // 3) 리스트 위치로 스크롤 애니 이동
           $("html,body").animate(
             {
-              scrollTop: "500px",
+              scrollTop:
+                // offset().top 은 요소의 top위치값
+                $(".gwrap").offset().top + "px",
             },
-            600
+            600,
+            "easeOutExpo"
           );
         }
       );
