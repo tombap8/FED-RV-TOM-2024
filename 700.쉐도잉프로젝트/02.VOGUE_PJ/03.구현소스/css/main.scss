@@ -18,6 +18,7 @@
     }
   }
 }
+
 // 1-2. GNB 메뉴 ////////
 .gnb {
   margin-top: $spacing-40;
@@ -29,6 +30,21 @@
 
     li {
       font-size: $font-size-common;
+    }
+  }
+}
+
+// 상단영역 미디어쿼리 ///
+@include tablet-medium{
+  .logo {
+    h1 {
+      text-align: left;
+    }
+  }
+
+  .gnb {
+    ul {
+      justify-content: flex-start;
     }
   }
 }

@@ -41,3 +41,35 @@ font-family: 'Roboto Condensed', sans-serif;
     max-width: 1600px;
     margin: 0 auto;
 }
+
+
+
+// 3. 미디어쿼리 믹스인 ///////////////
+// 큰것부터 작은것 순으로!!!
+@mixin desktop {
+    @media (max-width: $breakpoint-desktop) {
+      @content;
+    }
+  }
+  @mixin tablet-large {
+    @media (max-width: $breakpoint-tablet-large) {
+      @content;
+    }
+  }
+  @mixin tablet-medium {
+    @media (max-width: $breakpoint-tablet-medium) {
+      @content;
+    }
+  }
+  @mixin tablet-small {
+    @media (max-width: $breakpoint-tablet-small) {
+      @content;
+    }
+  }
+  
+  @mixin mobile {
+    @media (max-width: $breakpoint-tablet) {
+      @content;
+    }
+  }
+  

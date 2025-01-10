@@ -103,6 +103,14 @@ img {
   font-size: 16px;
 }
 
+@media (max-width: 1000px) {
+  .logo h1 {
+    text-align: left;
+  }
+  .gnb ul {
+    justify-content: flex-start;
+  }
+}
 .ban-box ul {
   display: flex;
 }
