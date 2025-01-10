@@ -56,6 +56,13 @@ import myFn from "./my_function.js";
     https://www.w3schools.com/js/js_api_web_storage.asp
 ***************************************************************/
 
+// 로컬스토리지 테스트
+// localStorage.setItem('my-name','톰소여');
+// localStorage.setItem('your-name','제이슨');
+// console.log(localStorage.getItem('my-name'));
+// console.log(localStorage.getItem('your-name'));
+// myFn.qs('body').onclick = ()=>{localStorage.clear()};
+
 // [ 1. 로컬 스토리지 연습 ] ////////////////////
 // 1. 버튼 기능 이벤트 대상 : .local-box button
 // 2. 버튼에 이벤트 설정하기
