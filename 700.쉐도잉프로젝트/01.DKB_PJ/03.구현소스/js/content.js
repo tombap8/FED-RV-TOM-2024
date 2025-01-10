@@ -4,3 +4,19 @@
 import comFn from "./common.js";
 comFn();//실행!
 
+// 파라미터 확인하기!
+// URL로 넘어온 물음표가 없으면 첫페이지로 돌려보내기
+
+let pm = location.search;
+console.log('파라미터값:', pm);
+
+if(pm.indexOf("?") == -1) {
+    alert("올바른 접근이 아닙니다~!");
+    location.href = "index.html";
+} // if //
+
+// 물음표가 있는 파라미터 잘라내기!
+pm = pm.split('=')[1];
+console.log('원하는값:',pm);
+
+
