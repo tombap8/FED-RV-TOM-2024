@@ -15,56 +15,6 @@ import * as dkbData from "../data/dkb_data.js";
 
 // console.log(dkbData);
 
-// 도깨비 GNB 데이터 불러오기
-import gnbData from "../data/gnb_data.js";
-console.log(gnbData, Object.keys(gnbData), gnbData["About tvN"]);
-
-// 0. GNB 데이터 바인딩하기
-$(".gnb").html(`
-    <ul class="fx-box">
-      ${Object.keys(gnbData)
-        .map(
-          (v) => `
-        <li>
-          <a href="#">
-            ${
-              v +
-              (gnbData[v] == "없음"
-                ? ""
-                : '<i class="fa-solid fa-chevron-down"></i>')
-            }
-            
-          </a>
-          ${
-            gnbData[v] == "없음"
-              ? ""
-              : `
-                <!-- 서브메뉴 -->
-                <aside class="smenu">
-                  <div class="inbox">
-                    <h2>${v}</h2>
-                    <ol>
-                    ${gnbData[v]
-                      .map(
-                        (v2) => `
-                        <li>
-                          <a href="#">${v2}</a>
-                        </li>
-                      `
-                      )
-                      .join("")}
-                    </ol>
-                  </div>
-                </aside>
-                
-                `
-          }
-        </li>
-        `
-        )
-        .join("")}
-    </ul>
-  `);
 
 // 1. 슬라이드함수 호출하여 실행하기
 slideFn();
