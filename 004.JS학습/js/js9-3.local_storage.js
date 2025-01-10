@@ -248,3 +248,14 @@ function sessionsFn() {
     // sessionStorage.removeItem("actor-name");
   } //// else if ////
 } /////////// sessionsFn //////////
+
+// 세션스토리지 개별 삭제 구현하기 ///////
+// 배우이름 삭제
+myFn.qs(".session .nm").onclick = 
+() => sessionStorage.removeItem("actor-name");
+// 역할이름 삭제
+myFn.qs(".session .role").onclick = 
+() => sessionStorage.removeItem("actor-role");
+// 캐릭터소개 삭제
+myFn.qs(".session .cat").onclick = 
+() => sessionStorage.removeItem("actor-cat");
