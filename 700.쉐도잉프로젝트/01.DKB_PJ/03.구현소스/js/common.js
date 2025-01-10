@@ -11,7 +11,7 @@ import linksysFn from "./linksys.js";
 
 // 실행함수 만들고 내보내기 ///
 export default function comFn(){
-    console.log(comData);
+    // console.log(comData);
 
     // 상단/하단 공통 소스 제이쿼리로 넣기
     $('body')

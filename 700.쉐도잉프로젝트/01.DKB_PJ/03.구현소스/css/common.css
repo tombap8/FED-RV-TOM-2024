@@ -32,6 +32,9 @@
   /* 진행방향수직 정렬 */
   align-items: flex-end;
 
+  /* 마진탑 위치이동 */
+  margin-top: 8px;
+
   /* 높이값 부모박스만큼 */
   height: 100%;
 }
