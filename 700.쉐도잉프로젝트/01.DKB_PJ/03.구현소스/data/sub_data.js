@@ -176,6 +176,8 @@ export default {
   // 인물관계도 소스
   cat: `  
     <!-- 인물관계도 이미지 -->
-    <img id="catimg" src="./images/cat.png" alt="인물관계도">
+    <div class="catimg-box">
+        <img id="catimg" src="./images/cat.png" alt="인물관계도">
+    </div>
 `,
 }; //// 데이터객체 /////

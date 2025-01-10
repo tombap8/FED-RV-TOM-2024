@@ -2,6 +2,14 @@
 
 /* 도깨비 PJ 미디어쿼리 CSS - media.css */
 
+/********* 최대사이즈 1200px 이하 시작 *********/
+@media screen and (max-width: 1200px) {
+  html {
+    font-size: 8.5px;
+  }
+}
+/********* 최대사이즈 1200px 이하 종료 *********/
+
 /********* 최대사이즈 1024px 이하 시작 *********/
 @media screen and (max-width: 1024px) {
   /* 내가 직접 수정한것! */

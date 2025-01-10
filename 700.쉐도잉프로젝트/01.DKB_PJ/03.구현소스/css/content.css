@@ -12,6 +12,7 @@
 
 .main-area{
     min-height: calc(100vh/3*2);
+    padding-bottom: 70px;
 }
 
 /* [1] 로그인 페이지 디자인 */
@@ -242,6 +243,10 @@ input:focus{
 }
 
 /* [3] 인물관계도 페이지 디자인 */
+.catimg-box{
+    text-align:center;
+    background-color:#efefef;
+}
 /* 인물관계도 이미지 */
 #catimg{
     max-width: 100%;
