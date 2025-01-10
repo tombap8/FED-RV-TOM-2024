@@ -107,11 +107,11 @@ function localsFn() {
   } /// if ////
   else if (btxt == "보여줘") {
     // 배우이름 출력
-    mFn.qs(".local .nm").innerText = localStorage.getItem("actor-name");
+    myFn.qs(".local .nm").innerText = localStorage.getItem("actor-name");
     // 역할이름 출력
-    mFn.qs(".local .role").innerText = localStorage.getItem("actor-role");
+    myFn.qs(".local .role").innerText = localStorage.getItem("actor-role");
     // 캐릭터소개 출력
-    mFn.qs(".local .cat").innerText = localStorage.getItem("actor-cat");
+    myFn.qs(".local .cat").innerText = localStorage.getItem("actor-cat");
   } /// else if ////
   else if (btxt == "전체삭제") {
     // 로컬스토리지 전체 삭제
@@ -128,19 +128,38 @@ function localsFn() {
     // 이것은 if문에서 false처리됨!
     // false일때 처리해야하므로 NOT(!)연산자사용
     // 또는 빈 배열값일 경우도 생성함수호출 처리
-    if (
-      !localStorage.getItem("minfo") ||
-      localStorage.getItem("minfo") == "[]"
-    ) {
-      // 최초 객체데이터 만들기 함수 호출
-      makeObj();
-    } /// if ///
-    console.log(localStorage.getItem("minfo"));
+    // if (
+    //   !localStorage.getItem("minfo") ||
+    //   localStorage.getItem("minfo") == "[]"
+    // ) {
+    //   // 최초 객체데이터 만들기 함수 호출
+    //   makeObj();
+    // } /// if ///
+    // console.log(localStorage.getItem("minfo"));
 
-    // 2. 화면에 출력하기 : 데이터 바인딩하기
-    bindData();
+    // // 2. 화면에 출력하기 : 데이터 바인딩하기
+    // bindData();
   } //// else if ////
 } /////////// localsFn //////////
+
+
+// 추가로 각 출력 영역을 클릭하면 해당 로컬쓰만 지우기셋팅
+// 배우이름 출력
+myFn.qs(".local .nm").onclick = () => 
+    localStorage.removeItem("actor-name");
+// 역할이름 출력
+myFn.qs(".local .role").onclick = () => 
+    localStorage.removeItem("actor-role");
+// 캐릭터소개 출력
+myFn.qs(".local .cat").onclick = () => 
+    localStorage.removeItem("actor-cat");
+
+
+
+
+
+
+
 // "minfo" 로컬쓰 키가 없으면 객체를 만들어 넣기 함수 //
 function makeObj() {
   console.log("minfo만들기!");
