@@ -36,12 +36,23 @@ Vue.component('list-comp',{
     // -> 일반적으로 v-bind:속성 이렇게 쓰면
     // 뷰JS용 바인딩 속성이 된다!!!
 
+    // 부모가 공개한 바인딩 속성을 가져온다!
+    // 프롭스 다운!!! -> 부모요소에 만든 요소명을 등록함!
+    // props: [] -> 배열형태로 여러개 등록 가능!
+    props:['list-num'],
+    // 주의: 이것을 변수로 쓸때는 캐밥케이스를 캐믈케이스로 
+    // 바꿔서 쓴다~! 예) 'list-num' -> listNum
+    // 그리고 프롭스 다운변수도 내부에 등록되었으므로
+    // this키워드로 호출함! 예) this.listNum
+
     // (2) data속성 : 컴포넌트에서 쓸 데이터
-    data: function(){
+    // data: function(){ 이형태 또는 메서드형으로!
+    data(){ // 메서드형!
         // 컴포넌트 data는 함수형태로 반드시 return을 써야함!
         return{
             // 이미지 src
-            gsrc: `./images/${this.setNum()}.jpg`,
+            // gsrc: `./images/${this.setNum()}.jpg`,
+            gsrc: `./images/${this.listNum}.jpg`,
             // 상품명
             gname: ``,
             // 상품가격
