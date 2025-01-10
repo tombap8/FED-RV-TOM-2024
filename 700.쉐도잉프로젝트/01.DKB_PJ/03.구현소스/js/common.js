@@ -6,6 +6,9 @@ import comData from "../data/common_data.js";
 // 도깨비 GNB 데이터 불러오기
 import gnbData from "../data/gnb_data.js";
 
+// 링크 시스템 함수 불러오기
+import linksysFn from "./linksys.js";
+
 // 실행함수 만들고 내보내기 ///
 export default function comFn(){
     console.log(comData);
@@ -61,5 +64,8 @@ $(".gnb").html(`
         .join("")}
     </ul>
   `);
+
+  // 링크 시스템 함수 호출 실행!
+  linksysFn();
 
 } ////////// comFn 함수 ////////////
