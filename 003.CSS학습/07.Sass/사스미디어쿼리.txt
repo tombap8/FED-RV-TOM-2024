@@ -1,0 +1,89 @@
+********************************
+[ SCSS 미디어쿼리(Media Query) ]
+********************************
+SCSS에서 미디어쿼리는 믹스인을 이용하면 쉽게 쓸 수 있다!
+____________________________________________
+
+🎁 1. SCSS의 변수로 화면 사이즈를 지정한다
+
+********************************
+
+$breakpoint-desktop: 1400px;
+$breakpoint-tablet-large: 1200px;
+$breakpoint-tablet-medium: 1000px;
+$breakpoint-tablet-small: 700px;
+$breakpoint-mobile: 500px;
+
+____________________________________________
+
+🎁 2. 사이즈별 믹스인을 작성한다.
+-> @content 부분에 @include로 호출한 믹스인 코드가 삽입된다!
+
+********************************
+
+@mixin desktop {
+  @media (max-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+@mixin tablet-large {
+  @media (max-width: $breakpoint-tablet-large) {
+    @content;
+  }
+}
+@mixin tablet-medium {
+  @media (max-width: $breakpoint-tablet-medium) {
+    @content;
+  }
+}
+@mixin tablet-small {
+  @media (max-width: $breakpoint-tablet-small) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+____________________________________________
+
+🎁 3. 믹스인을 이용하여 미디어쿼리를 작성한다.
+
+********************************
+
+@include desktop {
+  .main-box {
+    width: 1200px;
+    font-size: 40px;
+  }
+}
+@include tablet-large {
+  .main-box {
+    width: 900px;
+    font-size: 40px;
+  }
+}
+@include tablet-medium {
+  .main-box {
+    width: 800px;
+    font-size: 30px;
+  }
+}
+@include tablet-small {
+  .main-box {
+    width: 600px;
+    font-size: 20px;
+  }
+}
+
+@include mobile {
+  .main-box {
+    width: 200px;
+    font-size: 10px;
+  }
+}
+
+
+이렇게 믹스인을 사용하면 기기별로 손쉽게 미디어쿼리를 이용할 수 있다.
