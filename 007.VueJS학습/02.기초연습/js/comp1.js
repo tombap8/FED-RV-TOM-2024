@@ -1,4 +1,4 @@
-// 01. 컴포넌트 연습1 JS
+// 01. 컴포넌트 연습 JS
 
 // 1. 상단영역 전역 컴포넌트 만들기
 // Vue.component(컴포넌트명,{template:코드})
@@ -60,14 +60,20 @@ Vue.component('list-comp',{
             //   일반데이터로 사용할 수 없다! 에러남!
 
             // 상품가격
-            gprice: `100원`,
+            gprice: (123000*this.listNum/2)+`원`,
         }
     },// data속성
 
     // (3) methods 속성
     methods: {
+        // 연속번호만들기 테스트용 메서드
         setNum(){
             return ++inum;
+        },
+        // 세자리마다 콤마추가 메서드
+        addComma(x){
+            return x.toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         },
     }
 });
