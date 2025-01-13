@@ -54,7 +54,10 @@ Vue.component('list-comp',{
             // gsrc: `./images/${this.setNum()}.jpg`,
             gsrc: `./images/${this.listNum}.jpg`,
             // 상품명
-            gname: 'KM'+this.mySeq,
+            gname: 'Sofia24'+
+                    this.listNum+
+                    'WD'+
+                    (this.mySeq%2?"🙆‍♂️":"👩‍⚕️"),
             // gname: this.key,
             // ->key속성은 유일키 구분목적속성이므로 
             //   일반데이터로 사용할 수 없다! 에러남!
@@ -78,4 +81,17 @@ Vue.component('list-comp',{
     }
 });
 
-new Vue({el:'.grid'})
+// 컴포넌트의 부모 뷰인스턴스
+new Vue({
+    el:'.grid',
+    // 자식컴포넌트의 전달값을 받기위한 메서드를 만든다!
+    methods:{
+        // 자식이벤트 전달후 실행메서드
+        goMsg(){
+            alert('자식이 부모에게 이벤트전달 성공!');
+        },
+        ovMsg(){
+            console.log('오버!오케이!');
+        }
+    },
+})

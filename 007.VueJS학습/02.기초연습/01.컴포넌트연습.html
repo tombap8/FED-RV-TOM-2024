@@ -35,12 +35,16 @@
       
       <!-- v-for 숫자돌리기
       (숫자증가,순번) in 개수 -->
+
+      <!-- 여기가 컴포넌트의 부모입니다! -->
       <list-comp 
         v-for="(n,i) in 50" 
         v-bind:list-num="n"
         v-bind:data-item="'item No.'+n"
         v-bind:key="n"
         v-bind:my-seq="i"
+        v-on:hull="goMsg"
+        v-on:gotkimchi="ovMsg"
       ></list-comp>
       <!-- 
         [ 1. 내부전달용 변수 바인딩하기 ]
