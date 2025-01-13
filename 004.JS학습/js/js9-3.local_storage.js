@@ -251,7 +251,10 @@ myFn.qs('#sbtn').onclick = () => {
     return;
   } /// catch ///
 
-  // 2. 로컬쓰 minfo 데이터 읽어오기
+  // [ 로컬쓰 처리 기본과정 ]
+  // 로컬쓰읽기->로컬쓰파싱->데이터변경->로컬쓰문자변경후 업데이트!
+  
+  // 2. 로컬쓰 minfo 데이터 읽어오기 : 문자형 데이터임!
   let locals = localStorage.getItem('minfo');
 
   // 3. 로컬쓰 minfo 파싱후 데이터 넣기
@@ -266,6 +269,7 @@ myFn.qs('#sbtn').onclick = () => {
   localStorage.setItem('minfo',JSON.stringify(locals));
 
   // 5. 다시 데이터 바인딩하기
+  bindData();
 
 }; ///////////// click 이벤트 함수 ///////////////
 
