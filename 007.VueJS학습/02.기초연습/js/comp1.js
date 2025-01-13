@@ -26,8 +26,8 @@ Vue.component('list-comp',{
         <div>
             <img v-bind:src="gsrc" alt="아이템">
             <aside>
-            <h2>아비모밀</h2>
-            <h3>245,000원</h3>
+            <h2>{{gname}}</h2>
+            <h3>{{gprice}}</h3>
             </aside>
         </div>
     `, //// template /////
@@ -39,7 +39,7 @@ Vue.component('list-comp',{
     // 부모가 공개한 바인딩 속성을 가져온다!
     // 프롭스 다운!!! -> 부모요소에 만든 요소명을 등록함!
     // props: [] -> 배열형태로 여러개 등록 가능!
-    props:['list-num'],
+    props:['list-num','my-seq'],
     // 주의: 이것을 변수로 쓸때는 캐밥케이스를 캐믈케이스로 
     // 바꿔서 쓴다~! 예) 'list-num' -> listNum
     // 그리고 프롭스 다운변수도 내부에 등록되었으므로
@@ -54,13 +54,13 @@ Vue.component('list-comp',{
             // gsrc: `./images/${this.setNum()}.jpg`,
             gsrc: `./images/${this.listNum}.jpg`,
             // 상품명
-            gname: '',
+            gname: 'KM'+this.mySeq,
             // gname: this.key,
             // ->key속성은 유일키 구분목적속성이므로 
             //   일반데이터로 사용할 수 없다! 에러남!
 
             // 상품가격
-            gprice: ``,
+            gprice: `100원`,
         }
     },// data속성
 
