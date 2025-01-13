@@ -213,15 +213,14 @@ function bindData() {
 } ////////////// bindData //////////////////
 
 // 게시판 최초호출 : 로컬쓰 minfo 존재여부에 따라처리
-console.log('최초minfo로컬쓰가 있는가?',
-  localStorage.getItem('minfo'));
-  // 만약 결과가 null이면 이 로컬쓰는 없는것임!
-  // 따라서 if문의 조건문에 사용하면 코드를 지정할 수 있다!
+console.log("최초minfo로컬쓰가 있는가?", localStorage.getItem("minfo"));
+// 만약 결과가 null이면 이 로컬쓰는 없는것임!
+// 따라서 if문의 조건문에 사용하면 코드를 지정할 수 있다!
 
-  // 만약에 minfo 로컬쓰가 존재하면 bindData()함수호출!
-  if(localStorage.getItem('minfo')) bindData();
-  // 만약 minfo 로컬쓰가 없으면 생성하라!
-  else makeObj();
+// 만약에 minfo 로컬쓰가 존재하면 bindData()함수호출!
+if (localStorage.getItem("minfo")) bindData();
+// 만약 minfo 로컬쓰가 없으면 생성하라!
+else makeObj();
 
 //******************************************** */
 ///////////////////////////////////////////////
@@ -267,11 +266,9 @@ function sessionsFn() {
 
 // 세션스토리지 개별 삭제 구현하기 ///////
 // 배우이름 삭제
-myFn.qs(".session .nm").onclick = 
-() => sessionStorage.removeItem("actor-name");
+myFn.qs(".session .nm").onclick = () => sessionStorage.removeItem("actor-name");
 // 역할이름 삭제
-myFn.qs(".session .role").onclick = 
-() => sessionStorage.removeItem("actor-role");
+myFn.qs(".session .role").onclick = () =>
+  sessionStorage.removeItem("actor-role");
 // 캐릭터소개 삭제
-myFn.qs(".session .cat").onclick = 
-() => sessionStorage.removeItem("actor-cat");
+myFn.qs(".session .cat").onclick = () => sessionStorage.removeItem("actor-cat");
