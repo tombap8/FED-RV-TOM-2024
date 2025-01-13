@@ -60,7 +60,7 @@ Vue.component('list-comp',{
             //   일반데이터로 사용할 수 없다! 에러남!
 
             // 상품가격
-            gprice: (123000*this.listNum/2)+`원`,
+            gprice: this.addComma(123000*this.listNum/2)+`원`,
         }
     },// data속성
 
