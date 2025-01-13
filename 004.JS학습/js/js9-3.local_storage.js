@@ -169,16 +169,20 @@ function makeObj() {
   // 넣어야 로컬쓰에 들어간다!
   // -> JSON.stringify(배열/객체)
   localStorage.setItem("minfo", JSON.stringify(obj));
+  // 화면에 게시판 바인딩하기
+  bindData();
 } ///////// makeObj //////
 
 //// 화면에 게시판을 뿌려주는 바인딩함수 ///////
 function bindData() {
-  // 1. 로컬쓰 데이터 읽어오기 : minfo
+  // 1. 로컬쓰 데이터 읽어오기 : minfo -> 문자형데이터임!
   let localData = localStorage.getItem("minfo");
-  // 2. 로컬쓰 데이터 파싱하기 : JSON.parse()
-  localData = JSON.parse(localData);
+  console.log("로컬쓰 파싱전!", localData);
 
-  console.log("게시판 화면 뿌리기!", localData);
+  // 2. 로컬쓰 데이터 파싱하기 : JSON.parse() -> 배열객체!
+  localData = JSON.parse(localData);
+  console.log("로컬쓰 파싱후!", localData);
+
   // 출력대상 : .board
   // 3. 화면에 출력하기 ////////
   myFn.qs(".board").innerHTML = `
@@ -207,6 +211,17 @@ function bindData() {
     </table>
 `;
 } ////////////// bindData //////////////////
+
+// 게시판 최초호출 : 로컬쓰 minfo 존재여부에 따라처리
+console.log('최초minfo로컬쓰가 있는가?',
+  localStorage.getItem('minfo'));
+  // 만약 결과가 null이면 이 로컬쓰는 없는것임!
+  // 따라서 if문의 조건문에 사용하면 코드를 지정할 수 있다!
+
+  // 만약에 minfo 로컬쓰가 존재하면 bindData()함수호출!
+  if(localStorage.getItem('minfo')) bindData();
+  // 만약 minfo 로컬쓰가 없으면 생성하라!
+  else makeObj();
 
 //******************************************** */
 ///////////////////////////////////////////////
