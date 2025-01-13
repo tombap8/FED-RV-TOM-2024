@@ -54,7 +54,11 @@ Vue.component('list-comp',{
             // gsrc: `./images/${this.setNum()}.jpg`,
             gsrc: `./images/${this.listNum}.jpg`,
             // 상품명
-            gname: ``,
+            gname: '',
+            // gname: this.key,
+            // ->key속성은 유일키 구분목적속성이므로 
+            //   일반데이터로 사용할 수 없다! 에러남!
+
             // 상품가격
             gprice: ``,
         }
