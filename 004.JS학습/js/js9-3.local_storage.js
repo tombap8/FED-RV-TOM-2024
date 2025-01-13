@@ -236,6 +236,20 @@ const cont = myFn.qs('#cont');
 
 // 이벤트 함수 설정하기 /////
 myFn.qs('#sbtn').onclick = () => {
+  console.log('입력하라!',tit,cont);
+  // 1. 입력데이터 유효성 검사 : try ~ catch사용!
+  try{
+    if(tit.value.trim()==''||cont.value.trim()==''){
+      throw "제목과 내용은 반드시 입력해야합니다!";
+    }
+  } /// try ////
+  catch(err){
+    // catch문에 들어온 경우는 에러상황임!
+    alert(err);
+    // 함수 아랫부분 실행 못하도록 리턴함!
+    return;
+  } /// catch ///
+  // 2. 로컬쓰 minfo에 넣기
 
 }; ///////////// click 이벤트 함수 ///////////////
 
