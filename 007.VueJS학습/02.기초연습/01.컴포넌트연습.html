@@ -46,6 +46,18 @@
         v-on:hull="goMsg"
         v-on:gotkimchi="ovMsg"
       ></list-comp>
+
+      <!-- 
+        v-on:hull="goMsg"
+        v-on:gotkimchi="ovMsg"
+        해석) 세상에 없는 이벤트인 hull, gotkimchi
+        이벤트로 자기자신의 메서드인 goMsg와 ovMsg를 호출함
+        -> 자식컴포넌트의 $emit(hull) / $emit(gotkimchi)
+        를 설정하여 연결함!!!
+      -->
+
+
+
       <!-- 
         [ 1. 내부전달용 변수 바인딩하기 ]
         컴포넌트 외형을 구성하는 list-comp 가 부모가 된다
