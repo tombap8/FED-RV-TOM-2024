@@ -37,6 +37,18 @@
       }
     </style>
     <script>
+      /*************************************** 
+        [ DOM 여행의 핵심 포인트 ]
+        [1] 요소.isSameNode(비교요소)
+          -> 특정요소가 비교요소와 같으면 true          
+            같지 않으면 false
+        [2] 요소.nextElementSibling 
+          -> 선택요소의 다음요소선택
+        [3] 요소.previousElementSibling 
+          -> 선택요소의 이전요소선택
+        [4] 요소.parentElement 
+          -> 선택요소의 부모요소선택
+      ***************************************/
       window.addEventListener("load", () => {
         let stage = document.querySelector(".stage");
         let tgs = stage.querySelectorAll("li");
