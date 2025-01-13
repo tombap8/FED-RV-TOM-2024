@@ -250,8 +250,22 @@ myFn.qs('#sbtn').onclick = () => {
     // 함수 아랫부분 실행 못하도록 리턴함!
     return;
   } /// catch ///
-  
-  // 2. 로컬쓰 minfo에 넣기
+
+  // 2. 로컬쓰 minfo 데이터 읽어오기
+  let locals = localStorage.getItem('minfo');
+
+  // 3. 로컬쓰 minfo 파싱후 데이터 넣기
+  locals = JSON.parse(locals);
+  locals.push({
+    idx: locals.length+1,
+    tit: tit.value,
+    cont: cont.value,
+  });
+
+  // 4. 로컬쓰 변경된 데이터 다시 넣기 : 넣을땐 문자화(stringify)
+  localStorage.setItem('minfo',JSON.stringify(locals));
+
+  // 5. 다시 데이터 바인딩하기
 
 }; ///////////// click 이벤트 함수 ///////////////
 
