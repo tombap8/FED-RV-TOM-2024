@@ -265,7 +265,7 @@ myFn.qs("#sbtn").onclick = () => {
 // 대상 : .del-link a (삭제버튼)
 // 처음 로딩시 삭제버튼에 클릭이벤트를 설정하게 되면
 // 삭제후 리스트가 변경됨에따라 기존에 설정된 이벤트가 사라짐!
-// ->>>주의!중요!!! 일반적으로 형제요소중 DOM구조가 변경될시
+// ->>> ((주의!중요!!!)) 일반적으로 형제요소중 DOM구조가 변경될시
 // ->>> 기존 이벤트가 리셋되는것이 기본임! 따라서 DOM이 변경될때
 // ->>> 그 형제요소의 이벤트를 다시 설정해야한다!
 // ->>> 이런 이유로 아래 이벤트설정 코드는 함수로 만들어준다!
@@ -319,10 +319,17 @@ function setLS(obj) {
   locals = JSON.parse(locals);
   // 문자형 로컬쓰를 파싱하여 배열객체로 변환함!
 
+  console.log('Math.max(1,50,24)',Math.max(1,50,24));
+  console.log('locals.map(v=>v.idx)',locals.map(v=>v.idx));
+
   // 3-1. 'add'일때 데이터 추가하기 ////
   if (obj.opt == "add") {
     locals.push({
-      idx: locals.length + 1,
+      // 고유번호는 데이터 중 최대값에 1을 더해야함
+      // Math.max(1,50,24) -> 결과는 50!
+      // Math.max.apply(보낼객체,배열) -> 보낼객체가 없으면 null
+      // -> max하위 apply는 배열값 대상으로 최대값을 적용함!
+      idx: Math.max.apply(null,locals.map(v=>v.idx)) + 1,
       tit: tit.value,
       cont: cont.value,
     });
