@@ -1,5 +1,9 @@
 // 02. 컴포넌트 현실화 JS - comp_real.js
 
+// 새로운 리스트 데이터 불러오기
+import deData from './comp_data.json' with{type:'json'};
+// console.log(deData);
+
 // 1. 상단영역 전역 컴포넌트 만들기
 // Vue.component(컴포넌트명,{template:코드})
 Vue.component("tit-comp", {
