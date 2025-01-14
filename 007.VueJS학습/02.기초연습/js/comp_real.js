@@ -115,10 +115,15 @@ Vue.component("ifr-comp", {
     <iframe width="49%" style="aspect-ratio: 16/9;" 
     v-bind:src="ifrSrc" title="#고윤정 과 함께 차가운 겨울을 더욱 액티브하게!  l 디스커버리 23FW #goyounjung #크롭패딩" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
     `, /// template ////
-  // 3-2. data 옵션
+
+    // 3-2. 프롭스다운!
+    props: ["mv-code"],
+    // mv-code는 동영상 아이디
+
+  // 3-3. data 옵션
   data() {
     return {
-      ifrSrc: `https://www.youtube.com/embed/ZH1Y1l1OmTY?autoplay=1&mute=1&loop=1&playlist=ZH1Y1l1OmTY`,
+      ifrSrc: `https://www.youtube.com/embed/${this.mvCode}?autoplay=1&mute=1&loop=1&playlist=${this.mvCode}`,
     };
   },
 });
