@@ -26,8 +26,8 @@ Vue.component('list-comp',{
         <div>
             <img 
                 v-bind:src="gsrc" 
-                v-on:click="goPapa"
-                v-on:mouseover="ovNow"
+                v-on:click="goPapa('내가 누구게?')"
+                v-on:mouseover="ovNow({이름:'김고은',나이:'34살'})"
             alt="아이템">
             <aside>
             <h2>{{gname}}</h2>
@@ -83,12 +83,13 @@ Vue.component('list-comp',{
             .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         },
         // 부모와 자식 컴포넌트 연결하기
-        goPapa(){//-> goPapa는 자식컴포넌트에서 호출!
-            this.$emit('hull');
+        goPapa(txt){//-> goPapa는 자식컴포넌트에서 호출!
+            this.$emit('hull',txt);
+            // $emit(호출할메서드,전달값)
             // $emit() 메서드는 부모에 설정한 새로운 이벤트와 연결
         },
-        ovNow(){//-> ovNow도 자식컴포넌트에서 호출!
-            this.$emit('gotkimchi');
+        ovNow(obj){//-> ovNow도 자식컴포넌트에서 호출!
+            this.$emit('gotkimchi',obj);
         },
     }
 });
@@ -99,11 +100,11 @@ new Vue({
     // 자식컴포넌트의 전달값을 받기위한 메서드를 만든다!
     methods:{
         // 자식이벤트 전달후 실행메서드
-        goMsg(){
-            alert('자식이 부모에게 이벤트전달 성공!');
+        goMsg(txt){// txt 전달받을 변수
+            alert('자식이 부모에게 이벤트전달 성공!'+txt);
         },
-        ovMsg(){
-            console.log('오버!오케이!');
+        ovMsg(obj){
+            console.log('오버!오케이!',obj);
         }
     },
 });
