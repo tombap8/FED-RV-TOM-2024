@@ -265,9 +265,11 @@ myFn.qsa('.del-link a').forEach(el=>{
     // a요소 기본이동막기
     e.preventDefault();
 
-    // 지울순번 : data-idx속성값
+    // 1. 지울순번 읽어오기 : data-idx속성값
     let delIdx = this.getAttribute('data-idx');
     console.log('지울순번:',delIdx);
+
+    // 2. 
   }); //// addEvt ////
 }); ////// forEach /////
 
@@ -279,9 +281,16 @@ myFn.qsa('.del-link a').forEach(el=>{
   함수명 : setLS
   기능 : 로컬스토리지 데이터를 처리하는 함수
 *************************************************/
-function setLS(key,opt) {
-  // key - 로컬스토리지 키명
-  // opt - 처리옵션(add/delete/update)
+function setLS(obj) { // obj - 단 하나의 객체전달변수!
+  // 전달변수를 하나만 받고 그값을 객체로 정의한다!
+  // -> 이렇게 하면 확장성이 좋아진다!
+  // -> 예컨데 지울때는 지울순번을 더 보내야한다! 이럴때 좋음!
+
+  // 아래 속성명정의! /////////
+  // obj = {key:값, opt:값, delIdx:값}
+  // obj.key - 로컬스토리지 키명
+  // obj.opt - 처리옵션(add/delete/update)
+  // obj.delIdx - 지울순번
   // -> 일반적으로 데이터 처리는 4가지를 말한다!
   // ->>> 크루드!(CRUD) -> Create/Read/Update/Delete
 
@@ -289,16 +298,16 @@ function setLS(key,opt) {
   // 로컬쓰읽기->로컬쓰파싱->데이터변경->로컬쓰문자변경후 업데이트!
 
   // 1. 전달값 및 호출확인
-  console.log("로컬쓰처리!", key);
+  console.log("로컬쓰처리!", obj.key);
 
   // 2. 로컬쓰 minfo 데이터 읽어오기 : 문자형 데이터임!
-  let locals = localStorage.getItem(key);
+  let locals = localStorage.getItem(obj.key);
 
   // 3. 로컬쓰 minfo 파싱후 데이터 처리하기
   locals = JSON.parse(locals);
 
   // 3-1. 'add'일때 데이터 추가하기 ////
-  if(opt == 'add'){
+  if(obj.opt == 'add'){
     locals.push({
       idx: locals.length + 1,
       tit: tit.value,
@@ -306,16 +315,16 @@ function setLS(key,opt) {
     });
   } /// if ///
   // 3-2. 'update'일때 데이터 수정하기 ////
-  else if(opt == 'update'){
+  else if(obj.opt == 'update'){
 
   } /// else if ///
   // 3-3. 'delete'일때 데이터 삭제하기 ////
-  else if(opt == 'delete'){
+  else if(obj.opt == 'delete'){
 
   } /// else if ///
 
   // 4. 로컬쓰 변경된 데이터 다시 넣기 : 넣을땐 문자화(stringify)
-  localStorage.setItem(key, JSON.stringify(locals));
+  localStorage.setItem(obj.key, JSON.stringify(locals));
 
   // 5. 다시 데이터 바인딩하기
   bindData();
