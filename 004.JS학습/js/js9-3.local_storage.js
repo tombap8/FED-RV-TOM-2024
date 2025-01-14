@@ -255,6 +255,25 @@ myFn.qs("#sbtn").onclick = () => {
   setLS('minfo','add');
 }; ///////////// click 이벤트 함수 ///////////////
 
+
+/////////////////////////////////////////////////
+/// [ 데이터 삭제 버튼 클릭시 데이터 삭제하기 ] ////
+/////////////////////////////////////////////////
+// 대상 : .del-link a (삭제버튼)
+myFn.qsa('.del-link a').forEach(el=>{
+  myFn.addEvt(el,'click',function(e){
+    // a요소 기본이동막기
+    e.preventDefault();
+
+    // 지울순번 : data-idx속성값
+    let delIdx = this.getAttribute('data-idx');
+    console.log('지울순번:',delIdx);
+  }); //// addEvt ////
+}); ////// forEach /////
+
+
+
+
 ////////// 로컬스토리지 처리 공통함수 //////////////
 /************************************************* 
   함수명 : setLS
