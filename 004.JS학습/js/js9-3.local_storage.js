@@ -252,36 +252,34 @@ myFn.qs("#sbtn").onclick = () => {
   } /// catch ///
 
   // 로컬쓰 처리함수 호출!
-  setLS({key:'minfo',opt:'add'});
+  setLS({ key: "minfo", opt: "add" });
 }; ///////////// click 이벤트 함수 ///////////////
-
 
 /////////////////////////////////////////////////
 /// [ 데이터 삭제 버튼 클릭시 데이터 삭제하기 ] ////
 /////////////////////////////////////////////////
 // 대상 : .del-link a (삭제버튼)
-myFn.qsa('.del-link a').forEach(el=>{
-  myFn.addEvt(el,'click',function(e){
+myFn.qsa(".del-link a").forEach((el) => {
+  myFn.addEvt(el, "click", function (e) {
     // a요소 기본이동막기
     e.preventDefault();
 
     // 1. 지울순번 읽어오기 : data-idx속성값
-    let delIdx = this.getAttribute('data-idx');
-    console.log('지울순번:',delIdx);
+    let delIdx = this.getAttribute("data-idx");
+    console.log("지울순번:", delIdx);
 
-    // 2. 
+    // 2. 로컬쓰처리함수 호출
+    setLS({ key: "minfo", opt: "delete", delSeq: delIdx });
   }); //// addEvt ////
 }); ////// forEach /////
-
-
-
 
 ////////// 로컬스토리지 처리 공통함수 //////////////
 /************************************************* 
   함수명 : setLS
   기능 : 로컬스토리지 데이터를 처리하는 함수
 *************************************************/
-function setLS(obj) { // obj - 단 하나의 객체전달변수!
+function setLS(obj) {
+  // obj - 단 하나의 객체전달변수!
   // 전달변수를 하나만 받고 그값을 객체로 정의한다!
   // -> 이렇게 하면 확장성이 좋아진다!
   // -> 예컨데 지울때는 지울순번을 더 보내야한다! 이럴때 좋음!
@@ -290,7 +288,7 @@ function setLS(obj) { // obj - 단 하나의 객체전달변수!
   // obj = {key:값, opt:값, delIdx:값}
   // obj.key - 로컬스토리지 키명
   // obj.opt - 처리옵션(add/delete/update)
-  // obj.delIdx - 지울순번
+  // obj.delSeq - 지울순번
   // -> 일반적으로 데이터 처리는 4가지를 말한다!
   // ->>> 크루드!(CRUD) -> Create/Read/Update/Delete
 
@@ -307,20 +305,23 @@ function setLS(obj) { // obj - 단 하나의 객체전달변수!
   locals = JSON.parse(locals);
 
   // 3-1. 'add'일때 데이터 추가하기 ////
-  if(obj.opt == 'add'){
+  if (obj.opt == "add") {
     locals.push({
       idx: locals.length + 1,
       tit: tit.value,
       cont: cont.value,
     });
   } /// if ///
+  
   // 3-2. 'update'일때 데이터 수정하기 ////
-  else if(obj.opt == 'update'){
+  else if (obj.opt == "update") {
 
   } /// else if ///
-  // 3-3. 'delete'일때 데이터 삭제하기 ////
-  else if(obj.opt == 'delete'){
 
+  // 3-3. 'delete'일때 데이터 삭제하기 ////
+  else if (obj.opt == "delete") {
+    // 삭제처리 배열함수 : splice(지울순번,1)
+    locals.splice(obj.delSeq, 1);
   } /// else if ///
 
   // 4. 로컬쓰 변경된 데이터 다시 넣기 : 넣을땐 문자화(stringify)
