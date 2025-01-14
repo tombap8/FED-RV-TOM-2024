@@ -27,7 +27,8 @@ Vue.component('list-comp',{
             <img 
                 v-bind:src="gsrc" 
                 v-on:click="goPapa('내가 누구게?')"
-                v-on:mouseover="ovNow({이름:'김고은',나이:'34살'})"
+                v-on:mouseover=
+                "ovNow({순번:listNum,이름:'김고은',나이:'34살'})"
             alt="아이템">
             <aside>
             <h2>{{gname}}</h2>
