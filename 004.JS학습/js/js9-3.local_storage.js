@@ -252,7 +252,7 @@ myFn.qs("#sbtn").onclick = () => {
   } /// catch ///
 
   // 로컬쓰 처리함수 호출!
-  setLS('minfo','add');
+  setLS({key:'minfo',opt:'add'});
 }; ///////////// click 이벤트 함수 ///////////////
 
 
