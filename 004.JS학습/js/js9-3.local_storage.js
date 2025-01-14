@@ -210,6 +210,9 @@ function bindData() {
           .join("")}
     </table>
 `;
+
+  // 삭제버튼 링크함수 호출!
+  setDelLink();
 } ////////////// bindData //////////////////
 
 /////////////////////////////////////////////////
@@ -217,7 +220,8 @@ function bindData() {
 //////////////////////////////////////////////////
 
 // 게시판 최초호출 : 로컬쓰 minfo 존재여부에 따라처리
-console.log("최초minfo로컬쓰가 있는가?", localStorage.getItem("minfo"));
+console.log("최초minfo로컬쓰가 있는가?", 
+  localStorage.getItem("minfo"));
 // 만약 결과가 null이면 이 로컬쓰는 없는것임!
 // 따라서 if문의 조건문에 사용하면 코드를 지정할 수 있다!
 
@@ -259,19 +263,29 @@ myFn.qs("#sbtn").onclick = () => {
 /// [ 데이터 삭제 버튼 클릭시 데이터 삭제하기 ] ////
 /////////////////////////////////////////////////
 // 대상 : .del-link a (삭제버튼)
-myFn.qsa(".del-link a").forEach((el) => {
-  myFn.addEvt(el, "click", function (e) {
-    // a요소 기본이동막기
-    e.preventDefault();
+// 처음 로딩시 삭제버튼에 클릭이벤트를 설정하게 되면
+// 삭제후 리스트가 변경됨에따라 기존에 설정된 이벤트가 사라짐!
+// ->>>주의!중요!!! 일반적으로 형제요소중 DOM구조가 변경될시
+// ->>> 기존 이벤트가 리셋되는것이 기본임! 따라서 DOM이 변경될때
+// ->>> 그 형제요소의 이벤트를 다시 설정해야한다!
+// ->>> 이런 이유로 아래 이벤트설정 코드는 함수로 만들어준다!
 
-    // 1. 지울순번 읽어오기 : data-idx속성값
-    let delIdx = this.getAttribute("data-idx");
-    console.log("지울순번:", delIdx);
+function setDelLink() {
+  // 삭제코드 a링크를 순회하여 이벤트 및 기능넣기!
+  myFn.qsa(".del-link a").forEach((el) => {
+    myFn.addEvt(el, "click", function (e) {
+      // a요소 기본이동막기
+      e.preventDefault();
 
-    // 2. 로컬쓰처리함수 호출
-    setLS({ key: "minfo", opt: "delete", delSeq: delIdx });
-  }); //// addEvt ////
-}); ////// forEach /////
+      // 1. 지울순번 읽어오기 : data-idx속성값
+      let delIdx = this.getAttribute("data-idx");
+      console.log("지울순번:", delIdx);
+
+      // 2. 로컬쓰처리함수 호출
+      setLS({ key: "minfo", opt: "delete", delSeq: delIdx });
+    }); //// addEvt ////
+  }); ////// forEach /////
+} ////// setDelLink 함수 ////////////////////////////
 
 ////////// 로컬스토리지 처리 공통함수 //////////////
 /************************************************* 
@@ -316,7 +330,6 @@ function setLS(obj) {
 
   // 3-2. 'update'일때 데이터 수정하기 ////
   else if (obj.opt == "update") {
-
   } /// else if ///
 
   // 3-3. 'delete'일때 데이터 삭제하기 ////
