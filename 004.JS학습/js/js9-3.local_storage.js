@@ -303,6 +303,7 @@ function setLS(obj) {
 
   // 3. 로컬쓰 minfo 파싱후 데이터 처리하기
   locals = JSON.parse(locals);
+  // 문자형 로컬쓰를 파싱하여 배열객체로 변환함!
 
   // 3-1. 'add'일때 데이터 추가하기 ////
   if (obj.opt == "add") {
@@ -312,7 +313,7 @@ function setLS(obj) {
       cont: cont.value,
     });
   } /// if ///
-  
+
   // 3-2. 'update'일때 데이터 수정하기 ////
   else if (obj.opt == "update") {
 
