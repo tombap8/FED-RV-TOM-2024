@@ -3,7 +3,7 @@
 /* 웹폰트, 공용클래스 */
 /*********** 1. 웹폰트 ***********/
 /* Roboto체 + Roboto Condensed체 - CDN */
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@300&display=swap");
+@import "https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@300&display=swap";
 /* 
 font-family: 'Roboto', sans-serif;
 font-family: 'Roboto Condensed', sans-serif;
@@ -140,4 +140,10 @@ img {
 }
 .ban-box ul li .post-content h3 {
   font-size: 42px;
+}
+
+@media (max-width: 1000px) {
+  .ban-box ul li {
+    aspect-ratio: 979/931;
+  }
 }/*# sourceMappingURL=main.css.map */

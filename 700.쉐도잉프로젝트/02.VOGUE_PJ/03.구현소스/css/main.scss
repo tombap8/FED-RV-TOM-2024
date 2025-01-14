@@ -35,7 +35,7 @@
 }
 
 // 상단영역 미디어쿼리 ///
-@include tablet-medium{
+@include tablet-medium {
   .logo {
     h1 {
       text-align: left;
@@ -87,6 +87,17 @@
         h3 {
           font-size: $font-size-x-large;
         }
+      }
+    }
+  }
+}
+
+@include tablet-medium {
+  // 배너박스
+  .ban-box {
+    ul {
+      li {
+        aspect-ratio: 979/931;
       }
     }
   }
