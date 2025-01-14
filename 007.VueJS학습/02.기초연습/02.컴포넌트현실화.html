@@ -33,7 +33,12 @@
       <!-- 2.그리드 레이아웃 박스 -->
       <!-- 추가된 리스트박스 -->
        <div class="grid">
-        <de-fashion-list></de-fashion-list>
+        <de-fashion-list
+          v-for="v in exData"
+          v-bind:list-idx="v.idx"
+          v-bind:list-tit="v.gName"
+          v-bind:list-price="v.gPrice"
+        ></de-fashion-list>
        </div>
 
 
