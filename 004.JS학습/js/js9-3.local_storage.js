@@ -231,51 +231,76 @@ else makeObj();
 /////////////////////////////////////////////////
 // 대상 : #sbtn (입력버튼)
 // 데이터 읽어올 대상 : #tit, #cont
-const tit = myFn.qs('#tit');
-const cont = myFn.qs('#cont');
+const tit = myFn.qs("#tit");
+const cont = myFn.qs("#cont");
 
 // 이벤트 함수 설정하기 /////
-myFn.qs('#sbtn').onclick = () => {
-  console.log('입력하라!',tit,cont);
+myFn.qs("#sbtn").onclick = () => {
+  console.log("입력하라!", tit, cont);
   // 1. 입력데이터 유효성 검사 : try ~ catch사용!
-  try{
+  try {
     // trim() 앞뒤공백 제거 처리해야 공백만 넣기막음!
-    if(tit.value.trim()==''||cont.value.trim()==''){
+    if (tit.value.trim() == "" || cont.value.trim() == "") {
       throw "제목과 내용은 반드시 입력해야합니다!";
     }
-  } /// try ////
-  catch(err){
+  } catch (err) {
+    /// try ////
     // catch문에 들어온 경우는 에러상황임!
     alert(err);
     // 함수 아랫부분 실행 못하도록 리턴함!
     return;
   } /// catch ///
 
+  // 로컬쓰 처리함수 호출!
+  setLS('minfo','add');
+}; ///////////// click 이벤트 함수 ///////////////
+
+////////// 로컬스토리지 처리 공통함수 //////////////
+/************************************************* 
+  함수명 : setLS
+  기능 : 로컬스토리지 데이터를 처리하는 함수
+*************************************************/
+function setLS(key,opt) {
+  // key - 로컬스토리지 키명
+  // opt - 처리옵션(add/delete/update)
+  // -> 일반적으로 데이터 처리는 4가지를 말한다!
+  // ->>> 크루드!(CRUD) -> Create/Read/Update/Delete
+
   // [ 로컬쓰 처리 기본과정 ]
   // 로컬쓰읽기->로컬쓰파싱->데이터변경->로컬쓰문자변경후 업데이트!
-  
-  // 2. 로컬쓰 minfo 데이터 읽어오기 : 문자형 데이터임!
-  let locals = localStorage.getItem('minfo');
 
-  // 3. 로컬쓰 minfo 파싱후 데이터 넣기
+  // 1. 전달값 및 호출확인
+  console.log("로컬쓰처리!", key);
+
+  // 2. 로컬쓰 minfo 데이터 읽어오기 : 문자형 데이터임!
+  let locals = localStorage.getItem(key);
+
+  // 3. 로컬쓰 minfo 파싱후 데이터 처리하기
   locals = JSON.parse(locals);
-  locals.push({
-    idx: locals.length+1,
-    tit: tit.value,
-    cont: cont.value,
-  });
+
+  // 3-1. 'add'일때 데이터 추가하기 ////
+  if(opt == 'add'){
+    locals.push({
+      idx: locals.length + 1,
+      tit: tit.value,
+      cont: cont.value,
+    });
+  } /// if ///
+  // 3-2. 'update'일때 데이터 수정하기 ////
+  else if(opt == 'update'){
+
+  } /// else if ///
+  // 3-3. 'delete'일때 데이터 삭제하기 ////
+  else if(opt == 'delete'){
+
+  } /// else if ///
 
   // 4. 로컬쓰 변경된 데이터 다시 넣기 : 넣을땐 문자화(stringify)
-  localStorage.setItem('minfo',JSON.stringify(locals));
+  localStorage.setItem(key, JSON.stringify(locals));
 
   // 5. 다시 데이터 바인딩하기
   bindData();
-
-}; ///////////// click 이벤트 함수 ///////////////
-
-
-
-
+} //////////// setLS 함수 //////////////////////
 
 //******************************************** */
 ///////////////////////////////////////////////
