@@ -47,7 +47,7 @@ Vue.component("list-comp", {
   // 부모가 공개한 바인딩 속성을 가져온다!
   // 프롭스 다운!!! -> 부모요소에 만든 요소명을 등록함!
   // props: [] -> 배열형태로 여러개 등록 가능!
-  props: ["list-num", "my-seq"],
+  props: ["list-num", "my-seq", "fn-add-comma"],
   // 주의: 이것을 변수로 쓸때는 캐밥케이스를 캐믈케이스로
   // 바꿔서 쓴다~! 예) 'list-num' -> listNum
   // 그리고 프롭스 다운변수도 내부에 등록되었으므로
@@ -69,7 +69,7 @@ Vue.component("list-comp", {
       //   일반데이터로 사용할 수 없다! 에러남!
 
       // 상품가격
-      gprice: this.addComma((123000 * this.listNum) / 2) + `원`,
+      gprice: this.fnAddComma((123000 * this.listNum) / 2) + `원`,
     };
   }, // data속성
 
@@ -78,10 +78,6 @@ Vue.component("list-comp", {
     // 연속번호만들기 테스트용 메서드
     setNum() {
       return ++inum;
-    },
-    // 세자리마다 콤마추가 메서드
-    addComma(x) {
-      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     },
     // 부모와 자식 컴포넌트 연결하기
     goPapa(txt) {
@@ -158,14 +154,17 @@ Vue.component("de-fashion-list", {
     `, ///// template //////
 
   // 2. 프롭스 다운! : 부모에서 v-bind된 속성들!
-  props: ["list-idx", "list-tit", "list-price"],
+  props: ["list-idx", "list-tit", "list-price", "fn-add-comma"],
+  // 케밥케이스를 케믈케이스로 변경하여 변수/함수로 사용가능!
+  // listIdx, listTit, listPrice, fnAddComma 로 사용가능!
+  // 실제로 사용할때는 this키워드를 사용하여 객체내부용으로 씀
 
   // 3. 데이터 : 컴포넌트 데이터는 리턴함수형태로 해야함!
   data() {
     return {
       gsrc: `./images/discovery/de_${this.listIdx}.jpg`,
       gname: this.listTit,
-      gprice: this.listPrice,
+      gprice: this.fnAddComma(this.listPrice)+"원",
     };
   },
 }); /////// component /////////////
@@ -193,5 +192,9 @@ new Vue({
     ovMsg(obj) {
       console.log("오버!오케이!", obj);
     },
+    // 세자리마다 콤마추가 메서드
+    addComma(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      },
   },
 }); ///// 뷰인스턴스 ///////////////

@@ -38,6 +38,7 @@
           v-bind:list-idx="v.idx"
           v-bind:list-tit="v.gName"
           v-bind:list-price="v.gPrice"
+          v-bind:fn-add-comma="addComma"
         ></de-fashion-list>
        </div>
 
@@ -54,6 +55,7 @@
           v-bind:my-seq="i"
           v-on:hull="goMsg"
           v-on:gotkimchi="ovMsg"
+          v-bind:fn-add-comma="addComma"
         ></list-comp>
         <!--
           v-on:hull="goMsg"
