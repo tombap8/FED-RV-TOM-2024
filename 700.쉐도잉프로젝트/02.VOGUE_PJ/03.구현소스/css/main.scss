@@ -57,16 +57,17 @@
 .sum-menu {
   position: absolute;
   // 부모는? .top-area
-  right: 40px;
-  /* 세로방향 정중앙 */
-  top: 50%;
-  translate: 0 -50%;
+  right: $spacing-40;
+  top: $spacing-40;
 
   font-size: $font-size-common;
 
   // 하위리스트
   ol {
     display: flex;
+    align-items: center;
+    gap: 3em;
+
     li {
       // 언어선택
       &:nth-child(1) a {

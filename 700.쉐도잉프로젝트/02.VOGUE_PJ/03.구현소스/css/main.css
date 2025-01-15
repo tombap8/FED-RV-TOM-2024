@@ -103,14 +103,14 @@ img {
 }
 .sum-menu {
   position: absolute;
-  right: 40px;
-  /* 세로방향 정중앙 */
-  top: 50%;
-  translate: 0 -50%;
+  right: 4rem;
+  top: 4rem;
   font-size: 1.6em;
 }
 .sum-menu ol {
   display: flex;
+  align-items: center;
+  gap: 3em;
 }
 .sum-menu ol li:nth-child(1) a {
   text-decoration: underline;
