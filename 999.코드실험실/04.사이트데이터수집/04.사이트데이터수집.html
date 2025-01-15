@@ -40,15 +40,16 @@
         // 1. 배열변수만들기
         const myArr = [];
         // 2. 반복요소 선택하여 forEach돌리기
-        document.querySelectorAll('ul#post_list li')
+        document.querySelectorAll('.post_list.main_fashion_list li')
         .forEach((el,idx)=>{
           // 3. 배열값으로 객체를 구성하여 넣기
           myArr.push({
-            idx : idx+101,
+            idx : idx+1,
             catName : el.querySelector('.category').innerText,
-            title : el.querySelector('h3').innerText,
+            title : el.querySelector('h3.s_tit').innerText,
             imgSrc : el.querySelector('img').src,
-            dateWriter : el.querySelector('.date').innerText
+            dateWriter : el.querySelector('p.date').innerText,
+            ariticle : ''
           });
         }); ///////// forEach //////////////
 
