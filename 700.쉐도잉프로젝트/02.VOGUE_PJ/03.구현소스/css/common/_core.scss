@@ -97,6 +97,11 @@ body{
       object-fit: cover;
     }
 
+    // 피겨박스 비율 만들기
+    figure {
+      aspect-ratio: 1.3;
+    }
+
     // 아이템 설명박스
     figcaption {
       padding: 20px 0;
