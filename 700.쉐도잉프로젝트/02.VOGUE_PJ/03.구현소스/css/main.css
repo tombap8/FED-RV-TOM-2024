@@ -176,6 +176,23 @@ img {
   padding: 4rem;
 }
 
+.big-box-type figure, .post-list ul li:nth-child(3) figure {
+  aspect-ratio: 1/2;
+}
+.big-box-type figure figcaption, .post-list ul li:nth-child(3) figure figcaption {
+  translate: 0 -100%;
+  padding: 5rem;
+  color: #fff;
+  background: linear-gradient(to top, #000, transparent);
+}
+.big-box-type figure figcaption h3.s-tit, .post-list ul li:nth-child(3) figure figcaption h3.s-tit {
+  font-size: 3.6rem;
+  font-weight: normal;
+}
+.big-box-type figure figcaption p.date, .post-list ul li:nth-child(3) figure figcaption p.date {
+  display: none;
+}
+
 .post-list ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -183,15 +200,6 @@ img {
 }
 .post-list ul li:nth-child(3) {
   grid-area: 1/3/3/4;
-}
-.post-list ul li:nth-child(3) figcaption {
-  translate: 0 -100%;
-  padding: 20px;
-  color: #fff;
-  background: linear-gradient(to top, #000, transparent);
-}
-.post-list ul li:nth-child(3) figcaption p.date {
-  display: none;
 }
 .post-list ul img {
   width: 100%;
