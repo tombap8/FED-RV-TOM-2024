@@ -88,7 +88,7 @@ img {
   justify-content: center;
 }
 .gnb ul li {
-  font-size: 1.6em;
+  font-size: 1.6rem;
   font-weight: 600;
   letter-spacing: 0.2em;
 }
@@ -105,7 +105,7 @@ img {
   position: absolute;
   right: 4rem;
   top: 4rem;
-  font-size: 1.6em;
+  font-size: 1.6rem;
 }
 .sum-menu ol {
   display: flex;
@@ -156,10 +156,10 @@ img {
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.4901960784);
 }
 .ban-box ul li .post-content p {
-  font-size: 1.6em;
+  font-size: 1.6rem;
 }
 .ban-box ul li .post-content h3 {
-  font-size: 4.2em;
+  font-size: 4.2rem;
 }
 
 @media (max-width: 1000px) {
@@ -168,7 +168,7 @@ img {
   }
 }
 .sub-tit {
-  font-size: 4.2em;
+  font-size: 4.2rem;
   padding-bottom: 15px;
 }
 
@@ -184,9 +184,32 @@ img {
 .post-list ul li:nth-child(3) {
   grid-area: 1/3/3/4;
 }
+.post-list ul li:nth-child(3) figcaption {
+  translate: 0 -100%;
+  padding: 20px;
+  color: #fff;
+  background: linear-gradient(to top, #000, transparent);
+}
+.post-list ul li:nth-child(3) figcaption p.date {
+  display: none;
+}
 .post-list ul img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.post-list ul figcaption {
+  padding: 20px 0;
+}
+.post-list ul figcaption p.category {
+  font-size: 1.7rem;
+}
+.post-list ul figcaption h3.s-tit {
+  font-size: 2.2rem;
+  margin: 10px 0;
+}
+.post-list ul figcaption p.date {
+  font-size: 1.7rem;
+  color: #999;
 }/*# sourceMappingURL=main.css.map */
