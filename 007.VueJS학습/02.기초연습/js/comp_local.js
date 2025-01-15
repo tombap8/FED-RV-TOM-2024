@@ -65,7 +65,7 @@ import deData from './comp_data.json' with{type:'json'};
 
 // 1. 상단영역 전역 컴포넌트 만들기
 // Vue.component(컴포넌트명,{template:코드})
-Vue.component("tit-comp", {
+const titCompData = {
   template: `
     <strong>
         <span>
@@ -74,7 +74,7 @@ Vue.component("tit-comp", {
         쇼핑모~~~올 갤러리 리스트
       </strong>
     `,
-}); ///// 전역컴포넌트1 /////
+}; ///// 지역컴포넌트 셋팅데이터 /////
 
 // new Vue({el:'.tit'});
 
@@ -82,7 +82,7 @@ Vue.component("tit-comp", {
 let inum = 0;
 
 // 2. 갤러리 리스트에 넣을 전역 컴포넌트 만들기 ///
-Vue.component("list-comp", {
+const listCompData = {
   // (1) 템플릿 설정
   template: `
         <div>
@@ -150,7 +150,7 @@ Vue.component("list-comp", {
       this.$emit("gotkimchi", obj);
     },
   },
-});
+}; ///////// 지역컴포넌트 셋팅 데이터 /////
 
 // 컴포넌트의 부모 뷰인스턴스
 // new Vue({
@@ -168,7 +168,7 @@ Vue.component("list-comp", {
 // });
 
 // 3. 유튜브 동영상 컴포넌트 만들기
-Vue.component("ifr-comp", {
+const ifrCompData = {
   // 3-1. template옵션
   template: `
     <iframe width="49%" style="aspect-ratio: 16/9;" 
@@ -185,27 +185,27 @@ Vue.component("ifr-comp", {
       ifrSrc: `https://www.youtube.com/embed/${this.mvCode}?autoplay=1&mute=1&loop=1&playlist=${this.mvCode}`,
     };
   },
-});
+}; ////////// 지역 컴포넌트 셋팅 데이터 /////
 
 // 뷰인스턴스 생성하기 : 유튜브 동영상 컴포넌트
 // new Vue({el:".you-box"});
 
 // 4. 하단 컴포넌트 만들기
-Vue.component("footer-comp", {
+const footerCompData = {
   template: `
         <div style="background-color:black;text-align:center;color:white;line-height:2;font-weight:bold; padding:3vw; margin-top:1vw;">
             <h2>Discovery Expedition</h2>
             <h3>Copyright © F&F Corp. All Rights Reserved.</h3>        
         </div>
     `,
-});
+}; /////////// 지역 컴포넌트 셋팅 데이터 /////
 
 // 뷰인스턴스 생성하기 : 하단 컴포넌트
 // new Vue({el:".tit2"});
 
 // 모든 컴포넌트는 모두 뷰인스턴스 생성전에 셋팅하면 된다!!!
 // 새로운 리스트 컴포넌트 셋팅하기 ////
-Vue.component("de-fashion-list", {
+const deFashionListData = {
   // 1. 템플릿
   template: `
         <div>
@@ -231,7 +231,7 @@ Vue.component("de-fashion-list", {
       gprice: this.fnAddComma(this.listPrice)+"원",
     };
   },
-}); /////// component /////////////
+}; /////// 지역 컴포넌트 셋팅 데이터 /////////////
 
 ////////////////////////////////////
 // 전체 최상위 부모인 .main-wrap을 //
@@ -239,6 +239,14 @@ Vue.component("de-fashion-list", {
 ////////////////////////////////////
 new Vue({
   el: ".main-wrap",
+  // 지역 컴포넌트 속성 셋팅하기 ////
+  components: {
+    "tit-comp": titCompData,
+    "list-comp": listCompData,
+    "ifr-comp": ifrCompData,
+    "footer-comp": footerCompData,
+    "de-fashion-list":deFashionListData,
+  },
   // 부모 뷰인스턴스 데이터구역 ////
   data: {
     // 부모컴포넌트에서 사용할 import한 데이터 할당!
