@@ -25,11 +25,14 @@
 
   ul {
     display: flex;
-    gap: 20px;
+    gap: 3em;
     justify-content: center;
 
     li {
-      font-size: $font-size-common;
+      // font-size: $font-size-common;
+      font-size: 1.6em;
+    font-weight: 600;
+    letter-spacing: 0.2em;
     }
   }
 }

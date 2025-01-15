@@ -82,11 +82,13 @@ img {
 }
 .gnb ul {
   display: flex;
-  gap: 20px;
+  gap: 3em;
   justify-content: center;
 }
 .gnb ul li {
-  font-size: 16px;
+  font-size: 1.6em;
+  font-weight: 600;
+  letter-spacing: 0.2em;
 }
 
 @media (max-width: 1000px) {
