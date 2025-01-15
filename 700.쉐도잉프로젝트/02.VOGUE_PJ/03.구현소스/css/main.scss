@@ -162,6 +162,7 @@
 .fashion-area {
   @extend .common-box;
 }
+
 // 리스트 박스
 .post-list {
   ul {
@@ -178,7 +179,7 @@
         padding: 20px;
         color: #fff;
         background: linear-gradient(to top, #000, transparent);
-        
+
         // 날짜 글쓴이는 숨김
         p.date{
           display: none;
