@@ -31,10 +31,9 @@
     justify-content: center;
 
     li {
-      // font-size: $font-size-common;
-      font-size: 1.6em;
-    font-weight: 600;
-    letter-spacing: 0.2em;
+      font-size: $font-size-common;
+      font-weight: 600;
+      letter-spacing: 0.2em;
     }
   }
 }
@@ -55,34 +54,35 @@
 }
 
 // 1-3. 요약메뉴 ///////////
-.sum-menu{
+.sum-menu {
   position: absolute;
   // 부모는? .top-area
-  right: 20px;
+  right: 40px;
   /* 세로방향 정중앙 */
   top: 50%;
   translate: 0 -50%;
 
+  font-size: $font-size-common;
+
   // 하위리스트
-  ol{
+  ol {
     display: flex;
-    li{
+    li {
       // 언어선택
-      &:nth-child(1) a{
+      &:nth-child(1) a {
         text-decoration: underline;
         text-underline-offset: 10px;
       }
       // 구독하기
-      &:nth-child(2) a{
+      &:nth-child(2) a {
         padding: 5px;
         background-color: #000;
         color: #fff;
       }
       // 햄버거버튼
-      &:nth-child(3) a{
-        font-size: 20px;
+      &:nth-child(3) a {
+        font-size: $font-size-medium;
       }
-
     }
   }
 }
