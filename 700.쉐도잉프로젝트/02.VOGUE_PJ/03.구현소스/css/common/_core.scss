@@ -2,32 +2,15 @@
 /* 웹폰트, 공용클래스 */
 
 /*********** 1. 웹폰트 ***********/
-/* Roboto체 + Roboto Condensed체 - CDN */
-@import "https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@300&display=swap";
-
+/* Roboto체 + Noto Sans Kr체 - CDN */
+@import 'https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap';
 /* 
-font-family: 'Roboto', sans-serif;
-font-family: 'Roboto Condensed', sans-serif;
+font-family: 'Roboto', "Noto Sans KR";
 */
-/* 나눔바른고딕 */
-@font-face {
-  font-family: nbg;
-  src: url(../fonts/NanumBarunGothicLightSubset.woff) format("woff");
+// 전체 글씨체 적용 ///
+body{
+  font-family: 'Roboto', "Noto Sans KR";
 }
-
-/* Pistilli체 */
-@font-face {
-  font-family: pist;
-  src: url(../fonts/Pistilli-Roman.woff) format("woff");
-}
-
-/* 
-  [ 공통 클래스 이름정의 ]
-  1. ibx - inside box 속박스
-  2. pt1, pt2 - part1, part2 각 부분박스(비율적용)
-  3. cbx - content box 내용박스
-  4. bgi - background image 관련 속성
-*/
 
 /* 공사중 표시 */
 // body * {
