@@ -43,5 +43,50 @@
     "dateWriter": "2025.01.13\nby 이소미",
     "article": "프린지, 프린트, 스팽글 등 주얼리 버금가는 화려한 장식이 줄지어 등장했죠. 하지만 이 향연 속에서도 묵묵히 본연의 역할에 충실한 백이 있습니다. 실용성을 우선시한 모양새에서 올해 우리 일상을 담당하게 될 가방이란 걸 단박에 알 수 있었죠. 더욱 반가운 사실은 우리에게 한 차례 눈도장이 찍힌 가방이라는 겁니다. 브리티시 <보그>가 추린, 올해 우리와 더욱 끈끈한 사이가 될 세 가방을 소개합니다.",
     "mainCat": "fashion"
+  },
+  {
+    "idx": 6,
+    "catName": "패션 트렌드",
+    "title": "조용한 럭셔리는 잊으세요! 2025년은 ‘혼돈의 커스터마이징’ 시대",
+    "imgSrc": "https://img.vogue.co.kr/vogue/2025/01/style_6785f10fdf8ac-960x1440.jpg?x=721&y=777",
+    "dateWriter": "2025.01.14\n이소미",
+    "article": "트렌드 분석 기업 WSGN이 내놓은 올해의 패션 키워드 중 하나입니다. 과잉과 맥시멀리즘, 개성과 자기표현 등 조용한 럭셔리와 반대되는 모든 걸 포함하죠. 제인 버킨이 온갖 장식을 매단 버킨 백을 들고 있는 모습, 아디다스 삼바를 평범한 운동화 끈 대신 리본으로 묶는 틱톡커, 스타일 아이콘 아이리스 아펠(Iris Apfel)의 독특한 의상 페어링을 떠올려보세요.",
+    "mainCat": "fashion"
+  },
+  {
+    "idx": 7,
+    "catName": "웰니스",
+    "title": "독한 감기 물리치는 겨울철 효과 만점 주스!",
+    "imgSrc": "https://img.vogue.co.kr/vogue/2025/01/style_67872513cff5f-759x500.jpg?x=1541&y=1200",
+    "dateWriter": "2025.01.15\nby 장성실, Beatrice Zocchi",
+    "ariticle": "",
+    "mainCat": "fashion"
+  },
+  {
+    "idx": 8,
+    "catName": "셀러브리티 스타일",
+    "title": "올겨울 케이티 홈즈가 색깔별로 돌려 신는, 앙증맞은 신발",
+    "imgSrc": "https://img.vogue.co.kr/vogue/2025/01/style_6787238ebac6e-759x500.jpg?x=1635&y=998",
+    "dateWriter": "2025.01.15\nby 이소미",
+    "ariticle": "",
+    "mainCat": "fashion"
+  },
+  {
+    "idx": 9,
+    "catName": "엔터테인먼트",
+    "title": "SF와 로맨스의 잘못된 만남, ‘별들에게 물어봐’",
+    "imgSrc": "https://img.vogue.co.kr/vogue/2025/01/style_678713e32014d-759x500.jpg?x=1521&y=931",
+    "dateWriter": "2025.01.15\nby 이숙명",
+    "ariticle": "",
+    "mainCat": "fashion"
+  },
+  {
+    "idx": 10,
+    "catName": "Beauty",
+    "title": "패셔너블한 뷰티 아이템, NEW 2025 디올 어딕트 립 글로우 & 글로우매니아 리미티드 에디션",
+    "imgSrc": "https://img.vogue.co.kr/vogue/2025/01/style_6785e4f170b7c-759x500.jpg",
+    "dateWriter": "2025.01.14\nby 서명희",
+    "ariticle": "",
+    "mainCat": "fashion"
   }
 ]
