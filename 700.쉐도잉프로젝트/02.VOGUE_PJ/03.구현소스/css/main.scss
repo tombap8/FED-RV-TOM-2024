@@ -52,6 +52,39 @@
   }
 }
 
+// 1-3. 요약메뉴 ///////////
+.sum-menu{
+  position: absolute;
+  // 부모는? .top-area
+  right: 20px;
+  /* 세로방향 정중앙 */
+  top: 50%;
+  translate: 0 -50%;
+
+  // 하위리스트
+  ol{
+    display: flex;
+    li{
+      // 언어선택
+      &:nth-child(1) a{
+        text-decoration: underline;
+        text-underline-offset: 10px;
+      }
+      // 구독하기
+      &:nth-child(2) a{
+        padding: 5px;
+        background-color: #000;
+        color: #fff;
+      }
+      // 햄버거버튼
+      &:nth-child(3) a{
+        font-size: 20px;
+      }
+
+    }
+  }
+}
+
 // 2. 배너영역 /////////////
 
 // 배너박스

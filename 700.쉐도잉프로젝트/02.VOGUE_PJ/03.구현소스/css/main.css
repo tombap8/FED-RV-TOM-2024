@@ -99,6 +99,29 @@ img {
     justify-content: flex-start;
   }
 }
+.sum-menu {
+  position: absolute;
+  right: 20px;
+  /* 세로방향 정중앙 */
+  top: 50%;
+  translate: 0 -50%;
+}
+.sum-menu ol {
+  display: flex;
+}
+.sum-menu ol li:nth-child(1) a {
+  text-decoration: underline;
+  text-underline-offset: 10px;
+}
+.sum-menu ol li:nth-child(2) a {
+  padding: 5px;
+  background-color: #000;
+  color: #fff;
+}
+.sum-menu ol li:nth-child(3) a {
+  font-size: 20px;
+}
+
 .ban-box ul {
   display: flex;
 }
