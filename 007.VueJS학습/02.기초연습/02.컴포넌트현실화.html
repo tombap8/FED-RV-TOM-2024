@@ -37,6 +37,7 @@
        <div class="grid">
         <de-fashion-list
           v-for="v in exData"
+          v-bind:key="v.idx"
           v-bind:list-idx="v.idx"
           v-bind:list-tit="v.gName"
           v-bind:list-price="v.gPrice"
