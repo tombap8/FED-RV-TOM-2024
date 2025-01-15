@@ -1,0 +1,47 @@
+[
+  {
+    "idx": 1,
+    "catName": "패션 아이템",
+    "title": "올해 내내 톱에서 발견될, 이 어여쁜 디테일",
+    "imgSrc": "https://img.vogue.co.kr/vogue/2025/01/style_6785079d36a67-759x500.jpg",
+    "dateWriter": "2025.01.14\nby 안건호",
+    "ariticle": "",
+    "mainCat": "fashion"
+  },
+  {
+    "idx": 2,
+    "catName": "패션 아이템",
+    "title": "스트리트에서 발견한 베스트 버킨 백 스타일링!",
+    "imgSrc": "https://img.vogue.co.kr/vogue/2025/01/style_6784e50a944ab-759x500.jpg?x=1919&y=1266",
+    "dateWriter": "2025.01.14\nby 황혜원, Irene Kim",
+    "ariticle": "",
+    "mainCat": "fashion"
+  },
+  {
+    "idx": 3,
+    "catName": "패션 트렌드",
+    "title": "조용한 럭셔리는 잊으세요! 2025년은 ‘혼돈의 커스터마이징’ 시대",
+    "imgSrc": "https://img.vogue.co.kr/vogue/2025/01/style_6785f10fdf8ac-960x1440.jpg?x=721&y=777",
+    "dateWriter": "2025.01.14\n이소미",
+    "ariticle": "",
+    "mainCat": "fashion"
+  },
+  {
+    "idx": 4,
+    "catName": "패션 아이템",
+    "title": "런웨이에서 발견한, 올 봄과 여름을 뒤덮을 상의",
+    "imgSrc": "https://img.vogue.co.kr/vogue/2025/01/style_6780ebcd59ef9-759x500.jpg?x=1222&y=1107",
+    "dateWriter": "2025.01.14\nby 이소미",
+    "ariticle": "",
+    "mainCat": "fashion"
+  },
+  {
+    "idx": 5,
+    "catName": "패션 아이템",
+    "title": "2025년에도 계속될 '이 가방'의 활약",
+    "imgSrc": "https://img.vogue.co.kr/vogue/2025/01/style_6784c4d2ded6d-759x500.jpg?x=1280&y=843",
+    "dateWriter": "2025.01.13\nby 이소미",
+    "ariticle": "",
+    "mainCat": "fashion"
+  }
+]
