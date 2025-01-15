@@ -71,12 +71,15 @@
     li {
       // 언어선택
       &:nth-child(1) a {
+        font-weight: bold;
+        letter-spacing: 2px;
         text-decoration: underline;
         text-underline-offset: 5px;
       }
       // 구독하기
       &:nth-child(2) a {
-        padding: 5px;
+        font-weight: bold;
+        padding: 8px 15px;
         background-color: #000;
         color: #fff;
       }
