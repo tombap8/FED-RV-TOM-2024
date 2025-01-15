@@ -148,25 +148,36 @@
   }
 }
 
-
 // 7. Fashion 영역 /////////////
-// 서브 타이틀
-.sub-tit{
+// 서브 타이틀 공통
+.sub-tit {
   font-size: $font-size-x-large;
   padding-bottom: 15px;
-  padding-left: 40px;
+}
+// 영역박스 공통
+.common-box {
+  padding: $spacing-40;
+}
+// 패션영역 속박스
+.fashion-area {
+  @extend .common-box;
 }
 // 리스트 박스
-.post-list{
-  ul{
+.post-list {
+  ul {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 
-    img{
+    // 3번째 li 두칸차지하기
+    li:nth-child(3) {
+      grid-area: 1 / 3 / 3 / 4;
+    }
+
+    img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
   }
 }
