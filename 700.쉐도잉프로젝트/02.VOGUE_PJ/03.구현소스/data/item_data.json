@@ -9,15 +9,6 @@
     "mainCat": "fashion"
   },
   {
-    "idx": 2,
-    "catName": "패션 아이템",
-    "title": "스트리트에서 발견한 베스트 버킨 백 스타일링!",
-    "imgSrc": "https://img.vogue.co.kr/vogue/2025/01/style_6784e50a944ab-759x500.jpg?x=1919&y=1266",
-    "dateWriter": "2025.01.14\nby 황혜원, Irene Kim",
-    "article": "에르메스 총괄 아티스틱 디렉터 피에르 알렉시 뒤마(Pierre-Alexis Dumas)가 에르메스 제품에 대해 비싼 것은 물론 맞지만, “재료와 노하우 측면에서 비싸다”라고 표현했습니다. 흉내 낼 수 없는 영역, 진정성만큼 좋은 것은 없죠. 브라운 타조 가죽 스타일부터 스네할(Snehal) & 조티 바바니(Jyoti Babani) 자매의 컬러풀한 캐리어까지, 에르메스 버킨 백의 빛나는 순간들을 모았습니다.",
-    "mainCat": "fashion"
-  },
-  {
     "idx": 3,
     "catName": "패션 트렌드",
     "title": "조용한 럭셔리는 잊으세요! 2025년은 ‘혼돈의 커스터마이징’ 시대",
@@ -26,6 +17,16 @@
     "article": "트렌드 분석 기업 WSGN이 내놓은 올해의 패션 키워드 중 하나입니다. 과잉과 맥시멀리즘, 개성과 자기표현 등 조용한 럭셔리와 반대되는 모든 걸 포함하죠. 제인 버킨이 온갖 장식을 매단 버킨 백을 들고 있는 모습, 아디다스 삼바를 평범한 운동화 끈 대신 리본으로 묶는 틱톡커, 스타일 아이콘 아이리스 아펠(Iris Apfel)의 독특한 의상 페어링을 떠올려보세요.",
     "mainCat": "fashion"
   },
+  {
+    "idx": 2,
+    "catName": "패션 아이템",
+    "title": "스트리트에서 발견한 베스트 버킨 백 스타일링!",
+    "imgSrc": "https://img.vogue.co.kr/vogue/2025/01/style_6784e50a944ab-759x500.jpg?x=1919&y=1266",
+    "dateWriter": "2025.01.14\nby 황혜원, Irene Kim",
+    "article": "에르메스 총괄 아티스틱 디렉터 피에르 알렉시 뒤마(Pierre-Alexis Dumas)가 에르메스 제품에 대해 비싼 것은 물론 맞지만, “재료와 노하우 측면에서 비싸다”라고 표현했습니다. 흉내 낼 수 없는 영역, 진정성만큼 좋은 것은 없죠. 브라운 타조 가죽 스타일부터 스네할(Snehal) & 조티 바바니(Jyoti Babani) 자매의 컬러풀한 캐리어까지, 에르메스 버킨 백의 빛나는 순간들을 모았습니다.",
+    "mainCat": "fashion"
+  },
+
   {
     "idx": 4,
     "catName": "패션 아이템",
@@ -51,7 +52,7 @@
     "imgSrc": "https://img.vogue.co.kr/vogue/2025/01/style_6785f10fdf8ac-960x1440.jpg?x=721&y=777",
     "dateWriter": "2025.01.14\n이소미",
     "article": "트렌드 분석 기업 WSGN이 내놓은 올해의 패션 키워드 중 하나입니다. 과잉과 맥시멀리즘, 개성과 자기표현 등 조용한 럭셔리와 반대되는 모든 걸 포함하죠. 제인 버킨이 온갖 장식을 매단 버킨 백을 들고 있는 모습, 아디다스 삼바를 평범한 운동화 끈 대신 리본으로 묶는 틱톡커, 스타일 아이콘 아이리스 아펠(Iris Apfel)의 독특한 의상 페어링을 떠올려보세요.",
-    "mainCat": "fashion"
+    "mainCat": "today"
   },
   {
     "idx": 7,
@@ -60,7 +61,7 @@
     "imgSrc": "https://img.vogue.co.kr/vogue/2025/01/style_67872513cff5f-759x500.jpg?x=1541&y=1200",
     "dateWriter": "2025.01.15\nby 장성실, Beatrice Zocchi",
     "ariticle": "",
-    "mainCat": "fashion"
+    "mainCat": "today"
   },
   {
     "idx": 8,
@@ -69,7 +70,7 @@
     "imgSrc": "https://img.vogue.co.kr/vogue/2025/01/style_6787238ebac6e-759x500.jpg?x=1635&y=998",
     "dateWriter": "2025.01.15\nby 이소미",
     "ariticle": "",
-    "mainCat": "fashion"
+    "mainCat": "today"
   },
   {
     "idx": 9,
@@ -78,7 +79,7 @@
     "imgSrc": "https://img.vogue.co.kr/vogue/2025/01/style_678713e32014d-759x500.jpg?x=1521&y=931",
     "dateWriter": "2025.01.15\nby 이숙명",
     "ariticle": "",
-    "mainCat": "fashion"
+    "mainCat": "today"
   },
   {
     "idx": 10,
@@ -87,6 +88,6 @@
     "imgSrc": "https://img.vogue.co.kr/vogue/2025/01/style_6785e4f170b7c-759x500.jpg",
     "dateWriter": "2025.01.14\nby 서명희",
     "ariticle": "",
-    "mainCat": "fashion"
+    "mainCat": "today"
   }
 ]
