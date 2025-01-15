@@ -6,11 +6,11 @@ import itemData from '../data/item_data.json' with{type:'json'};
 console.log(itemData);
 
 // 패션 영역 셋팅 ///
-document.querySelector('.post-list')
-.innerHTML = `
+document.querySelector(".post-list").innerHTML = `
     <ul>
-        ${
-            itemData.map(v=>`                
+        ${itemData
+          .map(
+            (v) => `                
                 <li>
                 <figure>
                     <img src="${v.imgSrc}" alt="${v.mainCat}">
@@ -21,7 +21,8 @@ document.querySelector('.post-list')
                     </figcaption>
                 </figure>
                 </li>
-            `).join('')
-        }
+            `
+          )
+          .join("")}
     </ul>
 `;
