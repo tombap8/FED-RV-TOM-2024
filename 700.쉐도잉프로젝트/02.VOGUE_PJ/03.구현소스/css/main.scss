@@ -7,6 +7,8 @@
 
 // 1. 상단영역 ////////////////
 .top-area {
+  /* 부모자격 */
+  position: relative;
   padding: $spacing-40;
 }
 // 1-1. 로고박스
