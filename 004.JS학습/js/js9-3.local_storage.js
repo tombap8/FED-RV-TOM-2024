@@ -228,7 +228,7 @@ function bindData() {
   selBox.innerHTML = 
   `<option value="sel">선택하세요</option>`+
   localData.map(v=>
-    `<option value="${v.idx}">${v.idx}</option>`
+    `<option value="${v.tit+'♨'+v.cont}">${v.idx}</option>`
   ).join('');
 
 } ////////////// bindData //////////////////
@@ -237,7 +237,15 @@ function bindData() {
 // 수정항목 선택박스 변경시 함수구현 ////
 //////////////////////////////////////
 myFn.addEvt(selBox,'change',function(){
-  console.log('선택변경:',this.value);
+  
+  // 읽어온 value값을 split으로 잘라서 넣기
+  let newVal = this.value.split('♨');
+  
+  console.log('선택변경:',this.value, newVal);
+
+  // 수정할 데이터의 원본 제목/내용 보여주기!
+  tit2.value = newVal[0];
+  cont2.value = newVal[1];
 }); ///////// change 이벤트함수 ////////
 
 
