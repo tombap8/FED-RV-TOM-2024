@@ -31,8 +31,14 @@ export default new Vuex.Store({
   },
 
   // 2. 데이터 변경 메서드구역 : mutations ////////
-  mutations: {},
-  
+  mutations: {
+    // 초기 데이터 셋업 메서드
+    initSet(헐,파람){
+        // 전달변수는 두번째 변수 파람임!
+        console.log('데이터변경! 초기화!',헐,파람);
+    },
+  },
+
   // 3. 비동기처리 메서드구역 : actions ///////////
   actions: {},
 }); /////////// Vues.Store /////////////
