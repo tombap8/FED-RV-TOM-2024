@@ -109,8 +109,10 @@ new Vue({
         */
        store.commit("initSet",
         {
-            url:store.state.cityData.처음.이미지,
-            txt:store.state.cityData.처음.설명
+            url:'https://i.namu.wiki/i/corJqZiNxAUreAunnA2wdulOYFuEtpFmPCjZMgpyMjoZkcxe2cX2p8I9tTZqC7uSjmYhrrBbDQ3h0M4b3Brh1w.webp',
+            txt:'도시소개 사이트는 넷플릭스와 함께합니다~!'
+            // url:store.state.cityData.처음.이미지,
+            // txt:store.state.cityData.처음.설명
         });
   }, /// created /////
 });
