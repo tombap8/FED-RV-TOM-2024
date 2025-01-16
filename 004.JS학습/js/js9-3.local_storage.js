@@ -79,7 +79,11 @@ import myFn from "./my_function.js";
 // [ 1. 로컬 스토리지 연습 ] ////////////////////
 // 1. 버튼 기능 이벤트 대상 : .local-box button
 const btnLocal = myFn.qsa(".local-box button");
-console.log("대상:", btnLocal);
+
+// -> 추가대상 : 수정하기 선택박스요소 - select#sel
+const selBox = myFn.qs('.select#sel');
+
+console.log("대상:", btnLocal, selBox);
 
 // 2. 버튼에 이벤트 설정하기
 btnLocal.forEach((ele) => myFn.addEvt(ele, "click", localsFn));
@@ -211,8 +215,11 @@ function bindData() {
     </table>
 `;
 
-  // 삭제버튼 링크함수 호출!
+  // 4. 삭제버튼 링크함수 호출!
   setDelLink();
+
+  // 5. 수정을 위한 선택박스 바인딩하기!
+
 } ////////////// bindData //////////////////
 
 /////////////////////////////////////////////////
