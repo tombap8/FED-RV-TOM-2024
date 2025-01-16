@@ -47,8 +47,8 @@ Vue.component("main-area", {
   // 템플릿설정
   template: `
         <main>
-            <img v-bind:src="" alt="지역이미지" />
-            <p></p>
+            <img v-bind:src="$store.state.imgSrc" alt="지역이미지" />
+            <p v-text="$store.state.desc"></p>
         </main>
     `,
   // 데이타설정 : 컴포넌트는 객체리턴메서드로 해야함!
@@ -87,4 +87,15 @@ new Vue({
   data: {},
   // 메서드
   methods: {},
+  // 뷰인스턴스 생성후 구역 : 데이터셋팅
+  created(){
+    /* 
+        스토어에 있는 initSet 메서드는 어떻게 호출하지?
+        스토어 호출 메서드가 따로 있음!
+        store.commit("메서드명",파라미터값)
+        1. 메서드명은 반드시 문자형으로 입력한다!
+        2. 파라미터는 단일값 또는 객체형식을 보낼 수 있음
+        인스턴스 내부구역 코딩시 store에 $없음!
+        */
+  }, /// created /////
 });
