@@ -40,6 +40,12 @@ export default new Vuex.Store({
     initSet(헐,파람){
         // 전달변수는 두번째 변수 파람임!
         console.log('데이터변경! 초기화!',헐,파람);
+        // 첫번째 전달변수 헐은 state객체 담겨있음!
+
+        // 이미지변수 imgSrc 값 셋팅하기
+        헐.imgSrc = 파람.url;
+        // 설명변수인 desc값 셋팅하기
+        헐.desc = 파람.txt;
     },
   },
 

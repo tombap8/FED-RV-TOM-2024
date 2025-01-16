@@ -16,7 +16,11 @@ Vue.component("top-area", {
                   .map(
                     (v) => `
                         <li>
-                            <a href="#">${v=='처음'?'💒':v}</a>
+                            <a 
+                                href="#"
+                                v-on:click="changeData()"
+                            
+                            >${v=='처음'?'💒':v}</a>
                         </li>
                         `
                   )
@@ -29,7 +33,13 @@ Vue.component("top-area", {
     return {};
   },
   // 메서드 설정
-  methods: {},
+  methods: {
+    // 컴포넌트 템플릿 코드에서 호출할 메서드
+    // -> 스토아 데이터 변경하기
+    changeData(){
+        console.log("나야나~!!!!");
+    },
+  },
 });
 // (2) 메인영역 컴포넌트
 Vue.component("main-area", {
@@ -97,5 +107,10 @@ new Vue({
         2. 파라미터는 단일값 또는 객체형식을 보낼 수 있음
         인스턴스 내부구역 코딩시 store에 $없음!
         */
+       store.commit("initSet",
+        {
+            url:store.state.cityData.처음.이미지,
+            txt:store.state.cityData.처음.설명
+        });
   }, /// created /////
 });
