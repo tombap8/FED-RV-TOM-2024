@@ -9,6 +9,8 @@ import store from "./store.js";
 // (1) 상단영역 컴포넌트
 Vue.component("top-area", {
   // 템플릿설정
+  // -> 이벤트 설정시 v-on:이벤트명.prevent 라고 쓰면
+  // -> 기본기능막기인 event.preventDefault() 가 설정됨!
   template: `
         <header>
             <ul class="gnb">
@@ -18,9 +20,10 @@ Vue.component("top-area", {
                         <li>
                             <a 
                                 href="#"
-                                v-on:click="changeData()"
+                                v-on:click.prevent=
+                                "changeData('${v}')"
                             
-                            >${v=='처음'?'💒':v}</a>
+                            >${v == "처음" ? "💒" : v}</a>
                         </li>
                         `
                   )
@@ -36,14 +39,19 @@ Vue.component("top-area", {
   methods: {
     // 컴포넌트 템플릿 코드에서 호출할 메서드
     // -> 스토아 데이터 변경하기
-    changeData(){
-        console.log("나야나~!!!!");
+    changeData(pm) {
+      // pm 파라미터변수 : 도시명받음
+      console.log("나야나~!!!!", pm);
+
+      // 스토아 state 데이터 변경하기
+      // changeCityData 뮤테이션스 메서드 호출
+      store.commit("changeCityData", pm);
     },
   },
 });
 // (2) 메인영역 컴포넌트
 Vue.component("main-area", {
-    /* 
+  /* 
         컴포넌트 영역은 뷰JS에서 해석되는 부분이므로
         뷰엑스 스토어의 변수 store를 
         전역 표시 $store
@@ -98,7 +106,7 @@ new Vue({
   // 메서드
   methods: {},
   // 뷰인스턴스 생성후 구역 : 데이터셋팅
-  created(){
+  created() {
     /* 
         스토어에 있는 initSet 메서드는 어떻게 호출하지?
         스토어 호출 메서드가 따로 있음!
@@ -107,12 +115,11 @@ new Vue({
         2. 파라미터는 단일값 또는 객체형식을 보낼 수 있음
         인스턴스 내부구역 코딩시 store에 $없음!
         */
-       store.commit("initSet",
-        {
-            url:'https://i.namu.wiki/i/corJqZiNxAUreAunnA2wdulOYFuEtpFmPCjZMgpyMjoZkcxe2cX2p8I9tTZqC7uSjmYhrrBbDQ3h0M4b3Brh1w.webp',
-            txt:'도시소개 사이트는 넷플릭스와 함께합니다~!'
-            // url:store.state.cityData.처음.이미지,
-            // txt:store.state.cityData.처음.설명
-        });
+    store.commit("initSet", {
+      url: "https://i.namu.wiki/i/corJqZiNxAUreAunnA2wdulOYFuEtpFmPCjZMgpyMjoZkcxe2cX2p8I9tTZqC7uSjmYhrrBbDQ3h0M4b3Brh1w.webp",
+      txt: "도시소개 사이트는 넷플릭스와 함께합니다~!",
+      // url:store.state.cityData.처음.이미지,
+      // txt:store.state.cityData.처음.설명
+    });
   }, /// created /////
 });

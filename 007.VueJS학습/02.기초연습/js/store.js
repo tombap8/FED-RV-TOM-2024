@@ -47,8 +47,20 @@ export default new Vuex.Store({
         // 설명변수인 desc값 셋팅하기
         헐.desc = 파람.txt;
     },
+    //// 도시정보 변경 메서드 ///
+    changeCityData(헐,파람){
+        // 헐 - state객체
+        // 파람 - 도시명
+        console.log('도시변경:', 헐, 파람);
+
+        // 이미지변수 imgSrc 값 셋팅하기
+        헐.imgSrc = 헐.cityData[파람].이미지;
+        // 설명변수인 desc값 셋팅하기
+        헐.desc = 헐.cityData[파람].설명;
+    },
   },
 
   // 3. 비동기처리 메서드구역 : actions ///////////
-  actions: {},
+  actions: {
+  },
 }); /////////// Vues.Store /////////////
