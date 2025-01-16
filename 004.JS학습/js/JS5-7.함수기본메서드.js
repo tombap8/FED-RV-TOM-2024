@@ -92,129 +92,143 @@ function 노래() {
 
 ////////////////////////////////////////////////////
 // 출력 코딩구역 //////////////////
-  // 전체출력대상 : .ex
-  const exBox = document.querySelectorAll(".ex");
+// 전체출력대상 : .ex
+const exBox = document.querySelectorAll(".ex");
 
-  // 1. 영화/드라마 주연 출력하기
- exBox[0].innerText = "범죄도시 : " + 인간.성명.call(사람1);
- exBox[1].innerText = "수사반장 : " + 인간.성명.call(사람2);
+// 1. 영화/드라마 주연 출력하기
+exBox[0].innerText = "범죄도시 : " + 인간.성명.call(사람1);
+exBox[1].innerText = "수사반장 : " + 인간.성명.call(사람2);
 
-  // 2. 나라 동물 찍기
-  
+// 2. 나라 동물 찍기
+exBox[2].innerText = 대표동물.발표.call(동물1, "오세아니아", "유대류");
 
-  // 데이터 배열
-  const animalData = ["아시아", "영장류"];
+// 데이터 배열
+const animalData = ["아시아", "영장류"];
+// call과 달리 apply는 추가 데이터를 배열로 보낸다!
+exBox[3].innerText = 대표동물.발표.apply(동물2, animalData);
 
-  
+// 3. 일반함수 call() / apply() 사용하기
+exBox[4].innerText = 힘내.call(
+  { 호호: "게르니카", 하하: "우는여인" },
+  "피카소"
+);
 
-  // 3. 일반함수 call() / apply() 사용하기
-  
+// 특이하게 b요소를 선택하여 보내면 과연 될까?
+exBox[5].innerText = 노래.apply(document.querySelector(".iam"));
+// HTML요소도 객체의 일종이다!
+// 선택요소.title, 선택요소.id 이렇게 객체값을 찍는다!
 
-  // 특이하게 b요소를 선택하여 보내면 과연 될까?
-  
-  // HTML컬렉션도 객체의 일종이다!
+// 4. Math.max.apply() / Math.min.apply() 사용하기
+// apply(객체,배열) -> 앞의 객체값을 불필요해서 null보냄
+// 뒤의 배열만 필요하고 이것을 보내서 최대값/최소값을 리턴함
 
-  // 단순배열
-  const myNum = [2400, 3600, 4200, 5300, 6700];
-  // -> Math.max.apply(null,myNum)
+// 단순배열
+const myNum = [2400, 3600, 4200, 5300, 6700];
+// 화면출력
+exBox[6].innerText = myNum + "의 최대값:" + Math.max.apply(null, myNum);
 
-  // 객체배열
-  const myObj = [
+// 최소값을 콘솔에 찍어봄
+console.log(myNum, "의 최소값:", Math.min.apply(null, myNum));
+
+// 객체배열
+/* 
     {
-      year: 2000,
-      pay: 2400,
-    },
-    {
-      year: 2010,
-      pay: 3600,
-    },
-    {
-      year: 2015,
-      pay: 4200,
-    },
-    {
-      year: 2020,
-      pay: 5300,
-    },
-    {
-      year: 2024,
-      pay: 6700,
-    },
-  ];
+      연봉년도 : 년도,
+      연봉금액 : 금액,
+    }
+  */
+const myObj = [
+  {
+    year: 2000,
+    pay: 2400,
+  },
+  {
+    year: 2010,
+    pay: 3600,
+  },
+  {
+    year: 2015,
+    pay: 4200,
+  },
+  {
+    year: 2020,
+    pay: 5300,
+  },
+  {
+    year: 2024,
+    pay: 6700,
+  },
+];
 
-  // 원래배열
-  console.log("원래배열:", myObj);
-  // map돌린 배열
-  console.log("map돌린배열:");
+// 원래배열
+console.log("원래배열:", myObj);
+// map돌린 배열
+console.log(
+  "map돌린배열:",
+  myObj.map((v) => v.pay)
+);
 
-  // 4. 배열값을 이용하여 수학함수
-  // max/min 을 apply()로 적용하기
-  // apply(전달객체,배열)
-  // -> Math.max()에는 전달할 객체가 없으므로 이 자리에 null을
-  // 써서 첫번째자리의 값을 처리해야한다!
-  // 두번째 자리가 전달변수 배열이 되는 것이다!!!
-  
+exBox[7].innerText = `내가 받았던 연봉 중 최대값은
+  ${Math.max.apply(
+    null,
+    myObj.map((v) => v.pay)
+  )}만원이다!
+  내가 받았던 최소연봉은 
+  ${Math.min.apply(
+    null,
+    myObj.map((v) => v.pay)
+  )}만원이었다!`;
 
-
-  // map()으로 배열의 각 주소에 있는 특정 속성값을
-  // 배열값으로 리턴받아 출력하면 특정값으로 이루어진
-  // 일반 배열이 되어서 값을 비교할 수 있다!
-
-  // Math.max(숫자나열)
-  // 테스트배열
-  let arrText = [23, 56, 12, 8, 99, 2];
-
-  
-
-  // 배열을 직접쓰면 적용되지 않는다!
-  
-
-  ////////////// bind() 메서드 ////////////
-  // 객체에 기존 속성이 있어서 this가 확정되어 있는 경우
-  // 이를 변경하여 메서드를 사용할 때 bind()를 쓴다!
-  const 합격자들 = {
-    성: "김",
-    명: "재원",
-    이름다: function () {
-      return this.성 + " " + this.명;
-    },
-    시간차: function () {
-      setTimeout(
-        function () {
-          exBox[9].innerText = this.성 + " " + this.명;
-          // 비동기호출 실행일 경우 큐로 코드가 이동하므로
-          // this 의미를 상실하여 이를 bind(this)로 묶어서
-          // 보내면 원하는 대로 this를 읽어서 실행한다!
-        }.bind(this),
-        2000
-      );
-    },
-    화살표: function () {
-      setTimeout(() => {
+////////////// bind() 메서드 ////////////
+// 객체에 기존 속성이 있어서 this가 확정되어 있는 경우
+// 이를 변경하여 메서드를 사용할 때 bind()를 쓴다!
+const 합격자들 = {
+  성: "김",
+  명: "재원",
+  이름다: function () {
+    return this.성 + " " + this.명;
+  },
+  시간차: function () {
+    setTimeout(
+      function () {
         exBox[10].innerText = this.성 + " " + this.명;
-        // 화살표함수는 bind(this)없이도 this키워드를 묶어서
-        // 큐로 보내준다!(내부설계가 그렇게 되어있음!)
-      }, 3000);
-    },
-  };
+        // 비동기호출 실행일 경우 큐로 코드가 이동하므로
+        // this 의미를 상실하여 이를 bind(this)로 묶어서
+        // 보내면 원하는 대로 this를 읽어서 실행한다!
+      }.bind(this),
+      2000
+    );
+  },
+  화살표: function () {
+    setTimeout(() => {
+      exBox[11].innerText = this.성 + " " + this.명;
+      // 화살표함수는 bind(this)없이도 this키워드를 묶어서
+      // 큐로 보내준다!(내부설계가 그렇게 되어있음!)
+    }, 3000);
+  },
+};
 
-  const 개인1 = {
-    성: "최",
-    명: "수연",
-  };
-  const 개인2 = {
-    성: "정",
-    명: "성호",
-  };
-  const 개인3 = {
-    성: "이",
-    명: "나영",
-  };
+const 개인1 = {
+  성: "최",
+  명: "수연",
+};
+const 개인2 = {
+  성: "정",
+  명: "성호",
+};
+const 개인3 = {
+  성: "이",
+  명: "나영",
+};
 
-  // this가 확정된 객체의 메서드를 그냥 호출하기
-  
-  // this 의미가 bind()로 묶어서 보낸 객체로 변경되어 호출하기
-  
-  // setTimeout으로 시간차 실행함수 호출하기
-  
+// this가 확정된 객체의 메서드를 그냥 호출하기
+exBox[8].innerText = 합격자들.이름다();
+
+// this 의미가 bind()로 묶어서 보낸 객체로 변경되어 호출하기
+exBox[9].innerText = 합격자들.이름다.bind(개인1)();
+// -> bind(객체)()는 객체를 묶어보내는 역할만 하고 실행 뒤소괄호함!
+
+// setTimeout으로 시간차 실행함수 호출하기
+합격자들.시간차.bind(개인2)();
+합격자들.화살표.bind(개인3)();
 /////////////// 전체 출력 코딩구역 //////////////////////
