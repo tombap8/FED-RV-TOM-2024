@@ -81,7 +81,7 @@ import myFn from "./my_function.js";
 const btnLocal = myFn.qsa(".local-box button");
 
 // -> 추가대상 : 수정하기 선택박스요소 - select#sel
-const selBox = myFn.qs('.select#sel');
+const selBox = myFn.qs('select#sel');
 
 console.log("대상:", btnLocal, selBox);
 
@@ -219,6 +219,13 @@ function bindData() {
   setDelLink();
 
   // 5. 수정을 위한 선택박스 바인딩하기!
+  // 대상 : #sel -> selBox변수
+  // 데이터 : 파싱된 로컬쓰 (배열) 중 idx만 사용!->map()
+  selBox.innerHTML = 
+  `<option value="sel">선택하세요</option>`+
+  localData.map(v=>
+    `<option value="${v.idx}">${v.idx}</option>`
+  ).join('');
 
 } ////////////// bindData //////////////////
 
