@@ -3,7 +3,7 @@
 /// 뷰엑스 스토아를 이용한 변수 셋팅하기 ////
 // [뷰엑스 스토아 인스턴스를 생성한다!
 export default new Vuex.Store({
-  // 1. 데이터 셋팅구역 : state
+  // 1. 데이터 셋팅구역 : state ///////////
   state: {
     // 도시 데이터 셋업
     cityData: {
@@ -29,8 +29,10 @@ export default new Vuex.Store({
       },
     },
   },
-  // 2. 데이터 변경 메서드구역 : mutations
+
+  // 2. 데이터 변경 메서드구역 : mutations ////////
   mutations: {},
-  // 3. 비동기처리 메서드구역 : actions
+  
+  // 3. 비동기처리 메서드구역 : actions ///////////
   actions: {},
 }); /////////// Vues.Store /////////////
