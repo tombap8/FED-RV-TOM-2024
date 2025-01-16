@@ -26,6 +26,10 @@ Vue.component('main-area',{
     template: `
         <main>
             <img src="https://img.freepik.com/premium-vector/city-illustration_23-2147514701.jpg" alt="지역이미지" />
+            
+            <p>
+                도시소개에 오신것을 환영합니다!
+            </p>
         </main>
     `,
     // 데이타설정 : 컴포넌트는 객체리턴메서드로 해야함!
