@@ -58,5 +58,13 @@ Vue.component('info-area',{
 });
 
 
-
 // [2] 뷰 인스턴스 생성하기 ////////
+// 대상요소 : #app
+new Vue({
+    // 대상선정
+    el: "#app",
+    // 데이터
+    data: {},
+    // 메서드
+    methods: {},
+});
