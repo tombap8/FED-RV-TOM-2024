@@ -305,7 +305,7 @@ myFn.qs("#mobtn").onclick = () => {
   // 1. 입력데이터 유효성 검사 : try ~ catch사용!
   try {
     // trim() 앞뒤공백 제거 처리해야 공백만 넣기막음!
-    if (tit.value.trim() == "" || cont.value.trim() == "") {
+    if (tit2.value.trim() == "" || cont2.value.trim() == "") {
       throw "제목과 내용은 반드시 입력해야합니다!";
     }
   } catch (err) {
@@ -424,10 +424,14 @@ function setLS() {
     // ->>>> 썸타는 메서드 : some()
     locals.some(v=>{
       console.log('배열순회중!');
-      if(v.idx == this.upSeq) return true;
-    });
-
-
+      if(v.idx == this.upSeq){ 
+        // 데이터 업데이트
+        v.tit = tit2.value;
+        v.cont = cont2.value;
+        // 리턴 true 하면 some메서드 끝내기!
+        return true;
+      } /// if ///
+    }); /// some ///
   } /// else if ///
 
   // 3-3. 'delete'일때 데이터 삭제하기 ////
