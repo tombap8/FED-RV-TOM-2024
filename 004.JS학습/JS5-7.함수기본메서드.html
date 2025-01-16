@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS5-7. 함수 기본 메서드 : call() / apply() / bind()</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+      body {
+        background-image: linear-gradient(
+          45deg,
+          lightcoral,
+          lightgreen,
+          pink,
+          lightblue
+        );
+        background-attachment: fixed;
+        text-align: center;
+
+        font-family: "Jua", sans-serif;
+        padding-bottom: 100px;
+      }
+      h1 {
+        font-weight: normal;
+      }
+      .mainTit {
+        font-size: max(40px, 3vw);
+      }
+      .ex {
+        color: aqua;
+        -webkit-text-stroke: 0.5px #222;
+        text-shadow: 2px 2px 2px #000000c2;
+      }
+      .bindWrap {
+        display: flex;
+        justify-content: center;
+        gap: 0 100px;
+      }
+    </style>
+    <script type="module" src="./js/JS5-7.함수기본메서드.js"></script>
+  </head>
+  <body>
+    <h1 class="mainTit">JS5-7. 함수 기본 메서드 : call() / apply() / bind()</h1>
+
+    <!-- b요소 -->
+    <b class="iam" title="킬디스럽" id="빱빠바빱빠바"></b>
+
+    <h1>🎯 call(객체) / appply(객체) : 객체메서드로 구현</h1>
+    <h1 class="ex"></h1>
+    <h1 class="ex"></h1>
+    <hr />
+
+    <h1>
+      🎯 call(객체,추가변수) / appply(객체,[추가변수]) : 객체메서드로 구현
+    </h1>
+    <h1 class="ex"></h1>
+    <h1 class="ex"></h1>
+    <hr />
+
+    <h1>🎯 call(객체,추가변수) / appply(객체,[추가변수]) : 일반함수로 구현</h1>
+    <h1 class="ex"></h1>
+    <h1 class="ex"></h1>
+    <hr />
+
+    <h1>🎯 Math.max.appply(null,배열변수) 응용</h1>
+    <h1 class="ex"></h1>
+
+    <h1>🎯 bind() 사용법</h1>
+    <h1>합격자 명단발표</h1>
+    <div class="bindWrap">
+      <h1 class="ex"></h1>
+      <h1 class="ex"></h1>
+      <h1 class="ex"></h1>
+      <h1 class="ex"></h1>
+    </div>
+  </body>
+</html>
