@@ -255,8 +255,8 @@ myFn.qs("#sbtn").onclick = () => {
     return;
   } /// catch ///
 
-  // 로컬쓰 처리함수 호출!
-  setLS({ key: "minfo", opt: "add" });
+  // 로컬쓰 처리함수 호출! : call() 대리호출
+  setLS.call({ key: "minfo", opt: "add" });
 }; ///////////// click 이벤트 함수 ///////////////
 
 /////////////////////////////////////////////////
@@ -281,8 +281,8 @@ function setDelLink() {
       let delIdx = this.getAttribute("data-idx");
       console.log("지울순번:", delIdx);
 
-      // 2. 로컬쓰처리함수 호출
-      setLS({ key: "minfo", opt: "delete", delSeq: delIdx });
+      // 2. 로컬쓰처리함수 호출 : call() 대리호출!
+      setLS.call({ key: "minfo", opt: "delete", delSeq: delIdx });
     }); //// addEvt ////
   }); ////// forEach /////
 } ////// setDelLink 함수 ////////////////////////////
@@ -292,17 +292,20 @@ function setDelLink() {
   함수명 : setLS
   기능 : 로컬스토리지 데이터를 처리하는 함수
 *************************************************/
-function setLS(obj) {
-  // obj - 단 하나의 객체전달변수!
+function setLS() {
   // 전달변수를 하나만 받고 그값을 객체로 정의한다!
   // -> 이렇게 하면 확장성이 좋아진다!
   // -> 예컨데 지울때는 지울순번을 더 보내야한다! 이럴때 좋음!
+  // ->>> 전달변수 없이 객체를 받는 방법이 있음!!!
+  // 바로 call(객체) / apply(객체) 로 대리호출해줌!
+  // 받을때는 this.속성명 으로 받아준다!!!
 
   // 아래 속성명정의! /////////
-  // obj = {key:값, opt:값, delIdx:값}
-  // obj.key - 로컬스토리지 키명
-  // obj.opt - 처리옵션(add/delete/update)
-  // obj.delSeq - 지울순번
+  // {key:값, opt:값, delIdx:값}
+  // -> call(객체)로 호출하면 this로 받아라!
+  // this.key - 로컬스토리지 키명
+  // this.opt - 처리옵션(add/delete/update)
+  // this.delSeq - 지울순번
   // -> 일반적으로 데이터 처리는 4가지를 말한다!
   // ->>> 크루드!(CRUD) -> Create/Read/Update/Delete
 
@@ -310,10 +313,10 @@ function setLS(obj) {
   // 로컬쓰읽기->로컬쓰파싱->데이터변경->로컬쓰문자변경후 업데이트!
 
   // 1. 전달값 및 호출확인
-  console.log("로컬쓰처리!", obj.key);
+  console.log("로컬쓰처리!", this.key);
 
   // 2. 로컬쓰 minfo 데이터 읽어오기 : 문자형 데이터임!
-  let locals = localStorage.getItem(obj.key);
+  let locals = localStorage.getItem(this.key);
 
   // 3. 로컬쓰 minfo 파싱후 데이터 처리하기
   locals = JSON.parse(locals);
@@ -323,7 +326,7 @@ function setLS(obj) {
   console.log('locals.map(v=>v.idx)',locals.map(v=>v.idx));
 
   // 3-1. 'add'일때 데이터 추가하기 ////
-  if (obj.opt == "add") {
+  if (this.opt == "add") {
     locals.push({
       // 고유번호는 데이터 중 최대값에 1을 더해야함
       // Math.max(1,50,24) -> 결과는 50!
@@ -336,17 +339,17 @@ function setLS(obj) {
   } /// if ///
 
   // 3-2. 'update'일때 데이터 수정하기 ////
-  else if (obj.opt == "update") {
+  else if (this.opt == "update") {
   } /// else if ///
 
   // 3-3. 'delete'일때 데이터 삭제하기 ////
-  else if (obj.opt == "delete") {
+  else if (this.opt == "delete") {
     // 삭제처리 배열함수 : splice(지울순번,1)
-    locals.splice(obj.delSeq, 1);
+    locals.splice(this.delSeq, 1);
   } /// else if ///
 
   // 4. 로컬쓰 변경된 데이터 다시 넣기 : 넣을땐 문자화(stringify)
-  localStorage.setItem(obj.key, JSON.stringify(locals));
+  localStorage.setItem(this.key, JSON.stringify(locals));
 
   // 5. 다시 데이터 바인딩하기
   bindData();
