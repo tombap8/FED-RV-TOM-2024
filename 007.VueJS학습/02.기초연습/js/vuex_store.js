@@ -23,7 +23,11 @@ Vue.component('top-area',{
 // (2) 메인영역 컴포넌트
 Vue.component('main-area',{
     // 템플릿설정
-    template: ``,
+    template: `
+        <main>
+            <img src="https://img.freepik.com/premium-vector/city-illustration_23-2147514701.jpg" alt="지역이미지" />
+        </main>
+    `,
     // 데이타설정 : 컴포넌트는 객체리턴메서드로 해야함!
     data(){
         return{};
