@@ -83,7 +83,11 @@ const btnLocal = myFn.qsa(".local-box button");
 // -> 추가대상 : 수정하기 선택박스요소 - select#sel
 const selBox = myFn.qs('select#sel');
 
-console.log("대상:", btnLocal, selBox);
+// -> 추가대상 : 수정항목 제목/내용
+const tit2 = myFn.qs('#tit2');
+const cont2 = myFn.qs('#cont2');
+
+console.log("대상:", btnLocal, selBox, tit2, cont2);
 
 // 2. 버튼에 이벤트 설정하기
 btnLocal.forEach((ele) => myFn.addEvt(ele, "click", localsFn));
@@ -229,10 +233,12 @@ function bindData() {
 
 } ////////////// bindData //////////////////
 
+//////////////////////////////////////
 // 수정항목 선택박스 변경시 함수구현 ////
+//////////////////////////////////////
 myFn.addEvt(selBox,'change',function(){
   console.log('선택변경:',this.value);
-});
+}); ///////// change 이벤트함수 ////////
 
 
 /////////////////////////////////////////////////
