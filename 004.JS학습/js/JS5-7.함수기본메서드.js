@@ -96,7 +96,8 @@ function 노래() {
   const exBox = document.querySelectorAll(".ex");
 
   // 1. 영화/드라마 주연 출력하기
-  
+ exBox[0].innerText = "범죄도시 : " + 인간.성명.call(사람1);
+ exBox[1].innerText = "수사반장 : " + 인간.성명.call(사람2);
 
   // 2. 나라 동물 찍기
   
