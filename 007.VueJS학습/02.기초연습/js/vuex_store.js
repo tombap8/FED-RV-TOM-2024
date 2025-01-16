@@ -122,4 +122,37 @@ new Vue({
       // txt:store.state.cityData.처음.설명
     });
   }, /// created /////
+  // 모든 DOM관련 코딩은 mounted메서드 구역에서 한다!!!
+  mounted(){
+    // 1. 메뉴 클릭시 클릭된 li의 a요소는 .on주기
+    // 나머지는 .on빼기
+    $('.gnb a').click(function(){
+        // 첫번째 li는 제외함!
+        if($(this).parent().index() == 0){ 
+            // 혹시 클릭된 클래스 적용요소 모두 제거
+            $('.gnb a').removeClass('on');
+            // 돌아가!(나감!)
+            return;
+        }
+        // -> 선택자.index() 순번을 리턴함!
+
+        // 클릭된 a에 클래스 넣기(나머지 빼기)
+        $(this).addClass('on')
+        .parent().siblings().find('a').removeClass('on');
+
+        // showBox함수 호출하여 박스 서서히 보이기
+        showBox();
+    });
+
+    // 2. 박스 처음에 안보였다가 서서히 나타나기
+    function showBox(){
+        // 이미지
+        $('main img').css({opacity:0}).delay(200).fadeTo(500,1);
+        // 글자박스
+        $('main p').css({opacity:0}).delay(400).fadeTo(500,1);
+        // fadeTo(시간,오파,이징,함수)
+
+    } ///////// showBox함수 //////////////
+
+  }, /////// mounted ////////////////////////
 });
