@@ -121,6 +121,11 @@ new Vue({
       // url:store.state.cityData.처음.이미지,
       // txt:store.state.cityData.처음.설명
     });
+
+    // 여기서 스토아 actions 메서드를 호출함!
+    // 테스트 호출! -> dispatch('메서드명',전달값)
+    store.dispatch('myAct','데이터 좀 불러줘~!');
+
   }, /// created /////
   // 모든 DOM관련 코딩은 mounted메서드 구역에서 한다!!!
   mounted(){
