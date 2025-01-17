@@ -52,11 +52,21 @@
                <!-- v-if의 결과가 true일때만 출력된다! -->
                 <!-- menu값의 데이터형이 'object'일때 하위메뉴출력 -->
 
-              <ol class="smenu" v-if="typeof(val.menu)=='object'">
+              <ol class="smenu" 
+                v-if="typeof(val.menu)=='object'">
+
                 <li v-for="(v,k) in val.menu">
 
                   <!-- menu 객체값의 키명이 서브메뉴다! -->
-                  <a href="#"> {{k}} </a>
+
+                  <!-- <a href="#"> {{k}} </a> -->
+
+                  <router-link v-bind:to='
+                    {
+                      name: "umsik",
+                      params: { item: "똠양꿍", cls: "ddom" },
+                    }
+                  '> {{k}} </router-link>
 
                 </li>
               </ol>
