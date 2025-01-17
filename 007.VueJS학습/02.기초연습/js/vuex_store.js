@@ -45,6 +45,9 @@ const routes = [
 const router = new VueRouter({
   routes // 위에서 셋팅된 라우트 셋팅 배열변수
 });
+// [ 중요!!! ]
+// 뷰인스턴스에 라우터를 등록해 줘야만 사용할 수 있다!
+// -> new Vue({el:"",router,methods:{}})
 
 // [1] 전역 컴포넌트 만들기 ///////
 // (1) 상단영역 컴포넌트
