@@ -5,6 +5,18 @@ import store from "./store.js";
 // default로 내보내기 했지만 이름은 store로 정해짐!
 // -> 뷰인스턴스에서 store를 사용하도록 등록필수!!!
 
+// [ 라우터 옵션 셋팅하기 ] ///
+// (1) 라우터 출력 템플릿 만들기 ///
+// {template:태그} -> 템플릿이름의 객체로 생성!
+const Trip = {
+  template:
+  `<div class="trip router">World Trip</div>`
+}
+const Foods = {
+  template:
+  `<div class="foods router">World Foods</div>`
+}
+
 
 // [ 라우터 옵션 연결하여 인스턴스 생성하기!!!! ] ///
 const router = new VueRouter();
