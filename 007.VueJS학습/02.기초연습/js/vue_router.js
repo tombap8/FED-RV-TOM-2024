@@ -14,7 +14,7 @@ import router from "./router.js";
     -> 하위메뉴가 있으면 객체로 셋팅!
 *****************************************/
 const linkSetData = {
-  세계여행사: {
+  세계여행지: {
     link: { path: "/trip" },
     menu: "",
   },
@@ -42,6 +42,14 @@ const linkSetData = {
         params: { item: "똠양꿍", cls: "ddom" },
       },
     },
+  },
+  세계놀이: {
+    link: { path: "/game" },
+    menu: "",
+  },
+  회사소개: {
+    link: { path: "/corp" },
+    menu: "",
   },
 };
 

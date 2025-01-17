@@ -27,7 +27,13 @@
       <!-- 1.상단영역 -->
       <header class="top">
         <div class="gnb">
-          
+          <ul>
+            <!-- v-for="(객체값,객체키) in 객체변수" -->
+            <!-- v-for="(배열값,배열순번) in 배열변수" -->
+            <li v-for="(val,key) in linkData">
+              <a href="#"> {{key}} </a>
+            </li>
+          </ul>
         </div>
       </header>
       <!-- 2.메인영역 -->
