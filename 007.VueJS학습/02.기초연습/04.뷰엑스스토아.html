@@ -32,7 +32,37 @@
       <!-- 2. 메인영역 컴포넌트 -->
       <main-area></main-area>
       <!-- 3. 하단영역 컴포넌트 -->
-      <info-area></info-area>      
+      <info-area></info-area>
+      <!-- 4. 하단 라우터 파트 -->
+      <p class="router-part asso">
+        <rounter-link 
+          to="/trip" 
+          tag="button"
+        > 세계여행사 </rounter-link>
+        <rounter-link
+          to="/foods"
+        > 세계먹거리 </rounter-link>
+        <!-- 
+          [ 라우터 링크 셋팅 ]
+          router-link 라우터 컴포넌트요소의
+          속성 to의 값으로 URL을 지정한다!
+          - 값을 지정할때 '/'슬래쉬로 시작하면
+          현재페이지(Root)를 의미함!
+
+          이렇게 생성된 실제 요소는 기본적으로 a요소임!
+          만약 a요소가 아닌 다른 요소를 쓰고 싶으면
+          tag속성으로 변경함!
+          위에서 첫번째 라우터링크에 tag="button"을
+          사용하여 버튼태그로 출력된다!
+        -->
+          <router-view></router-view>
+          <!-- 
+            [ 라우터에서 연결한 컴포넌트(템플릿) 보일곳 ]
+            router-view 를 쓴 자리에 컴포넌트 소스코드가
+            나타난다! 컴포넌트를 생성하고 기존 컴포넌트는
+            소멸시킨다!
+          -->
+      </p>
     </div>
   </body>
 </html>
