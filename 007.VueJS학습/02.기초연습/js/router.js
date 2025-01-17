@@ -30,7 +30,12 @@ const Foods = {
 
 const Game = {
   template: `
-    <div class="game router">World Game</div>`,
+  <div v-bind:class="
+    'game router ' + this.$route.params.cls
+  ">
+    World Game {{ this.$route.params.item }}
+  </div>
+  `,
 };
 
 const Corp = {
@@ -98,6 +103,16 @@ export default new VueRouter({
       // (2) 연결할 컴포넌트 설정 : component
       // -> 외부의 변수로 셋팅할 수 있고 직접 쓸 수 있음
       component: Foods,
+    },
+    {
+      // (1) 하위메뉴를 위한 구분명 필수!
+      name: "my-game",
+      // (2) 경로설정 : path -> 경로뒤에 콜론(:)을쓰고 파라미터변수 넣는다!
+      // -> router-link의 to 속성값과 같은값으로 셋팅!
+      path: "/game:item",
+      // (2) 연결할 컴포넌트 설정 : component
+      // -> 외부의 변수로 셋팅할 수 있고 직접 쓸 수 있음
+      component: Game,
     },
   ],
 }); ///////// VueRouter ////////////////
