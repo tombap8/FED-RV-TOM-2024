@@ -8,18 +8,43 @@ import store from "./store.js";
 // [ 라우터 옵션 셋팅하기 ] ///
 // (1) 라우터 출력 템플릿 만들기 ///
 // {template:태그} -> 템플릿이름의 객체로 생성!
+// 변수를 대문자로 시작한 이유는 컴포넌트이기 때문!
 const Trip = {
-  template:
-  `<div class="trip router">World Trip</div>`
-}
-const Foods = {
-  template:
-  `<div class="foods router">World Foods</div>`
-}
+  template: `<div class="trip router">World Trip</div>`,
+};
 
+const Foods = {
+  template: `<div class="foods router">World Foods</div>`,
+};
+
+// (2) 라우터 연결옵션 셋팅하기 ////
+// const routes = [{},{}] 형식에 주의!
+// ((셋팅시 제한사항))
+// 1) 라우터 인스턴스에 routes라는 이름으로만 셋팅해야함!
+// 2) 배열 객체형식을 지켜야하며 이것을 직접 라우터 인스턴스에 셋팅못함!
+const routes = [
+  {
+    // (1) 경로설정 : path
+    // -> router-link의 to 속성값과 같은값으로 셋팅!
+    path: "/trip",
+    // (2) 연결할 컴포넌트 설정 : component
+    // -> 외부의 변수로 셋팅할 수 있고 직접 쓸 수 있음
+    component: Trip,
+  },
+  {
+    // (1) 경로설정 : path
+    // -> router-link의 to 속성값과 같은값으로 셋팅!
+    path: "/foods",
+    // (2) 연결할 컴포넌트 설정 : component
+    // -> 외부의 변수로 셋팅할 수 있고 직접 쓸 수 있음
+    component: Foods,
+  },
+];
 
 // [ 라우터 옵션 연결하여 인스턴스 생성하기!!!! ] ///
-const router = new VueRouter();
+const router = new VueRouter({
+  routes // 위에서 셋팅된 라우트 셋팅 배열변수
+});
 
 // [1] 전역 컴포넌트 만들기 ///////
 // (1) 상단영역 컴포넌트
@@ -142,40 +167,36 @@ new Vue({
 
     // 여기서 스토아 actions 메서드를 호출함!
     // 테스트 호출! -> dispatch('메서드명',전달값)
-    store.dispatch('myAct','데이터 좀 불러줘~!');
-
+    store.dispatch("myAct", "데이터 좀 불러줘~!");
   }, /// created /////
   // 모든 DOM관련 코딩은 mounted메서드 구역에서 한다!!!
-  mounted(){
+  mounted() {
     // 1. 메뉴 클릭시 클릭된 li의 a요소는 .on주기
     // 나머지는 .on빼기
-    $('.gnb a').click(function(){
-        // 첫번째 li는 제외함!
-        if($(this).parent().index() == 0){ 
-            // 혹시 클릭된 클래스 적용요소 모두 제거
-            $('.gnb a').removeClass('on');
-            // 돌아가!(나감!)
-            return;
-        }
-        // -> 선택자.index() 순번을 리턴함!
+    $(".gnb a").click(function () {
+      // 첫번째 li는 제외함!
+      if ($(this).parent().index() == 0) {
+        // 혹시 클릭된 클래스 적용요소 모두 제거
+        $(".gnb a").removeClass("on");
+        // 돌아가!(나감!)
+        return;
+      }
+      // -> 선택자.index() 순번을 리턴함!
 
-        // 클릭된 a에 클래스 넣기(나머지 빼기)
-        $(this).addClass('on')
-        .parent().siblings().find('a').removeClass('on');
+      // 클릭된 a에 클래스 넣기(나머지 빼기)
+      $(this).addClass("on").parent().siblings().find("a").removeClass("on");
 
-        // showBox함수 호출하여 박스 서서히 보이기
-        showBox();
+      // showBox함수 호출하여 박스 서서히 보이기
+      showBox();
     });
 
     // 2. 박스 처음에 안보였다가 서서히 나타나기
-    function showBox(){
-        // 이미지
-        $('main img').css({opacity:0}).delay(200).fadeTo(500,1);
-        // 글자박스
-        $('main p').css({opacity:0}).delay(400).fadeTo(500,1);
-        // fadeTo(시간,오파,이징,함수)
-
+    function showBox() {
+      // 이미지
+      $("main img").css({ opacity: 0 }).delay(200).fadeTo(500, 1);
+      // 글자박스
+      $("main p").css({ opacity: 0 }).delay(400).fadeTo(500, 1);
+      // fadeTo(시간,오파,이징,함수)
     } ///////// showBox함수 //////////////
-
   }, /////// mounted ////////////////////////
 });
