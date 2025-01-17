@@ -67,6 +67,18 @@
 .trip{
     background-image: url(https://as2.ftcdn.net/v2/jpg/03/73/40/29/1000_F_373402961_zHwVILZu4UNblYegPKkKTsyiuHdtRscG.jpg);
 }
+.game{
+    background-image: url(https://c.files.bbci.co.uk/E909/production/_112375695_crucible976.jpg);
+}
+.game.nikke{
+    background-image: url(https://sg-nikke.playerinfinite.com/act/wand/bbb08e11-180a-43e0-bc65-78c330a30978.webp);
+}
+.game.guardians{
+    background-image: url(http://landing.bomgames.com/kob/a/images/bg_01.jpg);
+}
+.corp{
+    background-image: url(https://images.fosterwebmarketing.com/1018/FAQ%20Corporation.jpg);
+}
 .foods{
     background-image: url(https://cdn.georgeinstitute.org/sites/default/files/styles/width1920_fallback/public/2020-10/world-food-day-2020.png);
 }
