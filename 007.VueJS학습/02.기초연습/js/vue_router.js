@@ -47,7 +47,16 @@ const linkSetData = {
   },
   세계놀이: {
     link: { path: "/game" },
-    menu: "",
+    menu: {
+        니케: {
+          name: "my-game",
+          params: { item: "니케", cls: "nikke" },
+        },
+        가디언: {
+          name: "my-game",
+          params: { item: "가디언", cls: "guardians" },
+        },
+      },
   },
   회사소개: {
     link: { path: "/corp" },
