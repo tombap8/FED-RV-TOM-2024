@@ -26,54 +26,8 @@
     <div id="app">
       <!-- 1.상단영역 -->
       <header class="top">
-        <div class="gnb">
-          <ul>
-
-            <!-- v-for="(객체값,객체키) in 객체변수" -->
-            <!-- v-for="(배열값,배열순번) in 배열변수" -->
-
-            <li v-for="(val,key) in linkData">
-
-              <!-- linkData 객체의 키명이 상위 메뉴다! -->
-
-              <!-- <a href="#"> {{key}} </a> -->
-
-              <!-- 일반속성 to='경로값'
-              <router-link to="/foods"> {{key}} </router-link> -->
-
-              <!-- 바인딩속성 v-bind:to='{path:"경로값"}'
-              <router-link v-bind:to='{ path: "/corp" }'> {{key}} </router-link> -->
-
-              <!-- {{val.link}} -->
-              <router-link v-bind:to='val.link'> {{key}} </router-link>
-
-              <!-- {{typeof(val.menu)}} -->
-               <!-- v-if="typeof(val.menu)=='object'" -->
-               <!-- v-if의 결과가 true일때만 출력된다! -->
-                <!-- menu값의 데이터형이 'object'일때 하위메뉴출력 -->
-
-              <ol class="smenu" 
-                v-if="typeof(val.menu)=='object'">
-
-                <li v-for="(v,k) in val.menu">
-
-                  <!-- menu 객체값의 키명이 서브메뉴다! -->
-
-                  <!-- <a href="#"> {{k}} </a> -->
-
-                  <!-- <router-link v-bind:to='{
-                    name: "umsik",
-                    params: { item: "똠양꿍", cls: "ddom" },
-                  }'> {{k}} </router-link> -->
-
-                  <!-- {{v}} v는 하위메뉴 데이터의 객체값임! -->
-                  <router-link v-bind:to='v'> {{k}} </router-link>
-
-                </li>
-              </ol>
-            </li>
-          </ul>
-        </div>
+        <!-- GNB 컴포넌트넣기 -->
+         <gnb-comp></gnb-comp>
       </header>
       <!-- 2.메인영역 -->
       <main class="cont">
