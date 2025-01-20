@@ -27,7 +27,15 @@
       <!-- 1.상단영역 -->
       <header class="top">
         <!-- GNB 컴포넌트넣기 -->
-         <gnb-comp></gnb-comp>
+         <gnb-comp v-bind:link-data="linkData"></gnb-comp>
+         <!-- 
+          v-bind:link-data="linkData"
+          부모영역의 data변수인 linkData를
+          자식 컴포넌트 영역으로 프롭스 다운시키기위해
+          새로운 속성인 link-data로 바인딩한다!
+          -> 왜 이름이 이것인가? linkData라는 이름으로
+          소스 그대로 사용키 위해서다! 알겠는가?
+         -->
       </header>
       <!-- 2.메인영역 -->
       <main class="cont">
