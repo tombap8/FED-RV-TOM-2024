@@ -18,6 +18,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   /* 가로중앙이동 */
+  z-index: 9999;
   background-color: #fff;
   border-radius: 40px;
 }
@@ -64,6 +65,21 @@ body {
 .pg {
   height: 100vh;
   outline: 1px solid blue;
+}
+.pg-first{
+    background: url(../images/dance/pg1.jpg) no-repeat fixed center/cover;
+}
+.pg-second{
+    background: url(../images/dance/pg2.jpg) no-repeat fixed center/cover;
+}
+.pg-third{
+    background: url(../images/dance/pg3.webp) no-repeat fixed top/cover;
+}
+.pg-fourth{
+    background: url(../images/dance/pg4.jpg) no-repeat fixed center/cover;
+}
+.pg-fifth{
+    background: url(../images/dance/pg5.jpg) no-repeat fixed center/cover;
 }
 /* 타겟박스 */
 .tpg {
