@@ -79,5 +79,11 @@ new Vue({
   methods: {},
   // 5. 라이프 사이클 메서드 :
   // mounted -> DOM 랜더링
-  mounted() {},
+  mounted() {
+    // DOM구성후 첫페이지 라우터 설정하기 ///
+    this.$router.push('/trip');
+    // this 는 현재 뷰인스턴스
+    // $router 는 라우터 전체객체
+    // push(라우터경로) -> 강제로 경로이동하기 메서드
+  },
 });
