@@ -48,7 +48,7 @@ const store = new Vuex.Store({
           // 엑시오스 결과는 항상 data라는 속성에 담긴다!
           // 데이터 셋팅 뮤테이션스 setData()를 호출함!
           this.commit('setData', result.data);
-        }).catch(console.error);
+        }).catch(err=>console.log(err));
         // -> 파일경로는 항상 JS파일이 html파일에
         // 직접 삽입되어 실행하므로 항상 html위치에서
         // 경로를 설정해야 한다!
@@ -65,7 +65,7 @@ const store = new Vuex.Store({
         // 변수 result는 제이슨 파일 객체임!
 
         // [엑시오스 에러처리]
-        // then().catch(console.error);
+        // then().catch(err=>console.log(err));
         // then()메서드 뒤에 catch()메서드를 이어씀
         // JS의 try/catch구문처리와 유사함!
 
