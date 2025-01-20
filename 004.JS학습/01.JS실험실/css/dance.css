@@ -118,6 +118,7 @@ body {
 .slidePg ul li {
   flex: 1;
   text-align: center;
+  transition: 0.4s ease-out;
 }
 
 .slidePg ul li img {
