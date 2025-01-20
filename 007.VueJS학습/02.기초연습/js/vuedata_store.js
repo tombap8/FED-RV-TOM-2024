@@ -44,7 +44,10 @@ const store = new Vuex.Store({
       getData() {
         axios.get('./js/goods.json')
         .then(result=>{
-          console.log("엑시오스결과:",result);
+          console.log("엑시오스결과:",result,result.data);
+          // 엑시오스 결과는 항상 data라는 속성에 담긴다!
+          // 데이터 셋팅 뮤테이션스 setData()를 호출함!
+          this.commit('setData', result.data);
         });
         // -> 파일경로는 항상 JS파일이 html파일에
         // 직접 삽입되어 실행하므로 항상 html위치에서

@@ -19,9 +19,17 @@ import store from "./vuedata_store.js";
 Vue.component("my-comp", {
   template: `
         <div class="grid">
-            <div v-for="(v,i) in $store.state.items">
+            <div v-for="
+            (v,i) in $store.state.items         
+            
+            /* 스토어 데이터 items를 직접 연결함
+            따라서 이값이 업데이트되면 리스트도
+            리랜더링됨! */
+
+            ">
                 <img 
                 v-bind:src="
+                // 이미지번호 50초과시 1번이미지 출력
                     './images/' +
                     (v.idx > 50 ? 1 : v.idx) +
                     '.jpg'
@@ -46,7 +54,7 @@ new Vue({
   el: "#app",
   store, // 뷰엑스 스토어 등록필수!
   data: {
-    items: {}, // json데이터 담을 변수
+    items: {}, // json데이터 담을 변수(여기서안씀!)
     myt: "나야나!",
   },
   // 뷰인스턴스 생성직후(가상돔/돔 생성전)
