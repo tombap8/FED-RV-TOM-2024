@@ -30,13 +30,17 @@
     <!-- 제이쿼리 UI CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
 
+    <!-- 메인뷰 JS -->
+    <script type="module" src="./js/main_vue.js"></script>
+
     <!-- 메인 JS -->
     <script type="module" src="./js/main.js"></script>
   </head>
   <body>
     <div id="vogue-app">
       <!-- 1. 상단영역 -->
-      <div id="top-area"></div>
+      <top-comp></top-comp>
+      
       <!-- 2. 배너영역 -->
       <div id="ban-area">
         <section class="ban-area">

@@ -2,7 +2,9 @@
 
 // 1. 상단컴포넌트
 const TopComp = Vue.component('top-comp',{
-    template:`    
+    // 1-1. 템플릿코드설정 /////
+    template:`  
+    <div id="top-area">
       <header class="top-area inbox">
         <!-- 1-1. 로고박스 -->
         <div class="logo">
@@ -15,39 +17,31 @@ const TopComp = Vue.component('top-comp',{
         <!-- 1-2. 메뉴박스 -->
         <nav class="gnb">
           <ul>
-            <li>
-              <a href="#">FASHION</a>
-            </li>
-            <li>
-              <a href="#">BEAUTY</a>
-            </li>
-            <li>
-              <a href="#">LIFESTYLE</a>
-            </li>
-            <li>
-              <a href="#">CULTURE</a>
-            </li>
-            <li>
-              <a href="#">VIDEO</a>
+            <li v-for="v in this.gnbMenu">
+              <a href="#">{{v}}</a>
             </li>
           </ul>
         </nav>
         <!-- 1-3. 요약메뉴박스 -->
         <nav class="sum-menu">
           <ol>
-            <li>
-              <a href="#">KOREA</a>
-            </li>
-            <li>
-              <a href="#">구독하기</a>
-            </li>
-            <li>
-              <a href="#">≡</a>
+            <li v-for="v in this.sumMenu">
+              <a href="#">{{v}}</a>
             </li>
           </ol>
         </nav>
-      </header>    
-    `
+      </header>      
+    </div>   
+    `,
+    // 1-2. 데이터 셋업 리턴 메서드 /////
+    data(){
+        return{
+            // (1) GNB 메뉴 데이터
+            gnbMenu:['FASHION','BEAUTY','LIFESTYLE','CULTURE','VIDEO'],
+            // (2) 요약 메뉴 데이터
+            sumMenu:['KOREA','구독하기','≡'],
+        };
+    },
 });
 // 2. 하단컴포넌트
 const BottomComp = Vue.component('bottom-comp',{});
