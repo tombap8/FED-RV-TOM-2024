@@ -42,10 +42,13 @@ const store = new Vuex.Store({
     actions: {
       // 제이슨 데이터 로드하기 메서드
       getData() {
-        axios.get('./goods.json')
+        axios.get('./js/goods.json')
         .then(result=>{
           console.log("엑시오스결과:",result);
         });
+        // -> 파일경로는 항상 JS파일이 html파일에
+        // 직접 삽입되어 실행하므로 항상 html위치에서
+        // 경로를 설정해야 한다!
 
 
         // 여기서 엑시오스 라이브러리를 사용하여
