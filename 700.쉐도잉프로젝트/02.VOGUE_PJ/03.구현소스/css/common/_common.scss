@@ -90,20 +90,25 @@
 }
 
 // 2. 하단영역 ////////////////////
+// 하단겉박스
+#footer-area{
+    background-color: #000;
+}
 // 하단속박스
 .footer-area {
   /* 최소높이 */
-  min-height: 285px;
-  background-color: #000;
-  padding: 70px;
+  min-height: 298px;
+  padding: 80px 0 78px;
   // 박스크기유지
   box-sizing: border-box;
-  /* 글씨체 공통 */
-  font-family: "Roboto", nbg;
 
   // 3-1. 하단로고
   .blogo {
     text-align: center;
+    margin-bottom: 10px;
+  }
+  .blogo img{
+    height: 56px;
   }
   // 3-2. 회사주소
   .addr {
@@ -127,8 +132,9 @@
 
     // 하위 a요소
     a {
-      color: #747474;
+      color: #fff;
       font-size: 13px;
+      font-weight: bold;
     }
 
     // 마지막li a만 두꺼운글자
