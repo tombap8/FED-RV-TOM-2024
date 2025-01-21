@@ -127,6 +127,7 @@
         const 처음약속 = new Promise(
           function(성공함수,실패함수){
             let 통과 = true;
+            // let 통과 = false;
             // 성공시 - true, 실패시 - false
             if(통과){
               성공함수("성공했음!!!ㅎㅎㅎ");
@@ -153,10 +154,18 @@
         // 2. 시간이 걸리는 코드를 약속객체에 넣고 처리하기
         // new Promise(function(변수){코드})
         // -> 하나의 변수만 쓰면 성공처리함수다!
-        const 약속기다림 = new Promise();
+        const 약속기다림 = new Promise((scFn)=>{
+          // 시간이 걸리는 코드
+          setTimeout(()=>{
+            scFn("오마이갓김침!!!");
+          },3000);
+        });
 
           // 성공시 실행 코드 then()메서드
-          약속기다림.then(); ///// then 메서드 /////
+          약속기다림.then((res)=>{ // res-성공시 리턴결과값
+            화면뿌려("와우~!",res);
+            화면뿌려(`<img src="https://ojsfile.ohmynews.com/STD_IMG_FILE/2014/0103/IE001663873_STD.jpg" style="height:70vh" alt="약속">`);
+          }); ///// then 메서드 /////
 
 
         // 샘플 제이슨 (사이트제공)
