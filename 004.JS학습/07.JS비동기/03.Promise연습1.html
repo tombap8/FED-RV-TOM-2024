@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS비동기 : 3. 프라미스 연습1</title>
+    <script>
+      function 화면뿌려(이거) {
+        document.querySelector("#show").innerHTML += 이거 + "<br>";
+      }
+
+      function 킬링타임() {
+        let d = new Date();
+        document.querySelector("#time").innerHTML =
+          d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+      }
+
+      /************************************************** 
+      [ 프라미스 체이닝 ]
+      - 프라미스로 생성코드를 담고 then메서드로 사용코드를 
+      실행시 연속해서 생성코드가 이어질 경우 다음 then메서드를 
+      체이닝하여 연속 사용할 수 있다! 
+      이때 프라미스로 생성코드를 리턴해야 기다린 후 
+      다음 then메서드를 호출하여 원하는 기다림효과를 볼 수 있다!
+
+      ((사용예))
+        프라미스변수
+        .then(()=>return 프라미스)
+        .then(()=>return 프라미스)
+        .then(()=>마지막실행코드) 
+
+      _________________________________________________
+
+      [ 프라미스 병렬호출 ]
+      - 프라미스는 병렬로 then메서드 호출이 가능하다!
+
+      ((사용예))
+        프라미스변수
+        .then(()=>실행코드1) 
+        프라미스변수
+        .then(()=>실행코드2) 
+
+      -> 병렬호출은 프라미스 체이닝으로 해도 동일함!
+      ->>> then 메서드에 return코드로 프라미스를 쓰지 않으면
+      모두 순서대로 프라미스 호출 후 바로 실행됨!
+
+      ((사용예))
+        프라미스변수
+        .then(()=>실행코드1) 
+        .then(()=>실행코드2) 
+
+    **************************************************/
+
+      // 프라미스로 실행 제어하기 ///////////
+      // 프라미스 객체 생성시 함수내부 코드는 바로 실행됨!
+      const myPromise = new Promise(); /////////// myPromise ////////////
+
+      // 프라미스 후에 실행할 코드는 then() 메서드에 연결한다!
+      myPromise
+        .then()
+        // 프라미스 체이닝(then메서드를 이어붙임!)
+        // -> 개별적으로 프라미스에 붙여사용할 것을
+        // 더 쉽게 이어붙이는 방법의 코딩임!
+        // myPromise.then(() => {
+        .then()
+        .then();
+
+      // 일정시간 후 함수실행 -> 비동기함수 호출!
+      // setTimeout(() => setInterval(킬링타임, 1000), 6000);
+      // setTimeout(() => {
+      //   화면뿌려(`킬링타임<div id="time" style="font-size:5vh"></div>`);
+      // }, 5000);
+      // setTimeout(() => {
+      //   화면뿌려(
+      //     `<img src="https://images.khan.co.kr/article/2023/03/03/news-p.v1.20230303.139d5a1324fd43e9b750689a1c57af4e_P1.jpg" style="height:70vh" alt="길복순">`
+      //   );
+      // }, 4000);
+      // setTimeout(() => {
+      //   화면뿌려("나는 전도연이다!");
+      // }, 2000);
+    </script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap");
+      body {
+        background-image: linear-gradient(to bottom, #494949, gray);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        text-align: center;
+      }
+      #show {
+        font-family: "Nanum Brush Script", cursive;
+        font-size: 5vw;
+        background-image: linear-gradient(to bottom, red, orange, pink, aqua);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-repeat: no-repeat;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="show"></div>
+  </body>
+</html>
