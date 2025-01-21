@@ -213,14 +213,14 @@
             // JSON.parse()로 변환해 준다!
             let res = JSON.parse(v);
             console.log("성공!",res);
-            // 화면뿌려(`
-            //   <h2>220순번 전송데이터찍기</h2>
-            //   <ol>
-            //     <li>이름 : ${res[220].name}</li>
-            //     <li>이메일 : ${res[220].email}</li>
-            //     <li>소개 : ${res[220].body}</li>
-            //   </ol>
-            // `);
+            화면뿌려(`
+              <h2>220순번 전송데이터찍기</h2>
+              <ol>
+                <li>이름 : ${res[220].name}</li>
+                <li>이메일 : ${res[220].email}</li>
+                <li>소개 : ${res[220].body}</li>
+              </ol>
+            `);
           },
           // 실패시함수
           (v)=>{
