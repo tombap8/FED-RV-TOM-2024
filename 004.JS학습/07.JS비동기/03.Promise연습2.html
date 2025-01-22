@@ -6,62 +6,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS비동기 : 3. Promise 연습2</title>
     <script>
-        
       function 화면뿌려(이거) {
         document.querySelector("#show").innerHTML += 이거 + "<br>";
       }
 
       ////////// 로드구역 //////////////
       window.addEventListener("load", () => {
-
         // 이미지 정보 데이터 사이트
         // https://picsum.photos/v2/list/
 
-        const myPromise = new Promise(
-          (scFn)=>{ 
-            // (1) 비동기 파일 호출을 위한 객체생성
-            const myAjax = new XMLHttpRequest();
+        const myPromise = new Promise((scFn) => {
+          // (1) 비동기 파일 호출을 위한 객체생성
+          const myAjax = new XMLHttpRequest();
 
-            // (2) 비동기 전송파일 열기 ///
-            myAjax.open(
-              "GET",
-              "https://picsum.photos/v2/list/");
+          // (2) 비동기 전송파일 열기 ///
+          myAjax.open("GET", "https://picsum.photos/v2/list/");
 
-            // (3) 비동기 전송파일 로드하기 ///
-            myAjax.onload = () => {
-              console.log(myAjax.response);
-              if(myAjax.status == 200) {
-                // then메서드 처리를 위한 성공함수호출!
-                scFn(myAjax.response);
-              } /// if ///
-              else{
-                console.log('전송실패!');
-              }
-            };
+          // (3) 비동기 전송파일 로드하기 ///
+          myAjax.onload = () => {
+            console.log(myAjax.response);
+            if (myAjax.status == 200) {
+              // then메서드 처리를 위한 성공함수호출!
+              scFn(myAjax.response);
+            } /// if ///
+            else {
+              console.log("전송실패!");
+            }
+          };
 
-            // (4) 비동기 전송파일 전송하기 ///
-            myAjax.send();
-
-          }); ////  Promise /////
+          // (4) 비동기 전송파일 전송하기 ///
+          myAjax.send();
+        }); ////  Promise /////
 
         // 약속받기
-        myPromise.then(res=>{
+        myPromise.then((res) => {
           // 결과로 전송된 파일은 문자형이다!
           // 따라서 JSON 파싱을 통해 객체화해야함!
+
+          // (1) 결과값 파싱하기 /////
           let result = JSON.parse(res);
-          console.log('결과파싱:',result);
+          console.log("결과파싱:", result);
 
+          // (2) 화면에 보여주기 ///////
+          // 대상: .wrap
+          document.querySelector(".wrap").innerHTML = result
+            .map(
+              (v) => `
+            <div class="page"
+            style=
+            "background-image: url(${v.download_url})">
+              ${v.author}
+            </div>
+          `
+            )
+            .join("");
         }); /////////////// Promise /////////////
-
-
-
-        
       }); /////////////// load //////////////
     </script>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap");
 
-      html,body{
+      html,
+      body {
         margin: 0;
         padding: 0;
       }
@@ -70,7 +76,7 @@
         font-family: "Poetsen One", sans-serif;
       }
 
-      .page{
+      .page {
         height: 100vh;
         text-align: center;
         line-height: 100vh;
@@ -82,9 +88,7 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-
       }
-      
     </style>
   </head>
   <body>
