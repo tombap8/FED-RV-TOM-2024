@@ -17,10 +17,41 @@
         // 이미지 정보 데이터 사이트
         // https://picsum.photos/v2/list/
 
-        const myPromise = new Promise(); ////  Promise /////
+        const myPromise = new Promise(
+          (scFn)=>{ 
+            // (1) 비동기 파일 호출을 위한 객체생성
+            const myAjax = new XMLHttpRequest();
+
+            // (2) 비동기 전송파일 열기 ///
+            myAjax.open(
+              "GET",
+              "https://picsum.photos/v2/list/");
+
+            // (3) 비동기 전송파일 로드하기 ///
+            myAjax.onload = () => {
+              console.log(myAjax.response);
+              if(myAjax.status == 200) {
+                // then메서드 처리를 위한 성공함수호출!
+                scFn(myAjax.response);
+              } /// if ///
+              else{
+                console.log('전송실패!');
+              }
+            };
+
+            // (4) 비동기 전송파일 전송하기 ///
+            myAjax.send();
+
+          }); ////  Promise /////
 
         // 약속받기
-        myPromise.then(); /////////////// Promise /////////////
+        myPromise.then(res=>{
+          // 결과로 전송된 파일은 문자형이다!
+          // 따라서 JSON 파싱을 통해 객체화해야함!
+          let result = JSON.parse(res);
+          console.log('결과파싱:',result);
+
+        }); /////////////// Promise /////////////
 
 
 
