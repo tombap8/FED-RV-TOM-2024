@@ -20,8 +20,8 @@ export default function setSlide(clsName) {
     // -> slideFn함수에서 하위 .slide를 수집하고 있음!
     // 따로 보낼필요 없음!!!
 
-    // 슬라이드 함수 호출하기
-    slideFn(ele);
+    // 슬라이드 생성자 함수 호출하기
+    new SlideFn(ele);
     // 실제 DOM요소를 보낸다!
   }); /////// forEach ///////////
 } ///////////// setSlide 함수 //////////
@@ -31,7 +31,8 @@ export default function setSlide(clsName) {
     기능: 로딩 후 버튼 이벤트 및 기능구현
         + 드래그 이동기능(goDrag함수 합침)
  ******************************************/
-function slideFn(selEl) {
+// 생성자 함수로 변경한다! -> SlideFn
+function SlideFn(selEl) {
   // selEl 선택 슬라이드 부모 요소(.banbx)
   // console.log("슬라이드 함수 호출확인!");
 
