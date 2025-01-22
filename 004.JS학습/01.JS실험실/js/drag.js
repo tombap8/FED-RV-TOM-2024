@@ -39,7 +39,7 @@ import myFn from "./my_function.js";
     함수명 : setDrag
     기능 : 드래그 적용 요소 함수호출하기
 *******************************************/
-function setDrag(clsName) {
+function SetDrag(clsName) {
   // ele - 드래그 대상요소 클래스 이름 받는 변수
   console.log(clsName);
 
@@ -268,4 +268,4 @@ function goDrag(ele) {
 /////////////////////////////////////////////
 
 // 내보내기 셋팅
-export default setDrag;
+export default SetDrag;
