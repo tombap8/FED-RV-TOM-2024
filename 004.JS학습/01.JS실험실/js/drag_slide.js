@@ -4,15 +4,15 @@
 import myFn from "./my_function.js";
 
 // 슬라이드 대상요소 : .banbx
-const banBox = myFn.qsa(".banbx");
-console.log("슬라이드 대상:", banBox);
+// const banBox = myFn.qsa(".banbx");
+// console.log("슬라이드 대상:", banBox);
 
 // 슬라이드 만큼 모두 호출하기!
-banBox.forEach((ele) => {
-  // 슬라이드 함수 호출하기
-  slideFn(ele);
-  // 실제 DOM요소를 보낸다!
-}); /////// forEach ///////////
+// banBox.forEach((ele) => {
+//   // 슬라이드 함수 호출하기
+//   slideFn(ele);
+//   // 실제 DOM요소를 보낸다!
+// }); /////// forEach ///////////
 
 /***************************************************** 
     [ 슬라이드 이동 기능정의 ]
