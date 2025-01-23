@@ -227,12 +227,21 @@ img {
   background-color: red;
 }
 
+.ban-box {
+  /*이동버튼*/
+  /*블릿버튼*/
+}
 .ban-box ul {
+  position: relative;
+  /* 3번째 슬라이드부터 보이기(앞에2개) */
+  left: -200%;
   display: flex;
 }
 .ban-box ul li {
   position: relative;
-  width: 100vw;
+  width: 100%;
+  /* 강제축소 설정 끄기 */
+  flex-shrink: 0;
   aspect-ratio: 1499/701;
 }
 .ban-box ul li img {
@@ -256,6 +265,46 @@ img {
 }
 .ban-box ul li .post-content h3 {
   font-size: 4.2rem;
+}
+.ban-box .abtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  /*Y축 중앙이동*/
+  /*왼쪽버튼*/
+  /*오른쪽버튼*/
+}
+.ban-box .abtn.ab1 {
+  left: 50px;
+}
+.ban-box .abtn.ab2 {
+  right: 50px;
+}
+.ban-box .indic {
+  display: flex;
+  /* 플렉스박스 */
+  position: absolute;
+  bottom: 50px;
+  left: 80px;
+}
+.ban-box .indic li {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  /*회색블릿이미지가 보이게하는 class*/
+}
+.ban-box .indic li img {
+  position: absolute;
+  /*이미지 겹치게*/
+}
+.ban-box .indic li img:last-child {
+  /*회색이미지만 투명하게*/
+  opacity: 0;
+}
+.ban-box .indic li.on img:last-child {
+  /*회색이미지만 투명하게*/
+  opacity: 1;
+  /*우선적용!*/
 }
 
 @media (max-width: 1000px) {

@@ -13,10 +13,15 @@
 // 배너박스
 .ban-box {
   ul {
+    position: relative;
+    /* 3번째 슬라이드부터 보이기(앞에2개) */
+    left: -200%;
     display: flex;
     li {
       position: relative;
-      width: 100vw;
+      width: 100%;
+      /* 강제축소 설정 끄기 */
+      flex-shrink: 0;
       // 비율박스
       aspect-ratio: 1499/701;
 
@@ -49,6 +54,60 @@
       }
     }
   }
+  /*이동버튼*/
+  .abtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    /*Y축 중앙이동*/
+
+    /*왼쪽버튼*/
+    &.ab1 {
+      left: 50px;
+    }
+  
+    /*오른쪽버튼*/
+    &.ab2 {
+      right: 50px;
+    }
+  }
+
+
+  /*블릿버튼*/
+  .indic {
+    display: flex;
+    /* 플렉스박스 */
+    position: absolute;
+    bottom: 50px;
+    left: 80px;
+
+    li {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+
+      img {
+        position: absolute;
+        /*이미지 겹치게*/
+
+        &:last-child {
+          /*회색이미지만 투명하게*/
+          opacity: 0;
+        }
+      
+      }
+      
+      /*회색블릿이미지가 보이게하는 class*/
+      &.on img:last-child {
+        /*회색이미지만 투명하게*/
+        opacity: 1;
+        /*우선적용!*/
+      }
+    }
+  }
+
+
+
 }
 
 @include tablet-medium {

@@ -10,8 +10,8 @@ export const BannerComp = Vue.component("banner-comp", {
     <div id="ban-area">
         <section class="ban-area">
           <!-- 배너박스 -->
-          <div class="ban-box">
-            <ul>
+          <div class="ban-box banbx">
+            <ul class="slide dtg">
               <li v-for="v in this.banInfo">
                 <img 
                 v-bind:src="
@@ -28,6 +28,18 @@ export const BannerComp = Vue.component("banner-comp", {
                 </div>
               </li>
             </ul>
+
+            <!--이동버튼-->
+            <a href="#" class="controls abtn ab1"
+            ><img src="images/left_btn.png" alt="왼쪽이동버튼"
+            /></a>
+
+            <a href="#" class="controls abtn ab2"
+            ><img src="images/right_btn.png" alt="오른쪽이동버튼"
+            /></a>
+
+            <!--블릿버튼-->
+            <ol class="controls indic"></ol>
           </div>
         </section>
       </div>
