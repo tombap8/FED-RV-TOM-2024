@@ -229,6 +229,9 @@ img {
 
 .ban-box {
   position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   /*이동버튼*/
   /*블릿버튼*/
 }
@@ -251,6 +254,7 @@ img {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  -webkit-user-drag: none;
 }
 .ban-box ul li .post-content {
   position: absolute;

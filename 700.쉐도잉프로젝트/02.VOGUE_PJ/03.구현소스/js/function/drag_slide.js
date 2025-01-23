@@ -42,8 +42,8 @@ function SlideFn(selEl) {
   // 0-2. 슬라이드 이동시간 : 상수로 설정
   const TIME_SLIDE = 400;
   // 0-3. 슬라이드 기준위치값 :
-  let originalValue = selEl.offsetWidth * -2.2;
-  // -> 슬라이드 가로크기의 2.2배 음수값
+  let originalValue = selEl.offsetWidth * -2;
+  // -> 슬라이드 가로크기의 2배 음수값
 
   // 1. 대상선정
   // 1-1. 슬라이드 부모요소 : 전달된 선택요소 -> selEl
@@ -324,7 +324,7 @@ function SlideFn(selEl) {
   dtg.style.position = "relative";
   // dtg.style.top = "0";
   // 배너가 left값 -200% 기준박스에서 이동함
-  // .banbx의 width값 곱하기 -2.2
+  // .banbx의 width값 곱하기 -2
   // 기준위치값 변수에 할당! -> originalValue변수값 할당!
   let leftVal = originalValue;
   // 왼쪽으로 이동할 기준값(기준위치값*1.1)
@@ -463,7 +463,7 @@ function SlideFn(selEl) {
       // leftSlide() 함수 호출함!
       // 슬라이드 이동함수 호출시 드래그시 이동된값이
       // 계산된 -300%값을 보내준다!
-      let resVal = selEl.offsetWidth * -3.3 + resultX;
+      let resVal = selEl.offsetWidth * -3 + resultX;
       leftSlide(resVal + "px");
     } /// else if ///
     else {
@@ -609,7 +609,7 @@ function SlideFn(selEl) {
   // (5) 브라우저 크기 리사이즈시 동적 변경값 업데이트함수
   myFn.addEvt(window, "resize", () => {
     // 1. 기준위치값 left 업데이트
-    originalValue = selEl.offsetWidth * -2.2;
+    originalValue = selEl.offsetWidth * -2;
     // 2. 기준위치값으로 실제 슬라이드 CSS left값 변경하기
     slide.style.left = originalValue + "px";
     // 3. 초기left값 셋팅

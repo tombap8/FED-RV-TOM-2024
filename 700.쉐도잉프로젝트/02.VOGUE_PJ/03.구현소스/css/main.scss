@@ -14,6 +14,8 @@
 .ban-box {
   // 부모자격
   position: relative;
+  // 선택막기
+  user-select: none;
 
   ul {
     position: relative;
@@ -34,6 +36,8 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        // 이미지 드래그 막기 (중요함!)
+        -webkit-user-drag: none;
       }
 
       // 글자박스
