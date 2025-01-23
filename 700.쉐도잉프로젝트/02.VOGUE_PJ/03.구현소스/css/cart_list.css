@@ -157,6 +157,25 @@ img {
   display: inline-block;
 }
 
+.add-menu {
+  position: absolute;
+  right: 4rem;
+  top: 2rem;
+  font-size: 1.6rem;
+}
+.add-menu ol {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.add-menu ol li a {
+  letter-spacing: 2px;
+  text-underline-offset: 5px;
+}
+.add-menu ol li.hide {
+  display: none;
+}
+
 #footer-area {
   background-color: #000;
 }
