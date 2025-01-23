@@ -33,13 +33,13 @@ export const BannerComp = Vue.component("banner-comp", {
             </ul>
 
             <!--이동버튼-->
-            <a href="#" class="controls abtn ab1"
-            ><img src="images/left_btn.png" alt="왼쪽이동버튼"
-            /></a>
+            <a href="#" class="controls abtn ab1">
+                <img src="images/left_btn.png" alt="왼쪽이동버튼">
+            </a>
 
-            <a href="#" class="controls abtn ab2"
-            ><img src="images/right_btn.png" alt="오른쪽이동버튼"
-            /></a>
+            <a href="#" class="controls abtn ab2">
+                <img src="images/right_btn.png" alt="오른쪽이동버튼">
+            </a>
 
             <!--블릿버튼-->
             <ol class="controls indic"></ol>
