@@ -136,7 +136,7 @@ img {
 .sum-menu ol {
   display: flex;
   align-items: center;
-  gap: 3em;
+  gap: 2em;
 }
 .sum-menu ol li:nth-child(1) a {
   font-weight: bold;

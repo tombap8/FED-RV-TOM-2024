@@ -34,7 +34,7 @@ const TopComp = Vue.component("top-comp", {
         <nav class="add-menu">
           <ol>
             <li v-for="(v,k) in this.addMenu" :class="k=='로그아웃'?'hide':''">
-              <a href="#">
+              <a href="#" @click.prevent="goPage(k)">
                 <i :class="v" :title="k"></i>
               </a>
             </li>
@@ -58,6 +58,17 @@ const TopComp = Vue.component("top-comp", {
                 장바구니: "fa-solid fa-cart-shopping",
             },
         };
+    },
+    methods:{
+      goPage(k){
+        let pgName;
+        switch(k){
+          case "로그인" : pgName = "login"; break;
+          case "회원가입" : pgName = "member"; break;
+          case "장바구니" : pgName = "cart_list"; break;
+        }
+        location.href = pgName+'.html';
+      },
     },
 });
 // 2. 하단컴포넌트
