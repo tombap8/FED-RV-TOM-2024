@@ -7,15 +7,38 @@ console.log(banData);
 export const BannerComp = Vue.component("banner-comp", {
   // 1-1. 템플릿코드설정 /////
   template: `
-    
+    <div id="ban-area">
+        <section class="ban-area">
+          <!-- 배너박스 -->
+          <div class="ban-box">
+            <ul>
+              <li v-for="v in this.banInfo">
+                <img 
+                v-bind:src="
+
+                './images/main_banner/banner_0'+v.idx+'.jpg'
+                
+                " alt="배너1" />
+                <div class="post-content">
+                  <p>
+                    <span>{{v.category}}</span>
+                    <span>{{v.date}}</span>
+                  </p>
+                  <h3>{{v.title}}</h3>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
   `,
   // 1-2. 데이터 셋업 리턴 메서드 /////
   data() {
     return {
-      // (1) GNB 메뉴 데이터
-      gnbMenu: ["FASHION", "BEAUTY", "LIFESTYLE", "CULTURE", "VIDEO"],
-      // (2) 요약 메뉴 데이터
-      sumMenu: ["KOREA", "구독하기", "≡"],
+      // (1) 배너 정보 데이터(배너정보 제이슨 할당)
+      banInfo: banData,
+      // -> 일반적으로 원본 제이슨 데이터를 컴포넌트용 변수에
+      // 별도로 할당하여 사용한다!
     };
   },
 });
