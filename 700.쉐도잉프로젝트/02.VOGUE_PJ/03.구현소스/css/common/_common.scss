@@ -1,6 +1,10 @@
 // 보그 JS 공통 모듈 CSS - common.scss
 
 // 1. 상단영역 ////////////////
+#top-area{
+  // 상단전체 박스아랫쪽 그림자
+  box-shadow: 0 2px 5px #00000039;
+}
 .top-area {
   /* 부모자격 */
   position: relative;
@@ -92,7 +96,7 @@
 .add-menu {
   position: absolute;
   // 부모는? .top-area
-  right: $spacing-40;
+  right: $spacing-50;
   top: $spacing-20;
 
   font-size: $font-size-common;

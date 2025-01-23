@@ -92,6 +92,10 @@ img {
   값으로 top, middle등 도 효과있음! */
 }
 
+#top-area {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2235294118);
+}
+
 .top-area {
   /* 부모자격 */
   position: relative;
@@ -159,7 +163,7 @@ img {
 
 .add-menu {
   position: absolute;
-  right: 4rem;
+  right: 5rem;
   top: 2rem;
   font-size: 1.6rem;
 }
