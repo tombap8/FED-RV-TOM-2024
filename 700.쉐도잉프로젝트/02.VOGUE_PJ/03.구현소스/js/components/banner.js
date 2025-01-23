@@ -3,6 +3,9 @@
 import banData from '../../data/banner_data.json' with{type:'json'};
 console.log(banData);
 
+// 드래그 슬라이드 기능 함수 불러오기
+import setSlide from "../function/drag_slide.js";
+
 // 1. 상단컴포넌트
 export const BannerComp = Vue.component("banner-comp", {
   // 1-1. 템플릿코드설정 /////
@@ -53,4 +56,11 @@ export const BannerComp = Vue.component("banner-comp", {
       // 별도로 할당하여 사용한다!
     };
   },
+  // 컴포넌트 라이프 사이클 메서드 구역 ///
+  // mounted 메서드 : DOM로딩후 실행구역!
+  // -> 일반 DOM코딩 JS는 여기서 호출한다!!!
+  mounted() {
+    // 1. 드래그 슬라이드 기능 함수 호출하기
+    setSlide("banbx");
+  }, /// mounted ///////
 });
