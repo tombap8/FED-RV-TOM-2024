@@ -228,6 +228,7 @@ img {
 }
 
 .ban-box {
+  position: relative;
   /*이동버튼*/
   /*블릿버튼*/
 }

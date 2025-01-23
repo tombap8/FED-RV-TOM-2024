@@ -12,6 +12,9 @@
 
 // 배너박스
 .ban-box {
+  // 부모자격
+  position: relative;
+
   ul {
     position: relative;
     /* 3번째 슬라이드부터 보이기(앞에2개) */
@@ -96,7 +99,7 @@
         }
       
       }
-      
+
       /*회색블릿이미지가 보이게하는 class*/
       &.on img:last-child {
         /*회색이미지만 투명하게*/
