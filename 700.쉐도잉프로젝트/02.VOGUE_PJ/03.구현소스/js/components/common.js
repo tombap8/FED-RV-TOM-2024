@@ -33,8 +33,21 @@ const TopComp = Vue.component("top-comp", {
         <!-- 1-4. 추가메뉴박스 -->
         <nav class="add-menu">
           <ol>
-            <li v-for="(v,k) in this.addMenu">
-              <a href="#">
+            <li 
+              v-for="
+                (v,k) in this.addMenu
+                /* v - 객체값, k - 키명 */
+              "
+
+              :class="
+              // 키명이 '로그아웃'이면 'hide'클래스넣기
+                k=='로그아웃' ? 'hide' : ''
+              "
+            >
+              <a 
+                href="#"
+                @click.prevent="goPage(k)"
+              >
                 <i :class="v" :title="k"></i>
               </a>
             </li>
@@ -58,9 +71,18 @@ const TopComp = Vue.component("top-comp", {
         장바구니: "fa-solid fa-cart-shopping",
       },
     };
-  },
-});
-// 2. 하단컴포넌트
+  }, /// data ///
+
+  // 1-3. 컴포넌트 메서드구역 /////
+  methods:{
+    // goPage : 링크이동 메서드 /////
+    goPage(gubun){ // gubun - 구분키(키명)
+      console.log(gubun);
+    }, //// goPage 메서드 ////
+  }, /// methods //////
+}); /// TopComp ///////////////
+
+// 2. 하단컴포넌트 /////////////////////
 const BottomComp = Vue.component("bottom-comp", {
   // 템플릿 코드 ////
   template: `

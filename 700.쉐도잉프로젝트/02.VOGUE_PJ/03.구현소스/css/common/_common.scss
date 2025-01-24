@@ -65,7 +65,7 @@
   ol {
     display: flex;
     align-items: center;
-    gap: 2em;
+    gap: 2rem;
 
     li {
       // 언어선택
@@ -105,10 +105,10 @@
   ol {
     display: flex;
     align-items: center;
-    gap: 1em;
+    gap: 1rem;
 
     li {
-      // 언어선택
+      // 링크공통
       a {
         letter-spacing: 2px;
       }
