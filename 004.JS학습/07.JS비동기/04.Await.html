@@ -72,38 +72,96 @@
       }
 
       // 1. async / await  기본구문 사용하기
-      async function 보여줘(){
-        const 새약속 = new Promise(scFn=>{
+      async function 보여줘() {
+        const 새약속 = new Promise((scFn) => {
           // scFn - 성공시리턴함수
           // 3초의 시간이 걸리는 코드를 작성함
           setTimeout(() => {
             // 성공함수를 3초후 호출함!
-            scFn('문단속해줘!!!');
+            scFn("문단속해줘!!!");
           }, 3000);
-
         }); ////////// new Promise ///////
 
         // -> 포인트는?
         // 프라미스 안에서 성공함수를 호출하면
         // 우리가 아는 then() 메서드가 호출된다!
         // 여기서는 then메서드 대신 await를 씀!!!
-        // 만약 await를 안쓰면 약속객체코드는 
+        // 만약 await를 안쓰면 약속객체코드는
         // 실행되지 않는다!
         화면뿌려(await 새약속);
-
+        // 약속호출 await후에 실행코드는
+        // 앞의 기다림 후에 모두 실행된다!
         화면뿌려(
           `<img src="https://cdn.hankooki.com/news/photo/202304/67837_90529_1680302888.jpg" style="height:70vh" alt="스즈메의 문단속">`
         );
-        
-
       } /////////// 보여줘 함수 ///////////////
 
       // async함수를 최초로 호출해준다!
       보여줘();
 
-      
       // 2. 파일을 전송 받은 후 실행하는 약속객체 생성하기
-      
+      async function 파일받아() {
+        const 파일약속 = new Promise(function (success) {
+          // (1) XMLHttpRequest 객체 인스턴스 만들기
+          const myAjax = new XMLHttpRequest();
+
+          // (2) 비동기 파일요소 열기
+          // 전송기능메모리 생성
+          myAjax.open(
+            "GET",
+            "https://koreascience.kr/article/JAKO201812055796720.pdf",
+            true
+          );
+          // 파일 다운로드를 위한 타입은 'blob'
+          myAjax.responseType = "blob";
+
+          // 같은 도메인의 파일을 Promise처리해야
+          //실패처리까지 모두 완전하게 이루어진다!
+
+          // (3) 결과를 리턴받는 onload이벤트 함수구역
+          // 만들기
+          myAjax.onload = function () {
+            console.log(myAjax.status, this);
+
+            // 성공시 pdf파일을 다운로드 받는다!
+            if (this.status === 200) {
+              var blob = new Blob([this.response], { type: "application/pdf" });
+              var downloadUrl = URL.createObjectURL(blob);
+              var a = document.createElement("a");
+              a.href = downloadUrl;
+              a.download = "스즈메문서.pdf";
+              document.body.appendChild(a);
+              // a요소를 강제 클릭하여 무조건 다운로드실행!
+              a.click();
+
+              // 성공함수를 호출하여 아래쪽 await 작동!
+              success(myAjax.responseURL);
+            }
+            // if (myAjax.status == 200) {
+            //   success(myAjax.responseURL);
+            //   // 성공시 전송받은 파일 URL을 받는다!
+            // }
+          }; ////// onload 함수 ////////
+
+          // (4) 비동기 요청보내기 : send()
+          myAjax.send();
+        }); /////////// Promise //////////
+
+        // await 사용하여 실행하기
+        const 문서보여줘 = (txt) => {
+          console.log("문서보여줘 함수:", txt);
+          document.querySelector(
+            "#doc"
+          ).innerHTML = `<img src="https://blog.kakaocdn.net/dn/nzY3v/btrYMXXM77z/KRxcY1JIgKHnczJjIDGmL1/img.jpg" alt="스즈메 다른 이미지" style="width:100%">`;
+        }; /////// 문서보여줘 함수 /////////////
+
+        // 문서보여줘 함수 호출!
+        // 문서가 다운로드 될때까지 기다렸다가 실행함!
+        문서보여줘(await 파일약속);
+      } //////////// async 파일받아 함수 //////////
+
+      ///// async함수 호출 ///
+      파일받아();
     </script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap");
