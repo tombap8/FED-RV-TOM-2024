@@ -78,8 +78,30 @@ const TopComp = Vue.component("top-comp", {
     // goPage : 링크이동 메서드 /////
     goPage(gubun){ // gubun - 구분키(키명)
       console.log(gubun);
+      // 페이지명 셋팅변수
+      let pgName;
+      // 구분키별 분기 //
+      switch(gubun){
+        case "로그인": pgName = "login"; break;
+        case "회원가입": pgName = "member"; break;
+        case "장바구니": pgName = "cart_list"; break;
+      } //// switch /////////
+
+      // 페이지 이동하기 ///
+      location.href = pgName + '.html';
+
     }, //// goPage 메서드 ////
   }, /// methods //////
+  // 1-4. 컴포넌트 라이프사이크 메서드 : mounted
+  mounted(){
+    // 폰트어썸 link CSS 넣기
+    $('head').append(`
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    `);
+  }, /// mounted ///
 }); /// TopComp ///////////////
 
 // 2. 하단컴포넌트 /////////////////////
