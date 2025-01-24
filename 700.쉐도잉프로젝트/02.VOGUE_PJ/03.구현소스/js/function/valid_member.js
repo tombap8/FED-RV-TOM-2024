@@ -99,7 +99,7 @@ export default function valid_member() {
             .text("특수문자,문자,숫자포함 형태의 5~15자리");
 
           // [ 불통과시 pass값 변경3 ]
-        //   pass = false;
+          //   pass = false;
         } //////// if ///////
         else {
           // 통과시
@@ -113,7 +113,19 @@ export default function valid_member() {
         - 검사기준: 비빌번호 항목과 일치여부
     ****************************************/
       //   else if (cid == "mpw2") {
-      //   } ///////////// else if : 비밀번호확인검사 ///////
+      else if (cid == "mpw2") {
+        if (cv != $("#mpw").val()) {
+          $(this).siblings(".msg").text("비밀번호가 일치하지 않습니다!");
+
+          // [ 불통과시 pass값 변경4 ]
+        //   pass = false;
+        } //////// if ///////
+        else {
+          // 통과시
+          // 메시지 지우기
+          $(this).siblings(".msg").empty();
+        } ////// else //////
+      } ///////////// else if : 비밀번호확인검사 ///////
 
       /**************************************** 
         7. 이메일 유효성 검사
@@ -129,6 +141,30 @@ export default function valid_member() {
         $(this).siblings(".msg").empty();
       } /////// else //////
     }); ///////////////// blur 메서드 /////////////////
+  //////////////////////////////////////////////////
+
+  /************************************** 
+     비밀번호 글자 보이기/숨기기 셋팅
+**************************************/
+  let eyeNum = 1;
+  $(".eye")
+    .css({
+      // 처음상태는 중간줄있고 흐림
+      textDecoration: "line-through",
+      opacity: 0.5,
+      cursor: "pointer",
+    }) //// css ////
+    .click((e) => {
+      // 1. 글자보이기 타입전환 : type='text|password'
+      $("#mpw").attr("type", eyeNum ? "text" : "password");
+      // 2. CSS 디자인 전환 (안보일때는 흐리게 중간줄표시)
+      $(e.target).css({
+        textDecoration: eyeNum ? "none" : "line-through",
+        opacity: eyeNum ? 1 : 0.5,
+      });
+      // 상태값 전환 (eyeNum이 1이면 0, 0이면 1 할당!)
+      eyeNum = eyeNum ? 0 : 1;
+    }); ////////// click ///////////////
 } ///////////// valid_member 함수 //////////////
 
 /*//////////////////////////////////////////////////////
