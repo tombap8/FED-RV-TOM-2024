@@ -1,59 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>06.fetch 프라미스</title>    
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>06.fetch 프라미스</title>
+  </head>
+  <body>
     <!-- 출력박스 -->
     <h3 class="exp"></h3>
 
     <script>
-        // 데이터를 다른서버에서 가져올 경우
-        // 같은 서버에 위치한 파일보다 시간이 더
-        // 걸릴 수 있다!
-        // 이때 그 전송파일을 이용한 처리코드가
-        // 에러를 나타낼 확율이 높아진다!
-        // 이때 Promise를 사용하면 되겠다!
-        // 더 쉬운 Promise가 fetch API다!
+      // [ Promise와 fetch가 존재하는 이유! ]
+      // 데이터를 다른서버에서 가져올 경우
+      // 같은 서버에 위치한 파일보다 시간이 더
+      // 걸릴 수 있다!
+      // 이때 그 전송파일을 이용한 처리코드가
+      // 에러를 나타낼 확율이 높아진다!
+      // 이때 Promise를 사용하면 되겠다!
+      // 더 쉬운 Promise가 fetch API다!
 
-        // 참고: w3schools
-        // -> https://www.w3schools.com/js/js_api_fetch.asp
+      // 참고: w3schools
+      // -> https://www.w3schools.com/js/js_api_fetch.asp
 
-        /* 
-            [ fetch API란? ]
-            Fetch API 인터페이스를 사용하면 웹 브라우저가 
-            웹 서버에 HTTP 요청을 할 수 있습니다.
-            😀 더 이상 XMLHttpRequest가 필요하지 않습니다.
+      /**************************************************** 
+        [ fetch API란? ]
 
-            - [사용법1:]
+        Fetch API 인터페이스를 사용하면 웹 브라우저가 
+        웹 서버에 HTTP 요청을 할 수 있습니다.
+        😀 더 이상 XMLHttpRequest가 필요하지 않습니다.
 
-            나변수 = 웹상파일주소;
+        - [사용법1:]
 
-            fetch(나변수) // 웹상파일로드
-            .then(x=>x.text()) // 로드후 테스트 읽기
-            .then(y=> 명령어사용) // 텍스트읽은 후 어떤코드실행
+        나변수 = 웹상파일주소;
 
-            - [사용법2:]
+        fetch(나변수) // 웹상파일로드
+        .then(x=>x.text()) // 로드후 테스트 읽기
+        .then(y=> 명령어사용) // 텍스트읽은 후 어떤코드실행
 
-            나변수 = 웹상파일주소;
+        - [사용법2:]
 
-            // async 함수만들기
-            async function 비동기함수(나변수){
-                변수1 = await fetch(나변수); // fetch() 기다림
-                변수2 = await 변수1.text(); // text() 기다림
-                하고싶은코드..... // 위의 코드가 완료된 후 실행함
-            } ////// 비동기함수 /////////
+        나변수 = 웹상파일주소;
 
-            // 적절한 곳에서 비동기함수 호출
-            비동기함수(나변수);
+        // async 함수만들기
+        async function 비동기함수(나변수){
+            변수1 = await fetch(나변수); // fetch() 기다림
+            변수2 = await 변수1.text(); // text() 기다림
+            하고싶은코드..... // 위의 코드가 완료된 후 실행함
+        } ////// 비동기함수 /////////
 
-
-        */
+        // 적절한 곳에서 비동기함수 호출
+        비동기함수(나변수);
 
 
+        ****************************************************/
+
+      // 웹에 공개된 텍스트 파일
+      let file =
+        "https://tombap8.github.io/FED-RF-2023-TOM/500.%ED%95%84%EA%B8%B0%EB%AA%A8%EC%9D%8C/013.DOM%EC%9D%B4%EB%9E%80.txt";
+
+      // 변환없이 화면에 출력하기 -> 실제파일은 가져오지 못함!
+      // document.querySelector('.exp').innerHTML = file;
+
+      const tg = document.querySelector(".exp");
+
+      // 웹 주소의 파일을 fetch 하기 -> 실제파일 가져오기
+      fetch(file)
+        .then((x) => x.text()) // 가져온 후 내용읽기!
+        .then((x) => (tg.innerHTML = x));
+      // 내용읽기 후 화면에 뿌림!
     </script>
-    
-</body>
+  </body>
 </html>
