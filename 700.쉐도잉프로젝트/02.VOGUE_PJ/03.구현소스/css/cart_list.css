@@ -140,7 +140,7 @@ img {
 .sum-menu ol {
   display: flex;
   align-items: center;
-  gap: 2em;
+  gap: 2rem;
 }
 .sum-menu ol li:nth-child(1) a {
   font-weight: bold;
@@ -170,7 +170,7 @@ img {
 .add-menu ol {
   display: flex;
   align-items: center;
-  gap: 1em;
+  gap: 1rem;
 }
 .add-menu ol li a {
   letter-spacing: 2px;
@@ -260,8 +260,7 @@ img {
 #cartlist {
   position: relative;
   margin: 0 auto;
-  width: 60vw;
-  height: 100dvh; /* vh -> dvh : 다이나믹 vh */
+  width: min(90vw, 1000px);
   background-color: rgba(255, 255, 255, 0.8);
 }
 

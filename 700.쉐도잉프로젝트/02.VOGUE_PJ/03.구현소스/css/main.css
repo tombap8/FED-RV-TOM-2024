@@ -140,7 +140,7 @@ img {
 .sum-menu ol {
   display: flex;
   align-items: center;
-  gap: 2em;
+  gap: 2rem;
 }
 .sum-menu ol li:nth-child(1) a {
   font-weight: bold;
@@ -170,7 +170,7 @@ img {
 .add-menu ol {
   display: flex;
   align-items: center;
-  gap: 1em;
+  gap: 1rem;
 }
 .add-menu ol li a {
   letter-spacing: 2px;
