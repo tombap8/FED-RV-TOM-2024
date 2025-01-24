@@ -68,6 +68,24 @@
         .then((x) => x.text()) // 가져온 후 내용읽기!
         .then((x) => (tg.innerHTML = x));
       // 내용읽기 후 화면에 뿌림!
+
+      // 테스트2 - 제이슨파일
+      let file2 =
+        "https://tombap8.github.io/FED-PJ-2022-tom/004.JS%ED%95%99%EC%8A%B5/JS%EB%B9%84%EB%8F%99%EA%B8%B0/defaultSettings.json";
+
+      // async함수 만들기
+      async function getFile(fData) {
+        // 1. 파일 로드까지 기다려~
+        let myFetch = await fetch(fData);
+        // 2. 로드된 파일 내용 읽을때까지 기다려~
+        let myText = await myFetch.text();
+
+        // 3. 위의 1,2번 순서대로 완료 후 출력하기
+        tg.innerHTML += myText;
+      } /////////// async 함수 ////////////////
+
+      // 비동기 함수 호출!!!
+      getFile(file2);
     </script>
   </body>
 </html>
