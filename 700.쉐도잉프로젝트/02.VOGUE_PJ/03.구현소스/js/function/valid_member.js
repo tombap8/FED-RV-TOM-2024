@@ -345,7 +345,7 @@ export default function valid_member() {
         let temp = [];
 
         // 로컬쓰가 있으면 읽어옴!
-        if(!localStorage.getItem('mem-data')) 
+        if(localStorage.getItem('mem-data')) 
             temp = JSON.parse(localStorage.getItem('mem-data'));
 
     // 로컬스토리지에 데이터 넣기
