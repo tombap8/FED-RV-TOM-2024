@@ -52,7 +52,7 @@ export default function valid_member() {
         $(this).siblings(".msg").text("필수입력!").removeClass("on");
 
         // [ 불통과시 pass값 변경1 ]
-        // pass = false;
+        pass = false;
       } //////// if //////
 
       /**************************************** 
@@ -70,7 +70,7 @@ export default function valid_member() {
             .removeClass("on");
 
           // [ 불통과시 pass값 변경2 ]
-          //   pass = false;
+            pass = false;
         } //////// if ///////
         else {
           // 통과시
@@ -99,7 +99,7 @@ export default function valid_member() {
             .text("특수문자,문자,숫자포함 형태의 5~15자리");
 
           // [ 불통과시 pass값 변경3 ]
-          //   pass = false;
+            pass = false;
         } //////// if ///////
         else {
           // 통과시
@@ -117,7 +117,7 @@ export default function valid_member() {
           $(this).siblings(".msg").text("비밀번호가 일치하지 않습니다!");
 
           // [ 불통과시 pass값 변경4 ]
-          //   pass = false;
+            pass = false;
         } //////// if ///////
         else {
           // 통과시
@@ -228,9 +228,9 @@ export default function valid_member() {
     let cid = $(this).attr("id");
 
     // 2. 현재 입력된 값 읽어오기
-    // let cv = $(this).val();
+    let cv = $(this).val();
 
-    // console.log('입력아이디:',cid,'\n입력값:',cv);
+    console.log("입력아이디:", cid, "\n입력값:", cv);
 
     // 3. 이메일 뒷주소 셋팅하기
     let backEml = cid == "email1" ? seleml.val() : eml2.val();
@@ -269,13 +269,13 @@ export default function valid_member() {
         .removeClass("on");
 
       // [ 불통과시 pass값 변경5 ]
-      pass = false;
+        pass = false;
     } //////// else : 불통과시 ////////
   }; ///////////// resEml /////////////////
 
   /************************************** 
      비밀번호 글자 보이기/숨기기 셋팅
-**************************************/
+    **************************************/
   let eyeNum = 1;
   $(".eye")
     .css({
@@ -295,6 +295,92 @@ export default function valid_member() {
       // 상태값 전환 (eyeNum이 1이면 0, 0이면 1 할당!)
       eyeNum = eyeNum ? 0 : 1;
     }); ////////// click ///////////////
+
+  /********************************************* 
+    가입하기(submit) 버튼 클릭시 처리하기 
+    __________________________________
+
+    - form요소 내부의 submit버튼을 클릭하면
+    기본적으로 form요소에 설정된 action속성값인
+    페이지로 전송된다! 전체검사를 위해 이를 중지해야함!
+    -> 중지방법은? event.preventDefault()!!!
+
+    전체검사의 원리 : 
+    전역변수 pass를 설정하여 true를 할당하고
+    검사중간에 불통과 사유발생시 false로 변경!
+    유효성 검사 통과여부를 판단한다!
+
+    검사방법 :
+    기존 이벤트 blur 이벤트를 강제로 발생시킨다!
+    이벤트를 강제로 발생시키는 제이쿼리 메서드는?
+    ->>> trigger(이벤트명)
+
+  *********************************************/
+
+  // 검사용 변수
+  let pass = true;
+
+  // 이벤트 대상: #btnj
+  $("#btnj").click((e) => {
+    // 호출확인
+    console.log("가입해~!");
+
+    // 1. 기본이동 막기
+    e.preventDefault();
+
+    // 2. pass 통과여부 변수에 true를 할당!
+    pass = true;
+
+    // 3. 입력창 blur이벤트 강제 발생시키기
+    // trigger(이벤트) - 선택요소에 강제 이벤트 발생!
+    $(`form.logF input[type=text][id!=email2],
+        form.logF input[type=password]`).trigger("blur");
+
+    // 최종통과 여부
+    console.log("통과여부:", pass);
+
+    // 4. 검사결과에 따라 메시지 보이기
+    if (pass) {
+        // 로컬쓰용 배열변수
+        let temp = [];
+
+        // 로컬쓰가 있으면 읽어옴!
+        if(!localStorage.getItem('mem-data')) 
+            temp = JSON.parse(localStorage.getItem('mem-data'));
+
+    // 로컬스토리지에 데이터 넣기
+    let memData = {
+        idx:1,
+        mid:$('#mid').val(),
+        mpw:$('#mpw').val(),
+        mnm:$('#mnm').val(),
+        email:$('#email1').val()
+    };
+
+    // 객체값을 배열 로컬쓰에 넣기
+    temp.push(memData);
+
+    // 로컬쓰에 넣기
+    localStorage.setItem('mem-data',JSON.stringify(temp));
+
+      alert("회원가입을 축하드립니다! 짝짝짝!");
+      // 원래는 POST방식으로 DB에 회원가입정보를
+      // 전송하여 입력후 DB처리완료시 성공메시지나
+      // 로그인 페이지로 넘겨준다!
+
+      // 로그인 페이지로 리디렉션!
+    //   location.href = 'login.html';
+
+      // 민감한 입력 데이터 페이지가 다시 돌아와서
+      // 보이면 안되기 때문에 히스토리를 지우는
+      // replace()로 이동한다!
+      location.replace("login.html");
+    } //////// if : 통과시 ///////////
+    else {
+      ///// 불통과시 //////
+      alert("입력을 수정하세요~!");
+    } //////// else : 불통과시 //////
+  }); ///////////// click ///////////
 } ///////////// valid_member 함수 //////////////
 
 /*//////////////////////////////////////////////////////
