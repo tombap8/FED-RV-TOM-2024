@@ -56,8 +56,7 @@
         let 내약속 = new Promise(function(성공함수) {
                 성공함수("내메세지");
             });
-            document.getElementById("mydiv").innerHTML = 
-            await 내약속;
+            document.getElementById("mydiv").innerHTML = await 내약속;
         }
 
         보여줘();
@@ -73,7 +72,34 @@
       }
 
       // 1. async / await  기본구문 사용하기
-      
+      async function 보여줘(){
+        const 새약속 = new Promise(scFn=>{
+          // scFn - 성공시리턴함수
+          // 3초의 시간이 걸리는 코드를 작성함
+          setTimeout(() => {
+            // 성공함수를 3초후 호출함!
+            scFn('문단속해줘!!!');
+          }, 3000);
+
+        }); ////////// new Promise ///////
+
+        // -> 포인트는?
+        // 프라미스 안에서 성공함수를 호출하면
+        // 우리가 아는 then() 메서드가 호출된다!
+        // 여기서는 then메서드 대신 await를 씀!!!
+        // 만약 await를 안쓰면 약속객체코드는 
+        // 실행되지 않는다!
+        화면뿌려(await 새약속);
+
+        화면뿌려(
+          `<img src="https://cdn.hankooki.com/news/photo/202304/67837_90529_1680302888.jpg" style="height:70vh" alt="스즈메의 문단속">`
+        );
+        
+
+      } /////////// 보여줘 함수 ///////////////
+
+      // async함수를 최초로 호출해준다!
+      보여줘();
 
       
       // 2. 파일을 전송 받은 후 실행하는 약속객체 생성하기
