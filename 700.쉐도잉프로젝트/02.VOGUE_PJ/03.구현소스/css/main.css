@@ -174,7 +174,6 @@ img {
 }
 .add-menu ol li a {
   letter-spacing: 2px;
-  text-underline-offset: 5px;
 }
 .add-menu ol li.hide {
   display: none;

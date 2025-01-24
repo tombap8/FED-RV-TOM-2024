@@ -92,6 +92,33 @@
     }
   }
 }
+// 1-4. 추가메뉴 ///////////
+.add-menu {
+  position: absolute;
+  // 부모는? .top-area
+  right: $spacing-50;
+  top: $spacing-20;
+
+  font-size: $font-size-common;
+
+  // 하위리스트
+  ol {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+    li {
+      // 언어선택
+      a {
+        letter-spacing: 2px;
+      }
+      // 숨기기 클래스
+      &.hide {
+        display: none;
+      }
+    }
+  }
+}
 
 
 // 2. 하단영역 ////////////////////

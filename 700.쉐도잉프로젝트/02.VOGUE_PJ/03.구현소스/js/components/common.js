@@ -33,8 +33,10 @@ const TopComp = Vue.component("top-comp", {
         <!-- 1-4. 추가메뉴박스 -->
         <nav class="add-menu">
           <ol>
-            <li v-for="v in this.sumMenu">
-              <a href="#">{{v}}</a>
+            <li v-for="(v,k) in this.addMenu">
+              <a href="#">
+                <i :class="v" :title="k"></i>
+              </a>
             </li>
           </ol>
         </nav>
@@ -48,7 +50,7 @@ const TopComp = Vue.component("top-comp", {
       gnbMenu: ["FASHION", "BEAUTY", "LIFESTYLE", "CULTURE", "VIDEO"],
       // (2) 요약 메뉴 데이터
       sumMenu: ["KOREA", "구독하기", "≡"],
-      // (3) 추가가 메뉴 데이터
+      // (3) 추가가 메뉴 데이터 : 키는 메뉴, 값은 폰트어썸 클래스
       addMenu: {
         로그인: "fa-solid fa-right-to-bracket",
         로그아웃: "fa-solid fa-right-from-bracket",
