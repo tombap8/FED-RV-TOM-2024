@@ -1,5 +1,9 @@
 // 보그 PJ 회원가입 컴포넌트 - join.js
 
+// 유효성검사 함수 불러오기
+import valid_member from "../function/valid_member.js";
+// 메모리상 로딩한 본 함수는 DOM에 작동할 것이므로
+// 반드시 뷰 인스턴스 mounted 메서드에서 호출한다!
 
 // 1. 회원가입 컴포넌트
 export const JoinComp = Vue.component("join-comp", {
@@ -131,6 +135,7 @@ export const JoinComp = Vue.component("join-comp", {
   // mounted 메서드 : DOM로딩후 실행구역!
   // -> 일반 DOM코딩 JS는 여기서 호출한다!!!
   mounted() {
-    
+    // 유효성검사 함수호출!
+    valid_member();
   }, /// mounted ///////
 });
