@@ -112,7 +112,6 @@ export default function valid_member() {
         6. 비밀번호확인일 경우 유효성 검사
         - 검사기준: 비빌번호 항목과 일치여부
     ****************************************/
-      //   else if (cid == "mpw2") {
       else if (cid == "mpw2") {
         if (cv != $("#mpw").val()) {
           $(this).siblings(".msg").text("비밀번호가 일치하지 않습니다!");
