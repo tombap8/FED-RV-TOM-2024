@@ -22,6 +22,8 @@
 }
 
 /* 1. 상단영역 */
+
+/* 속박스 */
 .top-area{
     padding: var(--top-area-padding-size);
 }
@@ -49,6 +51,28 @@ h1.logo img{
     font-weight: 500;    
 }
 
+/* DB GNB메뉴 클래스 on 줄경우 모바일용 숨김 메뉴로 변신 */
+.gnb.on{
+    position: fixed;
+    top: 100px;
+    /* 오른쪽 바깥에 나가있음! */
+    left: 100vw;
+    width: 100vw;
+    height: calc(100vh - 100px);
+
+    background-color: #fff;
+    font-size: 5vw;
+
+    /* 투명, 트랜지션 */
+    opacity: 0;
+    transition: .4s ease-in-out;
+}
+.gnb.on ul{
+    /* 세로방향 플렉스 */
+    flex-direction: column;
+    gap: 3vh;
+}
+
 /* 모바일 GNB 햄버거버튼 */
 .gnb-mob{
     position: absolute;
@@ -56,6 +80,8 @@ h1.logo img{
     right: 50px;
     width: 34px;
     height: 34px;
+    /* 처음에 안보임! */
+    display: none;
 }
 .gnb-mob span{
     display: block;
