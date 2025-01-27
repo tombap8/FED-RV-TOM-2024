@@ -20,3 +20,43 @@
     --bottom-area-padding-size: 50px;
     --contents-box-padding-size: 85px 0 0;
 }
+
+/* 1. 상단영역 */
+.top-area{
+    padding: var(--top-area-padding-size);
+}
+/* 상단영역 플렉스 */
+.top-area>ul{
+    display: flex;
+    /* 양쪽끝에 배치함 */
+    justify-content: space-between;
+}
+/* 로고 */
+h1.logo img{
+    height: min(40px,4vw);
+    /* 최대사이즈 지정:40px이 최대크기 */
+}
+
+/* GNB메뉴 */
+.gnb{
+    height: 100%;
+}
+.gnb>ul{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    font-weight: 500;    
+}
+
+/* 미디어쿼리 */
+@media screen and (max-width: 1024px) {
+    /* DT GNB 없어짐 */
+    .gnb{
+        display: none;
+    }
+    /* Mobile GNB 나타남! */
+    .gnb-mob{
+        display: block;
+    }
+}
