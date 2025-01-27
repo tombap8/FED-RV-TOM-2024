@@ -37,6 +37,7 @@ font-family: "Nanum Gothic", serif;
 /* 3. 공통 버튼 */
 .com-btn{
     display: inline-block;
+    font-size: 12px;
     border-radius: 30px;
     padding: 16px 30px;
     border: 1px solid #222;
@@ -50,11 +51,15 @@ font-family: "Nanum Gothic", serif;
     background-color: #222;
 }
 /* 화살표 나오는 버튼 추가 클래스 */
-.view_btn::after {
+.view-btn::after {
+    content: url(../images/ico_more1.png);
     display: inline-block;
     padding-left: 20px;
     vertical-align: middle;
-    content: url(../images/ico_more1.png);
+}
+/* 오버시 이미지 변경 */
+.view-btn:hover::after {
+    content: url(../images/ico_more2.png);
 }
 /* 4. 센터박스 */
 .center-box{
