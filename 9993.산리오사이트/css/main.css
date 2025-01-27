@@ -87,17 +87,13 @@ h1.logo img {
 
 /* 미디어쿼리 */
 @media screen and (max-width: 1024px) {
-  /* DT GNB 없어짐 */
-  .gnb {
-    display: none;
-  }
   /* Mobile GNB 나타남! */
   .gnb-mob {
     display: block;
   }
 
   /* DB GNB메뉴 클래스 on 줄경우 
-모바일용 숨김 메뉴로 변신 */
+    모바일용 숨김 메뉴로 변신 */
   .gnb.on {
     position: fixed;
     top: 100px;
@@ -111,7 +107,9 @@ h1.logo img {
 
     /* 투명, 트랜지션 */
     opacity: 0;
-    transition: 0.4s ease-in-out;
+    transition: 
+        0.8s ease-in-out, 
+        opacity 0.3s 0.5s;
   }
   .gnb.on ul {
     /* 세로방향 플렉스 */
