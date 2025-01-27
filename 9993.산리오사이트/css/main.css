@@ -92,10 +92,10 @@ h1.logo img {
 }
 /* 2-1. 배너영역 */
 .banner {
-    /* 부모자격 */
-    position: relative;
-    /* 넘치는 자식 숨기기 */
-    overflow: hidden;
+  /* 부모자격 */
+  position: relative;
+  /* 넘치는 자식 숨기기 */
+  overflow: hidden;
   background: url(../images/main_visual_bg.jpg) 0/50px;
   text-align: center;
 }
@@ -105,12 +105,12 @@ h1.logo img {
 }
 /* 모바일용 박스 */
 .mob-box {
-    position: absolute;
-    top: -100%;
-    opacity: 0;
-    width: 100%;
-    padding-top: 85px;
-    transition: .6s ease-in-out;
+  position: absolute;
+  top: -100%;
+  opacity: 0;
+  width: 100%;
+  padding-top: 85px;
+  transition: 0.6s ease-in-out;
 }
 
 /************ 미디어쿼리 ************/
@@ -147,8 +147,14 @@ h1.logo img {
     left: 0;
     opacity: 1;
   }
-  /* 배너이미지 */
-  .banner img {
-    /* max-width: 80%; */
+  /* 데스크탑용 박스 */
+  .dt-box {
+    translate: 0 -100%;
+    opacity: 0;
   }
-}/* 미디어쿼리 */
+  /* 모바일용 박스 */
+  .mob-box {
+    top: 0;
+    opacity: 1;
+  }
+} /* 미디어쿼리 */
