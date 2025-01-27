@@ -9,50 +9,96 @@
 @import url(./core.css);
 
 /* 공통변수 셋팅\ */
-:root{
-    /* 색상변수 : --이름-color */
-    --main-gray-color: #222;
-    --character-area-color: #fefefe;
-    --company-area-color: #f4f4f4;
-    --contact-area-color: #4a679d;
-    /* 사이즈변수 : --이름-size */
-    --top-area-padding-size: 20px 50px;
-    --bottom-area-padding-size: 50px;
-    --contents-box-padding-size: 85px 0 0;
+:root {
+  /* 색상변수 : --이름-color */
+  --main-gray-color: #222;
+  --character-area-color: #fefefe;
+  --company-area-color: #f4f4f4;
+  --contact-area-color: #4a679d;
+  /* 사이즈변수 : --이름-size */
+  --top-area-padding-size: 20px 50px;
+  --bottom-area-padding-size: 50px;
+  --contents-box-padding-size: 85px 0 0;
 }
 
 /* 1. 상단영역 */
 
 /* 속박스 */
-.top-area{
-    padding: var(--top-area-padding-size);
+.top-area {
+  padding: var(--top-area-padding-size);
 }
 /* 상단영역 플렉스 */
-.top-area>ul{
-    display: flex;
-    /* 양쪽끝에 배치함 */
-    justify-content: space-between;
+.top-area > ul {
+  display: flex;
+  /* 양쪽끝에 배치함 */
+  justify-content: space-between;
 }
 /* 로고 */
-h1.logo img{
-    height: min(40px,4vw);
-    /* 최대사이즈 지정:40px이 최대크기 */
+h1.logo img {
+  height: min(40px, 4vw);
+  /* 최대사이즈 지정:40px이 최대크기 */
 }
 
 /* GNB메뉴 */
-.gnb{
-    height: 100%;
+.gnb {
+  height: 100%;
 }
-.gnb>ul{
-    height: 100%;
-    display: flex;
-    align-items: center;
-    gap: 80px;
-    font-weight: 500;    
+.gnb > ul {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  font-weight: 500;
 }
 
-/* DB GNB메뉴 클래스 on 줄경우 모바일용 숨김 메뉴로 변신 */
-.gnb.on{
+/* 모바일 GNB 햄버거버튼 */
+.gnb-mob {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  width: 34px;
+  height: 34px;
+  /* 처음에 안보임! */
+  display: none;
+}
+.gnb-mob span {
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: #000;
+  transition: 0.3s ease-out;
+}
+/* 2번째,3번째 span */
+.gnb-mob span + span {
+  margin-top: 11px;
+}
+.gnb-mob.on span:nth-child(1) {
+  translate: 0 15px;
+  rotate: 45deg;
+}
+.gnb-mob.on span:nth-child(2) {
+  translate: 17px 0;
+  width: 0;
+}
+.gnb-mob.on span:nth-child(3) {
+  translate: 0 -15px;
+  rotate: -45deg;
+}
+
+/* 미디어쿼리 */
+@media screen and (max-width: 1024px) {
+  /* DT GNB 없어짐 */
+  .gnb {
+    display: none;
+  }
+  /* Mobile GNB 나타남! */
+  .gnb-mob {
+    display: block;
+  }
+
+  /* DB GNB메뉴 클래스 on 줄경우 
+모바일용 숨김 메뉴로 변신 */
+  .gnb.on {
     position: fixed;
     top: 100px;
     /* 오른쪽 바깥에 나가있음! */
@@ -65,56 +111,16 @@ h1.logo img{
 
     /* 투명, 트랜지션 */
     opacity: 0;
-    transition: .4s ease-in-out;
-}
-.gnb.on ul{
+    transition: 0.4s ease-in-out;
+  }
+  .gnb.on ul {
     /* 세로방향 플렉스 */
     flex-direction: column;
     gap: 3vh;
-}
-
-/* 모바일 GNB 햄버거버튼 */
-.gnb-mob{
-    position: absolute;
-    top: 20px;
-    right: 50px;
-    width: 34px;
-    height: 34px;
-    /* 처음에 안보임! */
-    display: none;
-}
-.gnb-mob span{
-    display: block;
-    width: 100%;
-    height: 4px;
-    background-color: #000;
-    transition: .3s ease-out;
-}
-/* 2번째,3번째 span */
-.gnb-mob span+span{
-    margin-top: 11px;
-}
-.gnb-mob.on span:nth-child(1){
-    translate: 0 15px;
-    rotate: 45deg;
-}
-.gnb-mob.on span:nth-child(2){
-    translate: 17px 0;
-    width: 0;
-}
-.gnb-mob.on span:nth-child(3){
-    translate: 0 -15px;
-    rotate: -45deg;
-}
-
-/* 미디어쿼리 */
-@media screen and (max-width: 1024px) {
-    /* DT GNB 없어짐 */
-    .gnb{
-        display: none;
-    }
-    /* Mobile GNB 나타남! */
-    .gnb-mob{
-        display: block;
-    }
+  }
+  /* 보이기 클래스는 show */
+  .gnb.on.show {
+    left: 0;
+    opacity: 1;
+  }
 }
