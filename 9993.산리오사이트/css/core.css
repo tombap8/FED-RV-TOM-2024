@@ -20,3 +20,24 @@ font-family: "Nanum Gothic", serif;
     max-width: 1200px;
     margin: 0 auto;
 }
+/* 2. 공통 제목 */
+.stit{
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 30px;
+    color: #222;
+}
+/* 3. 공통 버튼 */
+.com-btn{
+    display: inline-block;
+    border-radius: 30px;
+    padding: 16px 30px;
+    border: 1px solid #222;
+    color: #222;
+    transition: .3s;
+}
+/* 버튼오버시 */
+.com-btn:hover{
+    color: #fff;
+    background-color: #222;
+}
