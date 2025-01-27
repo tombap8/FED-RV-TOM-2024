@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+/* 산리오 PJ : 웹폰트, 공용클래스 CSS - core.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nanum+Gothic&display=swap');
+
+/* 기본 글자체, 글자크기 설정 - 최상위 html에 설정 */
+html {
+    font-family: "Montserrat","Nanum Gothic", serif;
+    font-size: 16px;
+}
+
+/* 
+font-family: "Montserrat", serif;
+font-family: "Nanum Gothic", serif;
+*/
+
+/* 공통클래스 */
+/* 1. 중앙속박스 */
+.inbox{
+    max-width: 1200px;
+    margin: 0 auto;
+}
