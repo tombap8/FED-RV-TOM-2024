@@ -53,7 +53,7 @@ h1.logo img{
 .gnb-mob{
     position: absolute;
     top: 20px;
-    right: 20px;
+    right: 50px;
     width: 34px;
     height: 34px;
 }
@@ -64,6 +64,7 @@ h1.logo img{
     background-color: #000;
     transition: .3s ease-out;
 }
+/* 2번째,3번째 span */
 .gnb-mob span+span{
     margin-top: 11px;
 }
