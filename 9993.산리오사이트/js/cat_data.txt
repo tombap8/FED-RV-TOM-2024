@@ -1,0 +1,29 @@
+[ 캐릭터 데이터 구성 ]
+1. 데이터 종류
+    1) 순번 : 데이터를 구분하는 유일키
+    2) 이미지경로 : 메칭되는 이미지 이름 
+    3) 한글타이틀 : 한글 출력 타이틀
+    4) 영어타이틀 : 영어 출력 타이틀
+
+2. 객체구성
+{
+    idx:순번,
+    isrc: 이미지경로,
+    title: 한글타이틀,
+    title_en: 영어타이틀               
+}
+
+3. 추출코드
+let myArr=[];
+document.querySelectorAll(".character_li li")
+.forEach((v,i)=>{
+    myArr.push({
+        idx:i+1,
+        isrc: v.querySelector('img').src,
+        title: v.querySelector('.title').innerText,
+        title_en:
+            v.querySelector('.title_en').innerText
+               
+    })
+});
+console.log(myArr);
