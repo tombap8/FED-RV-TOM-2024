@@ -122,6 +122,15 @@ h1.logo img {
 .character{
     background-color: var(--character-area-color);
 }
+/* 캐릭터 리스트 */
+.cat-list ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+.cat-list ul li{
+    flex-basis: 25%;
+}
+.cat-list img:last-child
 /* 2-3. 컴퍼니영역 */
 .company{
     background-color: var(--company-area-color);

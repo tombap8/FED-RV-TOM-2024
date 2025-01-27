@@ -36,12 +36,16 @@ myFn.qs('.cat-list').innerHTML =
     <ul>
     ${catData.map(v=>`
         <li>
-            <img src="./images/${v.isrc}.png" alt="${v.title}">
-            <img src="./images/${v.isrc}_ov.png" alt="${v.title}">
-            <h3>
-                <p class="title">${v.title}</p>
-                <p class="title-en">${v.title_en}</p>
-            </h3>
+            <figure>
+                <div>
+                    <img src="./images/${v.isrc}.png" alt="${v.title}">
+                    <img src="./images/${v.isrc}_ov.png" alt="${v.title}">
+                </div>
+                <figcaption>
+                    <h3>${v.title}</h3>
+                    <p class="title-en">${v.title_en}</p>
+                </figcaption>     
+            </figure>
         </li>
     `).join('')}
 
