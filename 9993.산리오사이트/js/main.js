@@ -2,6 +2,9 @@
 
 import myFn from './my_function.js';
 
+// 캐릭터 데이터 가져오기 ////
+import catData from './cat_data.json' with{type:'json'};
+// console.log(catData);
 
 // 1. GNB메뉴 대문자글자변경 ////
 myFn.qsa(".gnb ul li a")
@@ -26,3 +29,23 @@ myFn.qs('.gnb-mob').onclick=function(){
     gnbMenu.classList.toggle('show');
 
 };
+
+// 3. 캐릭터 영역 데이터 연결하여 출력태그 만들기 ////
+myFn.qs('.cat-list').innerHTML = 
+`
+    <ul>
+    ${catData.map(v=>`
+        <li>
+            <img src="./images/${v.isrc}.png" alt="${v.title}">
+            <img src="./images/${v.isrc}_ov.png" alt="${v.title}">
+            <h3>
+                <p class="title">${v.title}</p>
+                <p class="title-en">${v.title_en}</p>
+            </h3>
+        </li>
+    `).join('')}
+
+
+    </ul>
+`;
+

@@ -1,97 +1,97 @@
 [
     {
         "idx": 1,
-        "isrc": "new_main_crt1.png",
+        "isrc": "new_main_crt1",
         "title": "헬로키티",
         "title_en": "HELLO KITTY"
     },
     {
         "idx": 2,
-        "isrc": "new_main_crt2.png",
+        "isrc": "new_main_crt2",
         "title": "마이멜로디",
         "title_en": "MY MELODY"
     },
     {
         "idx": 3,
-        "isrc": "new_main_crt3.png",
+        "isrc": "new_main_crt3",
         "title": "쿠로미",
         "title_en": "KUROMI"
     },
     {
         "idx": 4,
-        "isrc": "new_main_crt4.png",
+        "isrc": "new_main_crt4",
         "title": "폼폼푸린",
         "title_en": "POMPOMPURIN"
     },
     {
         "idx": 5,
-        "isrc": "new_main_crt5.png",
+        "isrc": "new_main_crt5",
         "title": "시나모롤",
         "title_en": "CINNAMOROLL"
     },
     {
         "idx": 6,
-        "isrc": "new_main_crt6.png",
+        "isrc": "new_main_crt6",
         "title": "리틀트윈스타",
         "title_en": "LittleTwinStars"
     },
     {
         "idx": 7,
-        "isrc": "new_main_crt7.png",
+        "isrc": "new_main_crt7",
         "title": "포차코",
         "title_en": "POCHACCO"
     },
     {
         "idx": 8,
-        "isrc": "new_main_crt8.png",
+        "isrc": "new_main_crt8",
         "title": "케로케로케로피",
         "title_en": "KEROKEROKEROPPI"
     },
     {
         "idx": 9,
-        "isrc": "new_main_crt9.png",
+        "isrc": "new_main_crt9",
         "title": "구데타마",
         "title_en": "GUDETAMA"
     },
     {
         "idx": 10,
-        "isrc": "new_main_crt10.png",
+        "isrc": "new_main_crt10",
         "title": "배드바츠마루",
         "title_en": "BAD BADTZ-MARU"
     },
     {
         "idx": 11,
-        "isrc": "new_main_crt11.png",
+        "isrc": "new_main_crt11",
         "title": "턱시도샘",
         "title_en": "TUXEDOSAM"
     },
     {
         "idx": 12,
-        "isrc": "new_main_crt12.png",
+        "isrc": "new_main_crt12",
         "title": "코기뮹",
         "title_en": "Cogimyun"
     },
     {
         "idx": 13,
-        "isrc": "new_main_crt13.png",
+        "isrc": "new_main_crt13",
         "title": "딩구리데이즈",
         "title_en": "Marumofubiyori"
     },
     {
         "idx": 14,
-        "isrc": "new_main_crt14.png",
+        "isrc": "new_main_crt14",
         "title": "숲의요정 페어리루",
         "title_en": "RILU RILU FAIRILU"
     },
     {
         "idx": 15,
-        "isrc": "new_main_crt15.png",
+        "isrc": "new_main_crt15",
         "title": "어그레츠코",
         "title_en": "Aggretsuko"
     },
     {
         "idx": 16,
-        "isrc": "new_main_crt16.png",
+        "isrc": "new_main_crt16",
         "title": "꿈속의 뮤",
         "title_en": "Mewkledreamy"
     }
