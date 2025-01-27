@@ -53,3 +53,25 @@ myFn.qs('.cat-list').innerHTML =
     </ul>
 `;
 
+// 4. company 영역 ///////////////////////
+// 데이터 : 배열
+const companyData = [
+    {
+        title: '회사소개',
+        content: '맑고 깨끗한 강가에 문화를 쌓아 올리자',
+        imgsrc: 'ico_company1'
+
+    },
+    {
+        title: '회사연혁',
+        content: '산리오의 히스토리를 확인하세요',
+        imgsrc: 'ico_company2'
+
+    },
+    {
+        title: '사업영역',
+        content: '소셜 커뮤니케이션을 산리오가 시작합니다',
+        imgsrc: 'ico_company3'
+
+    },
+];

@@ -19,6 +19,7 @@
   --top-area-padding-size: 20px 50px;
   --bottom-area-padding-size: 50px;
   --contents-box-padding-size: 85px 0 0;
+  --cat-title-padding-size: 15px 10px;
 }
 
 /* 1. 상단영역 */
@@ -126,9 +127,12 @@ h1.logo img {
 .cat-list ul{
     display: flex;
     flex-wrap: wrap;
+    padding-bottom: 100px;
 }
 .cat-list ul li{
     flex-basis: 25%;
+    padding: 10px;
+    box-sizing: border-box;
 }
 /* 이미지 파트박스 */
 .img-part{
@@ -150,6 +154,28 @@ h1.logo img {
 .cat-list li:hover img:last-child{
     opacity: 1;
 }
+
+/* 이미지 박스 */
+.cat-list figure{
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+/* 이미지 설명 */
+.cat-list figcaption{
+    text-align: center;
+    padding: var(--cat-title-padding-size);
+}
+/* 캐릭터 타이틀 */
+.cat-list figcaption h3{
+    font-size: 22px;
+    font-weight: normal;
+}
+/* 캐릭터 영문 */
+.cat-list figcaption p{
+    font-size: 12px;
+}
+
+
 /* 2-3. 컴퍼니영역 */
 .company{
     background-color: var(--company-area-color);
