@@ -130,10 +130,25 @@ h1.logo img {
 .cat-list ul li{
     flex-basis: 25%;
 }
+/* 이미지 파트박스 */
+.img-part{
+    position: relative;
+}
+/* 두개의 이미지 공통 */
+.cat-list img{
+    width: 100%;
+}
 /* 마지막 이미지 숨기기 */
 .cat-list img:last-child{
     position: absolute;
     top: 0;
+    left: 0;
+    opacity: 0;
+    transition: .4s;
+}
+/* 오버시 이미지 보이기 */
+.cat-list li:hover img:last-child{
+    opacity: 1;
 }
 /* 2-3. 컴퍼니영역 */
 .company{
