@@ -184,6 +184,13 @@ h1.logo img {
 .recruit{
     background-color: var(--character-area-color);
 }
+/* 컴퍼니 영역 & 리쿠르트 영역 공통 리스트 디자인 */
+.com-type-list{
+    display: flex;
+    justify-content: center;
+    gap: 5vw;
+}
+.com-type-list 
 /* 2-5. 플레이스영역 */
 .place{
     background: url(../images/bg_shop.jpg) no-repeat center/cover;
