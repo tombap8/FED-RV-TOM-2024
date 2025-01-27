@@ -130,7 +130,11 @@ h1.logo img {
 .cat-list ul li{
     flex-basis: 25%;
 }
-.cat-list img:last-child
+/* 마지막 이미지 숨기기 */
+.cat-list img:last-child{
+    position: absolute;
+    top: 0;
+}
 /* 2-3. 컴퍼니영역 */
 .company{
     background-color: var(--company-area-color);

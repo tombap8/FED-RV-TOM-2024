@@ -37,7 +37,7 @@ myFn.qs('.cat-list').innerHTML =
     ${catData.map(v=>`
         <li>
             <figure>
-                <div>
+                <div class="img-part">
                     <img src="./images/${v.isrc}.png" alt="${v.title}">
                     <img src="./images/${v.isrc}_ov.png" alt="${v.title}">
                 </div>
