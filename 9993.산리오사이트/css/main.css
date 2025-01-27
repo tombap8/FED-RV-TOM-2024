@@ -3,6 +3,12 @@
 /* 메인 페이지 CSS - main.css 
     - 변수셋팅 + 미디어쿼리 포함
 */
+
+/* 외부공통파일 불러오기 */
+@import url(./reset.css);
+@import url(./core.css);
+
+/* 공통변수 셋팅\ */
 :root{
     /* 색상변수 : --이름-color */
     --main-gray-color: #222;
