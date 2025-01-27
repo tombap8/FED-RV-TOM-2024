@@ -26,6 +26,13 @@ font-family: "Nanum Gothic", serif;
     font-size: 50px;
     margin-bottom: 30px;
     color: #222;
+    /* text-transform : 글자변환속성
+        1. 모두 대문자 - uppercase
+        2. 모두 소문자 - lowercase
+        3. 첫글자만 대문자 - capitalize
+    */
+    text-transform: uppercase;
+    font-weight: 500;
 }
 /* 3. 공통 버튼 */
 .com-btn{
@@ -35,9 +42,21 @@ font-family: "Nanum Gothic", serif;
     border: 1px solid #222;
     color: #222;
     transition: .3s;
+    text-transform: uppercase;
 }
 /* 버튼오버시 */
 .com-btn:hover{
     color: #fff;
     background-color: #222;
+}
+/* 화살표 나오는 버튼 추가 클래스 */
+.view_btn::after {
+    display: inline-block;
+    padding-left: 20px;
+    vertical-align: middle;
+    content: url(../images/ico_more1.png);
+}
+/* 4. 센터박스 */
+.center-box{
+    text-align: center;
 }
