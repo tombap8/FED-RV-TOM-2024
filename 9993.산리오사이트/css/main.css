@@ -23,7 +23,18 @@
 }
 
 /* 1. 상단영역 */
-
+body{
+    padding-top: 100px;
+}
+/* 겉박스 */
+#top-area{
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+}
 /* 속박스 */
 .top-area {
   padding: var(--top-area-padding-size);
@@ -187,12 +198,26 @@ h1.logo img {
 /* 컴퍼니 영역 & 리쿠르트 영역 공통 리스트 디자인 */
 .com-type-list{
     display: flex;
-    justify-content: center;
-    gap: 5vw;
+    justify-content: space-evenly;
+    text-align: center;
+    padding-bottom: 100px;
 }
-.com-type-list 
+/* 공통 타이틀 */
+.com-type-list h3{
+    font-size: 22px;
+    padding: 20px 0;
+    font-weight: normal;
+}
+/* 공통 내용 */
+.com-type-list p{
+    font-size: 16px;
+}
+.com-type-list p:last-of-type{
+    margin-bottom: 30px;
+}
 /* 2-5. 플레이스영역 */
-.place{
+.place{    
+    padding-bottom: 30vh;
     background: url(../images/bg_shop.jpg) no-repeat center/cover;
 }
 /* 2-6. 컨텍어스영역 */
