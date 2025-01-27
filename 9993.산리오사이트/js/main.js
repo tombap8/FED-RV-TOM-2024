@@ -9,3 +9,9 @@ myFn.qsa(".gnb ul li")
     el.innerText.toUpperCase());
 // toUpperCase() 대문자변경
 // toLowerCase() 소문자변경
+
+// 2. 모바일 GNB 햄버거 버튼 클릭시 ///
+myFn.qs('.gnb-mob').onclick=function(){
+    // 클래스 on 넣기/빼기 토글!
+    this.classList.toggle('on');
+};
