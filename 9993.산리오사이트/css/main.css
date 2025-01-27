@@ -68,15 +68,15 @@ h1.logo img{
 .gnb-mob span+span{
     margin-top: 11px;
 }
-.gnb-mob:hover span:nth-child(1){
+.gnb-mob.on span:nth-child(1){
     translate: 0 15px;
     rotate: 45deg;
 }
-.gnb-mob:hover span:nth-child(2){
+.gnb-mob.on span:nth-child(2){
     translate: 17px 0;
     width: 0;
 }
-.gnb-mob:hover span:nth-child(3){
+.gnb-mob.on span:nth-child(3){
     translate: 0 -15px;
     rotate: -45deg;
 }
