@@ -85,7 +85,35 @@ h1.logo img {
   rotate: -45deg;
 }
 
-/* 미디어쿼리 */
+/* 2. 메인영역 */
+/* 메인영역 개별박스 공통 */
+#main-area > div {
+  padding: var(--contents-box-padding-size);
+}
+/* 2-1. 배너영역 */
+.banner {
+    /* 부모자격 */
+    position: relative;
+    /* 넘치는 자식 숨기기 */
+    overflow: hidden;
+  background: url(../images/main_visual_bg.jpg) 0/50px;
+  text-align: center;
+}
+/* 배너 이미지 */
+.banner img {
+  height: 60vh;
+}
+/* 모바일용 박스 */
+.mob-box {
+    position: absolute;
+    top: -100%;
+    opacity: 0;
+    width: 100%;
+    padding-top: 85px;
+    transition: .6s ease-in-out;
+}
+
+/************ 미디어쿼리 ************/
 @media screen and (max-width: 1024px) {
   /* Mobile GNB 나타남! */
   .gnb-mob {
@@ -107,9 +135,7 @@ h1.logo img {
 
     /* 투명, 트랜지션 */
     opacity: 0;
-    transition: 
-        0.8s ease-in-out, 
-        opacity 0.3s 0.5s;
+    transition: 0.8s ease-in-out, opacity 0.3s 0.5s;
   }
   .gnb.on ul {
     /* 세로방향 플렉스 */
@@ -121,4 +147,8 @@ h1.logo img {
     left: 0;
     opacity: 1;
   }
-}
+  /* 배너이미지 */
+  .banner img {
+    /* max-width: 80%; */
+  }
+}/* 미디어쿼리 */
