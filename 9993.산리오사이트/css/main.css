@@ -8,18 +8,19 @@
 @import url(./reset.css);
 @import url(./core.css);
 
-/* 공통변수 셋팅\ */
+/* 공통변수 셋팅 */
 :root {
   /* 색상변수 : --이름-color */
   --main-gray-color: #222;
   --character-area-color: #fefefe;
   --company-area-color: #f4f4f4;
   --contact-area-color: #4a679d;
+
   /* 사이즈변수 : --이름-size */
-  --top-area-padding-size: 20px 50px;
-  --bottom-area-padding-size: 50px;
-  --contents-box-padding-size: 85px 0 0;
-  --cat-title-padding-size: 15px 10px;
+  --top-area-padding-size: 2rem 5rem;
+  --bottom-area-padding-size: 5rem;
+  --contents-box-padding-size: 8.5rem 0 0;
+  --cat-title-padding-size: 1.5rem 1rem;
 }
 
 /* 전체글자 크기기준값 설정하기 : rem단위 */
@@ -83,8 +84,8 @@ h1.logo img {
 /* 모바일 GNB 햄버거버튼 */
 .gnb-mob {
   position: absolute;
-  top: 20px;
-  right: 50px;
+  top: 2rem;
+  right: 5rem;
   width: 34px;
   height: 34px;
   /* 처음에 안보임! */

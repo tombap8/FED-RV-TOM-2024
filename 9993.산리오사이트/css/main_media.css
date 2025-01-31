@@ -68,5 +68,11 @@
   .cat-list ul li {
     flex-basis: 50%;
   }
+  /* 햄버거 버튼 크기변경 */
+  .gnb-mob{
+    scale: 0.8;
+    /* 가로방향 오른쪽 기준 */
+    transform-origin: right;
+  }
 }
 /****** 800px 이하 미디어쿼리 종료 ******/
