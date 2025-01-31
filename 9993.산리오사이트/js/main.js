@@ -22,9 +22,10 @@ myFn
   `;
 
 
-
-
-// .forEach((el) => (el.innerText = el.innerText.toUpperCase()));
+// -> JS도 대소문자 변환할 수 있다!
+// myFn.qs(".gnb ul li a")
+// .forEach((el) => (el.innerText = 
+// el.innerText.toUpperCase()));
 // toUpperCase() 대문자변경
 // toLowerCase() 소문자변경
 
