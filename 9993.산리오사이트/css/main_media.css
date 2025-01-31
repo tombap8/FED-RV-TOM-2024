@@ -60,6 +60,12 @@
   .cat-list figcaption p {
     display: none;
   }
+
+  
+  /* 컨텍어스 이미지 */
+  .info-box img{
+    width: 130px;
+  }
 } /****** 1024px 이하 미디어쿼리 종료 ******/
 
 /****** 800px 이하 미디어쿼리 시작 ******/
@@ -114,7 +120,7 @@
 
   /* 컨텍어스 이미지 */
   .info-box img{
-    width: 130px;
+    width: 170px;
   }
   /* 컨텍어스 레이아웃 변경 */
   .map-info {
