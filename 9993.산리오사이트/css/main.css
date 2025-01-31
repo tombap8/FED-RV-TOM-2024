@@ -279,9 +279,32 @@ h1.logo img {
 
 /* 3-3. 정보박스 */
 .info-box {
+  /* 부모자격 - 이미지의 부모 */
+  position: relative;
   background-color: #fff;
   /* 오른쪽 위아래만 둥근모서리 */
   border-radius: 0 20px 20px 0;
   padding: 5rem;
   box-sizing: border-box;
+}
+/* 키티 이미지 앱솔루트! */
+.info-box img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  /* 부모는? .info-box */
+}
+/* 한글주소 : h3 */
+ .info-box h3 {
+  font-size: 2.5rem;
+}
+/* 영문주소 : address */
+ .info-box address {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-style: normal;
+}
+/* 전화번호 : p */
+ .info-box p {
+  font-size: 1.4rem;
 }
