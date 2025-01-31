@@ -22,18 +22,23 @@
   --cat-title-padding-size: 15px 10px;
 }
 
+/* 모바일 모드시 가로스크롤 안생기게 셋팅 */
+html,body{
+  overflow-x: hidden;
+}
+
 /* 1. 상단영역 */
-body{
-    padding-top: 100px;
+body {
+  padding-top: 100px;
 }
 /* 겉박스 */
-#top-area{
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
+#top-area {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
 }
 /* 속박스 */
 .top-area {
@@ -61,6 +66,9 @@ h1.logo img {
   align-items: center;
   gap: 80px;
   font-weight: 500;
+
+  /* 대문자 출력 */
+  text-transform: uppercase;
 }
 
 /* 모바일 GNB 햄버거버튼 */
@@ -117,7 +125,7 @@ h1.logo img {
   height: 60vmin;
 }
 /* 데스크탑 박스 */
-.dt-box{    
+.dt-box {
   transition: 0.4s ease-in-out;
 }
 /* 모바일용 박스 */
@@ -131,98 +139,97 @@ h1.logo img {
 }
 
 /* 2-2. 캐릭터 영역 */
-.character{
-    background-color: var(--character-area-color);
+.character {
+  background-color: var(--character-area-color);
 }
 /* 캐릭터 리스트 */
-.cat-list ul{
-    display: flex;
-    flex-wrap: wrap;
-    padding-bottom: 100px;
+.cat-list ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 100px;
 }
-.cat-list ul li{
-    flex-basis: 25%;
-    padding: 10px;
-    box-sizing: border-box;
+.cat-list ul li {
+  flex-basis: 25%;
+  padding: 10px;
+  box-sizing: border-box;
 }
 /* 이미지 파트박스 */
-.img-part{
-    position: relative;
+.img-part {
+  position: relative;
 }
 /* 두개의 이미지 공통 */
-.cat-list img{
-    width: 100%;
+.cat-list img {
+  width: 100%;
 }
 /* 마지막 이미지 숨기기 */
-.cat-list img:last-child{
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: .4s;
+.cat-list img:last-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: 0.4s;
 }
 /* 오버시 이미지 보이기 */
-.cat-list li:hover img:last-child{
-    opacity: 1;
+.cat-list li:hover img:last-child {
+  opacity: 1;
 }
 
 /* 이미지 박스 */
-.cat-list figure{
-    border: 1px solid #ccc;
-    border-radius: 20px;
+.cat-list figure {
+  border: 1px solid #ccc;
+  border-radius: 20px;
 }
 /* 이미지 설명 */
-.cat-list figcaption{
-    text-align: center;
-    padding: var(--cat-title-padding-size);
+.cat-list figcaption {
+  text-align: center;
+  padding: var(--cat-title-padding-size);
 }
 /* 캐릭터 타이틀 */
-.cat-list figcaption h3{
-    font-size: 22px;
-    font-weight: normal;
+.cat-list figcaption h3 {
+  font-size: 22px;
+  font-weight: normal;
 }
 /* 캐릭터 영문 */
-.cat-list figcaption p{
-    font-size: 12px;
+.cat-list figcaption p {
+  font-size: 12px;
 }
-
 
 /* 2-3. 컴퍼니영역 */
-.company{
-    background-color: var(--company-area-color);
+.company {
+  background-color: var(--company-area-color);
 }
 /* 2-4. 리쿠르트영역 */
-.recruit{
-    background-color: var(--character-area-color);
+.recruit {
+  background-color: var(--character-area-color);
 }
 /* 컴퍼니 영역 & 리쿠르트 영역 공통 리스트 디자인 */
-.com-type-list{
-    display: flex;
-    justify-content: space-evenly;
-    text-align: center;
-    padding-bottom: 100px;
+.com-type-list {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  padding-bottom: 100px;
 }
 /* 공통 타이틀 */
-.com-type-list h3{
-    font-size: 22px;
-    padding: 20px 0;
-    font-weight: normal;
+.com-type-list h3 {
+  font-size: 22px;
+  padding: 20px 0;
+  font-weight: normal;
 }
 /* 공통 내용 */
-.com-type-list p{
-    font-size: 16px;
+.com-type-list p {
+  font-size: 16px;
 }
-.com-type-list p:last-of-type{
-    margin-bottom: 30px;
+.com-type-list p:last-of-type {
+  margin-bottom: 30px;
 }
 /* 2-5. 플레이스영역 */
-.place{    
-    padding-bottom: 30vh;
-    background: url(../images/bg_shop.jpg) no-repeat center/cover;
+.place {
+  padding-bottom: 30vh;
+  background: url(../images/bg_shop.jpg) no-repeat center/cover;
 }
 /* 2-6. 컨텍어스영역 */
-.contact-us{
-    background-color: var(--contact-area-color);
+.contact-us {
+  background-color: var(--contact-area-color);
 }
 
 /************ 미디어쿼리 ************/
@@ -258,6 +265,8 @@ h1.logo img {
   .gnb.on.show {
     left: 0;
     opacity: 1;
+    border-top: 1px solid #ccc;
+    padding-top: 5vh;
   }
   /* 데스크탑용 박스 */
   .dt-box {
