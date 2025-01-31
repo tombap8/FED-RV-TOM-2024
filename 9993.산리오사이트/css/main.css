@@ -338,3 +338,39 @@ h1.logo img {
   color: #fff;
   border-color: #fff;
 }
+
+/* 5. sns버튼 박스 */
+.q-btn {
+  position: fixed;
+  width: max(min(60px,5vw),40px);
+  top: 10vh;
+  right: 1vh;
+  z-index: 998;
+}
+.q-btn img{
+  width: 100%;
+}
+/* 6. 탑이동버튼 */
+ .top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 10px;
+  z-index: 999;
+}
+.top-btn span {
+  display: table-cell;
+  vertical-align: middle;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: #4a679e;
+  font-size: 1.6rem;
+  color: #fff;
+  cursor: pointer;
+}
+.top-btn span:before {
+  display: block;
+  content: url(../images/top_arr.png);
+}
