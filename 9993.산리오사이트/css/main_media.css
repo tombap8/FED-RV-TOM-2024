@@ -1,0 +1,72 @@
+@charset "utf-8";
+/* 산리오 사이트 메인 페이지 미디어쿼리 - main_media.css */
+
+/************ 미디어쿼리 ************/
+
+/****** 1024px 이하 미디어쿼리 시작 ******/
+@media screen and (max-width: 1024px) {
+  /* 전체 Root글자 크기 변경: rem영향 */
+  html {
+    font-size: 8.2px;
+  }
+  /* Mobile GNB 나타남! */
+  .gnb-mob {
+    display: block;
+  }
+
+  /* DB GNB메뉴 클래스 on 줄경우 
+      모바일용 숨김 메뉴로 변신 */
+  .gnb.on {
+    position: fixed;
+    top: 8rem;
+    /* 오른쪽 바깥에 나가있음! */
+    left: 100vw;
+    width: 100vw;
+    height: calc(100vh - 8rem);
+
+    background-color: #fff;
+    font-size: 5vw;
+
+    /* 투명, 트랜지션 */
+    opacity: 0;
+    transition: 0.8s ease-in-out, opacity 0.3s 0.5s;
+  }
+  .gnb.on ul {
+    /* 세로방향 플렉스 */
+    flex-direction: column;
+    gap: 3vh;
+    /* 글자크기 변경 */
+    font-size: 4vh;
+  }
+  /* 보이기 클래스는 show */
+  .gnb.on.show {
+    left: 0;
+    opacity: 1;
+    border-top: 1px solid #ccc;
+    padding-top: 5vh;
+  }
+  /* 데스크탑용 박스 */
+  .dt-box {
+    translate: 0 -100%;
+    opacity: 0;
+  }
+  /* 모바일용 박스 */
+  .mob-box {
+    top: 0;
+    opacity: 1;
+  }
+
+  /* 캐릭터 영역 영문 타이틀 숨기기 */
+  .cat-list figcaption p {
+    display: none;
+  }
+} /****** 1024px 이하 미디어쿼리 종료 ******/
+
+/****** 800px 이하 미디어쿼리 시작 ******/
+@media screen and (max-width: 800px) {
+  /* 캐릭터 영역 레이아웃 변경 : 25% -> 50% */
+  .cat-list ul li {
+    flex-basis: 50%;
+  }
+}
+/****** 800px 이하 미디어쿼리 종료 ******/

@@ -21,10 +21,10 @@ font-family: "Nanum Gothic", serif;
     margin: 0 auto;
 }
 /* 2. 공통 제목 */
-.stit{
+.stit {
     text-align: center;
-    font-size: 50px;
-    margin-bottom: 30px;
+    font-size: 5rem;
+    margin-bottom: 3rem;
     color: #222;
     /* text-transform : 글자변환속성
         1. 모두 대문자 - uppercase
@@ -35,11 +35,11 @@ font-family: "Nanum Gothic", serif;
     font-weight: 500;
 }
 /* 3. 공통 버튼 */
-.com-btn{
+.com-btn {
     display: inline-block;
-    font-size: 12px;
-    border-radius: 30px;
-    padding: 16px 30px;
+    font-size: 1.2rem;
+    border-radius: 3rem;
+    padding: 1.6rem 3rem;
     border: 1px solid #222;
     color: #222;
     transition: .3s;
@@ -54,7 +54,7 @@ font-family: "Nanum Gothic", serif;
 .view-btn::after {
     content: url(../images/ico_more1.png);
     display: inline-block;
-    padding-left: 20px;
+    padding-left: 2rem;
     vertical-align: middle;
 }
 /* 오버시 이미지 변경 */
