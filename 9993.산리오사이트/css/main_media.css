@@ -78,5 +78,38 @@
     /* 가로방향 오른쪽 기준 */
     transform-origin: right;
   }
+  /* 컴퍼니 영역 & 리쿠르트 영역 
+  공통 리스트 디자인 변경 */
+  .com-type-list {
+    flex-direction: column;
+    gap: 5vh;
+  }
+  /* 공통 타이틀 */
+  .com-type-list h3 {
+    font-size: 4vw;
+  }
+  /* 공통 내용 */
+  .com-type-list p {
+    display: none;
+  }
+  /* 리쿠르트 영역만 변경 : 가로방향설명박스 */
+  .recruit-list figure {
+    display: flex;
+    justify-content: center;
+  }
+  .recruit-list figcaption {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 5vw;
+    gap: 4vh;
+  }
+  /* 버튼변경 */
+  .com-btn {
+    font-size: 2vw;
+  }
+  .view-btn {
+    margin-bottom: 4vh;
+  }
 }
 /****** 800px 이하 미디어쿼리 종료 ******/
