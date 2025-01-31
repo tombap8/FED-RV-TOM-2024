@@ -34,7 +34,7 @@ font-family: "Nanum Gothic", serif;
     text-transform: uppercase;
     font-weight: 500;
 }
-/* 3. 공통 버튼 */
+/* 3-1. 공통 버튼 */
 .com-btn {
     display: inline-block;
     font-size: 1.2rem;
@@ -61,6 +61,25 @@ font-family: "Nanum Gothic", serif;
 .view-btn:hover::after {
     content: url(../images/ico_more2.png);
 }
+/* 3-2. 공통 버튼 : 반전셋팅 */
+.com-btn.reversal {
+    border-color: #fff;
+    color: #fff;
+}
+/* 버튼오버시 */
+.com-btn.reversal:hover{
+    color: #222;
+    background-color: #fff;
+}
+/* 화살표 나오는 버튼 추가 클래스 */
+.view-btn.reversal::after {
+    content: url(../images/ico_more2.png);
+}
+/* 오버시 이미지 변경 */
+.view-btn.reversal:hover::after {
+    content: url(../images/ico_more1.png);
+}
+
 /* 4. 센터박스 */
 .center-box{
     text-align: center;
