@@ -152,6 +152,12 @@ h1.logo img {
   flex-basis: 25%;
   padding: 10px;
   box-sizing: border-box;
+  /* 글자 줄바꿈방지 */
+  white-space: nowrap;
+  /* 글자 줄바꿈방지시 옆의 li에 영향차단!
+  -> 안주면 같은 라인의 마지막 li가 아래줄로
+  떨어지는 경우가 생길 수 있다! */
+  overflow: hidden;
 }
 /* 이미지 파트박스 */
 .img-part {
