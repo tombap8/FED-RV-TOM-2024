@@ -257,7 +257,7 @@ h1.logo img {
 /* 3-1.컨텍어스 내용박스 부모 */
 .map-info {
   display: flex;
-  padding: 5vh 3vh 20vh;
+  padding: 5vh 3vh 10vh;
 }
 /* 컨텍어스 자식 파티션 박스 등분할 */
 .map-info > div {
@@ -316,4 +316,25 @@ h1.logo img {
   font-weight: bold;
   line-height: 1.7;
   color: var(--main-gray-color);
+}
+
+/* 4. 하단영역 */
+.bottom-area {
+  display: flex;
+  /* 진행방향 정렬 양쪽끝 */
+  justify-content: space-between;
+  /* 진행방향 수직 정렬 중앙 */
+  align-items: center;
+  background-color: #222;
+  padding: 5rem;
+}
+/* 4-1. 카피라잇박스 */
+.copy-right img{
+  width: 197px;
+}
+/* 4-2. 버튼박스 */
+.btn-box .com-btn:hover{
+  background-color: #222;
+  color: #fff;
+  border-color: #fff;
 }
