@@ -34,6 +34,10 @@ font-family: "Nanum Gothic", serif;
     text-transform: uppercase;
     font-weight: 500;
 }
+/* 글자색 반전 공통제목 */
+.stit.reversal {
+    color: #fff;
+}
 /* 3-1. 공통 버튼 */
 .com-btn {
     display: inline-block;

@@ -252,3 +252,13 @@ h1.logo img {
 .contact-us {
   background-color: var(--contact-area-color);
 }
+
+/* 3. 컨텍어스 영역 */
+/* 컨텍어스 내용박스 부모 */
+.map-info {
+  display: flex;
+}
+/* 컨텍어스 자식 파티션 박스 등분할 */
+.map-info>div {
+  flex: 1;
+}
