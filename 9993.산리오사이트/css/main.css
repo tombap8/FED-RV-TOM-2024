@@ -23,13 +23,14 @@
 }
 
 /* 전체글자 크기기준값 설정하기 : rem단위 */
-html{
+html {
   /* 계산 편의상 10px로 설정! */
   font-size: 10px;
 }
 
 /* 모바일 모드시 가로스크롤 안생기게 셋팅 */
-html,body{
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -253,7 +254,7 @@ h1.logo img {
 /****** 1024px 이하 미디어쿼리 시작 ******/
 @media screen and (max-width: 1024px) {
   /* 전체 Root글자 크기 변경: rem영향 */
-  html{
+  html {
     font-size: 8.2px;
   }
   /* Mobile GNB 나타남! */
@@ -304,16 +305,16 @@ h1.logo img {
   }
 
   /* 캐릭터 영역 영문 타이틀 숨기기 */
-  .cat-list figcaption p{
+  .cat-list figcaption p {
     display: none;
   }
-
-
 } /****** 1024px 이하 미디어쿼리 종료 ******/
 
- /****** 800px 이하 미디어쿼리 시작 ******/
- @media screen and (max-width: 800px) {
-  /* 캐릭터 영역 레이아웃 변경 */
-  
- }
- /****** 800px 이하 미디어쿼리 종료 ******/
+/****** 800px 이하 미디어쿼리 시작 ******/
+@media screen and (max-width: 800px) {
+  /* 캐릭터 영역 레이아웃 변경 : 25% -> 50% */
+  .cat-list ul li {
+    flex-basis: 50%;
+  }
+}
+/****** 800px 이하 미디어쿼리 종료 ******/
