@@ -260,12 +260,14 @@ h1.logo img {
   padding: 5vh 3vh 20vh;
 }
 /* 컨텍어스 자식 파티션 박스 등분할 */
-.map-info>div {
+.map-info > div {
   /* 정확히 등분할 설정함! */
   flex-basis: 50%;
 }
 /* 3-2. 지도박스 */
-.map-box {  
+.map-box {
+  /* 박스 높이값 없이 비율설정 */
+  aspect-ratio: 1.4;
   /* 왼쪽 위아래만 둥근모서리 */
   border-radius: 20px 0 0 20px;
   /* 지도 아이프레임 숨기기 */
@@ -293,18 +295,25 @@ h1.logo img {
   bottom: 0;
   right: 0;
   /* 부모는? .info-box */
+  translate: -10% 22%;
 }
 /* 한글주소 : h3 */
- .info-box h3 {
+.info-box h3 {
   font-size: 2.5rem;
+  line-height: 1.5;
 }
 /* 영문주소 : address */
- .info-box address {
+.info-box address {
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
   font-style: normal;
+  line-height: 2;
+  color: #aaa;
 }
 /* 전화번호 : p */
- .info-box p {
+.info-box p {
   font-size: 1.4rem;
+  font-weight: bold;
+  line-height: 1.7;
+  color: var(--main-gray-color);
 }
