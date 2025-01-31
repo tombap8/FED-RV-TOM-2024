@@ -64,12 +64,16 @@
 
 /****** 800px 이하 미디어쿼리 시작 ******/
 @media screen and (max-width: 800px) {
+  /* 루트 글자크기 변경 */
+  html {
+    font-size: 7px;
+  }
   /* 캐릭터 영역 레이아웃 변경 : 25% -> 50% */
   .cat-list ul li {
     flex-basis: 50%;
   }
   /* 햄버거 버튼 크기변경 */
-  .gnb-mob{
+  .gnb-mob {
     scale: 0.8;
     /* 가로방향 오른쪽 기준 */
     transform-origin: right;
