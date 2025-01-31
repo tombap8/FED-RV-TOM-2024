@@ -11,7 +11,7 @@ const gnbData = ["company","character","place","recruit"];
 
 // 1. GNB메뉴 데이터 바인딩하기 ////
 myFn
-  .qsa(".gnb").innerHTML = `
+  .qs(".gnb").innerHTML = `
     <ul>
       ${gnbData.map(v=>`
         <li>
