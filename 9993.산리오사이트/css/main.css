@@ -22,6 +22,12 @@
   --cat-title-padding-size: 15px 10px;
 }
 
+/* 전체글자 크기기준값 설정하기 : rem단위 */
+html{
+  /* 계산 편의상 10px로 설정! */
+  font-size: 10px;
+}
+
 /* 모바일 모드시 가로스크롤 안생기게 셋팅 */
 html,body{
   overflow-x: hidden;
@@ -29,7 +35,7 @@ html,body{
 
 /* 1. 상단영역 */
 body {
-  padding-top: 100px;
+  padding-top: 10rem;
 }
 /* 겉박스 */
 #top-area {
@@ -52,8 +58,8 @@ body {
 }
 /* 로고 */
 h1.logo img {
-  height: min(40px, 4vw);
-  /* 최대사이즈 지정:40px이 최대크기 */
+  height: min(4rem, 4vw);
+  /* 최대사이즈 지정:4rem이 최대크기 */
 }
 
 /* GNB메뉴 */
@@ -64,7 +70,7 @@ h1.logo img {
   height: 100%;
   display: flex;
   align-items: center;
-  gap: 80px;
+  gap: 8rem;
   font-weight: 500;
 
   /* 대문자 출력 */
@@ -118,7 +124,7 @@ h1.logo img {
   overflow: hidden;
   background: url(../images/main_visual_bg.jpg) 0/50px;
   text-align: center;
-  padding-bottom: 100px !important;
+  padding-bottom: 10rem !important;
 }
 /* 배너 이미지 */
 .banner img {
@@ -134,7 +140,7 @@ h1.logo img {
   top: -100%;
   opacity: 0;
   width: 100%;
-  padding-top: 85px;
+  padding-top: 8.5rem;
   transition: 0.4s ease-in-out;
 }
 
@@ -146,11 +152,11 @@ h1.logo img {
 .cat-list ul {
   display: flex;
   flex-wrap: wrap;
-  padding-bottom: 100px;
+  padding-bottom: 10rem;
 }
 .cat-list ul li {
   flex-basis: 25%;
-  padding: 10px;
+  padding: 1rem;
   box-sizing: border-box;
   /* 글자 줄바꿈방지 */
   white-space: nowrap;
@@ -192,12 +198,12 @@ h1.logo img {
 }
 /* 캐릭터 타이틀 */
 .cat-list figcaption h3 {
-  font-size: 22px;
+  font-size: 2.2rem;
   font-weight: normal;
 }
 /* 캐릭터 영문 */
 .cat-list figcaption p {
-  font-size: 12px;
+  font-size: 1.2rem;
 }
 
 /* 2-3. 컴퍼니영역 */
@@ -213,20 +219,20 @@ h1.logo img {
   display: flex;
   justify-content: space-evenly;
   text-align: center;
-  padding-bottom: 100px;
+  padding-bottom: 10rem;
 }
 /* 공통 타이틀 */
 .com-type-list h3 {
-  font-size: 22px;
-  padding: 20px 0;
+  font-size: 2.2rem;
+  padding: 2rem 0;
   font-weight: normal;
 }
 /* 공통 내용 */
 .com-type-list p {
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 .com-type-list p:last-of-type {
-  margin-bottom: 30px;
+  margin-bottom: 3rem;
 }
 /* 2-5. 플레이스영역 */
 .place {
