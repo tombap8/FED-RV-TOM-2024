@@ -218,9 +218,11 @@ h1.logo img {
 }
 /* 2-4. 리쿠르트영역 */
 .recruit {
-  background: var(--character-area-color) url(../images/bg_recruit.png) no-repeat center 10vh/90%;
+  background: var(--character-area-color) url(../images/bg_recruit.png)
+    no-repeat center 10vh/90%;
 }
-/* 컴퍼니 영역 & 리쿠르트 영역 공통 리스트 디자인 */
+/* 컴퍼니 영역 & 리쿠르트 영역 
+공통 리스트 디자인 */
 .com-type-list {
   display: flex;
   justify-content: space-evenly;
