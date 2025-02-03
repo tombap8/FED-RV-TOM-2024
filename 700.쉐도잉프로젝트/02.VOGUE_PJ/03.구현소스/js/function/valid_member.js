@@ -376,10 +376,11 @@ export default function valid_member() {
         gender: $(":radio[name=gen]:checked").val(),
         // 6. 이메일 : email - 문자값(@포함주소)
         email:
-          $("#email1").val() + "@" + 
-          $("#seleml").val() == "free"
+          $("#email1").val() +
+          "@" +
+          ($("#seleml").val() == "free"
             ? $("#email2").val()
-            : $("#seleml").val(),
+            : $("#seleml").val()),
       };
 
       // 객체값을 배열 로컬쓰에 넣기
