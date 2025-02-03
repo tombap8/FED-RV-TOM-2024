@@ -70,7 +70,7 @@ export default function valid_member() {
             .removeClass("on");
 
           // [ 불통과시 pass값 변경2 ]
-            pass = false;
+          pass = false;
         } //////// if ///////
         else {
           // 통과시
@@ -99,7 +99,7 @@ export default function valid_member() {
             .text("특수문자,문자,숫자포함 형태의 5~15자리");
 
           // [ 불통과시 pass값 변경3 ]
-            pass = false;
+          pass = false;
         } //////// if ///////
         else {
           // 통과시
@@ -117,7 +117,7 @@ export default function valid_member() {
           $(this).siblings(".msg").text("비밀번호가 일치하지 않습니다!");
 
           // [ 불통과시 pass값 변경4 ]
-            pass = false;
+          pass = false;
         } //////// if ///////
         else {
           // 통과시
@@ -269,7 +269,7 @@ export default function valid_member() {
         .removeClass("on");
 
       // [ 불통과시 pass값 변경5 ]
-        pass = false;
+      pass = false;
     } //////// else : 불통과시 ////////
   }; ///////////// resEml /////////////////
 
@@ -341,14 +341,14 @@ export default function valid_member() {
 
     // 4. 검사결과에 따라 메시지 보이기
     if (pass) {
-        // 로컬쓰용 배열변수
-        let temp = [];
+      // 로컬쓰용 배열변수
+      let temp = [];
 
-        // 로컬쓰가 있으면 읽어옴!
-        if(localStorage.getItem('mem-data')) 
-            temp = JSON.parse(localStorage.getItem('mem-data'));
+      // 로컬쓰가 있으면 읽어옴!
+      if (localStorage.getItem("mem-data"))
+        temp = JSON.parse(localStorage.getItem("mem-data"));
 
-        /****************************************** 
+      /****************************************** 
           [ 회원가입 입력 데이터 구조 정의 ]
            1. 일련번호 : idx - 숫자값(유일키)
            2. 아이디 : userid - 문자값
@@ -358,23 +358,35 @@ export default function valid_member() {
            6. 이메일 : email - 문자값(@포함주소)
         ******************************************/
 
-    // 로컬스토리지에 데이터 넣기
-    let memData = {
-        idx:1,
-        userid:$('#mid').val(),
-        password:$('#mpw').val(),
-        name:$('#mnm').val(),
-        email:$('#email1').val() + "@" +
-        $('#seleml').val()=='free'?
-        $('#email2').val() : $('#seleml').val()
+      // 로컬스토리지에 데이터 넣기
+      let memData = {
+        // 1. 일련번호 : idx - 숫자값(유일키)
+        // -> 기존 배열개수 + 1 로 입력
+        idx: temp.length + 1,
+        // 2. 아이디 : userid - 문자값
+        userid: $("#mid").val(),
+        // 3. 비밀번호 : password - 문자값
+        password: $("#mpw").val(),
+        // 4. 이름 : name - 문자값
+        name: $("#mnm").val(),
+        // 5. 성별 : gender - 문자값(m-남성,w-여성)
+        // :radio - input 속성 type의 값이 'radio'선택
+        // [name=gen] - 속성 name의 값이 'gen'인 것을 선택
+        // :checked - 체크된 라디오버튼을 선택
+        gender: $(":radio[name=gen]:checked").val(),
+        // 6. 이메일 : email - 문자값(@포함주소)
+        email:
+          $("#email1").val() + "@" + 
+          $("#seleml").val() == "free"
+            ? $("#email2").val()
+            : $("#seleml").val(),
+      };
 
-    };
+      // 객체값을 배열 로컬쓰에 넣기
+      temp.push(memData);
 
-    // 객체값을 배열 로컬쓰에 넣기
-    temp.push(memData);
-
-    // 로컬쓰에 넣기
-    localStorage.setItem('mem-data',JSON.stringify(temp));
+      // 로컬쓰에 넣기
+      localStorage.setItem("mem-data", JSON.stringify(temp));
 
       alert("회원가입을 축하드립니다! 짝짝짝!");
       // 원래는 POST방식으로 DB에 회원가입정보를
@@ -382,7 +394,7 @@ export default function valid_member() {
       // 로그인 페이지로 넘겨준다!
 
       // 로그인 페이지로 리디렉션!
-    //   location.href = 'login.html';
+      //   location.href = 'login.html';
 
       // 민감한 입력 데이터 페이지가 다시 돌아와서
       // 보이면 안되기 때문에 히스토리를 지우는
