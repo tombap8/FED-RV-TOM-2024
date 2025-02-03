@@ -348,13 +348,26 @@ export default function valid_member() {
         if(localStorage.getItem('mem-data')) 
             temp = JSON.parse(localStorage.getItem('mem-data'));
 
+        /****************************************** 
+          [ 회원가입 입력 데이터 구조 정의 ]
+           1. 일련번호 : idx - 숫자값(유일키)
+           2. 아이디 : userid - 문자값
+           3. 비밀번호 : password - 문자값
+           4. 이름 : name - 문자값
+           5. 성별 : gender - 문자값(m-남성,w-여성)
+           6. 이메일 : email - 문자값(@포함주소)
+        ******************************************/
+
     // 로컬스토리지에 데이터 넣기
     let memData = {
         idx:1,
-        mid:$('#mid').val(),
-        mpw:$('#mpw').val(),
-        mnm:$('#mnm').val(),
-        email:$('#email1').val()
+        userid:$('#mid').val(),
+        password:$('#mpw').val(),
+        name:$('#mnm').val(),
+        email:$('#email1').val() + "@" +
+        $('#seleml').val()=='free'?
+        $('#email2').val() : $('#seleml').val()
+
     };
 
     // 객체값을 배열 로컬쓰에 넣기
