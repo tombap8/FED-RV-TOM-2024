@@ -76,6 +76,23 @@ export default function valid_member() {
           // 통과시
           // 1. DB에 조회하여 같은 아이디가 있다면
           // '이미 사용중인 아이디입니다' 와 같은 메시지출력
+          if(localStorage.getItem('mem-data')){
+            // (1) 로컬스 'mem-data'가 있는 경우 파싱함
+            let temp = JSON.parse(localStorage.getItem('mem-data'));
+            // (2) 파싱된 로컬스는 배열이므로 find로 
+            // 현재 입력한 아이디가 있는지 찾아본다!
+            // 배열.find(v=>{if(조건){return true}})
+            // -> true가 리턴되면 해당배열값이 저장됨
+            // 그.러.나... 없으면 값이 그냥 undefined로 남음
+            let result = temp.find(v=>{
+              console.log(v.userid);
+              // cv는 입력된 아이디값
+              // 완전히 일치하는 아이디 존재여부를 검사!
+              if(v.userid==cv) return true;
+            }); /////// find ///////
+
+            console.log('아이디존재결과:',result);
+          }
           // 2. 만약 DB조회하여 같은 아이다가 없다면
           // '멋진 아이디네요~!'와 같은 메시지출력
           // 여기서 우선은 DB조회 못하므로 통과시 메시지로 출력
