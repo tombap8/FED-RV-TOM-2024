@@ -69,36 +69,58 @@ export default function valid_member() {
             .text("영문자로 시작하는 6~20글자 영문자/숫자")
             .removeClass("on");
 
-          // [ 불통과시 pass값 변경2 ]
+          // [ 불통과시 pass값 변경2-1 ]
           pass = false;
         } //////// if ///////
         else {
-          // 통과시
-          // 1. DB에 조회하여 같은 아이디가 있다면
+          // 통과시 /////////////////////////
+          // 1. 로컬스에 조회하여 같은 아이디가 있다면
           // '이미 사용중인 아이디입니다' 와 같은 메시지출력
-          if(localStorage.getItem('mem-data')){
+          if (localStorage.getItem("mem-data")) {
             // (1) 로컬스 'mem-data'가 있는 경우 파싱함
-            let temp = JSON.parse(localStorage.getItem('mem-data'));
-            // (2) 파싱된 로컬스는 배열이므로 find로 
+            let temp = JSON.parse(localStorage.getItem("mem-data"));
+            // (2) 파싱된 로컬스는 배열이므로 find로
             // 현재 입력한 아이디가 있는지 찾아본다!
             // 배열.find(v=>{if(조건){return true}})
             // -> true가 리턴되면 해당배열값이 저장됨
             // 그.러.나... 없으면 값이 그냥 undefined로 남음
-            let result = temp.find(v=>{
+            let result = temp.find((v) => {
               console.log(v.userid);
               // cv는 입력된 아이디값
               // 완전히 일치하는 아이디 존재여부를 검사!
-              if(v.userid==cv) return true;
+              if (v.userid == cv) return true;
             }); /////// find ///////
 
-            console.log('아이디존재결과:',result);
-          }
-          // 2. 만약 DB조회하여 같은 아이다가 없다면
+            console.log("아이디존재결과:", result);
+
+            // (3) 결과처리하기 ////////
+            // 1) result가 undefined가 아닐경우(아이디있음!)
+            if (result) {
+              /// 아이디 입력 불가!!!
+              $(this)
+                .siblings(".msg")
+                .text("이미 사용중인 아이디입니다!")
+                .removeClass("on");
+
+              // [ 불통과시 pass값 변경2-2 ]
+              pass = false;
+            } /// if ///
+            // 2) result가 undefined일 경우(아이디 없음!)
+            else {
+              // 아이디 입력가능!!!
+              // 메시지 띄우기
+              $(this).siblings(".msg").text("멋진 아이디네요~!").addClass("on");
+            } /// else ///
+          } /////////// if ///////////
+
+          // 2. 만약 DB조회하여 같은 아이디가 없다면
           // '멋진 아이디네요~!'와 같은 메시지출력
           // 여기서 우선은 DB조회 못하므로 통과시 메시지로 출력
-          // 메시지 띄우기
-          $(this).siblings(".msg").text("멋진 아이디네요~!").addClass("on");
-          // -> 비동기 통신 Ajax로 서버쪽에 아이디 중복검사필요!
+          else{
+            // 메시지 띄우기
+            $(this).siblings(".msg").text("멋진 아이디네요~!").addClass("on");
+            // -> 비동기 통신 Ajax로 서버쪽에 아이디 중복검사필요!
+          } /////////// else ///////////
         } ////// else //////
       } /////////////// else if : 아이디검사 ///////
 
