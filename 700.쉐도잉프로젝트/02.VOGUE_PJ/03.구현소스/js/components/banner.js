@@ -10,7 +10,7 @@ import setSlide from "../function/drag_slide.js";
 export const BannerComp = Vue.component("banner-comp", {
   // 1-1. 템플릿코드설정 /////
   template: `
-    <div id="ban-area">
+    <div id="ban-area" class="inbox">
         <section class="ban-area">
           <!-- 배너박스 -->
           <div class="ban-box banbx">

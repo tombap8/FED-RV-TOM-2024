@@ -14,7 +14,7 @@ body {
 /* 공사중 표시 */
 /************* 2. 공통 class *************/
 /* 2-1. 중앙 속박스 */
-.ibx {
+.inbox {
   max-width: 1600px;
   margin: 0 auto;
 }
@@ -247,6 +247,10 @@ img {
 }
 .tbtn:hover {
   background-color: red;
+}
+
+#ban-area {
+  overflow: hidden;
 }
 
 .ban-box {

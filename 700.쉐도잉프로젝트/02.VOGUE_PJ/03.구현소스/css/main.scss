@@ -9,7 +9,10 @@
 // 1. 상단영역 -> _common.scss
 
 // 2. 배너영역 /////////////
-
+// 최상위부모
+#ban-area{
+  overflow: hidden;
+}
 // 배너박스
 .ban-box {
   // 부모자격
