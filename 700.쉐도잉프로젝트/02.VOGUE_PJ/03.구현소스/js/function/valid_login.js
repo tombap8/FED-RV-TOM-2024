@@ -28,7 +28,26 @@ export default function validLogin() {
       mpw.val("");
     } ////////// if : 불통과시 ////////
     else {
-      // DB조회후 결과는 아래과 같이 나누어짐
+        let temp = [];
+    // 로컬스 읽어오기
+    if(localStorage.getItem('mem-data'))
+        temp = JSON.parse(localStorage.getItem('mem-data'));
+
+    console.log(temp);
+
+    // 입력된 아이디 존재 여부
+    // 변수 = 배열.find(조건리턴)
+    // -> 결과가 undefined면 아이다가 없다는 말임!
+    let result = temp.find(v=>{
+        // 조건 : 배열의 아이디값 == 입력된 아이디값
+        if(v.userid==mid.val()) return true;
+    }); ///// find ////
+
+    console.log('결과:',result);
+
+        
+
+      // 로컬스 조회후 결과는 아래과 같이 나누어짐
       // 1. 아이디가 없음
       // -> '존재하지 않는 아이디입니다'
       // 2. 아이디가 있으나 비밀번호 틀림
