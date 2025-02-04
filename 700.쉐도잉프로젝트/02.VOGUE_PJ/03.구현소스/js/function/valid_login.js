@@ -28,33 +28,47 @@ export default function validLogin() {
       mpw.val("");
     } ////////// if : 불통과시 ////////
     else {
-        let temp = [];
-    // 로컬스 읽어오기
-    if(localStorage.getItem('mem-data'))
-        temp = JSON.parse(localStorage.getItem('mem-data'));
+      // 1. 로컬스 배열 정보 담을 변수
+      let temp = [];
 
-    console.log(temp);
+      // 2. 회원정보 로컬스 읽어오기
+      if (localStorage.getItem("mem-data"))
+        temp = JSON.parse(localStorage.getItem("mem-data"));
 
-    // 입력된 아이디 존재 여부
-    // 변수 = 배열.find(조건리턴)
-    // -> 결과가 undefined면 아이다가 없다는 말임!
-    let result = temp.find(v=>{
+      console.log(temp);
+
+      // 3. 입력된 아이디 존재 여부
+      // 변수 = 배열.find(조건리턴)
+      // -> 결과가 undefined면 아이다가 없다는 말임!
+      let result = temp.find((v) => {
         // 조건 : 배열의 아이디값 == 입력된 아이디값
-        if(v.userid==mid.val()) return true;
-    }); ///// find ////
+        if (v.userid == mid.val()) return true;
+      }); ///// find ////
 
-    console.log('결과:',result);
+      console.log("결과:", result);
 
-        
-
-      // 로컬스 조회후 결과는 아래과 같이 나누어짐
-      // 1. 아이디가 없음
+      // 4. 로컬스 조회후 결과는 아래과 같이 나누어짐
+      // (1) 아이디가 없음 //////////////////////
       // -> '존재하지 않는 아이디입니다'
-      // 2. 아이디가 있으나 비밀번호 틀림
-      // -> '비밀번호가 일치하지 않습니다'
-      // 3. 로그인 성공 : 첫페이지로 이동(로그인표시)
-      // -> '로그인에 성공하였습니다!'
-      alert("로그인에 성공하였습니다!");
+      if (!result) {
+        // !result는 result변수가 false처리시 들어옴!
+        alert("존재하지 않는 아이디입니다");
+      } /// if ///
+
+      // (2) 아이디가 있는 경우 //////////////////
+      else {
+        // (2-1) 아이디가 있으나 비밀번호 틀림
+        // -> '비밀번호가 일치하지 않습니다'
+        if (result.password != mpw.val()) {
+          alert("비밀번호가 일치하지 않습니다");
+        } /// if ///
+        
+        // (2-2) 로그인 성공 : 첫페이지로 이동(로그인표시)
+        // -> '로그인에 성공하였습니다!'
+        else {
+          alert("로그인에 성공하였습니다!");
+        } /// else ///
+      } /// else ////
     } /////// else : 통과시 ////////
   }); ///////// click ///////////
 } /////////// validLogin 함수 ///////////////
