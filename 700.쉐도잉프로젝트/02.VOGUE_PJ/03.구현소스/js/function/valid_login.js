@@ -20,7 +20,7 @@ export default function validLogin() {
     // 공백데이터 처리 함수
     const groSpace = (x) => x.replace(/\s/g, "");
 
-    // 유효성 검사
+    // 유효성 검사 : 아이디,비번 빈값일 경우 ///////
     if (groSpace(mid.val()) == "" || groSpace(mpw.val()) == "") {
       alert("아이디,비밀번호를 모두 입력해야합니다!");
       // 초기화! + 아이디에 포커스
