@@ -47,3 +47,19 @@ new Vue({
     data:{},
     ...
 })
+
+*********************************
+5. 라우터 연결 링크 코드 만들기
+-> GNB 메뉴 등 a요소 생성코드 컴포넌트에 가서
+데이터 바인딩하여 to속성에 셋팅한다!
+
+((코드))
+1) 반복코드 생성시 예시
+<li v-for="(val,key) in linkData">
+<router-link v-bind:to='val.link'>
+
+2) 직접 라우터 주소 넣기
+ <router-link to="/foods">
+
+3) 객체형식으로 바인딩 값 넣기
+<router-link v-bind:to='{ path: "/corp" }'>

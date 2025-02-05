@@ -12,8 +12,8 @@ import { FashionAreaComp } from "./components/fashion_area.js";
 // console.log(TopComp, BannerComp, JoinComp, LoginComp);
 
 // 메인페이지 컴포넌트 : 구성할 여러개의 컴포넌트호출 ////
-const MainComp = Vue.component("main-comp",{
-    template: `
+const MainComp = Vue.component("main-comp", {
+  template: `
         <main>
             <!-- 배너영역 -->
             <banner-comp></banner-comp>
@@ -24,7 +24,7 @@ const MainComp = Vue.component("main-comp",{
             <!-- fashion 영역 -->
             <fashion-area-comp></fashion-area-comp>
         </main>
-    `
+    `,
 }); ///////////// MainComp ///////////////////
 
 // [ 뷰라우터 인스턴스 내보내기 ] /////
@@ -35,14 +35,25 @@ const MainComp = Vue.component("main-comp",{
 // -> new VueRouter({routes})
 // -> routes라는 속성명은 정해진이름임!
 export default new VueRouter({
-    routes: [
-      {
-        // (1) 경로설정 : path
-        // -> router-link의 to 속성값과 같은값으로 셋팅!
-        path: "/", // 슬래쉬(/)만 쓰면 첫페이지임!
-        // (2) 연결할 컴포넌트 설정 : component
-        // -> 외부의 변수로 셋팅할 수 있고 직접 쓸 수 있음
-        component: MainComp,
-      },
+  routes: [
+    // [ 루트 첫 페이지 셋팅 ]
+    {
+      // (1) 경로설정 : path
+      // -> router-link의 to 속성값과 같은값으로 셋팅!
+      path: "/", // 슬래쉬(/)만 쓰면 첫페이지임!
+      // (2) 연결할 컴포넌트 설정 : component
+      // -> 외부의 변수로 셋팅할 수 있고 직접 쓸 수 있음
+      component: MainComp,
+    },
+    // [ 회원가입 페이지 셋팅 ]
+    {
+      path: "/join",
+      component: JoinComp,
+    },
+    // [ 로그인 페이지 셋팅 ]
+    {
+      path: "/login",
+      component: LoginComp,
+    },
   ],
-  }); ///////// VueRouter ////////////////
+}); ///////// VueRouter ////////////////
