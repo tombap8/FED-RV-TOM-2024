@@ -331,9 +331,9 @@ function SlideFn(selEl) {
   let valFirst = leftVal * 1.1;
   // 오른쪽으로 이동할 기준값(기준위치값*0.9)
   let valSecond = leftVal * 0.9;
-  console.log("기준값:", leftVal);
-  console.log("기준값의 110%:", valFirst);
-  console.log("기준값의 90%:", valSecond);
+  // console.log("기준값:", leftVal);
+  // console.log("기준값의 110%:", valFirst);
+  // console.log("기준값의 90%:", valSecond);
   // left위치값 최초셋업! -> px단위 꼭 쓸것!!!
   dtg.style.left = leftVal + "px";
 
@@ -446,7 +446,7 @@ function SlideFn(selEl) {
 
     // 대상의 left값 찍기(px단위를 parseInt()로 없애기!)
     let currentLeft = parseInt(dtg.style.left);
-    console.log("슬라이드left:", currentLeft, "X축순수이동값:", resultX);
+    // console.log("슬라이드left:", currentLeft, "X축순수이동값:", resultX);
 
     // 대상 슬라이드 이동기준 분기하기
     if (currentLeft < valFirst) {
@@ -468,7 +468,7 @@ function SlideFn(selEl) {
     } /// else if ///
     else {
       // valFirst와 valSecond의 사이범위
-      console.log("제자리!!!");
+      // console.log("제자리!!!");
       slide.style.left = "-200%";
       slide.style.transition = ".3s ease-in-out";
     } /// else ////

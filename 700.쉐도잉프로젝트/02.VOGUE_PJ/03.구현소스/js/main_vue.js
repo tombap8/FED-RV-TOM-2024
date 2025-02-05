@@ -7,7 +7,7 @@ import { JoinComp } from "./components/join.js";
 import { LoginComp } from "./components/login.js";
 import { TodayAreaComp } from "./components/today_area.js";
 
-console.log(TopComp, BannerComp, JoinComp, LoginComp);
+// console.log(TopComp, BannerComp, JoinComp, LoginComp);
 
 /******************************* 
     메인 뷰 인스턴스 생성하기 
