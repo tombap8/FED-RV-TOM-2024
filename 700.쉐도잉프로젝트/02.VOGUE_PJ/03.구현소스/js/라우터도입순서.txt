@@ -11,3 +11,6 @@
 ((코드))
 <!-- 라우터 컨텐츠영역 -->
 <router-view></router-view>
+
+3. 라우터 인스턴스 생성 파일 만들기
+-> router.js
