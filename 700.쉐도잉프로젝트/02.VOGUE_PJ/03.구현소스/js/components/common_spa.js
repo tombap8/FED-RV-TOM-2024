@@ -1,4 +1,4 @@
-// 보그 PJ 공통 컴포넌트 - common.js
+// 보그 PJ 공통 컴포넌트 : SPA용 - common_spa.js
 
 // 1. 상단컴포넌트
 const TopComp = Vue.component("top-comp", {
