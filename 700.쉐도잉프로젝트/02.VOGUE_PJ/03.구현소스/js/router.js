@@ -25,6 +25,11 @@ const MainComp = Vue.component("main-comp", {
             <fashion-area-comp></fashion-area-comp>
         </main>
     `,
+  // DOM구성후
+  mounted() {
+    // CSS 변경하기 ///
+    $("#css-set").attr("href", "./css/main.css");
+  },
 }); ///////////// MainComp ///////////////////
 
 // [ 뷰라우터 인스턴스 내보내기 ] /////

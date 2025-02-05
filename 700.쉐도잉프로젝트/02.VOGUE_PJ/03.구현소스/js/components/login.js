@@ -88,5 +88,8 @@ Vue.component("login-comp",{
     mounted(){
         // 로그인 기능함수 호출!!!
         validLogin();
+
+        // CSS 변경하기 ///
+        $('#css-set').attr('href','./css/login.css');
     },
 });
