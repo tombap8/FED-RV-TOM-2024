@@ -68,7 +68,7 @@ export default function validLogin(cbFn) {
         // -> '로그인에 성공하였습니다!'
         else {
           alert("로그인에 성공하였습니다!");
-          cbFn(result);
+          cbFn(result,"성공한겨!");
         } /// else : 로그인 성공시 ///
       } ///// else : 아이디가 있는 경우 ////
     } /////// else : 아이디,비번 모두입력시 ////////
