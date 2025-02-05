@@ -23,6 +23,9 @@
     <!-- 뷰JS vuex CDN -->
     <script src="https://unpkg.com/vuex@3.0.0"></script>
 
+    <!-- 뷰JS 라우터 CDN -->
+    <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+
     <!-- 엑시오스 라이브러리 스탠드얼론 버전 가져오기(제이슨불러오기) -->
     <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
 
@@ -45,6 +48,9 @@
 
       <!--********** 2. 메인영역 **********-->
 
+      <!-- 라우터 컨텐츠영역 -->
+      <router-view></router-view>
+
       <!-- 배너영역 -->
       <banner-comp></banner-comp>
 
@@ -56,7 +62,6 @@
 
       <!--********** 3. 하단영역 **********-->
       <bottom-comp></bottom-comp>
-
     </div>
     <!-- #vogue-app -->
   </body>

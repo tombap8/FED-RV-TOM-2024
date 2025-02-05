@@ -1,0 +1,13 @@
+[ 뷰JS SPA 구현을 위한 라우터 도입순서 ]
+
+1. 메인 페이지에 라우터 CDN 넣기
+
+((코드))
+<!-- 뷰JS 라우터 CDN -->
+<script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+
+2. 라우터 출력 파트 코드 넣기
+
+((코드))
+<!-- 라우터 컨텐츠영역 -->
+<router-view></router-view>
