@@ -36,7 +36,10 @@ new Vue({
     },
     // 4. 라이프사이클 메서드
     // 4-1. created() : 데이터생성관련코드 작성
-    created(){},
+    created(){
+        // 최초 로그인 상태 셋팅메서드 호출
+        this.initSet();
+    },
 
     // 4-2. mounted() : DOM관련코드 작성
     mounted(){

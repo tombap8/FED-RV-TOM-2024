@@ -89,10 +89,13 @@ Vue.component("login-comp",{
     methods: {
       // 전역 스토어 변수 업데이트 메서드 호출
       actLogin(pm,txt){
+        // pm : 로그인 된 사용자 정보 객체
         console.log('가상돔 메서드 실행!',pm);
         this.msg = txt;
         // 스토어 뮤테이션스 호출
         store.commit('setLogin',pm);
+        // 세션스토리지 셋업하기! 'login-user'
+        sessionStorage.setItem('login-user', pm);
       },
     },
     // 4. 데이터셋업파트
