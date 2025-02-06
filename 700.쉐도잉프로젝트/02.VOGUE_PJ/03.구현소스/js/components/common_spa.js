@@ -52,7 +52,7 @@ const TopComp = Vue.component("top-comp", {
 
               <a href="#" 
                 v-if="k=='로그아웃'"
-                @click.prevent="로그아웃메서드"
+                @click.prevent="logoutFn"
               >
                 <i :class="v[0]" :title="k"></i>
               </a>
@@ -91,7 +91,7 @@ const TopComp = Vue.component("top-comp", {
   // 1-3. 컴포넌트 메서드구역 /////
   methods:{
     // 로그아웃 메서드 /////
-    logOut(){
+    logoutFn(){
       if(confirm("로그아웃 하시겠습니까?"))
         store.commit('setLogout');
     },
