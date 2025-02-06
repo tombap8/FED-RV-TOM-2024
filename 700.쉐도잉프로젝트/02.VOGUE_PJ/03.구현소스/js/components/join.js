@@ -149,7 +149,7 @@ export const JoinComp = Vue.component("join-comp", {
     goPage(){
       // 이 메서드를 DOM 유효성검사 함수에
       // 콜백으로 보내서 이동처리한다!
-      this.$router.push('/join');
+      this.$router.push('/login');
     },
   },
   // 컴포넌트 라이프 사이클 메서드 구역 ///
