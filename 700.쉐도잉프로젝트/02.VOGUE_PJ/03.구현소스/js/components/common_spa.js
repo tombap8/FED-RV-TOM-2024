@@ -52,7 +52,7 @@ const TopComp = Vue.component("top-comp", {
           </ol>
         </nav>
         <!-- 로그인 환영메시지 박스 -->
-        <div id="login-msg">{{$store.state.loginUser.name}} 환영한다!</div>
+        <div id="login-msg">{{$store.state.welcomeMsg}}</div>
       </header>      
     </div>   
     `,
