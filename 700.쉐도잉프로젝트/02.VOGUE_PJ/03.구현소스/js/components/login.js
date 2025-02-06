@@ -20,15 +20,15 @@ Vue.component("login-comp",{
            <!-- 2-2. 갤러리 페이지 컨텐츠 박스 --> 
           <section class="scont">
              <!-- form 요소 :  
-                    입력데이터를 전송하기위한 요소
-                    속성
-                    action - 전송할 처리페이지
-                    method - post : post방식 전달설정
-                            get : get방식 전달설정
-  
-                    (get방식:url로 키=값 쌍으로 데이터전달)
-                    (post방식:페이지로 데이터를 전달하는 숨김방식)
-                -->
+                입력데이터를 전송하기위한 요소
+                속성
+                action - 전송할 처리페이지
+                method - post : post방식 전달설정
+                        get : get방식 전달설정
+
+                (get방식:url로 키=값 쌍으로 데이터전달)
+                (post방식:페이지로 데이터를 전달하는 숨김방식)
+              -->
             <form action="process.php" method="post" class="logF">
                <!-- 아이디박스 --> 
               <div class="minput">
