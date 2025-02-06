@@ -15,7 +15,7 @@ Vue.component("login-comp",{
            <!-- 2-1. 로그인 페이지 상단영역 --> 
           <header class="ctop">
              <!-- 2-1-1. 서브타이틀 --> 
-            <h2 class="stit">Login {{msg}}</h2>
+            <h2 class="stit">Login</h2>
           </header>
            <!-- 2-2. 갤러리 페이지 컨텐츠 박스 --> 
           <section class="scont">

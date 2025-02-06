@@ -39,6 +39,25 @@ export default new Vuex.Store({
       // (3) 로그인버튼 숨기기(로그아웃 보이기)
       st.loginCls = 'login';
     },
+
+    // 로그아웃 메서드 /////////
+    setLogout(st) {
+      // st - state객체
+      console.log("로그아웃!", st);
+      // 1. state변수 업데이트하기 : 모두 초기화!
+
+      // (1) 사용자 정보 변경
+      st.loginUser = {};
+
+      // (2) 환영 메시지 변경
+      st.welcomeMsg = '';
+
+      // (3) 로그인버튼 보이기
+      st.loginCls = '';
+
+      // (4) 로그인 세션스 지우기 'login-user'
+      sessionStorage.removeItem('login-user');
+    },
   },
   // 3. 비동기처리 메서드 구역
   // -> 컴포넌트에서 호출시 dispatch() 사용!
