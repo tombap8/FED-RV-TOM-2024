@@ -3,6 +3,9 @@
 // 로그인 기능 함수 불러오기 -> mounted에서 호출! ////
 import validLogin from "../function/valid_login.js";
 
+// 뷰엑스 스토어 불러오기
+import store from "../vuex_store.js";
+
 export const LoginComp =  
 Vue.component("login-comp",{
     // 1. 템플릿
@@ -84,9 +87,12 @@ Vue.component("login-comp",{
     },
     // 3. 메서드
     methods: {
-      myTest(pm,txt){
+      // 전역 스토어 변수 업데이트 메서드 호출
+      actLogin(pm,txt){
         console.log('가상돔 메서드 실행!',pm);
         this.msg = txt;
+        // 스토어 뮤테이션스 호출
+        store.commit('setLogin',pm);
       },
     },
     // 4. 데이터셋업파트
@@ -94,7 +100,7 @@ Vue.component("login-comp",{
     // 5. DOM 셋업파트
     mounted(){
         // 로그인 기능함수 호출!!!
-        validLogin(this.myTest);
+        validLogin(this.actLogin);
         // -> 뷰 컴포넌트 인스턴스의 메서드를 보냄!
         // ->> DOM에서 뷰 메서드 실행하는 쉬운방법!
 
