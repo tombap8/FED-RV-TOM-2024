@@ -33,7 +33,7 @@ const TopComp = Vue.component("top-comp", {
         </nav>
         <!-- 1-4. 추가메뉴박스 -->
         <nav class="add-menu">
-          <ol>
+          <ol :class="$store.state.loginCls">
             <li 
               v-for="
                 (v,k) in this.addMenu
