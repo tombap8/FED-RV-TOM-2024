@@ -39,11 +39,6 @@ const TopComp = Vue.component("top-comp", {
                 (v,k) in this.addMenu
                 /* v - 객체값, k - 키명 */
               "
-
-              :class="
-              // 키명이 '로그아웃'이면 'hide'클래스넣기
-                k=='로그아웃' ? 'hide' : ''
-              "
             >
               <router-link :to="v[1]">
                 <i :class="v[0]" :title="k"></i>

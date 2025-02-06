@@ -95,7 +95,7 @@ Vue.component("login-comp",{
         // 스토어 뮤테이션스 호출
         store.commit('setLogin',pm);
         // 세션스토리지 셋업하기! 'login-user'
-        sessionStorage.setItem('login-user', pm);
+        sessionStorage.setItem('login-user', JSON.stringify(pm));
       },
     },
     // 4. 데이터셋업파트
