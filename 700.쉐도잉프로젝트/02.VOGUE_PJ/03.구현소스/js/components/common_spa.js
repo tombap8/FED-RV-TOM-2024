@@ -21,7 +21,7 @@ const TopComp = Vue.component("top-comp", {
         <!-- 1-2. 메뉴박스 -->
         <nav class="gnb">
           <ul>
-            <li v-for="v in this.gnbMenu">
+            <li v-for="v in Object.keys(this.gnbMenu)">
               <a href="#">{{v}}</a>
             </li>
           </ul>
@@ -74,48 +74,59 @@ const TopComp = Vue.component("top-comp", {
   data() {
     return {
       // (1) GNB 메뉴 데이터
-      gnbMenu: ["FASHION", "BEAUTY", "LIFESTYLE", "CULTURE", "VIDEO"],
+      gnbMenu: {
+        FASHION: ['전체','패션 트렌드','패션 아이템','셀러브리티 스타일','패션 화보','패션 뉴스','워치&주얼리',],
+        BEAUTY: ['전체','뷰티 트렌드','뷰티 아이템','웰니스','뷰티 화보',],
+        LIFESTYLE: ['전체','여행','푸드','리빙','뷰 포인트',],
+        CULTURE: ['전체','엔터테인먼트','아트','셀럽 뉴스',],
+        VIDEO: [],
+      },
       // (2) 요약 메뉴 데이터
       sumMenu: ["KOREA", "구독하기", "≡"],
-      // (3) 추가가 메뉴 데이터 : 
+      // (3) 추가가 메뉴 데이터 :
       // 키는 메뉴, 값은 배열로 폰트어썸 클래스(0), 라우터경로(1)
       addMenu: {
-        로그인: ["fa-solid fa-right-to-bracket","/login"],
-        로그아웃: ["fa-solid fa-right-from-bracket","/logout"],
-        회원가입: ["fa-solid fa-user","/join"],
-        장바구니: ["fa-solid fa-cart-shopping","/cart"],
+        로그인: ["fa-solid fa-right-to-bracket", "/login"],
+        로그아웃: ["fa-solid fa-right-from-bracket", "/logout"],
+        회원가입: ["fa-solid fa-user", "/join"],
+        장바구니: ["fa-solid fa-cart-shopping", "/cart"],
       },
     };
   }, /// data ///
 
   // 1-3. 컴포넌트 메서드구역 /////
-  methods:{
+  methods: {
     // 로그아웃 메서드 /////
-    logoutFn(){
-      if(confirm("로그아웃 하시겠습니까?"))
-        store.commit('setLogout');
+    logoutFn() {
+      if (confirm("로그아웃 하시겠습니까?")) store.commit("setLogout");
     },
     // goPage : 링크이동 메서드 /////
-    goPage(gubun){ // gubun - 구분키(키명)
+    goPage(gubun) {
+      // gubun - 구분키(키명)
       console.log(gubun);
       // 페이지명 셋팅변수
       let pgName;
       // 구분키별 분기 //
-      switch(gubun){
-        case "로그인": pgName = "login"; break;
-        case "회원가입": pgName = "member"; break;
-        case "장바구니": pgName = "cart_list"; break;
+      switch (gubun) {
+        case "로그인":
+          pgName = "login";
+          break;
+        case "회원가입":
+          pgName = "member";
+          break;
+        case "장바구니":
+          pgName = "cart_list";
+          break;
       } //// switch /////////
 
       // 페이지 이동하기 ///
-      location.href = pgName + '.html';
-
+      location.href = pgName + ".html";
     }, //// goPage 메서드 ////
   }, /// methods //////
   // 1-4. 컴포넌트 라이프사이크 메서드 : mounted
-  mounted(){
+  mounted() {
     // 폰트어썸 link CSS 넣기
-    $('head').append(`
+    $("head").append(`
       <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"

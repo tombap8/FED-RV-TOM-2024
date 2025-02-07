@@ -1,0 +1,35 @@
+@charset "UTF-8";
+/********* 2-1. 서브 페이지 아이템 상단영역 *********/
+/* 2-1-1.서브타이틀 */
+.item-tit {
+  font-family: pist;
+  font-weight: normal;
+  font-size: 50px;
+  text-align: center;
+  padding: 40px 0 20px;
+}
+
+/* 2-1-2.서브메뉴(LNB:Local Navigation Bar) */
+.lnb {
+  padding: 5px 0 50px;
+  /* 첫번째메뉴 + 오버시 빨간색 글자 */
+}
+.lnb ul {
+  /* 플렉스박스 */
+  display: flex;
+  /* 플렉스중앙정렬 */
+  justify-content: center;
+  /* 사이간격 */
+  gap: 0 20px;
+}
+.lnb ul a {
+  font-family: nbg;
+  font-size: 18px;
+  color: #333;
+  /* 트랜지션 */
+  transition: color 0.5s;
+}
+.lnb li:first-child a,
+.lnb a:hover {
+  color: red;
+}/*# sourceMappingURL=item.css.map */
