@@ -24,5 +24,8 @@ Vue.component("item-comp",{
     // 4. 데이터셋업파트
     created(){},
     // 5. DOM 셋업파트
-    mounted(){},
+    mounted(){
+        // CSS 변경하기 ///
+        $("#css-set").attr("href", "./css/item.css");
+    },
 });
