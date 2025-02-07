@@ -25,7 +25,9 @@ const TopComp = Vue.component("top-comp", {
         <nav class="gnb">
           <ul>
             <li v-for="v in Object.keys(this.gnbMenu)">
-              <a href="#">{{v}}</a>
+              <router-link to="/item">
+                {{v}}
+              </router-link>
             </li>
           </ul>
         </nav>

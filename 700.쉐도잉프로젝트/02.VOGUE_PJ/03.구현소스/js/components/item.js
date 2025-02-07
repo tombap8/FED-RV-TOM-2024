@@ -11,7 +11,7 @@ Vue.component("item-comp",{
         <h2 class="item-tit">Fashion</h2>
         <nav class="lnb">
             <ul>
-                <li v-for="v in gnbData.FASHION">
+                <li v-for="v in this.gnbData['FASHION']">
                     <a href="#">{{v}}</a>
                 </li>
             </ul>
