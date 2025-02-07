@@ -1,5 +1,8 @@
 // 보그 JS 서브페이지 아이템 컴포넌트 - item.js
 
+// GNB 메뉴 데이터 불러오기
+import { gnbMenu } from "../../data/gnb_data.js";
+
 export const ItemComp =  
 Vue.component("item-comp",{
     // 1. 템플릿
@@ -8,8 +11,8 @@ Vue.component("item-comp",{
         <h2 class="item-tit">Fashion</h2>
         <nav class="lnb">
             <ul>
-                <li>
-                    <a href="#">전체</a>
+                <li v-for="v in gnbData.FASHION">
+                    <a href="#">{{v}}</a>
                 </li>
             </ul>
         </nav>
@@ -17,7 +20,8 @@ Vue.component("item-comp",{
     `,
     // 2. 리턴함수 데이터
     data(){
-        return{};
+        // 구조분해 할당으로 컴포넌트 지역변수로 만들기
+        return{ gnbMenu };
     },
     // 3. 메서드
     methods: {},
