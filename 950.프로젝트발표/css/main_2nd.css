@@ -132,7 +132,7 @@ body가 기준이 된다!  */
 /* 페이지별 컨텐츠 박스 */
 .pwrap {
   position: relative;
-  top: 140px;
+  top: 19vh;
   width: 90%;
   /* height: calc(100% - 350px); */
   /* 부모높이값 보다 300px만큼 조금더 그 크기를 뺀
