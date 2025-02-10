@@ -155,7 +155,7 @@ body가 기준이 된다!  */
 .part {
   flex: 1;
   /* 1:1 비율로 등분할! */
-  padding: 50px;
+  padding: 20px;
 }
 /* 서브타이틀 */
 .part h2 {
@@ -166,6 +166,7 @@ body가 기준이 된다!  */
   font-size: 3rem;
   text-align: center;
   text-shadow: 2px 2px 2px #000;
+  margin: 0;
 }
 .part h2 span {
   display: inline-block;
