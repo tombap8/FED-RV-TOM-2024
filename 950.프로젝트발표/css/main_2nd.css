@@ -255,6 +255,7 @@ body가 기준이 된다!  */
 }
 .part li {
   padding: 5px 0;
+  text-align: center;
 }
 
 /* h1요소 */
@@ -268,7 +269,7 @@ body가 기준이 된다!  */
 }
 
 #pg2 a {
-  font-size: 40px;
+  font-size: 4vw;
   display: inline-block;
   text-align: center;
   font-weight: bold;
@@ -277,21 +278,24 @@ body가 기준이 된다!  */
   -webkit-text-: 0.5px #000;
 }
 #pg2 .pt1 li:nth-child(1) a {
-  margin-left: 10%;
+  /* margin-left: 10%; */
   color: lightgreen;
 }
 #pg2 .pt1 li:nth-child(1) a::after {
   background-color: lightgreen;
 }
+#pg2 .pt1 li:nth-child(2) {
+    padding-left: 50%;
+}
 #pg2 .pt1 li:nth-child(2) a {
-  margin-left: 80%;
+  /* margin-left: 80%; */
   color: lightsalmon;
 }
 #pg2 .pt1 li:nth-child(2) a::after {
   background-color: lightsalmon;
 }
 #pg2 .pt2 li:nth-child(1) a {
-  margin-left: 30%;
+  /* margin-left: 30%; */
   color: aqua;
 }
 #pg2 .pt2 li:nth-child(1) a::after {
