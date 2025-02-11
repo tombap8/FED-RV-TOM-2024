@@ -28,4 +28,14 @@ myFn.addEvt(window,'mouseup',
 // window.scrollY는 현재 세로축 스크롤바 위치값
 
 // 2. 패럴렉스 인스턴스 생성하기 /////
-new ParallaxFn('icon',500);
+new ParallaxFn('icon',200);
+new ParallaxFn('txt',300);
+
+// 3. 새로고침시 맨위로 이동하기 코드 ////
+// 테스크큐에서 가장 나중에 실행되게함!
+setTimeout(() => {
+  // 윈도우 스크롤 맨위로!
+  window.scrollTo(0, 0);
+  // 부드러운 스크롤 위치값 반영
+  smScroll.setPos(0);
+}, 400);
