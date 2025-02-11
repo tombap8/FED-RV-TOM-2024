@@ -40,8 +40,26 @@ myFn.addEvt(window, "scroll", scrollFn);
 function scrollFn() {
   console.log("스크롤~~~!");
 
-  // 대상 하나만 테스트(두번째 대상)
-  parallaxFn(myFn.getBCR(icon[1]), icon[1], limitVal[0]);
+  // [ 모든 대상요소를 forEach로 패럴렉스함수 호출 설정 ]
+  // 1. 텍스트 박스 패럴렉스 호출적용
+  txtBox.forEach(el=>
+    parallaxFn(myFn.getBCR(el),el,limitVal[1]));
+
+  // 2. 아이콘 패럴렉스 호출적용
+  icon.forEach(el=>
+    parallaxFn(myFn.getBCR(el),el,limitVal[0]));
+
+
+  // 대상 하나만 테스트(두번째 대상 아이콘)
+  // parallaxFn(
+  //   myFn.getBCR(icon[1]), 
+  //   icon[1], 
+  //   limitVal[0]);
+  // 대상 하나만 테스트(두번째 대상 텍스트박스)
+  // parallaxFn(
+  //   myFn.getBCR(txtBox[1]), 
+  //   txtBox[1], 
+  //   limitVal[1]);
 } /////////////// scrollFn 함수 //////////////
 
 // 전역 셋팅변수 ///////
@@ -57,9 +75,14 @@ function parallaxFn(pos, el, limit) {
   // el - 대상요소
   // limit - 이동한계값
 
-  // 이동할 위치값 구하기
+  // 1. 이동할 위치값 구하기
   // 실제이동값 = 위치값*정한범위 / 전체범위
   const moveVal = limit - (pos * limit / winH);
+
+  // 2. 대상위치 이동하기 : 범위에서만 적용하기
+  // 범위 : 윈도우에 나타나는 순간부터 사라질때까지!
+  if(pos < winH && pos > -200)
+  el.style.transform = `translateY(${-moveVal}px)`;
 
   console.log(
     "pos:", pos, 
