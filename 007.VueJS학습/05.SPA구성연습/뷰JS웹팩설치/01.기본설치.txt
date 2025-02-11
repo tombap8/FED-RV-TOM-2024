@@ -73,14 +73,10 @@
 
 3. npm 명령어 사용 - (node package manager)
     (1) 전역 Vue CLI 설치 명령어
-        npm install -g vue-cli
+        npm i -g @vue/cli-init
         (-g는 -global 줄임옵션:전역설치)
         (참고: install 명령어도 i로 줄일 수 있다)
 
-        ((버전별설치 명령어))
-        ver 2.x : npm install vue-cli -global
-        ver 3.x : npm install @vue/cli -global
-        
     (2) 설치후 버전확인
         vue --version
 
