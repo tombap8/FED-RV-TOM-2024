@@ -1,8 +1,5 @@
 // 패럴렉스 기능 구현 생성자 함수 //////
-export default function ParallaxFn(target, spanVal) {
-  // target - 대상 클래스명
-  // spanVal - 움직일 px범위값
-
+export default function ParallaxFn() {
   // 나의 함수 자체삽입 /////
   const myFn = {
     // 요소선택함수 ////////
@@ -41,33 +38,34 @@ export default function ParallaxFn(target, spanVal) {
 
 ********************************************/
 
-  // 1. 대상선정 //////////////////
-  // 전달된 클래스명으로 대상을 선정한다!
-  const tgEl = myFn.qsa("."+target);
-
-  console.log('대상:',tgEl);
-
-  // 2. 이벤트 설정하기 ///////////////
-  // 대상 : window / 이벤트 종류 : scroll
-  myFn.addEvt(window, "scroll", scrollFn);
-
   // 3. 함수만들기 ///////////////
   // 3-1. 스크롤 이벤트 함수 ////
-  function scrollFn() {
-    console.log("스크롤~~~!");
+  function scrollFn(target, spanVal) {
+    // target - 대상 클래스명
+    // spanVal - 움직일 px범위값
 
-    // [ 모든 대상요소를 forEach로 패럴렉스함수 호출 설정 ]
-    // -> 텍스트 박스 패럴렉스 호출적용
-    tgEl.forEach((el) => 
-        parallaxFn(myFn.getBCR(el), el, spanVal));
+    // 1. 대상선정 //////////////////
+    // 전달된 클래스명으로 대상을 선정한다!
+    const tgEl = myFn.qsa("." + target);
 
+    console.log("대상:", tgEl);
+
+    // 2. 이벤트 설정하기 ///////////////
+    // 대상 : window / 이벤트 종류 : scroll
+    myFn.addEvt(window, "scroll", () => {
+      console.log("스크롤~~~!");
+
+      // [ 모든 대상요소를 forEach로 패럴렉스함수 호출 설정 ]
+      // -> 텍스트 박스 패럴렉스 호출적용
+      tgEl.forEach((el) => parallaxFn(myFn.getBCR(el), el, spanVal));
+    }); /////// scroll 이벤트 함수 구역 //////////
   } /////////////// scrollFn 함수 //////////////
 
   // 전역 셋팅변수 ///////
   // 윈도우 높이값
   const winH = window.innerHeight;
   // 패럴랙스 한계 범위값
-//   const limitVal = [200, 300];
+  //   const limitVal = [200, 300];
   console.log("윈도우높이값:", winH);
 
   // 3-2. 패럴렉스 함수 /////////////
