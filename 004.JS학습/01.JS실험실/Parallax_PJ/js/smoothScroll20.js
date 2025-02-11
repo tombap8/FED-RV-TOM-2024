@@ -1,90 +1,97 @@
 // Smooth Scroll JS Verson 2020.12
-// 부드러운 스크롤 2020.12 버전
-// arranged by Tom Brace Parker
+// 부드러운 스크롤 2025.02 버전 - 생성자함수화
+// arranged by Tom Brace Parker &  friends
 
-// startSS()함수를 호출하여 사용
-function startSS() {
-  new SmoothScroll(document, 30, 22);
-}
+// 바깥쪽의 변수가 전역변수가 되지 않도록
+// 전체를 하나의 생성자 함수로 만들어준다!!!
+export default function SmoothScrollFn() {
 
-// 전역변수 스크롤 위치값
-let pos;
-// 다른 코딩으로 스크롤 이동시 이 변수에 일치필요!!!
-
-// 전역변수 pos를 셋팅하는 함수(외부에서 이것사용!)
-function setPos(val) {
-  // val - 위치값 전달변수
-  pos = val;
-}
-
-function SmoothScroll(target, speed, smooth) {
-  if (target === document)
-    target =
-      document.scrollingElement ||
-      document.documentElement ||
-      document.body.parentNode ||
-      document.body; // cross browser support for document scrolling
-
-  var moving = false;
-  pos = target.scrollTop;
-  var frame =
-    target === document.body && document.documentElement
-      ? document.documentElement
-      : target; // safari is the new IE
-
-  target.addEventListener("mousewheel", scrolled, {
-    passive: false,
-  });
-  target.addEventListener("DOMMouseScroll", scrolled, {
-    passive: false,
-  });
-
-  function scrolled(e) {
-    e.preventDefault(); // disable default scrolling
-
-    var delta = normalizeWheelDelta(e);
-
-    pos += -delta * speed;
-    pos = Math.max(0, Math.min(pos, target.scrollHeight - frame.clientHeight)); // limit scrolling
-
-    if (!moving) update();
+  // startSS()함수를 호출하여 사용
+  // this키워드로 변수를 만들면 
+  // 외부에서 생성자함수 사용시 객체로 접근가능!
+  this.startSS = () => {
+    smoothScroll(document, 30, 22);
   }
 
-  function normalizeWheelDelta(e) {
-    if (e.detail) {
-      if (e.wheelDelta)
-        return (
-          (e.wheelDelta / e.detail / 40) * (e.detail > 0 ? 1 : -1)
-        ); // Opera
-      else return -e.detail / 3; // Firefox
-    } else return e.wheelDelta / 120; // IE,Safari,Chrome
+  // 전역변수 스크롤 위치값
+  let pos;
+  // 다른 코딩으로 스크롤 이동시 이 변수에 일치필요!!!
+
+  // 전역변수 pos를 셋팅하는 함수(외부에서 이것사용!)
+  // 외부접근 가능하도록 this로 등록!!!
+  this.setPos = (val) => {
+    // val - 위치값 전달변수
+    pos = val;
   }
 
-  function update() {
-    moving = true;
+  function smoothScroll(target, speed, smooth) {
+    if (target === document)
+      target =
+        document.scrollingElement ||
+        document.documentElement ||
+        document.body.parentNode ||
+        document.body; // cross browser support for document scrolling
 
-    var delta = (pos - target.scrollTop) / smooth;
+    var moving = false;
+    pos = target.scrollTop;
+    var frame =
+      target === document.body && document.documentElement
+        ? document.documentElement
+        : target; // safari is the new IE
 
-    target.scrollTop += delta;
+    target.addEventListener("mousewheel", scrolled, {
+      passive: false,
+    });
+    target.addEventListener("DOMMouseScroll", scrolled, {
+      passive: false,
+    });
 
-    if (Math.abs(delta) > 0.5) requestFrame(update);
-    else moving = false;
+    function scrolled(e) {
+      e.preventDefault(); // disable default scrolling
+
+      var delta = normalizeWheelDelta(e);
+
+      pos += -delta * speed;
+      pos = Math.max(
+        0,
+        Math.min(pos, target.scrollHeight - frame.clientHeight)
+      ); // limit scrolling
+
+      if (!moving) update();
+    }
+
+    function normalizeWheelDelta(e) {
+      if (e.detail) {
+        if (e.wheelDelta)
+          return (e.wheelDelta / e.detail / 40) * (e.detail > 0 ? 1 : -1);
+        // Opera
+        else return -e.detail / 3; // Firefox
+      } else return e.wheelDelta / 120; // IE,Safari,Chrome
+    }
+
+    function update() {
+      moving = true;
+
+      var delta = (pos - target.scrollTop) / smooth;
+
+      target.scrollTop += delta;
+
+      if (Math.abs(delta) > 0.5) requestFrame(update);
+      else moving = false;
+    }
+
+    var requestFrame = (function () {
+      // requestAnimationFrame cross browser
+      return (
+        window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function (func) {
+          window.setTimeout(func, 1000 / 50);
+        }
+      );
+    })();
   }
-
-  var requestFrame = (function () {
-    // requestAnimationFrame cross browser
-    return (
-      window.requestAnimationFrame ||
-      window.webkitRequestAnimationFrame ||
-      window.mozRequestAnimationFrame ||
-      window.oRequestAnimationFrame ||
-      window.msRequestAnimationFrame ||
-      function (func) {
-        window.setTimeout(func, 1000 / 50);
-      }
-    );
-  })();
-}
-
-// 내보내기 : 시작함수 + 위치값변경함수
-export { startSS, setPos };
+} //////////// smoothScrollFn 함수 /////////////
