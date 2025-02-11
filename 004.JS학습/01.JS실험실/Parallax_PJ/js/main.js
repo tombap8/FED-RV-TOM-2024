@@ -28,8 +28,11 @@ myFn.addEvt(window,'mouseup',
 // window.scrollY는 현재 세로축 스크롤바 위치값
 
 // 2. 패럴렉스 인스턴스 생성하기 /////
-new ParallaxFn('icon',270);
-new ParallaxFn('txt',350);
+const pxFn = new ParallaxFn();
+// 2-1. 아이콘 클래스 요소 패럴렉스 적용하기
+pxFn.scrollFn('icon',270);
+// 2-2. 글자박스 클래스 요소 패럴렉스 적용하기
+pxFn.scrollFn('txt',340);
 
 // 3. 새로고침시 맨위로 이동하기 코드 ////
 // 테스크큐에서 가장 나중에 실행되게함!

@@ -38,9 +38,8 @@ export default function ParallaxFn() {
 
 ********************************************/
 
-  // 3. 함수만들기 ///////////////
-  // 3-1. 스크롤 이벤트 함수 ////
-  function scrollFn(target, spanVal) {
+  // [ 함수만들기 : 인스턴스 객체 외부호출함수 ] ///
+  this.scrollFn = (target, spanVal) => {
     // target - 대상 클래스명
     // spanVal - 움직일 px범위값
 
