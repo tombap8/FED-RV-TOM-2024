@@ -71,7 +71,7 @@
     -> cd 이동할 폴더명 (react-app까지 이동)
     -> 더 쉽게! cd 명령어뒤에 폴더를 드래그함!(자동입력됨!)
 
-3. npm 명령어 사용 - (node package management)
+3. npm 명령어 사용 - (node package manager)
     (1) 전역 Vue CLI 설치 명령어
         npm install -g vue-cli
     (2) 설치후 버전확인
