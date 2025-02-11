@@ -1,5 +1,7 @@
 // 패럴렉스 PJ JS - main.js
 
+// 나의 함수 불러오기
+import myFn from "./my_function.js";
 
 /******************************************** 
     [ 패럴렉스 기능구현하기 ]
@@ -20,3 +22,21 @@
         (2) 아이콘이미지 대상 : .icon
 
 ********************************************/
+
+// 1. 대상선정 //////////////////
+// 1-1. 글자박스
+const txtBox = myFn.qsa('.txt');
+// 1-2. 아이콘
+const icon = myFn.qsa('.icon');
+
+// console.log(txtBox,icon);
+
+// 2. 이벤트 설정하기 ///////////////
+// 대상 : window / 이벤트 종류 : scroll
+myFn.addEvt(window,'scroll', scrollFn);
+
+// 3. 함수만들기 ///////////////
+// 3-1. 스크롤 이벤트 함수 ////
+function scrollFn(){
+  console.log('스트롤~~~!');
+} /////////////// scrollFn 함수 //////////////
