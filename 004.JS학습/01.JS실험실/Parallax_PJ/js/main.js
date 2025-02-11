@@ -38,5 +38,25 @@ myFn.addEvt(window,'scroll', scrollFn);
 // 3. 함수만들기 ///////////////
 // 3-1. 스크롤 이벤트 함수 ////
 function scrollFn(){
-  console.log('스트롤~~~!');
+  console.log('스크롤~~~!');
+
 } /////////////// scrollFn 함수 //////////////
+
+// 전역 셋팅변수 ///////
+// 윈도우 높이값 
+const winH = window.innerHeight;
+// 패럴랙스 한계 범위값
+const limitVal = [200,300];
+
+// 3-2. 패럴렉스 함수 /////////////
+function parallaxFn(pos, el, limit){
+  // pos - 요소 getBCR top 위치값
+  // el - 대상요소
+  // limit - 이동한계값
+  console.log(
+    'pos:',pos,
+    '\nel:',el,
+    '\nlimit:',limit
+  )
+
+} /////////// parallaxFn 함수 ////////////////
