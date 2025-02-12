@@ -140,13 +140,97 @@
       //   dbData[0][5]
       // );
 
+
+      // -> 원래는 하나씩 힘들게 셋팅했었음...;;;
+      // const 포스터 = dbData[0][0];
+      // const 제목 = dbData[0][1];
+      // const 개요 = dbData[0][2];
+      // const 감독 = dbData[0][3];
+      // const 출연 = dbData[0][4];
+      // const 문구 = dbData[0][5];
+
       // 배열 구조분해할당으로 변수만들기
       const [포스터, 제목, 개요, 감독, 출연, 문구] = dbData[0];
       // 값이 할당된 변수를 이용하여 클래스 인스턴스를 생성!
+      
       const movie = new MovieInfo(포스터, 제목, 개요, 감독, 출연, 문구);
 
       console.log(movie);
       
+
+      // 위의 모든 배열 데이터를 변수에 객체로 만들고 할당하기 ///
+      // 배열의 값만 가져오는 스프레드연산자(...)를 사용!
+      const newData = dbData.map(v=>new MovieInfo(...v));
+
+      console.log('객체값배열:',newData);
+
+      //////////////////////////////////////////////////
+      // 화면출력하기 //////////////////////////////////
+      // 로드시 셋팅함수 호출설정
+      window.addEventListener("DOMContentLoaded", setCode);
+
+      function setCode() {
+        console.log("코드셋팅함수호출!");
+
+        // 한글자씩 span태그로 싸는 함수
+        const wrapSpan = (x) => {
+          // x - 문구데이터
+          let hcode = "";
+          // for of로 한글자씩 순회 ///
+          for (let txt of x) {
+            if (txt == " ") hcode += "&nbsp;&nbsp;";
+            else hcode += `<span>${txt}</span>`;
+          } ////// for of ////////
+          // 코드리턴
+          return hcode;
+        }; ///////// wrapSpan 함수 //////////
+
+        // 객체로 셋팅된 정보를 반복출력하자!
+        // 출력대상: .wrap
+        document.querySelector(".wrap").innerHTML = 
+        newData
+          .map(
+            (v) => `
+        <section class="cbx">
+            <div class="minfo">
+                <!-- 1. 포스터 -->
+                <div class="photo">
+                    <img src="${v.포스터}" alt="${v.제목}의 포스터">  
+                </div>
+                <div class="cont">
+                    <!-- 2. 제목 -->
+                    <h2 class="tit">
+                        ${v.제목}</h2>
+                    <!-- 3. 개요 -->
+                    <h3 class="sum">
+                        ★장르 : ${v.개요}</h3>
+                    <!-- 4. 감독 -->
+                    <h3 class="dir">
+                        ★감독 : ${v.감독}</h3>
+                    <!-- 5. 출연 -->
+                    <h3 class="act">
+                        ★출연 : ${v.출연}</h3>
+                </div>
+            </div>
+
+            <!-- 영화 한마디 -->
+            <h2 class="showtit">♥ 영화한마디!</h2>
+            <!-- 6. 문구 -->
+            <div class="show" 
+              onclick="
+              alert(this.getAttribute('data-txt'))"
+              data-txt="${v.myMethod(v.문구)}"
+              title="클릭하시면 메시지가 나옵니다!"
+              style="cursor:pointer">
+              ${wrapSpan(v.문구)}
+            </div>
+        </section>
+        `
+          )
+          .join("");
+      } //////////////// setCode함수 ////////////////////
+
+
 
     </script>
     <style>
