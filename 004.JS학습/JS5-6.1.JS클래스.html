@@ -93,8 +93,60 @@
         } //// myMethod 메서드 //////
       } ///////// MovieInfo 클래스 ///////////
 
-      // 클래스의 데이터형은?
+      // 클래스의 데이터형은? function 즉, 함수임!
+      // -> 그.러.나... 선언형 함수와 같이 생성전에
+      // 위쪽에서 호출하는 함수호출 호이스팅은 불가하다!!!
       console.log('클래스의 데이터형은?',typeof MovieInfo);
+
+      // 보다 현실적으로 데이터는 DB에서 넘겨받은
+      // 배열 데이터를 받았다고 가정함!
+      const dbData = [
+        [
+          "https://movie-phinf.pstatic.net/20201116_276/1605491658399poUOC_JPEG/movie_image.jpg?type=m99_141_2",
+          "조제",
+          "멜로/로맨스, 드라마",
+          "김종관",
+          "한지민, 남주혁",
+          "조제 보러 오세요",
+        ],
+        [
+          "https://movie-phinf.pstatic.net/20221213_158/1670910727328mpqYu_JPEG/movie_image.jpg?type=m203_290_2",
+          "영웅",
+          "드라마, 뮤지컬",
+          "윤제균",
+          "정성화, 김고은",
+          "누가 죄인인가",
+        ],
+        [
+          "https://movie-phinf.pstatic.net/20221227_112/16721270739480lDiS_JPEG/movie_image.jpg?type=m203_290_2",
+          "교섭",
+          "드라마",
+          "임순례",
+          "황정민(정재호), 현빈(박대식)",
+          "아쌀라말라이쿰",
+        ],
+      ];
+
+      // 배열확인
+      console.log(dbData);
+
+      // 쌤플로 첫번째 배열값을 사용하여 클래스를 호출함!
+      // const movie = new MovieInfo(
+      //   dbData[0][0],
+      //   dbData[0][1],
+      //   dbData[0][2],
+      //   dbData[0][3],
+      //   dbData[0][4],
+      //   dbData[0][5]
+      // );
+
+      // 배열 구조분해할당으로 변수만들기
+      const [포스터, 제목, 개요, 감독, 출연, 문구] = dbData[0];
+      // 값이 할당된 변수를 이용하여 클래스 인스턴스를 생성!
+      const movie = new MovieInfo(포스터, 제목, 개요, 감독, 출연, 문구);
+
+      console.log(movie);
+      
 
     </script>
     <style>
