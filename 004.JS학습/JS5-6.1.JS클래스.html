@@ -96,7 +96,7 @@
       // 클래스의 데이터형은? function 즉, 함수임!
       // -> 그.러.나... 선언형 함수와 같이 생성전에
       // 위쪽에서 호출하는 함수호출 호이스팅은 불가하다!!!
-      console.log('클래스의 데이터형은?',typeof MovieInfo);
+      console.log("클래스의 데이터형은?", typeof MovieInfo);
 
       // 보다 현실적으로 데이터는 DB에서 넘겨받은
       // 배열 데이터를 받았다고 가정함!
@@ -140,7 +140,6 @@
       //   dbData[0][5]
       // );
 
-
       // -> 원래는 하나씩 힘들게 셋팅했었음...;;;
       // const 포스터 = dbData[0][0];
       // const 제목 = dbData[0][1];
@@ -152,17 +151,16 @@
       // 배열 구조분해할당으로 변수만들기
       const [포스터, 제목, 개요, 감독, 출연, 문구] = dbData[0];
       // 값이 할당된 변수를 이용하여 클래스 인스턴스를 생성!
-      
+
       const movie = new MovieInfo(포스터, 제목, 개요, 감독, 출연, 문구);
 
       console.log(movie);
-      
 
       // 위의 모든 배열 데이터를 변수에 객체로 만들고 할당하기 ///
       // 배열의 값만 가져오는 스프레드연산자(...)를 사용!
-      const newData = dbData.map(v=>new MovieInfo(...v));
+      const newData = dbData.map((v) => new MovieInfo(...v));
 
-      console.log('객체값배열:',newData);
+      console.log("객체값배열:", newData);
 
       //////////////////////////////////////////////////
       // 화면출력하기 //////////////////////////////////
@@ -187,8 +185,7 @@
 
         // 객체로 셋팅된 정보를 반복출력하자!
         // 출력대상: .wrap
-        document.querySelector(".wrap").innerHTML = 
-        newData
+        document.querySelector(".wrap").innerHTML = newData
           .map(
             (v) => `
         <section class="cbx">
@@ -229,9 +226,6 @@
           )
           .join("");
       } //////////////// setCode함수 ////////////////////
-
-
-
     </script>
     <style>
       h1,
