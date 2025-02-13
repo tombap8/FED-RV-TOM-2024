@@ -40,6 +40,9 @@ Vue.component("item-comp",{
     // 5. 업데이트시 실행구역
     updated(){
         console.log('아이템, 업데이트!');
+        // 서브메뉴 변수 업데이트하기
+        this.menuSet = 
+        gnbMenu[this.$route.query.id]
     },
     // 6. DOM 셋업파트
     mounted(){
