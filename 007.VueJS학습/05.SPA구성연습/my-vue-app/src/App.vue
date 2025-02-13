@@ -11,7 +11,7 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -19,9 +19,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-
-  img{
-    border: 10px dotted red;
-  }
+}
+#app img{
+  border: 10px dotted red;
 }
 </style>

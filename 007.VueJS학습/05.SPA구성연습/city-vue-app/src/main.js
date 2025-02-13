@@ -15,7 +15,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   store, // 스토어 사용등록!
-  router, // 라우터 사용등록!
+  router, // 라우터 사용등록!+
   components: { App },
   template: '<App/>',
   // 뷰 인스턴스 생성직후 호출코드구역
