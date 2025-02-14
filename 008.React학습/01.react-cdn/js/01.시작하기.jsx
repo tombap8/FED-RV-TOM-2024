@@ -16,3 +16,71 @@
     내보낼때 하나로 묶는 역할만 하고 실제로 태그를 출력안됨!
     (참고: CLI환경에서는 빈태그를 대신 사용가능함 <></>)
 */
+
+// 생성자 함수를 만들어서 사용해보자!
+// 대문자로 시작하는 이름의 function!
+function MyFirstReact() {
+  // 목적 : 코드를 만들어서 리턴한다!
+  // 리턴코드는 반드시 하나의 Root로 감싼다!
+  return (
+    <React.Fragment>
+      <h1>나는 리액트가 좋아질 것 같다!!! ㅎㅎㅎ</h1>
+      <img
+        src="https://blog.kakaocdn.net/dn/BFjKm/btqARynJAZ8/gKgl3Wzf5dm588Q6WKwlr0/img.png"
+        alt="리액트 로고"
+      />
+      <h2>
+        [ 리액트란 무엇인가? ]
+        <br />
+        <br /># 프론트엔드 JS 라이브러리다! # 사용자 UI의 구성요소를 빌드하기
+        위한도구 <br />
+        [ 작동원리 ] <br />
+        <br />
+        # 가상돔(Virtual DOM)을 사용하여 최소의 html리소스를 사용함으로 <br />
+        빠르고 쉽게 UI화면의 구성한다! <br /># 가상돔은 실제DOM을 변경하기전에
+        메모리상에서 구성하는 가짜 DOM이다! <br />
+        # 변경사항을 한번에 구성하여 반영하기 위한도구다! <br />
+        # 리액트는 변경하고자 하는 부분만 업데이트 가능함! <br /> <br />
+        # 리액트 라이브러리 구성 <br />
+        <ul>
+          <li>리액트 라이브러리</li>
+          <li>리액트돔 라이브러리</li>
+          <li>바벨 라이브러리</li>
+        </ul>
+        # 리액트 기초배우기 영상 <br />
+      </h2>
+      <iframe
+        width="100%"
+        height="720"
+        src="https://www.youtube.com/embed/QFaFIcGhPoM?list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3"
+        title="ReactJS Tutorial - 1 - Introduction"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </React.Fragment>
+  );
+} /////////// MyFirstReact 함수 ////////
+
+// 리액트 html대상요소에 삽입하기
+/* 
+    가상돔을 셋팅하는 리액트 객체를 호출한다! -> ReactDOM
+    render() -> 요소를 변경하는 메서드
+
+    [호출형태]
+    ReactDOM.render(
+        요소를 리턴하는 함수명으로 된 홀로태그,대상요소)
+    __________________________________________
+
+    예컨데 함수명이 MyFirstReact이므로 
+    요소를 리턴하는 함수명으로 된 홀로태그는? <MyFirstReact />
+
+    그리고 대상요소는 JS문법으로 요소를 선택함!
+    document.querySelector("#root")
+*/
+
+// 화면출력하기 ///
+ReactDOM.render(
+<MyFirstReact />, 
+document.querySelector('#mydiv'));
