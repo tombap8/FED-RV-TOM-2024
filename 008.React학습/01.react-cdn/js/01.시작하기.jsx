@@ -4,7 +4,8 @@
     html 태그와 JS문법을 따옴표없이 사용하는 JSX문법을 사용한다!
     JSX(Javascript XML) 문법을 쓰는 파일은 .js대신 .jsx확장자사용!
     -> return 키워드 사용은 따옴표없이 바로 소괄호롤 묶어사용
-    (소괄호 생략 가능!)
+    (소괄호 생략 가능! 단, 소괄호든 태그든 return키워드
+    바로 옆에 같은 줄에 있어야 유효하다!)
 
     [[ 주의사항 ]]
     1. 함수를 만들경우 반드시 대문자로 시작해야 호출됨!(정해진규칙)
@@ -28,6 +29,7 @@ function MyFirstReact() {
       <img
         src="https://blog.kakaocdn.net/dn/BFjKm/btqARynJAZ8/gKgl3Wzf5dm588Q6WKwlr0/img.png"
         alt="리액트 로고"
+        style={{ width: "100%" }}
       />
       <h2>
         [ 리액트란 무엇인가? ]
@@ -65,7 +67,8 @@ function MyFirstReact() {
 
 // 리액트 html대상요소에 삽입하기
 /* 
-    가상돔을 셋팅하는 리액트 객체를 호출한다! -> ReactDOM
+    가상돔을 셋팅하는 리액트 객체를 호출한다! 
+    -> ReactDOM
     render() -> 요소를 변경하는 메서드
 
     [호출형태]
@@ -83,4 +86,4 @@ function MyFirstReact() {
 // 화면출력하기 ///
 ReactDOM.render(
 <MyFirstReact />, 
-document.querySelector('#mydiv'));
+document.querySelector("#mydiv"));
