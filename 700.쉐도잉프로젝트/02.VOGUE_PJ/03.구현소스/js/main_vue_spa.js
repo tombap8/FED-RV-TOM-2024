@@ -32,7 +32,19 @@ new Vue({
                // 뮤테이션 로그인 셋 메서드 호출
                store.commit('setLogin',temp);
             }
-        },
+        }, /// initSet ////
+
+        // 경로에 따라 상단메뉴 디자인 변경을 위해
+        // 클래스 적용/미적용 메서드
+        checkPage(){
+            // updated에서 호출했으므로
+            // DOM에 변경을 할 수 있다!
+            if(this.$route.path == '/')
+                $('.top-area').removeClass('sub');
+            else
+                $('.top-area').addClass('sub');
+        }, //// checkPage /////
+
     },
     // 4. 라이프사이클 메서드
     // 4-1. created() : 데이터생성관련코드 작성
@@ -41,8 +53,17 @@ new Vue({
         this.initSet();
     },
     // 4-2. 업데이트시 실행구역
+    // updated()는 DOM에 다시출력후임!
+    // 참고) DOM에 출력전은 beforeUpdate()
     updated(){
-        console.log('메인, 업데이트!');
+        console.log('메인, 업데이트!',
+            this.$route.path
+        );
+        // 스크롤바 위치 맨 위로 이동하기
+        window.scrollTo(0, 0);
+
+        // 클래스 넣기/빼기 체크함수 호출!
+        this.checkPage();
     },
 
     // 4-3. mounted() : DOM관련코드 작성
@@ -50,5 +71,10 @@ new Vue({
         // 만약 첫페이지가 다른 경로면
         // DOM로딩후 구역에서 라우터를 강제로 호출함!
         // this.$router.push('/');
+        
+        // 클래스 넣기/빼기 체크함수 호출!
+        this.checkPage();
+        // -> 서브 페이지에서 새로 고침시 최초셋팅필요!
+        // 여기서 안하면 클래스 sub가 지워진다!
     },
 });
