@@ -42,13 +42,25 @@ let protEvt = 0;
 // (1) 드래그 중 이벤트함수 ///////////
 // - 이벤트 종류 : mousemove - touchmove
 cbx.on("mousemove touchmove", (e) => {
-  // 1. x축 위치값
+  // 0. 이벤트 횟수 줄이기 : 광클금지원리와 같음!
+  if(protEvt) return; // 돌아가!
+  protEvt = 1; // 잠금! - 이벤트 하나만 통과!
+  setTimeout(()=>protEvt=0, 25); // 해제
+  // 타임아웃 시간에 따라 이벤트수를 조절할 수 있다!
 
+
+  // 1. x축 위치값
+  let pos = e.pageX || e.changedTouches[0].pageX;
   // 2. 방향알아내기
   // 계산방법:  처음클릭위치 - 현재위치
   // point변수 - pos변수
   // 전체조건 : drag===1 일때만
   if (drag) {
+    // 방향변수 : 양수면 1보내고 음수면 0보냄
+    let dir = point - pos < 0 ? 0 : 1;
+    // console.log('방향은?',dir);
+    // 이미지 넘김 함수 호출 : 방향값 보내줌!
+    rotateCar(dir);
   } ///////// if ///////////
 
   // 2. x축 처음 위치값 업데이트
@@ -97,6 +109,7 @@ const rotateCar = (dir) => {
   // dir방향
   console.log("방향:", dir);
   // [ 1.fnum 증감전 숨기기 -> 현재이미지 숨기기 ]
+  carImg.eq(fnum).hide();
 
   // [ 2.이미지번호 증감처리 ]
   // dir -> 1이면 오른쪽에서 왼쪽 드래그 : 정방향
@@ -116,7 +129,7 @@ const rotateCar = (dir) => {
     // 첫순번은 0이므로 -1이면 마지막순번 49번으로 변경!
   } ///// else /////
 
-  // console.log('순번:',fnum);
+  console.log('순번:',fnum);
 
   // (다른방법:) 위에서 증감전 숨기기 안하고 아래서 하기
   // 1번 주석후 테스트 할것!
@@ -126,4 +139,5 @@ const rotateCar = (dir) => {
   // -> 반대로 'display:none'인요소 선택은 ':hidden'
 
   // [ 3.fnum 증감후 보이기 -> 다음이미지 보이기 ]
+  carImg.eq(fnum).show();
 }; /////////// rotateCar 함수 ///////////
