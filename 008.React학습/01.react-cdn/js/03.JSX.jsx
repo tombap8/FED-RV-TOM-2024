@@ -7,7 +7,7 @@
     - appendChild() 메서드 없이 DOM에 요소넣기가 가능함!
 *****************************************************/
 // 출력할 요소 선택하기 ////
-const target = document.querySelectorAll('#root>div');
+const target = document.querySelectorAll("#root>div");
 
 // 1. JSX를 사용한 것과 JSX를 사용하지 않을 것을 비교
 // (1) JSX 를 사용한 예
@@ -21,8 +21,7 @@ root1.render(myEle1);
 
 // (2) JSX를 사용하지 않는 방법 //////////////
 // -> 넣을 요소를 createElement() 메서드로 생성해야함!
-const myEle2 = React
-.createElement("h1",{},"나는 JSX를 쓰지 않아!");
+const myEle2 = React.createElement("h1", {}, "나는 JSX를 쓰지 않아!");
 // createElement(요소명,{JS코드작성},요소내용)
 
 // 두번째 div에 출력하기 /////
@@ -69,9 +68,23 @@ ReactDOM.render(myEle2, target[1]);
 
 *****************************************************/
 
+// 표현식에 쓸 변수
+let num1 = 1000,
+  num2 = 7;
 
+// 표현식에 사용할 리턴이 있는 함수
+const retFn = () => `만만세다~!!!`;
 
-
+// 3. JSX 표현식 사용하기 /////////////
+const myEle3 = (
+  <div>
+    <h1>리액트는 {num1 * num2}번 사용해도 좋다!</h1>
+    <h1>리액트는 {num1 == 1000 ? "계속" : "한번만"} 사용해도 좋다!</h1>
+    <h1>리액트는 {retFn()}</h1>
+  </div>
+);
+// 세번째 div에 출력하기 ////
+ReactDOM.render(myEle3, target[2]);
 
 /***************************************************** 
     [ JSX 태그요소 작성시 여러줄일 경우 ]
@@ -91,16 +104,58 @@ ReactDOM.render(myEle2, target[1]);
         (단점, 원하는 않는 태그가 삽입됨!!!)
 *****************************************************/
 
+// 4. 다중요소 html블록 삽입하기 ////
+const myEle4 = (
+  <React.Fragment>
+    <h2>[ 다중요소 HTML 블록출력하기 ]</h2>
+    <ul>
+      <li>프론트엔드</li>
+      <li>리액트적용개발</li>
+      <li>끝내주게 해보자구~!!!!</li>
+    </ul>
+  </React.Fragment>
+);
+// 네번째 div에 출력하기 ////
+ReactDOM.render(myEle4, target[3]);
 
+// 5. 내가 원하는 태그 출력해 보기
 
+// 기본 데이터(배열)
+const mydata = [
+  { idx: 1, name: "김수현", movie: "언제왔니" },
+  { idx: 2, name: "장우혁", movie: "형님,형~~~님" },
+  { idx: 3, name: "김혜수", movie: "내가쎈언니야" },
+];
+
+// 출력형식:
+// 맨위에 h2요소 타이틀넣고
+// ul>li
+// <li>배우명 : 영화명</li>
+// 배열변수.map() 사용!
+// JSX 리액트에서의 map()은 join('')이 불필요!
+
+const myEle5 = (
+  <React.Fragment>
+    <h2>[ 배우 리스트 ]</h2>
+    <ul>
+      {mydata.map((v) => (
+        <li>
+          {v.name} : {v.movie} : 
+          {v.idx == 3 ? "예뻐!♥" : "멋쪄!★"}
+        </li>
+      ))}
+    </ul>
+  </React.Fragment>
+);
+
+// 다섯번째 div에 출력하기 ////
+ReactDOM.render(myEle5, target[4]);
 
 /***************************************************** 
     [ JSX는 홀로태그라도 끝에 닫기를 해줘야한다! ]
     예) <br> -> <br />
         <input type="text"> -> <input type="text" />
 *****************************************************/
-
-
 
 /***************************************************** 
     [ JSX에서 속성 클래스는 className 으로 표기한다! ]
@@ -111,8 +166,6 @@ ReactDOM.render(myEle2, target[1]);
     -> 리액트 버전 16부터 class라고 써도 자동 변환하여
     클래스를 표시해 주지만 경고메시지가 뜬다!
 *****************************************************/
-
-
 
 /***************************************************** 
     [ JSX에서 조건문 사용하기 - if문 ]
