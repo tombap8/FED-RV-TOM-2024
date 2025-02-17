@@ -140,8 +140,7 @@ const myEle5 = (
     <ul>
       {mydata.map((v) => (
         <li>
-          {v.name} : {v.movie} : 
-          {v.idx == 3 ? "예뻐!♥" : "멋쪄!★"}
+          {v.name} : {v.movie} :{v.idx == 3 ? "예뻐!♥" : "멋쪄!★"}
         </li>
       ))}
     </ul>
@@ -160,11 +159,8 @@ ReactDOM.render(myEle5, target[4]);
 // 6. 홀로 태그 출력해보기 ///////////
 const myEle6 = <input type="text" value="홀로태그는 스스로 닫아라!" />;
 
-
 // 여섯번째 div에 출력하기 ////
 ReactDOM.render(myEle6, target[5]);
- 
-
 
 /***************************************************** 
     [ JSX에서 속성 클래스는 className 으로 표기한다! ]
@@ -174,7 +170,24 @@ ReactDOM.render(myEle6, target[5]);
 
     -> 리액트 버전 16부터 class라고 써도 자동 변환하여
     클래스를 표시해 주지만 경고메시지가 뜬다!
+
+    참고) label 태그의 for속성도 for를 못씀!
+        대신 htmlFor라는 변형속성을 사용한다!
 *****************************************************/
+
+// 7. 속성으로 클래스 셋팅하여 사용하기 //////
+const myEle7 = (
+    <h1 className="myclass">
+        className 속성으로 클래스를 셋팅한다!
+        <br />
+        <label htmlFor="mytxt">이름:</label>
+        <input type="text" name="mytxt" id="mytxt" />
+    </h1>
+);
+
+
+// 일곱번째 div에 출력하기 ////
+ReactDOM.render(myEle7, target[6]);
 
 /***************************************************** 
     [ JSX에서 조건문 사용하기 - if문 ]
