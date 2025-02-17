@@ -180,7 +180,7 @@ const myEle7 = (
     <h1 className="myclass">
         className 속성으로 클래스를 셋팅한다!
         <br />
-        <label htmlFor="mytxt">이름:</label>
+        <label htmlFor="mytxt">htmlFor 속성으로 라벨요소의 for속성을 셋팅한다!</label>
         <input type="text" name="mytxt" id="mytxt" />
     </h1>
 );
