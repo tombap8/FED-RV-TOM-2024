@@ -16,4 +16,42 @@ const data = [
     { 이름: "공유", 전화번호: "010-999-5555", 생일: "79.08.20" },
     { 이름: "김마리", 전화번호: "010-888-4578", 생일: "00.01.02" },
   ];
+
+  console.log("원본:",data);
+
+  // 출력을 위한 구성
+  // table>tr>td 태그로 구성함
+  // map() 메서드로 태그와 데이터를 매핑함!
+  // -> 여기서 사용하는 map()은 리액트용 맵이다!
+  // 그래서 join('') 안해도 출력이 깔끔하게 된다!
+
+  const listCode = data.map(v=>(
+    <tr>
+        <td>{v.이름}</td>
+        <td>{v.전화번호}</td>
+        <td>{v.생일}</td>
+    </tr>
+  )); /// JSX문법 사용의 map()!
+
+  // 화면출력하기 /////////
+  // ReactDOM.render(출력할요소,대상요소)
+  ReactDOM.render(
+    <React.Fragment>
+        <h1>😋 나의 친구 리스트 😍</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>전화번호</th>
+                    <th>생년월일</th>
+                </tr>
+            </thead>
+            <tbody>
+                {/* 위에서 map돌린 결과를 가져온다! */}
+                {listCode}
+            </tbody>
+        </table>
+    </React.Fragment>,
+    document.querySelector('#root')
+  );
   
