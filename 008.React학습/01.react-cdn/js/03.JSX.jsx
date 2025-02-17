@@ -157,6 +157,15 @@ ReactDOM.render(myEle5, target[4]);
         <input type="text"> -> <input type="text" />
 *****************************************************/
 
+// 6. 홀로 태그 출력해보기 ///////////
+const myEle6 = <input type="text" value="홀로태그는 스스로 닫아라!" />;
+
+
+// 여섯번째 div에 출력하기 ////
+ReactDOM.render(myEle6, target[5]);
+ 
+
+
 /***************************************************** 
     [ JSX에서 속성 클래스는 className 으로 표기한다! ]
     <태그 class="클래스명">
