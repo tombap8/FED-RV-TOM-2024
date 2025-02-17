@@ -7,18 +7,30 @@ export const ItemComp =
 Vue.component("item-comp",{
     // 1. 템플릿
     template: `
-    <header class="item-top-area">
-        <h2 class="item-tit">
-            {{$route.query.id}}
-        </h2>
-        <nav class="lnb">
-            <ul>
-                <li v-for="v in this.menuSet">
-                    <a href="#">{{v}}</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <main>
+        <header class="item-top-area">
+            <h2 class="item-tit">
+                {{$route.query.id}}
+            </h2>
+            <nav class="lnb">
+                <ul>
+                    <li v-for="v in this.menuSet">
+                        <a href="#">{{v}}</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Today’s Stories 유형 영역 -->
+        <today-area-comp
+            list-tit=""
+            :data-name="$route.query.id.toLowerCase()"
+        ></today-area-comp>
+
+        <div style="font-size:10vw">
+            출력확인:{{$route.query.id.toLowerCase()}}
+        </div>
+    </main>
     `,
     // 2. 리턴함수 데이터
     data(){
