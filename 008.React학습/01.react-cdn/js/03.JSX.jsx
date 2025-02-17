@@ -198,3 +198,33 @@ ReactDOM.render(myEle7, target[6]);
     JSX 외부에서 if문을 사용하거나
     아니면 내부에서 삼항연산자를 사용할 수 있다!
 *****************************************************/
+
+// 8. JSX에서 if문 사용하여 출력하기 //////
+const x = 9000;
+
+// if문 분기하여 결과 리턴하는 함수 ///
+const showResult = money => {
+    let txt = "";
+
+    if(money < 10000){
+        txt = "돈이 부족해서 살 수 없어!";
+    }
+    else{
+        txt = "이 돈으로 충분히 살 수 있어!";
+    }
+    // 결과값 리턴
+    return txt;
+}; ///// showResult 함수 ////
+
+// 출력변수 ////
+const myEle8 = (
+    <div>
+        <h1>현재 내가 가진 돈은 {x}원!</h1>
+        <h1>만원짜리 립밤을 살 수 있을까?</h1>
+        <h1>{showResult(x)}</h1>
+    </div>
+);
+
+
+// 여덟번째 div에 출력하기 ////
+ReactDOM.render(myEle8, target[7]);
