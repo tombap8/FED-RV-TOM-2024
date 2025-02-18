@@ -154,7 +154,7 @@ function MakeList({ foodName, movieInfo }) {
         // 음식 데이터가 들어온 경우 출력
         // 만약 데이터가 안들어오면 undefined이므로
         // false 처리됨! 할당되면 true처리됨!
-        foodName && "개발자는 " + foodName + "좋아해!"
+        foodName && "개발자는 " + foodName + " 좋아해!"
       }
       {
         // 영화 데이터가 들어온 경우 출력
