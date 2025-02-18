@@ -36,8 +36,27 @@ function MakeImage({ isrc, ialt, itit, icss }) {
 // 보통 서브컴포넌트라고 부른다~!
 function Developer({ isNormal, isrc, ialt, itit }) {
   // isNormal은 개발자가 아니면 true
+  if (isNormal) {
+    return (
+      <React.Fragment>
+        <LostDeveloper />
+        <MakeImage isrc={isrc} ialt={ialt} itit={itit} />
+      </React.Fragment>
+    );
+  } ////////////// if ////////////
+
+  // 위의 if문에 들어가면 그 안의 return문 때문에
+  // 아랫쪽의 return문은 실행되지 않는다!!!
+  //  else문 불필요!!!
   // 리턴 코드 만들기 ///////////
-  return <React.Fragment></React.Fragment>; ///////// return ///////////
+  return (
+    <React.Fragment>
+      <MakeDeveloper />
+      <MakeImage isrc={isrc} ialt={ialt} itit={itit} />
+    </React.Fragment>
+  );
+
+  ///////// return ///////////
 } //////////// Developer 컴포넌트 //////////////
 
 // 이미지경로 배열
@@ -47,12 +66,29 @@ const devImg = [
 ];
 
 // 컴포넌트 호출하기 1 : 개발자 찍기
-
 // 먼저 가상돔에 컴포넌트 리턴코드를 넣어준다!
+ReactDOM.render(
+    <Developer
+        isNormal={false}
+        isrc={devImg[0]}
+        ialt="개발자 공유"
+        itit="프론트엔드 개발자 공유입니다!"
+    />,
+    root[0]
+);
+
 
 // 컴포넌트 호출하기 2 : 일반인 찍기
-
 // 먼저 가상돔에 컴포넌트 리턴코드를 넣어준다!
+ReactDOM.render(
+    <Developer
+        isNormal={true}
+        isrc={devImg[1]}
+        ialt="일반인 동석"
+        itit="개발자가 뭡니까?"
+    />,
+    root[1]
+);
 
 /**************************************************** 
       2. if문이 아닌 조건 표현하기
