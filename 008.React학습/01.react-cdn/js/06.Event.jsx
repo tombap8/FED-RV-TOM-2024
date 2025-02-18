@@ -80,7 +80,7 @@ function EventShow() {
 
     // 6. 램프가져오기 버튼 3초후 보이기
     setTimeout(() => {
-      mFn.qsa("button")[0].style.display = "inline-block";
+      myFn.qsa("button")[0].style.display = "inline-block";
     }, 3000);
   }; ////////// showAladin 함수 ///////////
 
@@ -143,7 +143,7 @@ function EventShow() {
         // 함수에 값을 보낼때는 익명함수로 처리!
         clickFn={() => moveCar("#fcar")}
       />,
-      mFn.qs("#ferrari")
+      myFn.qs("#ferrari")
     );
     // ReactDOM.render(어쩌구,저쩌구);
     // 어쩌구를 저쩌구에 넣기
@@ -204,3 +204,20 @@ function MakeImg({ isrc, ialt, icss, overFn, clickFn, itit, idName }) {
 
 ///// 화면출력하기 /////////////
 ReactDOM.render(<EventShow />, myFn.qs('#root'));
+
+
+//// 일반함수로 페라리 움직이기 구현 ////////////
+function moveCar(eleName) {
+  // eleName - 요소명
+  console.log("페라리 움직여!", eleName);
+
+  // 1. 대상요소 셋팅하기
+  const tg = myFn.qs(eleName).style;
+  console.log(tg.translate, tg.scale);
+
+  // 2. 번갈아서 왔다갔다 움직이기
+  tg.translate = tg.translate == "150%" ? "0" : "150%";
+  tg.scale = tg.scale == "2" ? "1" : "2";
+
+  tg.transition = "2s ease-in-out";
+} ////////////// moveCar 함수 ///////////////
