@@ -36,6 +36,19 @@ import myFn from "./my_function";
     (함수형 컴포넌트의 return 키워드를 
         사용할 수 있는 역할을 함!)
 
+    ____________________________________
+
+    [ 컴포넌트의 호출 ]
+     1. 컴포넌트이름과 동일한 홀로 태그로 호출한다
+     2. 전달값은 태그의 속성셋팅과 같은 방식으로 보내준다
+
+     예) 
+     function HaHaHa({king,wang,zzang})
+     {return 코드}
+
+     ((호출))
+     <HaHaHa king="킹" wang="왕" zzang="짱" />
+
 *************************************************/
 /// [ 클래스형 컴포넌트 만들기 ] /////
 class GoghWork extends React.Component {
@@ -77,15 +90,68 @@ ReactDOM.render(<IronMan />, target[1]);
 
 // [ 이미지생성 공통 컴포넌트 ] ////
 // function MakeImage({ isrc, ialt }) {
-function MakeImage(props) {
+function MakeImage(헐) {
+  console.log("전달객체:", 헐);
+  // 컴포넌트에 전달되는 값은 객체로 전달된다!
   // {ialt, isrc} - 구조분해할당
   // 객체가 들어올때 해당 속성명으로 받으면된다!
   return (
     <figure>
-        <img src={"./images/" + props.isrc} alt={props.ialt} />
-        <figcaption>{props.ialt}</figcaption>
+      <img src={"./images/" + 헐.isrc} alt={헐.ialt} />
+      <figcaption>{헐.ialt}</figcaption>
     </figure>
-
   );
-  
 } ////////// MakeImage 컴포넌트 ///////
+
+// 내가 좋아하는 색 표시하기 컴포넌트 /////
+function FavoriteThings(조아){
+    return (
+        <h2>
+            내가 좋아하는 색은 {조아.color}이야! <br />
+            내가 좋아하는 음식은 {조아.food}야! <br />
+            취미는 {조아.hobby}야! 알겠니??? <br />
+        </h2>
+    );
+} //////// FavoriteThings 컴포넌트 ///////
+
+// 좋아하는 색과 음식, 취미를 각각 속성명으로 생성하여
+// 컴포넌트를 호출하면 개별적으로 속성값을 다르게 출력할 수 있다!
+
+// 출력 : 세번째 .root
+ReactDOM.render(
+<FavoriteThings
+    color="와인색" 
+    food="와인이" 
+    hobby="와인마시기" 
+/>, target[2]);
+
+// 출력 : 네번째 .root
+ReactDOM.render(
+<FavoriteThings
+    color="푸르딩딩한색" 
+    food="김치전이" 
+    hobby="야구보기" 
+/>, target[3]);
+
+
+/************************************************* 
+    컴포넌트 내부에서 다른 컴포넌트를 호출 할 수 있다!
+*************************************************/
+
+function Who(){
+    return (
+      <div>
+        <h1>김똑팔이가 누구야?</h1>
+        {/* 다른컴포넌트 넣기 */}
+        <Answer />
+      </div>
+    );
+  } ///////// Who 컴포넌트 ///////////////
+  
+  // 컴포넌트 내부에서 호출할 컴포넌트 /////
+  function Answer(){
+    return <h2>김씨가 똑하고 팔이 부러졌대!</h2>
+  } /////////// Answer 컴포넌트 //////////////
+  
+  // 출력: 다섯번째 .root
+  ReactDOM.render(<Who />,target[4]);
