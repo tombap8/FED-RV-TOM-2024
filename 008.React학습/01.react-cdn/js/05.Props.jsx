@@ -117,4 +117,18 @@ function ShowBrandCar({ brand, modelNum }) {
         <IntroCar brand={brand} modelNum={modelNum} />
       </React.Fragment>
     );
-  } ////////// ShowBrandCar 컴포넌트 ////////////
+} ////////// ShowBrandCar 컴포넌트 ////////////
+
+// 화면 출력하기 /////////////////
+//ReactDOM.render(출력코드,출력대상)
+ReactDOM.render(
+    <div>
+      <ShowBrandCar brand="기아레이" modelNum={2} />
+      <ShowBrandCar brand="현대제네시스" modelNum={0} />
+      <ShowBrandCar brand="기아레이" modelNum={0} />
+      <ShowBrandCar brand="현대제네시스" modelNum={1} />
+      <ShowBrandCar brand="기아레이" modelNum={1} />
+      <ShowBrandCar brand="현대제네시스" modelNum={2} />
+    </div>,
+    mFn.qs("#root1")
+  );
