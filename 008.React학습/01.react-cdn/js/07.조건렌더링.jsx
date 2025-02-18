@@ -178,7 +178,7 @@ function WishList({wList}) {
             <SetTitle title="음식" />
             {// 표현식 코드 구역의 태그는 부모가 하나여야함!
             // 배열값이 0개 이상인 경우 출력
-            SVGPointList.length > 0 &&
+            wList.length > 0 &&
             <div>  
                 <h2>
                     개발자가 좋아하는 음식은 모두
