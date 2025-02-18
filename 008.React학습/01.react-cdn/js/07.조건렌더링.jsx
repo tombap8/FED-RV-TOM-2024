@@ -105,7 +105,7 @@ function SetTitle({ title }) {
 } ///////// SetTitle 컴포넌트 /////////////
 
 // 음식리스트 배열변수 ///
-const foods = ["스파게티", "짜파게티", "냉면", "짜장면", "마라탕"];
+const foods = ["스파게티", "짜파게티", "냉면", "짜장면", "마라탕", "마라쌍궈", "탕수육"];
 
 // 전달할 영화정보 배열변수 ////
 const movs = [
@@ -171,18 +171,43 @@ function MakeList({ foodName, movieInfo }) {
 
 // 2-3. 개발자 선호 음식 리스트 출력 컴포넌트 /////
 function WishList({wList}) {
+    // wList - 좋아하는 음식 리스트(배열)
     return (
         <React.Fragment>
-            <h2>
-                개발자가 좋아하는 음식은 모두
-                {}가지 입니다!
-            </h2>
-            <ul>
-                {
-                    wList.map(v=>
-                    <MakeList foodName={v} />)
-                }
-            </ul>
+            {/* 음식 리스트 타이틀 */}
+            <SetTitle title="음식" />
+            {// 표현식 코드 구역의 태그는 부모가 하나여야함!
+            // 배열값이 0개 이상인 경우 출력
+            SVGPointList.length > 0 &&
+            <div>  
+                <h2>
+                    개발자가 좋아하는 음식은 모두
+                    {wList.length}가지 입니다!
+                </h2>
+                <ul>
+                    {
+                        wList.map(v=>
+                        <MakeList foodName={v} />)
+
+                        /*배열변수.map() 메서드사용!
+                        map메서드는 원래 새로운배열을
+                        현재 자리에 출력하는 용도임
+                        그러나 리액트는 이것을 변경하여
+                        표현식안에서 출력시
+                        태그JSX 형식으로 변환해 줌!
+                        JS 처럼 map().join('')처리
+                        불필요!!!*/
+                    }
+                </ul>
+            </div>  
+            }
+
+            {/* 배열개수가 0인 경우 다른 것 출력하기 */}
+            {
+                wList.length == 0 && (
+                    <h2>아직 개발자 음식 리스트가 업데이트 되지 않았습니다!</h2>
+                )
+            }
 
         </React.Fragment>
     );
@@ -190,5 +215,8 @@ function WishList({wList}) {
 
 // 음식 배열값이 있는 경우 출력하기 /////
 ReactDOM.render(<WishList wList={foods} />, root[2]);
+
+// 음식 배열값이 없는 경우 출력하기 /////
+ReactDOM.render(<WishList wList={[]} />, root[3]);
 
 
