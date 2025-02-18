@@ -25,7 +25,6 @@ import myFn from "./my_function";
 
 ///// 전체 이벤트 적용할 컴포넌트 구성하기 //////////
 function EventShow() {
-  
   /// 컴포넌트 리턴 코드 위에서 이벤트처리를 위한
   // 함수를 만들어서 사용할 수 있다!!!
   // 지역함수로 사용되는 것임!
@@ -90,7 +89,7 @@ function EventShow() {
     console.log("램프 가져와~!!!");
 
     // 1. 램프선택하기 : .lamp
-    let lampBox = mFn.qs(".lamp");
+    let lampBox = myFn.qs(".lamp");
 
     // 램프 이미지 CSS 객체셋팅
     let lampCSS = {
@@ -115,7 +114,7 @@ function EventShow() {
 
     // 3. 0.5초후 램프 이미지 중앙이동하기
     setTimeout(() => {
-      let lampImg = mFn.qsEl(lampBox, "img").style;
+      let lampImg = myFn.qsEl(lampBox, "img").style;
       // 수직방향이동
       lampImg.top = "310px";
       // 수평방향 중앙계산 이동
@@ -126,7 +125,7 @@ function EventShow() {
 
     // 4. 소원빌기 버튼 3초후 보이기
     setTimeout(() => {
-      mFn.qsa("button")[1].style.display = "inline-block";
+      myFn.qsa("button")[1].style.display = "inline-block";
     }, 3000);
   }; ////////// getLamp 함수 ///////////
 
@@ -151,7 +150,27 @@ function EventShow() {
   }; //////////// getFerrari 함수 //////////
 
   // 2. 리턴코드구역 //////////////////////////
-  return <React.Fragment></React.Fragment>;
+  return (
+    <React.Fragment>
+      <div id="tbox" style={{ textAlign: "center" }}>
+        {/* 스타일 인라인 적용시 바깥중괄호는 표현식
+            내부 중괄호는 객체형식의 스타일 설정임! */}
+        <MakeImg
+          isrc="./images/genie.avif"
+          ialt="지니"
+          /* 마우스오버시 showAladin함수호출 */
+          overFn={showAladin}
+        />
+        {/* 램프가 들어갈 요소 */}
+        <div className="lamp"></div>
+        {/* 버튼들 */}
+        <button onClick={getLamp}>램프가져오기~!</button> <br />
+        <button onClick={getFerrari}>소원빌기~! 페라리주세요~!!!</button>
+        {/* 소원이 무엇이냐 말풍선박스 */}
+        <div className="tit"></div>
+      </div>
+    </React.Fragment>
+  );
 } //////////// EventShow 컴포넌트 ////////////////
 
 /******************************************* 
