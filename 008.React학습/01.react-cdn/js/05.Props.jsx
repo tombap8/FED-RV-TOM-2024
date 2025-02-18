@@ -130,5 +130,5 @@ ReactDOM.render(
       <ShowBrandCar brand="기아레이" modelNum={1} />
       <ShowBrandCar brand="현대제네시스" modelNum={2} />
     </div>,
-    mFn.qs("#root1")
+    myFn.qs("#root1")
   );
