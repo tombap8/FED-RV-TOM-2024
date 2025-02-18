@@ -104,7 +104,91 @@ function SetTitle({ title }) {
   return <h1>👩‍🔧개발자👨‍🔧가 좋아하는 {title}</h1>;
 } ///////// SetTitle 컴포넌트 /////////////
 
-// 음식리스트
+// 음식리스트 배열변수 ///
 const foods = ["스파게티", "짜파게티", "냉면", "짜장면", "마라탕"];
 
+// 전달할 영화정보 배열변수 ////
+const movs = [
+  {
+    year: "2020",
+    mtit: "남산의 부장들",
+    poster:
+      "https://i.namu.wiki/i/d-g1xW3vvsfh71KCQIxl2es_i0wKyMJhkwEaXKdCgDAyhJVRb4vWA_TNnRHMksw0S6pK_nFrDITK2ISIJRuRpA.webp",
+  },
+  {
+    year: "2021",
+    mtit: "모가디슈",
+    poster:
+      "https://upload.wikimedia.org/wikipedia/ko/9/92/%EC%98%81%ED%99%94_%EB%AA%A8%EA%B0%80%EB%94%94%EC%8A%88.jpg",
+  },
+  {
+    year: "2022",
+    mtit: "범죄도시2",
+    poster:
+      "https://upload.wikimedia.org/wikipedia/ko/b/b9/%EB%B2%94%EC%A3%84%EB%8F%84%EC%8B%9C_2_%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg",
+  },
+  {
+    year: "2023",
+    mtit: "가디언즈 오브 갤럭시3",
+    poster:
+      "https://i.namu.wiki/i/qA_v1drdO1CusnMcmQVZDEGXEspqfuS0-sAHYUFExpgZMF_GSyCSrxSh-_IWua2lqD6GnNNlqw0hMvNzXYrefA.webp",
+  },
+  {
+    year: "2024",
+    mtit: "파묘",
+    poster:
+      "https://i.namu.wiki/i/EWdG2Jtlu36U1-03moAiO7Hmh1waKlbB0DIEvamksSTTzWCsqDXxUiiPSdcmpAQjh_tUFOwAGhR7LX7f6U0wXQ.webp",
+  },
+];
+
 // 2-2. 반복리스트를 위한 컴포넌트 ///////////
+function MakeList({ foodName, movieInfo }) {
+  // foodName - 음식이름
+  // movieInfo - 영화정보객체
+  console.log(foodName, " / ", movieInfo);
+
+  /// 리턴코드구역 ///////////
+  return (
+    <li>
+      {
+        // 음식 데이터가 들어온 경우 출력
+        // 만약 데이터가 안들어오면 undefined이므로
+        // false 처리됨! 할당되면 true처리됨!
+        foodName && "개발자는 " + foodName + "좋아해!"
+      }
+      {
+        // 영화 데이터가 들어온 경우 출력
+        // 만약 데이터가 안들어오면 undefined이므로
+        // false 처리됨! 할당되면 true처리됨!
+        movieInfo && movieInfo.year + "년도 " + movieInfo.mtit
+        // movieInfo는 객체 데이터임!
+        // 하위속성으로 year는 년도 데이터
+        // mtit는 영화제목 데이터가 들어있다!
+      }
+    </li>
+  );
+} ///////// MakeList 컴포넌트 //////////////////
+
+// 2-3. 개발자 선호 음식 리스트 출력 컴포넌트 /////
+function WishList({wList}) {
+    return (
+        <React.Fragment>
+            <h2>
+                개발자가 좋아하는 음식은 모두
+                {}가지 입니다!
+            </h2>
+            <ul>
+                {
+                    wList.map(v=>
+                    <MakeList foodName={v} />)
+                }
+            </ul>
+
+        </React.Fragment>
+    );
+} /////////// WishList 컴포넌트 ////////
+
+// 음식 배열값이 있는 경우 출력하기 /////
+ReactDOM.render(<WishList wList={foods} />, root[2]);
+
+
