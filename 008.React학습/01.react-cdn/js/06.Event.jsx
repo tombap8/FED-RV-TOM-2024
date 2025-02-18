@@ -201,3 +201,6 @@ function MakeImg({ isrc, ialt, icss, overFn, clickFn, itit, idName }) {
     />
   );
 } ///////////// MakeImg 컴포넌트 ////////////////
+
+///// 화면출력하기 /////////////
+ReactDOM.render(<EventShow />, myFn.qs('#root'));
