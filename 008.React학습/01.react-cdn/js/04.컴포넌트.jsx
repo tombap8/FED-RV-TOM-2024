@@ -28,8 +28,8 @@ import myFn from "./my_function";
     - 리액트 컴포넌트 이름은 반드시 첫글자가 대문자로 만든다!
     (안지키면 적용안됨!!!)
 
-    [ 클래스 컴포넌트 ]
-    클래스 컴포넌트에서는 
+    [ 클래스형 컴포넌트 ]
+    클래스형 컴포넌트에서는 
     extends React.Component 상속문이 포함돼야함!
 
     -> 컴포넌트에서도 메서드가 필요함
@@ -38,3 +38,25 @@ import myFn from "./my_function";
         사용할 수 있는 역할을 함!)
 
 *************************************************/
+/// [ 클래스형 컴포넌트 만들기 ] /////
+class GoghWork extends React.Component {
+    // 클래스형 컴포넌트에서는 render() 메서드로
+    // HTML 코드를 리턴한다! 내부에 return 구문필요!
+    render(){
+        // html코드 리턴
+        return(
+            <React.Fragment>
+                <h2>안녕! 나는 고흐그림이야!</h2>
+                <img src="./images/01.png" alt="고흐그림" />
+            </React.Fragment>
+        );
+
+    } //// render 메서드 ///
+} ////// GoghWork 클래스형 컴포넌트 ////
+
+// 전체 출력요소 대상 선정하기 ////
+const target = myFn.qsa('.root');
+
+// 첫번째 .root에 고흐출력하기 ///
+// ReactDOM.render(컴포넌트,출력요소)
+ReactDOM.render(<GoghWork />, target[0]);
