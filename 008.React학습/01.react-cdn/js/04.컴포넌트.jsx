@@ -3,6 +3,10 @@
 // 내함수 불러오기
 import myFn from "./my_function";
 
+// 외부jsx 파일 불러오기
+import Avengers from "./avengers";
+// 리액트에서는 CDN에서도 from 뒤에 파일명에 "js/jsx"를 생략해도 유효하다!
+
 /************************************************* 
     [ 리액트 컴포넌트 ]
     - 컴포넌트는 HTML요소를 반환하는 함수다!
@@ -155,6 +159,13 @@ function Who(){
   
   // 출력: 다섯번째 .root
   ReactDOM.render(<Who />,target[4]);
+  
+
+  // [ 외부파일 컴포넌트 출력하기 ]
+  // 출력: 여섯번째 .root
+  ReactDOM.render(<Avengers />,target[5]);
+
+
 
   /*************************************************** 
     [ 컴포넌트의 파일분리 ]
