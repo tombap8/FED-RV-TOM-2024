@@ -68,26 +68,25 @@ const devImg = [
 // 컴포넌트 호출하기 1 : 개발자 찍기
 // 먼저 가상돔에 컴포넌트 리턴코드를 넣어준다!
 ReactDOM.render(
-    <Developer
-        isNormal={false}
-        isrc={devImg[0]}
-        ialt="개발자 공유"
-        itit="프론트엔드 개발자 공유입니다!"
-    />,
-    root[0]
+  <Developer
+    isNormal={false}
+    isrc={devImg[0]}
+    ialt="개발자 공유"
+    itit="프론트엔드 개발자 공유입니다!"
+  />,
+  root[0]
 );
-
 
 // 컴포넌트 호출하기 2 : 일반인 찍기
 // 먼저 가상돔에 컴포넌트 리턴코드를 넣어준다!
 ReactDOM.render(
-    <Developer
-        isNormal={true}
-        isrc={devImg[1]}
-        ialt="일반인 동석"
-        itit="개발자가 뭡니까?"
-    />,
-    root[1]
+  <Developer
+    isNormal={true}
+    isrc={devImg[1]}
+    ialt="일반인 동석"
+    itit="개발자가 뭡니까?"
+  />,
+  root[1]
 );
 
 /**************************************************** 
@@ -98,3 +97,14 @@ ReactDOM.render(
       AND 조건, OR 조건, NOT조건식이 모두 사용가능함!
       예) (A == "사자" && (B > 10 || C == "별" || !D)) 
 ****************************************************/
+// 개발자의 취향을 알아보자!
+
+// 2-1. 제목을 찍기 위한 타이틀 컴포넌트
+function SetTitle({ title }) {
+  return <h1>👩‍🔧개발자👨‍🔧가 좋아하는 {title}</h1>;
+} ///////// SetTitle 컴포넌트 /////////////
+
+// 음식리스트
+const foods = ["스파게티", "짜파게티", "냉면", "짜장면", "마라탕"];
+
+// 2-2. 반복리스트를 위한 컴포넌트 ///////////
