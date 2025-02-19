@@ -336,8 +336,16 @@ function ShowLikePainter({isChange}){
     <React.Fragment>
       {/* 1. 큰제목 */}
       <SetTitle title="명화" />
-      {/* 2. 변경버튼 */}
+      {/* 2. 변경버튼
+        -> 클릭시 상태관리변수를 업데이트하여
+        상태변수를 사용하고 있는 곳이 변경되게한다!
+        !result 는 true값이면 false, false값이면 true
+      */}
       <button
+        onClick={()=>{
+          setResult(!result);
+          console.log('변경후result변수값:',result);
+        }}
         style={{
           fontSize: "30px",
           padding: "10px",
@@ -349,7 +357,11 @@ function ShowLikePainter({isChange}){
       {/* 3. 작품출력 */}
       {
         // 삼항연산자로 isChange 값에 따라 출력변경하기
-        isChange ? 
+        // -> 상태관리변수 result를 사용하여
+        // result값이 변경될때 컴포넌트가 갱신되도록 한다!
+
+        // isChange ? -> 처음한번만 셋팅
+        result ? // -> 변경될때 마다 갱신!
         <MakePainting 
           painter="모네"
           wname="양산을 쓴 여인"
