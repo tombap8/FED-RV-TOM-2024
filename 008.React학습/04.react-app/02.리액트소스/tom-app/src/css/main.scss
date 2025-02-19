@@ -1,3 +1,9 @@
+// 메인페이지 CSS
+
+// 공통 리셋 불러오기 //
+@import './common/reset';
+// - 기본사스 문법에서 앞에 부분파일 언더바와 확장자 .scss는 생략함
+
 body{
     background-color: skyblue;
 }
