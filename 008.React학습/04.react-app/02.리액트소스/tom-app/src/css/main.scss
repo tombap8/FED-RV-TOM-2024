@@ -2,8 +2,28 @@
 
 // 공통 리셋 불러오기 //
 @import './common/reset';
+// 색상 변수 불러오기 
+@import './variables/color-set';
+// 배경 변수 불러오기
+@import './variables/bg-set';
+// 사이즈 변수 불러오기
+@import './variables/size-set';
+
 // - 기본사스 문법에서 앞에 부분파일 언더바와 확장자 .scss는 생략함
 
+// 배경이미지 믹스인 ////
+@mixin bgSet($imgSrc) {
+    background-image: url($imgSrc);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+} //////// bgSet 믹스인 ///////
+
 body{
-    background-color: skyblue;
+    height: 100vh;
+
+    // 배경믹스인 호출
+    @include bgSet($bigbg);
+
 }
