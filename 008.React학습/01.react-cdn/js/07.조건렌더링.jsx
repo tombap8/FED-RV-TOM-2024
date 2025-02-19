@@ -170,12 +170,13 @@ function MakeList({ foodName, movieInfo }) {
 } ///////// MakeList 컴포넌트 //////////////////
 
 // 2-3. 개발자 선호 음식 리스트 출력 컴포넌트 /////
-function WishList({wList}) {
+function WishList({wList, gubun}) {
     // wList - 좋아하는 음식 리스트(배열)
+    // gubun - 음식/영화 구분 문자값
     return (
         <React.Fragment>
             {/* 음식 리스트 타이틀 */}
-            <SetTitle title="음식" />
+            <SetTitle title={gubun} />
             {// 표현식 코드 구역의 태그는 부모가 하나여야함!
             // 배열값이 0개 이상인 경우 출력
             wList.length > 0 &&
@@ -214,9 +215,28 @@ function WishList({wList}) {
 } /////////// WishList 컴포넌트 ////////
 
 // 음식 배열값이 있는 경우 출력하기 /////
-ReactDOM.render(<WishList wList={foods} />, root[2]);
+ReactDOM.render(
+<WishList wList={foods} gubun="음식" />, root[2]);
 
 // 음식 배열값이 없는 경우 출력하기 /////
-ReactDOM.render(<WishList wList={[]} />, root[3]);
+ReactDOM.render(
+<WishList wList={[]} gubun="음식" />, root[3]);
+
+
+/* 
+[ 출력형태 ]
+    👨‍🔧개발자👩‍🔧가 좋아하는 영화
+    개발자가 좋아하는 영화는 최근 몇년간 아래와 같습니다!
+    2021년도 영화1
+    2022년도 영화2
+    2023년도 영화3
+    ... 여기는 영화포스트 나열하기 ...
+*/
+
+// 개발자가 선호하는 영화 리스트 출력 컴포넌트 ////
+// 제목 컴포넌트, 리스트 컴포넌트 모두 재활용한다! //
+function MovieWishList({wList}){
+
+} ////// MovieWishList 컴포넌트 ////////////
 
 
