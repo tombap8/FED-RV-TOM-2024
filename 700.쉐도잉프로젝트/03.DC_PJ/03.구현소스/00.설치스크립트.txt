@@ -15,7 +15,7 @@
     (6) npm i scss
 
     한번에 설치하기(띄어쓰기 구분)
-    -> npm i react-router-dom@latest react-router-dom@latest jquery jquery-ui-dist jquery-ui-touch-punch swiper scss
+    -> npm i react-router-dom@latest jquery jquery-ui-dist jquery-ui-touch-punch swiper scss
 
 3. 설치확인
 - 파일명: package.json
