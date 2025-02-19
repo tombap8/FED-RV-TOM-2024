@@ -232,7 +232,7 @@ function WishList({wList, gubun}) {
             {/* 배열개수가 0인 경우 다른 것 출력하기 */}
             {
                 wList.length == 0 && (
-                    <h2>아직 개발자 음식 리스트가 업데이트 되지 않았습니다!</h2>
+                    <h2>아직 개발자 {gubun} 리스트가 업데이트 되지 않았습니다!</h2>
                 )
             }
 
@@ -259,10 +259,13 @@ ReactDOM.render(
     ... 여기는 영화포스트 나열하기 ...
 */
 
-// 개발자가 선호하는 영화 리스트 출력 컴포넌트 ////
-// 제목 컴포넌트, 리스트 컴포넌트 모두 재활용한다! //
-function MovieWishList({wList}){
+// 제목 컴포넌트, 리스트 컴포넌트, 위시리스트 컴포넌트 모두 재활용한다! //
 
-} ////// MovieWishList 컴포넌트 ////////////
+// 영화 위시리스트 출력하기 : 배열값이 있는 경우 ///
+ReactDOM.render(
+<WishList wList={movs} gubun="영화" />, root[4]);
 
+// 영화 위시리스트 출력하기 : 배열값이 없는 경우 ///
+ReactDOM.render(
+<WishList wList={[]} gubun="영화" />, root[5]);
 
