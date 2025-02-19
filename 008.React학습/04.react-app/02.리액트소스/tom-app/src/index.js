@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
+// 메인 페이지용 CSS
+import './css/main.scss';
+
 
 
 // 루트요소 선택하기 ///
