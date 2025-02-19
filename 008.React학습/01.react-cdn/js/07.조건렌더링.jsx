@@ -139,6 +139,12 @@ const movs = [
     poster:
       "https://i.namu.wiki/i/EWdG2Jtlu36U1-03moAiO7Hmh1waKlbB0DIEvamksSTTzWCsqDXxUiiPSdcmpAQjh_tUFOwAGhR7LX7f6U0wXQ.webp",
   },
+  {
+    year: "2025",
+    mtit: "히트맨2",
+    poster:
+      "https://search.pstatic.net/common?quality=75&direct=true&src=https%3A%2F%2Fmovie-phinf.pstatic.net%2F20250122_152%2F1737520669753Byxun_JPEG%2Fmovie_image.jpg",
+  },
 ];
 
 // 2-2. 반복리스트를 위한 컴포넌트 ///////////
@@ -213,7 +219,7 @@ function WishList({wList, gubun}) {
                     <MakeImage 
                       isrc={v.poster}
                       ialt={v.mtit}
-                      icss={{width:"100px"}}
+                      icss={{width:"16%",marginLeft:"0.5%"}}
                     />
                   )
                 }
