@@ -344,14 +344,14 @@ function ShowLikePainter({isChange}){
       <button
         onClick={()=>{
           setResult(!result);
-          console.log('변경후result변수값:',result);
+          console.log('리랜더링전result변수값:',result);
         }}
         style={{
           fontSize: "30px",
           padding: "10px",
           fontWeight: "bold",
-          backgroundColor: "blue",
-          color: "aqua"
+          backgroundColor: result?"blue":"red",
+          color: result?"aqua":"yellow"
         }}
       >작가변경!!!</button>
       {/* 3. 작품출력 */}
