@@ -140,7 +140,7 @@ createContex를 통해 생성된 Context 객체임
 (위의 useState / useEffect / useContext 는 기본 Hooks라고 부른다!)
 
 참고:
-https://ko.legacy.reactjs.org/docs/hooks-reference.html
+https://react.dev/reference/react/hooks
 
 ☑️ React - 메모이제이션(Memoization) : 추가 Hooks
 
