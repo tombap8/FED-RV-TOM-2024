@@ -31,10 +31,16 @@ export default function GoodsList({selItem}) {
   return (
     <ul>
       {
-        // 반복 데이터로 li태그 만들기
-        selDB.map((v) => (
-          <li>
-            <a href="#">
+        // [ 반복 데이터로 li태그 만들기 ]
+        // 반복 요소를 만들때 필수로 key속성을 셋팅할것!
+        // 반복 요소 구분을 위한 필수키로 리액트에서 설정
+        // 할것을 강제하고 있음(cdn에서는 에러안남)
+        selDB.map((v,i) => (
+          <li key={i}>
+            <a href="#" 
+            onClick={()=>{
+              console.log('나,클릭!',v.idx);
+            }}>
               <ol className="glist">
                 <li>
                   <img
