@@ -1,5 +1,9 @@
 // 01.공유신발 JSX
 
+// 임시 데이터 불러오기
+import guData from "./data/gu_data";
+// console.log(guData);
+
 // 상품리스트 서브컴포넌트 불러오기
 // import GoodsList from "./components/goods_list";
 
@@ -7,7 +11,7 @@
 // import GoodsDetail from "./components/goods_detail";
 
 // 공통함수 불러오기
-// import * as comFn from "./common/com_fn";
+import * as comFn from "./common/com_fn";
 
 // 주의사항!!! CDN에서 여기 import대상은 모두
 // html페이지에서 불러와야 사용할 수 있다!
@@ -52,15 +56,15 @@ function MainComponent() {
   return (
     <React.Fragment>
       <h1 className="tit">
-        <img 
-            id="logo" 
-            src="./images/logo.png" 
-            alt="로고"
-            style={{
-                width: '50px',
-                verticalAlign: '-6px',
-                marginRight: '10px'
-            }}
+        <img
+          id="logo"
+          src="./images/logo.png"
+          alt="로고"
+          style={{
+            width: "50px",
+            verticalAlign: "-6px",
+            marginRight: "10px",
+          }}
         />
         <span>공유가 신고 다닌다는!</span>
       </h1>
@@ -76,217 +80,7 @@ function MainComponent() {
         <button>useEffect 의존성 테스트</button>
       </div>
       <div className="gwrap">
-        <ul>
-          <li>
-            <a href="#">
-              <ol className="glist">
-                <li>
-                  <img src="./images/vans/vans_1.jpg" alt="신발" />
-                </li>
-                <li>반스어얼리</li>
-                <li>가격 : 48000원</li>
-              </ol>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <ol className="glist">
-                <li>
-                  <img src="./images/vans/vans_2.jpg" alt="신발" />
-                </li>
-                <li>반스스타일</li>
-                <li>가격 : 43000원</li>
-              </ol>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <ol className="glist">
-                <li>
-                  <img src="./images/vans/vans_3.jpg" alt="신발" />
-                </li>
-                <li>반스뉴진스</li>
-                <li>가격 : 55000원</li>
-              </ol>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <ol className="glist">
-                <li>
-                  <img src="./images/vans/vans_4.jpg" alt="신발" />
-                </li>
-                <li>반스뉴진스</li>
-                <li>가격 : 76000원</li>
-              </ol>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <ol className="glist">
-                <li>
-                  <img src="./images/vans/vans_5.jpg" alt="신발" />
-                </li>
-                <li>반스뉴진스</li>
-                <li>가격 : 55000원</li>
-              </ol>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <ol className="glist">
-                <li>
-                  <img src="./images/vans/vans_6.jpg" alt="신발" />
-                </li>
-                <li>반스스타일</li>
-                <li>가격 : 43000원</li>
-              </ol>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <ol className="glist">
-                <li>
-                  <img src="./images/vans/vans_7.jpg" alt="신발" />
-                </li>
-                <li>반스뉴진스</li>
-                <li>가격 : 66000원</li>
-              </ol>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <ol className="glist">
-                <li>
-                  <img src="./images/vans/vans_8.jpg" alt="신발" />
-                </li>
-                <li>반스어얼리</li>
-                <li>가격 : 55000원</li>
-              </ol>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <ol className="glist">
-                <li>
-                  <img src="./images/vans/vans_9.jpg" alt="신발" />
-                </li>
-                <li>반스뉴진스</li>
-                <li>가격 : 55000원</li>
-              </ol>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <ol className="glist">
-                <li>
-                  <img src="./images/vans/vans_10.jpg" alt="신발" />
-                </li>
-                <li>반스뉴진스</li>
-                <li>가격 : 48000원</li>
-              </ol>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <ol className="glist">
-                <li>
-                  <img src="./images/vans/vans_11.jpg" alt="신발" />
-                </li>
-                <li>반스어얼리</li>
-                <li>가격 : 43000원</li>
-              </ol>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <ol className="glist">
-                <li>
-                  <img src="./images/vans/vans_12.jpg" alt="신발" />
-                </li>
-                <li>반스어얼리</li>
-                <li>가격 : 66000원</li>
-              </ol>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <ol className="glist">
-                <li>
-                  <img src="./images/vans/vans_13.jpg" alt="신발" />
-                </li>
-                <li>반스캐쥬얼</li>
-                <li>가격 : 66000원</li>
-              </ol>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <ol className="glist">
-                <li>
-                  <img src="./images/vans/vans_14.jpg" alt="신발" />
-                </li>
-                <li>반스뉴진스</li>
-                <li>가격 : 48000원</li>
-              </ol>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <ol className="glist">
-                <li>
-                  <img src="./images/vans/vans_15.jpg" alt="신발" />
-                </li>
-                <li>반스뉴진스</li>
-                <li>가격 : 55000원</li>
-              </ol>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <ol className="glist">
-                <li>
-                  <img src="./images/vans/vans_16.jpg" alt="신발" />
-                </li>
-                <li>반스스타일</li>
-                <li>가격 : 43000원</li>
-              </ol>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <ol className="glist">
-                <li>
-                  <img src="./images/vans/vans_17.jpg" alt="신발" />
-                </li>
-                <li>반스어얼리</li>
-                <li>가격 : 66000원</li>
-              </ol>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <ol className="glist">
-                <li>
-                  <img src="./images/vans/vans_18.jpg" alt="신발" />
-                </li>
-                <li>반스뉴진스</li>
-                <li>가격 : 43000원</li>
-              </ol>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <ol className="glist">
-                <li>
-                  <img src="./images/vans/vans_19.jpg" alt="신발" />
-                </li>
-                <li>반스뉴진스</li>
-                <li>가격 : 43000원</li>
-              </ol>
-            </a>
-          </li>
-        </ul>
+        <GoodsList />
       </div>
     </React.Fragment>
   );
@@ -296,3 +90,33 @@ function MainComponent() {
 ReactDOM.render(<MainComponent />, document.querySelector("#root"));
 // ReactDOM.render(어쩌구,저쩌구);
 // 어쩌구를 저쩌구에 출력해라!
+
+/***************************************** 
+    [ 상품리스트 서브컴포넌트 : GoodsList ]
+*****************************************/
+function GoodsList() {
+  /// 리턴 코드구역 ///////////////
+  return (
+    <ul>
+      {
+        // 반복 데이터로 li태그 만들기
+        guData.map((v) => (
+          <li>
+            <a href="#">
+              <ol className="glist">
+                <li>
+                  <img 
+                  src={"./images/vans/vans_"+v.idx+".jpg"} alt="신발" />
+                </li>
+                <li>{v.gname}</li>
+                <li>🥾가격 : {comFn.addCommas(v.gprice)}원</li>
+              </ol>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  );
+} //////////// GoodsList 컴포넌트 ////////////
+
+
