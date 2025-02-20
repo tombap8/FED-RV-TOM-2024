@@ -6,9 +6,10 @@ import guData from "../data/gu_data";
 import hjData from "../data/hj_data";
 // console.log(guData);
 
-export default function GoodsDetail({selItem, gIdx}) {
+export default function GoodsDetail({selItem, gIdx, setViewList}) {
     // selItem - 대분류(공유/효진) -> 데이터선택
     // gIdx - 구체적인 선택 데이터 idx값
+    // setViewList - 부모의 상태관리변수 viewList 업데이트 메서드
     console.log('selItem:', selItem, '\ngIdx:', gIdx);
 
     // 데이터 종류 선택하기 ////
@@ -88,7 +89,10 @@ export default function GoodsDetail({selItem, gIdx}) {
             padding: "15px",
           }}
         >
+            {/* setViewList로 viewList 상태변수값을
+            true로 변경하여 다시 리스트가 보이게함! */}
           <button
+            onClick={()=>setViewList(true)}
             style={{
               fontSize: "24px",
             }}

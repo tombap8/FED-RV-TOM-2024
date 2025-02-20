@@ -94,15 +94,19 @@ function MainComponent() {
             viewList ? 
             <GoodsList 
                 selItem={selItem} 
-                // 상태변수업데이트를 위해 자식에게 보내준다!
+                // 상태변수업데이트를 위해 자식에게 
+                // 변수 업데이트 메서드를 보내준다!
                 setGIdx={setGIdx}
+                setViewList={setViewList}
             />
             :
             // 상태변수 viewList가 false면
             // 상품상세보기 하위 컴포넌트 보이기
             <GoodsDetail 
-            selItem={selItem} 
-            gIdx={gIdx} />
+                selItem={selItem} 
+                gIdx={gIdx}            
+                setViewList={setViewList}
+            />
         }
 
       </div>
