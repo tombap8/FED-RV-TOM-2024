@@ -12,13 +12,27 @@ import hjData from "../data/hj_data";
 // 공통함수 불러오기
 import * as comFn from "./common/com_fn";
 
-export default function GoodsList() {
+export default function GoodsList({selItem}) {
+  // selItem - 대분류(공유/효진) -> 데이터선택
+
+  // 데이터 종류 선택하기 ////
+  const selDB =
+    selItem === "공유" ? 
+    guData : 
+    selItem === "효진" ? 
+    hjData : null;
+
+    // 조건 랜더링 : null값일 경우
+    if(!selDB) return <ul>
+      <li>데이터가 없습니다</li>
+    </ul>;
+
   /// 리턴 코드구역 ///////////////
   return (
     <ul>
       {
         // 반복 데이터로 li태그 만들기
-        guData.map((v) => (
+        selDB.map((v) => (
           <li>
             <a href="#">
               <ol className="glist">

@@ -18,6 +18,11 @@ export default function GoodsDetail({selItem, gIdx}) {
         selItem === "효진" ?
         hjData : null;
 
+    // 조건 랜더링 : null값일 경우
+    if(!selDB) return <ol>
+    <li>데이터가 없습니다</li>
+  </ol>;
+
     // [ 상세데이터 선택하기 ] ////
     // selDB값이 null이면 false처리됨!
     // Number(v.idx)===Number(gIdx)

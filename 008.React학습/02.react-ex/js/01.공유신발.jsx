@@ -88,7 +88,7 @@ function MainComponent() {
         <button>useEffect 의존성 테스트</button>
       </div>
       <div className="gwrap">
-        <GoodsList />
+        <GoodsList selItem={selItem} />
         <GoodsDetail selItem={selItem} gIdx={gIdx} />
       </div>
     </React.Fragment>
