@@ -88,14 +88,23 @@ function MainComponent() {
         <button>useEffect 의존성 테스트</button>
       </div>
       <div className="gwrap">
-        {/* 상품리스트 하위 컴포넌트 */}
-        <GoodsList 
+        {
+            // 상태변수 viewList가 true면
+            // 상품리스트 하위 컴포넌트 보이기
+            viewList ? 
+            <GoodsList 
+                selItem={selItem} 
+                // 상태변수업데이트를 위해 자식에게 보내준다!
+                setGIdx={setGIdx}
+            />
+            :
+            // 상태변수 viewList가 false면
+            // 상품상세보기 하위 컴포넌트 보이기
+            <GoodsDetail 
             selItem={selItem} 
-            // 상태변수업데이트를 위해 자식에게 보내준다!
-            setGIdx={setGIdx}
-        />
-        {/* 상품상세보기 하위 컴포넌트 */}
-        <GoodsDetail selItem={selItem} gIdx={gIdx} />
+            gIdx={gIdx} />
+        }
+
       </div>
     </React.Fragment>
   );
