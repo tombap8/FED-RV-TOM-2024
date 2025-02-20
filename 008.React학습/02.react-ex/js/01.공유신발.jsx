@@ -109,7 +109,8 @@ function GoodsList() {
                   src={"./images/vans/vans_"+v.idx+".jpg"} alt="신발" />
                 </li>
                 <li>{v.gname}</li>
-                <li>🥾가격 : {comFn.addCommas(v.gprice)}원</li>
+                <li>🥾가격 : 
+                {comFn.addCommas(v.gprice)}원</li>
               </ol>
             </a>
           </li>
