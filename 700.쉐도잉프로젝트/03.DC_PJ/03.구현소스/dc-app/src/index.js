@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import Main from './components/pages/Main';
 
@@ -57,3 +57,9 @@ export default function MainComponent(){
     );
 
 } /////////// MainComponent ////////////////////
+
+/// 컴포넌트 출력 ///
+// 먼저 root 객체 만들기
+const root = ReactDOM.createRoot(document.querySelector("#root"));
+// 출력하기
+root.render(<MainComponent />);
