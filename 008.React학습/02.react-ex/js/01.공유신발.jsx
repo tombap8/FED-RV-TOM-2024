@@ -22,6 +22,18 @@ import * as comFn from "./common/com_fn";
 // 함수형 컴포넌트는 첫글자 대문자인 함수키워드로 만든다
 
 function MainComponent() {
+    // [ 후크 상태관리 변수 셋팅!!! ]
+    // 1. 리스트 / 상세보기 전환용 상태관리변수
+    const [ viewList, setViewList ] = React.useState(true);
+    // 2. 상품 데이터 인덱스값 상태관리변수
+    const [ gIdx, setGIdx ] = React.useState(1);
+    // 3. 선택 아이템 고유이름 상태관리변수
+    const [ selItem, setSelItem ] = React.useState("공유");
+    // 4. 테스트용 상태관리변수(의존성 테스트용!)
+    const [ test, setTest ] = React.useState(true);
+
+
+
   /************************************** 
     [ 코드구성 ]
     1. 타이틀 : h1.tit
@@ -77,7 +89,7 @@ function MainComponent() {
       </div>
       <div className="gwrap">
         <GoodsList />
-        <GoodsDetail />
+        <GoodsDetail selItem={selItem} gIdx={gIdx} />
       </div>
     </React.Fragment>
   );

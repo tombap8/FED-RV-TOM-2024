@@ -6,10 +6,27 @@ import guData from "../data/gu_data";
 import hjData from "../data/hj_data";
 // console.log(guData);
 
-export default function GoodsDetail() {
+export default function GoodsDetail({selItem, gIdx}) {
+    // selItem - 대분류(공유/효진) -> 데이터선택
+    // gIdx - 구체적인 선택 데이터 idx값
+    console.log('selItem:', selItem, '\ngIdx:', gIdx);
 
-    // 데이터 선택하기 ////
-    const selData = guData[16];
+    // 데이터 종류 선택하기 ////
+    const selDB = 
+        selItem === "공유" ? 
+        guData : 
+        selItem === "효진" ?
+        hjData : null;
+
+    // [ 상세데이터 선택하기 ] ////
+    // selDB값이 null이면 false처리됨!
+    // Number(v.idx)===Number(gIdx)
+    // 위의 비교는 형까지 비교할때 에러를 방지하기 위함
+    const selData = selDB ?    
+    selDB.find(v=>{
+        if(Number(v.idx)===Number(gIdx))return true}):
+        "데이터가 없습니다!";
+
     console.log('선택데이터:',selData);
 
   // 리턴 코드구역 ////////////
@@ -23,7 +40,8 @@ export default function GoodsDetail() {
     >
       <li>
         <img
-          src="./images/vans/vans_8.jpg"
+          src={
+            "./images/vans/vans_"+selData.idx+".jpg"}
           alt="반스신발"
           style={{ width: "100%" }}
         />
