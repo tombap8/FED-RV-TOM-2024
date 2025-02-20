@@ -60,6 +60,7 @@ export default function MainComponent(){
 
 /// 컴포넌트 출력 ///
 // 먼저 root 객체 만들기
-const root = ReactDOM.createRoot(document.querySelector("#root"));
+const root = ReactDOM.createRoot(
+    document.querySelector("#root"));
 // 출력하기
 root.render(<MainComponent />);
