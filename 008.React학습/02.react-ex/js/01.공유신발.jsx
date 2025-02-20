@@ -77,6 +77,7 @@ function MainComponent() {
       </div>
       <div className="gwrap">
         <GoodsList />
+        <GoodsDetail />
       </div>
     </React.Fragment>
   );

@@ -7,6 +7,11 @@ import hjData from "../data/hj_data";
 // console.log(guData);
 
 export default function GoodsDetail() {
+
+    // 데이터 선택하기 ////
+    const selData = guData[16];
+    console.log('선택데이터:',selData);
+
   // 리턴 코드구역 ////////////
   return (
     <ol
@@ -30,27 +35,27 @@ export default function GoodsDetail() {
           textAlign: "left",
         }}
       >
-        상품명 : 반스어얼리
+        상품명 : {selData.gname}
         <br />
-        가격 : 55000
+        가격 : {selData.gprice}
         <br />
         <div>
-          소재 : 천연가죽(소), 면100%
+          소재 : {selData.소재}
           <br />
-          색상 : BLACK/TRUE WHITE
+          색상 : {selData.색상}
           <br />
-          치수 : 상단표기
+          치수 : {selData.치수}
           <br />
-          제조자/수입자 :(유)브이에프코리아
+          제조자/수입자 :{selData["제조자/수입자"]}
           <br />
-          제조국 : 베트남
+          제조국 : {selData.제조국}
           <br />
-          제조연월 : 상품라벨에서 확인
+          제조연월 : {selData.제조연월}
           <br />
           A/S 책임자와 전화번호 : <br />
-          (유)브이에프코리아 / 온라인 스토어 고객센터 1522-1882
+          {selData["A/S 책임자와 전화번호"]}
           <br />
-          Model : VN000CYU1702
+          Model : {selData.Model}
           <br />
         </div>
         <div
