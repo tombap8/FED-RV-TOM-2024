@@ -4,7 +4,7 @@
 import GoodsList from "./components/GoodsList";
 
 // 상품상세보기 서브컴포넌트 불러오기
-// import GoodsDetail from "./components/goods_detail";
+import GoodsDetail from "./components/GoodsDetail";
 
 // 공통함수 불러오기
 import * as comFn from "./common/com_fn";
