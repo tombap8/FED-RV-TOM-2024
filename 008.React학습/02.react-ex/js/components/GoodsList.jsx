@@ -12,8 +12,9 @@ import hjData from "../data/hj_data";
 // 공통함수 불러오기
 import * as comFn from "./common/com_fn";
 
-export default function GoodsList({selItem}) {
+export default function GoodsList({selItem, setGIdx}) {
   // selItem - 대분류(공유/효진) -> 데이터선택
+  // setGIdx - 부모의 상태관리변수 gIdx 업데이트 메서드
 
   // 데이터 종류 선택하기 ////
   const selDB =
@@ -38,8 +39,13 @@ export default function GoodsList({selItem}) {
         selDB.map((v,i) => (
           <li key={i}>
             <a href="#" 
-            onClick={()=>{
-              console.log('나,클릭!',v.idx);
+              onClick={(e)=>{
+                // 기본이동막기
+                e.preventDefault();
+                // 확인 - idx값 찍기
+                console.log('나,클릭!',v.idx);
+                // 상태관리변수 gIdx를 업데이트하기!
+                setGIdx(v.idx);
             }}>
               <ol className="glist">
                 <li>
