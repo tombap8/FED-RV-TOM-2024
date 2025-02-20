@@ -1,11 +1,7 @@
 // 01.공유신발 JSX
 
-// 임시 데이터 불러오기
-import guData from "./data/gu_data";
-// console.log(guData);
-
 // 상품리스트 서브컴포넌트 불러오기
-// import GoodsList from "./components/goods_list";
+import GoodsList from "./components/GoodsList";
 
 // 상품상세보기 서브컴포넌트 불러오기
 // import GoodsDetail from "./components/goods_detail";
@@ -90,34 +86,4 @@ function MainComponent() {
 ReactDOM.render(<MainComponent />, document.querySelector("#root"));
 // ReactDOM.render(어쩌구,저쩌구);
 // 어쩌구를 저쩌구에 출력해라!
-
-/***************************************** 
-    [ 상품리스트 서브컴포넌트 : GoodsList ]
-*****************************************/
-function GoodsList() {
-  /// 리턴 코드구역 ///////////////
-  return (
-    <ul>
-      {
-        // 반복 데이터로 li태그 만들기
-        guData.map((v) => (
-          <li>
-            <a href="#">
-              <ol className="glist">
-                <li>
-                  <img 
-                  src={"./images/vans/vans_"+v.idx+".jpg"} alt="신발" />
-                </li>
-                <li>{v.gname}</li>
-                <li>🥾가격 : 
-                {comFn.addCommas(v.gprice)}원</li>
-              </ol>
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  );
-} //////////// GoodsList 컴포넌트 ////////////
-
 
