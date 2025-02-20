@@ -43,8 +43,8 @@ function MainComponent() {
      예) <br> -> <br />
      2. className 속성명은 classNameName으로 변경
      3. 인라인 스타일은 객체형태로 변경
-     예) style="color: red;" 
-     -> style={{ color: "red" }}
+      
+     
 
 **************************************************/
   ////////////////////////////////////
@@ -52,26 +52,22 @@ function MainComponent() {
   return (
     <React.Fragment>
       <h1 className="tit">
-        <img
-          id="logo"
-          src="./images/logo.png"
-          alt="로고"
-          style="width: 50px; vertical-align: -6px; margin-right: 10px; scale: 1; rotate: 0deg;"
+        <img 
+            id="logo" 
+            src="./images/logo.png" 
+            alt="로고"
+            style={{
+                width: '50px',
+                verticalAlign: '-6px',
+                marginRight: '10px'
+            }}
         />
-        <span style="display: inline-block; scale: 1;">
-          공유가 신고 다닌다는!
-        </span>
+        <span>공유가 신고 다닌다는!</span>
       </h1>
       <section>
-        <h2 className="stit" style="opacity: 1;">
-          공유는 오늘도 멋찝니다!
-        </h2>
+        <h2 className="stit">공유는 오늘도 멋찝니다!</h2>
         <div className="img-box">
-          <img
-            src="./images/vans/gongyoo.jpg"
-            alt="멋진공유"
-            style="opacity: 1;"
-          />
+          <img src="./images/vans/gongyoo.jpg" alt="멋진공유" />
         </div>
       </section>
       <div className="btn-box">
