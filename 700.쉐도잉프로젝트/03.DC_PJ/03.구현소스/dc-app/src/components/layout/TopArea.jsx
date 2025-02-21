@@ -1,5 +1,9 @@
 /// 상단영역 컴포넌트 : TopArea.jsx /////
 
+// GNB 데이터 불러오기 ////////
+import { Link } from "react-router-dom";
+import { menu } from "../../js/data/gnb";
+
 export default function TopArea() {
   /// 리턴 코드구역 ////////
   return (
@@ -12,7 +16,13 @@ export default function TopArea() {
         <nav className="gnb">
           <ul>
             {/* 1. 로고 컴포넌트 */}
-            <li></li>
+            {
+                menu.map((v,i)=>
+                    <li key={i}>
+                        <Link to={v.link}>{v.txt}</Link>
+                    </li>
+                )
+            }
           </ul>
         </nav>
         {/* 모바일용 햄버거 버튼 */}
