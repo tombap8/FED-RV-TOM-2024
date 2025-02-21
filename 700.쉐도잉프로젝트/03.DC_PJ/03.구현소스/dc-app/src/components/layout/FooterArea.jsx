@@ -5,6 +5,7 @@ import { bmData } from "../../js/data/bmenu";
 
 // 하단영역 CSS 불러오기 ////
 import '../../css/common/footer_area.scss';
+import Logo from "../modules/Logo";
 
 export default function FooterArea() {
   /// 리턴 코드구역 ////////
@@ -13,7 +14,7 @@ export default function FooterArea() {
       <ul>
         {/* 하단로고 컴포넌트 넣기 */}
         <li>
-          하단로고
+          <Logo logoStyle="bottom" />
         </li>
         <li>
           {/* 하단링크박스 */}

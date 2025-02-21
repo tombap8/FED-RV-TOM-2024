@@ -23,7 +23,7 @@ export default function TopArea() {
             {
                 menu.map((v,i)=>
                     <li key={i}>
-                        <Link to={v.link}>{v.txt}</Link>
+                      <Link to={v.link}>{v.txt}</Link>
                         {
                           // 서브메뉴가 있는 경우 출력하기
                           v.sub && 
