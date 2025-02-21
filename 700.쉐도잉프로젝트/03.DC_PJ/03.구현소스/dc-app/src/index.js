@@ -7,8 +7,7 @@ import Character from './components/pages/Character';
 
 
 /// 전체 PJ 공통 CSS 최상위 JS에서 불러오기 ///
-import "./css/common/_core.scss";
-import "./css/common/_reset.scss";
+import "./css/index.scss";
 // 사스파일에서 import시엔 _와 .scss생략가능하나
 // 리액트 import에서는 모두 정확히 써야함!
 
