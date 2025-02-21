@@ -7,6 +7,7 @@ import { menu } from "../../js/data/gnb";
 
 // 상단영역 CSS 불러오기 ///
 import "../../css/common/top_area.scss";
+import Logo from "../modules/Logo";
 
 export default function TopArea() {
   /// 리턴 코드구역 ////////
@@ -20,28 +21,31 @@ export default function TopArea() {
         <nav className="gnb">
           <ul>
             {/* 1. 로고 컴포넌트 */}
-            {
-                menu.map((v,i)=>
-                    <li key={i}>
-                      <Link to={v.link}>{v.txt}</Link>
-                        {
-                          // 서브메뉴가 있는 경우 출력하기
-                          v.sub && 
-                          <div className="smenu">
-                            <ol>
-                              {
-                                v.sub.map((v,i)=>
-                                <li key={i}>
-                                  <Link to={v.link}>{v.txt}</Link>
-                                </li>
-                              )
-                              }
-                            </ol>
-                          </div>
-                        }
-                    </li>
-                )
-            }
+            <li>
+              <Link to="/">
+                <Logo logoStyle="top" />
+              </Link>
+            </li>
+            {/* 2. GNB 메뉴 데이터로 map 바인딩 */}
+            {menu.map((v, i) => (
+              <li key={i}>
+                <Link to={v.link}>{v.txt}</Link>
+                {
+                  // 서브메뉴가 있는 경우 출력하기
+                  v.sub && (
+                    <div className="smenu">
+                      <ol>
+                        {v.sub.map((v, i) => (
+                          <li key={i}>
+                            <Link to={v.link}>{v.txt}</Link>
+                          </li>
+                        ))}
+                      </ol>
+                    </div>
+                  )
+                }
+              </li>
+            ))}
           </ul>
         </nav>
         {/* 모바일용 햄버거 버튼 */}
