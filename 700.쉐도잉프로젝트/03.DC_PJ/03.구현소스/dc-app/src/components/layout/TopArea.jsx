@@ -1,7 +1,8 @@
 /// 상단영역 컴포넌트 : TopArea.jsx /////
 
-// GNB 데이터 불러오기 ////////
 import { Link } from "react-router-dom";
+
+// GNB 데이터 불러오기 ////////
 import { menu } from "../../js/data/gnb";
 
 // 상단영역 CSS 불러오기 ///
@@ -23,6 +24,21 @@ export default function TopArea() {
                 menu.map((v,i)=>
                     <li key={i}>
                         <Link to={v.link}>{v.txt}</Link>
+                        {
+                          // 서브메뉴가 있는 경우 출력하기
+                          v.sub && 
+                          <div className="smenu">
+                            <ol>
+                              {
+                                v.sub.map((v,i)=>
+                                <li key={i}>
+                                  <Link to={v.link}>{v.txt}</Link>
+                                </li>
+                              )
+                              }
+                            </ol>
+                          </div>
+                        }
                     </li>
                 )
             }
