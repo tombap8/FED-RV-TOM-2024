@@ -2,7 +2,7 @@
 import React from "react";
 
 // 이미지 경로 데이터 불러오기
-import { isrc } from "../data/img_src";
+import { isrc } from "../../js/data/img_src";
 
 export default function Logo({logoStyle}){
     // logoStyle : 상단, 하단 로고 구분코드
@@ -36,7 +36,7 @@ export default function Logo({logoStyle}){
         <h1 style={myStyle[logoStyle]}>
             <img
             style={imgStyle[logoStyle]}
-            src={process.env.PUBLIC_URL+isrc.logo} 
+            src={"."+isrc.logo} 
             alt="DC Logo" />
         </h1>
     );
