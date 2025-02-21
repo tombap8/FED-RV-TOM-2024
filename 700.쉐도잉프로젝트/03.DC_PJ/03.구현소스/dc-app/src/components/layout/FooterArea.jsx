@@ -3,6 +3,9 @@
 // 하단메뉴 데이터 불러오기 ////
 import { bmData } from "../../js/data/bmenu";
 
+// 하단영역 CSS 불러오기 ////
+import '../../css/common/footer_area.scss';
+
 export default function FooterArea() {
   /// 리턴 코드구역 ////////
   return (
@@ -10,7 +13,7 @@ export default function FooterArea() {
       <ul>
         {/* 하단로고 컴포넌트 넣기 */}
         <li>
-          <Logo logoStyle="bottom" />
+          하단로고
         </li>
         <li>
           {/* 하단링크박스 */}
@@ -18,7 +21,11 @@ export default function FooterArea() {
             {
                 bmData.map((v,i)=>
                 <li key={i}>
-                    <a href={v.link} target="_blank">
+                    <a 
+                        href={v.link} 
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         {v.txt.toUpperCase()}
                     </a>
                 </li>)
