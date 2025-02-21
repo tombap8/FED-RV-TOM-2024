@@ -14,7 +14,16 @@ export default function FooterArea() {
         </li>
         <li>
           {/* 하단링크박스 */}
-          <ol className="bmenu"></ol>
+          <ol className="bmenu">
+            {
+                bmData.map((v,i)=>
+                <li key={i}>
+                    <a href={v.link} target="_blank">
+                        {v.txt.toUpperCase()}
+                    </a>
+                </li>)
+            }
+          </ol>
         </li>
         <li>© & ™ DC. ALL RIGHTS RESERVED</li>
       </ul>
