@@ -4,6 +4,9 @@
 import { Link } from "react-router-dom";
 import { menu } from "../../js/data/gnb";
 
+// 상단영역 CSS 불러오기 ///
+import "../../css/common/top_area.scss";
+
 export default function TopArea() {
   /// 리턴 코드구역 ////////
   return (
