@@ -11,10 +11,10 @@
     (2) npm i jquery-ui-dist
     (3) npm i jquery-ui-touch-punch
     (4) npm i swiper
-    (6) npm i scss
+    (6) npm i sass
 
     한번에 설치(띄어쓰기로 구분)
-    npm i jquery jquery-ui-dist jquery-ui-touch-punch swiper scss
+    npm i jquery jquery-ui-dist jquery-ui-touch-punch swiper sass
 
 3. 설치확인
 - 파일명: package.json
