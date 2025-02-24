@@ -83,6 +83,9 @@ function MainComponent() {
 
     // 애니 속성 초기화 함수실행(의존성:selItem)
     comFn.initFn();
+
+    // 스크롤위치 맨 위로 이동하기 ///
+    window.scrollTo(0, 0);
   }, [test, selItem]); // -> 의존성실행!
   // },[]); -> 최초한번실행
   // }); -> 매번실행
