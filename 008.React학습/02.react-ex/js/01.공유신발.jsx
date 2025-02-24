@@ -64,6 +64,9 @@ function MainComponent() {
   // [ 3. useEffect : 의존성이있으나 빈 경우 ] ///
   React.useEffect(() => {
     console.log("useEffect 의존성이 비어서 한번만 실행!");
+    
+    // 로고 애니호출(처음 한번만 실행!)
+    comFn.logoAni();
   }, []);
   // -> useEffect(함수,[])
   // -> 최초로딩시 한번만 실행한다!
