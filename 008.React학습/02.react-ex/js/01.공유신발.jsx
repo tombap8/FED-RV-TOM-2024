@@ -80,7 +80,10 @@ function MainComponent() {
   // 화면랜더링 전 DOM완성후 실행구역 ] ///
   React.useLayoutEffect(() => {
     console.log("화면랜더링전 DOM완성후 실행!");
-  }, [test]); // -> 의존성실행!
+
+    // 애니 속성 초기화 함수실행(의존성:selItem)
+    comFn.initFn();
+  }, [test, selItem]); // -> 의존성실행!
   // },[]); -> 최초한번실행
   // }); -> 매번실행
 
