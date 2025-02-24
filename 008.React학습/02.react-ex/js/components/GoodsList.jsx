@@ -30,18 +30,15 @@ export default function GoodsList({ selItem, setGIdx, setViewList }) {
     );
 
   // [ useEffect 코드 구역 :  화면업데이트 후 실행구역 ]
-  React.useEffect(()=>{
-    console.log('나는 리스트 컴포넌트다!');
+  React.useEffect(() => {
+    console.log("나는 리스트 컴포넌트다!");
 
     // 컴포넌트 소멸시 실행구역은 useEffect 함수안에
-    // return() 메서드를 만들어준다!
-    return(()=>{
-      console.log('나는 리스트 컴포넌트 소멸시 실행이다!');
-    });
-
-
+    // 함수 리턴코드를 만들어준다!
+    return () => {
+      console.log("나는 리스트 컴포넌트 소멸시 실행이다!");
+    };
   }); /////////// useEffect ////////////////
-
 
   /// 리턴 코드구역 ///////////////
   return (
@@ -69,17 +66,17 @@ export default function GoodsList({ selItem, setGIdx, setViewList }) {
             >
               <ol className="glist">
                 <li>
-                  {
-                    selItem === "공유"?
+                  {selItem === "공유" ? (
                     <img
                       src={"./images/vans/vans_" + v.idx + ".jpg"}
                       alt="신발"
-                    />:
+                    />
+                  ) : (
                     <img
                       src={"./images/gallery/" + v.idx + ".jpg"}
                       alt="드레스"
                     />
-                  }
+                  )}
                 </li>
                 <li>👟상품명 : {v.gname}</li>
                 <li>🥾가격 : {comFn.addCommas(v.gprice)}원</li>
