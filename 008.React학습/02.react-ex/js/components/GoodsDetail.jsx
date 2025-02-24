@@ -45,12 +45,21 @@ export default function GoodsDetail({selItem, gIdx, setViewList}) {
       }}
     >
       <li>
-        <img
-          src={
-            "./images/vans/vans_"+selData.idx+".jpg"}
-          alt="반스신발"
-          style={{ width: "100%" }}
-        />
+        {
+          selItem === "공유" ? 
+          <img
+            src={
+              "./images/vans/vans_"+selData.idx+".jpg"}
+            alt="반스신발"
+            style={{ width: "100%" }}
+          />:
+          <img
+            src={
+              "./images/gallery/"+selData.idx+".jpg"}
+            alt="드레스"
+            style={{ width: "100%" }}
+          />
+        }
       </li>
       <li
         style={{
@@ -63,6 +72,9 @@ export default function GoodsDetail({selItem, gIdx, setViewList}) {
         <br />
         가격 : {selData.gprice}
         <br />
+        {
+          // 공유일때만 추가 데이터 조건렌더링!
+          selItem === "공유" &&
         <div>
           소재 : {selData.소재}
           <br />
@@ -82,6 +94,7 @@ export default function GoodsDetail({selItem, gIdx, setViewList}) {
           Model : {selData.Model}
           <br />
         </div>
+        }
         <div
           className="btnbx"
           style={{

@@ -137,7 +137,11 @@ function MainComponent() {
           }          
           </h2>
         <div className="img-box">
-          <img src="./images/vans/gongyoo.jpg" alt="멋진공유" />
+          {
+            selItem === "공유"?
+            <img src="./images/vans/gongyoo.jpg" alt="멋진공유" />:
+            <img src="./images/gallery/hyo.jpg" alt="엘레강스한 효진" />
+          }
         </div>
       </section>
       <div className="btn-box">
