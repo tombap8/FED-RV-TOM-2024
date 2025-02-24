@@ -47,6 +47,9 @@ function MainComponent() {
   React.useEffect(() => {
     console.log("DOM이 완성되었어!");
     console.log("🍜랜더링후 test상태변수값:", test);
+
+    // 초이스인트로 애니함수 호출
+    comFn.choiceIntroAni();
   }); ////////////// useEffect ///////////////
 
   // [ 2. useEffect : 의존성이있는 경우 ] ///
