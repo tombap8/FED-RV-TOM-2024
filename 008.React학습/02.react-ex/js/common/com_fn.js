@@ -12,9 +12,20 @@ const choiceIntroAni = () => {
     // 이변수를 의존성에 등록해 준다!!!
 
     // (1) 타이틀 확대/축소 애니
+    // - span은 inline이므로 트랜스폼 적용안됨
+    // - 그래서 inline-block 변경함!
     $('.tit span')
+    .css({display:'inline-block'})
     .animate({scale: "200%"}, 1000)
     .animate({scale: "100%"}, 1000);
+
+    // (2) 초이스 메인 이미지 애니
+    $('.img-box img').css({opacity:0})
+    .delay(700).fadeTo(1000, 1);
+
+    // (3) 소제목 애니
+    $('.stit').css({opacity:0})
+    .delay(1500).fadeTo(1000, 1);
 
 
 }; ///////////// choiceIntroAni 함수 ///////////////
