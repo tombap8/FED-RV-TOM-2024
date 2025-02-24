@@ -6,5 +6,4 @@ const addCommas = (x) => {
 }
 
 // 초이스 인트로 애니 실행함수
-
 export { addCommas };

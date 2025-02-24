@@ -2,9 +2,13 @@
 
 // 공유신발 데이터 불러오기
 import guData from "../data/gu_data";
+
 // 효진드레스 데이터 불러오기
 import hjData from "../data/hj_data";
 // console.log(guData);
+
+// 공통함수 불러오기
+import * as comFn from "./common/com_fn";
 
 export default function GoodsDetail({ selItem, gIdx, setViewList }) {
   // selItem - 대분류(공유/효진) -> 데이터선택
@@ -80,7 +84,8 @@ export default function GoodsDetail({ selItem, gIdx, setViewList }) {
       >
         상품명 : {selData.gname}
         <br />
-        가격 : {selData.gprice}
+        가격 : {comFn.addCommas(selData.gprice)}원
+
         <br />
         {
           // 공유일때만 추가 데이터 조건렌더링!
