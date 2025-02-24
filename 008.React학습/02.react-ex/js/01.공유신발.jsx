@@ -32,6 +32,43 @@ function MainComponent() {
     // 4. 테스트용 상태관리변수(의존성 테스트용!)
     const [ test, setTest ] = React.useState(true);
 
+    // [ useEffect 테스트 함수 ] ///
+    const testFn = () => {
+      // 의존성 테스트를 위한 상태변수 업데이트
+      setTest(!test); 
+      // -> 이 함수를 호출하면 true/false값이 반대로 셋팅됨!
+      console.log("테스트중~! 변경할값:",!test);
+      console.log("리랜더링 전 test상태변수값:",test);
+
+    }; ///////////// testFn ////////////////
+
+    // [ 1. useEffect : 의존성이없는 경우 ] ///
+    // -> 컴포넌트가 생성, 변경, 삭제전 DOM을 랜더링하면
+    // 매번 실행되는 코드구역이다!!!
+    React.useEffect(()=>{
+      console.log("DOM이 완성되었어!");
+      console.log("🍜랜더링후 test상태변수값:",test);
+    }); ////////////// useEffect ///////////////
+
+    
+    // [ 2. useEffect : 의존성이있는 경우 ] ///
+    React.useEffect(()=>{
+      console.log("의존성useEffect실행![test]");
+    },[test]);
+    // 의존성이란? useEffect가 실행되는 것에 관련된
+    // 상태변수를 등록하여 실행구역을 컨트롤한다!
+    // 즉, 등록된 상태변수가 변경될때만 이 구역은 실행된다!
+    // 의존성등록은 이렇게한다!
+    // -> useEffect(함수,[의존성변수])
+    // -> 함수 뒤에 콤마후 배열형으로 넣는다
+    // -> 배열형이므로 여러개를 등록할 수 있다!
+
+    // [ 3. useEffect : 의존성이있으나 빈 경우 ] ///
+    React.useEffect(()=>{
+      console.log("useEffect 의존성이 비어서 한번만 실행!");
+    },[]);
+    // -> useEffect(함수,[])
+    // -> 최초로딩시 한번만 실행한다!
 
 
   /************************************** 
@@ -85,7 +122,9 @@ function MainComponent() {
       <div className="btn-box">
         <button>효진초이스 바로가기</button>
         <br />
-        <button>useEffect 의존성 테스트</button>
+        <button
+          onClick={testFn}
+        >useEffect 의존성 테스트</button>
       </div>
       <div className="gwrap">
         {
