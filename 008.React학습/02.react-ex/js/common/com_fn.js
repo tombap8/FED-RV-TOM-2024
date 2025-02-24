@@ -20,15 +20,16 @@ const choiceIntroAni = () => {
     .animate({scale: "100%"}, 1000);
 
     // (2) 초이스 메인 이미지 애니
-    $('.img-box img').css({opacity:0})
+    $('.img-box img')
     .delay(700).fadeTo(1000, 1);
 
     // (3) 소제목 애니
-    $('.stit').css({opacity:0})
+    $('.stit')
     .delay(1500).fadeTo(1000, 1);
 
 
 }; ///////////// choiceIntroAni 함수 ///////////////
+
 // [ 3. 로고 애니 함수 ] ///
 const logoAni = () => {
     // 로고 최초한번만 애니하기 - useEffect(함수,[])
@@ -38,5 +39,13 @@ const logoAni = () => {
 }; //////// logoAni 함수 /////////////////////////////
 
 // [ 4. 셋팅초기화함수 ] ///
+const initFn = ()=> {
+    // 초기화는 화면랜더링 전에 해주는 것이 좋다!
+    // -> useLayoutEffect()에서 호출해 주자!
+    // 의존성은 selItem으로 설정!
+    $('.img-box img, .stit').css({opacity:0});
 
-export { addCommas, logoAni, choiceIntroAni };
+}; ////////// initFn 함수 //////////////////
+
+/// 함수 내보내기 ///////////
+export { addCommas, logoAni, choiceIntroAni, initFn };
