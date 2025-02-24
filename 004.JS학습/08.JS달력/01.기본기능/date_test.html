@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Date 객체 사용 테스트</title>
+    <script>
+        // 콘솔찍기함수
+        const cg = x => document.write(`<h1>${x}</h1>`);
+        //console.log(x);
+        // 날짜찍기 형식변경함수(yyyy-mm-dd시간)
+        const fm = x => `
+        ${x.getFullYear()}-${
+            x.getMonth()+1 < 10 ?
+            '0' + (x.getMonth() + 1) :
+            x.getMonth() + 1
+        }-${
+            x.getDate() < 10 ?
+            '0' + x.getDate() : x.getDate()
+        }(${week[x.getDay()]})`;
+        // 요일변경배열
+        const week = ["일","월","화","수","목","금","토"];
+
+        // 달력객체 생성(인스턴스 생성!)
+
+        // 최종변경 날짜객체
+        const myDate = new Date();
+        // 변경할 날짜객체
+        const tempDate = new Date();
+
+
+        // 달력구성에 필요한 정보들 /////
+        // 1. 전달 끝날짜
+        // 2. 전달 끝날짜 요일
+        // 3. 현재달 첫날짜(요일정보때문에 구함!)
+        // 4. 현재달 끝날짜
+
+        // -> 전달  끝날짜, 첫날짜 알아오기
+        // new Date(년도,월,옵션)
+        // 전달값
+        // (1) 년도
+        // (2) 월
+        // (3) 옵션 : 0 - 현재달끝날짜 / 1 - 다음달첫날짜
+
+        
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
