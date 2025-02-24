@@ -1,6 +1,9 @@
 // DC.com 배너 컴포넌트 - Banner.jsx ///////
 import React from "react";
 
+// 배너용 CSS 불러오기 ///
+import '../../css/modules/banner.scss';
+
 function Banner(props) {
   return (
     <>
