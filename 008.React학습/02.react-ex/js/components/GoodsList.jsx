@@ -29,6 +29,20 @@ export default function GoodsList({ selItem, setGIdx, setViewList }) {
       </ul>
     );
 
+  // [ useEffect 코드 구역 :  화면업데이트 후 실행구역 ]
+  React.useEffect(()=>{
+    console.log('나는 리스트 컴포넌트다!');
+
+    // 컴포넌트 소멸시 실행구역은 useEffect 함수안에
+    // return() 메서드를 만들어준다!
+    return(()=>{
+      console.log('나는 리스트 컴포넌트 소멸시 실행이다!');
+    });
+
+
+  }); /////////// useEffect ////////////////
+
+
   /// 리턴 코드구역 ///////////////
   return (
     <ul>
