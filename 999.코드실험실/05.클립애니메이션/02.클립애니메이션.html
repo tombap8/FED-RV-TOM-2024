@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02.클립애니메이션</title>
+    <style>
+      html,
+      body,
+      h1 {
+        margin: 0;
+        padding: 0;
+      }
+      /* 배경색은 겉박스에서! */
+      .w1 {
+        position: relative;
+        /* 만약 클립패스된 박스에 그림자효과를
+        주려면 부모박스에  filter: drop-shadow를
+        사용하면 된다! 단, 배경색을 넣으면 
+        외곽선을 찾아서 주는 효과이므로
+        그림자효과가 상쇄된다! */
+        filter: drop-shadow(5px 5px 5px #000);      
+      }
+      /* 그림자는 아래쪽 다른 박스에 주면된다! */
+      body {
+        background-color: lightseagreen;
+      }
+      .w2 {
+        background-color: lightcoral;
+      }
+      .w3 {
+        background-color: darkkhaki;
+      }
+
+      /* 타이틀 */
+      h1 {
+        position: relative;
+        top: 50%;
+        text-align: center;
+        color: #fff;
+        translate: 0 -50%;
+        font-size: 4vw;
+      }
+
+      /* 페이지공통 */
+      .pg {
+        /* 보이는 화면만큼 높이값 지정 */
+        height: 100vh;
+        /* 배경공통 */
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        /* 트랜지션 */
+        transition: 2s ease-in-out;
+        /* 손가락모양 */
+        cursor: pointer;
+      }
+
+      /* 페이지별 배경이미지 */
+      .pg1 {
+        /* 원형 클립패스
+          clip-path: 
+          circle(반지름 at x축위치 y축위치)
+
+          ((퍼센트기준:))
+          - 반지름은 장축기준
+          - x축위치는 가로길이기준
+          - y축위치는 세로길이기준
+        */
+        clip-path: 
+        circle(10% at 10% 20%);
+        /* 배경이미지 */
+        background-image: url(https://images.unsplash.com/photo-1503614472-8c93d56e92ce?q=80&w=2911&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+      }
+
+      /* 애니메이션 호출은 클래스 on 을 줄때 작동 */
+      .pg1.on{
+        animation: 
+        circle-ani 10s ease-in-out 1s forwards;
+        /* 10초간 1초후 마지막상태유지 */
+      }
+
+      /* 애니메이션 키프레임 만들기 */
+      @keyframes circle-ani {
+        /* 1.왼쪽위 */
+        0%{
+          clip-path: circle(10% at 10% 20%);
+        }
+        /* 2.오른쪽위 */
+        20%{
+          clip-path: circle(10% at 90% 20%);
+        }
+        /* 3.오른쪽아래 */
+        40%{
+          clip-path: circle(10% at 90% 80%);
+        }
+        /* 4.왼쪽아래 */
+        60%{
+          clip-path: circle(10% at 10% 80%);
+        }
+        /* 5.중앙 */
+        80%{
+          clip-path: circle(10% at 50% 50%);
+        }
+        /* 6.중앙에서 확대 */
+        100%{
+          clip-path: circle(100% at 50% 50%);
+        }
+      } /* circle-ani */
+
+      .pg2 {
+        /* 다각형 클립패스 */
+        clip-path: polygon(45.4% 38.4%, 81.4% 39%, 81.2% 67.8%, 37.6% 65.6%, 72.6% 95%, 22.2% 94.8%, 12.6% 68%, 30% 42%, 25% 6.6%);
+        background-image: url(https://images.unsplash.com/photo-1503424886307-b090341d25d1?q=80&w=2952&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+      }
+      /* 클래스 on을 넣으면 변경됨 */
+      .pg2.on{
+        clip-path: polygon(45.6% 0%, 100.4% -0.2%, 100.4% 48.2%, 100.6% 77%, 100.4% 100.6%, 0% 100.2%, 0% 66.6%, 0% 35.2%, 0% 0%);
+      }
+      .pg3 {
+        /* 한쪽끝에서 커지는 원 클립패스 */
+        clip-path: circle(10% at 100% 0%);
+
+        background-image: url(https://images.unsplash.com/photo-1549558549-415fe4c37b60?q=80&w=2919&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+      }
+      /* 클래스 on적용시 원이 커짐 */
+      .pg3.on{
+        clip-path: circle(200% at 100% 0%);
+      }
+      
+      /* 
+        클립패스 코드생성툴 사이트
+        https://toolsmatrix.com/clippath
+        https://bennettfeely.com/clippy/
+      */
+    </style>
+    <script>
+      // 자바스크립트 구역
+      window.addEventListener('load',()=>{
+        document.querySelectorAll('.pg')
+        .forEach(ele=>{
+          ele.onclick = ()=>{
+            ele.classList.toggle('on');
+          }; /// click ///
+        }); /// forEach ////
+      }); //// load 구역 ////
+    </script>
+  </head>
+  <body>
+    <div class="wrap w1">
+      <div class="pg pg1" title="여기를 클릭해보세요!">
+        <h1>여기는 어디일까요?</h1>
+      </div>
+    </div>
+    <div class="wrap w2">
+      <div class="pg pg2" title="여기를 클릭해보세요!">
+        <h1>여기는 어디일까요?</h1>
+      </div>
+    </div>
+    <div class="wrap w3">
+      <div class="pg pg3" title="여기를 클릭해보세요!">
+        <h1>여기는 어디일까요?</h1>
+      </div>
+    </div>
+  </body>
+</html>
