@@ -163,6 +163,9 @@ function MainComponent() {
           onClick={() => {
             // 선택 아이템 변경하기
             setSelItem(selItem === "공유" ? "효진" : "공유");
+            // 아이템 변경시 리스트보기 상태로 전환
+            setViewList(true);
+            // 왜? 상세보기상태에서 아이템 변경이 될 수 있으므로!
           }}
         >
           {selItem === "공유" ? "효진" : "공유"}초이스 바로가기
