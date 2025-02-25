@@ -7,6 +7,9 @@ import { banData } from "../../js/data/banner";
 // 배너용 CSS 불러오기 ///
 import "../../css/modules/banner.scss";
 
+// 배너 슬라이드 기능 함수 불러오기 ///
+
+
 function Banner({ catName }) {
   // catName - 배너 데이터 카테고리 이름
 
