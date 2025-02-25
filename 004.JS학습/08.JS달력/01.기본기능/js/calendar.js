@@ -63,6 +63,12 @@ function makeDallyeok() {
     const prevLast = new Date(cYr, cMt, 0);
 
     myFn.cs("전달 마지막 날짜:" + myFn.dfm(prevLast));
+    
+    // [2] 현재달 첫째 날짜(옵션:1)
+    const thisFirst = new Date(cYr,cMt,1);
+    
+    myFn.cs("현재달 첫째 날짜:" + myFn.dfm(thisFirst));
+
   }; //////////// initDallyeok 함수 ///////
 
   // 초기셋팅함수 호출!
