@@ -9,7 +9,7 @@ export default function Main(){
     return (
         <>
             {/* 1. 배너 컴포넌트 */}
-            <Banner catName="CHARACTERS" />
+            <Banner catName="main1" />
             {/* 2. 섹션 인트로 컴포넌트 */}
             <SecIntro />
         </>

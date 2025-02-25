@@ -18,29 +18,44 @@ function Banner({ catName }) {
       <div className="banner">
         {/* 슬라이드 리스트 */}
         <ul className="slider">
-          {selData.map((v, i) => (
-            <li key={i}>
-              <img src={v.src} alt={v.tit1} />
-              <section className="bantit">
-                <h2>{v.tit1}</h2>
-                <p>{v.tit2}</p>
-                <button>
-                  {v.btn}
-                </button>
-              </section>
-            </li>
-          ))}
+          {
+            // 배열데이터 개수 만큼 슬라이드 생성하기
+            selData.map((v, i) => (
+              <li key={i}>
+                <img src={v.src} alt={v.tit1} />
+                <section className="bantit">
+                  <h2>{v.tit1}</h2>
+                  <p>{v.tit2}</p>
+                  <button>
+                    55
+                    {v.btn}
+                  </button>
+                </section>
+              </li>
+            ))
+          }
         </ul>
-        {/* 양쪽이동버튼 */}
-        <button className="abtn lb">＜</button>
-        <button className="abtn rb">＞</button>
-        {/* 블릿 표시자 */}
-        <ol className="indic">
-          <li className="on"></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ol>
+        {
+          // 슬라이드 배열개수가 1초과일때만 나오기
+          // 양쪽이동버튼 + 블릿표시자
+          selData.length > 1 && (
+            <>
+              {/* 양쪽이동버튼 */}
+              <button className="abtn lb">＜</button>
+              <button className="abtn rb">＞</button>
+              {/* 블릿 표시자 */}
+              <ol className="indic">
+                {
+                  // 슬라이드 개수만큼 li블릿 만들기
+                  // 단, 첫번째 li에만 클래스'on'넣기
+                  selData.map((v, i) => (
+                    <li key={i} className={i === 0 ? "on" : ""}></li>
+                  ))
+                }
+              </ol>
+            </>
+          )
+        }
       </div>
     </>
   );
