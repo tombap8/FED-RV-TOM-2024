@@ -1,7 +1,7 @@
 // 달력구현 JS - calendar.js ////////////
 
 // DOM 메서드 //////
-const dFn = {
+const myFn = {
     qs : x => document.querySelector(x),
     qsa : x => document.querySelectorAll(x),
     qsEl: (el, x) => el.querySelector(x),
@@ -22,6 +22,6 @@ const week = ["일","월","화","수","목","금","토"];
 makeDallyeok();
 
 function makeDallyeok(){
-    dFn.cg('달력만들어!');
+    myFn.cs('달력만들어!');
 
 } /////////////// makeDallyeok함수 ////////////
