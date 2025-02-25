@@ -1,10 +1,12 @@
 import React from 'react';
+import Banner from '../modules/Banner';
 
 function Games(props) {
     return (
-        <div>
-            <h1>게임이야!</h1>
-        </div>
+        <>
+          {/* 1. 배너 컴포넌트 */}
+          <Banner catName="GAMES" />
+        </>
     );
 }
 

@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
+import Banner from "../modules/Banner";
 
 function Comics(props) {
-    return (
-        <div>
-            <h1>코믹스야!</h1>
-        </div>
-    );
+  return (
+    <>
+      {/* 1. 배너 컴포넌트 */}
+      <Banner catName="COMICS" />
+    </>
+  );
 }
 
 export default Comics;

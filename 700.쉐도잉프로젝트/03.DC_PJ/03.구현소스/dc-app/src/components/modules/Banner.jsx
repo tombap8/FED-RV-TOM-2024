@@ -32,10 +32,10 @@ function Banner({ catName }) {
                 <section className="bantit">
                   <h2>{v.tit1}</h2>
                   <p>{v.tit2}</p>
-                  <button>
-                    55
-                    {v.btn}
-                  </button>
+                  {
+                    // 버튼 데이터가 없으면 버튼출력안함
+                    v.btn !== "" && <button>{v.btn}</button>
+                  }
                 </section>
               </li>
             ))
@@ -47,14 +47,12 @@ function Banner({ catName }) {
           selData.length > 1 && (
             <>
               {/* 양쪽이동버튼 */}
-              <button 
-                className="abtn lb"
-                onClick={slideFn.goSlide}
-              >＜</button>
-              <button 
-                className="abtn rb"
-                onClick={slideFn.goSlide}
-              >＞</button>
+              <button className="abtn lb" onClick={slideFn.goSlide}>
+                ＜
+              </button>
+              <button className="abtn rb" onClick={slideFn.goSlide}>
+                ＞
+              </button>
               {/* 블릿 표시자 */}
               <ol className="indic">
                 {
