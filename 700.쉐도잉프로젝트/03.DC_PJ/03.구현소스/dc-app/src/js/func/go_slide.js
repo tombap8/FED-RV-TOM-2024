@@ -31,7 +31,9 @@ function SlideFn() {
   this.goSlide = (e) => {
     // 1. 이벤트가 발생한 요소
     const tg = e.target;
-    // console.log(tg);
+    // e.currentTarget을 쓰지 않은 이유는?
+    // button요소 하위에 다른 요소가 없음!
+    console.log(tg);
 
     // 2. 대상선정
     // (1) 슬라이드 : 클릭된 버튼으로 부터 잡아줌!

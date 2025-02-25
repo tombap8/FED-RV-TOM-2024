@@ -8,10 +8,13 @@ import { banData } from "../../js/data/banner";
 import "../../css/modules/banner.scss";
 
 // 배너 슬라이드 기능 함수 불러오기 ///
-
+import SlideFn from "../../js/func/go_slide";
 
 function Banner({ catName }) {
   // catName - 배너 데이터 카테고리 이름
+
+  // 슬라이드 기능 생성자함수 인스턴스 생성하기
+  const slideFn = new SlideFn();
 
   // 선택데이터 ////
   const selData = banData[catName];
@@ -44,8 +47,14 @@ function Banner({ catName }) {
           selData.length > 1 && (
             <>
               {/* 양쪽이동버튼 */}
-              <button className="abtn lb">＜</button>
-              <button className="abtn rb">＞</button>
+              <button 
+                className="abtn lb"
+                onClick={slideFn.goSlide}
+              >＜</button>
+              <button 
+                className="abtn rb"
+                onClick={slideFn.goSlide}
+              >＞</button>
               {/* 블릿 표시자 */}
               <ol className="indic">
                 {
