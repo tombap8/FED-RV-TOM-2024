@@ -45,7 +45,25 @@ function makeDallyeok(){
     // (1) 달력 초기화 구성 함수 ////
     const initDallyeok = () => {
 
+        // 1) 변수초기화
+
+        // 2) 변수할당 //////////
+        // 현재년
+        let cYr = currDate.getFullYear();
+
+        // 현재달 : 배열순번
+        let cMt = currDate.getMonth();
+        
+        // [선택달  끝날짜, 첫날짜 알아오기]
+        // new Date(년도,월,옵션)
+        // (1) 년도
+        // (2) 월
+        // (3) 옵션 : 0 - 선택달끝날짜 / 1 - 다음달첫날짜
+
     }; //////////// initDallyeok 함수 ///////
+
+    // 초기셋팅함수 호출!
+    initDallyeok();
 
 
 } /////////////// makeDallyeok함수 ////////////
