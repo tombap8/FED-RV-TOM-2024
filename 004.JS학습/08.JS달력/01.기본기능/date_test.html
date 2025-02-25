@@ -6,11 +6,11 @@
     <title>JS Date 객체 사용 테스트</title>
     <script>
       // 콘솔찍기함수
-      const cg = (x) => document.write(`<h1>${x}</h1>`);
+      const cs = (x) => document.write(`<h1>${x}</h1>`);
       //console.log(x);
 
       // [ 날짜찍기 형식변경함수 : yyyy-mm-dd시간 ]
-      const fm = (x) => `
+      const dfm = (x) => `
         ${x.getFullYear()}-${
         x.getMonth() + 1 < 10 ? "0" + (x.getMonth() + 1) : x.getMonth() + 1
       }-${x.getDate() < 10 ? "0" + x.getDate() : x.getDate()}(${

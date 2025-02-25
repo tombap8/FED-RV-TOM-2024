@@ -8,9 +8,9 @@ const dFn = {
     qsaEl: (el, x) => el.querySelectorAll(x),
     addEvt : (ele,evt,fn) => 
             ele.addEventListener(evt,fn),
-    cg : x => console.log(x),
+    cs : x => console.log(x),
     addZero : x => x < 10 ? '0' + x : x,
-    fm : x => `${x.getFullYear()}-${
+    dfm : x => `${x.getFullYear()}-${
         dFn.addZero(x.getMonth()+1)}-${
         dFn.addZero(x.getDate())}(${week[x.getDay()]})`
 }; ///////// dFn 객체 //////////
