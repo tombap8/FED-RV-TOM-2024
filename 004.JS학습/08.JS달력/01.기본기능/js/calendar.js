@@ -43,7 +43,12 @@ function makeDallyeok() {
   // 2. 함수 만들기 //////////////
   // (1) 달력 초기화 구성 함수 ////
   const initDallyeok = () => {
-    // 1) 변수초기화
+    // 1) 변수초기화 : 배열변수, html코드변수
+    // -> 날짜배열 초기화 : splice(시작순번,개수)
+    // -> 배열변수.splice(0) 첫배열부터 모두지움
+    dateSet.splice(0);
+    // -> html 코드 변수 초기화
+    hcode = "";
 
     // 2) 변수할당 //////////
     // 현재년
@@ -105,15 +110,15 @@ function makeDallyeok() {
 
     // [2] 현재월 날짜 삽입하기 ★★★★★★★
     // 반복문구성 : 현재월 1일부터 마지막 날짜까지 반복 배열추가
-    for(let i=1; i<=thisLast.getDate(); i++){
-        dateSet.push(i);
+    for (let i = 1; i <= thisLast.getDate(); i++) {
+      dateSet.push(i);
     } ////// for /////
 
     // [3] 다음달 나머지 칸 삽입하기 ★★★★★★★
     // 다음달은 클래스 'am'으로 구분
     // 반복구성: 1부터 2주분량정도 넣는다!
-    for(let i=1; i<=14; i++){
-        dateSet.push(`
+    for (let i = 1; i <= 14; i++) {
+      dateSet.push(`
             <span style="color: #ccc" class="am">
                 ${i}
             </span>
@@ -127,15 +132,47 @@ function makeDallyeok() {
     // 6) 날짜 배열로 날짜태그 구성하기 /////
     // ★★★★★★★★★★★★★★★★★★★★
     // 구성요건 : 7일 * 6주 = 42일
-    for(let i = 0; i < 42; i++){
+    for (let i = 0; i < 42; i++) {
+      // 오늘날짜와 같은 경우 클래스 'today' 넣기 ///
+      if (
+        // [년,월,일 모두 일치하는 오늘만 표시]
+        // (1) 오늘날짜 === 배열값 날짜 AND
+        today.getDate() === dateSet[i] &&
+        // (2) 현재달 === 선택달 AND
+        today.getMonth() === currDate.getMonth() &&
+        // (3) 현재년도 === 선택년도
+        today.getFullYear() === currDate.getFullYear()
+      ) {
+        hcode += `<div class="date today">${dateSet[i]}</div>`;
+      } else {
         hcode += `<div class="date">${dateSet[i]}</div>`;
+      }
     } //// for ////
 
     // 날짜태그 출력 ///
     dates.innerHTML = hcode;
-
   }; //////////// initDallyeok 함수 ///////
 
-  // 초기셋팅함수 호출!
+  // 2. 함수 만들기 //////////////
+  // (2) 이전/다음 달력 출력하기 함수 ////
+  const chgCalendar = (num) => {
+    // num (1이면 다음, -1이면 이전)
+    console.log("달력변경 고고!");
+
+    // 이전/다음달로 변경하여 initDallyeok() 함수 호출!
+    currDate.setMonth(currDate.getMonth() + num);
+    // getMonth() 월가져오기 / setMonth() 월 셋팅하기!
+
+    // 달력초기화 함수 다시 호출!
+    initDallyeok();
+  }; //////////// chgCalendar //////////////
+
+  // 3. 이벤트 설정하기 ////////////////////////
+  // (1) 이전버튼에 함수 연결하기 : 달을 빼기위해 -1전달
+  myFn.addEvt(myFn.qs(".btnL"), "click", () => chgCalendar(-1));
+  // (2) 다음버튼에 함수 연결하기 : 달을 더하기위해 1전달
+  myFn.addEvt(myFn.qs(".btnR"), "click", () => chgCalendar(1));
+
+  // 4. 초기셋팅함수 호출!
   initDallyeok();
 } /////////////// makeDallyeok함수 ////////////
