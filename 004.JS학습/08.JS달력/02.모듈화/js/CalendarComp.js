@@ -42,8 +42,19 @@ const week = ["일", "월", "화", "수", "목", "금", "토"];
 // 달력함수 호출 -> 이젠 여기서 안함!
 // makeDallyeok();
 
-export default function MakeDallyeok() {
+export default function MakeDallyeok(selEl) {
+  // selEl 전달변수 - 달력을 넣을 요소(선택자만 보냄!)
   // myFn.cs("달력만들어!");
+
+  // [ 생성자함수 속성/메서드 공개 연습하기 ] //////
+  // 요일정보 변환배열 ////
+  this.week = ["일", "월", "화", "수", "목", "금", "토"];
+  // 한자리수 날짜 앞에 0추가 메서드
+  this.addZero = (x) => (x < 10 ? "0" + x : x);
+  ////////////////////////////////////////////////
+
+  // 0. 달력 컴포넌트 html 넣기
+  myFn.qs(selEl).innerHTML = insertHcode();
 
   // 1. 변수셋팅 ////////////////////
   // (1) 변경할 현재날짜 객체
@@ -177,13 +188,13 @@ export default function MakeDallyeok() {
     // 7) 날짜 정보를 사용하도록 셋팅하기 /////
     // ★★★★★★★★★★★★★★★★★★★★
     // (1) 대상선정 : .date -> 위에서 새로 담겼으므로 새로읽음!
-    let newDate = myFn.qsa('.date');
+    let newDate = myFn.qsa(".date");
     // console.log(newDate);
 
     // (2) 각 날짜 .date요소에 링크설정하기
-    newDate.forEach(el=>{
+    newDate.forEach((el) => {
       // 각 .date요소에 클릭이벤트 설정하기
-      myFn.addEvt(el,'click',()=>{
+      myFn.addEvt(el, "click", () => {
         // 1. 년도읽기
         let nowY = yearTit.innerText;
 
@@ -194,59 +205,61 @@ export default function MakeDallyeok() {
         let nowD = el.innerText;
 
         // 4. 이전달/다음달 구분하기
-        let isSpan = myFn.qsEl(el,'span');
+        let isSpan = myFn.qsEl(el, "span");
         // console.log('span있니?',isSpan);
         // span이 있으면 null이 아니므로  true처리됨!
-        if(isSpan){
+        if (isSpan) {
           // span의 클래스가 'bm'/'am' 인지 구분하기
-          let isAM = isSpan.classList.contains('am');
+          let isAM = isSpan.classList.contains("am");
           // console.log('클래스가 am이니?',isAM);
-          if(isAM){ // 다음달이므로 1을 더함
+          if (isAM) {
+            // 다음달이므로 1을 더함
             nowM++;
-            if(nowM==13){ // 한계값 체크!
+            if (nowM == 13) {
+              // 한계값 체크!
               // 13월은 1월로 처리
               nowM = 1;
               // 1월은 다음해로 처리
               nowY++;
             } // if : 한계값 체크 ///
           } /////// if : 클래스'am'이냐? ///////
-          else{ // 'bm'일 경우 즉, 이전달이므로 1을뺌
+          else {
+            // 'bm'일 경우 즉, 이전달이므로 1을뺌
             nowM--;
-            if(nowM==0){ // 한계값 체크!
+            if (nowM == 0) {
+              // 한계값 체크!
               // 0월은 12월로 처리
               nowM = 12;
               // 12월은 이전해로 처리
               nowY--;
             } /// if : 한계값 체크 ///
           } ///// else : 클래스 'bm'일 경우 처리 //////
-        } ///////// if : 이전/다음달처리(span있냐?) ////////        
+        } ///////// if : 이전/다음달처리(span있냐?) ////////
 
-        
         // 5. 날짜형식 구성하기 : yyyy-mm-dd
-        let setDate = 
-        `${nowY}-${myFn.addZero(nowM)}-${myFn.addZero(nowD)}`;
+        let setDate = `${nowY}-${myFn.addZero(nowM)}-${myFn.addZero(nowD)}`;
 
         // 6. 요일 셋팅하기 : 해당날짜의 요일 -> getDay()
         let setDay = new Date(setDate).getDay();
-        
+
         // 날짜형식 + 요일 찍기
         console.log(setDate + `(${week[setDay]})`);
 
         // 7. 선택날짜 정보 히든필드에 저장하기
-        myFn.qs('.date-info').value = setDate + '/' + setDay;
+        // -> 활용도를 높이기 위해 일반구분자로 정보공개
+        // 예) 년도/월/일/요일 -> 2025/2/28/5
+        myFn.qs(".date-info").value = 
+        `${nowY}/${nowM}/${nowD}/${setDay}`;
         // 요일 정보는 원본 배열정보로 넣어 놓는다!
-
-
       }); //// addEvt //////
-
     }); //// forEach //////////
-
-
   }; //////////// initDallyeok 함수 ///////
 
   // 2. 함수 만들기 //////////////
   // (2) 이전/다음 달력 출력하기 함수 ////
-  const chgCalendar = (num) => {
+  // this키워드로 생성자함수에 등록하여
+  // 인스턴스 생성시 접근할 수 있도록 한다!
+  this.chgCalendar = (num) => {
     // num (1이면 다음, -1이면 이전)
     console.log("달력변경 고고!");
 
@@ -260,10 +273,55 @@ export default function MakeDallyeok() {
 
   // 3. 이벤트 설정하기 ////////////////////////
   // (1) 이전버튼에 함수 연결하기 : 달을 빼기위해 -1전달
-  myFn.addEvt(myFn.qs(".btnL"), "click", () => chgCalendar(-1));
+  myFn.addEvt(myFn.qs(".btnL"), "click", 
+  () => this.chgCalendar(-1));
   // (2) 다음버튼에 함수 연결하기 : 달을 더하기위해 1전달
-  myFn.addEvt(myFn.qs(".btnR"), "click", () => chgCalendar(1));
+  myFn.addEvt(myFn.qs(".btnR"), "click", 
+  () => this.chgCalendar(1));
+  // -> this키워드로 등록된 생성자 함수 속성/메서드는
+  // 반드시 this키워드를 사용하여 호출해야함!
 
   // 4. 초기셋팅함수 호출!
   initDallyeok();
-} /////////////// makeDallyeok함수 ////////////
+} /////////////// MakeDallyeok 생성자함수 ////////////
+
+/****************************************** 
+    함수명 : insertHcode
+    기능 : 달력의 HTML 코드 넣기
+******************************************/
+function insertHcode() {
+  // 달력 html코드를 리턴함!
+  return `    
+    <!-- 달력전체박스 -->
+    <div class="calender">
+      <!-- 달력상단:해당년/월표시 -->
+      <header class="header">
+        <!-- 달력이동버튼:이전 -->
+        <button class="mbtn btnL">〈</button>
+        <div class="title">
+          <div class="yearTit"></div>
+          <div class="monthTit"></div>
+        </div>
+        <!-- 달력이동버튼:다음 -->
+        <button class="mbtn btnR">〉</button>
+      </header>
+      <!-- 달력날짜표시박스 -->
+      <section class="main">
+        <!-- 주단위 구분박스 -->
+        <div class="week">
+          <div class="day">Sun</div>
+          <div class="day">Mon</div>
+          <div class="day">Tue</div>
+          <div class="day">Wed</div>
+          <div class="day">Thu</div>
+          <div class="day">Fri</div>
+          <div class="day">Sat</div>
+        </div>
+        <!-- 해당월의 달력날짜 구성박스 -->
+        <div class="dates"></div>
+      </section>
+      <!-- 달력 선택날짜데이터 저장용 히든필드 -->
+      <input type="hidden" class="date-info">
+    </div>
+  `;
+} ///////////// insertHcode 함수 ///////////////
