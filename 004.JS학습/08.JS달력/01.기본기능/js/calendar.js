@@ -203,10 +203,17 @@ function makeDallyeok() {
         
         // 5. 날짜형식 구성하기 : yyyy-mm-dd
         let setDate = 
-        `${nowY}-${myFn.addZero(nowM)}-${myFn.addZero(nowD)}`
+        `${nowY}-${myFn.addZero(nowM)}-${myFn.addZero(nowD)}`;
+
+        // 6. 요일 셋팅하기 : 해당날짜의 요일 -> getDay()
+        let setDay = new Date(setDate).getDay();
         
-        // 날짜형식 찍기
-        console.log(setDate);
+        // 날짜형식 + 요일 찍기
+        console.log(setDate + `(${week[setDay]})`);
+
+        // 7. 선택날짜 정보 히든필드에 저장하기
+        myFn.qs('.date-info').value = setDate + '/' + setDay;
+        // 요일 정보는 원본 배열정보로 넣어 놓는다!
 
 
       }); //// addEvt //////
