@@ -22,7 +22,7 @@ const week = ["일", "월", "화", "수", "목", "금", "토"];
 makeDallyeok();
 
 function makeDallyeok() {
-  myFn.cs("달력만들어!");
+  // myFn.cs("달력만들어!");
 
   // 1. 변수셋팅 ////////////////////
   // (1) 변경할 현재날짜 객체
@@ -67,17 +67,17 @@ function makeDallyeok() {
     // [1] 전달 마지막 날짜(옵션:0)
     const prevLast = new Date(cYr, cMt, 0);
 
-    myFn.cs("전달 마지막 날짜:" + myFn.dfm(prevLast));
+    // myFn.cs("전달 마지막 날짜:" + myFn.dfm(prevLast));
 
     // [2] 현재달 첫째 날짜(옵션:1)
     const thisFirst = new Date(cYr, cMt, 1);
 
-    myFn.cs("현재달 첫째 날짜:" + myFn.dfm(thisFirst));
+    // myFn.cs("현재달 첫째 날짜:" + myFn.dfm(thisFirst));
 
     // [3] 현재달 마지막날짜(다음달 옵션:0)
     const thisLast = new Date(cYr, cMt + 1, 0);
 
-    myFn.cs("현재달 마지막날짜:" + myFn.dfm(thisLast));
+    // myFn.cs("현재달 마지막날짜:" + myFn.dfm(thisLast));
 
     // 4) 년도 월 정보 화면표시하기 ///////
     // [1] 년도표시
@@ -93,7 +93,7 @@ function makeDallyeok() {
     // 조건 : 현재달 첫날짜 요일이 0이 아니면 내용있음!
     // 왜? 0이면 일요일 이니까 첫칸부터 채워진다!
     let fDay = thisFirst.getDay();
-    myFn.cs("이번달첫날요일:" + fDay);
+    // myFn.cs("이번달첫날요일:" + fDay);
     if (fDay != 0) {
       // 만약 요일순번이 0이 아니면 for문돌린다!
       for (let i = 0; i < fDay; i++) {
@@ -174,12 +174,12 @@ function makeDallyeok() {
 
         // 4. 이전달/다음달 구분하기
         let isSpan = myFn.qsEl(el,'span');
-        console.log('span있니?',isSpan);
+        // console.log('span있니?',isSpan);
         // span이 있으면 null이 아니므로  true처리됨!
         if(isSpan){
           // span의 클래스가 'bm'/'am' 인지 구분하기
           let isAM = isSpan.classList.contains('am');
-          console.log('클래스가 am이니?',isAM);
+          // console.log('클래스가 am이니?',isAM);
           if(isAM){ // 다음달이므로 1을 더함
             nowM++;
             if(nowM==13){ // 한계값 체크!
@@ -200,9 +200,13 @@ function makeDallyeok() {
           } ///// else : 클래스 'bm'일 경우 처리 //////
         } ///////// if : 이전/다음달처리(span있냐?) ////////        
 
-        // 이전/다음달 처리후 찍기
-        console.log(nowY,nowM,nowD);
-
+        
+        // 5. 날짜형식 구성하기 : yyyy-mm-dd
+        let setDate = 
+        `${nowY}-${myFn.addZero(nowM)}-${myFn.addZero(nowD)}`
+        
+        // 날짜형식 찍기
+        console.log(setDate);
 
 
       }); //// addEvt //////
