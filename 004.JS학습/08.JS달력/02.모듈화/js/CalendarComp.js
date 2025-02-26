@@ -62,11 +62,11 @@ export default function MakeDallyeok(selEl) {
   // (2) 오늘날짜 객체
   const today = new Date();
   // (3) 년도요소 : .yearTit
-  const yearTit = myFn.qs(".yearTit");
+  const yearTit = myFn.qs(selEl+" .yearTit");
   // (4) 월요소 : .monthTit
-  const monthTit = myFn.qs(".monthTit");
+  const monthTit = myFn.qs(selEl+" .monthTit");
   // (5) 날짜요소 : .dates
-  const dates = myFn.qs(".dates");
+  const dates = myFn.qs(selEl+" .dates");
   // (6) 날짜넣을 배열변수
   const dateSet = [];
   // (7) html 코드 저장변수
@@ -188,7 +188,7 @@ export default function MakeDallyeok(selEl) {
     // 7) 날짜 정보를 사용하도록 셋팅하기 /////
     // ★★★★★★★★★★★★★★★★★★★★
     // (1) 대상선정 : .date -> 위에서 새로 담겼으므로 새로읽음!
-    let newDate = myFn.qsa(".date");
+    let newDate = myFn.qsa(selEl+" .date");
     // console.log(newDate);
 
     // (2) 각 날짜 .date요소에 링크설정하기
@@ -243,12 +243,12 @@ export default function MakeDallyeok(selEl) {
         let setDay = new Date(setDate).getDay();
 
         // 날짜형식 + 요일 찍기
-        console.log(setDate + `(${week[setDay]})`);
+        // console.log(setDate + `(${week[setDay]})`);
 
         // 7. 선택날짜 정보 히든필드에 저장하기
         // -> 활용도를 높이기 위해 일반구분자로 정보공개
         // 예) 년도/월/일/요일 -> 2025/2/28/5
-        myFn.qs(".date-info").value = 
+        myFn.qs(selEl+" .date-info").value = 
         `${nowY}/${nowM}/${nowD}/${setDay}`;
         // 요일 정보는 원본 배열정보로 넣어 놓는다!
       }); //// addEvt //////
@@ -273,10 +273,10 @@ export default function MakeDallyeok(selEl) {
 
   // 3. 이벤트 설정하기 ////////////////////////
   // (1) 이전버튼에 함수 연결하기 : 달을 빼기위해 -1전달
-  myFn.addEvt(myFn.qs(".btnL"), "click", 
+  myFn.addEvt(myFn.qs(selEl+" .btnL"), "click", 
   () => this.chgCalendar(-1));
   // (2) 다음버튼에 함수 연결하기 : 달을 더하기위해 1전달
-  myFn.addEvt(myFn.qs(".btnR"), "click", 
+  myFn.addEvt(myFn.qs(selEl+" .btnR"), "click", 
   () => this.chgCalendar(1));
   // -> this키워드로 등록된 생성자 함수 속성/메서드는
   // 반드시 this키워드를 사용하여 호출해야함!
@@ -293,7 +293,7 @@ function insertHcode() {
   // 달력 html코드를 리턴함!
   return `    
     <!-- 달력전체박스 -->
-    <div class="calender">
+    <div class="calendar">
       <!-- 달력상단:해당년/월표시 -->
       <header class="header">
         <!-- 달력이동버튼:이전 -->
