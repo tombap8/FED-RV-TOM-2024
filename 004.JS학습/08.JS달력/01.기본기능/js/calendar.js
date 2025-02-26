@@ -165,10 +165,13 @@ function makeDallyeok() {
       myFn.addEvt(el,'click',()=>{
         // 1. 년도읽기
         let nowY = yearTit.innerText;
+
         // 2. 월읽기
         let nowM = monthTit.innerText;
+
         // 3. 날짜읽기
         let nowD = el.innerText;
+
         // 4. 이전달/다음달 구분하기
         let isSpan = myFn.qsEl(el,'span');
         console.log('span있니?',isSpan);
@@ -179,23 +182,29 @@ function makeDallyeok() {
           console.log('클래스가 am이니?',isAM);
           if(isAM){ // 다음달이므로 1을 더함
             nowM++;
-            if(nowM==13){
+            if(nowM==13){ // 한계값 체크!
               // 13월은 1월로 처리
               nowM = 1;
               // 1월은 다음해로 처리
               nowY++;
-            }
-            else{ // 'bm'일 경우 즉, 전달!
-              nowM--;
-              if(nowM==0){
-                // 0월은 12월로 처리
-                nowM = 12;
-                // 12월은 이전해로 처리
-                nowY--;
-              } /// if ///
-            } ///// else //////
-          } /////// if ///////
-        } ///////// if ////////
+            } // if : 한계값 체크 ///
+          } /////// if : 클래스'am'이냐? ///////
+          else{ // 'bm'일 경우 즉, 이전달이므로 1을뺌
+            nowM--;
+            if(nowM==0){ // 한계값 체크!
+              // 0월은 12월로 처리
+              nowM = 12;
+              // 12월은 이전해로 처리
+              nowY--;
+            } /// if : 한계값 체크 ///
+          } ///// else : 클래스 'bm'일 경우 처리 //////
+        } ///////// if : 이전/다음달처리(span있냐?) ////////        
+
+        // 이전/다음달 처리후 찍기
+        console.log(nowY,nowM,nowD);
+
+
+
       }); //// addEvt //////
 
     }); //// forEach //////////
