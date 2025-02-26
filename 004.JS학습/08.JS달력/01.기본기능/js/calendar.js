@@ -126,7 +126,7 @@ function makeDallyeok() {
     } /// for ///
 
     // 날짜배열값 확인
-    myFn.cs("dateSet:" + dateSet);
+    // myFn.cs("dateSet:" + dateSet);
 
     // ★★★★★★★★★★★★★★★★★★★★
     // 6) 날짜 배열로 날짜태그 구성하기 /////
@@ -151,6 +151,56 @@ function makeDallyeok() {
 
     // 날짜태그 출력 ///
     dates.innerHTML = hcode;
+
+    // ★★★★★★★★★★★★★★★★★★★★
+    // 7) 날짜 정보를 사용하도록 셋팅하기 /////
+    // ★★★★★★★★★★★★★★★★★★★★
+    // (1) 대상선정 : .date -> 위에서 새로 담겼으므로 새로읽음!
+    let newDate = myFn.qsa('.date');
+    // console.log(newDate);
+
+    // (2) 각 날짜 .date요소에 링크설정하기
+    newDate.forEach(el=>{
+      // 각 .date요소에 클릭이벤트 설정하기
+      myFn.addEvt(el,'click',()=>{
+        // 1. 년도읽기
+        let nowY = yearTit.innerText;
+        // 2. 월읽기
+        let nowM = monthTit.innerText;
+        // 3. 날짜읽기
+        let nowD = el.innerText;
+        // 4. 이전달/다음달 구분하기
+        let isSpan = myFn.qsEl(el,'span');
+        console.log('span있니?',isSpan);
+        // span이 있으면 null이 아니므로  true처리됨!
+        if(isSpan){
+          // span의 클래스가 'bm'/'am' 인지 구분하기
+          let isAM = isSpan.classList.contains('am');
+          console.log('클래스가 am이니?',isAM);
+          if(isAM){ // 다음달이므로 1을 더함
+            nowM++;
+            if(nowM==13){
+              // 13월은 1월로 처리
+              nowM = 1;
+              // 1월은 다음해로 처리
+              nowY++;
+            }
+            else{ // 'bm'일 경우 즉, 전달!
+              nowM--;
+              if(nowM==0){
+                // 0월은 12월로 처리
+                nowM = 12;
+                // 12월은 이전해로 처리
+                nowY--;
+              } /// if ///
+            } ///// else //////
+          } /////// if ///////
+        } ///////// if ////////
+      }); //// addEvt //////
+
+    }); //// forEach //////////
+
+
   }; //////////// initDallyeok 함수 ///////
 
   // 2. 함수 만들기 //////////////
