@@ -6,7 +6,7 @@ import { mtInfo } from "../data/mt_data";
 // 산아이콘 불러오기
 import MtIcon from "./mt_icon";
 
-export default function 이야기() {
+export default function 이야기({ mtName, mtBoxCss, mtInfoBoxCss, setMtName }) {
   // 산정보는 배열이므로 순회하여 해당 데이터를 할당함
   // 선택된 산정보 변수할당하기!
   const selMtInfo = mtInfo.find((v) => {
