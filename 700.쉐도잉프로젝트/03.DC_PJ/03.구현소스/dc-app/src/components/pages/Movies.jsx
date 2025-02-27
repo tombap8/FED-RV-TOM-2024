@@ -1,11 +1,13 @@
 import React from "react";
 import Banner from "../modules/Banner";
 
-function Movies(props) {
+function Movies({catName}) {
   return (
     <>
       {/* 1. 배너 컴포넌트 */}
-      <Banner catName="MOVIES" />
+      <Banner catName={catName} />
+      {/* 2. 비디오 소개 컴포넌트 */}
+      <VidIntro catName={catName} clsName="on" />
     </>
   );
 }

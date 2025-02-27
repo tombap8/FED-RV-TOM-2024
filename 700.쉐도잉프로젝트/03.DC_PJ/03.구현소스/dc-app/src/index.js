@@ -65,8 +65,8 @@ export default function MainComponent(){
                 {/* 하위중 첫페이지는 index라고 속성씀! */}
                     <Route index element={<Main />}  />
                     <Route path='character' element={<Character />}  />
-                    <Route path='comics' element={<Comics />}  />
-                    <Route path='movies' element={<Movies />}  />
+                    <Route path='comics' element={<Comics catName="COMICS" />}  />
+                    <Route path='movies' element={<Movies catName="MOVIES" />}  />
                     <Route path='games' element={<Games />}  />
                     <Route path='news' element={<News />}  />
                     <Route path='video' element={<Video />}  />
