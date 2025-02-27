@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './components/layout/Layout';
+import Main from './components/pages/Main';
 
 
 /// 전체 PJ 공통 CSS 최상위 JS에서 불러오기 ///
@@ -17,10 +19,10 @@ export default function MainComponent(){
             <Routes>
                 {/* 최상위 Route는 쌍으로 태그를 만든다!
                 슬래쉬는 루트를 말하고 레이아웃 컴포넌트 불러옴 */}
-                {/* <Route path="/" element={<Layout />}> */}
+                <Route path="/" element={<Layout />}>
                 {/* 하위중 첫페이지는 index라고 속성씀! */}
-                    {/* <Route index element={<Main catName="main" />}  /> */}
-                {/* </Route> */}
+                    <Route index element={<Main  />}  />
+                </Route>
             </Routes>
         </BrowserRouter>
     );
