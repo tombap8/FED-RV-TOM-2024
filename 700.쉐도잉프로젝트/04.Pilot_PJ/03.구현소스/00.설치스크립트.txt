@@ -7,14 +7,15 @@
 2. 팩키지 모듈 설치하기
 - 설치위치: 04.Pilot_PJ\02.구현소스\pilot-app
 - 스크립트: 
-    (1) npm i jquery
-    (2) npm i jquery-ui-dist
-    (3) npm i jquery-ui-touch-punch
-    (4) npm i swiper
+    (1) npm i react-router-dom@latest
+    (2) npm i jquery
+    (3) npm i jquery-ui-dist
+    (4) npm i jquery-ui-touch-punch
+    (5) npm i swiper
     (6) npm i sass
 
-    한번에 설치(띄어쓰기로 구분)
-    npm i jquery jquery-ui-dist jquery-ui-touch-punch swiper sass
+    한번에 설치하기(띄어쓰기 구분)
+    -> npm i react-router-dom@latest jquery jquery-ui-dist jquery-ui-touch-punch swiper sass
 
 3. 설치확인
 - 파일명: package.json
