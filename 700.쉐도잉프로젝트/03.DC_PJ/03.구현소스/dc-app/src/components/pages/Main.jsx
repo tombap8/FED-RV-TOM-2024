@@ -5,8 +5,9 @@ import SecIntro from "../modules/SecIntro";
 import VidIntro from "../modules/VidIntro";
 
 export default function Main({catName}){
-
-    /// 리턴 코드구역 ////////
+    // catName - 페이지 카테고리명 데이터
+  
+    // 리턴 코드구역 ////////////
     return (
         <>
             {/* 1. 배너 컴포넌트 
