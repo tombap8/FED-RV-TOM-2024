@@ -1,6 +1,9 @@
 // DC.com 비디오소개 컴포넌트 - VidIntro.jsx ///
 import React from "react";
 
+// 비디오 소개 모듈용 CSS 불러오기
+import '../../css/modules/vid_intro.scss';
+
 function VidIntro(props) {
   return (
     <section className="off vidbox">
