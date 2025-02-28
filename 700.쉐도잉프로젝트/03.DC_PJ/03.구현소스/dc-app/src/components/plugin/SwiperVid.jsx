@@ -24,7 +24,7 @@ export default function SwiperVid({ catName }) {
   // catName - 데이터 선택용 분류명
 
   // 선택 데이터 변수할당
-  const selData = swVidData["main"];
+  const selData = swVidData[catName];
   console.log(selData);
 
   // 리턴 코드구역 /////////
