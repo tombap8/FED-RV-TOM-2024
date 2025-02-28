@@ -9,6 +9,12 @@ import "swiper/css";
 import "swiper/css/navigation";
 // import "swiper/css/pagination";
 
+// 폰트어썸 불러오기
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCirclePlay } from "@fortawesome/free-regular-svg-icons";
+// import { faHand } from "@fortawesome/free-solid-svg-icons";
+// import { faGooglePlay } from "@fortawesome/free-brands-svg-icons";
+
 // 스와이퍼 비디오 모듈 CSS 불러오기
 import "./css/swiper_vid.scss";
 
@@ -63,11 +69,18 @@ export default function SwiperVid({ catName }) {
               <section className="sw-inbox">
                 {/* 동영상 이미지박스 */}
                 <div className="vid-img">
-                  <img
-                    src={v.isrc}
-                    alt={v.tit}
-                  />
+                  <img src={v.isrc} alt={v.tit} />
                   {/* 폰트어썸 아이콘 */}
+                  <FontAwesomeIcon
+                    icon={faCirclePlay}
+                    style={{
+                      position: "absolute",
+                      bottom: "55%",
+                      left: "10%",
+                      color: "#fff",
+                      fontSize: "50px",
+                    }}
+                  />
                 </div>
                 {/* 동영상 타이틀 박스 */}
                 <div className="vid-tit">
