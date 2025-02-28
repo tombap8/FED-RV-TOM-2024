@@ -88,7 +88,7 @@ export const swVidData = {
       tit: `SHAZAM! FURY OF THE GODS - ZACH LEVI`,
     },
   ],
-  movies: [
+  MOVIES: [
     {
       isrc: "/images/vidswp/movies/1.jpg",
       vsrc: "https://www.youtube.com/embed/nI9uUv6AdoY",

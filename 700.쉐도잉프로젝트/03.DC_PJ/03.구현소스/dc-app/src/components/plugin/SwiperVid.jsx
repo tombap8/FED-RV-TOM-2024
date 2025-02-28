@@ -53,8 +53,8 @@ export default function SwiperVid({ catName }) {
     const cbtn = $(".cbtn");
 
     // 2. 변경하기 ////////////
-    // 2-1. 아이프레임 src경로 변경하기
-    playVid.attr("src", vsrc);
+    // 2-1. 아이프레임 src경로 변경하기(바로자동재생!)
+    playVid.attr("src", vsrc + "?autoplay=1");
 
     // 2-2. 비디오 타이틀 넣기
     ifrTit.text(tit);
@@ -64,8 +64,10 @@ export default function SwiperVid({ catName }) {
 
     // 2-4. 닫기버튼 셋팅하기
     cbtn.on("click", () => {
-      // 전체박스 사라자기
+      // (1) 전체박스 사라자기
       vidBx.fadeOut(300);
+      // (2) iframe src 초기화
+      playVid.attr("src", "");
     }); /// click ////
   }; /////////// showVideo 함수 //////////
 
