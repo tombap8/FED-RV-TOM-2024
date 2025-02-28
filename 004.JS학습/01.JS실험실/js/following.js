@@ -69,13 +69,11 @@ const link = document.querySelectorAll('.link');
 link.forEach((ele)=>{
     // a요소에 마우스 들어올때
     ele.onmouseenter = () => {
-        mover.style.transform = 
-        "translate(-50%,-50%) scale(2)";
+        mover.style.scale = 2;
     }; ///// mouseenter ////
     // a요소에 마우스 나갈때
     ele.onmouseleave = () => {
-        mover.style.transform = 
-        "translate(-50%,-50%) scale(1)";
+        mover.style.scale = 1;
     }; ///// mouseleave ////
 
 }); /////// forEach ///////////

@@ -80,7 +80,8 @@ body {
   transition: 0.4s ease-out;
 
   /* 트랜스폼 중앙이동 */
-  transform: translate(-50%,-50%);
+  translate: -50% -50%;
+  /* transform: translate(-50%,-50%); */
   
   /* 처음에 안보임 */
   opacity: 0;
