@@ -25,7 +25,7 @@ function VidSwipe({ catName }) {
         {/* 비디오 중앙박스 */}
         <div className="play-vid">
           {/* 비디오 타이틀 */}
-          <h2 className="ifr-tit">BLUE BEETLE - OFFICIAL TRAILER</h2>
+          <h2 className="ifr-tit"></h2>
           {/* 아이프레임 */}
           <iframe src="" allow="autoplay"></iframe>
           {/* 닫기버튼 */}

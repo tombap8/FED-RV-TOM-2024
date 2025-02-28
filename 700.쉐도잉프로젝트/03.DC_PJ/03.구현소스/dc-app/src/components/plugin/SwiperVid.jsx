@@ -66,7 +66,10 @@ export default function SwiperVid({ catName }) {
           // 배열 데이터만큼 반복하여 슬라이드 생성!
           selData.map((v, i) => (
             <SwiperSlide key={i}>
-              <section className="sw-inbox">
+              <section 
+                className="sw-inbox"
+                onClick={()=>showVideo(v.tit,v.vsrc)}
+              >
                 {/* 동영상 이미지박스 */}
                 <div className="vid-img">
                   <img src={v.isrc} alt={v.tit} />
