@@ -91,9 +91,9 @@ export const swVidData = {
   MOVIES: [
     {
       isrc: "/images/vidswp/movies/1.jpg",
-      vsrc: "https://www.youtube.com/embed/nI9uUv6AdoY",
-      cat: "OFFICIAL TRAILER",
-      tit: "My Adventures With Superman",
+      vsrc: "https://www.youtube.com/embed/uhUht6vAsMY",
+      cat: "OFFICIAL TEASER",
+      tit: "SUPERMAN",
     },
     {
       isrc: "/images/vidswp/movies/2.jpg",

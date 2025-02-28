@@ -19,7 +19,7 @@ function VidSwipe({ catName }) {
       <h2 className="tit">{catTit[catName]}</h2>
       {/* 2. 스와이퍼 컴포넌트 : SwiperVid
       -> 전달속성 catName으로 데이터선택값 보내기 */}
-      <SwiperVid catName="main" />
+      <SwiperVid catName={catName} />
       {/* 3. 비디오 재생창 */}
       <section className="vid-bx">
         {/* 비디오 중앙박스 */}
