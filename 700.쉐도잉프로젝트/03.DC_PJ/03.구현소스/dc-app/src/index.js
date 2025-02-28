@@ -64,7 +64,7 @@ export default function MainComponent(){
                 슬래쉬는 루트를 말하고 레이아웃 컴포넌트 불러옴 */}
                 <Route path="/" element={<Layout />}>
                 {/* 하위중 첫페이지는 index라고 속성씀! */}
-                    {/* <Route index element={<Main catName="main" />}  /> */}
+                    <Route index element={<Main catName="main" />}  />
                     <Route path='character' element={<Character />}  />
                     <Route path='comics' element={<Comics catName="COMICS" />}  />
                     <Route path='movies' element={<Movies catName="MOVIES" />}  />
@@ -72,7 +72,7 @@ export default function MainComponent(){
                     <Route path='news' element={<News />}  />
                     <Route path='video' element={<Video catName="VIDEO" />}  />
                     <Route path='board' element={<Board />}  />
-                    <Route index element={<SwiperApp />}  />
+                    {/* <Route index element={<SwiperApp />}  /> */}
                 </Route>
             </Routes>
         </BrowserRouter>

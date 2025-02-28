@@ -2,14 +2,20 @@
 
 import React from "react";
 
+// 비디오 스와이프용 데이터 불러오기
+import { catTit } from "../../js/data/vid_swipe";
+
 // 비디오 스와이프 CSS 불러오기
+import "../../css/modules/vid_swipe.scss";
 
+function VidSwipe({ catName }) {
+  // catName - 데이터 분류명
 
-function VidSwipe(props) {
+  // 리턴 코드구역 ////////
   return (
     <section className="vid-swbox">
       {/* 1. 모듈 타이틀 */}
-      <h2 className="tit">LATEST TRAILERS, CLIPS &amp; MORE</h2>
+      <h2 className="tit">{catTit[catName]}</h2>
       {/* 2. 스와이퍼 컴포넌트 : SwiperVid
       -> 전달속성 catName으로 데이터선택값 보내기 */}
       {/* 3. 비디오 재생창 */}
