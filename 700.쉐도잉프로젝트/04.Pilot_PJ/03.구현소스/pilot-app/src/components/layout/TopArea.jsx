@@ -6,6 +6,24 @@ import { gnbData } from "../../js/data/gnb";
 // 전체메뉴 컴포넌트 불러오기
 
 export default function TopArea() {
+
+   /// GNB메뉴 리스트 만들기 함수
+   const makeList = (data) => {
+    console.log('GNB리스트:',data);
+    return(
+      gnbData[data].map((v,i)=>
+        <li key={i}
+          className={
+            props.cat==="glist"&&i===0?'on':''
+          }
+          onClick={clickGnb}>
+          <a href={"#c"+(i+1)}>{v}</a>
+        </li>
+      )
+    )
+
+  }; ///////// makeList /////////
+
   /// 리턴 코드구역 ////////
   return (
     <>
@@ -14,7 +32,7 @@ export default function TopArea() {
           <h1 id="logo">
             <a href="#">
               <img
-                src={process.env.PUBLIC_URL + "/images/main_logo.png"}
+                src="/images/main_logo.png"
                 alt="파일럿로고"
               />
             </a>
@@ -22,7 +40,7 @@ export default function TopArea() {
           <nav className="gnb">
             <ul>
               <li className="bld">배너순번 li 숨기기</li>
-              {makeList(props.cat)}
+              {makeList()}
             </ul>
           </nav>
           <div className="ham">
