@@ -12,7 +12,7 @@ import "swiper/css/navigation";
 // 폰트어썸 불러오기
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlay } from "@fortawesome/free-regular-svg-icons";
-// import { faHand } from "@fortawesome/free-solid-svg-icons";
+// import { faHand, faVolcano } from "@fortawesome/free-solid-svg-icons";
 // import { faGooglePlay } from "@fortawesome/free-brands-svg-icons";
 
 // 스와이퍼 비디오 모듈 CSS 불러오기

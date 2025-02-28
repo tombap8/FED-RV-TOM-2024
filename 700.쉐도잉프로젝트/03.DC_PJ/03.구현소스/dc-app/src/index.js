@@ -17,7 +17,7 @@ import Games from './components/pages/Games';
 import News from './components/pages/News';
 import Video from './components/pages/Video';
 import Board from './components/pages/Board';
-import SwiperApp from './components/plugin/SwiperApp';
+// import SwiperApp from './components/plugin/SwiperApp';
 
 
 /********************************************* 
