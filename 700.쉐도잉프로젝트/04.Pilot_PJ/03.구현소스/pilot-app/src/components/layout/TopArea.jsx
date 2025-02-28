@@ -8,15 +8,12 @@ import { gnbData } from "../../js/data/gnb";
 export default function TopArea() {
 
    /// GNB메뉴 리스트 만들기 함수
-   const makeList = (data) => {
-    console.log('GNB리스트:',data);
+   const makeList = (dataName) => {
+    console.log('데이터이름:',dataName);
     return(
-      gnbData[data].map((v,i)=>
+      gnbData[dataName].map((v,i)=>
         <li key={i}
-          className={
-            props.cat==="glist"&&i===0?'on':''
-          }
-          onClick={clickGnb}>
+          className={i===0?'on':''}>
           <a href={"#c"+(i+1)}>{v}</a>
         </li>
       )
@@ -40,7 +37,7 @@ export default function TopArea() {
           <nav className="gnb">
             <ul>
               <li className="bld">배너순번 li 숨기기</li>
-              {makeList()}
+              {makeList('main')}
             </ul>
           </nav>
           <div className="ham">
