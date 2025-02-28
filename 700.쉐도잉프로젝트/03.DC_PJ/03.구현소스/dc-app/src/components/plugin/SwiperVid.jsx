@@ -4,6 +4,9 @@ import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
+// 제이쿼리 라이브러리 불러오기
+import $ from "jquery";
+
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -33,7 +36,40 @@ export default function SwiperVid({ catName }) {
   const selData = swVidData[catName];
   console.log(selData);
 
-  // 리턴 코드구역 /////////
+  // [ 비디오 보이기 함수 ] /////
+  const showVideo = (tit, vsrc) => {
+    // tit - 비디오 제목
+    // vsrc - 비디오 URL
+    console.log(tit, vsrc);
+
+    // 1. 대상선정 /////////////
+    // 1-1. 전체박스 : .vid-bx
+    const vidBx = $(".vid-bx");
+    // 1-2. 아이프레임 : .play-vid iframe
+    const playVid = $(".play-vid iframe");
+    // 1-3. 타이틀박스 : .ifr-tit
+    const ifrTit = $(".ifr-tit");
+    // 1-4. 닫기버튼 : .cbtn
+    const cbtn = $(".cbtn");
+
+    // 2. 변경하기 ////////////
+    // 2-1. 아이프레임 src경로 변경하기
+    playVid.attr("src", vsrc);
+
+    // 2-2. 비디오 타이틀 넣기
+    ifrTit.text(tit);
+
+    // 2-3. 전체박스 보이기
+    vidBx.fadeIn(300);
+
+    // 2-4. 닫기버튼 셋팅하기
+    cbtn.on("click", () => {
+      // 전체박스 사라자기
+      vidBx.fadeOut(300);
+    }); /// click ////
+  }; /////////// showVideo 함수 //////////
+
+  // 리턴 코드구역 //////////////////////
   return (
     <>
       <Swiper
@@ -66,9 +102,9 @@ export default function SwiperVid({ catName }) {
           // 배열 데이터만큼 반복하여 슬라이드 생성!
           selData.map((v, i) => (
             <SwiperSlide key={i}>
-              <section 
+              <section
                 className="sw-inbox"
-                onClick={()=>showVideo(v.tit,v.vsrc)}
+                onClick={() => showVideo(v.tit, v.vsrc)}
               >
                 {/* 동영상 이미지박스 */}
                 <div className="vid-img">
