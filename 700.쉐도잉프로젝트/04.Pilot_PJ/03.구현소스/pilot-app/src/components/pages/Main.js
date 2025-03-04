@@ -1,13 +1,18 @@
 // Pilot PJ 메인 페이지 컴포넌트 - Main.jsx
 
-import React from 'react';
+import React from "react";
 
 function Main(props) {
-    return (
-        <>
-            <h1>메인 페이지 입니다!</h1>
-        </>
-    );
+  return (
+    <>
+      {/* 1. 배너 페이지 */}
+      <section
+        id="ban"
+        className="page none-sel"
+        style={{ background: "lightblue" }}
+      ></section>
+    </>
+  );
 }
 
 export default Main;
