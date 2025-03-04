@@ -2,6 +2,9 @@
 
 import React from 'react';
 
+// 모듈 CSS 불러오기
+import '../../css/modules/cat_list.scss';
+
 function CatList(props) {
     return (
         <section className='cat-swbox'>
