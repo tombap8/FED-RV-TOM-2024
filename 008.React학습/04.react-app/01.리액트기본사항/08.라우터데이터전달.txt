@@ -21,7 +21,14 @@ useLocation 라우터 객체를 사용한다!
 import { useLocation } from "react-router-dom"
 
 const loc = useLocation();
-const sel = loc.state.속성명;
+const sel1 = loc.state.속성1;
+const sel2 = loc.state.속성2;
+const sel3 = loc.state.속성3;
+
+((더 짧게 쓰는법 : 구조분해할당방식))
+
+const { state } = useLocation();
+const { 속성1, 속성2, 속성3 } = state;
 
 -> useLocation 생성 변수 하위의 state객체 하위 보낸속성명
 
