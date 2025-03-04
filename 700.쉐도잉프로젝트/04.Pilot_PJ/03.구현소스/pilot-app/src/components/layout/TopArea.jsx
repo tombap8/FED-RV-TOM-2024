@@ -12,8 +12,7 @@ export default function TopArea() {
     console.log('데이터이름:',dataName);
     return(
       gnbData[dataName].map((v,i)=>
-        <li key={i}
-          className={i===0?'on':''}>
+        <li key={i}>
           <a href={"#c"+(i+1)}>{v}</a>
         </li>
       )
