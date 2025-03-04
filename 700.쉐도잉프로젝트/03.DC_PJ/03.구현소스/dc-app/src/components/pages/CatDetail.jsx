@@ -1,6 +1,6 @@
 // DC.com 캐릭터 상세 페이지 모듈 - CatDetail.jsx
 
-import React from "react";
+import React, { useEffect } from "react";
 import Banner from "../modules/Banner";
 import CatList from "../modules/CatList";
 
@@ -20,6 +20,11 @@ function CatDetail() {
   // 1. cname - 캐릭터이름(배너 catName 속성정보로도 사용)
   // 2. cdesc - 캐릭터 설명
   // 3. facts - 캐릭터 상세
+
+  // 라우터 경로 변경없어도 위로 이동하기
+  useEffect(()=>{
+    window.scrollTo(0,0);
+  });
 
   // 리턴 코드구역 ///////////////
   return (
