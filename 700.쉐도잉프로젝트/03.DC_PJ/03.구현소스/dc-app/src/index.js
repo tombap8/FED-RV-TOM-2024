@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 /// 전체 PJ 공통 CSS 최상위 JS에서 불러오기 ///
 import "./css/index.scss";
@@ -60,6 +60,10 @@ export default function MainComponent() {
   // 리턴 코드구역 ////////////
   return (
     <BrowserRouter>
+      {/* 라우터 경로 변경시 최상단이동 컴포넌트 */}
+      <ScrollTop />
+
+      {/* 라우터 경로 및 컴포넌트 매칭셋팅 */}
       <Routes>
         {/* 최상위 Route는 쌍으로 태그를 만든다!
                 슬래쉬는 루트를 말하고 레이아웃 컴포넌트 불러옴 */}
@@ -80,6 +84,29 @@ export default function MainComponent() {
     </BrowserRouter>
   );
 } /////////// MainComponent ////////////////////
+
+/********************************************** 
+  컴포넌트로 만들고 라우터 안에 넣고
+  라우터 경로변경시 스크롤 최상단이동!
+**********************************************/
+const ScrollTop = () => {
+  // 라우터 경로 변경시 path값 읽어오기
+  // pathname 객체 속성에 담긴다!
+  const { pathname } = useLocation();
+
+  // 화면 랜더링구역에 스크롤 상단이동 코드 넣기
+  useEffect(() => {
+    // 스크롤 상단이동코드 넣기
+    window.scrollTo(0, 0);
+    // 변경된 라우터 경로 확인
+    console.log("라우터경로:", pathname);
+
+    // 의존성을 라우터 경로로 등록함!
+  }, [pathname]);
+
+  // 컴포넌트 리턴구역 : 리턴할 게 없어서 null 리턴
+  return null;
+}; ///////// ScrollTop 컴포넌트 ////////////////
 
 /// 컴포넌트 출력 ///
 // 먼저 root 객체 만들기
