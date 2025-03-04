@@ -1,6 +1,6 @@
 // DC.com 캐릭터 상세 페이지 모듈 - CatDetail.jsx
 
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import Banner from "../modules/Banner";
 import CatList from "../modules/CatList";
 
@@ -22,9 +22,11 @@ function CatDetail() {
   // 3. facts - 캐릭터 상세
 
   // 라우터 경로 변경없어도 위로 이동하기
-  useEffect(()=>{
+  // 의존성심기 - state 전달값
+  useLayoutEffect(()=>{
+    // 의존성 변수 state가 변경될때 이 구역 실행
     window.scrollTo(0,0);
-  });
+  },[state]);
 
   // 리턴 코드구역 ///////////////
   return (

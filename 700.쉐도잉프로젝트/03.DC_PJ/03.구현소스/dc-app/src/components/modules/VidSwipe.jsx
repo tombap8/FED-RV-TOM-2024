@@ -27,7 +27,7 @@ function VidSwipe({ catName }) {
           {/* 비디오 타이틀 */}
           <h2 className="ifr-tit"></h2>
           {/* 아이프레임 */}
-          <iframe src="" allow="autoplay"></iframe>
+          <iframe src="https://www.youtube.com/embed/nI9uUv6AdoY" allow="autoplay"></iframe>
           {/* 닫기버튼 */}
           <button className="cbtn">×</button>
         </div>

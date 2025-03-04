@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
@@ -95,7 +95,7 @@ const ScrollTop = () => {
   const { pathname } = useLocation();
 
   // 화면 랜더링구역에 스크롤 상단이동 코드 넣기
-  useEffect(() => {
+  useLayoutEffect(() => {
     // 스크롤 상단이동코드 넣기
     window.scrollTo(0, 0);
     // 변경된 라우터 경로 확인
