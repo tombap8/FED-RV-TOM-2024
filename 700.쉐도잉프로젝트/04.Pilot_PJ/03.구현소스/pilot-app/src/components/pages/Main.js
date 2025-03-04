@@ -5,6 +5,11 @@ import React, { useEffect } from "react";
 // 자동스크롤 기능 JS 불러오기 ///
 import * as autoFn from "../../js/func/jquery-autoScroll";
 
+// 드래그배너 기능 JS 불러오기 ////
+import { dragBanner } from "../../js/func/drag_banner";
+
+import { Banner } from "../modules/Banner";
+
 function Main() {
     // 컴포넌트 로딩후 실행구역 : 한번만 (빈의존성[]) /////
     useEffect(()=>{
@@ -15,7 +20,10 @@ function Main() {
         // ->>> 소멸자를 통해 이벤트를 다른 페이지가 나올때
         // 해재해 주기 위해 여기서 셋팅함!
 
-    },[]); ///////// useEffect //////////////
+        // 드래그배너 기능함수 호출하기
+        dragBanner();
+
+    },[]); ///////// useEffect : 한번만 //////////////
 
   // 리턴 코드구역 //////////////
   return (
@@ -25,7 +33,10 @@ function Main() {
         id="ban"
         className="page none-sel"
         style={{ background: "lightblue" }}
-      ></section>
+      >
+        {/* 배너모듈 */}
+        <Banner />
+      </section>
 
       {/* 2. 남성패션 페이지 */}
       <section className="page"></section>
