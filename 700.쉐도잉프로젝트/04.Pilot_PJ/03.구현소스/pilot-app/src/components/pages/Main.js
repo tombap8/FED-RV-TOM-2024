@@ -1,8 +1,23 @@
 // Pilot PJ 메인 페이지 컴포넌트 - Main.jsx
 
-import React from "react";
+import React, { useEffect } from "react";
 
-function Main(props) {
+// 자동스크롤 기능 JS 불러오기 ///
+import * as autoFn from "../../js/func/jquery-autoScroll";
+
+function Main() {
+    // 컴포넌트 로딩후 실행구역 : 한번만 (빈의존성[]) /////
+    useEffect(()=>{
+
+        // 자동스크롤 이벤트 설정하기
+        window.addEventListener('wheel', autoFn.wheelFn);
+        // -> window 이벤트 설정을 여기서한 이유는?
+        // ->>> 소멸자를 통해 이벤트를 다른 페이지가 나올때
+        // 해재해 주기 위해 여기서 셋팅함!
+
+    },[]); ///////// useEffect //////////////
+
+  // 리턴 코드구역 //////////////
   return (
     <>
       {/* 1. 배너 페이지 */}
