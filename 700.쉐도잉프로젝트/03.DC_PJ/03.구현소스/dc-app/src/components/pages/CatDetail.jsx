@@ -47,33 +47,16 @@ function CatDetail() {
             <h3>CHARACTER FACTS</h3>
             <table>
               <tbody>
-                <tr>
-                  <td>Powers : </td>
-                  <td>
-                    exceptional martial artist, combat strategy, inexhaustible
-                    wealth, brilliant deductive skill, advanced technology
-                  </td>
-                </tr>
-                <tr>
-                  <td>First Appearance : </td>
-                  <td>DETECTIVE COMICS #27 (1939)</td>
-                </tr>
-                <tr>
-                  <td>Alias/Alter Ego : </td>
-                  <td>Bruce Wayne</td>
-                </tr>
-                <tr>
-                  <td>AKA : </td>
-                  <td>Dark Knight, Caped Crusader, Matches Malone</td>
-                </tr>
-                <tr>
-                  <td>Base of Operations : </td>
-                  <td>Gotham City</td>
-                </tr>
-                <tr>
-                  <td>Occupation : </td>
-                  <td>CEO of Wayne Enterprises</td>
-                </tr>
+                {
+                    // facts 데이터를 '^'로 잘라서 map돌림
+                    facts.split('^').map((v,i)=>
+                    <tr key={i}>                        
+                        {/* ':'으로 잘라서 타이틀:내용 */}
+                        <td>{v.split(':')[0]} : </td>
+                        <td>{v.split(':')[1]}</td>
+                    </tr>
+                    )
+                }
               </tbody>
             </table>
           </div>
