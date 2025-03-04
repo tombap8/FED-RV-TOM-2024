@@ -4,6 +4,9 @@ import React from "react";
 import Banner from "../modules/Banner";
 import CatList from "../modules/CatList";
 
+// 모듈 CSS 불러오기 
+import '../../css/pages/cat_detail.scss';
+
 function CatDetail(props) {
   return (
     <>

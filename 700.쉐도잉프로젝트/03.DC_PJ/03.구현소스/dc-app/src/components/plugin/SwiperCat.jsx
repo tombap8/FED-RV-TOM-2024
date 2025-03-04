@@ -59,16 +59,18 @@ export function SwiperCat() {
           숫자형변환해줌! Number(변수) */
             Number(v.idx) <= 7 && (
               <SwiperSlide key={i}>
-                <section className="sw-inbox2">
-                  {/* 캐릭터이미지영역 */}
-                  <div className="cat-img2">
-                    <img src={v.tmsrc} alt={v.cname} />
-                  </div>
-                  {/* 캐릭터타이틀영역 */}
-                  <div className="cat-tit2">
-                    <h3>{v.cname}</h3>
-                  </div>
-                </section>
+                <Link to="detail">
+                  <section className="sw-inbox2">
+                    {/* 캐릭터이미지영역 */}
+                    <div className="cat-img2">
+                      <img src={v.tmsrc} alt={v.cname} />
+                    </div>
+                    {/* 캐릭터타이틀영역 */}
+                    <div className="cat-tit2">
+                      <h3>{v.cname}</h3>
+                    </div>
+                  </section>
+                </Link>
               </SwiperSlide>
             )
         )}
