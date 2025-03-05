@@ -7,6 +7,7 @@ import "./css/index.scss";
 
 import Layout from './components/layout/Layout';
 import Main from './components/pages/Main';
+import Fashion from './components/pages/Fashion';
 
 
 /// 전체 PJ 공통 CSS 최상위 JS에서 불러오기 ///
@@ -26,7 +27,7 @@ export default function MainComponent(){
                 <Route path="/" element={<Layout />}>
                 {/* 하위중 첫페이지는 index라고 속성씀! */}
                     <Route index element={<Main  />}  />
-                    <Route path='fashion' element={<Main  />}  />
+                    <Route path='fashion' element={<Fashion  />}  />
                 </Route>
             </Routes>
         </BrowserRouter>
