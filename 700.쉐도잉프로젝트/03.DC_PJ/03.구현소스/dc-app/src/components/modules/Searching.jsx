@@ -28,7 +28,13 @@ function Searching({ kword }) {
               title="Open search"
             />
             {/* 입력창 */}
-            <input id="schin" type="text" placeholder="Filter by Keyword" />
+            <input
+              id="schin"
+              type="text"
+              placeholder="Filter by Keyword"
+              // 기본값으로 전달받은 검색어가 입력된다!
+              defaultValue={kword}
+            />
           </div>
           {/* 1-2. 체크박스구역 */}
           <div className="chkbx">
