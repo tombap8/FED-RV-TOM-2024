@@ -53,6 +53,9 @@ export default function TopArea() {
       console.log(txt);
       // (2) 빈값이 아니면 검색함수 호출
       if (txt !== "") {
+        // 입력창 비우고 부모박스 닫기
+        $(e.target).val('').parent().hide();
+        // 검색 보내기
         goSearch(txt);
       } /// if ///
       // (3) 빈값이면 메시지 출력
