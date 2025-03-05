@@ -26,6 +26,7 @@ export default function MainComponent(){
                 <Route path="/" element={<Layout />}>
                 {/* 하위중 첫페이지는 index라고 속성씀! */}
                     <Route index element={<Main  />}  />
+                    <Route path='fashion' element={<Main  />}  />
                 </Route>
             </Routes>
         </BrowserRouter>
