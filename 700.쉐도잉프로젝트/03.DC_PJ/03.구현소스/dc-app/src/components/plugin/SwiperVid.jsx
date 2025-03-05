@@ -34,7 +34,7 @@ export default function SwiperVid({ catName }) {
 
   // 선택 데이터 변수할당
   const selData = swVidData[catName];
-  console.log(selData);
+  // console.log(selData);
 
   // [ 비디오 보이기 함수 ] /////
   const showVideo = (tit, vsrc) => {

@@ -101,7 +101,7 @@ const ScrollTop = () => {
     // 스크롤 상단이동코드 넣기
     window.scrollTo(0, 0);
     // 변경된 라우터 경로 확인
-    console.log("라우터경로:", pathname);
+    // console.log("라우터경로:", pathname);
 
     // 의존성을 라우터 경로로 등록함!
   }, [pathname]);

@@ -9,8 +9,15 @@ import "../../css/modules/searching.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
+
+// 캐릭터 데이터 불러오기 : 캐릭터 리스트 데이터
+import { catListData } from "../../js/data/swiper_cat";
+
 function Searching({ kword }) {
   // kword - 전달받은 검색어
+
+  console.log('kword:',kword);
+  console.log('전체데이터:',catListData);
 
   // 리턴 코드구역 ////////////////////
   return (
