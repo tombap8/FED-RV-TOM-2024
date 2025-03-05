@@ -14,6 +14,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // 돋보기 아이콘 ///
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
+// 제이쿼리 불러오기 ////
+import $ from "jquery";
+
 export default function TopArea() {
 
   // [ 검색 관련 함수들 ] ///////
@@ -21,11 +24,27 @@ export default function TopArea() {
   const showSearch = (e) => {
     // 기본기능막기
     e.preventDefault();
+    // 검색입력박스 보이기
+    $('.searchingGnb').show();
+    // 2. 입력창에 포커스 보내기
+    $('#schinGnb').focus();
 
   }; //////////// showSearch 함수 //////////
 
   // 2. 검색창에 엔터키 누르면 검색함수 호출함수
-  const enterKey = () => {};
+  const enterKey = (e) => {
+    // e.keyCode는 숫자형 키코드, e.key 문자형 키코드
+    // console.log(e.key, e.keyCode);
+
+    // 엔터키일 경우 입력값 읽어서 검색함수호출하기
+    if(e.key === "Enter"){
+      // 입력창의 입력값 읽어오기 : val() 사용!
+      let txt = $(e.target).val().trim();
+      console.log(txt);
+
+    } /// if ///
+
+  }; //////////// enterKey 함수 ////////////
 
   // 3. 검색페이지로 검색어와 함께 이동하기 함수
   const goSearch = () => {};
@@ -101,11 +120,11 @@ export default function TopArea() {
                   name="schinGnb"
                   id="schinGnb"
                   placeholder="Filter by Keyword"
-                  onKeyUp={()=>{}}
+                  onKeyUp={enterKey}
                 />
               </div>
               {/* 검색기능링크 - 클릭시 검색창 보이기 */}
-              <a href="#" onClick={()=>{}}>
+              <a href="#" onClick={showSearch}>
                 <FontAwesomeIcon icon={faSearch} />
               </a>
             </li>
