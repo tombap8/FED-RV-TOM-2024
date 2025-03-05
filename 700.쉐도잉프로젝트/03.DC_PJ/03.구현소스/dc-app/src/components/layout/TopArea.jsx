@@ -38,16 +38,27 @@ export default function TopArea() {
 
     // 엔터키일 경우 입력값 읽어서 검색함수호출하기
     if(e.key === "Enter"){
-      // 입력창의 입력값 읽어오기 : val() 사용!
+      // (1) 입력창의 입력값 읽어오기 : val() 사용!
       let txt = $(e.target).val().trim();
       console.log(txt);
+      // (2) 빈값이 아니면 검색함수 호출
+      if(txt !== ''){
+        goSearch(txt);
+      } /// if ///
+      // (3) 빈값이면 메시지 출력
+      else{
+        alert('Please write letters for Searching!');
+      } /// else ///
 
     } /// if ///
 
   }; //////////// enterKey 함수 ////////////
 
   // 3. 검색페이지로 검색어와 함께 이동하기 함수
-  const goSearch = () => {};
+  const goSearch = (txt) => {
+    console.log('나는 검색하러 간다규~!',txt);
+
+  }; /////////// goSearch 함수 /////////////
 
 
 
