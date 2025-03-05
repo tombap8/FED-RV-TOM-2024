@@ -1,6 +1,6 @@
 /// 상단영역 컴포넌트 : TopArea.jsx /////
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // GNB 데이터 불러오기 ////////
 import { menu } from "../../js/data/gnb";
@@ -18,6 +18,18 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import $ from "jquery";
 
 export default function TopArea() {
+
+  // [ 라우터 이동함수 객체 생성하기 ] ////
+  const goPage = useNavigate();
+  // 사용시 goPage(라우터주소, {전달객체})
+  // 전달객체가 없으면 쓰지 않는다!
+  // 사용법 : 반드시 useNavigate() 생성자메서드를 변수에 할당
+  // 이동할 라우터 주소를 쓰면 이동함!
+  // 예) goPage('/news') -> 뉴스페이지로 이동
+  // 예) goPage('/') -> 첫페이지로 이동
+  // 예) goPage('') -> 첫페이지로 이동
+  // -> 이동주소는 대소문자 구분하지 않는다!
+  // -> 슬래쉬없이 빈값을 써도 루트로 이동함!
 
   // [ 검색 관련 함수들 ] ///////
   // 1. 검색창 보이기함수 ////
