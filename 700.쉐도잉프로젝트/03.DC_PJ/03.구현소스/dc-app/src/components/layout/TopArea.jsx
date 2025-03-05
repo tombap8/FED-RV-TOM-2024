@@ -18,7 +18,6 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import $ from "jquery";
 
 export default function TopArea() {
-
   // [ 라우터 이동함수 객체 생성하기 ] ////
   const goPage = useNavigate();
   // 사용시 goPage(라우터주소, {전달객체})
@@ -37,10 +36,9 @@ export default function TopArea() {
     // 기본기능막기
     e.preventDefault();
     // 검색입력박스 보이기
-    $('.searchingGnb').show();
+    $(".searchingGnb").show();
     // 2. 입력창에 포커스 보내기
-    $('#schinGnb').focus();
-
+    $("#schinGnb").focus();
   }; //////////// showSearch 함수 //////////
 
   // 2. 검색창에 엔터키 누르면 검색함수 호출함수
@@ -49,31 +47,28 @@ export default function TopArea() {
     // console.log(e.key, e.keyCode);
 
     // 엔터키일 경우 입력값 읽어서 검색함수호출하기
-    if(e.key === "Enter"){
+    if (e.key === "Enter") {
       // (1) 입력창의 입력값 읽어오기 : val() 사용!
       let txt = $(e.target).val().trim();
       console.log(txt);
       // (2) 빈값이 아니면 검색함수 호출
-      if(txt !== ''){
+      if (txt !== "") {
         goSearch(txt);
       } /// if ///
       // (3) 빈값이면 메시지 출력
-      else{
-        alert('Please write letters for Searching!');
+      else {
+        alert("Please write letters for Searching!");
       } /// else ///
-
     } /// if ///
-
   }; //////////// enterKey 함수 ////////////
 
   // 3. 검색페이지로 검색어와 함께 이동하기 함수
   const goSearch = (txt) => {
-    console.log('나는 검색하러 간다규~!',txt);
+    console.log("나는 검색하러 간다규~!", txt);
     // 라우터 이동함수로 검색페이지로 이동하기!
-
+    goPage("search", { state: { keyword: txt } });
+    // 네비게이트 메서드(라우터주소, {state:{보낼객체}})
   }; /////////// goSearch 함수 /////////////
-
-
 
   /// 리턴 코드구역 ////////
   return (
@@ -132,15 +127,15 @@ export default function TopArea() {
               {/* 검색입력박스 */}
               <div className="searchingGnb">
                 {/* 검색버튼 돋보기 아이콘 */}
-                <FontAwesomeIcon 
+                <FontAwesomeIcon
                   icon={faSearch}
                   className="schbtnGnb"
                   title="Open search"
-                  onClick={()=>{}}
+                  onClick={() => {}}
                 />
                 {/* 입력창 */}
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   name="schinGnb"
                   id="schinGnb"
                   placeholder="Filter by Keyword"
