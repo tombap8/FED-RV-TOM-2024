@@ -57,6 +57,7 @@ export default function TopArea() {
   // 3. 검색페이지로 검색어와 함께 이동하기 함수
   const goSearch = (txt) => {
     console.log('나는 검색하러 간다규~!',txt);
+    // 라우터 이동함수로 검색페이지로 이동하기!
 
   }; /////////// goSearch 함수 /////////////
 
