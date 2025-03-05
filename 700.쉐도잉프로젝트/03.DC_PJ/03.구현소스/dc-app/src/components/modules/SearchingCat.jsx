@@ -4,6 +4,7 @@ import React from "react";
 
 // 모듈용 CSS 불러오기
 import "../../css/modules/searching_cat.scss";
+import { Link } from "react-router-dom";
 
 function SearchingCat({ selData }) {
   // selData - 전달된 선택 배열데이터

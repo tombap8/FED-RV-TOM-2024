@@ -11,6 +11,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 // 캐릭터 데이터 불러오기 : 캐릭터 리스트 데이터
 import { catListData } from "../../js/data/swiper_cat";
+import SearchingCat from "./SearchingCat";
 
 function Searching({ kword }) {
   // kword - 전달받은 검색어
@@ -108,6 +109,7 @@ function Searching({ kword }) {
           </aside>
           {/* 2-3. 캐릭터 리스트 컴포넌트 : 
             데이터 상태변수 중 첫번째값만 보냄 */}
+          <SearchingCat selData={selData} />
         </div>
       </section>
     </>
