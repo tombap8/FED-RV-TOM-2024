@@ -9,15 +9,30 @@ import "../../css/modules/searching.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-
 // 캐릭터 데이터 불러오기 : 캐릭터 리스트 데이터
 import { catListData } from "../../js/data/swiper_cat";
 
 function Searching({ kword }) {
   // kword - 전달받은 검색어
 
-  console.log('kword:',kword);
-  console.log('전체데이터:',catListData);
+  console.log("kword:", kword);
+  console.log("전체데이터:", catListData);
+
+  // 검색어로 전체 데이터에서 캐릭터 이름항목으로
+  // 배열 filter검색 후 결과를 캐릭터 리스트
+  // 하위 컴포넌트로 보내준다!
+  const selData = catListData.filter((v) => {
+    // 검색어 소문자 변환
+    let keyW = kword.toLowerCase();
+
+    // 이름 데이터 소문자 변환
+    let cName = v.cname.toLowerCase();
+
+    // 해당문자열이 이름데이터에 있으면 수집!
+    if (cName.indexOf(keyW) !== -1) return true;
+  }); //// filter //////
+
+  console.log("결과:", selData);
 
   // 리턴 코드구역 ////////////////////
   return (
