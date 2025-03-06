@@ -2,7 +2,10 @@
 
 import React from "react";
 
-function Member(props) {
+// 모듈 CSS 불러오기 ///
+import '../../css/pages/member.scss';
+
+function Member() {
   return (
     <div className="outbx">
       <section className="membx">
