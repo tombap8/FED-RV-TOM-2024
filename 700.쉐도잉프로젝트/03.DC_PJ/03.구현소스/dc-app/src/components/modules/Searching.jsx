@@ -119,9 +119,9 @@ function Searching({ kword }) {
                     type="checkbox" 
                     id="hero" 
                     className="chkhdn" 
-                    // 체크박스 체크속성값을 훜연결!!!
+                    // [ ★ 체크박스 체크속성값을 훜연결!!! ]
                     checked={chk[0]}
-                    // 체크변경시 change이벤트 발생!!!
+                    // [ ★ 체크변경시 change이벤트 발생!!! ]
                     onChange={(e)=>{
                       // 체크박스의 checked속성은
                       // 체크시 true, 불체크시 false리턴함!
@@ -142,6 +142,16 @@ function Searching({ kword }) {
                     
                     // 체크박스 체크속성값을 훜연결!!!
                     checked={chk[1]}
+                    // [ ★ 체크변경시 change이벤트 발생!!! ]
+                    onChange={(e)=>{
+                      // 체크박스의 checked속성은
+                      // 체크시 true, 불체크시 false리턴함!
+                      console.log(e.target.checked);
+                      // 훜 변수값을 업데이트 해야 변경된다!
+                      setChk([chk[0],e.target.checked,chk[2]]);
+                      // 두번째 체크박스 1번째만 반영한다!
+                      // 나머지는 그대로 유지!
+                    }}
                     />
                     {/* 디자인노출 라벨 */}
                     <label htmlFor="comp" className="chklb"></label>
@@ -153,6 +163,16 @@ function Searching({ kword }) {
                     
                     // 체크박스 체크속성값을 훜연결!!!
                     checked={chk[2]}
+                    // [ ★ 체크변경시 change이벤트 발생!!! ]
+                    onChange={(e)=>{
+                      // 체크박스의 checked속성은
+                      // 체크시 true, 불체크시 false리턴함!
+                      console.log(e.target.checked);
+                      // 훜 변수값을 업데이트 해야 변경된다!
+                      setChk([chk[0],chk[1],e.target.checked]);
+                      // 세번째 체크박스 2번째만 반영한다!
+                      // 나머지는 그대로 유지!
+                    }}
                     />
                     {/* 디자인노출 라벨 */}
                     <label htmlFor="villain" className="chklb"></label>
