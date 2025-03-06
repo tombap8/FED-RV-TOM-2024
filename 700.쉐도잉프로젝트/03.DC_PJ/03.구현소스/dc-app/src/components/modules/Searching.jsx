@@ -46,6 +46,7 @@ function Searching({ kword }) {
 
   ///////////////////////////////////////////////////
   // [ ★★★ 필터링된 데이터 정렬 적용하기 ★★★ ] ////
+  // -> 상태변수 sort를 기준으로 정렬변경적용!!! ///////
   // [1] 오름차순 : asc
   if (sort === "asc") {
     selData.sort((a, b) =>
@@ -136,7 +137,17 @@ function Searching({ kword }) {
           <h2 className="restit">BROWSE CHARACTERS</h2>
           {/* 2-2. 정렬선택박스 */}
           <aside className="sortbx">
-            <select name="sel" id="sel" className="sel">
+            <select 
+            name="sel" 
+            id="sel" 
+            className="sel"
+            // [ 선택값 변경시 정렬 상태변수값 변경하기! ]
+            onChange={(e)=>{
+              console.log('정렬기준값:',e.target.value);
+              // 정렬 상태변수값 변경하기
+              setSort(e.target.value);
+            }}
+            >
               <option value="asc">A-Z</option>
               <option value="desc">Z-A</option>
             </select>
