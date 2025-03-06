@@ -20,6 +20,7 @@ import Board from "./components/pages/Board";
 import CatDetail from "./components/pages/CatDetail";
 import SearchPage from "./components/pages/SearchPage";
 import Member from "./components/pages/Member";
+import Login from "./components/pages/Login";
 // import SwiperApp from './components/plugin/SwiperApp';
 
 /********************************************* 
@@ -82,7 +83,7 @@ export default function MainComponent() {
           <Route path="detail" element={<CatDetail />} />
           <Route path="search" element={<SearchPage />} />
           <Route path="member" element={<Member />} />
-          <Route path="login" element={<SearchPage />} />
+          <Route path="login" element={<Login />} />
           {/* <Route index element={<SwiperApp />}  /> */}
         </Route>
       </Routes>
