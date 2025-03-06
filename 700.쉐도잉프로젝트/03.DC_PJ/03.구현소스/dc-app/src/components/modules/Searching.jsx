@@ -25,8 +25,8 @@ function Searching({ kword }) {
   // [2] 정렬기준 상태관리변수 : 초기값 - 오름차순(asc)
   const [sort, setSort] = useState("asc");
   // [3] 체크박스 체크여부 상태관리변수 : 배열묶음으로 설정!
-  const [chk, setChk] = useState([true,true,true]);
-  console.log("체크훜배열:",chk);
+  const [chk, setChk] = useState([true, true, true]);
+  console.log("체크훜배열:", chk);
 
   // 검색어로 전체 데이터에서 캐릭터 이름항목으로
   // 배열 filter검색 후 결과를 캐릭터 리스트
@@ -44,7 +44,18 @@ function Searching({ kword }) {
     let cName = v.cname.toLowerCase();
 
     // 해당문자열이 이름데이터에 있으면 수집!
-    if (cName.indexOf(keyW) !== -1) return true;
+    if (
+      // 첫번째 조건 : 검색어 글자존재 여부
+      cName.indexOf(keyW) !== -1 &&
+      // 두번째 조건 : alignment속성값이 "hero"/"comp"/"villain"
+      ((chk[0] ? v.alignment === 'hero' : false) ||
+        (chk[1] ? v.alignment === 'comp' : false) ||
+        (chk[2] ? v.alignment === 'villain' : false))
+        // 조건문 전체 : true && (true || false || false)
+        // -> &&문은 모두 true 여야 true
+        // -> ||문은 하나만 true여도 true
+      
+    ) return true;
   }); //// filter //////
 
   ///////////////////////////////////////////////////
@@ -94,9 +105,9 @@ function Searching({ kword }) {
                   // 1. 검색어 상태변수값 변경하기
                   setKw(e.target.value);
                   // 2. 처음 검색시 정렬은 기본정렬 오름차순(asc)
-                  setSort('asc');
+                  setSort("asc");
                   // 3. 정렬 선택박스 기본값으로 변경하기
-                  document.querySelector('#sel').value = "asc";
+                  document.querySelector("#sel").value = "asc";
                 } /// if ///
               }}
             />
@@ -115,22 +126,22 @@ function Searching({ kword }) {
                   <li>
                     Heroes
                     {/* 숨긴 체크박스 */}
-                    <input 
-                    type="checkbox" 
-                    id="hero" 
-                    className="chkhdn" 
-                    // [ ★ 체크박스 체크속성값을 훜연결!!! ]
-                    checked={chk[0]}
-                    // [ ★ 체크변경시 change이벤트 발생!!! ]
-                    onChange={(e)=>{
-                      // 체크박스의 checked속성은
-                      // 체크시 true, 불체크시 false리턴함!
-                      console.log(e.target.checked);
-                      // 훜 변수값을 업데이트 해야 변경된다!
-                      setChk([e.target.checked,chk[1],chk[2]]);
-                      // 첫번째 체크박스 0번째만 반영한다!
-                      // 나머지는 그대로 유지!
-                    }}
+                    <input
+                      type="checkbox"
+                      id="hero"
+                      className="chkhdn"
+                      // [ ★ 체크박스 체크속성값을 훜연결!!! ]
+                      checked={chk[0]}
+                      // [ ★ 체크변경시 change이벤트 발생!!! ]
+                      onChange={(e) => {
+                        // 체크박스의 checked속성은
+                        // 체크시 true, 불체크시 false리턴함!
+                        console.log(e.target.checked);
+                        // 훜 변수값을 업데이트 해야 변경된다!
+                        setChk([e.target.checked, chk[1], chk[2]]);
+                        // 첫번째 체크박스 0번째만 반영한다!
+                        // 나머지는 그대로 유지!
+                      }}
                     />
                     {/* 디자인노출 라벨 */}
                     <label htmlFor="hero" className="chklb"></label>
@@ -138,20 +149,22 @@ function Searching({ kword }) {
                   <li>
                     It's Complicated
                     {/* 숨긴 체크박스 */}
-                    <input type="checkbox" id="comp" className="chkhdn"
-                    
-                    // 체크박스 체크속성값을 훜연결!!!
-                    checked={chk[1]}
-                    // [ ★ 체크변경시 change이벤트 발생!!! ]
-                    onChange={(e)=>{
-                      // 체크박스의 checked속성은
-                      // 체크시 true, 불체크시 false리턴함!
-                      console.log(e.target.checked);
-                      // 훜 변수값을 업데이트 해야 변경된다!
-                      setChk([chk[0],e.target.checked,chk[2]]);
-                      // 두번째 체크박스 1번째만 반영한다!
-                      // 나머지는 그대로 유지!
-                    }}
+                    <input
+                      type="checkbox"
+                      id="comp"
+                      className="chkhdn"
+                      // [ ★ 체크박스 체크속성값을 훜연결!!! ]
+                      checked={chk[1]}
+                      // [ ★ 체크변경시 change이벤트 발생!!! ]
+                      onChange={(e) => {
+                        // 체크박스의 checked속성은
+                        // 체크시 true, 불체크시 false리턴함!
+                        console.log(e.target.checked);
+                        // 훜 변수값을 업데이트 해야 변경된다!
+                        setChk([chk[0], e.target.checked, chk[2]]);
+                        // 두번째 체크박스 1번째만 반영한다!
+                        // 나머지는 그대로 유지!
+                      }}
                     />
                     {/* 디자인노출 라벨 */}
                     <label htmlFor="comp" className="chklb"></label>
@@ -159,20 +172,22 @@ function Searching({ kword }) {
                   <li>
                     Villains
                     {/* 숨긴 체크박스 */}
-                    <input type="checkbox" id="villain" className="chkhdn" 
-                    
-                    // 체크박스 체크속성값을 훜연결!!!
-                    checked={chk[2]}
-                    // [ ★ 체크변경시 change이벤트 발생!!! ]
-                    onChange={(e)=>{
-                      // 체크박스의 checked속성은
-                      // 체크시 true, 불체크시 false리턴함!
-                      console.log(e.target.checked);
-                      // 훜 변수값을 업데이트 해야 변경된다!
-                      setChk([chk[0],chk[1],e.target.checked]);
-                      // 세번째 체크박스 2번째만 반영한다!
-                      // 나머지는 그대로 유지!
-                    }}
+                    <input
+                      type="checkbox"
+                      id="villain"
+                      className="chkhdn"
+                      // [ ★ 체크박스 체크속성값을 훜연결!!! ]
+                      checked={chk[2]}
+                      // [ ★ 체크변경시 change이벤트 발생!!! ]
+                      onChange={(e) => {
+                        // 체크박스의 checked속성은
+                        // 체크시 true, 불체크시 false리턴함!
+                        console.log(e.target.checked);
+                        // 훜 변수값을 업데이트 해야 변경된다!
+                        setChk([chk[0], chk[1], e.target.checked]);
+                        // 세번째 체크박스 2번째만 반영한다!
+                        // 나머지는 그대로 유지!
+                      }}
                     />
                     {/* 디자인노출 라벨 */}
                     <label htmlFor="villain" className="chklb"></label>
@@ -188,16 +203,16 @@ function Searching({ kword }) {
           <h2 className="restit">BROWSE CHARACTERS</h2>
           {/* 2-2. 정렬선택박스 */}
           <aside className="sortbx">
-            <select 
-            name="sel" 
-            id="sel" 
-            className="sel"
-            // [ 선택값 변경시 정렬 상태변수값 변경하기! ]
-            onChange={(e)=>{
-              console.log('정렬기준값:',e.target.value);
-              // 정렬 상태변수값 변경하기
-              setSort(e.target.value);
-            }}
+            <select
+              name="sel"
+              id="sel"
+              className="sel"
+              // [ 선택값 변경시 정렬 상태변수값 변경하기! ]
+              onChange={(e) => {
+                console.log("정렬기준값:", e.target.value);
+                // 정렬 상태변수값 변경하기
+                setSort(e.target.value);
+              }}
             >
               <option value="asc">A-Z</option>
               <option value="desc">Z-A</option>
