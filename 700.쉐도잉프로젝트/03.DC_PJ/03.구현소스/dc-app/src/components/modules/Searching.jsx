@@ -24,6 +24,9 @@ function Searching({ kword }) {
   const [kw, setKw] = useState(kword);
   // [2] 정렬기준 상태관리변수 : 초기값 - 오름차순(asc)
   const [sort, setSort] = useState("asc");
+  // [3] 체크박스 체크여부 상태관리변수 : 배열묶음으로 설정!
+  const [chk, setChk] = useState([true,true,true]);
+  console.log("체크훜배열:",chk);
 
   // 검색어로 전체 데이터에서 캐릭터 이름항목으로
   // 배열 filter검색 후 결과를 캐릭터 리스트
@@ -92,6 +95,8 @@ function Searching({ kword }) {
                   setKw(e.target.value);
                   // 2. 처음 검색시 정렬은 기본정렬 오름차순(asc)
                   setSort('asc');
+                  // 3. 정렬 선택박스 기본값으로 변경하기
+                  document.querySelector('#sel').value = "asc";
                 } /// if ///
               }}
             />
@@ -110,21 +115,45 @@ function Searching({ kword }) {
                   <li>
                     Heroes
                     {/* 숨긴 체크박스 */}
-                    <input type="checkbox" id="hero" className="chkhdn" />
+                    <input 
+                    type="checkbox" 
+                    id="hero" 
+                    className="chkhdn" 
+                    // 체크박스 체크속성값을 훜연결!!!
+                    checked={chk[0]}
+                    // 체크변경시 change이벤트 발생!!!
+                    onChange={(e)=>{
+                      // 체크박스의 checked속성은
+                      // 체크시 true, 불체크시 false리턴함!
+                      console.log(e.target.checked);
+                      // 훜 변수값을 업데이트 해야 변경된다!
+                      setChk([e.target.checked,chk[1],chk[2]]);
+                      // 첫번째 체크박스 0번째만 반영한다!
+                      // 나머지는 그대로 유지!
+                    }}
+                    />
                     {/* 디자인노출 라벨 */}
                     <label htmlFor="hero" className="chklb"></label>
                   </li>
                   <li>
                     It's Complicated
                     {/* 숨긴 체크박스 */}
-                    <input type="checkbox" id="comp" className="chkhdn" />
+                    <input type="checkbox" id="comp" className="chkhdn"
+                    
+                    // 체크박스 체크속성값을 훜연결!!!
+                    checked={chk[1]}
+                    />
                     {/* 디자인노출 라벨 */}
                     <label htmlFor="comp" className="chklb"></label>
                   </li>
                   <li>
                     Villains
                     {/* 숨긴 체크박스 */}
-                    <input type="checkbox" id="villain" className="chkhdn" />
+                    <input type="checkbox" id="villain" className="chkhdn" 
+                    
+                    // 체크박스 체크속성값을 훜연결!!!
+                    checked={chk[2]}
+                    />
                     {/* 디자인노출 라벨 */}
                     <label htmlFor="villain" className="chklb"></label>
                   </li>
