@@ -90,6 +90,8 @@ function Searching({ kword }) {
                 if (e.key === "Enter") {
                   // 1. 검색어 상태변수값 변경하기
                   setKw(e.target.value);
+                  // 2. 처음 검색시 정렬은 기본정렬 오름차순(asc)
+                  setSort('asc');
                 } /// if ///
               }}
             />
