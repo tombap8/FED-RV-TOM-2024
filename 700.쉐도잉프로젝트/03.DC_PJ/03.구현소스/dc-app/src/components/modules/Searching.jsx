@@ -1,6 +1,6 @@
 // DC.com 검색 모듈 - Searching.jsx
 
-import React from "react";
+import React, { useState } from "react";
 
 // 모듈용 CSS 불러오기 ///
 import "../../css/modules/searching.scss";
@@ -19,12 +19,20 @@ function Searching({ kword }) {
   console.log("kword:", kword);
   console.log("전체데이터:", catListData);
 
+  // [ 후크 상태관리 변수 셋팅구역 ] ///////
+  // [1] 검색어 상태관리변수 : 초기값 - 전달된 검색어
+  const [kw, setKw] = useState(kword);
+
+
+
   // 검색어로 전체 데이터에서 캐릭터 이름항목으로
   // 배열 filter검색 후 결과를 캐릭터 리스트
   // 하위 컴포넌트로 보내준다!
   const selData = catListData.filter((v) => {
     // 검색어 소문자 변환
-    let keyW = kword.toLowerCase();
+    let keyW = kw.toLowerCase();
+    // -> ★★★ 검색어를 상태변수로 설정하여
+    // 검색어 상태변수가 변경되면 리랜더링된다!
 
     // 이름 데이터 소문자 변환
     let cName = v.cname.toLowerCase();
@@ -57,6 +65,15 @@ function Searching({ kword }) {
               placeholder="Filter by Keyword"
               // 기본값으로 전달받은 검색어가 입력된다!
               defaultValue={kword}
+              // ★★★ 엔터키를 눌렀을때 검색실행!
+              // 검색어 상태변수만 업데이트하면 끝!
+              onKeyUp={(e)=>{
+                if(e.key === "Enter"){
+                  // 1. 검색어 상태변수값 변경하기
+                  setKw(e.target.value);
+
+                } /// if ///
+              }}
             />
           </div>
           {/* 1-2. 체크박스구역 */}
