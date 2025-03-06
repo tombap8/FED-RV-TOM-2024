@@ -22,12 +22,15 @@ function Searching({ kword }) {
   // [ 후크 상태관리 변수 셋팅구역 ] ///////
   // [1] 검색어 상태관리변수 : 초기값 - 전달된 검색어
   const [kw, setKw] = useState(kword);
-
-
+  // [2] 정렬기준 상태관리변수 : 초기값 - 오름차순(asc)
+  const [sort, setSort] = useState("asc");
 
   // 검색어로 전체 데이터에서 캐릭터 이름항목으로
   // 배열 filter검색 후 결과를 캐릭터 리스트
   // 하위 컴포넌트로 보내준다!
+
+  ///////////////////////////////////////////////////
+  // [ ★★★ 원본데이터로 부터 필터링하기 ★★★ ] ////
   const selData = catListData.filter((v) => {
     // 검색어 소문자 변환
     let keyW = kw.toLowerCase();
@@ -40,6 +43,21 @@ function Searching({ kword }) {
     // 해당문자열이 이름데이터에 있으면 수집!
     if (cName.indexOf(keyW) !== -1) return true;
   }); //// filter //////
+
+  ///////////////////////////////////////////////////
+  // [ ★★★ 필터링된 데이터 정렬 적용하기 ★★★ ] ////
+  // [1] 오름차순 : asc
+  if (sort === "asc") {
+    selData.sort((a, b) =>
+      a.cname > b.cname ? 1 : a.cname < b.cname ? -1 : 0
+    );
+  } //// if ////
+  // [2] 내림차순 : desc
+  else if (sort === "desc") {
+    selData.sort((a, b) =>
+      a.cname > b.cname ? -1 : a.cname < b.cname ? 1 : 0
+    );
+  } //// else if ////
 
   console.log("결과:", selData);
 
@@ -67,11 +85,10 @@ function Searching({ kword }) {
               defaultValue={kword}
               // ★★★ 엔터키를 눌렀을때 검색실행!
               // 검색어 상태변수만 업데이트하면 끝!
-              onKeyUp={(e)=>{
-                if(e.key === "Enter"){
+              onKeyUp={(e) => {
+                if (e.key === "Enter") {
                   // 1. 검색어 상태변수값 변경하기
                   setKw(e.target.value);
-
                 } /// if ///
               }}
             />
