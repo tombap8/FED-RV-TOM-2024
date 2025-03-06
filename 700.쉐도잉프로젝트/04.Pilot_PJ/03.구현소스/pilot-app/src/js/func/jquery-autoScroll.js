@@ -15,7 +15,9 @@ require("jquery-ui-touch-punch/jquery.ui.touch-punch");
 // 전체 페이지번호
 let pno = 0;
 // 전체 페이지번호 초기화함수
-const zeroPno = () => {pno=0};
+const zeroPno = () => {
+  pno = 0;
+};
 // 페이지 요소
 let pg;
 // 전체 페이지개수
@@ -27,12 +29,11 @@ let prot = [];
 prot[0] = 0;
 
 // 요소를 할당한 경우 로딩구역에서 할당
-$(()=>{
+$(() => {
   // 페이지 요소
   pg = $(".page");
   // 전체 페이지개수
-  pgcnt = pg.length;  
-
+  pgcnt = pg.length;
 }); /////////// load ///////////////
 
 /****************************************** 
@@ -198,7 +199,7 @@ function evtFn() {
   /////////////////////////////////////////////
   // GNB 메뉴 + 사이드 인디케이터 클릭 이동기능 //
   /////////////////////////////////////////////
-  $(".gnb li, .indic li").click(function () {
+  $(".gnb li, .indic li").on("click", function () {
     // 1. 순번변수
     let idx = $(this).index();
     // console.log('나야나~!',idx);
@@ -213,7 +214,7 @@ function evtFn() {
   // 키보드 이벤트발생시 업데이트
   // 1. Page Up(33) / Up Arrow (38)
   // 2. Page Down(34) / Down Arrow (40)
-  $(document).keydown((e) => {
+  $(document).on("keydown", (e) => {
     // 광휠금지
     if (prot[0]) return;
     chkCrazy(0);
@@ -233,14 +234,22 @@ function evtFn() {
   }); ///////////// keydown ////////////////
 
   // 메인 페이지 상단로고 클릭시 맨위로 이동하기!
-  $("#logo a").click((e) => {
+  $("#logo a").on("click", (e) => {
     e.preventDefault();
     pno = 0;
     movePg();
   }); //////// click ////////
 } /////////// evtFn 함수 /////////////////
 
+// [ 이벤트 제거함수 ] /////////////
+function removeEvtFn() {
+  // off(이벤트명) ->  제이쿼리 이벤트 제거 메서드
+  $("#logo a").off("click");
+  $(".gnb li, .indic li").off("click");
+  $(document).off("keydown");
+} ///////// removeEvtFn 함수 /////////////
+
 // 사용할 함수만 내보냄!
-export { wheelFn, evtFn, initSet, zeroPno };
+export { wheelFn, evtFn, removeEvtFn, initSet, zeroPno };
 
 // } ///////////// autoScroll 함수 //////////
