@@ -4,6 +4,7 @@ import React from "react";
 
 // 모듈 CSS 불러오기 ///
 import '../../css/pages/member.scss';
+import { Link } from "react-router-dom";
 
 function Member() {
   return (
