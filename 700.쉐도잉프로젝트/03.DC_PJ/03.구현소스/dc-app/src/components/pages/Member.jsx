@@ -354,7 +354,25 @@ function Member() {
                 type="text"
                 maxLength="50"
                 placeholder="Please enter your Email"
+                value={email}
+                onChange={changeEmail}
+                onBlur={changeEmail}
               />
+              {
+                // 에러일 경우 메시지 출력
+                // 조건문 && 출력요소
+                emailError && 
+                <div className="msg">
+                  <small 
+                    style={{
+                      color: "red",
+                      fontSize: "10px",
+                    }}
+                  >
+                    {msgEtc.email}
+                  </small>
+                </div>
+              }
             </li>
             <li style={{ overflow: "hidden" }}>
               <button className="sbtn">Submit</button>
