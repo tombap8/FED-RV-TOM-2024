@@ -230,7 +230,25 @@ function Member() {
                 type="text"
                 maxLength="20"
                 placeholder="Please enter your ID"
+                value={userId}
+                onChange={changeUserId}
+                onBlur={changeUserId}
               />
+              {
+                // 에러일 경우 메시지 출력
+                // 조건문 && 출력요소
+                userIdError && 
+                <div className="msg">
+                  <small 
+                    style={{
+                      color: "red",
+                      fontSize: "10px",
+                    }}
+                  >
+                    {idMsg}
+                  </small>
+                </div>
+              }
             </li>
             <li>
               <label>Password : </label>
