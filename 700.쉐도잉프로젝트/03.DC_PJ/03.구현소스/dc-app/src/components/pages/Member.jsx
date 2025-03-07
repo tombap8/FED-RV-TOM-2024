@@ -4,12 +4,17 @@ import React, { useState } from "react";
 
 // 모듈 CSS 불러오기 ///
 import "../../css/pages/member.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // 로컬스토리지 생성 JS ////
 import { initData } from "../../js/func/mem_fn";
 
 function Member() {
+  // 라우터이동 객체 생성하기 ///
+  const goPage = useNavigate();
+  // 사용시: goPage(라우터주소,state변수)
+
+
   // [ 상태관리변수 ] /////////////
   // [1] 입력요소 상태변수
   // 1. 아이디변수
@@ -289,7 +294,7 @@ function Member() {
       document.querySelector(".sbtn").innerText = "Thank you for joining us!";
       // 1초후 페이지 이동 : 라우터 Navigate로 이동함
       setTimeout(() => {
-        goNav("/login");
+        goPage("/login");
         // 주의: 경로앞에 슬래쉬(/) 안쓰면
         // 현재 Memeber 경로 하위 경로를 불러옴
       }, 1000);
