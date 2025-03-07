@@ -15,17 +15,35 @@ import "./css/swiper_ban.scss";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 export default function SwiperBan() {
-  // 불러올 이미지 리스트 //
-  const imgArr = [
-    "dcm28",
-    "dcm29",
-    "dcm30",
-    "dcm31",
-    "dcm32",
-    "dcm10",
-    "dcm11",
-    "dcm12",
-  ];
+  // 리스트만들기 함수 ////
+  const makeList = (num) => {
+    // num
+    let temp = [];
+    for (let x = 0; x < num; x++) {
+      temp[x] = (
+        <SwiperSlide key={x}>
+          {props.cat == "men" && x == 2 ? (
+            <video
+              src={"/images/sub/" + props.cat + "/banner/cgv.mp4"}
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              muted
+              loop
+              autoPlay
+            />
+          ) : (
+            <img
+              src={
+                "/images/sub/" + props.cat + "/banner/ban" + (x + 1) + ".png"
+              }
+            />
+          )}
+        </SwiperSlide>
+      );
+    } /////////// for /////////////
+
+    // 배열을 리턴
+    return temp;
+  }; ///////////// makeList 함수 //////////
 
   // 리턴 코드구역 /////////
   return (
