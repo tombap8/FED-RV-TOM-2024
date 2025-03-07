@@ -207,7 +207,24 @@ function Login() {
                 type="text"
                 maxLength="20"
                 placeholder="Please enter your ID"
+                value={userId}
+                onChange={changeUserId}
               />
+              {
+                // 에러일 경우 메시지 출력
+                // 조건문 && 출력요소
+                userIdError && 
+                <div className="msg">
+                  <small
+                    style={{
+                      color: "red",
+                      fontSize: "10px",
+                    }}
+                  >
+                    {idMsg}
+                  </small>
+                </div>
+              }
             </li>
             <li>
               <label>Password : </label>
@@ -215,7 +232,24 @@ function Login() {
                 type="password"
                 maxLength="20"
                 placeholder="Please enter your Password"
+                value={pwd}
+                onChange={changePwd}
               />
+              {
+                // 에러일 경우 메시지 출력
+                // 조건문 && 출력요소
+                pwdError && 
+                <div className="msg">
+                  <small
+                    style={{
+                      color: "red",
+                      fontSize: "10px",
+                    }}
+                  >
+                    {pwdMsg}
+                  </small>
+                </div>
+              }
             </li>
             <li style={{ overflow: "hidden" }}>
               <button className="sbtn">Submit</button>
