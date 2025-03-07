@@ -216,6 +216,92 @@ function Member() {
     setEmail(val);
   }; ///////// changeEmail 함수 //////////
 
+  // [ 전체 유효성검사 체크함수 ] ///////////
+  const totalValid = () => {
+    // 1. 모든 상태변수에 빈값일때 에러상태값 업데이트!
+    if (!userId) setUserIdError(true);
+    if (!pwd) setPwdError(true);
+    if (!chkPwd) setChkPwdError(true);
+    if (!userName) setUserNameError(true);
+    if (!email) setEmailError(true);
+    // 2. 통과시 true, 불통과시 false 리턴처리
+    // 통과조건 : 빈값아님 + 에러후크변수가 모두 false
+    if (
+      userId &&
+      pwd &&
+      chkPwd &&
+      userName &&
+      email &&
+      addr &&
+      !userIdError &&
+      !pwdError &&
+      !chkPwdError &&
+      !userNameError &&
+      !emailError
+    )
+      return true;
+    // 하나라도 false이면 false를 리턴함!
+    else return false;
+  }; /////////// totalValid 함수 ///////////
+
+  // [ 서브밋 기능함수 ] ////////////////
+  const onSubmit = (e) => {
+    // 1. 기본서브밋 막기
+    e.preventDefault();
+
+    console.log("최종검사:", totalValid());
+    // 2. 유효성검사 전체 통과시
+    if (totalValid()) {
+      console.log("모두통과! 저장!");
+
+      // [회원정보를 로컬스토리지에 저장하기]
+
+      // 1. 로컬스 체크함수호출(없으면 생성!)
+      initData();
+
+      // 2. 로컬스 변수할당
+      let memData = localStorage.getItem("mem-data");
+
+      // 3. 로컬스 객체변환
+      memData = JSON.parse(memData);
+      // 최대수를 위한 배열값 뽑기 (idx항목)
+      let temp = memData.map((v) => v.idx);
+      // 다음 번호는 항상 최대수+1이다!
+      console.log("다음번호:", Math.max(...temp) + 1);
+
+      // 4. 새로운 데이터 구성하기
+      let newData = {
+        idx: Math.max(...temp) + 1,
+        uid: userId,
+        pwd: pwd,
+        unm: userName,
+        eml: email,
+      };
+
+      // 5. 데이터 추가하기 : 배열에 데이터 추가 push()
+      memData.push(newData);
+
+      // 6. 로컬스에 반영하기 : 문자화해서 넣어야함!
+      localStorage.setItem("mem-data", JSON.stringify(memData));
+
+      // 7. 회원가입 환영메시지 + 로그인 페이지 이동
+      // 버튼 텍스트에 환영메시지
+      document.querySelector(".sbtn").innerText = "Thank you for joining us!";
+      // 1초후 페이지 이동 : 라우터 Navigate로 이동함
+      setTimeout(() => {
+        goNav("/login");
+        // 주의: 경로앞에 슬래쉬(/) 안쓰면
+        // 현재 Memeber 경로 하위 경로를 불러옴
+      }, 1000);
+    } ///////// if /////////
+    // 3. 불통과시 /////
+    else {
+      console.log($(".msg").eq(0).text());
+      alert("Change your input!");
+      // showModal();
+    } //// else ///////////
+  }; /////////// onSubmit 함수 //////////
+
   // 리턴 코드구역 ///////////////
   return (
     <div className="outbx">
@@ -237,34 +323,36 @@ function Member() {
               {
                 // 에러일 경우 메시지 출력
                 // 조건문 && 출력요소
-                userIdError && 
-                <div className="msg">
-                  <small 
-                    style={{
-                      color: "red",
-                      fontSize: "10px",
-                    }}
-                  >
-                    {idMsg}
-                  </small>
-                </div>
+                userIdError && (
+                  <div className="msg">
+                    <small
+                      style={{
+                        color: "red",
+                        fontSize: "10px",
+                      }}
+                    >
+                      {idMsg}
+                    </small>
+                  </div>
+                )
               }
               {
                 // 통과시 메시지 출력
                 // 조건문 && 출력요소
                 // 조건추가 : userId가 입력전일때 안보임처리
                 // userId가 입력전엔 false로 리턴됨!
-                !userIdError && userId && 
-                <div className="msg">
-                  <small 
-                    style={{
-                      color: "green",
-                      fontSize: "10px",
-                    }}
-                  >
-                    {msgId[2]}
-                  </small>
-                </div>
+                !userIdError && userId && (
+                  <div className="msg">
+                    <small
+                      style={{
+                        color: "green",
+                        fontSize: "10px",
+                      }}
+                    >
+                      {msgId[2]}
+                    </small>
+                  </div>
+                )
               }
             </li>
             <li>
@@ -280,17 +368,18 @@ function Member() {
               {
                 // 에러일 경우 메시지 출력
                 // 조건문 && 출력요소
-                pwdError && 
-                <div className="msg">
-                  <small 
-                    style={{
-                      color: "red",
-                      fontSize: "10px",
-                    }}
-                  >
-                    {msgEtc.pwd}
-                  </small>
-                </div>
+                pwdError && (
+                  <div className="msg">
+                    <small
+                      style={{
+                        color: "red",
+                        fontSize: "10px",
+                      }}
+                    >
+                      {msgEtc.pwd}
+                    </small>
+                  </div>
+                )
               }
             </li>
             <li>
@@ -306,17 +395,18 @@ function Member() {
               {
                 // 에러일 경우 메시지 출력
                 // 조건문 && 출력요소
-                chkPwdError && 
-                <div className="msg">
-                  <small 
-                    style={{
-                      color: "red",
-                      fontSize: "10px",
-                    }}
-                  >
-                    {msgEtc.confPwd}
-                  </small>
-                </div>
+                chkPwdError && (
+                  <div className="msg">
+                    <small
+                      style={{
+                        color: "red",
+                        fontSize: "10px",
+                      }}
+                    >
+                      {msgEtc.confPwd}
+                    </small>
+                  </div>
+                )
               }
             </li>
             <li>
@@ -332,17 +422,18 @@ function Member() {
               {
                 // 에러일 경우 메시지 출력
                 // 조건문 && 출력요소
-                userNameError && 
-                <div className="msg">
-                  <small 
-                    style={{
-                      color: "red",
-                      fontSize: "10px",
-                    }}
-                  >
-                    {msgEtc.req}
-                  </small>
-                </div>
+                userNameError && (
+                  <div className="msg">
+                    <small
+                      style={{
+                        color: "red",
+                        fontSize: "10px",
+                      }}
+                    >
+                      {msgEtc.req}
+                    </small>
+                  </div>
+                )
               }
             </li>
             <li>
@@ -361,17 +452,18 @@ function Member() {
               {
                 // 에러일 경우 메시지 출력
                 // 조건문 && 출력요소
-                emailError && 
-                <div className="msg">
-                  <small 
-                    style={{
-                      color: "red",
-                      fontSize: "10px",
-                    }}
-                  >
-                    {msgEtc.email}
-                  </small>
-                </div>
+                emailError && (
+                  <div className="msg">
+                    <small
+                      style={{
+                        color: "red",
+                        fontSize: "10px",
+                      }}
+                    >
+                      {msgEtc.email}
+                    </small>
+                  </div>
+                )
               }
             </li>
             <li style={{ overflow: "hidden" }}>
