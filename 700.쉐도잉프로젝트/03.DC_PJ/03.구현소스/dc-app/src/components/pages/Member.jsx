@@ -1,6 +1,6 @@
 // DC.com - 회원가입 페이지 컴포넌트 - Member.jsx
 
-import React from "react";
+import React, { useState } from "react";
 
 // 모듈 CSS 불러오기 ///
 import "../../css/pages/member.scss";
@@ -23,9 +23,9 @@ function Member() {
   // 5. 이메일변수
   const [email, setEmail] = useState("");
   // 6. 주소변수
-  const [addr, setAddr] = useState("");
+  // const [addr, setAddr] = useState("");
   // 7. 우편번호변수
-  const [zipcode, setZipcode] = useState("");
+  // const [zipcode, setZipcode] = useState("");
 
   // [2] 에러상태관리 변수
   // -> 에러상태값 초기값은 에러아님(false)
@@ -40,7 +40,7 @@ function Member() {
   // 5. 이메일변수
   const [emailError, setEmailError] = useState(false);
   // 6. 주소변수
-  const [addrError, setAddrError] = useState("");
+  // const [addrError, setAddrError] = useState("");
 
   // console.log(">>>>", userIdError);
 
@@ -69,6 +69,152 @@ function Member() {
   // [3] 에러메시지 상태변수 : 초기값 msgId[0]
   // -> 기본 메시지가 출력됨
   const [idMsg, setIdMsg] = useState(msgId[0]);
+
+  // [ 유효성 검사 함수 ] ///////
+  // 1. 아이디 유효성 검사 ////////////
+  const changeUserId = (e) => {
+    // 입력된 값읽기
+    let val = e.target.value;
+
+    // 1. 아이디 유효성 검사식(따옴표로 싸지 말것!)
+    const valid = /^[A-Za-z0-9+]{5,}$/;
+    // 유효성 검사방법: 정규식.test(값)
+
+    // 2. 입력값 확인 : e.target
+    // console.log(val);
+
+    // 3. 에러상태 분기하기
+    // 3-1. 에러 아닐때 (유효성검사만 통과한 경우)
+    if (valid.test(val)) {
+      console.log("통과했지만...!");
+      // 아이디 검사를 위해 기본 데이터 생성호출!
+      initData();
+      // 로컬스토리지에 "mem-data"가 없으면 초기셋팅함!
+
+      // 이제 중복 아이디 검사를 실행한다!!!
+      // 1. 로컬스 변수할당
+      let memData = localStorage.getItem("mem-data");
+      console.log(memData);
+
+      // 2. 로컬스 객체변환 (왜? 문자형이니까!)
+      memData = JSON.parse(memData);
+      console.log(memData);
+      // -> 배열데이터로 변환!
+      // 주의: JSON 파싱할때 원본형식이 제이슨 파일형식으로
+      // 엄격하게 작성되어야 에러가 없음(마지막콤마 불허용 등)
+
+      // 3. 배열이니까 현재 입력데이터의 아이디가
+      // 기존 배열값으로 있는지 검사함!
+      // 있으면 true, 없으면 false
+      let isT = memData.some((v) => v.uid === val);
+      console.log("중복id있어?", isT);
+
+      // 4. true 일 경우 중복데이터 메시지 표시
+      if (isT) {
+        // 에러 메시지 업데이트
+        setIdMsg(msgId[1]);
+        // 에러상태값 업데이트
+        setUserIdError(true);
+      } ///// if /////
+      // 5. false 일 경우 [성공 메시지] 표시
+      else {
+        // 에러상태값 업데이트 : 에러가 아님!(false)
+        setUserIdError(false);
+      } ///// else //////
+
+      // [ 새로운 배열메서드 : some() ]
+      // -> 조건에 맞는 값이 하나만 나오면 true처리함
+      // 비교참고) every() 는 하나만 false이면 false리턴
+      // let isT = memData.some(v=>{
+      //     console.log("돌아!",v.uid);
+      //     return v.uid===val;
+      // });
+      // let isT = memData.every(v=>{
+      //     console.log("돌아!",v.uid);
+      //     return v.uid===val;
+      // });
+
+      // 아이디 에러상태 업데이트(false)
+      //   setUserIdError(false);
+    } /// if /////////////////////////
+    // 3-2. 에러일때 : 유효성 검사 에러
+    else {
+      console.log("에러~!");
+      // 에러 메시지 업데이트
+      setIdMsg(msgId[0]);
+      // 아이디 에러상태 업데이트(true)
+      setUserIdError(true);
+    } /// else ///
+
+    // 실제 userId 상태변수값이 업데이트 돼야만
+    // 화면에 출력된다!
+    setUserId(val);
+  }; ////////// changeUserId 함수 ////////////
+
+  // 2. 비밀번호 유효성 검사 ///////////
+  const changePwd = (e) => {
+    // 입력된 값읽기
+    let val = e.target.value;
+
+    // 1. 비밀번호 유효성 검사식(따옴표로 싸지 말것!)
+    const valid = /^.*(?=^.{5,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+
+    // 2. 입력값 확인 : e.target -> 이벤트가 발생한 요소
+    // console.log(val);
+
+    // 3. 에러에 따른 상태값 변경
+    if (valid.test(val)) setPwdError(false);
+    else setPwdError(true);
+
+    // 4. 기존입력값 반영하기
+    setPwd(val);
+  }; ///////// changePwd 함수 //////////
+
+  // 3. 비밀번호확인 유효성 검사 ///////////
+  const changeChkPwd = (e) => {
+    // 입력된 값읽기
+    let val = e.target.value;
+
+    // 1. 비밀번호 입력내용과 일치여부 확인
+    if (pwd === val) setChkPwdError(false);
+    else setChkPwdError(true);
+
+    // 2. 기존입력값 반영하기
+    setChkPwd(val);
+  }; ///////// changeChkPwd 함수 //////////
+
+  // 4. 사용자이름 유효성 검사 ///////////
+  const changeUserName = (e) => {
+    // 입력된 값읽기
+    let val = e.target.value;
+
+    // 1. 빈값체크
+    if (val !== "") setUserNameError(false);
+    else setUserNameError(true);
+
+    // 2. 기존입력값 반영하기
+    setUserName(val);
+  }; ///////// changeUserName 함수 //////////
+
+  // 5. 이메일 유효성 검사 ///////////
+  const changeEmail = (e) => {
+    // 입력된 값읽기
+    let val = e.target.value;
+
+    // 1. 이메일 유효성 검사식(따옴표로 싸지 말것!)
+    const valid =
+      /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+
+    // 2. 입력값 확인 : e.target -> 이벤트가 발생한 요소
+    // console.log(val);
+
+    // 3. 에러에 따른 상태값 변경
+    if (valid.test(val)) setEmailError(false);
+    else setEmailError(true);
+
+    // 4. 기존입력값 반영하기
+    setEmail(val);
+  }; ///////// changeEmail 함수 //////////
 
   // 리턴 코드구역 ///////////////
   return (
