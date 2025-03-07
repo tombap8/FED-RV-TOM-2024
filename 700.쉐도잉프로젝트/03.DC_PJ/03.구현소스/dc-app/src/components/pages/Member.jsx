@@ -249,6 +249,23 @@ function Member() {
                   </small>
                 </div>
               }
+              {
+                // 통과시 메시지 출력
+                // 조건문 && 출력요소
+                // 조건추가 : userId가 입력전일때 안보임처리
+                // userId가 입력전엔 false로 리턴됨!
+                !userIdError && userId && 
+                <div className="msg">
+                  <small 
+                    style={{
+                      color: "green",
+                      fontSize: "10px",
+                    }}
+                  >
+                    {msgId[2]}
+                  </small>
+                </div>
+              }
             </li>
             <li>
               <label>Password : </label>
@@ -256,7 +273,25 @@ function Member() {
                 type="password"
                 maxLength="20"
                 placeholder="Please enter your Password"
+                value={pwd}
+                onChange={changePwd}
+                onBlur={changePwd}
               />
+              {
+                // 에러일 경우 메시지 출력
+                // 조건문 && 출력요소
+                pwdError && 
+                <div className="msg">
+                  <small 
+                    style={{
+                      color: "red",
+                      fontSize: "10px",
+                    }}
+                  >
+                    {msgEtc.pwd}
+                  </small>
+                </div>
+              }
             </li>
             <li>
               <label>Confirm Password : </label>
