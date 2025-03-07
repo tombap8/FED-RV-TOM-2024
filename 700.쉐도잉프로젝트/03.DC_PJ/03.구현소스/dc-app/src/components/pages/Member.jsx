@@ -14,7 +14,6 @@ function Member() {
   const goPage = useNavigate();
   // 사용시: goPage(라우터주소,state변수)
 
-
   // [ 상태관리변수 ] /////////////
   // [1] 입력요소 상태변수
   // 1. 아이디변수
