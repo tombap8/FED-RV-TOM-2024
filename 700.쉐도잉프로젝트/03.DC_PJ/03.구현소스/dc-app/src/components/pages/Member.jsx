@@ -9,6 +9,9 @@ import { Link, useNavigate } from "react-router-dom";
 // 로컬스토리지 생성 JS ////
 import { initData } from "../../js/func/mem_fn";
 
+// 제이쿼리 불러오기 ////
+import $ from "jquery";
+
 function Member() {
   // 라우터이동 객체 생성하기 ///
   const goPage = useNavigate();
@@ -236,7 +239,6 @@ function Member() {
       chkPwd &&
       userName &&
       email &&
-      addr &&
       !userIdError &&
       !pwdError &&
       !chkPwdError &&
@@ -471,7 +473,9 @@ function Member() {
               }
             </li>
             <li style={{ overflow: "hidden" }}>
-              <button className="sbtn">Submit</button>
+              <button className="sbtn" onClick={onSubmit}>
+                Submit
+              </button>
             </li>
             <li>
               Are you already a Member?
