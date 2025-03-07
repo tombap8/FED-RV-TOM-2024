@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 // 제이쿼리 불러오기 //////
 import $ from "jquery";
+import SwiperBan from "../plugin/SwiperBan";
 
 function Fashion() {
   // 라우터 전달객체 받기 ///
@@ -38,11 +39,10 @@ function Fashion() {
   // 리턴 코드 구역 ////////////////
   return (
     <>
-      <div className="page">
-        <h1 style={{ fontSize: "5vw", marginTop: "40vh" }}>
-          나는 {catName}패션 페이지입니다!
-        </h1>
-      </div>
+      {/* 1. 배너영역 */}
+      <section id="ban" className="page">
+        <SwiperBan catName={catName} />
+      </section>
     </>
   );
 }

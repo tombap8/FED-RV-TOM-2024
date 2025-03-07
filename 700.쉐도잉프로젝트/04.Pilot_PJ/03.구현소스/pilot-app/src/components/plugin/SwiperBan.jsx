@@ -14,29 +14,34 @@ import "./css/swiper_ban.scss";
 // (여기서는 페이지네이션, 네비게이션,자동넘김)
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
-export default function SwiperBan() {
+export default function SwiperBan({ catName }) {
+  // catName - 카테고리 분류명
+
   // 리스트만들기 함수 ////
   const makeList = (num) => {
-    // num
+    // num - 슬라이드 개수
     let temp = [];
     for (let x = 0; x < num; x++) {
       temp[x] = (
         <SwiperSlide key={x}>
-          {props.cat == "men" && x == 2 ? (
-            <video
-              src={"/images/sub/" + props.cat + "/banner/cgv.mp4"}
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-              muted
-              loop
-              autoPlay
-            />
-          ) : (
-            <img
-              src={
-                "/images/sub/" + props.cat + "/banner/ban" + (x + 1) + ".png"
-              }
-            />
-          )}
+          {
+            // 남성일 경우 세번째 슬라이드 동영상임
+            catName == "men" && x == 2 ? (
+              <video
+                src={"/images/sub/" + catName + "/banner/cgv.mp4"}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                muted
+                loop
+                autoPlay
+              />
+            ) : (
+              <img
+                src={
+                  "/images/sub/" + catName + "/banner/ban" + (x + 1) + ".png"
+                }
+              />
+            )
+          }
         </SwiperSlide>
       );
     } /////////// for /////////////
@@ -50,9 +55,9 @@ export default function SwiperBan() {
     <>
       <Swiper
         // 한번에 보여줄 슬라이드수
-        slidesPerView={3}
+        slidesPerView={1}
         // 슬라이드 사이 간격(단위없는 px수)
-        spaceBetween={30}
+        spaceBetween={0}
         // 양쪽이동 네이게이션 사용여부(모듈import필수!)
         navigation={true}
         // 블릿표시 페이지네이션 사용여부(모듈import필수!)
@@ -61,7 +66,7 @@ export default function SwiperBan() {
         }}
         // 자동넘김 기능 모듈 셋팅
         autoplay={{
-          delay: 2500, // 대기시간 2.5초
+          delay: 3000, // 대기시간 3초
           disableOnInteraction: false, // 인터렉션 없앰속성 false
           // -> 인터렉션을 살려놔야 터치후 다시 자동넘김 작동함!
         }}
@@ -72,12 +77,8 @@ export default function SwiperBan() {
         className="mySwiper"
       >
         {
-          // 배열이미지 이름만큼 반복하여 슬라이드 생성!
-          imgArr.map((v, i) => (
-            <SwiperSlide key={i}>
-              <img src={"./images/" + v + ".jpg"} alt="list image" />
-            </SwiperSlide>
-          ))
+          // 리스트 개수를 카테고리별로 조정
+          makeList(catName === "style" ? 5 : 3)
         }
       </Swiper>
     </>
