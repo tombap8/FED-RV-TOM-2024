@@ -299,7 +299,25 @@ function Member() {
                 type="password"
                 maxLength="20"
                 placeholder="Please enter your Confirm Password"
+                value={chkPwd}
+                onChange={changeChkPwd}
+                onBlur={changeChkPwd}
               />
+              {
+                // 에러일 경우 메시지 출력
+                // 조건문 && 출력요소
+                chkPwdError && 
+                <div className="msg">
+                  <small 
+                    style={{
+                      color: "red",
+                      fontSize: "10px",
+                    }}
+                  >
+                    {msgEtc.confPwd}
+                  </small>
+                </div>
+              }
             </li>
             <li>
               <label>User Name : </label>
