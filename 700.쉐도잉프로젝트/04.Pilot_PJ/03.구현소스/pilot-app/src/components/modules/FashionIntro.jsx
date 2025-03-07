@@ -1,8 +1,8 @@
 // Pilot PJ - 패션인트로 컴포넌트 ////////
 
 // 컨텍스트 API 불러오기
-// import { useContext } from "react";
-// import { pCon } from "./PilotContext";
+import { useContext } from "react";
+import { pCon } from "./PilotContext";
 
 // 패션 인트로 데이터 불러오기
 import { fsData } from "../../js/data/fashion_intro";
@@ -16,7 +16,7 @@ export function FashionIntro({ cat, subcat }) {
   // subcat - 서브페이지 분류명
 
   // 컨텍스트 사용
-  // const myCon = useContext(pCon);
+  const myCon = useContext(pCon);
   // pCon에 Provider value 속성에 공개한 변수/함수를 사용함!
 
   // 선택데이터
@@ -59,7 +59,7 @@ export function FashionIntro({ cat, subcat }) {
         {subcat === "etc" && (
           <li className="txtc">
             {cat != "style" && (
-              <h2>
+              <h2 onClick={()=>myCon.setCatName(cat)}>
                 <Link to="/fashion" state={{ catName: cat }}>
                   {selData.tit[0]} <br />
                   {selData.tit[1]}
@@ -68,13 +68,15 @@ export function FashionIntro({ cat, subcat }) {
             )}
             {cat == "style" && (
               <>
-                <h2 className="tm">
+                <h2 className="tm" 
+                onClick={()=>myCon.setCatName(cat)}>
                   <Link to="/fashion" state={{ catName: cat }}>
                     {selData.tit[0][0]} <br />
                     {selData.tit[0][1]}
                   </Link>
                 </h2>
-                <h2 className="tw">
+                <h2 className="tw" 
+                onClick={()=>myCon.setCatName(cat)}>
                   <Link to="/fashion" state={{ catName: cat }}>
                     {selData.tit[1][0]} <br />
                     {selData.tit[1][1]}

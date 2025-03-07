@@ -5,7 +5,7 @@ import { gnbData } from "../../js/data/gnb";
 
 // 전체메뉴 컴포넌트 불러오기
 
-export default function TopArea() {
+export default function TopArea({catName}) {
 
    /// GNB메뉴 리스트 만들기 함수
    const makeList = (dataName) => {
@@ -36,7 +36,7 @@ export default function TopArea() {
           <nav className="gnb">
             <ul>
               <li className="bld">배너순번 li 숨기기</li>
-              {makeList('main')}
+              {makeList(catName)}
             </ul>
           </nav>
           <div className="ham">
