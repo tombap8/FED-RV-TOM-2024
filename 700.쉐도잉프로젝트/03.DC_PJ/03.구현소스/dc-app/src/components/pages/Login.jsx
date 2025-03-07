@@ -252,7 +252,9 @@ function Login() {
               }
             </li>
             <li style={{ overflow: "hidden" }}>
-              <button className="sbtn">Submit</button>
+              <button className="sbtn" onClick={onSubmit}>
+                Submit
+                </button>
             </li>
           </ul>
         </form>
