@@ -325,7 +325,25 @@ function Member() {
                 type="text"
                 maxLength="20"
                 placeholder="Please enter your Name"
+                value={userName}
+                onChange={changeUserName}
+                onBlur={changeUserName}
               />
+              {
+                // 에러일 경우 메시지 출력
+                // 조건문 && 출력요소
+                userNameError && 
+                <div className="msg">
+                  <small 
+                    style={{
+                      color: "red",
+                      fontSize: "10px",
+                    }}
+                  >
+                    {msgEtc.req}
+                  </small>
+                </div>
+              }
             </li>
             <li>
               <label>Address</label>
