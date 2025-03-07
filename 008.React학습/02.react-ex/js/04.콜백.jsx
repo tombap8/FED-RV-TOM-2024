@@ -9,18 +9,27 @@ function MarkLike() {
   const [lee, setLee] = React.useState(false);
 
   // [기존 useCallback사용 안한 일반함수] ///
-  const toggleSon = () => {
-    setSon(!son);
-  };
-  const toggleDanaka = () => {
-    setDanaka(!danaka);
-  };
-  const toggleLee = () => {
-    setLee(!lee);
-  };
+  //   const toggleSon = () => {
+  //     setSon(!son);
+  //   };
+  //   const toggleDanaka = () => {
+  //     setDanaka(!danaka);
+  //   };
+  //   const toggleLee = () => {
+  //     setLee(!lee);
+  //   };
 
   // 상태관리변수를 업데이트 하는 함수 ///
   // useCallback()을 사용하여 변경시에만 업데이트함!
+  const toggleSon = React.useCallback(() => {
+    setSon(!son);
+  }, [son]);
+  const toggleDanaka = React.useCallback(() => {
+    setDanaka(!danaka);
+  }, [danaka]);
+  const toggleLee = React.useCallback(() => {
+    setLee(!lee);
+  }, [lee]);
 
   /*********************************************** 
         [ 리액트 성능 최적화를 위한 문제인식!!! ]
@@ -63,7 +72,7 @@ function MarkLike() {
 
 /////////////////////////////////////
 /// [ 좋아요 서브 컴포넌트 ] /////////
-const ShowLike = ({ name, sts, fn }) => {
+const ShowLike = React.memo(({ name, sts, fn }) => {
   console.log("ShowLike컴포넌트 랜더링");
   // name - 선수명 / sts - 상태변수 / fn - 변경함수
   console.log({ name, sts });
@@ -75,7 +84,7 @@ const ShowLike = ({ name, sts, fn }) => {
       </button>
     </div>
   );
-}; ///////// ShowLike 컴포넌트 /////////////
+}); ///////// ShowLike 컴포넌트 /////////////
 // 호출되는 컴포넌트가 매번 리랜더링되므로
 // 메인 컴포넌트의 useCallback처리된 함수도
 // 매번 새로 그려짐! 그래서 효과가 없다!
