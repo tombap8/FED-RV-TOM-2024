@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 // 컨텍스트 API 불러오기
-import { pCon } from "../modules/PilotContext";
+import { pCon } from "../modules/pilotContext";
 
 import FooterArea from "./FooterArea";
 import MainArea from "./MainArea";

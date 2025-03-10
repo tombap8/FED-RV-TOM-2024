@@ -2,7 +2,7 @@
 
 // 컨텍스트 API 불러오기
 import { useContext } from "react";
-import { pCon } from "./PilotContext";
+import { pCon } from "./pilotContext";
 
 // 패션 인트로 데이터 불러오기
 import { fsData } from "../../js/data/fashion_intro";
