@@ -32,6 +32,19 @@ export default function Layout() {
     setLoginMsg(`Welcome ${name} ${usrIcon[rdm]}`);
   }; ///////// makeMsg /////////////
 
+  // [3] 로그아웃 함수 /////////////
+  const logoutFn = () => {
+    // (1) 로그인 상태값 null
+    setLoginSts(null);
+    // (2) 세션스 지우기 : minfo
+    sessionStorage.removeItem('minfo');
+    // (3) 로그인 메시지 초기화
+    setLoginMsg(null);
+    // (4) 메인 페이지로 돌아가기
+    goPage("/");
+
+  }; ////////// logoutFn //////////
+
   /// 리턴 코드구역 ////////
   return (
     // 컨텍스트API Provider 에서
