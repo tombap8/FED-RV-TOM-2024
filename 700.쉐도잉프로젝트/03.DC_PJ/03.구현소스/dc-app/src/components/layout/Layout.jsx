@@ -1,7 +1,7 @@
 /// 레이아웃 컴포넌트 : Layout.jsx /////
 
-// 컨텍스트 API 로 전역변수구역 설정하기! ////
 import { useState } from "react";
+// 컨텍스트 API 로 전역변수구역 설정하기! ////
 import { dCon } from "../modules/dCon";
 
 import FooterArea from "./FooterArea";
@@ -42,6 +42,7 @@ export default function Layout() {
         setLoginSts, // 로그인상태 setter
         loginMsg, // 로그인메시지 getter
         makeMsg, // 로그인메시지 생성함수
+        goPage, // 라우터 이동함수
       }}
     >
       {/* 1. 상단영역 :  
