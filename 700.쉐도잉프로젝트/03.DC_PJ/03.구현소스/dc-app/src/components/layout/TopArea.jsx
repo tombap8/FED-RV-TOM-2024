@@ -17,7 +17,14 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 // 제이쿼리 불러오기 ////
 import $ from "jquery";
 
-export default function TopArea() {
+export default function TopArea({loginMsg, loginSts}) {
+  // 전달값
+  // 1. loginMsg - 로그인 메시지 변수 getter
+  // 2. loginSts - 로그인 상태 변수 getter
+
+  console.log("상단영역 랜더링!!!");
+
+
   // [ 라우터 이동함수 객체 생성하기 ] ////
   const goPage = useNavigate();
   // 사용시 goPage(라우터주소, {전달객체})
@@ -79,7 +86,7 @@ export default function TopArea() {
       {/* 1.상단영역 */}
       <header className="top-area">
         {/* 로그인 환영메시지 박스 */}
-        <div className="logmsg"></div>
+        <div className="logmsg">{loginMsg}</div>
         {/* 네비게이션 GNB파트 */}
         <nav className="gnb">
           <ul>

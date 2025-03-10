@@ -38,14 +38,23 @@ export default function Layout() {
     // value속성에 등록하면 전역사용가능해짐!
     <dCon.Provider
       value={{
-        loginSts,
-        setLoginSts,
-        loginMsg,
-        makeMsg,
+        loginSts, // 로그인상태 getter
+        setLoginSts, // 로그인상태 setter
+        loginMsg, // 로그인메시지 getter
+        makeMsg, // 로그인메시지 생성함수
       }}
     >
-      <TopArea />
+      {/* 1. 상단영역 :  
+        메모이제이션을 위해 직접값전달! */}
+      <TopArea
+        // (1) 로그인 메시지 getter
+        loginMsg={loginMsg}
+        // (2) 로그인 상태 getter
+        loginSts={loginSts}
+      />
+      {/* 2. 메인영역 */}
       <MainArea />
+      {/* 3. 하단영역 */}
       <FooterArea />
     </dCon.Provider>
   );
