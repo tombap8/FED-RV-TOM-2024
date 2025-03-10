@@ -43,6 +43,17 @@ function Fashion() {
       <section id="ban" className="page">
         <SwiperBan catName={catName} />
       </section>
+      {/* 2. 신상품영역 */}
+      <section id="c1" 
+      className={"cont sc-ani c1 "+catName}
+      style={{
+        position: 'relative',
+        zIndex: '999'
+      }}
+      >
+        {/* 신상품 모듈 */}
+        
+      </section>
     </>
   );
 }
