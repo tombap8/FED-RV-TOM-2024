@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 // 제이쿼리 불러오기 //////
 import $ from "jquery";
 import SwiperBan from "../plugin/SwiperBan";
+import SinSang from "../modules/SinSang";
 
 function Fashion() {
   // 라우터 전달객체 받기 ///
@@ -52,7 +53,7 @@ function Fashion() {
       }}
       >
         {/* 신상품 모듈 */}
-        
+        <SinSang catName={catName} />
       </section>
     </>
   );
