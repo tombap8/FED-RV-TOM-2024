@@ -17,10 +17,11 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 // 제이쿼리 불러오기 ////
 import $ from "jquery";
 
-export default function TopArea({ loginMsg, loginSts }) {
+export default function TopArea({ loginMsg, loginSts, logoutFn }) {
   // 전달값
   // 1. loginMsg - 로그인 메시지 변수 getter
   // 2. loginSts - 로그인 상태 변수 getter
+  // 3. logoutFn - 로그아웃 처리함수
 
   console.log("상단영역 랜더링!!!");
 
@@ -181,7 +182,7 @@ export default function TopArea({ loginMsg, loginSts }) {
                       // 기본이동막기
                       e.preventDefault();
                       // 로그아웃 처리함수 호출
-                      로그아웃함수();
+                      logoutFn();
                     }}
                   >LOGOUT</a>
                 </li>

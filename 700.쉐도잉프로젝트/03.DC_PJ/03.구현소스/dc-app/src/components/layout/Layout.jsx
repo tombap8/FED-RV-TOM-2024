@@ -56,6 +56,7 @@ export default function Layout() {
         loginMsg, // 로그인메시지 getter
         makeMsg, // 로그인메시지 생성함수
         goPage, // 라우터 이동함수
+        logoutFn, // 로그아웃 함수
       }}
     >
       {/* 1. 상단영역 :  
@@ -65,6 +66,8 @@ export default function Layout() {
         loginMsg={loginMsg}
         // (2) 로그인 상태 getter
         loginSts={loginSts}
+        // (3) 로그아웃 함수
+        logoutFn={logoutFn}
       />
       {/* 2. 메인영역 */}
       <MainArea />
