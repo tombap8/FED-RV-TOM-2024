@@ -1,8 +1,5 @@
 // Pilot PJ - 패션인트로 컴포넌트 ////////
 
-// 컨텍스트 API 불러오기
-import { useContext } from "react";
-import { pCon } from "./pilotContext";
 
 // 패션 인트로 데이터 불러오기
 import { fsData } from "../../js/data/fashion_intro";
@@ -10,6 +7,10 @@ import { fsData } from "../../js/data/fashion_intro";
 // 패션 인트로 CSS 불러오기
 import "../../css/fashion_intro.scss";
 import { Link } from "react-router-dom";
+
+// 컨텍스트 API 불러오기
+import { useContext } from "react";
+import { pCon } from "./pCon";
 
 export function FashionIntro({ cat, subcat }) {
   // cat - 카테고리 분류명

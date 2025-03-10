@@ -1,6 +1,6 @@
 // Pilot PJ 메인 페이지 컴포넌트 - Main.jsx
 
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 
 // 자동스크롤 기능 JS 불러오기 ///
 import * as autoFn from "../../js/func/jquery-autoScroll";
@@ -13,10 +13,18 @@ import { FashionIntro } from "../modules/FashionIntro";
 
 // 제이쿼리 불러오기 //////
 import $ from "jquery";
+import { pCon } from "../modules/pCon";
 
 function Main() {
+  // 컨텍스트 API 사용하기 ////
+  const myCon = useContext(pCon);
+
+
   // 컴포넌트 로딩후 실행구역 : 한번만 (빈의존성[]) /////
   useEffect(() => {   
+    // 메인페이지 로딩후 한번실행에서
+    // 메뉴 변경 상태변수를 업데이트 함!
+    myCon.setCatName('main');
 
     // 스크롤바 없애기 ///
     $('html,body').css({overflow:'hidden'});
