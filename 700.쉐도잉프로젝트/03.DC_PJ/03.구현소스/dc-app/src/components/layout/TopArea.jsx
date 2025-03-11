@@ -16,8 +16,9 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 // 제이쿼리 불러오기 ////
 import $ from "jquery";
+import { memo } from "react";
 
-export default function TopArea({ loginMsg, loginSts, logoutFn }) {
+export const TopArea = memo(({ loginMsg, loginSts, logoutFn }) => {
   // 전달값
   // 1. loginMsg - 로그인 메시지 변수 getter
   // 2. loginSts - 로그인 상태 변수 getter
@@ -195,4 +196,4 @@ export default function TopArea({ loginMsg, loginSts, logoutFn }) {
       </header>
     </>
   );
-} //////////// TopArea 컴포넌트 ///////////
+}) //////////// TopArea 컴포넌트 ///////////
