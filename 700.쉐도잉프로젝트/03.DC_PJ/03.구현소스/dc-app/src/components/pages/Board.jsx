@@ -75,7 +75,14 @@ function Board() {
                   <tr>
                     <td>{i + 1}</td>
                     <td>
-                      <a href="#">{v.tit}</a>
+                      <a href="#" onClick={e=>{
+                        // 기본이동막기
+                        e.preventDefault();
+                        // 글보기모드('R')로 변경하기
+                        setMode('R');
+                      }}>
+                        {v.tit}
+                      </a>
                     </td>
                     <td>{v.unm}</td>
                     <td>{v.date}</td>
@@ -90,6 +97,75 @@ function Board() {
                 <tr>
                   <td>
                     <button>Write</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </main>
+        )
+      }
+
+      {
+        // [2] 보기모드 출력하기 : mode -> "R" ///
+        mode === "R" && (
+          <main className="cont">
+            <h1 className="tit">OPINION</h1>
+            <table className="dtblview readone">
+              <caption>OPINION : Read</caption>
+              <tbody>
+                <tr>
+                  <td>Name</td>
+                  <td>
+                    <input
+                      type="text"
+                      className="name"
+                      size="20"
+                      readonly=""
+                      value="Tom"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Title</td>
+                  <td>
+                    <input
+                      type="text"
+                      className="subject"
+                      size="60"
+                      readonly=""
+                      value="오늘나는 좋아~!"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Content</td>
+                  <td>
+                    <textarea
+                      className="content"
+                      cols="60"
+                      rows="10"
+                      readonly=""
+                    >
+                      너는 누구니? 난 좋아~! ㅎㅎㅎㅎㅎ
+                    </textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Attachment</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table className="dtbl btngrp">
+              <tbody>
+                <tr>
+                  <td>
+                    <button onClick={()=>{
+                        // 리스트 모드('L')로 변경하기
+                        setMode('L');
+                      }}>List</button>
+                    <button>Modify</button>
                   </td>
                 </tr>
               </tbody>
