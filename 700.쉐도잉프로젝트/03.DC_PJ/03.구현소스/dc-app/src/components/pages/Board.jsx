@@ -8,6 +8,8 @@ import "../../css/pages/board.scss";
 
 // 로컬스토리지 확용 JS ////
 import { initBoardData } from "../../js/func/board_fn";
+import List from "../modules/board/List";
+import Read from "../modules/board/Read";
 
 function Board() {
   // [ 후크 상태관리 변수구역 ] ///////////////
@@ -40,138 +42,14 @@ function Board() {
     <>
       {
         // [1] 리스트 모드 출력하기 : mode -> "L" ////
-        mode === "L" && (
-          <main className="cont">
-            <h1 className="tit">OPINION</h1>
-            <div className="selbx">
-              <select name="cta" id="cta" className="cta">
-                <option value="tit">Title</option>
-                <option value="cont">Contents</option>
-                <option value="unm">Writer</option>
-              </select>
-              <select name="sel" id="sel" className="sel">
-                <option value="0">Descending</option>
-                <option value="1">Ascending</option>
-              </select>
-              <input id="stxt" type="text" maxlength="50" />
-              <button className="sbtn">Search</button>
-              <select name="sort_cta" id="sort_cta" className="sort_cta">
-                <option value="idx">Recent</option>
-                <option value="tit">Title</option>
-              </select>
-            </div>
-            <table className="dtbl" id="board">
-              <thead>
-                <tr>
-                  <th>Number</th>
-                  <th>Title</th>
-                  <th>Writer</th>
-                  <th>Date</th>
-                  <th>Hits</th>
-                </tr>
-              </thead>
-              <tbody>
-                {selData.map((v, i) => (
-                  <tr>
-                    <td>{i + 1}</td>
-                    <td>
-                      <a href="#" onClick={e=>{
-                        // 기본이동막기
-                        e.preventDefault();
-                        // 글보기모드('R')로 변경하기
-                        setMode('R');
-                      }}>
-                        {v.tit}
-                      </a>
-                    </td>
-                    <td>{v.unm}</td>
-                    <td>{v.date}</td>
-                    <td>{v.cnt}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <br />
-            <table className="dtbl btngrp">
-              <tbody>
-                <tr>
-                  <td>
-                    <button>Write</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </main>
-        )
+        mode === "L" && 
+        <List selData={selData} setMode={setMode} />
       }
 
       {
         // [2] 보기모드 출력하기 : mode -> "R" ///
-        mode === "R" && (
-          <main className="cont">
-            <h1 className="tit">OPINION</h1>
-            <table className="dtblview readone">
-              <caption>OPINION : Read</caption>
-              <tbody>
-                <tr>
-                  <td>Name</td>
-                  <td>
-                    <input
-                      type="text"
-                      className="name"
-                      size="20"
-                      readonly=""
-                      value="Tom"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Title</td>
-                  <td>
-                    <input
-                      type="text"
-                      className="subject"
-                      size="60"
-                      readonly=""
-                      value="오늘나는 좋아~!"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Content</td>
-                  <td>
-                    <textarea
-                      className="content"
-                      cols="60"
-                      rows="10"
-                      readonly=""
-                    >
-                      너는 누구니? 난 좋아~! ㅎㅎㅎㅎㅎ
-                    </textarea>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Attachment</td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-            <br />
-            <table className="dtbl btngrp">
-              <tbody>
-                <tr>
-                  <td>
-                    <button onClick={()=>{
-                        // 리스트 모드('L')로 변경하기
-                        setMode('L');
-                      }}>List</button>
-                    <button>Modify</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </main>
-        )
+        mode === "R" && 
+        <Read setMode={setMode} />
       }
     </>
   );
