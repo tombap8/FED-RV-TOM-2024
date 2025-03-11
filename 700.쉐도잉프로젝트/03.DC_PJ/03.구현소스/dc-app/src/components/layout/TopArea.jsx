@@ -1,6 +1,6 @@
 /// 상단영역 컴포넌트 : TopArea.jsx /////
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // GNB 데이터 불러오기 ////////
 import { menu } from "../../js/data/gnb";
@@ -18,7 +18,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import $ from "jquery";
 import { memo } from "react";
 
-// 상단영역 메모이제이션을 위한 주의사항 ///
+// [상단영역 메모이제이션을 위한 주의사항] ///
 // 1. 컨텍스트API를 사용하지 말것!
 // 2. 라우터이동함수를 직접사용하지 말것!
 // 3. 전달하는 함수를 콜백처리 할것!
@@ -34,6 +34,7 @@ export const TopArea = memo(({ loginMsg, loginSts, logoutFn, goPage }) => {
 
   // [ 라우터 이동함수 객체 생성하기 ] ////
   // const goPage = useNavigate();
+  // -> 메모이제이션을 위해 직접이동함수 쓰지말것!
 
   // 사용시 goPage(라우터주소, {전달객체})
   // 전달객체가 없으면 쓰지 않는다!
@@ -203,4 +204,4 @@ export const TopArea = memo(({ loginMsg, loginSts, logoutFn, goPage }) => {
       </header>
     </>
   );
-}) //////////// TopArea 컴포넌트 ///////////
+}); //////////// TopArea 컴포넌트 ///////////
