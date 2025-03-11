@@ -80,6 +80,8 @@ export default function Layout() {
         loginSts={loginSts}
         // (3) 로그아웃 함수
         logoutFn={logoutFn}
+        // (4) 라우터 이동함수
+        goPage={goPage}
       />
       {/* 2. 메인영역 */}
       <MainArea />

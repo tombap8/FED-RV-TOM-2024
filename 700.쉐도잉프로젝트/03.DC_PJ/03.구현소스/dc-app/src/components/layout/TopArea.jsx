@@ -18,16 +18,23 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import $ from "jquery";
 import { memo } from "react";
 
-export const TopArea = memo(({ loginMsg, loginSts, logoutFn }) => {
+// 상단영역 메모이제이션을 위한 주의사항 ///
+// 1. 컨텍스트API를 사용하지 말것!
+// 2. 라우터이동함수를 직접사용하지 말것!
+// 3. 전달하는 함수를 콜백처리 할것!
+// 4. 메모처리하는 컴포넌트로 만들것!
+export const TopArea = memo(({ loginMsg, loginSts, logoutFn, goPage }) => {
   // 전달값
   // 1. loginMsg - 로그인 메시지 변수 getter
   // 2. loginSts - 로그인 상태 변수 getter
   // 3. logoutFn - 로그아웃 처리함수
+  // 4. goPage - 라우터 이동함수
 
   console.log("상단영역 랜더링!!!");
 
   // [ 라우터 이동함수 객체 생성하기 ] ////
-  const goPage = useNavigate();
+  // const goPage = useNavigate();
+
   // 사용시 goPage(라우터주소, {전달객체})
   // 전달객체가 없으면 쓰지 않는다!
   // 사용법 : 반드시 useNavigate() 생성자메서드를 변수에 할당
