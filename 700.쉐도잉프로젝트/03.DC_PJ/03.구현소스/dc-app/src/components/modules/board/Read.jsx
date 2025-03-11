@@ -2,8 +2,12 @@
 
 import React from 'react';
 
-function Read({setMode}) {
+function Read({setMode, selRecord}) {
     // setMode - 모든 변경 상태변수 setter
+    // selRecord - 선택데이터 참조변수
+
+    // 선택된 참조변수 데이터 넣기
+    const selData = selRecord.current;
 
     // 리턴 코드구역 ///////////////////
     return (
@@ -19,8 +23,8 @@ function Read({setMode}) {
                       type="text"
                       className="name"
                       size="20"
-                      readonly=""
-                      value="Tom"
+                      readOnly=""
+                      defaultValue={selData.unm}
                     />
                   </td>
                 </tr>
@@ -31,8 +35,8 @@ function Read({setMode}) {
                       type="text"
                       className="subject"
                       size="60"
-                      readonly=""
-                      value="오늘나는 좋아~!"
+                      readOnly=""
+                      defaultValue={selData.tit}
                     />
                   </td>
                 </tr>
@@ -43,9 +47,10 @@ function Read({setMode}) {
                       className="content"
                       cols="60"
                       rows="10"
-                      readonly=""
+                      readOnly=""
+                      defaultValue={selData.cont}
                     >
-                      너는 누구니? 난 좋아~! ㅎㅎㅎㅎㅎ
+                      
                     </textarea>
                   </td>
                 </tr>

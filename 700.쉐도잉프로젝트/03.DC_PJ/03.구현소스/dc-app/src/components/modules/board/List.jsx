@@ -2,9 +2,10 @@
 
 import React from 'react';
 
-function List({selData, setMode}) {
+function List({selData, setMode, selRecord}) {
     // selData - 선택된 배열데이터 전달
     // setMode - 모든 변경 상태변수 setter
+    // selRecord - 선택데이터 참조변수
 
     // 리턴 코드구역 ////////////////////
     return (
@@ -20,7 +21,7 @@ function List({selData, setMode}) {
                 <option value="0">Descending</option>
                 <option value="1">Ascending</option>
               </select>
-              <input id="stxt" type="text" maxlength="50" />
+              <input id="stxt" type="text" maxLength="50" />
               <button className="sbtn">Search</button>
               <select name="sort_cta" id="sort_cta" className="sort_cta">
                 <option value="idx">Recent</option>
@@ -39,7 +40,7 @@ function List({selData, setMode}) {
               </thead>
               <tbody>
                 {selData.map((v, i) => (
-                  <tr>
+                  <tr key={i}>
                     <td>{i + 1}</td>
                     <td>
                       <a href="#" onClick={e=>{
@@ -47,6 +48,8 @@ function List({selData, setMode}) {
                         e.preventDefault();
                         // 글보기모드('R')로 변경하기
                         setMode('R');
+                        // 해당 데이터 참조변수에 저장하기
+                        selRecord.current = v;
                       }}>
                         {v.tit}
                       </a>
