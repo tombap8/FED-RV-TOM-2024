@@ -2,7 +2,7 @@
 
 // 컨텍스트 API 불러오기
 import { useContext } from "react";
-import { pCon } from "./PilotContext";
+import { pCon } from "./pCon";
 
 export function TotalMenu() {
 
@@ -12,7 +12,7 @@ export function TotalMenu() {
 
   // 메뉴 이동 처리함수 ///
   const goPage = (txt) => {
-    myCon.chgPgName(txt);
+    myCon.setCatName(txt);
     // 전체박스 숨기기
     document.querySelector('.ham').click();
   }; //////// goPage 메서드 ///////////
