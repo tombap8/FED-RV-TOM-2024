@@ -6,8 +6,12 @@ import { bmData } from "../../js/data/bmenu";
 // 하단영역 CSS 불러오기 ////
 import '../../css/common/footer_area.scss';
 import Logo from "../modules/Logo";
+import { memo } from "react";
 
-export default function FooterArea() {
+// React.memo() 를 사용한 컴포넌트 메모이제이션
+// -> 컴포넌트를 할당형으로 변경한다!!!
+export const FooterArea = memo(() => {
+  console.log('하단영역 랜더링!!!');
   /// 리턴 코드구역 ////////
   return (
     <footer className="info">
@@ -37,4 +41,4 @@ export default function FooterArea() {
       </ul>
     </footer>
   );
-} //////////// FooterArea 컴포넌트 ///////////
+}); //////////// FooterArea 컴포넌트 ///////////

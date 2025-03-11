@@ -4,7 +4,7 @@ import { useState } from "react";
 // 컨텍스트 API 로 전역변수구역 설정하기! ////
 import { dCon } from "../modules/dCon";
 
-import FooterArea from "./FooterArea";
+import {FooterArea} from "./FooterArea";
 import MainArea from "./MainArea";
 import TopArea from "./TopArea";
 import { useNavigate } from "react-router-dom";
