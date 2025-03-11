@@ -4,9 +4,9 @@ import { useState } from "react";
 // 컨텍스트 API 불러오기
 import { pCon } from "../modules/pCon";
 
-import FooterArea from "./FooterArea";
+import {FooterArea} from "./FooterArea";
 import MainArea from "./MainArea";
-import TopArea from "./TopArea";
+import {TopArea} from "./TopArea";
 
 export default function Layout(){
 

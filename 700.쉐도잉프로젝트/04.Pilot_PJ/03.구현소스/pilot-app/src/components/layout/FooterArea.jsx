@@ -1,6 +1,11 @@
 /// 하단영역 컴포넌트 : FooterArea.jsx /////
 
-export default function FooterArea() {
+import { memo } from "react";
+
+// React.memo() 를 사용하여 메모이제이션 처리하기!
+export const FooterArea = memo(() => {
+  console.log("하단영역 랜더링!!!");
+
   /// 리턴 코드구역 ////////
   return (
     <footer id="info" className="page">
@@ -25,4 +30,4 @@ export default function FooterArea() {
       </address>
     </footer>
   );
-} //////////// FooterArea 컴포넌트 ///////////
+}) //////////// FooterArea 컴포넌트 ///////////
