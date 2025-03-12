@@ -30,26 +30,38 @@ function Write({ setMode }) {
 
     // (2) 서브밋 처리하기 //////
     else {
-        // 1) 글번호 만들기
-        // 1-1) 로컬스토리지 게시판 데이터 불러오기
-        let localData = localStorage.getItem('board-data');
-        // 1-2) JSON.parse()로 배열객체로 변환
-        localData = JSON.parse(localData);
-        // 1-3) 배열 데이터 idx값 읽어오기
-        let totalIdx = localData.map(v=>v.idx);
-        console.log('idx만 배열:',totalIdx);
+      // 1) 글번호 만들기 ////////////
+      // 1-1) 로컬스토리지 게시판 데이터 불러오기
+      let localData = localStorage.getItem("board-data");
 
-      // 오늘날짜 만들기
+      // 1-2) JSON.parse()로 배열객체로 변환
+      localData = JSON.parse(localData);
+
+      // 1-3) 배열 데이터 idx값 읽어오기
+      let totalIdx = localData.map((v) => v.idx);
+    //   console.log("idx만 배열:", totalIdx);
+
+      // 1-4) idx값 중 최대값 구하기 :
+      // 스프레드 연산자로 ...totalIdx -> 배열값만 max에 넣기
+      let maxIdx = Math.max(...totalIdx);
+    //   console.log("idx중 최대값:", maxIdx);
+
+      // 2) 오늘날짜 만들기 ///////////
       let today = new Date();
-      console.log(today);
+      //   console.log(today);
       // toJSON()은 제이슨 날짜형식변환(yyyy-MM-dd)
       // -> 앞의 10자리만 사용 : substr(시작순번,개수)
       today = today.toJSON().substr(0, 10);
-      console.log(today);
+      //   console.log(today);
 
-      // 입력할 객체 데이터 만들기
+      // [ idx 고유번호 만드는 방법 ] ///
+      // idx는 최대값 idx에 1을 더함
+      // 만약 문자형숫자일 경우를 대비하여
+      // Number() 숫자형변환함!
+
+      // 3) 입력할 객체 데이터 만들기
       let data = {
-        idx: 1,
+        idx: Number(maxIdx) + 1,
         tit: title,
         cont: content,
         att: "",
@@ -58,7 +70,12 @@ function Write({ setMode }) {
         unm: myCon.loginSts.unm,
         cnt: 0,
       };
+      console.log('입력데이터:',data);
+
+      // 4) 입력객체를 문자형변환하여 로컬스에 넣기
+
     } /// else /////
+
   }; ////////// submitFn 함수 //////////////
 
   // 리턴 코드구역 ///////////////////
