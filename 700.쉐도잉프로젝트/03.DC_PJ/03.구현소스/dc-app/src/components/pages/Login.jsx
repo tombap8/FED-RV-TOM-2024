@@ -156,9 +156,8 @@ function Login() {
             JSON.stringify(result));
 
           // 2. 컨텍스트 API의 로그인상태 업데이트
-          myCon.setLoginSts(
-            sessionStorage.getItem("minfo"));
-          // -> 업데이트된 minfo 세션스값을 넣음!
+          myCon.setLoginSts(result);
+          // -> 객체로된 사용자 정보를 담아준다!
 
           // 3. 로그인 환영메시지 셋팅함수 호출
           myCon.makeMsg(result.unm);
