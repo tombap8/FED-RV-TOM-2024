@@ -23,7 +23,7 @@ function Read({setMode, selRecord}) {
                       type="text"
                       className="name"
                       size="20"
-                      readOnly=""
+                      readOnly={true}
                       defaultValue={selData.unm}
                     />
                   </td>
@@ -35,7 +35,7 @@ function Read({setMode, selRecord}) {
                       type="text"
                       className="subject"
                       size="60"
-                      readOnly=""
+                      readOnly={true}
                       defaultValue={selData.tit}
                     />
                   </td>
@@ -47,7 +47,7 @@ function Read({setMode, selRecord}) {
                       className="content"
                       cols="60"
                       rows="10"
-                      readOnly=""
+                      readOnly={true}
                       defaultValue={selData.cont}
                     >
                       
