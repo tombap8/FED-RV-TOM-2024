@@ -12,7 +12,7 @@ function Read({ setMode, selRecord }) {
 
   // 전역 컨텍스트 API 사용하기!!
   const myCon = useContext(dCon);
-  console.log('Read에서 loginSts:',myCon.loginSts);
+  // console.log('Read에서 loginSts:',myCon.loginSts);
 
   // 리턴 코드구역 ///////////////////
   return (
