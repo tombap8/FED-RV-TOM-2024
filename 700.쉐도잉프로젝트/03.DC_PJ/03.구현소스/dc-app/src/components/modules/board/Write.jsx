@@ -39,12 +39,12 @@ function Write({ setMode }) {
 
       // 1-3) 배열 데이터 idx값 읽어오기
       let totalIdx = localData.map((v) => v.idx);
-    //   console.log("idx만 배열:", totalIdx);
+      //   console.log("idx만 배열:", totalIdx);
 
       // 1-4) idx값 중 최대값 구하기 :
       // 스프레드 연산자로 ...totalIdx -> 배열값만 max에 넣기
       let maxIdx = Math.max(...totalIdx);
-    //   console.log("idx중 최대값:", maxIdx);
+      //   console.log("idx중 최대값:", maxIdx);
 
       // 2) 오늘날짜 만들기 ///////////
       let today = new Date();
@@ -70,12 +70,17 @@ function Write({ setMode }) {
         unm: myCon.loginSts.unm,
         cnt: 0,
       };
-      console.log('입력데이터:',data);
+      console.log("입력데이터:", data);
 
-      // 4) 입력객체를 문자형변환하여 로컬스에 넣기
+      // 4) 입력 객체를 기존 로컬스 변환 객체에 추가하기
+      localData.push(data);
 
+      // 5) 입력객체를 문자형변환하여 로컬스에 넣기
+      localStorage.setItem("board-data", JSON.stringify(localData));
+
+      // 6) 리스트 이동을 위해 모드 변경하기
+      setMode("L");
     } /// else /////
-
   }; ////////// submitFn 함수 //////////////
 
   // 리턴 코드구역 ///////////////////
