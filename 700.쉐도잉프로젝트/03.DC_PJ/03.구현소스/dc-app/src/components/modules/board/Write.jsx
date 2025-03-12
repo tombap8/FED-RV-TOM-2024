@@ -3,7 +3,9 @@
 import React, { useContext } from "react";
 import { dCon } from "../dCon";
 
-function Write(props) {
+function Write({ setMode }) {
+  // setMode - 모든 변경 상태변수 setter
+
   // 전역 컨텍스트 API 사용하기!!
   const myCon = useContext(dCon);
   console.log("Write에서 loginSts:", myCon.loginSts);
@@ -52,7 +54,14 @@ function Write(props) {
           <tr>
             <td>
               <button>Submit</button>
-              <button>List</button>
+              <button
+                onClick={() => {
+                  // 리스트 모드('L')로 변경하기
+                  setMode("L");
+                }}
+              >
+                List
+              </button>
             </td>
           </tr>
         </tbody>
