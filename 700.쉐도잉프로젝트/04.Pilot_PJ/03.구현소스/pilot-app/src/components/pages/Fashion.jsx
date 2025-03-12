@@ -28,8 +28,6 @@ function Fashion() {
     // 스크롤바 생성하기 ///
     $('html,body').css({overflow:'visible'});
 
-    // 스크롤바 위치 최상위
-    window.scrollTo(0,0);
 
     // 홈버튼 첫 페이지로 이동기능 셋팅하기
     $("#logo a").on('click',(e) => {
@@ -39,6 +37,12 @@ function Fashion() {
     }); //////// click ////////
 
   },[]); //// useEffect : 한번만실행 ////////
+
+  // useEffect : state 변수 의존성 실행구역 //////
+  useEffect(()=>{
+    // 스크롤바 위치 최상위
+    window.scrollTo(0,0);
+  },[state]); ///// useEffect : state 변수 의존성 실행구역 ////////
 
   // 리턴 코드 구역 ////////////////
   return (

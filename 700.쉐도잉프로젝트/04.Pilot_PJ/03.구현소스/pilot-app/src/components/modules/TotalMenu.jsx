@@ -12,8 +12,11 @@ export function TotalMenu() {
 
   // 메뉴 클릭시 처리함수 ///
   const setPage = (catName) => { // catName 호출시 카테고리명
+    // (1) 카테고리명 상태변수 변경 : 상단메뉴 변경
+    myCon.setCatName(catName);
+    // (2) 이동 페이지 셋팅 : 라우터 이동
     myCon.goPage("/fashion",{state:{ catName: catName }})
-    // 전체박스 숨기기
+    // (3) 전체박스 숨기기
     document.querySelector('.ham').click();
   }; //////// setPage 메서드 ///////////
 
