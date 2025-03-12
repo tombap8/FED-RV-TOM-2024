@@ -38,11 +38,12 @@ function Fashion() {
 
   },[]); //// useEffect : 한번만실행 ////////
 
-  // useEffect : state 변수 의존성 실행구역 //////
+  // useEffect : state 변수 의존성 실행구역 시작 //////
   useEffect(()=>{
     // 스크롤바 위치 최상위
     window.scrollTo(0,0);
-  },[state]); ///// useEffect : state 변수 의존성 실행구역 ////////
+  },[state]); 
+  // useEffect : state 변수 의존성 실행구역 끝 ////////
 
   // 리턴 코드 구역 ////////////////
   return (
