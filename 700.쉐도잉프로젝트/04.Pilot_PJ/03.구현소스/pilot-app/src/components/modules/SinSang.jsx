@@ -143,14 +143,17 @@ function SinSang({ catName, chgItemFn }) {
     ele.css({ left: lpos.current + "px" });
 
     // 재귀호출
-    if (callSts.current) setTimeout(() => flowList(ele), 40);
+    if (callSts.current) {
+      // 0.04초 간격으로 자기자신 다시호출(재귀호출!)
+      setTimeout(() => flowList(ele), 40);
+    }
   }; ////////// flowList ////////////
 
   // 랜더링 후  한번만 실행구역 //////
   useEffect(() => {
     // 대상선정: .flist
     // 신상리스트이동함수 호출!
-    // flowList($(".flist"));
+    flowList($(".flist"));
   }, []); ////////// useEffect ////////
 
   // 리턴 코드구역 ////////////////////
@@ -160,22 +163,22 @@ function SinSang({ catName, chgItemFn }) {
         NEW {catName.toUpperCase()}'S ARRIVAL
         <button>전체리스트</button>
       </h2>
-      <div 
-      className="flowbx"
-      onMouseEnter={()=>{ // 마우스 들어오면 멈춤!
-        // 호출상태 변수 셋팅(0->false처리)
-        callSts.current = 0;
-      }}
-      onMouseLeave={()=>{ // 마우스 나가면 다시작동!
-        // 호출상태 변수 셋팅(1->true처리)
-        callSts.current = 1;
-        // 흘러가는 함수 재호출!
-        flowList($(".flist"));
-      }}
+      <div
+        className="flowbx"
+        onMouseEnter={() => {
+          // 마우스 들어오면 멈춤!
+          // 호출상태 변수 셋팅(0->false처리)
+          callSts.current = 0;
+        }}
+        onMouseLeave={() => {
+          // 마우스 나가면 다시작동!
+          // 호출상태 변수 셋팅(1->true처리)
+          callSts.current = 1;
+          // 흘러가는 함수 재호출!
+          flowList($(".flist"));
+        }}
       >
-        <ul className="flist">
-          {makeList()}
-        </ul>
+        <ul className="flist">{makeList()}</ul>
       </div>
     </>
   );
