@@ -76,7 +76,13 @@ function List({ selData, setMode, selRecord }) {
             <td>
               {
                 // 로그인상태일때만 쓰기버튼 보이기
-                myCon.loginSts && <button>Write</button>
+                myCon.loginSts && 
+                <button
+                  onClick={()=>{
+                    // 글쓰기 모드로 변경하기
+                    setMode("W");
+                  }}
+                >Write</button>
               }
             </td>
           </tr>

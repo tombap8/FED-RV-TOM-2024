@@ -10,6 +10,7 @@ import "../../css/pages/board.scss";
 import { initBoardData } from "../../js/func/board_fn";
 import List from "../modules/board/List";
 import Read from "../modules/board/Read";
+import Write from "../modules/board/Write";
 
 function Board() {
   // [ 후크 상태관리 변수구역 ] ///////////////
@@ -63,6 +64,15 @@ function Board() {
           <Read
             setMode={setMode} // 모드 상태변수 setter
             selRecord={selRecord} // 선택데이터 참조변수
+          />
+        )
+      }
+
+      {
+        // [3] 쓰기모드 출력하기 : mode -> "W" ///
+        mode === "W" && (
+          <Write
+            setMode={setMode} // 모드 상태변수 setter
           />
         )
       }
