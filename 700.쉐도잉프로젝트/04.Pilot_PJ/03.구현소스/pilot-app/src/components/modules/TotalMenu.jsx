@@ -10,12 +10,12 @@ export function TotalMenu() {
   const myCon = useContext(pCon);
   // pCon에 Provider value 속성에 공개한 변수/함수를 사용함!
 
-  // 메뉴 이동 처리함수 ///
-  const goPage = (txt) => {
-    myCon.setCatName(txt);
+  // 메뉴 클릭시 처리함수 ///
+  const setPage = (catName) => { // catName 호출시 카테고리명
+    myCon.goPage("/fashion",{state:{ catName: catName }})
     // 전체박스 숨기기
     document.querySelector('.ham').click();
-  }; //////// goPage 메서드 ///////////
+  }; //////// setPage 메서드 ///////////
 
   // 코드 리턴 //////////////////////
   return (
@@ -33,7 +33,7 @@ export function TotalMenu() {
               <a href="#" 
               onClick={(e)=>{
                 e.preventDefault();
-                goPage('men');
+                setPage('men');
               }}>MEN</a>
             </dt>
             <dd>
@@ -54,7 +54,7 @@ export function TotalMenu() {
               <a href="#" 
               onClick={(e)=>{
                 e.preventDefault();
-                goPage('women');
+                setPage('women');
               }}>WOMEN</a>
             </dt>
             <dd>
@@ -75,7 +75,7 @@ export function TotalMenu() {
               <a href="#" 
               onClick={(e)=>{
                 e.preventDefault();
-                goPage('style');
+                setPage('style');
               }}>STYLE</a>
             </dt>
             <dd>
