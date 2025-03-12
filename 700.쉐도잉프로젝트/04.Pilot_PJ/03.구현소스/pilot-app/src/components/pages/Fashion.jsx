@@ -3,6 +3,9 @@
 import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
+// 페이지 CSS 불러오기 ////
+import '../../css/fashion.scss';
+
 // 제이쿼리 불러오기 //////
 import $ from "jquery";
 import SwiperBan from "../plugin/SwiperBan";

@@ -9,10 +9,11 @@ import { sinsangData } from "../../js/data/sinsang";
 // 제이쿼리 불러오기 ////
 import $ from "jquery";
 
-function SinSang({ catName, chgItemFn }) {
+function SinSang({ catName, chgItemFn, setPos }) {
   // 전달값
   // (1) catName - 카테고리 분류명
   // (2) chgItemFn - 선택상품정보변경 부모함수
+  // (3) setPos - 부드러운 스크롤 위치값 변경함수
 
   // 신상품 리스트 이동함수 사용변수 ///
   // 위치값변수(left값) -> 리랜더링시 기존값을 유지하도록
@@ -59,7 +60,10 @@ function SinSang({ catName, chgItemFn }) {
               // setTimeout(()=>{
               console.log("요기요기");
               let pos = $(".bgbx").offset().top - 95;
-              setPos(pos);
+
+              // 부드러운 스크롤 top 위치값 업데이트!
+              // setPos(pos);
+
               $("html,body").animate({ scrollTop: pos + "px" }, 500);
               // },100);
             }}
