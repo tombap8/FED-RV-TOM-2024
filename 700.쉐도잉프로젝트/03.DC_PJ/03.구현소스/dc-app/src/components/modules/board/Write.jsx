@@ -3,12 +3,63 @@
 import React, { useContext } from "react";
 import { dCon } from "../dCon";
 
+// 제이쿼리 불러오기 ////
+import $ from "jquery";
+
 function Write({ setMode }) {
   // setMode - 모든 변경 상태변수 setter
 
   // 전역 컨텍스트 API 사용하기!!
   const myCon = useContext(dCon);
-  console.log("Write에서 loginSts:", myCon.loginSts);
+  //   console.log("Write에서 loginSts:", myCon.loginSts);
+
+  // 글쓰기 저장 서브밋 함수 //////
+  const submitFn = () => {
+    // 제목입력항목
+    let title = $(".subject").val().trim();
+    // 내용입력항목
+    let content = $(".content").val().trim();
+    // trim()으로 앞뒤공백 제거후 검사!
+
+    // (1) 공통 유효성검사
+    // - 제목, 내용 모두 비었으면 리턴!
+    if (title === "" || content === "") {
+      alert("Insert title and content!");
+      return;
+    } /// if /////
+
+    // (2) 서브밋 처리하기 //////
+    else {
+        // 1) 글번호 만들기
+        // 1-1) 로컬스토리지 게시판 데이터 불러오기
+        let localData = localStorage.getItem('board-data');
+        // 1-2) JSON.parse()로 배열객체로 변환
+        localData = JSON.parse(localData);
+        // 1-3) 배열 데이터 idx값 읽어오기
+        let totalIdx = localData.map(v=>v.idx);
+        console.log('idx만 배열:',totalIdx);
+
+      // 오늘날짜 만들기
+      let today = new Date();
+      console.log(today);
+      // toJSON()은 제이슨 날짜형식변환(yyyy-MM-dd)
+      // -> 앞의 10자리만 사용 : substr(시작순번,개수)
+      today = today.toJSON().substr(0, 10);
+      console.log(today);
+
+      // 입력할 객체 데이터 만들기
+      let data = {
+        idx: 1,
+        tit: title,
+        cont: content,
+        att: "",
+        date: today,
+        uid: myCon.loginSts.uid,
+        unm: myCon.loginSts.unm,
+        cnt: 0,
+      };
+    } /// else /////
+  }; ////////// submitFn 함수 //////////////
 
   // 리턴 코드구역 ///////////////////
   return (
@@ -53,7 +104,7 @@ function Write({ setMode }) {
         <tbody>
           <tr>
             <td>
-              <button>Submit</button>
+              <button onClick={submitFn}>Submit</button>
               <button
                 onClick={() => {
                   // 리스트 모드('L')로 변경하기
