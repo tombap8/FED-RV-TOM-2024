@@ -79,9 +79,15 @@ function Read({ setMode, selRecord }) {
               {
                 // 로그인한 사용자가 글쓴이와 같은 아이디일 경우
                 // 수정버튼 보이기
-                myCon.loginSts && 
-                myCon.loginSts.uid === selData.uid && (
-                  <button>Modify</button>
+                myCon.loginSts && myCon.loginSts.uid === selData.uid && (
+                  <button
+                    onClick={() => {
+                      // 수정모드로 변경하기
+                      setMode("M");
+                    }}
+                  >
+                    Modify
+                  </button>
                 )
               }
             </td>

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 // 제이쿼리 불러오기 ///
 import $ from "jquery";
@@ -49,6 +49,12 @@ function Board() {
     selData.push(baseData[i]);
   }
 
+  // DOM 랜더링 실행구역 ///////
+  useEffect(()=>{
+    // 스크롤 최상단 이동하기 ///
+    window.scrollTo(0, 0);
+  }); //// useEffect /////////
+
   // 리턴 코드구역 /////////////////
   return (
     <>
@@ -87,6 +93,7 @@ function Board() {
         mode === "M" && (
           <Modify
             setMode={setMode} // 모드 상태변수 setter
+            selRecord={selRecord} // 선택데이터 참조변수
           />
         )
       }
