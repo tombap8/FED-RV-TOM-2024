@@ -40,6 +40,14 @@ function Board() {
   const totalCount = useRef(baseData.length);
   console.log('전체개수:',totalCount);
 
+  // [ 일반변수 셋팅구역 : 매번 같은 값을 유지해야하는 변수들 ]
+  // [1] 페이지당 개수 : 페이지당 레코드수
+  const unitSize = 5;
+  // [2] 페이징의 페이징 개수 : 한번에 보여줄 페이징 개수
+  const pgPgSize = 3;
+
+
+
 
   // 로컬스토리지 게시판 데이터 정보확인 함수호출!
   initBoardData();
@@ -54,8 +62,19 @@ function Board() {
   // [ 일부 데이터만 선택하기 ]
   // -> 정렬후 상위 10개만 선택
   // -> 페이징을 하면 일정단위수만큼 보이기
+  // -> pageNum, unitSize 사용하여 구성
+
+  // 페이지 시작번호 : 단위수 * (페이지번호-1)
+  let initNum = unitSize * (pageNum-1);
+  // 한계수 번호 : 단위수 * 페이지번호
+  let limitNum = unitSize * pageNum;
+  // 샘플계산 (단위수는 5, 1~3)
+  // 시작수(5*(1-1)) = 0 / 한계수 (5*1) = 5
+  // 시작수(5*(2-1)) = 5 / 한계수 (5*2) = 10
+  // 시작수(5*(3-1)) = 10 / 한계수 (5*3) = 15
+
   const selData = [];
-  for (let i = 0; i < 10; i++) {
+  for (let i = initNum; i < limitNum; i++) {
     selData.push(baseData[i]);
   }
 
@@ -75,6 +94,9 @@ function Board() {
             selData={selData} // 선택 리스트 배열데이터
             setMode={setMode} // 모드 상태변수 setter
             selRecord={selRecord} // 선택데이터 참조변수
+            pageNum={pageNum} // 리스트 페이지번호 getter
+            setPageNum={setPageNum} // 리스트 페이지번호 setter
+            unitSize={unitSize} // 페이지당 레코드수
           />
         )
       }

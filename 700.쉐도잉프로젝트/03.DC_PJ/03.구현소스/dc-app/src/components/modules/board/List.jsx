@@ -3,10 +3,13 @@
 import React, { useContext } from "react";
 import { dCon } from "../dCon";
 
-function List({ selData, setMode, selRecord }) {
+function List({ selData, setMode, selRecord, pageNum, setPageNum, unitSize }) {
   // selData - 선택된 배열데이터 전달
   // setMode - 모든 변경 상태변수 setter
   // selRecord - 선택데이터 참조변수
+  // pageNum 리스트 페이지번호 getter
+  // setPageNum 리스트 페이지번호 setter
+  // unitSize - 페이지당 레코드수
 
   // 전역 컨텍스트 API 사용하기!!
   const myCon = useContext(dCon);
@@ -46,7 +49,9 @@ function List({ selData, setMode, selRecord }) {
         <tbody>
           {selData.map((v, i) => (
             <tr key={i}>
-              <td>{i + 1}</td>
+              <td>{// 페이징 시작번호 더하기
+              (i + 1) + (unitSize * (pageNum-1))
+              }</td>
               <td>
                 <a
                   href="#"
@@ -68,6 +73,24 @@ function List({ selData, setMode, selRecord }) {
             </tr>
           ))}
         </tbody>
+        {/* 페이징 하단파트 */}
+        <tfoot>
+          <tr>
+            <td colSpan="5" className="paging">
+              <a href="#" onClick={() => setPageNum(1)}>
+                1
+              </a>{" "}
+              |
+              <a href="#" onClick={() => setPageNum(2)}>
+                2
+              </a>{" "}
+              |
+              <a href="#" onClick={() => setPageNum(3)}>
+                3
+              </a>
+            </td>
+          </tr>
+        </tfoot>
       </table>
       <br />
       <table className="dtbl btngrp">
@@ -76,13 +99,16 @@ function List({ selData, setMode, selRecord }) {
             <td>
               {
                 // 로그인상태일때만 쓰기버튼 보이기
-                myCon.loginSts && 
-                <button
-                  onClick={()=>{
-                    // 글쓰기 모드로 변경하기
-                    setMode("W");
-                  }}
-                >Write</button>
+                myCon.loginSts && (
+                  <button
+                    onClick={() => {
+                      // 글쓰기 모드로 변경하기
+                      setMode("W");
+                    }}
+                  >
+                    Write
+                  </button>
+                )
               }
             </td>
           </tr>
