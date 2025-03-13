@@ -69,11 +69,41 @@ function Modify({ setMode, selRecord }) {
   // [ 삭제하는 함수 ] /////
   const deleteFn = () => {
     // 삭제여부 확인 /////
-    if(window.confirm("Are you sure you want to delete?")){
-        // "확인" 클릭시 true처리되어 여기 들어옴!
-        console.log('지운다~!');
-    } /// if ///
+    if (window.confirm("Are you sure you want to delete?")) {
+      // "확인" 클릭시 true처리되어 여기 들어옴!
+      // console.log('지운다~!');
 
+      // 1) 로컬스 읽어와서 객체화하기 ////////////
+      // 1-1) 로컬스토리지 게시판 데이터 불러오기
+      let localData = localStorage.getItem("board-data");
+
+      // 1-2) JSON.parse()로 배열객체로 변환
+      localData = JSON.parse(localData);
+
+      // 2) 수정할 현재 데이터 idx값(키값)
+      let currIdx = selData.idx;
+      console.log("삭제할idx:", currIdx);
+
+      // 3) 로컬스 객체화 데이터 배열을 some()으로 순회하여
+      // 해당 idx만 삭제 처리한다!
+      // find()와 달리 some()은 결과값을 boolean값으로 리턴함
+      // 어째든 find()나 some()은 return true하면 순회를 멈춘다!
+      localData.some((v, i) => {
+        if (v.idx === currIdx) {
+          // 삭제 처리 : i는 해당 배열순번
+          localData.splice(i, 1);
+
+          // 리턴 true할 경우 종료!
+          return true;
+        } /// if ///
+      }); ////// some ///////
+
+      // 4) 입력객체를 문자형변환하여 로컬스에 넣기
+      localStorage.setItem("board-data", JSON.stringify(localData));
+
+      // 5) 리스트 이동을 위해 모드 변경하기
+      setMode("L");
+    } /// if :리confirm창 true처리 ///
   }; ///////// deleteFn 함수 ////////////////
 
   // 리턴 코드구역 /////////////////////
@@ -129,7 +159,7 @@ function Modify({ setMode, selRecord }) {
           <tr>
             <td>
               <button onClick={submitFn}>Submit</button>
-              <button>Delete</button>
+              <button onClick={deleteFn}>Delete</button>
               <button
                 onClick={() => {
                   // 리스트 모드('L')로 변경하기
