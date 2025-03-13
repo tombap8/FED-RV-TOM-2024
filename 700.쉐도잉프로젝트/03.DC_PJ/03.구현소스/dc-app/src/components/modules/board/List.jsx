@@ -3,13 +3,14 @@
 import React, { useContext } from "react";
 import { dCon } from "../dCon";
 
-function List({ selData, setMode, selRecord, pageNum, setPageNum, unitSize }) {
+function List({ selData, setMode, selRecord, pageNum, setPageNum, unitSize, totalCount }) {
   // selData - 선택된 배열데이터 전달
   // setMode - 모든 변경 상태변수 setter
   // selRecord - 선택데이터 참조변수
   // pageNum 리스트 페이지번호 getter
   // setPageNum 리스트 페이지번호 setter
   // unitSize - 페이지당 레코드수
+  // totalCount - 전체 개수 참조변수
 
   // 전역 컨텍스트 API 사용하기!!
   const myCon = useContext(dCon);
@@ -49,9 +50,13 @@ function List({ selData, setMode, selRecord, pageNum, setPageNum, unitSize }) {
         <tbody>
           {selData.map((v, i) => (
             <tr key={i}>
-              <td>{// 페이징 시작번호 더하기
-              (i + 1) + (unitSize * (pageNum-1))
-              }</td>
+              <td>
+                {
+                  // 페이징 시작번호 더하기
+                  // -> 자동순번 + (단위수 * (페이지번호-1))
+                  i + 1 + unitSize * (pageNum - 1)
+                }
+              </td>
               <td>
                 <a
                   href="#"

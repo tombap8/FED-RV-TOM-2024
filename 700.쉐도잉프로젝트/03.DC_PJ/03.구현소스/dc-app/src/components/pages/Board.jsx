@@ -97,6 +97,7 @@ function Board() {
             pageNum={pageNum} // 리스트 페이지번호 getter
             setPageNum={setPageNum} // 리스트 페이지번호 setter
             unitSize={unitSize} // 페이지당 레코드수
+            totalCount={totalCount} // 전체 개수 참조변수
           />
         )
       }
