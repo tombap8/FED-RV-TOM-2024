@@ -94,6 +94,7 @@ function Board() {
         mode === "W" && (
           <Write
             setMode={setMode} // 모드 상태변수 setter
+            totalCount={totalCount} // 전체 개수 참조변수
           />
         )
       }
@@ -104,6 +105,7 @@ function Board() {
           <Modify
             setMode={setMode} // 모드 상태변수 setter
             selRecord={selRecord} // 선택데이터 참조변수
+            totalCount={totalCount} // 전체 개수 참조변수
           />
         )
       }

@@ -6,8 +6,9 @@ import { dCon } from "../dCon";
 // 제이쿼리 불러오기 ////
 import $ from "jquery";
 
-function Write({ setMode }) {
+function Write({ setMode, totalCount }) {
   // setMode - 모든 변경 상태변수 setter
+  // totalCount - 전체 개수 참조변수 (글쓰기시 카운트 1증가!)
 
   // 전역 컨텍스트 API 사용하기!!
   const myCon = useContext(dCon);
@@ -78,7 +79,10 @@ function Write({ setMode }) {
       // 5) 입력객체를 문자형변환하여 로컬스에 넣기
       localStorage.setItem("board-data", JSON.stringify(localData));
 
-      // 6) 리스트 이동을 위해 모드 변경하기
+      // 6) 전체 개수 참조변수 1증가하기
+      totalCount.current += 1;
+
+      // 7) 리스트 이동을 위해 모드 변경하기
       setMode("L");
     } /// else /////
   }; ////////// submitFn 함수 //////////////
