@@ -80,7 +80,7 @@ function Write({ setMode, totalCount }) {
       localStorage.setItem("board-data", JSON.stringify(localData));
 
       // 6) 전체 개수 참조변수 1증가하기
-      totalCount.current += 1;
+      totalCount.current++;
 
       // 7) 리스트 이동을 위해 모드 변경하기
       setMode("L");

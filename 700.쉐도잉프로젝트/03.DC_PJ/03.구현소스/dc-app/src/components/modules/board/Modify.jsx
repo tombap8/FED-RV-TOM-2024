@@ -5,9 +5,10 @@ import React from "react";
 // 제이쿼리 불러오기 ////
 import $ from "jquery";
 
-function Modify({ setMode, selRecord }) {
+function Modify({ setMode, selRecord, totalCount }) {
   // setMode - 모든 변경 상태변수 setter
   // selRecord - 선택데이터 참조변수
+  // totalCount - 전체 개수 참조변수 (글삭제시 카운트 1감소!)
 
   // 선택된 참조변수 데이터 넣기
   const selData = selRecord.current;
@@ -101,7 +102,10 @@ function Modify({ setMode, selRecord }) {
       // 4) 입력객체를 문자형변환하여 로컬스에 넣기
       localStorage.setItem("board-data", JSON.stringify(localData));
 
-      // 5) 리스트 이동을 위해 모드 변경하기
+      // 5) 전체 개수 1감소하기 ////
+      totalCount.current--;
+
+      // 6) 리스트 이동을 위해 모드 변경하기
       setMode("L");
     } /// if :리confirm창 true처리 ///
   }; ///////// deleteFn 함수 ////////////////
