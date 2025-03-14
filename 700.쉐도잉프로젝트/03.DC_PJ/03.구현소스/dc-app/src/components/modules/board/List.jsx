@@ -102,16 +102,24 @@ function List({
                 // -> 개수만큼 빈배열 생성!
                 Array.from({ length: pagingCount }).map((v, i) => (
                   <>
-                    <a
-                      href="#"
-                      onClick={() => {
-                        // 페이지번호 업데이트하기
-                        setPageNum(i + 1);
-                      }}
-                    >
-                      {i + 1}
-                    </a>
-                    {i<pagingCount-1?" | ":''}
+                    {
+                      // 현재 페이지와 일치되는번호는
+                      // a태그가 아닌 b태그로 표시!
+                      i + 1 === pageNum ? (
+                        <b>{i + 1}</b>
+                      ) : (
+                        <a
+                          href="#"
+                          onClick={() => {
+                            // 페이지번호 업데이트하기
+                            setPageNum(i + 1);
+                          }}
+                        >
+                          {i + 1}
+                        </a>
+                      )
+                    }
+                    {i < pagingCount - 1 ? " | " : ""}
                   </>
                 ))
               }

@@ -71,13 +71,15 @@ function Board() {
   // 선택 데이터 담을 배열변수 ///
   const selData = [];
 
-  // 페이징에 맞게 데이터를 다시 담기 //////
+  // [ ★★ 페이징에 맞게 데이터를 다시 담기 ★★ ] ///
   for (let i = initNum; i < limitNum; i++) {
-    // 매우중요함!!!
-    // 여분 페이지에서 (마지막 개수-1)보다 크면 for문을 나가야함!
-    if(i>totalCount.current-1) break;
+    // ★★★매우중요함!!! 여분 페이지에서
+    // (전체레코드수-1)보다 크면 for문을 나가야함!
+    if (i > totalCount.current - 1) break;
+
+    // 데이터 골라담기! ///
     selData.push(baseData[i]);
-  } /// for ////
+  } //////////// for : 선택데이터 담기 ///////////
 
   // DOM 랜더링 실행구역 ///////
   useEffect(() => {
@@ -95,7 +97,6 @@ function Board() {
             selData={selData} // 선택 리스트 배열데이터
             setMode={setMode} // 모드 상태변수 setter
             selRecord={selRecord} // 선택데이터 참조변수
-
             // 페이징에 필요한 정보들 /////
             pageNum={pageNum} // 리스트 페이지번호 getter
             setPageNum={setPageNum} // 리스트 페이지번호 setter
