@@ -3,18 +3,32 @@
 import React, { useContext } from "react";
 import { dCon } from "../dCon";
 
-function List({ selData, setMode, selRecord, pageNum, setPageNum, unitSize, totalCount }) {
-  // selData - 선택된 배열데이터 전달
-  // setMode - 모든 변경 상태변수 setter
-  // selRecord - 선택데이터 참조변수
-  // pageNum 리스트 페이지번호 getter
-  // setPageNum 리스트 페이지번호 setter
-  // unitSize - 페이지당 레코드수
-  // totalCount - 전체 개수 참조변수
-
+function List({
+  selData, // 선택된 배열데이터 전달
+  setMode, // 모든 변경 상태변수 setter
+  selRecord, // 선택데이터 참조변수
+  pageNum, // 리스트 페이지번호 getter
+  setPageNum, // 리스트 페이지번호 setter
+  unitSize, // 페이지당 레코드수
+  totalCount, // 전체 개수 참조변수
+}) {
   // 전역 컨텍스트 API 사용하기!!
   const myCon = useContext(dCon);
   // console.log('List에서 loginSts:',myCon.loginSts);
+
+  // [ 페이징 관련 변수값 셋팅하기 ] ////
+
+  // 1. 페이징 개수 : 전체 레코드수 / 페이지당 개수
+  // -> 나머지가 있으면 페이지를 하나더해준다!
+  let pagingCount = Math.floor(totalCount.current / unitSize);
+  console.log("전체 레코드수 / 페이지당 개수:", pagingCount);
+  console.log("나머지연산:", totalCount.current % unitSize);
+
+  // 2. 나머지가 있으면 페이징 개수 1증가!
+  // 앞수 % 뒷수 = 0 이면 나누어 떨어짐!
+  if (totalCount.current % unitSize > 0) {
+    pagingCount++;
+  } /// if ///
 
   // 리턴 코드구역 ////////////////////
   return (
@@ -82,17 +96,25 @@ function List({ selData, setMode, selRecord, pageNum, setPageNum, unitSize, tota
         <tfoot>
           <tr>
             <td colSpan="5" className="paging">
-              <a href="#" onClick={() => setPageNum(1)}>
-                1
-              </a>{" "}
-              |
-              <a href="#" onClick={() => setPageNum(2)}>
-                2
-              </a>{" "}
-              |
-              <a href="#" onClick={() => setPageNum(3)}>
-                3
-              </a>
+              {
+                // 페이징 개수만큼 map을 돌리기
+                // Array.from({length:숫자})
+                // -> 개수만큼 빈배열 생성!
+                Array.from({ length: pagingCount }).map((v, i) => (
+                  <>
+                    <a
+                      href="#"
+                      onClick={() => {
+                        // 페이지번호 업데이트하기
+                        setPageNum(i + 1);
+                      }}
+                    >
+                      {i + 1}
+                    </a>
+                    {" | "}
+                  </>
+                ))
+              }
             </td>
           </tr>
         </tfoot>
