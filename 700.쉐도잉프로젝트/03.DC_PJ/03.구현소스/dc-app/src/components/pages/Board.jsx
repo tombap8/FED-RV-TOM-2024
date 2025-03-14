@@ -102,6 +102,7 @@ function Board() {
             setPageNum={setPageNum} // 리스트 페이지번호 setter
             unitSize={unitSize} // 페이지당 레코드수
             totalCount={totalCount} // 전체 개수 참조변수
+            pgPgSize={pgPgSize} // 페이징의 페이징 개수
           />
         )
       }
