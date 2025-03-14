@@ -20,7 +20,7 @@ function Board() {
   // [ 로컬스 데이터 변수할당하기! ] //////
   const baseData = JSON.parse(localStorage.getItem("board-data"));
 
-  // [ 후크 상태관리 변수구역 ] ///////////////
+  // [ ★★ 후크 상태관리 변수구역 ★★ ] //////
   // [1] 기능모드 /////
   const [mode, setMode] = useState("L");
   // (1) 리스트 모드(L) : List Mode
@@ -31,7 +31,8 @@ function Board() {
   // [2] 페이징을 위한 페이지 번호 ////
   const [pageNum, setPageNum] = useState(1);
 
-  // [ 리액트 참조변수 셋팅구역 ] //////
+  // [ ★★ 리액트 참조변수 셋팅구역 ★★ ] //////
+
   // [1] 게시글 선택 데이터 : 글 내용보기시
   const selRecord = useRef(null);
   // -> 읽기/쓰기시 변수.current 로 사용함!
@@ -42,7 +43,16 @@ function Board() {
   const totalCount = useRef(baseData.length);
   console.log("전체개수:", totalCount);
 
-  // [ 일반변수 셋팅구역 : 매번 같은 값을 유지해야하는 변수들 ]
+  // [3] 페이징의 페이징 번호
+  const pgPgNum = useRef(1);
+  // -> 상태변수로 만들지 않은 이유는?
+  // 페이징의 페이징번호가 변경될때 어차피
+  // 상태변수인 페이징번호가 업데이트되어서
+  // 전체 리랜더링된다! 따라서 이것은 값만 유지하면 됨!
+
+  // [ ★★ 일반변수 셋팅구역 ★★ ] ///////////
+  // ->>> 매번 같은 값을 유지해야하는 변수들
+
   // [1] 페이지당 개수 : 페이지당 레코드수
   const unitSize = 7;
   // [2] 페이징의 페이징 개수 : 한번에 보여줄 페이징 개수
@@ -103,6 +113,7 @@ function Board() {
             unitSize={unitSize} // 페이지당 레코드수
             totalCount={totalCount} // 전체 개수 참조변수
             pgPgSize={pgPgSize} // 페이징의 페이징 개수
+            pgPgNum={pgPgNum} // 페이징의 페이징 번호
           />
         )
       }

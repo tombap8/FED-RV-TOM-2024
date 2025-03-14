@@ -11,7 +11,8 @@ function List({
   setPageNum, // 리스트 페이지번호 setter
   unitSize, // 페이지당 레코드수
   totalCount, // 전체 개수 참조변수
-  pgPgSize // 페이징의 페이징 개수
+  pgPgSize, // 페이징의 페이징 개수
+  pgPgNum, // 페이징의 페이징 번호
 }) {
   // 전역 컨텍스트 API 사용하기!!
   const myCon = useContext(dCon);
@@ -34,54 +35,58 @@ function List({
   /*********************************** 
         페이징코드 리턴 함수
   ***********************************/
- const pagingCode = () => {
-  // 리턴 코드 담을 배열변수
-  // -> 배열값으로 JSX문법의 코드가 들어가므로
-  // 배열을 리턴해도 출력되는것은 변환된 코드가 나온다!
-  let hcode = [];
+  const pagingCode = () => {
+    // 리턴 코드 담을 배열변수
+    // -> 배열값으로 JSX문법의 코드가 들어가므로
+    // 배열을 리턴해도 출력되는것은 변환된 코드가 나온다!
+    let hcode = [];
 
-  // [ 페이징의 페이징for문의 시작값, 한계값 셋팅하기 ]
-  // [1] 시작값
-  let initNum = pgPgSize;
+    // [ 페이징의 페이징for문의 시작값, 한계값 셋팅하기 ]
+    // [1] 시작값 : 페페사이즈 * (페페넘-1)
+    let initNum = pgPgSize * (pgPgNum.current - 1);
+    // [2] 한계값 : 페페사이즈 * 페페넘
+    let limitNum = pgPgSize * pgPgNum.current;
+    // 주의:pgPgNum은 참조변수니까 pgPgNum.current로 사용해야함!
 
+    // [ for문으로 페이징 코드 생성하기 ] ////
+    // 반복코드를 생성할 경우 key속성을 셋팅함이 필수임!
+    // 이때 빈태그로는 속성셋팅 안되므로 <Fragment>를 사용!
+    for (let i = initNum; i < limitNum; i++) {
+      hcode.push(
+        <Fragment key={i}>
+          {
+            // 현재 페이지와 일치되는번호는
+            // a태그가 아닌 b태그로 표시!
+            i + 1 === pageNum ? (
+              <b>{i + 1}</b>
+            ) : (
+              <a
+                href="#"
+                onClick={() => {
+                  // 페이지번호 업데이트하기
+                  setPageNum(i + 1);
+                }}
+              >
+                {i + 1}
+              </a>
+            )
+          }
+          {
+            // 마지막 번호 뒤에 바(|)는 출력안되게함!
+            i < limitNum - 1 ? " | " : ""
+          }
+        </Fragment>
+      );
+    } //////////// for ////////////
 
-  // [ for문으로 페이징 코드 생성하기 ] ////
-  // 반복코드를 생성할 경우 key속성을 셋팅함이 필수임!
-  // 이때 빈태그로는 속성셋팅 안되므로 <Fragment>를 사용!
-  for(let i = 0; i < pagingCount; i++) {
-    hcode.push(<Fragment key={i}>
-    {
-      // 현재 페이지와 일치되는번호는
-      // a태그가 아닌 b태그로 표시!
-      i + 1 === pageNum ? (
-        <b>{i + 1}</b>
-      ) : (
-        <a
-          href="#"
-          onClick={() => {
-            // 페이지번호 업데이트하기
-            setPageNum(i + 1);
-          }}
-        >
-          {i + 1}
-        </a>
-      )
-    }
-    {i < pagingCount - 1 ? " | " : ""}
-  </Fragment>);
-  } //////////// for ////////////
-  
-  return hcode;
-  
-}; //////////// pagingCode 함수 /////////
+    return hcode;
+  }; //////////// pagingCode 함수 /////////
 
-
-// 페이징만 단순하게 할경우 아래와 같이 해도됨!
-// 페이징 개수만큼 map을 돌리기
-// Array.from({length:숫자})
-// -> 개수만큼 빈배열 생성!
-// Array.from({ length: pagingCount }).map((v, i) => (코드))
-
+  // 페이징만 단순하게 할경우 아래와 같이 해도됨!
+  // 페이징 개수만큼 map을 돌리기
+  // Array.from({length:숫자})
+  // -> 개수만큼 빈배열 생성!
+  // Array.from({ length: pagingCount }).map((v, i) => (코드))
 
   // 리턴 코드구역 ////////////////////
   return (
