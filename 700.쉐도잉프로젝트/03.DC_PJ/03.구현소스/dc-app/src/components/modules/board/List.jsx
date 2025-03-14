@@ -32,6 +32,18 @@ function List({
     pagingCount++;
   } /// if ///
 
+  // 3. 페이징의 페이징 한계값 계산하기
+  // 계산법: 전체 페이징 수 / 페이징의 페이징 개수
+  // pagingCount / pgPgSize
+  let pgPgLimit = Math.floor(pagingCount / pgPgSize);
+
+  // 만약 나머지가 있으면 페이징 한계수에 1을 더함
+  if (pagingCount % pgPgSize > 0) {
+    pgPgLimit++;
+  } /// if ///
+
+  console.log('페이징의 페이징 한계수:',pgPgLimit);
+
   /*********************************** 
         페이징코드 리턴 함수
   ***********************************/
