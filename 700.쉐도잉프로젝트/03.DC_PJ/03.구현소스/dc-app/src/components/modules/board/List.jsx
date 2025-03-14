@@ -48,12 +48,36 @@ function List({
     let limitNum = pgPgSize * pgPgNum.current;
     // 주의:pgPgNum은 참조변수니까 pgPgNum.current로 사용해야함!
 
+    // ((시작값 : 한계값 계산샘플)) : pgPgSize 가 3일 경우
+    // for (let i = 0; i < 3; i++){} -> 1,2,3
+    // for (let i = 3; i < 6; i++){} -> 4,5,6
+    // for (let i = 6; i < 9; i++){} -> 7,8,9
+    // for (let i = 9; i < 12; i++){} -> 10,11,12
+
+    // 앞번호 앞에 이전 페이징구역 이동버튼 출력하기
+    hcode.push(        
+        <a 
+          href="#"
+          title="Previous Paging Section"
+          onClick={()=>{
+            // (1) 페이징의 페이징번호 감소
+            pgPgNum.current--;
+            // (2) 이전 페이징의 페이징 첫 페이지번호로 
+            // 상태변수인 페이지번호 변경하기(리랜더링!)
+            setPageNum(initNum - (pgPgSize-1));
+            // 이전 페이징 첫번호는 (시작값-(페페사이즈-1)) 이다!
+          }}
+        >◀ </a>
+
+    );
+
     // [ for문으로 페이징 코드 생성하기 ] ////
     // 반복코드를 생성할 경우 key속성을 셋팅함이 필수임!
     // 이때 빈태그로는 속성셋팅 안되므로 <Fragment>를 사용!
     for (let i = initNum; i < limitNum; i++) {
       hcode.push(
         <Fragment key={i}>
+          
           {
             // 현재 페이지와 일치되는번호는
             // a태그가 아닌 b태그로 표시!
@@ -73,7 +97,20 @@ function List({
           }
           {
             // 마지막 번호 뒤에 바(|)는 출력안되게함!
-            i < limitNum - 1 ? " | " : ""
+            i < limitNum - 1 ? " | " : 
+            // 다음 페이징의 페이징 이동하기
+            <a 
+              href="#"
+              title="Next Paging Section"
+              onClick={()=>{
+                // (1) 페이징의 페이징번호 증가
+                pgPgNum.current++;
+                // (2) 다음 페이징의 페이징 첫 페이지번호로 
+                // 상태변수인 페이지번호 변경하기(리랜더링!)
+                setPageNum(limitNum + 1);
+                // 다음 페이징 첫번호는 (한계값+1) 이다!
+              }}
+            > ▶</a>
           }
         </Fragment>
       );
