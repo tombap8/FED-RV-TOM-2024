@@ -73,6 +73,9 @@ function Board() {
 
   // 페이징에 맞게 데이터를 다시 담기 //////
   for (let i = initNum; i < limitNum; i++) {
+    // 매우중요함!!!
+    // 여분 페이지에서 (마지막 개수-1)보다 크면 for문을 나가야함!
+    if(i>totalCount.current-1) break;
     selData.push(baseData[i]);
   } /// for ////
 

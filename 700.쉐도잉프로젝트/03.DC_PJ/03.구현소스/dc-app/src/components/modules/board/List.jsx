@@ -111,7 +111,7 @@ function List({
                     >
                       {i + 1}
                     </a>
-                    {" | "}
+                    {i<pagingCount-1?" | ":''}
                   </>
                 ))
               }
