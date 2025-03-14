@@ -14,9 +14,11 @@ import Write from "../modules/board/Write";
 import Modify from "../modules/board/Modify";
 
 function Board() {
+  // [ 로컬스토리지 게시판 데이터 정보확인 함수호출! ] ////
+  initBoardData();
+
   // [ 로컬스 데이터 변수할당하기! ] //////
-  const baseData = 
-  JSON.parse(localStorage.getItem("board-data"));
+  const baseData = JSON.parse(localStorage.getItem("board-data"));
 
   // [ 후크 상태관리 변수구역 ] ///////////////
   // [1] 기능모드 /////
@@ -35,10 +37,10 @@ function Board() {
   // -> 읽기/쓰기시 변수.current 로 사용함!
   // console.log("선택데이터 참조변수값:", selRecord);
 
-  // [2] 전체 레코드 개수(배열데이터 개수) 
+  // [2] 전체 레코드 개수(배열데이터 개수)
   // -> 매번 계산하지 않도록 참조변수로 생성한다!
   const totalCount = useRef(baseData.length);
-  console.log('전체개수:',totalCount);
+  console.log("전체개수:", totalCount);
 
   // [ 일반변수 셋팅구역 : 매번 같은 값을 유지해야하는 변수들 ]
   // [1] 페이지당 개수 : 페이지당 레코드수
@@ -46,18 +48,12 @@ function Board() {
   // [2] 페이징의 페이징 개수 : 한번에 보여줄 페이징 개수
   const pgPgSize = 3;
 
-
-
-
-  // 로컬스토리지 게시판 데이터 정보확인 함수호출!
-  initBoardData();
-
   // [ 데이터 정렬 ] /////////////
   baseData
-  // ((기준1))-> 최신날짜로 내림차순
-  .sort((a, b) => (a.date > b.date ? -1 : a.date < b.date ? 1 : 0))
-  // ((기준2))-> idx로 내림차순
-  .sort((a, b) => (a.idx > b.idx ? -1 : a.idx < b.idx ? 1 : 0));
+    // ((기준1))-> 최신날짜로 내림차순
+    .sort((a, b) => (a.date > b.date ? -1 : a.date < b.date ? 1 : 0))
+    // ((기준2))-> idx로 내림차순
+    .sort((a, b) => (a.idx > b.idx ? -1 : a.idx < b.idx ? 1 : 0));
 
   // [ 일부 데이터만 선택하기 ]
   // -> 정렬후 상위 10개만 선택
@@ -65,7 +61,7 @@ function Board() {
   // -> pageNum, unitSize 사용하여 구성
 
   // 페이지 시작번호 : 단위수 * (페이지번호-1)
-  let initNum = unitSize * (pageNum-1);
+  let initNum = unitSize * (pageNum - 1);
   // 한계수 번호 : 단위수 * 페이지번호
   let limitNum = unitSize * pageNum;
   // 샘플계산 (단위수는 5, 1~3)
@@ -79,7 +75,7 @@ function Board() {
   }
 
   // DOM 랜더링 실행구역 ///////
-  useEffect(()=>{
+  useEffect(() => {
     // 스크롤 최상단 이동하기 ///
     window.scrollTo(0, 0);
   }); //// useEffect /////////
