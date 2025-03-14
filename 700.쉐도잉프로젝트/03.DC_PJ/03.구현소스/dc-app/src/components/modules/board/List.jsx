@@ -127,9 +127,8 @@ function List({
     } //////////// for ////////////
 
     // [ (5) 끝번호 뒤에 다음 페이징구역 이동버튼 출력하기 ]
-    // 페이징의 페이징번호가 1이 아닐때만 출력하기!!!
-    // pgPgNum은 참조변수니까 current로 읽기!
-    if (pgPgNum.current !== pagingCount)
+    // 출력조건 : 페이징의 페이징 한계수가 아닌 페이징의 페이징번호
+    if (pgPgNum.current !== pgPgLimit)
       hcode.push(
         <a
           href="#"
