@@ -54,9 +54,9 @@ function Board() {
   // ->>> 매번 같은 값을 유지해야하는 변수들
 
   // [1] 페이지당 개수 : 페이지당 레코드수
-  const unitSize = 7;
+  const unitSize = 5;
   // [2] 페이징의 페이징 개수 : 한번에 보여줄 페이징 개수
-  const pgPgSize = 3;
+  const pgPgSize = 2;
 
   // [ 데이터 정렬 ] /////////////
   baseData
