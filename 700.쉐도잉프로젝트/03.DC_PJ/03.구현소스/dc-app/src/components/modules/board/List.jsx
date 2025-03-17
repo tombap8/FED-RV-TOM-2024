@@ -42,7 +42,7 @@ function List({
     pgPgLimit++;
   } /// if ///
 
-  console.log('페이징의 페이징 한계수:',pgPgLimit);
+  console.log("페이징의 페이징 한계수:", pgPgLimit);
 
   /*********************************** 
         페이징코드 리턴 함수
@@ -130,21 +130,40 @@ function List({
     // 출력조건 : 페이징의 페이징 한계수가 아닌 페이징의 페이징번호
     if (pgPgNum.current !== pgPgLimit)
       hcode.push(
-        <a
-          href="#"
-          title="Next Paging Section"
-          onClick={() => {
-            // (1) 페이징의 페이징번호 증가
-            pgPgNum.current++;
-            // (2) 다음 페이징의 페이징 첫 페이지번호로
-            // 상태변수인 페이지번호 변경하기(리랜더링!)
-            setPageNum(limitNum + 1);
-            // 다음 페이징 첫번호는 (한계값+1) 이다!
-          }}
-        >
-          {" "}
-          ▶
-        </a>
+        <Fragment key="-2">
+          {/* 다음 페이징 이동하기 */}
+          <a
+            href="#"
+            title="Next Paging Section"
+            onClick={() => {
+              // (1) 페이징의 페이징번호 증가
+              pgPgNum.current++;
+              // (2) 다음 페이징의 페이징 첫 페이지번호로
+              // 상태변수인 페이지번호 변경하기(리랜더링!)
+              setPageNum(limitNum + 1);
+              // 다음 페이징 첫번호는 (한계값+1) 이다!
+            }}
+          >
+            {" "}
+            ▶
+          </a>
+          {/* 맨끝 페이징 이동하기 */}
+          <a
+            href="#"
+            title="Last Paging Section"
+            onClick={() => {
+              // (1) 페이징의 페이징번호 맨끝번호로 변경!
+              pgPgNum.current = pgPgLimit;
+              // (2) 다음 페이징의 페이징 첫 페이지번호로
+              // 상태변수인 페이지번호 변경하기(리랜더링!)
+              setPageNum(limitNum + 1);
+              // 다음 페이징 첫번호는 (한계값+1) 이다!
+            }}
+          >
+            {" "}
+            »
+          </a>
+        </Fragment>
       );
 
     return hcode;
