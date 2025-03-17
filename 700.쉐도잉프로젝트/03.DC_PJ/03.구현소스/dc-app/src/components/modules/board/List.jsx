@@ -71,21 +71,36 @@ function List({
     // pgPgNum은 참조변수니까 current로 읽기!
     if (pgPgNum.current !== 1)
       hcode.push(
-        <a
-          key="-1"
-          href="#"
-          title="Previous Paging Section"
-          onClick={() => {
-            // (1) 페이징의 페이징번호 감소
-            pgPgNum.current--;
-            // (2) 이전 페이징의 페이징 첫 페이지번호로
-            // 상태변수인 페이지번호 변경하기(리랜더링!)
-            setPageNum(initNum - (pgPgSize - 1));
-            // 이전 페이징 첫번호는 (시작값-(페페사이즈-1)) 이다!
-          }}
-        >
-          ◀{" "}
-        </a>
+        <Fragment key="-1">
+          {/* 처음 페이징으로 이동하기 */}
+          <a
+            href="#"
+            title="First Paging Section"
+            onClick={() => {
+              // (1) 페이징의 페이징번호 첫페이징번호로 변경!
+              pgPgNum.current = 1;
+              // (2) 페이지 번호도 첫 페이지번호로 변경!
+              setPageNum(1);
+            }}
+          >
+            «{" "}
+          </a>
+          {/* 이전 페이징으로 이동하기 */}
+          <a
+            href="#"
+            title="Previous Paging Section"
+            onClick={() => {
+              // (1) 페이징의 페이징번호 감소
+              pgPgNum.current--;
+              // (2) 이전 페이징의 페이징 첫 페이지번호로
+              // 상태변수인 페이지번호 변경하기(리랜더링!)
+              setPageNum(initNum - (pgPgSize - 1));
+              // 이전 페이징 첫번호는 (시작값-(페페사이즈-1)) 이다!
+            }}
+          >
+            ◀{" "}
+          </a>
+        </Fragment>
       );
 
     // [ (4) for문으로 페이징 코드 생성하기 ] ////
@@ -156,7 +171,7 @@ function List({
               pgPgNum.current = pgPgLimit;
               // (2) 다음 페이징의 페이징 첫 페이지번호로
               // 상태변수인 페이지번호 변경하기(리랜더링!)
-              setPageNum((pgPgLimit -1) * pgPgSize + 1);
+              setPageNum((pgPgLimit - 1) * pgPgSize + 1);
               // 마지막 페이징 첫번호는
               // 페이징의 마지막 페이징 전페이지(pgPgLimit-1)
               // 여기에 페이징 크기 곱하고
