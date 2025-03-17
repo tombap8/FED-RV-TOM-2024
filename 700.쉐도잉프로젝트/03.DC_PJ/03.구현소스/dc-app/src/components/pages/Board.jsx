@@ -54,9 +54,9 @@ function Board() {
   // ->>> 매번 같은 값을 유지해야하는 변수들
 
   // [1] 페이지당 개수 : 페이지당 레코드수
-  const unitSize = 5;
+  const unitSize = 7;
   // [2] 페이징의 페이징 개수 : 한번에 보여줄 페이징 개수
-  const pgPgSize = 2;
+  const pgPgSize = 3;
 
   // [ 데이터 정렬 ] /////////////
   baseData
@@ -134,6 +134,8 @@ function Board() {
           <Write
             setMode={setMode} // 모드 상태변수 setter
             totalCount={totalCount} // 전체 개수 참조변수
+            setPageNum={setPageNum} // 리스트 페이지번호 setter
+            pgPgNum={pgPgNum} // 페이징의 페이징 번호
           />
         )
       }
