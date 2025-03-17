@@ -156,8 +156,11 @@ function List({
               pgPgNum.current = pgPgLimit;
               // (2) 다음 페이징의 페이징 첫 페이지번호로
               // 상태변수인 페이지번호 변경하기(리랜더링!)
-              setPageNum(limitNum + 1);
-              // 다음 페이징 첫번호는 (한계값+1) 이다!
+              setPageNum((pgPgLimit -1) * pgPgSize + 1);
+              // 마지막 페이징 첫번호는
+              // 페이징의 마지막 페이징 전페이지(pgPgLimit-1)
+              // 여기에 페이징 크기 곱하고
+              // 더하기 1하면 다음 페이징의 첫번째 페이지번호임!
             }}
           >
             {" "}
