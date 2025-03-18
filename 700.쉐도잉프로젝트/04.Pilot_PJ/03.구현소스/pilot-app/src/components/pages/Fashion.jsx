@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 // 페이지 CSS 불러오기 ////
-import '../../css/fashion.scss';
+import "../../css/fashion.scss";
 
 // 제이쿼리 불러오기 //////
 import $ from "jquery";
@@ -23,26 +23,23 @@ function Fashion() {
   const catName = state ? state.catName : "아무거나";
 
   // 랜더링후 실행구역 : 한번만실행 /////////
-  useEffect(()=>{
-
+  useEffect(() => {
     // 스크롤바 생성하기 ///
-    $('html,body').css({overflow:'visible'});
-
+    $("html,body").css({ overflow: "visible" });
 
     // 홈버튼 첫 페이지로 이동기능 셋팅하기
-    $("#logo a").on('click',(e) => {
+    $("#logo a").on("click", (e) => {
       e.preventDefault();
       // 라우터이동 : 첫페이지로!
-      goPage('/');      
+      goPage("/");
     }); //////// click ////////
-
-  },[]); //// useEffect : 한번만실행 ////////
+  }, []); //// useEffect : 한번만실행 ////////
 
   // useEffect : state 변수 의존성 실행구역 시작 //////
-  useEffect(()=>{
+  useEffect(() => {
     // 스크롤바 위치 최상위
-    window.scrollTo(0,0);
-  },[state]); 
+    window.scrollTo(0, 0);
+  }, [state]);
   // useEffect : state 변수 의존성 실행구역 끝 ////////
 
   // 리턴 코드 구역 ////////////////
@@ -53,16 +50,21 @@ function Fashion() {
         <SwiperBan catName={catName} />
       </section>
       {/* 2. 신상품영역 */}
-      <section id="c1" 
-      className={"cont sc-ani c1 "+catName}
-      style={{
-        position: 'relative',
-        zIndex: '999'
-      }}
+      <section
+        id="c1"
+        className={"cont sc-ani c1 " + catName}
+        style={{
+          position: "relative",
+          zIndex: "999",
+        }}
       >
         {/* 신상품 모듈 */}
         <SinSang catName={catName} />
       </section>
+      {/* 3. 상세보기박스 */}
+      <div className="bgbx">
+        {/* 아이템 디테일 컴포넌트 */}
+      </div>
     </>
   );
 }

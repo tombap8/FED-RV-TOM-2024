@@ -38,12 +38,12 @@ var frame =
 
     // 여기서 이벤트 연결설정 하지 않고 리액트페이지에서 함!
     // -> 그래야 removeEventListener 를 할 수 있음!!!
-// target.addEventListener("mousewheel", scrolled, {
-//   passive: false,
-// });
-// target.addEventListener("DOMMouseScroll", scrolled, {
-//   passive: false,
-// });
+    // target.addEventListener("mousewheel", scrolled, {
+    //   passive: false,
+    // });
+    // target.addEventListener("DOMMouseScroll", scrolled, {
+    //   passive: false,
+    // });
 
 function scrolled(e) {
   e.preventDefault(); // disable default scrolling
