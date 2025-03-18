@@ -10,7 +10,6 @@ import { TopArea } from "./TopArea";
 import { useNavigate } from "react-router-dom";
 
 export default function Layout() {
-
   // [ ★★★ 참조변수 셋팅구역 ★★★ ] //////////
   // [1] 자식 카트 컴포넌트와 함께 상태값 공유할 변수
   const flag = useRef(true);
@@ -38,7 +37,6 @@ export default function Layout() {
 
   console.log("로컬스있니?", stsVal);
 
-  
   // [ ★★★ 상태변수 셋팅구역 ★★★ ] //////////
   // [1] 분류명 상태변수
   const [catName, setCatName] = useState("main");
@@ -49,7 +47,6 @@ export default function Layout() {
   // [3] 카트사용여부 상태변수 /////////
   const [csts, setCsts] = useState(stsVal);
 
-  
   // [ ★★★ 공통함수 셋팅구역 ★★★ ] //////////
 
   // 라우터 이동 네비게이트 객체 만들기 //
@@ -65,15 +62,13 @@ export default function Layout() {
 
   /***************************************** 
     [ 컨텍스트 API 공개 변수들 ]
-    1. pgName - 페이지 이름
-    2. chgPgName - 페이지 이름 업데이트함수
-    3. flag - 카트 데이터 상태변수
-    4. setTransData - 카트 사용 데이터 셋업
-    5. transData - 카트 사용 데이터
-    6. setCsts - 로컬스에 카트정보 셋업여부
-    7. gMode, setGMode 
+    1. flag - 카트 데이터 상태변수
+    2. setTransData - 카트 사용 데이터 셋업
+    3. transData - 카트 사용 데이터
+    4. setCsts - 로컬스에 카트정보 셋업여부
+    5. gMode, setGMode 
       - 전체 리스트 페이지 뷰모드 구분
-    8. gInit - 초기화 여부를 결정하는 변수
+    6. gInit - 초기화 여부를 결정하는 변수
   *****************************************/
 
   /// 리턴 코드구역 ////////
@@ -83,6 +78,10 @@ export default function Layout() {
       value={{
         setCatName, // 카테고리명 상태변수 setter
         goPage, // 라우터 이동함수
+        flag,
+        setTransData,
+        transData,
+        setCsts,
       }}
     >
       <TopArea catName={catName} />
