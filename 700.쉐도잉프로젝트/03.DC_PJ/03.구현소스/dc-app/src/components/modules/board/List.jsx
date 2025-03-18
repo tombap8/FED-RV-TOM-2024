@@ -211,14 +211,14 @@ function List({
           <option value="cont">Contents</option>
           <option value="unm">Writer</option>
         </select>
-        <select 
-          name="sel" 
-          id="sel" 
+        <select
+          name="sel"
+          id="sel"
           className="sel"
           value={order}
-          onChange={(e)=>{
+          onChange={(e) => {
             // 정렬값 반대로 변경하기
-            setOrder(order*-1);
+            setOrder(order * -1);
             // 변경시 변경한 선택값 반영하기
             e.target.value = order;
             // 첫 페이지로 이동
@@ -227,11 +227,27 @@ function List({
             pgPgNum.current = 1;
           }}
         >
-          <option value="0">Descending</option>
-          <option value="1">Ascending</option>
+          <option value="1">Descending</option>
+          <option value="-1">Ascending</option>
         </select>
-        <input id="stxt" type="text" maxLength="50" />
-        <button className="sbtn">Search</button>
+        <input
+          id="stxt"
+          type="text"
+          maxLength="50"
+          defaultValue={keyword.kw}
+          onKeyUp={(e) => {
+            // 엔터를 친 경우 ///
+            if (e.key === "Enter") e.target.nextElementSibling.click();
+            // 다음 형제요소인 버튼 클릭이벤트 발생!
+
+            // 페이지, 페이징 모두 초기화
+            setPageNum(1);
+            pgPgNum.currnt = 1;
+          }}
+        />
+        <button className="sbtn" onClick={searchFn}>
+          Search
+        </button>
 
         {/* 검색기준 선택박스 */}
         <select
@@ -243,7 +259,7 @@ function List({
             translate: "0 5px",
           }}
           value={sortCta}
-          onChange={e=>{
+          onChange={(e) => {
             // 정렬기준 변경하기
             setSortCta(e.target.value);
             // 변경된 값 반영하기

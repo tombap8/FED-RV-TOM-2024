@@ -108,15 +108,17 @@ function Board() {
           : a[sortCta] < b[sortCta]
           ? 1 * order
           : // 그밖의 경우 idx(번호유일키)로 다시 정렬
+            // ((기준2))-> idx로 내림차순
             (a, b) =>
-              a.idx > b.idx 
-            ? -1 * order 
-            : a.idx < b.idx 
-            ? 1 * order 
-            : 0
-      );
-    // ((기준2))-> idx로 내림차순
-    // .sort((a, b) => (a.idx > b.idx ? -1 : a.idx < b.idx ? 1 : 0));
+              a.idx > b.idx ? -1 * order : a.idx < b.idx ? 1 * order : 0
+      )
+      // 여기부터 검색어로 리스트 만들기
+      .filter((v) => {
+        if (
+          v[keyword.cta].toLowerCase().indexOf(keyword.kw.toLowerCase()) !== -1
+        )
+          return true;
+      }); ////// filter ////////
   } ///// if : 검색어가 있는 경우 /////////
   else {
     finalData = baseData
@@ -131,13 +133,8 @@ function Board() {
           ? 1 * order
           : // 그밖의 경우 idx(번호유일키)로 다시 정렬
             (a, b) =>
-              a.idx > b.idx 
-            ? -1 * order 
-            : a.idx < b.idx 
-            ? 1 * order 
-            : 0
+              a.idx > b.idx ? -1 * order : a.idx < b.idx ? 1 * order : 0
       );
-
   } ///// else : 검색어가 없는 경우 ////////
 
   // 전체 데이터 개수 업데이트 하기 /////
