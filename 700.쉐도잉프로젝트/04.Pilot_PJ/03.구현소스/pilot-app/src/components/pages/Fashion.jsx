@@ -1,6 +1,6 @@
 // 파일럿 PJ -  패션 페이지(남성/여성/스타일 공통) - Fashion.jsx
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 // 페이지 CSS 불러오기 ////
@@ -10,6 +10,7 @@ import "../../css/fashion.scss";
 import $ from "jquery";
 import SwiperBan from "../plugin/SwiperBan";
 import SinSang from "../modules/SinSang";
+import ItemDetail from "../modules/ItemDetail";
 
 function Fashion() {
   // 라우터 전달객체 받기 ///
@@ -21,6 +22,20 @@ function Fashion() {
 
   // 카테고리 이름 가져오기 ///
   const catName = state ? state.catName : "아무거나";
+
+  // 후크 상태변수
+  const [item, setItem] = useState("m1");
+
+  // 신상컴포넌트에서 상세컴포넌트로 값을 전하기 위한
+  // 상태변수를 셋팅하여 함수로 이것을 변경하게 해준다!
+  // 프롭스 펑션다운~!!
+  const chgItemFn = (v) => {
+    console.log("상품정보:", v);
+    // 상태변수 업데이트
+    setItem(v);
+    // 상세박스 슬라이드 애니로 보이기
+    $(".bgbx").slideDown(400);
+  }; /////////// chgItem 함수 //////
 
   // 랜더링후 실행구역 : 한번만실행 /////////
   useEffect(() => {
@@ -59,12 +74,13 @@ function Fashion() {
         }}
       >
         {/* 신상품 모듈 */}
-        <SinSang catName={catName} />
+        <SinSang catName={catName} chgItemFn={chgItemFn} />
       </section>
       {/* 3. 상세보기박스 */}
       <div className="bgbx">
         {/* 아이템 디테일 컴포넌트 */}
-      </div>
+        <ItemDetail catName={catName} goods={item} />
+        </div>
     </>
   );
 }

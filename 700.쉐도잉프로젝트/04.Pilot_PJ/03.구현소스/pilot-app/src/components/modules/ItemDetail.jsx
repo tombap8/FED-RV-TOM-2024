@@ -1,6 +1,6 @@
 // Pilot PJ : 상품 상세보기 컴포넌트 - ItemDetail.jsx
 
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 // 신상품 데이터 가져오기
 import gdata from "../../js/data/glist-items";
