@@ -118,11 +118,35 @@ function Board() {
     // ((기준2))-> idx로 내림차순
     // .sort((a, b) => (a.idx > b.idx ? -1 : a.idx < b.idx ? 1 : 0));
   } ///// if : 검색어가 있는 경우 /////////
+  else {
+    finalData = baseData
+      // ((기준1))-> sortCta값에 따른 정렬
+      // 내림차순은 -1 * order변수값이 1일 경우
+      // 오름차순은 -1 * order변수값이 -1일 경우
+      //
+      .sort((a, b) =>
+        a[sortCta] > b[sortCta]
+          ? -1 * order
+          : a[sortCta] < b[sortCta]
+          ? 1 * order
+          : // 그밖의 경우 idx(번호유일키)로 다시 정렬
+            (a, b) =>
+              a.idx > b.idx 
+            ? -1 * order 
+            : a.idx < b.idx 
+            ? 1 * order 
+            : 0
+      );
+
+  } ///// else : 검색어가 없는 경우 ////////
+
+  // 전체 데이터 개수 업데이트 하기 /////
+  totalCount.current = finalData.length;
 
   console.log("slice를 위한 시작값/끝값", initNum, "/", limitNum);
 
   // [ slice() 배열 메서드를 이용한 부분값 가져오기 ]
-  const selData = baseData.slice(initNum, limitNum);
+  const selData = finalData.slice(initNum, limitNum);
   // 배열 메서드 slice(시작순번, 끝순번)
   // (1) 시작순번 : 시작할 배열값 첫번째 순번
   // (2) 끝순번 : 출력에 포함되지 않는 마지막째 배열순번
