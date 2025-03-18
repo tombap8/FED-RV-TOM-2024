@@ -156,6 +156,15 @@ function Board() {
             totalCount={totalCount} // 전체 개수 참조변수
             pgPgSize={pgPgSize} // 페이징의 페이징 개수
             pgPgNum={pgPgNum} // 페이징의 페이징 번호
+
+            // 검색, 정렬 관련 전달속성 셋팅 /////
+            searchFn={searchFn} // 검색함수
+            keyword={keyword} // 검색어 상태변수 getter
+            setKeyword={setKeyword} // 검색어 상태변수 setter
+            order={order} // 정렬 상태변수
+            setOrder={setOrder} // 정렬 상태변수 setter
+            sortCta={sortCta} // 정렬기준 상태변수 getter
+            setSortCta={setSortCta} // 정렬기준 상태변수 setter
           />
         )
       }

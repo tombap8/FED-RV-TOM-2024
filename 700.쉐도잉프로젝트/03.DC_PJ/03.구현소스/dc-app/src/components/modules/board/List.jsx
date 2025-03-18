@@ -13,6 +13,14 @@ function List({
   totalCount, // 전체 개수 참조변수
   pgPgSize, // 페이징의 페이징 개수
   pgPgNum, // 페이징의 페이징 번호
+
+  searchFn, // 검색함수
+  keyword, // 검색어 상태변수 getter
+  setKeyword, // 검색어 상태변수 setter
+  order, // 정렬 상태변수
+  setOrder, // 정렬 상태변수 setter
+  sortCta, // 정렬기준 상태변수 getter
+  setSortCta, // 정렬기준 상태변수 setter
 }) {
   // 전역 컨텍스트 API 사용하기!!
   const myCon = useContext(dCon);
@@ -209,7 +217,17 @@ function List({
         </select>
         <input id="stxt" type="text" maxLength="50" />
         <button className="sbtn">Search</button>
-        <select name="sort_cta" id="sort_cta" className="sort_cta">
+
+        {/* 검색기준 선택박스 */}
+        <select
+          name="sort_cta"
+          id="sort_cta"
+          className="sort_cta"
+          style={{
+            float: "right",
+            translate: "0 5px",
+          }}
+        >
           <option value="idx">Recent</option>
           <option value="tit">Title</option>
         </select>
