@@ -1,6 +1,6 @@
 /// 레이아웃 컴포넌트 : Layout.jsx /////
 
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 // 컨텍스트 API 불러오기
 import { pCon } from "../modules/pCon";
 
