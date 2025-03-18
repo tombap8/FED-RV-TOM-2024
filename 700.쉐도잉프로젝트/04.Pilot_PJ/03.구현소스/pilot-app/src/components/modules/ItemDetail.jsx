@@ -32,7 +32,7 @@ function ItemDetail({ catName, goods }) {
     /* 데이터 구성:
     {
       idx: 상품유일키,
-      catName: 상품분류,
+      cat: 상품분류,
       ginfo: 상품정보,
       num: 선택상품수
     }
@@ -129,7 +129,7 @@ function ItemDetail({ catName, goods }) {
 
   const selData = gdata.find((v) => {
     // 조건: 분류와 상품분류코드가 일치하는 하나
-    if (v.catName === catName && v.ginfo[0] === goods) return true;
+    if (v.cat === catName && v.ginfo[0] === goods) return true;
   });
   // filter는 결과를 배열에 담고
   // find는 배열의 결과값만 가져옴
