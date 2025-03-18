@@ -77,7 +77,18 @@ function Fashion() {
         <SinSang catName={catName} chgItemFn={chgItemFn} />
       </section>
       {/* 3. 상세보기박스 */}
-      <div className="bgbx">
+      <div className="bgbx"
+        onClick={(e)=>{
+          // 닫기버튼 클릭시 이벤트 버블링되어서
+          // 부모박스도 클릭효과가 나타남!
+          // 이때 스크롤 위치를 하단 상품상세박스만큼
+          // 이동애니메이션 하기!
+          // 이동할 크기 = 윈도우스크롤Y축위치값 - 현재박스높이값
+          let pos = window.scrollY - e.currentTarget.offsetHeight;
+          // 스크롤바 애니메이션 이동하기 (제이쿼리로!)
+          $('html,body').animate({scrollTop: pos+'px'},400);
+        }}
+      >
         {/* 아이템 디테일 컴포넌트 */}
         <ItemDetail catName={catName} goods={item} />
         </div>
