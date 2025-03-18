@@ -1,17 +1,22 @@
 // Pilot PJ : 상품 상세보기 컴포넌트 - ItemDetail.jsx
 
-import React from "react";
+import React, { useContext } from "react";
 
 // 신상품 데이터 가져오기
 import gdata from "../../js/data/glist-items";
+
 // 컨텍스트 API 불러오기
 import { pCon } from "./pCon";
+
 // 제이쿼리 ////
 import $ from "jquery";
 
 function ItemDetail({ catName, goods }) {
   // catname - 카테고리명(men/women/style)
   // goods - 상품 아이템정보(속성코드: m1,m2,...)
+
+  // 컨텍스트 API 사용하기 /////
+  const myCon = useContext(pCon);
 
   //////////////////////////////////////
   // 카트에 담기 버튼 클릭시 호출함수 ////
