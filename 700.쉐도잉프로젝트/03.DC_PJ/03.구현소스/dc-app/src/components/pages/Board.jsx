@@ -32,7 +32,10 @@ function Board() {
   const [pageNum, setPageNum] = useState(1);
 
   // [3] 검색어 저장변수 : 객체 {cta:기준값,kw:검색어}
-  const [keyword, setKeyword] = useState({ cta: "", kw: "" });
+  const [keyword, setKeyword] = useState({
+    cta: "tit",
+    kw: "",
+  });
   console.log("{cta:기준값,kw:검색어}", keyword);
   // cta - creteria / kw -  keyword
 
@@ -88,13 +91,33 @@ function Board() {
   // ★★★★★★ [ 데이터 필터링 하기 ] ★★★★★★ //
   // ★★★★★★★★★★★★★★★★★★★★★★★★ //
 
+  // 최종 데이터 담을 변수
+  let finalData;
+
   // [ 전체 데이터 검색 및 정렬 ] /////////////
-  // if(keyword == '')
-  baseData
-    // ((기준1))-> 최신날짜로 내림차순
-    .sort((a, b) => (a.date > b.date ? -1 : a.date < b.date ? 1 : 0))
+  // [1] 검색어가 있는 경우 ////////
+  if (keyword.kw !== "") {
+    finalData = baseData
+      // ((기준1))-> sortCta값에 따른 정렬
+      // 내림차순은 -1 * order변수값이 1일 경우
+      // 오름차순은 -1 * order변수값이 -1일 경우
+      //
+      .sort((a, b) =>
+        a[sortCta] > b[sortCta]
+          ? -1 * order
+          : a[sortCta] < b[sortCta]
+          ? 1 * order
+          : // 그밖의 경우 idx(번호유일키)로 다시 정렬
+            (a, b) =>
+              a.idx > b.idx 
+            ? -1 * order 
+            : a.idx < b.idx 
+            ? 1 * order 
+            : 0
+      );
     // ((기준2))-> idx로 내림차순
-    .sort((a, b) => (a.idx > b.idx ? -1 : a.idx < b.idx ? 1 : 0));
+    // .sort((a, b) => (a.idx > b.idx ? -1 : a.idx < b.idx ? 1 : 0));
+  } ///// if : 검색어가 있는 경우 /////////
 
   console.log("slice를 위한 시작값/끝값", initNum, "/", limitNum);
 
@@ -156,7 +179,6 @@ function Board() {
             totalCount={totalCount} // 전체 개수 참조변수
             pgPgSize={pgPgSize} // 페이징의 페이징 개수
             pgPgNum={pgPgNum} // 페이징의 페이징 번호
-
             // 검색, 정렬 관련 전달속성 셋팅 /////
             searchFn={searchFn} // 검색함수
             keyword={keyword} // 검색어 상태변수 getter

@@ -211,7 +211,22 @@ function List({
           <option value="cont">Contents</option>
           <option value="unm">Writer</option>
         </select>
-        <select name="sel" id="sel" className="sel">
+        <select 
+          name="sel" 
+          id="sel" 
+          className="sel"
+          value={order}
+          onChange={(e)=>{
+            // 정렬값 반대로 변경하기
+            setOrder(order*-1);
+            // 변경시 변경한 선택값 반영하기
+            e.target.value = order;
+            // 첫 페이지로 이동
+            setPageNum(1);
+            // 페이징의 페이징구역 초기화
+            pgPgNum.current = 1;
+          }}
+        >
           <option value="0">Descending</option>
           <option value="1">Ascending</option>
         </select>
@@ -227,8 +242,19 @@ function List({
             float: "right",
             translate: "0 5px",
           }}
+          value={sortCta}
+          onChange={e=>{
+            // 정렬기준 변경하기
+            setSortCta(e.target.value);
+            // 변경된 값 반영하기
+            e.target.value = sortCta;
+            // 첫 페이지로 이동
+            setPageNum(1);
+            // 페이징의 페이징구역 초기화
+            pgPgNum.current = 1;
+          }}
         >
-          <option value="idx">Recent</option>
+          <option value="date">Recent</option>
           <option value="tit">Title</option>
         </select>
       </div>
