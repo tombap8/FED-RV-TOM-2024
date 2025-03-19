@@ -206,7 +206,16 @@ function List({
     <main className="cont">
       <h1 className="tit">OPINION</h1>
       <div className="selbx">
-        <select name="cta" id="cta" className="cta">
+        {/* 검색기준 선택박스 */}
+        <select 
+          name="cta" 
+          id="cta" 
+          className="cta"
+          /* 기본값을 상태변수 검색기준값으로
+          설정해놓으면 다시 리스트가 리랜더링 되어도
+          기존값을 그대로 유지한다! */
+          defaultValue={keyword.cta}
+        >
           <option value="tit">Title</option>
           <option value="cont">Contents</option>
           <option value="unm">Writer</option>
@@ -249,7 +258,7 @@ function List({
           Search
         </button>
 
-        {/* 검색기준 선택박스 */}
+        {/* 정렬기준 선택박스 */}
         <select
           name="sort_cta"
           id="sort_cta"
