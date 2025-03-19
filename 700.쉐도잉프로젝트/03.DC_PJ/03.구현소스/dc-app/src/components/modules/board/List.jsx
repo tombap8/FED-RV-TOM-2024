@@ -3,6 +3,11 @@
 import React, { Fragment, useContext } from "react";
 import { dCon } from "../dCon";
 
+
+// 제이쿼리 불러오기 ///
+import $ from "jquery";
+
+
 function List({
   selData, // 선택된 배열데이터 전달
   setMode, // 모든 변경 상태변수 setter
@@ -254,8 +259,28 @@ function List({
             pgPgNum.currnt = 1;
           }}
         />
+        {/* 검색버튼 */}
         <button className="sbtn" onClick={searchFn}>
           Search
+        </button>
+        {/* 초기화버튼 */}
+        <button className="sbtn" onClick={()=>{
+          // 1.검색어 비우기
+          $('#stxt').val('');
+          // 2.검색선택 초기화
+          $('#cta').val('tit');
+          // 3.검색기준값 초기화
+          setKeyword({
+            cta: "tit",
+            kw: "",
+          });
+          // 4.정렬기준값 초기화
+          setSortCta('date');
+          // 5.정렬선택값 초기화
+          setOrder(1);
+          
+        }}>
+          Reset
         </button>
 
         {/* 정렬기준 선택박스 */}
