@@ -59,6 +59,37 @@ function Read({ setMode, selRecord }) {
     } //// if ////
   } //// if /////
 
+  // (4) 배열에 값 추가하기 : 기존값에 없으면 넣기!
+  if(!isRec) rec.push(selData.idx);
+  // -> 현재읽은 글번호를 배열에 추가함!
+
+  // (5) 다시 세션스에 저장하기 ////
+  sessionStorage.setItem('bd-rec', JSON.stringify(rec));
+
+  // 3. 글번호 증가하기 ///////////////
+  // -> 게시판 원본 데이터 조회수 업데이트하기
+  if(!isRec){
+    // (1) 게시판 로컬스 데이터 파싱
+    let bdData = JSON.parse(
+      localStorage.getItem('board-data'));
+
+    // (2) 게시판 해당 데이터 cnt값 증가
+    // 조건 : isRec값이 false일때(여기 if문내부에 코딩!)
+    bdData.some(v=>{
+      if(v.idx === selData.idx){
+        // 기존값에 1증가하여 넣기
+        v.cnt = Number(v.cnt) + 1;
+        // 끝내려면 true를 리턴
+        return true;
+      } /// if ///
+    }); ///// some /////
+
+    // (3) 다시 로컬스에 저장하기 ///
+    localStorage.setItem(
+      'board-data', JSON.stringify(bdData))
+
+  } ///// if ///////
+
 
 
   // 리턴 코드구역 ///////////////////
