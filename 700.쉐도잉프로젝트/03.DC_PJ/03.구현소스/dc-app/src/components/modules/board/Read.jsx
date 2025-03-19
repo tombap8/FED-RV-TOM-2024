@@ -12,7 +12,7 @@ function Read({ setMode, selRecord }) {
 
   // 전역 컨텍스트 API 사용하기!!
   const myCon = useContext(dCon);
-  // console.log('Read에서 loginSts:',myCon.loginSts);
+  console.log('Read에서 loginSts:',myCon.loginSts);
 
   // [ 조회수 증가하기 ] ////
   // 규칙1 : 자신의 글은 증가하지 않는다!
@@ -23,6 +23,43 @@ function Read({ setMode, selRecord }) {
   // -> 세션스토리지는 적합! 창을 닫으면 사라지니까!
   // -> 쿠키는 삭제방법이 즉각적이지 못하므로 제외!
   // -> 참조변수는 새로고침하면 초기화되므로 제외!
+
+  // 1. 세션스 없으면 세션스 만들기 ///
+  // bd-rec은 board-record 를 줄임말
+  if(!sessionStorage.getItem('bd-rec')){
+    sessionStorage.setItem('bd-rec', '[]');
+  } //// if ////
+
+  // 2. 세션스 글번호 저장하기 ////
+
+  // (1) 세션스 파싱하여 변수할당 ///
+  let rec = JSON.parse(sessionStorage.getItem('bd-rec'));
+
+  // (2) 기존 배열값에 현재글번호 존재 여부 검사하기
+  // 결과가 true이면 조회수를 증가하지 않는다!
+  // 배열.includes(검사할값) -> 배열에 있으면 true
+  let isRec = rec.includes(selData.idx)
+  console.log('현재글번호:',selData.idx);
+  console.log('현재읽은글:',rec);
+  console.log('이미있나?',isRec);
+
+  // (3) 로그인한 사용자의 글이면 isRec값을 true처리!
+  // 현재 로그인한 사용자는 myCon.loginSts으로 판별!
+  if(myCon.loginSts){ 
+    // 로그인한 사용자정보가 할당된 경우 true가 됨!
+    console.log(
+      '선택글 아이디:', selData.uid,
+      '로그인사용자 아이디:', myCon.loginSts.uid
+    );
+    // 글쓴이 아이디와 로그인사용자 아이디가 같은가?
+    if(selData.uid === myCon.loginSts.uid){
+      // 글번호저장과 조회수증가를 하지 않도록 isRec값을
+      // true로 변경함
+      isRec = true;
+    } //// if ////
+  } //// if /////
+
+
 
   // 리턴 코드구역 ///////////////////
   return (
