@@ -115,16 +115,21 @@ function Board() {
       // 오름차순은 -1 * order변수값이 -1일 경우
       //
       .sort((a, b) =>
-        a[sortCta] > b[sortCta]
+        a[sortCta] > b[sortCta] ||a.idx > b.idx
+          ? -1 * order
+          : a[sortCta] < b[sortCta] || a.idx < b.idx
+          ? 1 * order
+          // 하위조건추가 : 두값이 같지않은가?
+          : a[sortCta] !== b[sortCta]
+          // 같지 않으면 0
+          ? 0
+          // 그밖에 두 값이 같은경우는?
+          // idx항목으로 오름/내림차순정렬
+          : a.idx > b.idx
           ? -1 * order
           : a[sortCta] < b[sortCta]
-          ? 1 * order
-          : // 그밖의 경우 idx(번호유일키)로 다시 정렬
-            // ((기준2))-> idx로 내림차순
-            (a, b) =>
-              a.idx > b.idx ? -1 * order : a.idx < b.idx ? 1 * order : 0
+          ? 1 * order : 0
       )
-      .sort()
       // 여기부터 검색어로 리스트 만들기
       .filter((v) => {
         if (
@@ -140,13 +145,20 @@ function Board() {
       // 오름차순은 -1 * order변수값이 -1일 경우
       //
       .sort((a, b) =>
-        a[sortCta] > b[sortCta]
+        a[sortCta] > b[sortCta] 
           ? -1 * order
           : a[sortCta] < b[sortCta]
           ? 1 * order
-          : // 그밖의 경우 idx(번호유일키)로 다시 정렬
-            (a, b) =>
-              a.idx > b.idx ? -1 * order : a.idx < b.idx ? 1 * order : 0
+          // 하위조건추가 : 두값이 같지않은가?
+          : a[sortCta] !== b[sortCta]
+          // 같지 않으면 0
+          ? 0
+          // 그밖에 두 값이 같은경우는?
+          // idx항목으로 오름/내림차순정렬
+          : a.idx > b.idx
+          ? -1 * order
+          : a[sortCta] < b[sortCta]
+          ? 1 * order : 0
       );
   } ///// else : 검색어가 없는 경우 ////////
 
