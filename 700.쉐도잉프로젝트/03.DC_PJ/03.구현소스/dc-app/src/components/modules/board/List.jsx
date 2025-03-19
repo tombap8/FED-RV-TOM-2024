@@ -3,10 +3,8 @@
 import React, { Fragment, useContext } from "react";
 import { dCon } from "../dCon";
 
-
 // 제이쿼리 불러오기 ///
 import $ from "jquery";
-
 
 function List({
   selData, // 선택된 배열데이터 전달
@@ -212,9 +210,9 @@ function List({
       <h1 className="tit">OPINION</h1>
       <div className="selbx">
         {/* 검색기준 선택박스 */}
-        <select 
-          name="cta" 
-          id="cta" 
+        <select
+          name="cta"
+          id="cta"
           className="cta"
           /* 기본값을 상태변수 검색기준값으로
           설정해놓으면 다시 리스트가 리랜더링 되어도
@@ -264,22 +262,24 @@ function List({
           Search
         </button>
         {/* 초기화버튼 */}
-        <button className="sbtn" onClick={()=>{
-          // 1.검색어 비우기
-          $('#stxt').val('');
-          // 2.검색선택 초기화
-          $('#cta').val('tit');
-          // 3.검색기준값 초기화
-          setKeyword({
-            cta: "tit",
-            kw: "",
-          });
-          // 4.정렬기준값 초기화
-          setSortCta('date');
-          // 5.정렬선택값 초기화
-          setOrder(1);
-          
-        }}>
+        <button
+          className="sbtn"
+          onClick={() => {
+            // 1.검색어 비우기
+            $("#stxt").val("");
+            // 2.검색선택 초기화
+            $("#cta").val("tit");
+            // 3.검색상태변수값 초기화
+            setKeyword({
+              cta: "tit",
+              kw: "",
+            });
+            // 4.정렬상태변수 기준값 초기화
+            setSortCta("date");
+            // 5.정렬상태변수 선택값 초기화
+            setOrder(1);
+          }}
+        >
           Reset
         </button>
 
