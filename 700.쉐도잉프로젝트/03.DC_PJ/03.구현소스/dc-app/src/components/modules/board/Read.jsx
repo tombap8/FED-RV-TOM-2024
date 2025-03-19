@@ -72,11 +72,13 @@ function Read({ setMode, selRecord }) {
     // (1) 게시판 로컬스 데이터 파싱
     let bdData = JSON.parse(
       localStorage.getItem('board-data'));
+      console.log('조증구역!',bdData);
 
     // (2) 게시판 해당 데이터 cnt값 증가
     // 조건 : isRec값이 false일때(여기 if문내부에 코딩!)
     bdData.some(v=>{
       if(v.idx === selData.idx){
+        console.log('당첨!',v.cnt);
         // 기존값에 1증가하여 넣기
         v.cnt = Number(v.cnt) + 1;
         // 끝내려면 true를 리턴
