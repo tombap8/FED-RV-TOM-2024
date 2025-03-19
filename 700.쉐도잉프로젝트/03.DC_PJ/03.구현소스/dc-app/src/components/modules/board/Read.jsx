@@ -14,6 +14,16 @@ function Read({ setMode, selRecord }) {
   const myCon = useContext(dCon);
   // console.log('Read에서 loginSts:',myCon.loginSts);
 
+  // [ 조회수 증가하기 ] ////
+  // 규칙1 : 자신의 글은 증가하지 않는다!
+  // 규칙2 : 타인의 글은 증가한다!
+  // 규칙3 : 로그인한 상태에서 한번만 증가한다!
+
+  // ((이미 읽은 글인지 판단하기위해 조회된글 저장하기))
+  // -> 세션스토리지는 적합! 창을 닫으면 사라지니까!
+  // -> 쿠키는 삭제방법이 즉각적이지 못하므로 제외!
+  // -> 참조변수는 새로고침하면 초기화되므로 제외!
+
   // 리턴 코드구역 ///////////////////
   return (
     <main className="cont">
