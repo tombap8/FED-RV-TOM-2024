@@ -124,6 +124,7 @@ function Board() {
             (a, b) =>
               a.idx > b.idx ? -1 * order : a.idx < b.idx ? 1 * order : 0
       )
+      .sort()
       // 여기부터 검색어로 리스트 만들기
       .filter((v) => {
         if (
@@ -223,6 +224,7 @@ function Board() {
             setOrder={setOrder} // 정렬 상태변수 setter
             sortCta={sortCta} // 정렬기준 상태변수 getter
             setSortCta={setSortCta} // 정렬기준 상태변수 setter
+            initVariables={initVariables} // 변수초기화함수
           />
         )
       }
@@ -245,6 +247,7 @@ function Board() {
             totalCount={totalCount} // 전체 개수 참조변수
             setPageNum={setPageNum} // 리스트 페이지번호 setter
             pgPgNum={pgPgNum} // 페이징의 페이징 번호
+            initVariables={initVariables} // 변수초기화함수
           />
         )
       }

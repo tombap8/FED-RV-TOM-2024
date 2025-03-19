@@ -6,7 +6,13 @@ import { dCon } from "../dCon";
 // 제이쿼리 불러오기 ////
 import $ from "jquery";
 
-function Write({ setMode, totalCount, setPageNum, pgPgNum }) {
+function Write({
+  setMode,
+  totalCount,
+  setPageNum,
+  pgPgNum,
+  initVariables, // 변수초기화함수
+}) {
   // setMode - 모든 변경 상태변수 setter
   // totalCount - 전체 개수 참조변수 (글쓰기시 카운트 1증가!)
   // setPageNum - 리스트 페이지번호 setter (글쓴 후 첫페이지 이동)
@@ -73,7 +79,7 @@ function Write({ setMode, totalCount, setPageNum, pgPgNum }) {
         unm: myCon.loginSts.unm,
         cnt: 0,
       };
-    // console.log("입력데이터:", data);
+      // console.log("입력데이터:", data);
 
       // 4) 입력 객체를 기존 로컬스 변환 객체에 추가하기
       localData.push(data);
@@ -84,13 +90,10 @@ function Write({ setMode, totalCount, setPageNum, pgPgNum }) {
       // 6) 전체 개수 참조변수 1증가하기
       totalCount.current++;
 
-      // 7) 페이지 번호 초기화
-      setPageNum(1);
+      // 7) 초기화 함수호출
+      initVariables();
 
-      // 8) 페이징 구역 번호 초기화
-      pgPgNum.current = 1;
-
-      // 9) 리스트 이동을 위해 모드 변경하기
+      // 8) 리스트 이동을 위해 모드 변경하기
       setMode("L");
     } /// else /////
   }; ////////// submitFn 함수 //////////////

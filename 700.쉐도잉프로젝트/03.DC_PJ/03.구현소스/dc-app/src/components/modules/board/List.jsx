@@ -24,18 +24,21 @@ function List({
   setOrder, // 정렬 상태변수 setter
   sortCta, // 정렬기준 상태변수 getter
   setSortCta, // 정렬기준 상태변수 setter
+  initVariables, // 변수초기화함수
 }) {
   // 전역 컨텍스트 API 사용하기!!
   const myCon = useContext(dCon);
   // console.log('List에서 loginSts:',myCon.loginSts);
+
+  console.log("토탈 카운트:", totalCount);
 
   // [ 페이징 관련 변수값 셋팅하기 ] ////
 
   // 1. 페이징 개수 : 전체 레코드수 / 페이지당 개수
   // -> 나머지가 있으면 페이지를 하나더해준다!
   let pagingCount = Math.floor(totalCount.current / unitSize);
-// console.log("전체 레코드수 / 페이지당 개수:", pagingCount);
-// console.log("나머지연산:", totalCount.current % unitSize);
+  // console.log("전체 레코드수 / 페이지당 개수:", pagingCount);
+  // console.log("나머지연산:", totalCount.current % unitSize);
 
   // 2. 나머지가 있으면 페이징 개수 1증가!
   // 앞수 % 뒷수 = 0 이면 나누어 떨어짐!
@@ -53,7 +56,7 @@ function List({
     pgPgLimit++;
   } /// if ///
 
-// console.log("페이징의 페이징 한계수:", pgPgLimit);
+  // console.log("페이징의 페이징 한계수:", pgPgLimit);
 
   /*********************************** 
         페이징코드 리턴 함수
@@ -269,15 +272,8 @@ function List({
             $("#stxt").val("");
             // 2.검색선택 초기화
             $("#cta").val("tit");
-            // 3.검색상태변수값 초기화
-            setKeyword({
-              cta: "tit",
-              kw: "",
-            });
-            // 4.정렬상태변수 기준값 초기화
-            setSortCta("date");
-            // 5.정렬상태변수 선택값 초기화
-            setOrder(1);
+            // 3.초기화 함수호출
+            initVariables();
           }}
         >
           Reset
@@ -319,41 +315,54 @@ function List({
           </tr>
         </thead>
         <tbody>
-          {selData.map((v, i) => (
-            <tr key={i}>
-              <td>
-                {
-                  // 페이징 시작번호 더하기
-                  // -> 자동순번 + (단위수 * (페이지번호-1))
-                  i + 1 + unitSize * (pageNum - 1)
-                }
-              </td>
-              <td>
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    // 기본이동막기
-                    e.preventDefault();
-                    // 글보기모드('R')로 변경하기
-                    setMode("R");
-                    // 해당 데이터 참조변수에 저장하기
-                    selRecord.current = v;
-                  }}
-                >
-                  {v.tit}
-                </a>
-              </td>
-              <td>{v.unm}</td>
-              <td>{v.date}</td>
-              <td>{v.cnt}</td>
-            </tr>
-          ))}
+          {
+            // 데이터가 0이 아닐경우 map순회 출력하기
+            totalCount.current > 0 ? (
+              selData.map((v, i) => (
+                <tr key={i}>
+                  <td>
+                    {
+                      // 페이징 시작번호 더하기
+                      // -> 자동순번 + (단위수 * (페이지번호-1))
+                      i + 1 + unitSize * (pageNum - 1)
+                    }
+                  </td>
+                  <td>
+                    <a
+                      href="#"
+                      onClick={(e) => {
+                        // 기본이동막기
+                        e.preventDefault();
+                        // 글보기모드('R')로 변경하기
+                        setMode("R");
+                        // 해당 데이터 참조변수에 저장하기
+                        selRecord.current = v;
+                      }}
+                    >
+                      {v.tit}
+                    </a>
+                  </td>
+                  <td>{v.unm}</td>
+                  <td>{v.date}</td>
+                  <td>{v.cnt}</td>
+                </tr>
+              ))
+            ) : (
+              // 데이터가 0일 경우 출력 ////////////
+              <tr>
+                <td colSpan="5">No search results</td>
+              </tr>
+            )
+          }
         </tbody>
         {/* 페이징 하단파트 */}
         <tfoot>
           <tr>
             <td colSpan="5" className="paging">
-              {pagingCode()}
+              {
+                // 결과 데이터가 0이 아닐경우 페이징 출력
+                totalCount.current > 0 && pagingCode()
+              }
             </td>
           </tr>
         </tfoot>
