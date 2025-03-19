@@ -14,7 +14,7 @@ function Write({ setMode, totalCount, setPageNum, pgPgNum }) {
 
   // 전역 컨텍스트 API 사용하기!!
   const myCon = useContext(dCon);
-  //   console.log("Write에서 loginSts:", myCon.loginSts);
+  // // console.log("Write에서 loginSts:", myCon.loginSts);
 
   // 글쓰기 저장 서브밋 함수 //////
   const submitFn = () => {
@@ -42,20 +42,20 @@ function Write({ setMode, totalCount, setPageNum, pgPgNum }) {
 
       // 1-3) 배열 데이터 idx값 읽어오기
       let totalIdx = localData.map((v) => v.idx);
-      //   console.log("idx만 배열:", totalIdx);
+      // // console.log("idx만 배열:", totalIdx);
 
       // 1-4) idx값 중 최대값 구하기 :
       // 스프레드 연산자로 ...totalIdx -> 배열값만 max에 넣기
       let maxIdx = Math.max(...totalIdx);
-      //   console.log("idx중 최대값:", maxIdx);
+      // // console.log("idx중 최대값:", maxIdx);
 
       // 2) 오늘날짜 만들기 ///////////
       let today = new Date();
-      //   console.log(today);
+      // // console.log(today);
       // toJSON()은 제이슨 날짜형식변환(yyyy-MM-dd)
       // -> 앞의 10자리만 사용 : substr(시작순번,개수)
       today = today.toJSON().substr(0, 10);
-      //   console.log(today);
+      // // console.log(today);
 
       // [ idx 고유번호 만드는 방법 ] ///
       // idx는 최대값 idx에 1을 더함
@@ -73,7 +73,7 @@ function Write({ setMode, totalCount, setPageNum, pgPgNum }) {
         unm: myCon.loginSts.unm,
         cnt: 0,
       };
-      console.log("입력데이터:", data);
+    // console.log("입력데이터:", data);
 
       // 4) 입력 객체를 기존 로컬스 변환 객체에 추가하기
       localData.push(data);

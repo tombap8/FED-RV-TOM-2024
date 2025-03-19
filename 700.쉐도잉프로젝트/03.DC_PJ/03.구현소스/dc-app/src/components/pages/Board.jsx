@@ -36,7 +36,7 @@ function Board() {
     cta: "tit",
     kw: "",
   });
-  console.log("{cta:기준값,kw:검색어}", keyword);
+// console.log("{cta:기준값,kw:검색어}", keyword);
   // cta - creteria / kw -  keyword
 
   // [4] 정렬 기준값 상태변수 : 값(asc(-1) / desc(1))
@@ -57,7 +57,7 @@ function Board() {
   // [2] 전체 레코드 개수(배열데이터 개수)
   // -> 매번 계산하지 않도록 참조변수로 생성한다!
   const totalCount = useRef(baseData.length);
-  console.log("전체개수:", totalCount);
+// console.log("전체개수:", totalCount);
 
   // [3] 페이징의 페이징 번호
   const pgPgNum = useRef(1);
@@ -65,6 +65,18 @@ function Board() {
   // 페이징의 페이징번호가 변경될때 어차피
   // 상태변수인 페이징번호가 업데이트되어서
   // 전체 리랜더링된다! 따라서 이것은 값만 유지하면 됨!
+
+  // [ 변수 초기화 처리함수 ] //////
+  const initVariables = () => {
+    setMode("L");
+    setPageNum(1);
+    setKeyword({ cta: "tit", kw: "" });
+    setOrder(1);
+    setSortCta("date");
+    // selRecord.current = null;
+    // totalCount.current = baseData.length;
+    pgPgNum.current = 1;
+  }; ////////// initVariables 함수 //////
 
   // [ ★★ 일반변수 셋팅구역 ★★ ] ///////////
   // ->>> 매번 같은 값을 유지해야하는 변수들
@@ -140,7 +152,7 @@ function Board() {
   // 전체 데이터 개수 업데이트 하기 /////
   totalCount.current = finalData.length;
 
-  console.log("slice를 위한 시작값/끝값", initNum, "/", limitNum);
+// console.log("slice를 위한 시작값/끝값", initNum, "/", limitNum);
 
   // [ slice() 배열 메서드를 이용한 부분값 가져오기 ]
   const selData = finalData.slice(initNum, limitNum);

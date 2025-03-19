@@ -42,7 +42,7 @@ function Modify({ setMode, selRecord, totalCount, setPageNum, pgPgNum }) {
 
       // 2) 수정할 현재 데이터 idx값(키값)
       let currIdx = selData.idx;
-      console.log("수정할idx:", currIdx);
+    // console.log("수정할idx:", currIdx);
 
       // 3) 로컬스 객체화 데이터 배열을 find로 순회하여
       // 해당 idx만 찾아서 제목과 내용 변경하기
@@ -86,7 +86,7 @@ function Modify({ setMode, selRecord, totalCount, setPageNum, pgPgNum }) {
 
       // 2) 수정할 현재 데이터 idx값(키값)
       let currIdx = selData.idx;
-      console.log("삭제할idx:", currIdx);
+    // console.log("삭제할idx:", currIdx);
 
       // 3) 로컬스 객체화 데이터 배열을 some()으로 순회하여
       // 해당 idx만 삭제 처리한다!

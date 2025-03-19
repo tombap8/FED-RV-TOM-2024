@@ -34,8 +34,8 @@ function List({
   // 1. 페이징 개수 : 전체 레코드수 / 페이지당 개수
   // -> 나머지가 있으면 페이지를 하나더해준다!
   let pagingCount = Math.floor(totalCount.current / unitSize);
-  console.log("전체 레코드수 / 페이지당 개수:", pagingCount);
-  console.log("나머지연산:", totalCount.current % unitSize);
+// console.log("전체 레코드수 / 페이지당 개수:", pagingCount);
+// console.log("나머지연산:", totalCount.current % unitSize);
 
   // 2. 나머지가 있으면 페이징 개수 1증가!
   // 앞수 % 뒷수 = 0 이면 나누어 떨어짐!
@@ -53,7 +53,7 @@ function List({
     pgPgLimit++;
   } /// if ///
 
-  console.log("페이징의 페이징 한계수:", pgPgLimit);
+// console.log("페이징의 페이징 한계수:", pgPgLimit);
 
   /*********************************** 
         페이징코드 리턴 함수
