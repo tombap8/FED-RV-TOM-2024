@@ -8,6 +8,7 @@ import { FooterArea } from "./FooterArea";
 import MainArea from "./MainArea";
 import { TopArea } from "./TopArea";
 import { useNavigate } from "react-router-dom";
+import { CartList } from "../modules/CartList";
 
 export default function Layout() {
   // [ ★★★ 참조변수 셋팅구역 ★★★ ] //////////
@@ -87,6 +88,15 @@ export default function Layout() {
       <TopArea catName={catName} />
       <MainArea />
       <FooterArea />
+      {/* 카트리스트 */}
+      {
+        // 카트 사용여부 상태변수 csts 값이 true일때만 보여줌
+        csts &&
+        <CartList selData={transData} flag={flag}  />
+        // 참조변수인 flag를 보내면 자식 컴포넌트에서도
+        // 이 값을 참조할 뿐만 아니라 변경도 가능함!
+        // 주의: useRef변수는 사용시 변수명.current로 사용함!
+      }
     </pCon.Provider>
   );
 } //////////// Layout 컴포넌트 ///////////

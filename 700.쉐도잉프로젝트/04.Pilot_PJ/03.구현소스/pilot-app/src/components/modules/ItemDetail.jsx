@@ -62,7 +62,7 @@ function ItemDetail({ catName, goods }) {
 
       console.log(myCon.transData);
 
-      myCon.setCsts(1);
+      myCon.setCsts(1); // 1은 true로 처리됨!
 
       // 쇼핑카트버튼 초기화
       $("#mycart")
