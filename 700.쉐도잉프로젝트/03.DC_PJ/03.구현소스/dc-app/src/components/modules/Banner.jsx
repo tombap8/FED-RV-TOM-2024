@@ -28,7 +28,7 @@ function Banner({ catName }) {
             // 배열데이터 개수 만큼 슬라이드 생성하기
             selData.map((v, i) => (
               <li key={i}>
-                <img src={v.src} alt={v.tit1} />
+                <img src={process.env.PUBLIC_URL + v.src} alt={v.tit1} />
                 <section className="bantit">
                   <h2>{v.tit1}</h2>
                   <p>{v.tit2}</p>

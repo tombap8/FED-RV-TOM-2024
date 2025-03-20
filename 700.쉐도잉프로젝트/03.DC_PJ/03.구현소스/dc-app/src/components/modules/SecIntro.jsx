@@ -20,7 +20,7 @@ function SecIntro(props) {
         <div key={i}>
           <div className="imbx">
             <img
-              src={v.isrc}
+              src={process.env.PUBLIC_URL + v.isrc}
               alt={v.tit.split('^')[0]}
             />
           </div>

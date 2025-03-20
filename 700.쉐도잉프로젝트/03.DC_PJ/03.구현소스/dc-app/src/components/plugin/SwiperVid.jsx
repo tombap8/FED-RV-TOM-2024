@@ -110,7 +110,7 @@ export default function SwiperVid({ catName }) {
               >
                 {/* 동영상 이미지박스 */}
                 <div className="vid-img">
-                  <img src={v.isrc} alt={v.tit} />
+                  <img src={process.env.PUBLIC_URL + v.isrc} alt={v.tit} />
                   {/* 폰트어썸 아이콘 */}
                   <FontAwesomeIcon
                     icon={faCirclePlay}

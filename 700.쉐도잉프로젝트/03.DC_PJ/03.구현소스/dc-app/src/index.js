@@ -62,7 +62,10 @@ import Login from "./components/pages/Login";
 export default function MainComponent() {
   // 리턴 코드구역 ////////////
   return (
-    <BrowserRouter>
+    // basename 속성은 package.json파일의 "homepage"
+    // 속성값을 읽어와서 라우팅 기본 주소로 적용한다!
+    // 읽는 방법 : process.env.PUBLIC_URL
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       {/* 라우터 경로 변경시 최상단이동 컴포넌트 */}
       <ScrollTop />
 
