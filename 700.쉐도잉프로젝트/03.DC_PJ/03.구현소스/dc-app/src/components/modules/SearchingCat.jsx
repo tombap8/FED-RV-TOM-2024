@@ -31,7 +31,7 @@ function SearchingCat({ selData }) {
                   }}
                 >
                   {/* 캐릭터 이미지 */}
-                  <img src={v.tmsrc} alt={v.cname} />
+                  <img src={process.env.PUBLIC_URL + v.tmsrc} alt={v.cname} />
 
                   {/* 캐릭터 이름 */}
                   <h3>{v.cname}</h3>
