@@ -71,13 +71,13 @@ export default function MainComponent() {
     // 현재 페이지에 새로고침시 머무는것이 가능하다!
     // basename속성은 해쉬라우터에서는 안쓴다!
     // 왜냐하면 이미 내부적으로 homepage 속성값을 전달해준다!
-    <HashRouter>
+    // <HashRouter>
 
-    {/* // [ BrowserRouter 사용하기 ] /////////
+    // [ BrowserRouter 사용하기 ] /////////
     // basename 속성은 package.json파일의 "homepage"
     // 속성값을 읽어와서 라우팅 기본 주소로 적용한다!
-    // 읽는 방법 : process.env.PUBLIC_URL */}
-    {/* <BrowserRouter basename={process.env.PUBLIC_URL}> */}
+    // 읽는 방법 : process.env.PUBLIC_URL
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       {/* 라우터 경로 변경시 최상단이동 컴포넌트 */}
       <ScrollTop />
 
@@ -102,8 +102,8 @@ export default function MainComponent() {
           {/* <Route index element={<SwiperApp />}  /> */}
         </Route>
       </Routes>
-    {/* </BrowserRouter> */}
-    </HashRouter>
+    </BrowserRouter>
+    // {/* </HashRouter> */}
   );
 } /////////// MainComponent ////////////////////
 
