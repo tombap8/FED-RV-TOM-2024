@@ -90,7 +90,8 @@ function List({
           <a
             href="#"
             title="First Paging Section"
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
               // (1) 페이징의 페이징번호 첫페이징번호로 변경!
               pgPgNum.current = 1;
               // (2) 페이지 번호도 첫 페이지번호로 변경!
@@ -103,7 +104,8 @@ function List({
           <a
             href="#"
             title="Previous Paging Section"
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault
               // (1) 페이징의 페이징번호 감소
               pgPgNum.current--;
               // (2) 이전 페이징의 페이징 첫 페이지번호로
@@ -137,7 +139,8 @@ function List({
             ) : (
               <a
                 href="#"
-                onClick={() => {
+                onClick={(e) => {
+                  e.preventDefault();
                   // 페이지번호 업데이트하기
                   setPageNum(i + 1);
                 }}
@@ -164,7 +167,8 @@ function List({
           <a
             href="#"
             title="Next Paging Section"
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
               // (1) 페이징의 페이징번호 증가
               pgPgNum.current++;
               // (2) 다음 페이징의 페이징 첫 페이지번호로
@@ -180,7 +184,8 @@ function List({
           <a
             href="#"
             title="Last Paging Section"
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
               // (1) 페이징의 페이징번호 맨끝번호로 변경!
               pgPgNum.current = pgPgLimit;
               // (2) 다음 페이징의 페이징 첫 페이지번호로
