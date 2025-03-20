@@ -105,7 +105,7 @@ function List({
             href="#"
             title="Previous Paging Section"
             onClick={(e) => {
-              e.preventDefault
+              e.preventDefault();
               // (1) 페이징의 페이징번호 감소
               pgPgNum.current--;
               // (2) 이전 페이징의 페이징 첫 페이지번호로
