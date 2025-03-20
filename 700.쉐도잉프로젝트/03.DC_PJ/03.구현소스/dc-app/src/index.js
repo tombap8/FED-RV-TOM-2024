@@ -1,6 +1,6 @@
 import React, { useLayoutEffect } from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, HashRouter } from "react-router-dom";
 
 /// 전체 PJ 공통 CSS 최상위 JS에서 불러오기 ///
 import "./css/index.scss";
@@ -62,10 +62,22 @@ import Login from "./components/pages/Login";
 export default function MainComponent() {
   // 리턴 코드구역 ////////////
   return (
+
+    // [ HashRouter 사용하기 ] /////////
+    // 해쉬라우터는 url가상경로에 '#/경로명'형식으로 만들어줘서
+    // 새로고침시 현재위치에 그대로 404에러 없이 머물 수 있다!
+    // '#/' 의 의미는 일반적으로 아이디요소위치로 이동하거나
+    // 빈 #은 맨위로 이동하는 url코드로 사용되기 때문에 
+    // 현재 페이지에 새로고침시 머무는것이 가능하다!
+    // basename속성은 해쉬라우터에서는 안쓴다!
+    // 왜냐하면 이미 내부적으로 homepage 속성값을 전달해준다!
+    <HashRouter>
+
+    {/* // [ BrowserRouter 사용하기 ] /////////
     // basename 속성은 package.json파일의 "homepage"
     // 속성값을 읽어와서 라우팅 기본 주소로 적용한다!
-    // 읽는 방법 : process.env.PUBLIC_URL
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    // 읽는 방법 : process.env.PUBLIC_URL */}
+    {/* <BrowserRouter basename={process.env.PUBLIC_URL}> */}
       {/* 라우터 경로 변경시 최상단이동 컴포넌트 */}
       <ScrollTop />
 
@@ -90,7 +102,8 @@ export default function MainComponent() {
           {/* <Route index element={<SwiperApp />}  /> */}
         </Route>
       </Routes>
-    </BrowserRouter>
+    {/* </BrowserRouter> */}
+    </HashRouter>
   );
 } /////////// MainComponent ////////////////////
 
