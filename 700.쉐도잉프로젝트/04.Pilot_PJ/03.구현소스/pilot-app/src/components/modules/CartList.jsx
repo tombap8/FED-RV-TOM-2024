@@ -340,6 +340,7 @@ export const CartList = memo(({ selData, flag }) => {
     기능 : 페이지 링크 클릭시 리스트변경
   *************************************/
   const chgList = (e) => {
+    e.preventDefault();
     let currNum = e.target.innerText;
     // console.log("번호:", currNum);
     // 현재 페이지번호 업데이트! -> 리스트 업데이트됨!
