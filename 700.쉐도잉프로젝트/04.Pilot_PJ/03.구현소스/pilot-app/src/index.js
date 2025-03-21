@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Routes, Route, HashRouter } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // 공통 CSS 불러오기 ///
 import "./css/index.scss";
@@ -20,8 +20,7 @@ export default function MainComponent(){
 
     // 리턴 코드구역 ////////////
     return (
-        // 해시라우터 사용하기 //////////////////
-        <HashRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
             <Routes>
                 {/* 최상위 Route는 쌍으로 태그를 만든다!
                 슬래쉬는 루트를 말하고 레이아웃 컴포넌트 불러옴 */}
@@ -31,7 +30,7 @@ export default function MainComponent(){
                     <Route path='fashion' element={<Fashion  />}  />
                 </Route>
             </Routes>
-        </HashRouter>
+        </BrowserRouter>
     );
 
 } /////////// MainComponent ////////////////////
