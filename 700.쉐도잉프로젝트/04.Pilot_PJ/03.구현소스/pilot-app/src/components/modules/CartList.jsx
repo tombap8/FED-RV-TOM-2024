@@ -340,7 +340,9 @@ export const CartList = memo(({ selData, flag }) => {
     기능 : 페이지 링크 클릭시 리스트변경
   *************************************/
   const chgList = (e) => {
+    // 기본이동막기 중요!!! ////
     e.preventDefault();
+    // 현재 페이징 번호 읽어오기
     let currNum = e.target.innerText;
     // console.log("번호:", currNum);
     // 현재 페이지번호 업데이트! -> 리스트 업데이트됨!
