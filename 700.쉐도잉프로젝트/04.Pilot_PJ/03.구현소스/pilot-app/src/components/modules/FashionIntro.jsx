@@ -50,7 +50,7 @@ export function FashionIntro({ cat, subcat }) {
           subcat === "etc" && (
             <li className="imgc">
               <img
-                src={cat == "style" ? selData.isrc[0] : selData.isrc}
+                src={process.env.PUBLIC_URL + (cat == "style" ? selData.isrc[0] : selData.isrc)}
                 alt={cat == "style" ? selData.ialt[0] : selData.ialt}
               />
             </li>
@@ -90,7 +90,7 @@ export function FashionIntro({ cat, subcat }) {
         {/* 스타일 패션에서만 나오는 이미지 */}
         {cat == "style" && (
           <li className="imgc">
-            <img src={selData.isrc[1]} alt={selData.ialt[1]} />
+            <img src={process.env.PUBLIC_URL + selData.isrc[1]} alt={selData.ialt[1]} />
           </li>
         )}
 
@@ -110,7 +110,7 @@ export function FashionIntro({ cat, subcat }) {
               </li>
               {/* 이미지박스 */}
               <li className="imgc sc-ani">
-                <img src={selData.isrc} alt={selData.ialt} />
+                <img src={process.env.PUBLIC_URL + selData.isrc} alt={selData.ialt} />
               </li>
             </>
           )
@@ -121,7 +121,7 @@ export function FashionIntro({ cat, subcat }) {
             <>
               {/* 이미지박스 */}
               <li className="imgc sc-ani">
-                <img src={selData.isrc[0]} alt={selData.ialt[0]} />
+                <img src={process.env.PUBLIC_URL + selData.isrc[0]} alt={selData.ialt[0]} />
               </li>
               {/* 글자박스 */}
               <li className="txtc">
@@ -140,7 +140,7 @@ export function FashionIntro({ cat, subcat }) {
               </li>
               {/* 이미지박스 */}
               <li className="imgc sc-ani">
-                <img src={selData.isrc[1]} alt={selData.ialt[1]} />
+                <img src={process.env.PUBLIC_URL + selData.isrc[1]} alt={selData.ialt[1]} />
               </li>
             </>
           )

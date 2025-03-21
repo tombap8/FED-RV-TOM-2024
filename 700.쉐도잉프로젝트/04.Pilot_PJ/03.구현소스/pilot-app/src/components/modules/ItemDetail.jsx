@@ -199,17 +199,17 @@ function ItemDetail({ catName, goods }) {
         <div className="inx">
           <section className="gimg">
             <img
-              src={"/images/goods/" + catName + "/" + goods + ".png"}
+              src={process.env.PUBLIC_URL + "/images/goods/" + catName + "/" + goods + ".png"}
               alt="큰 이미지"
             />
             <div className="small">
               <a href="#">
-                <img src={"/images/goods/men/m1.png"} alt="썸네일 이미지" />
-                <img src={"/images/goods/men/m2.png"} alt="썸네일 이미지" />
-                <img src={"/images/goods/men/m3.png"} alt="썸네일 이미지" />
-                <img src={"/images/goods/men/m4.png"} alt="썸네일 이미지" />
-                <img src={"/images/goods/men/m5.png"} alt="썸네일 이미지" />
-                <img src={"/images/goods/men/m6.png"} alt="썸네일 이미지" />
+                <img src={process.env.PUBLIC_URL + "/images/goods/men/m1.png"} alt="썸네일 이미지" />
+                <img src={process.env.PUBLIC_URL + "/images/goods/men/m2.png"} alt="썸네일 이미지" />
+                <img src={process.env.PUBLIC_URL + "/images/goods/men/m3.png"} alt="썸네일 이미지" />
+                <img src={process.env.PUBLIC_URL + "/images/goods/men/m4.png"} alt="썸네일 이미지" />
+                <img src={process.env.PUBLIC_URL + "/images/goods/men/m5.png"} alt="썸네일 이미지" />
+                <img src={process.env.PUBLIC_URL + "/images/goods/men/m6.png"} alt="썸네일 이미지" />
               </a>
             </div>
           </section>
@@ -218,17 +218,17 @@ function ItemDetail({ catName, goods }) {
             <div>
               <ol>
                 <li>
-                  <img src={"/images/dx_ico_new-28143800.gif"} alt="new버튼" />
+                  <img src={process.env.PUBLIC_URL + "/images/dx_ico_new-28143800.gif"} alt="new버튼" />
                 </li>
                 <li id="gtit">상품명: {ginfo[1]}</li>
                 <li>
                   <img
-                    src={"/images/icon_type02_social01.gif"}
+                    src={process.env.PUBLIC_URL + "/images/icon_type02_social01.gif"}
                     alt="페이스북"
                   />
-                  <img src={"/images/icon_type02_social02.gif"} alt="트위터" />
-                  <img src={"/images/icon_mail02.gif"} alt="이메일" />
-                  <img src={"/images/btn_source_copy.gif"} alt="URL복사" />
+                  <img src={process.env.PUBLIC_URL + "/images/icon_type02_social02.gif"} alt="트위터" />
+                  <img src={process.env.PUBLIC_URL + "/images/icon_mail02.gif"} alt="이메일" />
+                  <img src={process.env.PUBLIC_URL + "/images/btn_source_copy.gif"} alt="URL복사" />
                 </li>
                 <li>
                   <span>판매가</span>
@@ -237,7 +237,7 @@ function ItemDetail({ catName, goods }) {
                 <li>
                   <span>적립금</span>
                   <span>
-                    <img src={"/images/icon_my_m02.gif"} alt="적립금" />
+                    <img src={process.env.PUBLIC_URL + "/images/icon_my_m02.gif"} alt="적립금" />
                     4,950(5%적립)
                   </span>
                 </li>
@@ -246,7 +246,7 @@ function ItemDetail({ catName, goods }) {
                   <span>
                     부분 무이자 할부 혜택
                     <img
-                      src={"/images/view_btn_nointerest_card.gif"}
+                      src={process.env.PUBLIC_URL + "/images/view_btn_nointerest_card.gif"}
                       alt="무이자카드보기"
                     />
                   </span>
@@ -262,8 +262,8 @@ function ItemDetail({ catName, goods }) {
                   <span>
                     <input type="text" id="sum" defaultValue="1" />
                     <b className="chg_num">
-                      <img src={"/images/cnt_up.png"} alt="증가" />
-                      <img src={"/images/cnt_down.png"} alt="감소" />
+                      <img src={process.env.PUBLIC_URL + "/images/cnt_up.png"} alt="증가" />
+                      <img src={process.env.PUBLIC_URL + "/images/cnt_down.png"} alt="감소" />
                     </b>
                   </span>
                 </li>

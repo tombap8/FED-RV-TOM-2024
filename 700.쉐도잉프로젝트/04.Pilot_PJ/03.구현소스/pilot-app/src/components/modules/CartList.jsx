@@ -233,7 +233,14 @@ export const CartList = memo(({ selData, flag }) => {
         {/* 상품이미지 */}
         <td>
           <img
-            src={"/images/goods/" + v.cat + "/" + v.ginfo[0] + ".png"}
+            src={
+              process.env.PUBLIC_URL +
+              "/images/goods/" +
+              v.cat +
+              "/" +
+              v.ginfo[0] +
+              ".png"
+            }
             alt="item"
           />
         </td>
@@ -249,10 +256,7 @@ export const CartList = memo(({ selData, flag }) => {
         <td className="cnt-part">
           <div>
             <span>
-              <input type="text" 
-              className="item-cnt" 
-              readOnly
-              value={v.num} />
+              <input type="text" className="item-cnt" readOnly value={v.num} />
               {/* 실제개수 반영값을 위해 value속성사용할것!
               defaultValue를 쓰면 값변경 반영안됨! */}
               <button
@@ -263,8 +267,8 @@ export const CartList = memo(({ selData, flag }) => {
                 반영
               </button>
               <b className="btn-cnt">
-                <img src={"/images/cnt_up.png"} alt="증가" onClick={chgNum} />
-                <img src={"/images/cnt_down.png"} alt="감소" onClick={chgNum} />
+                <img src={process.env.PUBLIC_URL + "/images/cnt_up.png"} alt="증가" onClick={chgNum} />
+                <img src={process.env.PUBLIC_URL + "/images/cnt_down.png"} alt="감소" onClick={chgNum} />
               </b>
             </span>
           </div>
@@ -390,8 +394,10 @@ export const CartList = memo(({ selData, flag }) => {
       {/* 카트버튼이미지 박스 */}
       <div id="mycart" onClick={showList}>
         {/* 카트이미지 */}
-        <img src={"/images/mycart.gif"} 
-        title={cntData+"개의 상품이 있습니다"} />
+        <img
+          src={process.env.PUBLIC_URL + "/images/mycart.gif"}
+          title={cntData + "개의 상품이 있습니다"}
+        />
         {/* 카트상품개수 출력박스 */}
         <div className="cntBx">{cntData}</div>
       </div>

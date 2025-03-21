@@ -36,7 +36,7 @@ export default function SwiperBan({ catName }) {
               />
             ) : (
               <img
-                src={
+                src={process.env.PUBLIC_URL + 
                   "/images/sub/" + catName + "/banner/ban" + (x + 1) + ".png"
                 }
               />
