@@ -135,7 +135,7 @@ function ItemDetail({ catName, goods }) {
   // find는 배열의 결과값만 가져옴
   // 하나의 값을 가져올때는 find가 좋다!
 
-  console.log("새로선택:", selData);
+  console.log("새로선택:", selData,catName,gdata,goods);
 
   // selData에 담긴 기존 객체데이터와 상품개수항목이 추가된
   // 객체를 만들고 이것을 로컬스에 저장한다!!!

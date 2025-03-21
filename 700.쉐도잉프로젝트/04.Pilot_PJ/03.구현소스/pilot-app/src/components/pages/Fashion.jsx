@@ -1,6 +1,6 @@
 // 파일럿 PJ -  패션 페이지(남성/여성/스타일 공통) - Fashion.jsx
 
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 // 페이지 CSS 불러오기 ////
@@ -11,6 +11,7 @@ import $ from "jquery";
 import SwiperBan from "../plugin/SwiperBan";
 import SinSang from "../modules/SinSang";
 import ItemDetail from "../modules/ItemDetail";
+import { pCon } from "../modules/pCon";
 
 function Fashion() {
   // 라우터 전달객체 받기 ///
@@ -20,8 +21,12 @@ function Fashion() {
   const goPage = useNavigate();
   // 사용시 goPage(라우터주소, {전달객체})
 
+  // 전역 catName을 받기위해 Context API 사용하기
+  const myCon = useContext(pCon);
+
   // 카테고리 이름 가져오기 ///
-  const catName = state ? state.catName : "아무거나";
+  const catName = state ? state.catName : myCon.catName;
+  // -> 파라미터 전달 state가 null이면 전역 catName을 할당함!
 
   // 후크 상태변수
   const [item, setItem] = useState("m1");
