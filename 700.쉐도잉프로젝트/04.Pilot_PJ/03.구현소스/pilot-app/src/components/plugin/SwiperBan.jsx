@@ -28,7 +28,7 @@ export default function SwiperBan({ catName }) {
             // 남성일 경우 세번째 슬라이드 동영상임
             catName == "men" && x == 2 ? (
               <video
-                src={"/images/sub/" + catName + "/banner/cgv.mp4"}
+                src={process.env.PUBLIC_URL +"/images/sub/" + catName + "/banner/cgv.mp4"}
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 muted
                 loop
