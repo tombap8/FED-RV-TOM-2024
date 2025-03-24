@@ -12,7 +12,7 @@ const Weather = () => {
     city: "",
   });
 
-  // 사용자의 현재 위치를 가져오는 함수
+  // [사용자의 현재 위치를 가져오는 함수]
   const getCurrentLocation = () => {
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
@@ -34,7 +34,7 @@ const Weather = () => {
   // `getCurrentPosition` 메서드는
   // 사용자의 현재 위치를 한 번 요청합니다.
 
-  // 도시명을 가져오는 함수
+  // [도시명을 가져오는 함수]
   const getCityName = async (latitude, longitude) => {
     const apiKey = "7fdf8fb74f3e2ed02bfb7e298a32df49";
     const url = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
@@ -42,27 +42,28 @@ const Weather = () => {
     return response.data[0].name;
   };
 
-  // 컴포넌트가 마운트 되었을 때 실행되는 useEffect
+  // [컴포넌트가 마운트 되었을 때 실행되는 useEffect]
   useEffect(() => {
     const fetchWeatherData = async () => {
       try {
-        // 현재 위치 가져오기
+        // 1. 현재 위치 가져오기
         const position = await getCurrentLocation();
         const { latitude, longitude } = position.coords;
 
-        // 도시명 가져오기
+        // 2. 도시명 가져오기
         const cityName = await getCityName(latitude, longitude);
 
-        console.log(cityName);
-        // 날씨 정보 조회 URL
+        console.log('구해온 현재도시명:',cityName);
+
+        // 3. 날씨 정보 조회 URL
         const apiKey = "7fdf8fb74f3e2ed02bfb7e298a32df49";
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
 
-        // axios를 이용한 데이터 조회
+        // 4. axios를 이용한 데이터 조회
         const result = await axios.get(url);
         const wdata = result.data;
 
-        // 상태 변수 업데이트
+        // 5. 상태 변수 업데이트
         setWeatherData({
           temp: wdata.main.temp,
           desc: wdata.weather[0].description,
@@ -73,18 +74,19 @@ const Weather = () => {
       } catch (err) {
         console.log(err);
       }
-    };
+    }; // fetchWeatherData /////
 
     fetchWeatherData();
-  }, []);
+  }, []); //// useEffect ///////
 
   const isrc = `https://openweathermap.com/img/w/${weatherData.icon}.png`; // 날씨 아이콘 URL
 
-  // 로딩 상태에 따른 조건부 렌더링
+  // [로딩 상태에 따른 조건부 렌더링]
   if (weatherData.loading) {
     return <h4>Loading...</h4>;
-  } else {
-    // 절대온도를 섭씨온도로 변환
+  } /// if /// 
+  else {
+    // [절대온도를 섭씨온도로 변환]
     let ctemp = (parseInt(weatherData.temp) - 273.15).toFixed(1);
     return (
       <div className="weather-bx">
@@ -94,8 +96,8 @@ const Weather = () => {
         <p>{ctemp}℃</p>
         <p>{weatherData.desc}</p>
       </div>
-    );
-  }
-};
+    ); // return ///
+  } // else ///
+}; /////////// Weather 컴포넌트 ///////////
 
 export default Weather; // Weather 컴포넌트 내보내기
