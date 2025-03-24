@@ -54,7 +54,29 @@ class Weather extends Component {
   componentDidMount(){
     // [ 날씨조회 정보 사이트 ]
     // https://openweathermap.org/
-    
+
+    // 1. 지정도시명
+    const cityName = "Seoul";
+    // 2. 날씨정보조회 키코드(로그인 사용자 키복사)
+    const apiKey = "7fdf8fb74f3e2ed02bfb7e298a32df49";
+
+    // 브라우저에 검증
+    // https://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=7fdf8fb74f3e2ed02bfb7e298a32df49
+
+    // 소스샘플
+    // https://openweathermap.org/api/one-call-3
+
+    ////////////////////////////////////////////////
+    // axios 라이브러리를 이용한 데이터 조회하기! /////
+    // 먼저설치: npm i axios
+    // 엑시오스는 데이터를 프라미스로 처리하여 원하는
+    // 결과를 보장하는 간편한 데이터 처리 라이브러리다!
+
+    // 엑시오스 사용법:
+    // 우선 상단에 import axios from 'axios' 해줌
+    // 파일 가져오기 메서드: get()
+    // 다음 실행 메서드 : then()
+
   } //////////// componentDidMount /////////////
 
 
