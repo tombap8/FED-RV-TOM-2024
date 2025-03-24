@@ -22,9 +22,9 @@ const Weather = () => {
 
   // `navigator.geolocation`은 웹 브라우저에서 사용자의 위치
   //  정보를 가져오기 위해 사용되는 객체입니다. 이를 사용하여
-  //   사용자에게 위치 정보를 요청하고, 사용자가 이를 허용하면
-  //   위치 정보를 얻을 수 있습니다. `navigator.geolocation`
-  //   객체는 다음과 같은 주요 메서드를 제공합니다:
+  //  사용자에게 위치 정보를 요청하고, 사용자가 이를 허용하면
+  //  위치 정보를 얻을 수 있습니다. `navigator.geolocation`
+  //  객체는 다음과 같은 주요 메서드를 제공합니다:
 
   // 1. `getCurrentPosition()`
   // 2. `watchPosition()`
