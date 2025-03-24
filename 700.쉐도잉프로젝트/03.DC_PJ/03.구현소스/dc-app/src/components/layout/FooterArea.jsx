@@ -7,6 +7,7 @@ import { bmData } from "../../js/data/bmenu";
 import '../../css/common/footer_area.scss';
 import Logo from "../modules/Logo";
 import { memo } from "react";
+import Weather from "../modules/Weather";
 
 // React.memo() 를 사용한 컴포넌트 메모이제이션
 // -> 컴포넌트를 할당형으로 변경한다!!!
@@ -39,6 +40,8 @@ export const FooterArea = memo(() => {
         </li>
         <li>© & ™ DC. ALL RIGHTS RESERVED</li>
       </ul>
+      {/* 날씨정보 컴포넌트 */}
+      <Weather />
     </footer>
   );
 }); //////////// FooterArea 컴포넌트 ///////////

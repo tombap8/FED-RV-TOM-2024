@@ -5,6 +5,9 @@
 import { Component } from "react";
 import "../../css/modules/weather.scss";
 
+// 엑시오스 불러오기
+import axios from "axios";
+
 // 클래스형 컴포넌트는 기본적으로 Component 를
 // 상속받아 구현한다!!!
 // extents 부모클래스명
@@ -51,7 +54,7 @@ class Weather extends Component {
 
   // 컴포넌트가 마운트 되었을때 실행하는 메서드는?
   // -> componentDidMount(){}
-  componentDidMount(){
+  componentDidMount() {
     // [ 날씨조회 정보 사이트 ]
     // https://openweathermap.org/
 
@@ -59,6 +62,8 @@ class Weather extends Component {
     const cityName = "Seoul";
     // 2. 날씨정보조회 키코드(로그인 사용자 키복사)
     const apiKey = "7fdf8fb74f3e2ed02bfb7e298a32df49";
+    // 3. 날씨정보 조회 url : 날씨정보 제이슨이 날아온다!
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
 
     // 브라우저에 검증
     // https://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=7fdf8fb74f3e2ed02bfb7e298a32df49
@@ -76,14 +81,66 @@ class Weather extends Component {
     // 우선 상단에 import axios from 'axios' 해줌
     // 파일 가져오기 메서드: get()
     // 다음 실행 메서드 : then()
+    axios
+      .get(url) // 먼저 파일 로딩
+      .then((result) => {
+        // result가 넘어온 데이터 담음
+        // 파일형식에 맞는 파싱 자동!
+        console.log(result);
 
+        // result에 넘어온 파일 객체가 담긴다!
+        // 하위 data속성을 선택해야 실제 데이터가 선택됨
+        const wdata = result.data;
+
+        // 상태변수값에 셋팅하기 //////
+        this.setState({
+          // 1. 기온
+          temp: wdata.main.temp,
+          // 2. 설명
+          desc: wdata.weather[0].description,
+          // 3. 날씨 아이콘
+          icon: wdata.weather[0].icon,
+          // 4. 정보로딩여부
+          loading: false, // 로딩여부끝(false)
+          // 5. 도시명
+          city: cityName,
+        }) //// setState //////
+          
+      }) //// then ////////////////
+      /// 에러 처리 메서드 : catch()
+      .catch((err) => console.log(err));
+      /////// axios 끝 /////
   } //////////// componentDidMount /////////////
 
+  // 컴포넌트 결과 랜더링 메서드 /////////
+  // render(){} -> 여기서 완성코드를 return한다!!!
+  render() {
+    // 아이콘 정보 : API업체url
+    const isrc = `https://openweathermap.com/img/w/${this.state.icon}.png`;
 
+    // 로딩중 loading값이 true이면
+    if (this.state.loading) {
+      return <h4>Loading...</h4>;
+    } /// if ////
+    // 로딩성공시 loading 값이 false이면
+    else {
+      /* 절대온도이므로 섭씨온도로 바꾼다!
+            절대온도 - 273.15 뺀다!
+            소수점도 한자리만 표시 */
+      let ctemp = (parseInt(this.state.temp) - 273.15).toFixed(1);
+      // toFixed(자릿수)
 
-
-
-
+      return (
+        <div className="weather-bx">
+          <h4>Now Weather</h4>
+          <h5>{this.state.city}</h5>
+          <img src={isrc} alt="weather icon" />
+          <p>{ctemp}℃</p>
+          <p>{this.state.desc}</p>
+        </div>
+      );
+    } /// else ////
+  } /////// reder 메서드 /////////
 } /////// Weather 컴포넌트 ////////
 
 // 내보내기 ///
