@@ -115,9 +115,9 @@ function Board() {
       // 오름차순은 -1 * order변수값이 -1일 경우
       //
       .sort((a, b) =>
-        a[sortCta] > b[sortCta] ||a.idx > b.idx
+        a[sortCta] > b[sortCta]
           ? -1 * order
-          : a[sortCta] < b[sortCta] || a.idx < b.idx
+          : a[sortCta] < b[sortCta]
           ? 1 * order
           // 하위조건추가 : 두값이 같지않은가?
           : a[sortCta] !== b[sortCta]
@@ -127,7 +127,7 @@ function Board() {
           // idx항목으로 오름/내림차순정렬
           : a.idx > b.idx
           ? -1 * order
-          : a[sortCta] < b[sortCta]
+          : a.idx < b.idx
           ? 1 * order : 0
       )
       // 여기부터 검색어로 리스트 만들기
@@ -138,6 +138,8 @@ function Board() {
           return true;
       }); ////// filter ////////
   } ///// if : 검색어가 있는 경우 /////////
+  
+  // [2] 검색어가 없는 경우 ////////
   else {
     finalData = baseData
       // ((기준1))-> sortCta값에 따른 정렬
@@ -157,7 +159,7 @@ function Board() {
           // idx항목으로 오름/내림차순정렬
           : a.idx > b.idx
           ? -1 * order
-          : a[sortCta] < b[sortCta]
+          : a.idx < b.idx
           ? 1 * order : 0
       );
   } ///// else : 검색어가 없는 경우 ////////
