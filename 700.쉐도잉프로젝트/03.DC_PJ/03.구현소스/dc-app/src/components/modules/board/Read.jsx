@@ -92,13 +92,18 @@ function Read({ setMode, selRecord }) {
     localStorage.setItem("board-data", JSON.stringify(bdData));
   } ///// if ///////
 
-  // ★★★★★★★★★★★★★★★★ ////
+  // ★★★★★★★★★★★★★★★★★★★★★★★ ////
+  // ★★★★★★★★★★★★★★★★★★★★★★★ ////
   // [코멘트 구현 관련 코드 구역] ////////////
   // [1] 코멘트 관련 상태변수 및 참조변수
   // (1) 코멘트 정보 객체저장 상태변수
   const [commentData, setCommentData] = useState([]);
   // (2) TextArea 요소용 참조변수
   const textareaRef = useRef([]);
+  // (3) 수정중 코멘트 idx 저장변수 : 수정완료시 null값 복원!
+  const [isEditing, setIsEditing] = useState(null);
+  // (4) 수정중 코멘트 내용 저장변수
+  const [editedContent, setEditedContent] = useState('');
 
   /***************************************** 
       [ 코멘트 데이터 객체 구조 ]
