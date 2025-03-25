@@ -4,7 +4,7 @@ import React, { useContext, useRef, useState } from "react";
 import { dCon } from "../dCon";
 
 // 제이쿼리 불러오기 ////
-import $ from 'jquery';
+import $ from "jquery";
 
 function Read({ setMode, selRecord }) {
   // setMode - 모든 변경 상태변수 setter
@@ -116,25 +116,38 @@ function Read({ setMode, selRecord }) {
   // (1) 코멘트 데이터 저장함수 //////
   const saveComment = () => {
     // 1) 코멘트 입력란이 비었으면 메시지와 리턴하기
-    if($('.comment-box').val().trim() === ''){
-      alert('Write comment!');
+    if ($(".comment-box").val().trim() === "") {
+      alert("Write comment!");
       return;
     } /// if ////
-    
+
     // 2) 코멘트 데이터 로컬스 확인하기
     // -> 로컬스 코멘트가 없으면 빈배열 있으면 파싱 데이터 할당!
-    let comDt = localStorage.getItem('comment-data')
-    ? JSON.parse(localStorage.getItem('comment-data'))
-    : [];
-    
-    console.log('코멘트 저장해~!',comDt);
+    let comDt = localStorage.getItem("comment-data")
+      ? JSON.parse(localStorage.getItem("comment-data"))
+      : [];
 
+    console.log(
+      "코멘트 저장해~!",
+      comDt.map((v) => v.idx)
+    );
 
+    // 3) 코멘트 배열 데이터에 새로운 값 넣기
+    // 유일값인 idx값 만드는 방법은?
+    // -> 기존 idx배열값만 모아서 max함수로 최대값 뽑고 1더함!
+    // -> comDt가 빈 배열이면 null처리되어 첫값은 1이 되게함!
+    comDt.push({
+      idx: comDt ? Math.max(...comDt.map((v) => v.idx)) + 1 : 1, // 유일키
+      cont: $(".comment-box").val(), // 코멘트 글
+      uid: myCon.loginSts.uid, // 로그인 사용자 아이디
+      unm: myCon.loginSts.unm, // 로그인 사용자 이름
+      bid: selData.idx, // 코멘트 대상 게시판 글아이디
+      date: new Date().toJSON().substring(0, 10), // 입력날짜
+    });
+
+    // 4) 로컬스 코멘트 데이터 넣기 ////
+    localStorage.setItem("comment-data", JSON.stringify(comDt));
   }; //////////// saveComment 함수 /////////////
-
-
-
-
 
   //////////////////////////////////
   // 리턴 코드구역 ///////////////////
