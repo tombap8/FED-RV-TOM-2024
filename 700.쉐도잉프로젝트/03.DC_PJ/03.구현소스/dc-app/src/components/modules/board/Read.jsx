@@ -274,7 +274,9 @@ function Read({ setMode, selRecord }) {
     makeCommentData();
   }, []); ///// useEffect ///////////
 
-  // ★★★★★★★★★★★★★★★★ ////
+  // ★★★★★★★★★★★★★★★★★★★★★★★ ////
+  // ★★★★★★★★★★★★★★★★★★★★★★★ ////
+  // ★★★★★★★★★★★★★★★★★★★★★★★ ////
   // 리턴 코드구역 ///////////////////
   return (
     <main className="cont">
@@ -318,9 +320,48 @@ function Read({ setMode, selRecord }) {
               ></textarea>
             </td>
           </tr>
-          {
-            // 로그인한 사용자에게만 코멘트 입력란이 보인다!
-            myCon.loginSts && (
+        </tbody>
+      </table>
+
+      <br />
+      {/* 버튼 출력박스 */}
+      <table className="dtbl btngrp">
+        <tbody>
+          <tr>
+            <td>
+              <button
+                onClick={() => {
+                  // 리스트 모드('L')로 변경하기
+                  setMode("L");
+                }}
+              >
+                List
+              </button>
+              {
+                // 로그인한 사용자가 글쓴이와 같은 아이디일 경우
+                // 수정버튼 보이기
+                myCon.loginSts && myCon.loginSts.uid === selData.uid && (
+                  <button
+                    onClick={() => {
+                      // 수정모드로 변경하기
+                      setMode("M");
+                    }}
+                  >
+                    Modify
+                  </button>
+                )
+              }
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      {/* 코멘트 입력 박스 */}
+      {
+        // 로그인한 사용자에게만 코멘트 입력란이 보인다!
+        myCon.loginSts && (
+          <table className="dtblview">
+            <tbody>
               <tr>
                 <td>Comments</td>
                 <td>
@@ -341,10 +382,10 @@ function Read({ setMode, selRecord }) {
                   </button>
                 </td>
               </tr>
-            )
-          }
-        </tbody>
-      </table>
+            </tbody>
+          </table>
+        )
+      }
       {/* 코멘트 데이터 출력 테이블 */}
       {
         // 코멘트가 있으면 출력 (상태변수로체크!)
@@ -453,37 +494,7 @@ function Read({ setMode, selRecord }) {
           </table>
         )
       }
-      <br />
-      <table className="dtbl btngrp">
-        <tbody>
-          <tr>
-            <td>
-              <button
-                onClick={() => {
-                  // 리스트 모드('L')로 변경하기
-                  setMode("L");
-                }}
-              >
-                List
-              </button>
-              {
-                // 로그인한 사용자가 글쓴이와 같은 아이디일 경우
-                // 수정버튼 보이기
-                myCon.loginSts && myCon.loginSts.uid === selData.uid && (
-                  <button
-                    onClick={() => {
-                      // 수정모드로 변경하기
-                      setMode("M");
-                    }}
-                  >
-                    Modify
-                  </button>
-                )
-              }
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      
     </main>
   );
 }
