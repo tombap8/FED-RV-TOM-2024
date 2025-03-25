@@ -3,6 +3,9 @@
 import React, { useContext, useRef, useState } from "react";
 import { dCon } from "../dCon";
 
+// 제이쿼리 불러오기 ////
+import $ from 'jquery';
+
 function Read({ setMode, selRecord }) {
   // setMode - 모든 변경 상태변수 setter
   // selRecord - 선택데이터 참조변수
@@ -98,19 +101,34 @@ function Read({ setMode, selRecord }) {
   const textareaRef = useRef([]);
 
   /***************************************** 
-          [ 코멘트 데이터 객체 구조 ]
-            idx: unique key,
-            cont: comment content,
-            uid: user id,
-            unm: user name,
-            bid: board id,
-            date: comment date,
+      [ 코멘트 데이터 객체 구조 ]
+        idx: unique key,
+        cont: comment content,
+        uid: user id,
+        unm: user name,
+        bid: board id,
+        date: comment date,
+        
+      [ 로컬스토리지 저장명 : comment-data ]
    *****************************************/
 
   // [2] 코멘트 관련 함수 만들기 ///////
   // (1) 코멘트 데이터 저장함수 //////
   const saveComment = () => {
-    console.log('코멘트 저장해~!');
+    // 1) 코멘트 입력란이 비었으면 메시지와 리턴하기
+    if($('.comment-box').val().trim() === ''){
+      alert('Write comment!');
+      return;
+    } /// if ////
+    
+    // 2) 코멘트 데이터 로컬스 확인하기
+    // -> 로컬스 코멘트가 없으면 빈배열 있으면 파싱 데이터 할당!
+    let comDt = localStorage.getItem('comment-data')
+    ? JSON.parse(localStorage.getItem('comment-data'))
+    : [];
+    
+    console.log('코멘트 저장해~!',comDt);
+
 
   }; //////////// saveComment 함수 /////////////
 
