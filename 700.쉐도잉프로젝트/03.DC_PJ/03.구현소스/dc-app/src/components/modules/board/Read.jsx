@@ -247,7 +247,7 @@ function Read({ setMode, selRecord }) {
   const saveModifiedComment = (idx) => {
     // (1) 원본 코멘트 로컬스 데이터 불러와서 파싱하기
     let comDt = JSON.parse(localStorage.getItem("comment-data"));
-    
+
     // (2) 파싱된 배열데이터의 해당 코멘트의 cont값을 변경함!
     comDt = comDt.map((v) =>
       v.idx === idx ? { ...v, cont: editedContent } : v
@@ -376,14 +376,18 @@ function Read({ setMode, selRecord }) {
                               isEditing === v.idx ? (
                                 <button
                                   /* Send버튼 클릭시 해당 코멘트값 수정 */
-                                  onClick={() => saveModifiedComment(v.idx)}
+                                  onClick={() => {
+                                    saveModifiedComment(v.idx);
+                                  }}
                                 >
                                   Send
                                 </button>
                               ) : (
                                 <button
                                   /* Modify버튼 클릭시 isEditing 값 변경 */
-                                  onClick={() => modifyComment(v.idx)}
+                                  onClick={() => {
+                                    modifyComment(v.idx);
+                                  }}
                                 >
                                   Modify
                                 </button>
@@ -393,15 +397,31 @@ function Read({ setMode, selRecord }) {
                         )
                       }
                     </td>
-                    {/* (2) 코멘트 내용 */}
+                    {/* (2) 코멘트 내용
+                      -> textarea가 수정모드일때는 입력상태로 변경됨!
+                    */}
                     <td>
                       <textarea
                         className="comment-view-box"
                         // 내용에 따른 높이값 정보를 참조변수에 노출
                         // 자기자신을 참조변수 textareaRef에 할당!
                         ref={(el) => (textareaRef.current[i] = el)}
-                        value={v.cont}
-                        readOnly
+                        value={
+                          isEditing === v.idx // 수정해당이면
+                          ? editedContent // 수정컨텐트변수넣기
+                          : v.cont // 아니면 코멘트 데이터 넣기
+                        }
+                        // 읽기전용은 수정대상이 아닌경우만 해당함!
+                        readOnly={isEditing !== v.idx}
+                        // 수정모드시 타이핑 가능하게 onChange설정!
+                        onChange={(e)=>{ // e - 이벤트전달
+                          // 수정모드일 경우 값이 변경되게함
+                          if(isEditing === v.idx)
+                            setEditedContent(e.target.value);
+                          // 수정 코멘트 상태변수값이 변경되므로
+                          // value속성에 설정된 수정 코멘트가
+                          // 변경된 값으로 반영된다!!!
+                        }}
                         style={{
                           width: "100%",
                           border: "none",
