@@ -103,7 +103,7 @@ function Read({ setMode, selRecord }) {
   // (3) 수정중 코멘트 idx 저장변수 : 수정완료시 null값 복원!
   const [isEditing, setIsEditing] = useState(null);
   // (4) 수정중 코멘트 내용 저장변수
-  const [editedContent, setEditedContent] = useState('');
+  const [editedContent, setEditedContent] = useState("");
 
   /***************************************** 
       [ 코멘트 데이터 객체 구조 ]
@@ -208,17 +208,18 @@ function Read({ setMode, selRecord }) {
       } /// if ///
 
       /// 지운 경우 else문으로 처리함!(안하면 에러남!!!)///
-      else{
+      else {
         // 코드변경할 일은 없음
-        console.log('Textarea 처리안함 순번:',index);
+        console.log("Textarea 처리안함 순번:", index);
       } ////// else /////
     });
   }; ///// adjustHeight 함수 ///////////////
 
   // [4] 코멘트 삭제 함수 /////////////////////
-  const deleteComment = idx => { // idx - 지울 코멘트 idx값
+  const deleteComment = (idx) => {
+    // idx - 지울 코멘트 idx값
     // (1) 삭제여부를 다시한번 확인 후 "취소"시 리턴
-    if(!window.confirm("Are you sure you want to delete?")) return;
+    if (!window.confirm("Are you sure you want to delete?")) return;
 
     // (2) idx값을 비교해서 filter로 제거후 localStrage에 다시 저장
     let comDt = JSON.parse(localStorage.getItem("comment-data"));
@@ -229,8 +230,17 @@ function Read({ setMode, selRecord }) {
 
     // (3) 코멘트 데이터 생성함수 호출!
     makeCommentData();
-
   }; ////////////// deleteComment 함수 //////////////
+
+  // [5] 코멘트 수정상태 변경 함수 /////////////////////
+  const modifyComment = (idx) => {
+
+  }; /// modifyComment 함수 //////////////
+
+  // [6] 코멘트 수정저장 함수 /////////////////////
+  const saveModifiedComment = (idx) => {
+
+  }; /// saveModifiedComment 함수 //////////////
 
   // [코멘트데이터 변경시에만 높이값 적용함수 호출!] ///
   useEffect(() => {
@@ -333,10 +343,31 @@ function Read({ setMode, selRecord }) {
                         myCon.loginSts && myCon.loginSts.uid === v.uid && (
                           <>
                             <button
-                            // 클릭시 지울 idx를 삭제함수에 보내줌!
-                            onClick={()=>deleteComment(v.idx)}
-                            >Delete</button>
-                            <button>Modify</button>
+                              // 클릭시 지울 idx를 삭제함수에 보내줌!
+                              onClick={() => deleteComment(v.idx)}
+                            >
+                              Delete
+                            </button>
+
+                            {/* 수정버튼은 수정모드에서 'send'버튼변경 */}
+                            {
+                              // 수정상태일때는 isEditing값과 v.idx값 일치
+                              isEditing === v.idx ? (
+                                <button
+                                  /* Send버튼 클릭시 해당 코멘트값 수정 */
+                                  onClick={() => saveModifiedComment(v.idx)}
+                                >
+                                  Send
+                                </button>
+                              ) : (
+                                <button
+                                  /* Modify버튼 클릭시 isEditing 값 변경 */
+                                  onClick={() => modifyComment(v.idx)}
+                                >
+                                  Modify
+                                </button>
+                              )
+                            }
                           </>
                         )
                       }
