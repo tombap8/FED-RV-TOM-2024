@@ -408,15 +408,16 @@ function Read({ setMode, selRecord }) {
                         ref={(el) => (textareaRef.current[i] = el)}
                         value={
                           isEditing === v.idx // 수정해당이면
-                          ? editedContent // 수정컨텐트변수넣기
-                          : v.cont // 아니면 코멘트 데이터 넣기
+                            ? editedContent // 수정컨텐트변수넣기
+                            : v.cont // 아니면 코멘트 데이터 넣기
                         }
                         // 읽기전용은 수정대상이 아닌경우만 해당함!
                         readOnly={isEditing !== v.idx}
                         // 수정모드시 타이핑 가능하게 onChange설정!
-                        onChange={(e)=>{ // e - 이벤트전달
+                        onChange={(e) => {
+                          // e - 이벤트전달
                           // 수정모드일 경우 값이 변경되게함
-                          if(isEditing === v.idx)
+                          if (isEditing === v.idx)
                             setEditedContent(e.target.value);
                           // 수정 코멘트 상태변수값이 변경되므로
                           // value속성에 설정된 수정 코멘트가
@@ -425,7 +426,11 @@ function Read({ setMode, selRecord }) {
                         style={{
                           width: "100%",
                           border: "none",
-                          outline: "none",
+                          // 아웃라인으로 수정표시하기 ///
+                          outline:
+                            isEditing === v.idx
+                              ? "2px solid blue" // 수정모드시 테두리
+                              : "none", // 보통은 안보임
                           overflow: "hidden",
                           resize: "none",
                         }}
