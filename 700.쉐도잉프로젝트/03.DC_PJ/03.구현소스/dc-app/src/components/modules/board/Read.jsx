@@ -237,16 +237,30 @@ function Read({ setMode, selRecord }) {
     // (1) 수정상태모드로 설정
     setIsEditing(idx);
     // (2) idx값이 동일한 코멘트를 선택
-    const selData = commentData.find(v=>v.idx === idx); 
+    const selData = commentData.find((v) => v.idx === idx);
     // (3) 수정대상 코멘트 컨텐트 데이터를 editedContent에 넣기
     setEditedContent(selData.cont);
     // 왜 넣었나요? 바로 다시 수정저장시 그대로 저장될 수 있게함!
-
   }; /// modifyComment 함수 //////////////
 
   // [6] 코멘트 수정저장 함수 /////////////////////
   const saveModifiedComment = (idx) => {
+    // (1) 원본 코멘트 로컬스 데이터 불러와서 파싱하기
+    let comDt = JSON.parse(localStorage.getItem("comment-data"));
+    
+    // (2) 파싱된 배열데이터의 해당 코멘트의 cont값을 변경함!
+    comDt = comDt.map((v) =>
+      v.idx === idx ? { ...v, cont: editedContent } : v
+    );
 
+    // (3) 로컬스에 다시 저장!
+    localStorage.setItem("comment-data", JSON.stringify(comDt));
+
+    // (4) 수정이 끝났으므로 수정모드 해제하기!
+    setIsEditing(null); // 버튼이 다시 Send -> Modify로 변경
+
+    // (5) 코멘트 데이터 상태변수에 반영하기
+    makeCommentData();
   }; /// saveModifiedComment 함수 //////////////
 
   // [코멘트데이터 변경시에만 높이값 적용함수 호출!] ///
