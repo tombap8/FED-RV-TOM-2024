@@ -234,6 +234,13 @@ function Read({ setMode, selRecord }) {
 
   // [5] 코멘트 수정상태 변경 함수 /////////////////////
   const modifyComment = (idx) => {
+    // (1) 수정상태모드로 설정
+    setIsEditing(idx);
+    // (2) idx값이 동일한 코멘트를 선택
+    const selData = commentData.find(v=>v.idx === idx); 
+    // (3) 수정대상 코멘트 컨텐트 데이터를 editedContent에 넣기
+    setEditedContent(selData.cont);
+    // 왜 넣었나요? 바로 다시 수정저장시 그대로 저장될 수 있게함!
 
   }; /// modifyComment 함수 //////////////
 
@@ -407,7 +414,6 @@ function Read({ setMode, selRecord }) {
           </table>
         )
       }
-
       <br />
       <table className="dtbl btngrp">
         <tbody>
