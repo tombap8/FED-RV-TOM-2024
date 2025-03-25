@@ -191,14 +191,22 @@ function Read({ setMode, selRecord }) {
   // (3) 호출시 모든 텍스트 박스의 높이 조정함수! //////
   const adjustHeight = () => {
     // 코멘트로 생성된 textarea 수만큼 돌아서 높이값 셋팅!
-    textareaRef.current.forEach((textarea) => {
-      console.log("높이:", textarea.scrollHeight);
+    // 지운 데이터 순번처리위해 index값이 확인시 필요함!
+    textareaRef.current.forEach((textarea, index) => {
+      // index는 순회시 순번리턴
       if (textarea) {
+        // console.log("높이:", textarea.scrollHeight);
         // 높이값을 먼저 초기화 해야 높이값 설정이 적용된다!
         textarea.style.height = "auto";
         // 컨텐츠만큼 생긴 높이값을 적용함!
         textarea.style.height = `${textarea.scrollHeight}px`;
       } /// if ///
+
+      /// 지운 경우 else문으로 처리함!(안하면 에러남!!!)///
+      else{
+        // 코드변경할 일은 없음
+        console.log('Textarea 처리안함 순번:',index);
+      } ////// else /////
     });
   }; ///// adjustHeight 함수 ///////////////
 
@@ -213,7 +221,7 @@ function Read({ setMode, selRecord }) {
     comDt = comDt.filter((v) => v.idx !== idx);
     // 로컬스에 다시 저장!
     localStorage.setItem("comment-data", JSON.stringify(comDt));
-    
+
     // (3) 코멘트 데이터 생성함수 호출!
     makeCommentData();
 
