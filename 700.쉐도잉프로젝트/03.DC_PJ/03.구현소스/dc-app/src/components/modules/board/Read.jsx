@@ -150,8 +150,10 @@ function Read({ setMode, selRecord }) {
 
     // 5) 기존 입력 내용 지우기
     $(".comment-box").val("");
-  }; //////////// saveComment 함수 /////////////
 
+    // 6) 코멘트 데이터 생성함수 호출!
+    makeCommentData();
+  }; //////////// saveComment 함수 /////////////
 
   // (2) 코멘트 상태 후크변수 업데이트 함수 ////
   const makeCommentData = () => {
@@ -186,13 +188,30 @@ function Read({ setMode, selRecord }) {
     } /// if ///
   }; ////////// makeCommentData 함수 ////////
 
+  // (3) 호출시 모든 텍스트 박스의 높이 조정함수!
+  const adjustHeight = () => {
+    // 코멘트로 생성된 textarea 수만큼 돌아서 높이값 셋팅!
+    textareaRef.current.forEach((textarea) => {
+      console.log("높이:", textarea.scrollHeight);
+      if (textarea) {
+        // 높이값을 먼저 초기화 해야 높이값 설정이 적용된다!
+        textarea.style.height = "auto";
+        // 컨텐츠만큼 생긴 높이값을 적용함!
+        textarea.style.height = `${textarea.scrollHeight}px`;
+      } /// if ///
+    });
+  }; ///// 
+
+  // 코멘트데이터 변경시에만 높이값 적용함수 호출! ///
+  useEffect(() => {
+    adjustHeight();
+  }, [commentData]);
+
   // 최초 로딩시 실행구역 //////////
-  useEffect(()=>{
+  useEffect(() => {
     // 코멘트 데이터 셋팅함수 호출
     makeCommentData();
-  },[]); ///// useEffect ///////////
-
-
+  }, []); ///// useEffect ///////////
 
   //////////////////////////////////
   // 리턴 코드구역 ///////////////////
@@ -273,17 +292,29 @@ function Read({ setMode, selRecord }) {
             <tbody>
               {
                 // 코멘트 테이터 만큼 반복생성하기
-                commentData.map((v,i) => (
+                commentData.map((v, i) => (
                   <tr key={i}>
                     {/* (1) 코멘트 쓴이 이름 */}
-                    <td>{v.unm}</td>
+                    <td style={{ fontSize: "16px", fontWeight: "normal" }}>
+                      {v.unm} <br />
+                      {
+                        // 로그인한 사용자 + 해당코멘트 작성자
+                        // 삭제, 수정버튼 출력!
+                        myCon.loginSts && myCon.loginSts.uid === v.uid && (
+                          <>
+                            <button>Delete</button>
+                            <button>Modify</button>
+                          </>
+                        )
+                      }
+                    </td>
                     {/* (2) 코멘트 내용 */}
                     <td>
                       <textarea
                         className="comment-view-box"
                         // 내용에 따른 높이값 정보를 참조변수에 노출
                         // 자기자신을 참조변수 textareaRef에 할당!
-                        ref={el=>textareaRef.current[i] = el}
+                        ref={(el) => (textareaRef.current[i] = el)}
                         value={v.cont}
                         readOnly
                         style={{
