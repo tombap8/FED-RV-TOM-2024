@@ -1,6 +1,6 @@
 // DC PJ 게시판 읽기 모드 모듈 - Read.jsx
 
-import React, { useContext } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { dCon } from "../dCon";
 
 function Read({ setMode, selRecord }) {
@@ -89,6 +89,36 @@ function Read({ setMode, selRecord }) {
     localStorage.setItem("board-data", JSON.stringify(bdData));
   } ///// if ///////
 
+  // ★★★★★★★★★★★★★★★★ ////
+  // [코멘트 구현 관련 코드 구역] ////////////
+  // [1] 코멘트 관련 상태변수 및 참조변수
+  // (1) 코멘트 정보 객체저장 상태변수
+  const [commentData, setCommentData] = useState([]);
+  // (2) TextArea 요소용 참조변수
+  const textareaRef = useRef([]);
+
+  /***************************************** 
+          [ 코멘트 데이터 객체 구조 ]
+            idx: unique key,
+            cont: comment content,
+            uid: user id,
+            unm: user name,
+            bid: board id,
+            date: comment date,
+   *****************************************/
+
+  // [2] 코멘트 관련 함수 만들기 ///////
+  // (1) 코멘트 데이터 저장함수 //////
+  const saveComment = () => {
+    console.log('코멘트 저장해~!');
+
+  }; //////////// saveComment 함수 /////////////
+
+
+
+
+
+  //////////////////////////////////
   // 리턴 코드구역 ///////////////////
   return (
     <main className="cont">
@@ -132,10 +162,31 @@ function Read({ setMode, selRecord }) {
               ></textarea>
             </td>
           </tr>
-          <tr>
-            <td>Attachment</td>
-            <td></td>
-          </tr>
+          {
+            // 로그인한 사용자에게만 코멘트 입력란이 보인다!
+            myCon.loginSts && (
+              <tr>
+                <td>Comments</td>
+                <td>
+                  <textarea
+                    className="comment-box"
+                    cols="60"
+                    rows="5"
+                  ></textarea>
+                  <button
+                    style={{
+                      marginLeft: "10px",
+                      height: "80px",
+                      verticalAlign: "35px",
+                    }}
+                    onClick={saveComment}
+                  >
+                    Send
+                  </button>
+                </td>
+              </tr>
+            )
+          }
         </tbody>
       </table>
       <br />
