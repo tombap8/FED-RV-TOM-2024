@@ -23,7 +23,7 @@ CREATE TABLE `member`(
 
 -> 쌤 DB서버 계정
 112.175.184.75
-kangnam21!
+kangnam25!
 
 
 
