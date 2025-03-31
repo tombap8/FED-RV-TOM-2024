@@ -1,13 +1,15 @@
 [ 회원가입 PJ - DB부터 만들기 ]
 
---최상위 DB에서
---먼저 DB를 만든다!(있다면 생략!)
+-- 최상위 DB에서
+-- 먼저 DB를 만든다!(있다면 생략!)
 
 CREATE DATABASE `mydb` 
 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
---mydb에서 
---회원가입 테이블을 만든다!
+-- mydb에서 
+-- 회원가입 테이블을 만든다!
+
+-- 회원가입 테이블 쿼리문(자동날짜넣기 수정본)
 
 CREATE TABLE `member`(
 `idx` int not null primary key auto_increment,
@@ -17,9 +19,11 @@ CREATE TABLE `member`(
 `gen` char(1) not null,
 `email1` varchar(20) not null,
 `email2` varchar(20) not null,
-`regdate` timestamp not null,
+`regdate` timestamp not null DEFAULT CURRENT_TIMESTAMP,
 `auth` char(1) default "M"
-);
+)
+
+
 
 -> 쌤 DB서버 계정
 112.175.184.75
