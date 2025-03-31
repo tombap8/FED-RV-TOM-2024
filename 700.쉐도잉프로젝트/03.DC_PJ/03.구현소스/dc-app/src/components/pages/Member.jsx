@@ -12,6 +12,8 @@ import { initData } from "../../js/func/mem_fn";
 // 제이쿼리 불러오기 ////
 import $ from "jquery";
 
+// 다음 우편번호 모듈 불러오기 ///
+
 function Member() {
   // 라우터이동 객체 생성하기 ///
   const goPage = useNavigate();
