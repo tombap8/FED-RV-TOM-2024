@@ -16,10 +16,7 @@
 // 모두 로딩될때까지 기다림!
 // 2) DOMContentLoaded : 태그만 다그리면 실행
 
-window.addEventListener(
-  "DOMContentLoaded",
-  loadFn
-);
+window.addEventListener("DOMContentLoaded", loadFn);
 ///////// 로드구역 //////////////
 
 /// 로딩실행 함수 //////////////////
@@ -34,13 +31,9 @@ function loadFn() {
 
   // 1. 대상선정
   // 1-1. 이벤트 대상 : TV버튼 - .btns button
-  const btns =
-    document.querySelectorAll(
-      ".btns button"
-    );
+  const btns = document.querySelectorAll(".btns button");
   // 1-2. 변경대상 : .tv
-  const tv =
-    document.querySelector(".tv");
+  const tv = document.querySelector(".tv");
 
   // 1-3. 변경대상 : .tv iframe (동영상변경)
   const mv = tv.querySelector("iframe");
@@ -53,10 +46,7 @@ function loadFn() {
   // for문으로 돌면서 이벤트 한꺼번에 설정하기
   //   for(시;한;증){코드}
   for (let i = 0; i < btnCnt; i++) {
-    btns[i].addEventListener(
-      "click",
-      controlTV
-    );
+    btns[i].addEventListener("click", controlTV);
   } ///// for /////
 
   // 3.  함수만들기
@@ -71,13 +61,9 @@ function loadFn() {
     //   this.getAttribute("class");
 
     // 4. 스타일시트 scale값 읽어오기
-    let scaleValue =
-      getComputedStyle(tv).scale;
+    let scaleValue = getComputedStyle(tv).scale;
     // 값이 1.4 이면 3, 3이면 1.4로 변경하기
-    scaleValue =
-      scaleValue === "1.4"
-        ? "3"
-        : "1.4";
+    scaleValue = scaleValue === "1.4" ? "3" : "1.4";
     // 삼항연산자의 결과가 scaleValue값을 덮어쓴다!
 
     // 2. 함수호출확인!
@@ -90,8 +76,7 @@ function loadFn() {
     );
 
     // 3. tv에 트랜지션 주기
-    tv.style.transition =
-      ".6s ease-in-out";
+    tv.style.transition = ".6s ease-in-out";
 
     // [ CSS 스타일값 읽기방법 2가지 ]
     // 1) style.속성명 방법 (인라인CSS만 읽어옴)
@@ -106,22 +91,16 @@ function loadFn() {
         /* 축소/확대 css변경하기 */
         tv.style.scale = scaleValue;
         /* 클릭된 스케일 버튼 title변경하기 */
-        this.title =
-          scaleValue == "3"
-            ? "축소"
-            : "확대";
+        this.title = scaleValue == "3" ? "축소" : "확대";
         break;
       case "ch1":
-        mv.src =
-          "https://www.youtube.com/embed/RMD91n01DuA?autoplay=1";
+        mv.src = "https://www.youtube.com/embed/RMD91n01DuA?autoplay=1";
         break;
       case "ch2":
-        mv.src =
-          "https://www.youtube.com/embed/3P1CnWI62Ik?autoplay=1";
+        mv.src = "https://www.youtube.com/embed/3P1CnWI62Ik?autoplay=1";
         break;
       case "ch3":
-        mv.src =
-          "https://www.youtube.com/embed/xLD8oWRmlAE?autoplay=1";
+        mv.src = "https://www.youtube.com/embed/xLD8oWRmlAE?autoplay=1";
         break;
     }
   } ///// controlTV 함수 //////////////
