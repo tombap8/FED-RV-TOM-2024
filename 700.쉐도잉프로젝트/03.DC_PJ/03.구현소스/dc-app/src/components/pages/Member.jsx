@@ -257,6 +257,12 @@ function Member() {
     if (!chkPwd) setChkPwdError(true);
     if (!userName) setUserNameError(true);
     if (!email) setEmailError(true);
+    // 주소체크 추가
+    if (!addr) setAddrError(true);
+    // 우편번호체크 추가
+    // -> 주소에러로 등록(우편번호에러값이 따로없음)
+    if (!zipcode) setAddrError(true);
+
     // 2. 통과시 true, 불통과시 false 리턴처리
     // 통과조건 : 빈값아님 + 에러후크변수가 모두 false
     if (
@@ -269,7 +275,9 @@ function Member() {
       !pwdError &&
       !chkPwdError &&
       !userNameError &&
-      !emailError
+      !emailError &&
+      // 주소에러항목추가
+      !addrError
     )
       return true;
     // 하나라도 false이면 false를 리턴함!
@@ -308,6 +316,10 @@ function Member() {
         pwd: pwd,
         unm: userName,
         eml: email,
+        // 추가항목1 : 우편번호
+        zcode: zipcode,
+        // 추가항목2 : 주소
+        addr: addr,
       };
 
       // 5. 데이터 추가하기 : 배열에 데이터 추가 push()
@@ -470,6 +482,29 @@ function Member() {
             </li>
             <li>
               <label>Address</label>
+              {
+                /* 다음 우편번호 모듈
+                  - 보내줄 값은 내가 정해야함!
+                  - 변경체크함수를 프롭스다운시킴!
+                */
+              }
+              <AddressInput changeAddr={changeAddr} />
+              {
+                // 에러일 경우 메시지 출력
+                // 조건문 && 출력요소
+                addrError && (
+                  <div className="msg">
+                    <small
+                      style={{
+                        color: "red",
+                        fontSize: "10px",
+                      }}
+                    >
+                      {msgEtc.req}
+                    </small>
+                  </div>
+                )
+              }
             </li>
             <li>
               <label>Email : </label>
