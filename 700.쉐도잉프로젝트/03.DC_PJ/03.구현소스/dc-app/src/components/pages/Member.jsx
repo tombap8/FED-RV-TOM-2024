@@ -13,6 +13,7 @@ import { initData } from "../../js/func/mem_fn";
 import $ from "jquery";
 
 // 다음 우편번호 모듈 불러오기 ///
+import AddressInput from "../modules/AddressInput";
 
 function Member() {
   // 라우터이동 객체 생성하기 ///
@@ -32,9 +33,9 @@ function Member() {
   // 5. 이메일변수
   const [email, setEmail] = useState("");
   // 6. 주소변수
-  // const [addr, setAddr] = useState("");
+  const [addr, setAddr] = useState("");
   // 7. 우편번호변수
-  // const [zipcode, setZipcode] = useState("");
+  const [zipcode, setZipcode] = useState("");
 
   // [2] 에러상태관리 변수
   // -> 에러상태값 초기값은 에러아님(false)
@@ -49,7 +50,7 @@ function Member() {
   // 5. 이메일변수
   const [emailError, setEmailError] = useState(false);
   // 6. 주소변수
-  // const [addrError, setAddrError] = useState("");
+  const [addrError, setAddrError] = useState("");
 
   // console.log(">>>>", userIdError);
 
@@ -224,6 +225,29 @@ function Member() {
     // 4. 기존입력값 반영하기
     setEmail(val);
   }; ///////// changeEmail 함수 //////////
+
+  // 6. 주소 유효성 검사 ///////////
+  const changeAddr = () => {
+    // 입력된 값읽기
+    // 앞주소(자동입력값)
+    let address1 = $(".addr1").val();
+    // 뒷주소(직접입력값)
+    let address2 = $(".addr2").val();
+    // 우편번호(자동입력값)
+    let zc = $(".zipcode").val();
+
+    // 2. 빈값체크 : 세 값 모두 빈값이 아니면 에러아님!
+    if (address1 !== "" && address2 !== "" && zc !== "") setAddrError(false);
+    else setAddrError(true);
+
+    // 3. 기존입력값 반영하기 : 상태변수에 반영함
+    // (1) 전체주소값 저장 (앞주소+뒷주소)
+    setAddr(address1 + " " + address2);
+    console.log(addr);
+    // (2) 우편번호 저장
+    setZipcode(zc);
+    console.log(zipcode);
+  }; ///////// changeUserName 함수 //////////
 
   // [ 전체 유효성검사 체크함수 ] ///////////
   const totalValid = () => {
