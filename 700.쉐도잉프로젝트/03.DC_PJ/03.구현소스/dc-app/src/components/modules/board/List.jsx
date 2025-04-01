@@ -233,25 +233,34 @@ function List({
 
   *******************************************/
 
-      // [1] 검색어 저장기능을 처리하기 위한 리듀서함수 ///
-      const reducerFn = (mval, action) => {
-        // mval - memory변수의 값
-        // action - dispatch메서드의 전달값
-        console.log('리듀서함수 전달값:',mval, action);
-        
-      }; ////////// reducerFn 함수 //////////
+  // [1] 검색어 저장기능을 처리하기 위한 리듀서함수 ///
+  const reducerFn = (memory, action) => {
+    // memory - memory변수의 값
+    // action - dispatch메서드의 전달값
+    console.log("리듀서함수 전달값:", memory, action);
+  }; ////////// reducerFn 함수 //////////
 
-      // [2] 검색어 저장기능 지원 후크 리듀서 : useReducer
-      const [memory, dispatch] = useReducer(reducerFn,'');
-      // 1. memory : 검색어 저장변수
-      // 2. dispatch : 리듀서 변경함수 호출메서드
-      // 3. useReducer(리듀서변경함수,변수초기값)
+  // [2] 검색어 저장기능 지원 후크 리듀서 : useReducer
+  const [memory, dispatch] = useReducer(reducerFn, "");
+  // 1. memory : 검색어 저장변수
+  // -> 값은 *로 구분자를 사용한 문자열
 
+  // 2. dispatch : 리듀서 변경함수 호출메서드
+  // (1) 검색할 경우 호출하여 검색어저장 (구분값:'search')
+  // (2) 리셋할 경우 호출하여 기존값 유지 (구분값:'reset')
+  // (3) 재검색할 경우 호출하여 기존값 유지 (구분값:'again')
+  // 리듀서호출시 전달값은 객체{type:값} 즉, type속성의 값으로 보냄
+  // 여기서는 배열로 값을 구성하여 [구분문자열, 이벤트발생요소] 보냄
 
+  // 3. useReducer(리듀서변경함수,변수초기값)
 
+  // 구분자가 없는 경우 split은 문자열을
+  // 배열 0번째에 할당하고 에러안남!
+  // console.log(memory.split('*'));
 
   // ★★★★★★★★★★★★★★★★★ //
   // 리턴 코드구역 ////////////////////
+  // ★★★★★★★★★★★★★★★★★ //
   return (
     <main className="cont">
       <h1 className="tit">OPINION</h1>
@@ -305,7 +314,17 @@ function List({
           }}
         />
         {/* 검색버튼 */}
-        <button className="sbtn" onClick={searchFn}>
+        <button
+          className="sbtn"
+          onClick={(e) => {
+            // 검색함수 호출
+            searchFn();
+            // 리듀서 메서드 호출
+            dispatch({ type: ["search", e.target] });
+            // 리듀서호출시 전달값은 type속성의 값으로 보냄
+            // 배열로 값을 구성하여 [구분문자열, 이벤트발생요소]
+          }}
+        >
           Search
         </button>
         {/* 초기화버튼 */}
@@ -324,21 +343,45 @@ function List({
         </button>
         {/* 리듀서를 이용한 검색어 표시버튼 */}
         <button
-          style={{position: "relative"}}
+          style={{ position: "relative" }}
+          onMouseLeave={(e) => {
+            // 마우스가 벗어나면 검색레코드 숨기기
+            $("ol", e.currentTarget).hide();
+          }}
+          onClick={(e) => {
+            // 클릭하면 검색레코드 보이기
+            $("ol", e.currentTarget).show();
+          }}
         >
           History
           <ol
-          style={{
-            position: "absolute",
-            lineHeight: "1.7",
-            padding: "5px 15px",
-            border: "1px solid gray",
-            borderRadius: "10px",
-            backgroundColor: "#f8f8ffcc",
-            // display: "none",
-          }}
+            style={{
+              position: "absolute",
+              lineHeight: "1.7",
+              padding: "5px 15px",
+              border: "1px solid gray",
+              borderRadius: "10px",
+              backgroundColor: "#f8f8ffcc",
+              whiteSpace: "nowrap",
+              display: "none",
+            }}
           >
-            <li>테스트</li>
+            {
+              // 값이 빈값이 아닌경우 출력
+              memory !== "" ? (
+                // 리듀서 변수 memory에 담긴 별구분자 문자열을 잘라서
+                // 순회하여 li를 생성해 준다!
+                memory.split("*").map((v, i) => (
+                  <li key={i}>
+                    <b>{v}</b>
+                  </li>
+                ))
+              ) : (
+                <li>
+                  <b>No history</b>
+                </li>
+              )
+            }
           </ol>
         </button>
 
