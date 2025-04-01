@@ -1,6 +1,6 @@
 // DC PJ 게시판 리스트 모드 모듈 - List.jsx
 
-import React, { Fragment, useContext, useReducer } from "react";
+import React, { Fragment, useContext, useEffect, useReducer } from "react";
 import { dCon } from "../dCon";
 
 // 제이쿼리 불러오기 ///
@@ -295,27 +295,40 @@ function List({
     const [key, ele] = action.type;
     console.log("리듀서함수 전달값:", memory, key, ele);
 
-    // 2. key값에 따라서 분기하여 처리하기
+    // 2. 최신 검색어를 기준으로 5개만 생기도록 맨 앞배열값 삭제하기
+    let newArr = memory.split("*");
+    if (newArr.length > 4) newArr.shift();
+
+    // 3. 맨앞 배열값 제거후 join으로 문자열 만들기
+    newArr = newArr.join("*");
+    console.log(newArr);
+
+    // 3. key값에 따라서 분기하여 처리하기
     switch (key) {
-      // 2.1 검색어 저장
+      // 3.1 검색어 클릭시 처리하기
       case "search":
         // (1) 검색어 읽어오기
         let txt = $(ele).prev().val();
         // (2) 검색어를 리듀서 변수에 리턴하는 값을 만드는 함수 호출
-        return retVal(memory, txt);
+        return retVal(newArr, txt);
       // memory는 기존 리듀서변수값, txt는 새로운값
     } /// case: search ///
   }; ////////// reducerFn 함수 //////////
 
   // [2] 검색어 저장기능 지원 후크 리듀서 : useReducer
-  const [memory, dispatch] = useReducer(reducerFn, "");
+  const [memory, dispatch] = useReducer(
+    reducerFn,
+    // 로컬스에 검색어 메모리값이 있으면 할당하기!
+    localStorage.getItem("memory-data")
+      ? localStorage.getItem("memory-data")
+      : ""
+  );
   // 1. memory : 검색어 저장변수
   // -> 값은 *로 구분자를 사용한 문자열
 
   // 2. dispatch : 리듀서 변경함수 호출메서드
-  // (1) 검색할 경우 호출하여 검색어저장 (구분값:'search')
-  // (2) 리셋할 경우 호출하여 기존값 유지 (구분값:'reset')
-  // (3) 재검색할 경우 호출하여 기존값 유지 (구분값:'again')
+  // (1) 검색할 경우 호출하여 리듀서변수값 변경 (구분값:'search')
+  // (2) 재검색할 경우 호출하여 리듀서변수값 유지 (구분값:'again')
   // 리듀서호출시 전달값은 객체{type:값} 즉, type속성의 값으로 보냄
   // 여기서는 배열로 값을 구성하여 [구분문자열, 이벤트발생요소] 보냄
 
@@ -324,6 +337,16 @@ function List({
   // 구분자가 없는 경우 split은 문자열을
   // 배열 0번째에 할당하고 에러안남!
   // console.log(memory.split('*'));
+
+  // 컴포넌트 처음 로딩후 실행구역 /////////////
+  useEffect(() => {
+    // 컴포넌트 소멸시 구역 /////////////
+    return () => {
+      // 리듀서 검색어저장값을 로컬스에 할당함!
+      localStorage.setItem("memory-data", memory);
+      console.log('리듀서 검색어저장값을 로컬스에 할당함!');
+    };
+  }, []); //////
 
   // ★★★★★★★★★★★★★★★★★ //
   // 리턴 코드구역 ////////////////////
@@ -418,13 +441,17 @@ function List({
           }}
           onClick={(e) => {
             // 클릭하면 검색레코드 보이기
-            $("ol", e.currentTarget).show();
+            $("ol", e.currentTarget).css({
+              display: "flex",
+            });
           }}
         >
           History
           <ol
             style={{
               position: "absolute",
+              // 플렉스 역순출력
+              flexDirection: "column-reverse",
               lineHeight: "1.7",
               padding: "5px 15px",
               border: "1px solid gray",
@@ -442,7 +469,17 @@ function List({
                 // 순회하여 li를 생성해 준다!
                 memory.split("*").map((v, i) => (
                   <li key={i}>
-                    <b>{v}</b>
+                    <b
+                      onClick={() => {
+                        // 검색어 바꾸기
+                        $("#stxt").val(v);
+                        // 검색함수호출
+                        searchFn();
+                        // 재검색은 리듀서메서드를 호출할 필요없음!
+                      }}
+                    >
+                      {v}
+                    </b>
                   </li>
                 ))
               ) : (
