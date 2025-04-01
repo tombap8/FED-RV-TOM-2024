@@ -216,28 +216,114 @@ function List({
     [ 리액트 리듀서를 이용한 검색 레코드 생성하기 ]
 
     1. 리듀서 셋팅 기본형
-    const [리듀서변수, 호출메서드] = 
-    useReducer(리듀서함수, 리듀서변수초기값);
+
+      const [리듀서변수, 호출메서드] = 
+      useReducer(리듀서함수, 리듀서변수초기값);
 
     2. 리듀서 사용법
+
       (1) 리듀서에서 사용하는 변수를 기본으로
-      외부에 변수값 변경 기능의 함수를 만들고
-      그 함수를 호출메서드를 통하여 호출되도록 한다!
+        외부에 변수값 변경 기능의 함수를 만들고
+        그 함수를 호출메서드를 통하여 호출되도록 한다!
 
       (2) 리듀서함수의 이해
-      리듀서의 호출메서드를 통해 변경함수를 대신 호출하고
-      전달값도 자유롭게 셋팅할 수 있다!
+        리듀서의 호출메서드를 통해 변경함수를 대신 호출하고
+        전달값도 자유롭게 셋팅할 수 있다!
 
       (3) 보통 리듀서함수의 switch case를 통해 
-      경우의 따라 값을 변경하도록 구현한다!
+        경우의 따라 값을 변경하도록 구현한다!
+
+      (4) 리듀서 메서드 호출시 전달값은 
+        객체인 {type:값}으로 보낸다!
+        예) <div onClick={
+            () => {dispatch({type:'search'})}}>
+
+    3. 리듀서 함수 기본 구성방법 : 
+    -> ((중요!!!)) 반드시 리턴을 해야 리듀서변수가 값을 유지함!
+    -> 만약 리턴을 안하면 기존값이 날아가고 undefined로 초기화됨!
+
+    예시) 케이스에 따른 리턴코드 만드는 방법
+    -> return 처리값 -> 이것이 리듀서 변수를 변경하는 중요코드임!
+
+    function 리듀서함수(리듀서변수, 호출때보낸객체) {
+      switch (호출때보낸객체.type) {
+        case 값1:
+          처리코드;
+          return 처리값;
+        case 값2:
+          처리코드;
+          return 처리값;
+        default:
+          처리코드;
+          return 처리값;
+      }
+    }
+
 
   *******************************************/
 
+  // [ 리듀서함수에서 쓸 리턴값 만들기 함수 ] ///
+  const retVal = (gval, txt) => {
+    // gval은 기존값, txt는 새로운값
+    return (
+      // 1. 별구분자가 있는가?
+      gval.indexOf("*") !== -1
+        ? // 2. true면 split으로 잘라서 배열값 검사하기
+          gval.split("*").includes(txt)
+          ? // 2-1. 배열값에 있으면 true이므로 gval추가안함
+            gval
+          : // 2-2. false면 gval에 현재값 별 넣고 추가
+            gval + (gval != "" ? "*" : "") + txt
+        : // 3. 전체 false이면 빈값이 아니면 문자열검사하기
+        gval === txt
+        ? // 3-1. 값이 서로 같으면 추가하지 말기
+          gval
+        : // 3-2. 그밖의 경우엔 추가하기
+          gval + (gval != "" ? "*" : "") + txt
+    );
+  }; ////// retVal함수 ///////////////
+
   // [1] 검색어 저장기능을 처리하기 위한 리듀서함수 ///
   const reducerFn = (memory, action) => {
-    // memory - memory변수의 값
+    // (1)첫번째 전달변수
+    // memory - memory변수의 값(리듀서변수값)
+    // (2)두번째 전달변수
     // action - dispatch메서드의 전달값
-    console.log("리듀서함수 전달값:", memory, action);
+    // 즉, {type:값}으로 보내준 값이 전달된다!
+
+    // 1. 구조분해 할당으로 객체의 배열값 받기
+    const [key, ele] = action.type;
+    console.log("리듀서함수 전달값:", memory, key, ele);
+
+    // 2. key값에 따라서 분기하여 처리하기
+    switch (key) {
+      // 2.1 검색어 저장
+      case "search":
+        // (1) 검색기준값 읽어오기
+        let creteria = $(ele).siblings(".cta").val();
+        console.log("기준값:", creteria);
+        // (2) 검색어 읽어오기
+        let txt = $(ele).prev().val();
+        console.log(typeof txt, "/검색어:", txt);
+        // (3) input값은 안쓰면 빈스트링이 넘어옴!
+        if (txt != "") {
+          console.log("검색해!");
+          // [검색기준,검색어] -> setKeyword 업데이트
+          setKeyword([creteria, txt]);
+          // 검색후엔 첫페이지로 보내기
+          setPageNum(1);
+          // 검색후엔 페이지의 페이징 번호 초기화(1)
+          pgPgNum.current = 1;
+        }
+        // 빈값일 경우
+        else {
+          alert("Please enter a keyword!");
+        }
+        // 검색어를 리듀서 변수에 리턴하는 값을 만드는 함수 호출
+        return retVal(memory, txt);
+        // memory는 기존 리듀서변수값, txt는 새로운값
+
+    } /// case: search ///
   }; ////////// reducerFn 함수 //////////
 
   // [2] 검색어 저장기능 지원 후크 리듀서 : useReducer
@@ -317,6 +403,7 @@ function List({
         <button
           className="sbtn"
           onClick={(e) => {
+            // e - 이벤트 전달변수
             // 검색함수 호출
             searchFn();
             // 리듀서 메서드 호출
@@ -367,8 +454,9 @@ function List({
             }}
           >
             {
-              // 값이 빈값이 아닌경우 출력
-              memory !== "" ? (
+              // 값이 null도 아니고 빈값도 아니고
+              // 별(*) 구분자가 있는 경우 출력
+              memory && memory !== "" && memory.includes("*") ? (
                 // 리듀서 변수 memory에 담긴 별구분자 문자열을 잘라서
                 // 순회하여 li를 생성해 준다!
                 memory.split("*").map((v, i) => (
