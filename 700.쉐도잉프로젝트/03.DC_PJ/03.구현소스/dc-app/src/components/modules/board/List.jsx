@@ -299,30 +299,11 @@ function List({
     switch (key) {
       // 2.1 검색어 저장
       case "search":
-        // (1) 검색기준값 읽어오기
-        let creteria = $(ele).siblings(".cta").val();
-        console.log("기준값:", creteria);
-        // (2) 검색어 읽어오기
+        // (1) 검색어 읽어오기
         let txt = $(ele).prev().val();
-        console.log(typeof txt, "/검색어:", txt);
-        // (3) input값은 안쓰면 빈스트링이 넘어옴!
-        if (txt != "") {
-          console.log("검색해!");
-          // [검색기준,검색어] -> setKeyword 업데이트
-          setKeyword([creteria, txt]);
-          // 검색후엔 첫페이지로 보내기
-          setPageNum(1);
-          // 검색후엔 페이지의 페이징 번호 초기화(1)
-          pgPgNum.current = 1;
-        }
-        // 빈값일 경우
-        else {
-          alert("Please enter a keyword!");
-        }
-        // 검색어를 리듀서 변수에 리턴하는 값을 만드는 함수 호출
+        // (2) 검색어를 리듀서 변수에 리턴하는 값을 만드는 함수 호출
         return retVal(memory, txt);
-        // memory는 기존 리듀서변수값, txt는 새로운값
-
+      // memory는 기존 리듀서변수값, txt는 새로운값
     } /// case: search ///
   }; ////////// reducerFn 함수 //////////
 
