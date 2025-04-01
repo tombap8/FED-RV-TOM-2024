@@ -1,6 +1,6 @@
 // DC PJ 게시판 리스트 모드 모듈 - List.jsx
 
-import React, { Fragment, useContext } from "react";
+import React, { Fragment, useContext, useReducer } from "react";
 import { dCon } from "../dCon";
 
 // 제이쿼리 불러오기 ///
@@ -212,6 +212,45 @@ function List({
   // -> 개수만큼 빈배열 생성!
   // Array.from({ length: pagingCount }).map((v, i) => (코드))
 
+  /******************************************* 
+    [ 리액트 리듀서를 이용한 검색 레코드 생성하기 ]
+
+    1. 리듀서 셋팅 기본형
+    const [리듀서변수, 호출메서드] = 
+    useReducer(리듀서함수, 리듀서변수초기값);
+
+    2. 리듀서 사용법
+      (1) 리듀서에서 사용하는 변수를 기본으로
+      외부에 변수값 변경 기능의 함수를 만들고
+      그 함수를 호출메서드를 통하여 호출되도록 한다!
+
+      (2) 리듀서함수의 이해
+      리듀서의 호출메서드를 통해 변경함수를 대신 호출하고
+      전달값도 자유롭게 셋팅할 수 있다!
+
+      (3) 보통 리듀서함수의 switch case를 통해 
+      경우의 따라 값을 변경하도록 구현한다!
+
+  *******************************************/
+
+      // [1] 검색어 저장기능을 처리하기 위한 리듀서함수 ///
+      const reducerFn = (mval, action) => {
+        // mval - memory변수의 값
+        // action - dispatch메서드의 전달값
+        console.log('리듀서함수 전달값:',mval, action);
+        
+      }; ////////// reducerFn 함수 //////////
+
+      // [2] 검색어 저장기능 지원 후크 리듀서 : useReducer
+      const [memory, dispatch] = useReducer(reducerFn,'');
+      // 1. memory : 검색어 저장변수
+      // 2. dispatch : 리듀서 변경함수 호출메서드
+      // 3. useReducer(리듀서변경함수,변수초기값)
+
+
+
+
+  // ★★★★★★★★★★★★★★★★★ //
   // 리턴 코드구역 ////////////////////
   return (
     <main className="cont">
@@ -282,6 +321,25 @@ function List({
           }}
         >
           Reset
+        </button>
+        {/* 리듀서를 이용한 검색어 표시버튼 */}
+        <button
+          style={{position: "relative"}}
+        >
+          History
+          <ol
+          style={{
+            position: "absolute",
+            lineHeight: "1.7",
+            padding: "5px 15px",
+            border: "1px solid gray",
+            borderRadius: "10px",
+            backgroundColor: "#f8f8ffcc",
+            // display: "none",
+          }}
+          >
+            <li>테스트</li>
+          </ol>
         </button>
 
         {/* 정렬기준 선택박스 */}
