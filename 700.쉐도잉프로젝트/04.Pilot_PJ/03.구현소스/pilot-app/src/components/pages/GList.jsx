@@ -40,8 +40,8 @@ function GList(props) {
                 v.cat + "/" + v.ginfo[0] + ".png"
                 } alt={v.ginfo[1]} />
             <aside>
-                <h2></h2>
-                <h3></h3>
+                <h2>{v.ginfo[1]}</h2>
+                <h3>{v.ginfo[3]}원</h3>
             </aside>
         </a>
     </div>

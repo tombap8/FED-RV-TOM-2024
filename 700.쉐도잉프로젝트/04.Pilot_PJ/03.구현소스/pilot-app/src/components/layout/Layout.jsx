@@ -68,6 +68,11 @@ export default function Layout() {
     goNav(pm1, pm2);
   }, []);
 
+  // [2] 세자릿수 콤마 함수
+  const addCommas = useCallback((number) => {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }, []); /////// addCommas //////
+
   /***************************************** 
     [ 컨텍스트 API 공개 변수들 ]
     1. flag - 카트 데이터 상태변수
@@ -77,6 +82,7 @@ export default function Layout() {
     5. gMode, setGMode 
       - 전체 리스트 페이지 뷰모드 구분
     6. gInit - 초기화 여부를 결정하는 변수
+    7. addCommas - 세자릿수 콤마 함수
   *****************************************/
 
   /// 리턴 코드구역 ////////
@@ -92,6 +98,7 @@ export default function Layout() {
         setCsts,
         gMode,
         setGMode,
+        addCommas,
       }}
     >
       {/* 1. 상단영역
