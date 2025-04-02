@@ -37,8 +37,8 @@ function GList(props) {
             <img src={
                 process.env.PUBLIC_URL+
                 "/images/goods/" +
-                v
-                } alt="" />
+                v.cat + "/" + v.ginfo[0] + ".png"
+                } alt={v.ginfo[1]} />
             <aside>
                 <h2></h2>
                 <h3></h3>
@@ -80,7 +80,7 @@ function GList(props) {
               defaultChecked
             />
           </div>
-          <div className="grid"></div>
+          <div className="grid">{makeCode()}</div>
         </section>
       )}
       {
