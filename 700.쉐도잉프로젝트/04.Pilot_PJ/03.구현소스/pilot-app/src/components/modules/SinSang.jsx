@@ -168,6 +168,8 @@ function SinSang({ catName, chgItemFn, setPos }) {
         <button
           onClick={(e) => {
             e.preventDefault();
+            // 카테고리명 변경하기
+            myCon.setCatName('glist');
             // 라우터 이동함수 호출
             myCon.goPage('/glist');
           }}
