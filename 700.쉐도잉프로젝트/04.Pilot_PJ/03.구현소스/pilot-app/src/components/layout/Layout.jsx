@@ -48,6 +48,13 @@ export default function Layout() {
   // [3] 카트사용여부 상태변수 /////////
   const [csts, setCsts] = useState(stsVal);
 
+  // [4] 전체 리스트 페이지 뷰모드 구분 상태변수
+  const [gMode, setGMode] = useState("F");
+  // ((모드 종류))
+  // F - Filter List
+  // P - Paging List
+  // M - More List
+
   // [ ★★★ 공통함수 셋팅구역 ★★★ ] //////////
 
   // 라우터 이동 네비게이트 객체 만들기 //
@@ -83,16 +90,21 @@ export default function Layout() {
         setTransData,
         transData,
         setCsts,
+        gMode,
+        setGMode,
       }}
     >
-      <TopArea catName={catName} />
+      {/* 1. 상단영역
+      - 메모이제이션으로 인해 상태변수 직접 전달함! */}
+      <TopArea catName={catName} gMode={gMode} setGMode={setGMode} />
+      {/* 2. 메인영역 */}
       <MainArea />
+      {/* 3. 하단영역 */}
       <FooterArea />
       {/* 카트리스트 */}
       {
         // 카트 사용여부 상태변수 csts 값이 true일때만 보여줌
-        csts &&
-        <CartList selData={transData} flag={flag}  />
+        csts && <CartList selData={transData} flag={flag} />
         // 참조변수인 flag를 보내면 자식 컴포넌트에서도
         // 이 값을 참조할 뿐만 아니라 변경도 가능함!
         // 주의: useRef변수는 사용시 변수명.current로 사용함!

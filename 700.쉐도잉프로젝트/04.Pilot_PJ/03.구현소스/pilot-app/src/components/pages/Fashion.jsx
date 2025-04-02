@@ -99,6 +99,9 @@ function Fashion() {
 
       // 등장액션 체크함수 이벤트 설정하기
       window.removeEventListener("scroll", chkPos);
+
+      // 메뉴 이벤트 설정 제거하기 : 안지우면 에러남!
+      $(".gnb a").off("click");
     }; //////// 소멸자 리턴 ////////
   }, []); //// useEffect : 한번만실행 ////////
 
