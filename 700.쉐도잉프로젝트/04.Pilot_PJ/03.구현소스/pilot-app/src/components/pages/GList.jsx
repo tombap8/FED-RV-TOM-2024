@@ -13,10 +13,6 @@ import ItemDetail from "../modules/ItemDetail";
 import $ from "jquery";
 
 function GList(props) {
-  // 변경될 데이터 원본과 분리하여 데이터 변경하기위한 참조변수
-  const transData = useRef(JSON.parse(JSON.stringify(gdata)));
-  // -> 깊은복사로 원본데이터와 연결성 없음!!!
-  // 주의: 사용시 current 속성을 씀!
 
   // 참조변수셋팅 : 리랜더링없이 값유지!
   // 1. 아이템 코드(m1,m2,m3,...)
@@ -27,8 +23,8 @@ function GList(props) {
   // 리랜더링을 위한 상태변수 : 무조건 리랜더링설정목적
   const [force, setForce] = useState(false);
 
-  // 데이터 상태관리 변수
-  const [currData, setCurrData] = useState(gdata);
+  // 체크박스 그룹 상태변수 : men/women/style 세가지 상태값
+  const [chkSts, setChkSts] = useState([true,true,true]);
 
   // 컨텍스트 API 불러오기
   const myCon = useContext(pCon);
@@ -39,7 +35,8 @@ function GList(props) {
     let retVal;
 
     /* 
-        기본 데이터 구조
+        [ 기본 데이터 구조 ]
+
         {
             idx: "1",
             cat: "men",
@@ -50,6 +47,12 @@ function GList(props) {
             "99000"],
         }
     */
+    // 데이터 선택하기 /////////
+    const selData = gdata.filter(v=>
+      v.cat==='men'||
+      v.cat==='women'||
+      v.cat==='style');
+    console.log('선택데이터:',selData);
 
     retVal = gdata.map((v, i) => (
       <div key={i}>
@@ -119,21 +122,34 @@ function GList(props) {
                 type="checkbox"
                 className="chkbx"
                 id="men"
-                defaultChecked
+                checked={chkSts[0]}
+                onChange={(e) => {
+                  // 체크박스 상태변수값 변경
+                  setChkSts([e.target.checked,chkSts[1],chkSts[2]]);
+                  console.log(e.target.checked);
+                }}
               />
               <label htmlFor="women">여성</label>
               <input
                 type="checkbox"
                 className="chkbx"
                 id="women"
-                defaultChecked
+                checked={chkSts[1]}
+                onChange={(e) => {
+                  setChkSts([chkSts[0],e.target.checked,chkSts[2]]);
+                  console.log(e.target.checked);
+                }}
               />
               <label htmlFor="style">스타일</label>
               <input
                 type="checkbox"
                 className="chkbx"
                 id="style"
-                defaultChecked
+                checked={chkSts[2]}
+                onChange={(e) => {
+                  setChkSts([chkSts[0],chkSts[1],e.target.checked]);
+                  console.log(e.target.checked);
+                }}
               />
             </div>
             <div className="grid">{makeCode()}</div>
