@@ -66,10 +66,16 @@ function GList(props) {
             v.cat === (chkSts[2] ? "style" : "")
         )
       : // [2] 'P'모드 : 페이징 데이터선택
-        // -> 한페이지당 페이지크기에 맞게 현재 페이지 데이터선택
-        // -> 시작수 = (현재페이지번호 - 1) * 한페이지당 페이지크기
-        // -> 끝수 = 현재페이지번호 * 한페이지당 페이지크기
-        gdata.slice((pgNum - 1) * pgSize.current, pgNum * pgSize.current);
+      // -> 한페이지당 페이지크기에 맞게 현재 페이지 데이터선택
+      // -> 시작수 = (현재페이지번호 - 1) * 한페이지당 페이지크기
+      // -> 끝수 = 현재페이지번호 * 한페이지당 페이지크기
+      myCon.gMode === "P"
+      ? gdata.slice((pgNum - 1) * pgSize.current, pgNum * pgSize.current)
+      : // [3] 'M'모드 : 더보기 데이터선택
+      myCon.gMode === "M"
+      ? gdata.slice(0, 5)
+      : // 모든 경우가 아닌 경우 빈 배열
+        [];
 
   console.log("선택데이터:", selData);
 
@@ -150,6 +156,7 @@ function GList(props) {
         // 1. Filter List 출력코드
         myCon.gMode === "F" && (
           <section>
+            {/* 체크박스 코드 */}
             <div id="optbx">
               <label htmlFor="men">남성</label>
               <input
@@ -188,6 +195,7 @@ function GList(props) {
                 }}
               />
             </div>
+            {/* 데이터 그리드 코드 */}
             <div
               className="grid"
               style={{
@@ -204,6 +212,7 @@ function GList(props) {
         // 2. Paging List 출력코드
         myCon.gMode === "P" && (
           <section>
+            {/* 데이터 그리드 코드 */}
             <div
               className="grid"
               style={{
@@ -259,7 +268,18 @@ function GList(props) {
         // 3. More List 출력코드
         myCon.gMode === "M" && (
           <section>
-            <h2 style={{ fontSize: "10vw" }}>More List</h2>
+            {/* 데이터 그리드 코드 */}
+            <div
+              className="grid"
+              style={{
+                gridTemplateColumns:
+                  selData.length === 0 ? "repeat(1, 1fr)" : "",
+              }}
+            >
+              {makeCode()}
+            </div>
+            {/* 더보기 버튼 */}
+            <div id="more"><button class="more">MORE</button></div>
           </section>
         )
       }
