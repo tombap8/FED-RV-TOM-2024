@@ -49,12 +49,12 @@ function GList(props) {
     */
     // 데이터 선택하기 /////////
     const selData = gdata.filter(v=>
-      v.cat==='men'||
-      v.cat==='women'||
-      v.cat==='style');
+      v.cat===(chkSts[0]?'men':'')||
+      v.cat===(chkSts[1]?'women':'')||
+      v.cat===(chkSts[2]?'style':''));
     console.log('선택데이터:',selData);
 
-    retVal = gdata.map((v, i) => (
+    retVal = selData.map((v, i) => (
       <div key={i}>
         <a
           href="#"
@@ -136,6 +136,7 @@ function GList(props) {
                 id="women"
                 checked={chkSts[1]}
                 onChange={(e) => {
+                  // 체크박스 상태변수값 변경
                   setChkSts([chkSts[0],e.target.checked,chkSts[2]]);
                   console.log(e.target.checked);
                 }}
@@ -147,6 +148,7 @@ function GList(props) {
                 id="style"
                 checked={chkSts[2]}
                 onChange={(e) => {
+                  // 체크박스 상태변수값 변경
                   setChkSts([chkSts[0],chkSts[1],e.target.checked]);
                   console.log(e.target.checked);
                 }}
