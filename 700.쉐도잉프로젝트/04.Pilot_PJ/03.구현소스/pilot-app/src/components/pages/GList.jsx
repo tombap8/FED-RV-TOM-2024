@@ -13,25 +13,42 @@ import ItemDetail from "../modules/ItemDetail";
 import $ from "jquery";
 
 function GList(props) {
-  // [1] 리액트 후크 상태변수 셋팅 ////
+  // [1] 리액트 후크 상태변수 셋팅 ////////////////////////
+
   // 1. 페이지용 상태변수 : 현재페이지번호
   const [pgNum, setPgNum] = useState(1);
+
   // 2. 체크박스 그룹 상태변수 : men/women/style 세가지 상태값
   const [chkSts, setChkSts] = useState([true, true, true]);
+
   // 3. 리랜더링을 위한 상태변수 : 무조건 리랜더링설정목적
   const [force, setForce] = useState(false);
 
-  // [2] 리액트 참조변수 셋팅 : 리랜더링없이 값유지! ////
+  // 4. 더보기 단위수 상태변수 : more버튼 클릭시 횟수 증가
+  const [moreCnt, setMoreCnt] = useState(1);
+
+  // [2] 리액트 참조변수 셋팅 : 리랜더링없이 값유지! ////////////
+
   // 1. 아이템 코드(m1,m2,m3,...)
   const item = useRef("m1");
+
   // 2. 카테고리명(men/women/style)
   const catName = useRef("men");
+
   // 3. 한 페이지당 페이지크기
   const pgSize = useRef(10);
+
   // 4. 전체 페이징 개수
   const pgCnt = useRef(Math.ceil(gdata.length / pgSize.current));
   // 전체데이터수/한페이지당 페이지크기 -> 올림처리 Math.ceil()
   // 소수점아래가 나오면 1을 올리고 아니면 아무것도 안올림!
+
+  // 5. 더보기 단위개수 셋팅
+  const moreSize = useRef(5);
+
+  // 6. 더보기 한계수 셋팅
+  const moreLimit = useRef(Math.ceil(gdata.length / moreSize.current));
+  // 전체데이터수/더보기 단위개수 -> 올림처리 Math.ceil()
 
   console.log("전체데이터수", gdata.length);
   console.log("한페이지당 페이지크기", pgSize.current);
@@ -57,7 +74,7 @@ function GList(props) {
   // 체크박스 상태값에 따른 데이터선택
   const selData =
     // 각 모드별 데이터 선택 코드 분기하기 ///
-    // [1] 'F'모드 : men/women/style 데이터선택
+    // ★★★ [1] 'F'모드 : men/women/style 데이터선택 ★★★
     myCon.gMode === "F"
       ? gdata.filter(
           (v) =>
@@ -65,15 +82,18 @@ function GList(props) {
             v.cat === (chkSts[1] ? "women" : "") ||
             v.cat === (chkSts[2] ? "style" : "")
         )
-      : // [2] 'P'모드 : 페이징 데이터선택
+      : // ★★★ [2] 'P'모드 : 페이징 데이터선택 ★★★
       // -> 한페이지당 페이지크기에 맞게 현재 페이지 데이터선택
       // -> 시작수 = (현재페이지번호 - 1) * 한페이지당 페이지크기
       // -> 끝수 = 현재페이지번호 * 한페이지당 페이지크기
       myCon.gMode === "P"
       ? gdata.slice((pgNum - 1) * pgSize.current, pgNum * pgSize.current)
-      : // [3] 'M'모드 : 더보기 데이터선택
+      : // ★★★ [3] 'M'모드 : 더보기 데이터선택 ★★★
+      // -> 마지막수를 계산함 : (더보기단위수 * 더보기횟수)를 더함
+      // -> 더보기단위수 * 더보기횟수 : 5*1,5*2,...)
+      // -> 5, 10, 15,...
       myCon.gMode === "M"
-      ? gdata.slice(0, 5)
+      ? gdata.slice(0, moreCnt * moreSize.current)
       : // 모든 경우가 아닌 경우 빈 배열
         [];
 
@@ -224,12 +244,18 @@ function GList(props) {
             </div>
             {/* 페이징 코드 */}
             <div id="paging">
+              -
               {
                 // [개수만큼 배열 만드는 방법]
                 // [1] Array.from({length:개수}) 개수만큼 배열생성
                 // [2] [...Array(개수)] 개수만큼 배열생성
+                // [3] Array(개수).fill(0) 개수만큼 배열생성
                 // -> 개수만큼 빈값 배열 순회시 map((_,i)=>{})
                 // 값으로 언더바(_)를 쓰면 값을 자리만 표시한다는 의미임
+                // -> Array(개수).map() 은 빈배열이기에 map이 실행안됨
+                // -> 따라서 값을 채우는 두가지 방법으로 만들어야 map이 실행됨
+                // -> [...Array(개수)] 또는 Array(개수).fill(0) 이용
+                // -> fill(0)은 편의상 숫자 0 데이터를 채운것임!
                 // Array.from({ length: pgCnt.current }).map((v, i) => (
                 [...Array(pgCnt.current)].map((_, i) => (
                   <Fragment key={i}>
@@ -279,7 +305,22 @@ function GList(props) {
               {makeCode()}
             </div>
             {/* 더보기 버튼 */}
-            <div id="more"><button class="more">MORE</button></div>
+            <div id="more">
+              <button
+                className="more"
+                onClick={(e) => {
+                  // 더보기 횟수 1씩 증가
+                  setMoreCnt(moreCnt + 1);
+                }}
+                style={{
+                  // 더보기 횟수가 전체한계수와 같으면 숨기기
+                  display: moreCnt === moreLimit 
+                  ?  "none": "inline-block",
+                }}
+              >
+                MORE
+              </button>
+            </div>
           </section>
         )
       }
