@@ -6,7 +6,7 @@ import { gnbData } from "../../js/data/gnb";
 import { memo } from "react";
 
 // 제이쿼리 불러오기 ///
-import $ from 'jquery';
+import $ from "jquery";
 
 // 전체메뉴 컴포넌트 불러오기
 import { TotalMenu } from "../modules/TotalMenu";
@@ -19,16 +19,14 @@ export const TopArea = memo(({ catName, gMode, setGMode }) => {
   const makeList = (dataName) => {
     console.log("데이터이름:", dataName);
     return gnbData[dataName].map((v, i) => (
-      <li key={i} 
-      // 클래스 on은 glist이면서 첫번째메뉴만 넣어준다!
-      className={
-        dataName==='glist'&&i===0 ? "on" : ""}
-        onClick={()=>{
+      <li
+        key={i}
+        onClick={() => {
           // 전체상품리스트 메뉴만적용
-          if(dataName==='glist'){
+          if (dataName === "glist") {
             // gMode모듈변경
-            setGMode(v.substr(0,1));
-            console.log('gMode값:',v.substr(0,1));
+            setGMode(v.substr(0, 1));
+            console.log("gMode값:", v.substr(0, 1));
           }
         }}
       >
@@ -44,29 +42,40 @@ export const TopArea = memo(({ catName, gMode, setGMode }) => {
         <header className="top-area ibx">
           <h1 id="logo">
             <a href="#">
-              <img src={process.env.PUBLIC_URL + "/images/main_logo.png"} alt="파일럿로고" />
+              <img
+                src={process.env.PUBLIC_URL + "/images/main_logo.png"}
+                alt="파일럿로고"
+              />
             </a>
           </h1>
           <nav className="gnb">
             <ul>
-              <li className="bld">배너순번 li 숨기기</li>
+              {
+                // 첫페이지에서만 보이기
+                catName === "main" && (
+                  <li className="bld">배너순번 li 숨기기</li>
+                )
+              }
               {makeList(catName)}
             </ul>
           </nav>
-          <div className="ham"
-            onClick={(e)=>{
+          <div
+            className="ham"
+            onClick={(e) => {
               // toggle()은 show()/hide() 전환!
 
               // 1.전체메뉴박스 보이기/숨기기
-              $('.mbox').toggle();
+              $(".mbox").toggle();
               // 2.햄버거메뉴 모양변경 클래스 넣기/빼기
-              $(e.currentTarget).toggleClass('on');
-              // 3.배경 동영상 재생/멈춤 : 
+              $(e.currentTarget).toggleClass("on");
+              // 3.배경 동영상 재생/멈춤 :
               // - 제이쿼리 동영상은 get(0)까지 선택해야함!
-              let bgm = $('.bgm').get(0);
-              if (bgm.paused) { // (1) 멈춤상태면 재생
+              let bgm = $(".bgm").get(0);
+              if (bgm.paused) {
+                // (1) 멈춤상태면 재생
                 bgm.play();
-              } else { // (2) 멈춤상태 아니면 멈춤
+              } else {
+                // (2) 멈춤상태 아니면 멈춤
                 bgm.pause();
               }
               // console.log('동영상 멈춤상태:',bgm.paused);

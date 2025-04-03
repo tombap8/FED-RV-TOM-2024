@@ -182,9 +182,17 @@ function GList() {
 
   // 한번만 랜더링 구역 /////
   useEffect(() => {
+    // 처음에 첫번째 li에만 on넣기
+    $(".gnb li")
+    .first().addClass("on")
+    .siblings().removeClass("on") ;
+
+
     // 클릭된 메뉴에 class 'on' 넣기
-    $(".gnb li").click((e) => {
-      $(e.currentTarget).addClass("on").siblings().removeClass("on");
+    $(".gnb li")
+    .on('click',(e) => {
+      $(e.currentTarget).addClass("on")
+      .siblings().removeClass("on");
     });
 
     // 소멸시 이벤트 제거하기 ///
