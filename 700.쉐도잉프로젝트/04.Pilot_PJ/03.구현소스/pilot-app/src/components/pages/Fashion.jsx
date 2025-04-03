@@ -90,6 +90,9 @@ function Fashion() {
       setPos(pos);
     }); ///////// click //////////
 
+    // 처음에 모든 li에 on제거
+    $(".gnb li").removeClass("on") ;
+
     //// 소멸자 리턴구역 ////////////////////////
     return () => {
       // 컴포넌트 소멸시 부드러운 스크롤 휠이벤트 지우기

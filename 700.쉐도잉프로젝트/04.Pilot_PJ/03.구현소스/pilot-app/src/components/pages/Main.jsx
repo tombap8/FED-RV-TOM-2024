@@ -51,6 +51,9 @@ function Main() {
     // 드래그배너 기능함수 호출하기
     dragBanner();
 
+    // 처음에 모든 li에 on제거
+    $(".gnb li").removeClass("on") ;
+
     // 컴포넌트 제거시 실행구역 ////////
     return () => {
       console.log("메인제거됨!!!");
