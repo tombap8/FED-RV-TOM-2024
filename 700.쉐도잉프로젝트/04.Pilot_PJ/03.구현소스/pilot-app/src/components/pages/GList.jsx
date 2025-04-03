@@ -1,4 +1,10 @@
-import React, { Fragment, useContext, useRef, useState } from "react";
+import React, {
+  Fragment,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 // CSS 불러오기 ////
 import "../../css/glist.scss";
@@ -12,7 +18,7 @@ import ItemDetail from "../modules/ItemDetail";
 // 제이쿼리 불러오기 ///
 import $ from "jquery";
 
-function GList(props) {
+function GList() {
   // [1] 리액트 후크 상태변수 셋팅 ////////////////////////
 
   // 1. 페이지용 상태변수 : 현재페이지번호
@@ -167,6 +173,26 @@ function GList(props) {
     $(".bgbx").slideDown(600);
   }; //////////// showDetail 함수 ///////////
 
+  // 랜더링 실행구역 ////////
+  useEffect(() => {
+    // 스크롤 맨위로 이동!
+    window.scrollTo(0, 0);
+  }, [myCon.gMode]);
+  // 의존성 gMode 적용!
+
+  // 한번만 랜더링 구역 /////
+  useEffect(() => {
+    // 클릭된 메뉴에 class 'on' 넣기
+    $(".gnb li").click((e) => {
+      $(e.currentTarget).addClass("on").siblings().removeClass("on");
+    });
+
+    // 소멸시 이벤트 제거하기 ///
+    return(()=>{
+      $(".gnb li").off("click");
+    });
+  }, []); //// 처음 한번만 실행 //////
+
   // ★★★★★★★★★★★★ ///
   // 코드 리턴구역 /////////////
   return (
@@ -244,7 +270,6 @@ function GList(props) {
             </div>
             {/* 페이징 코드 */}
             <div id="paging">
-              -
               {
                 // [개수만큼 배열 만드는 방법]
                 // [1] Array.from({length:개수}) 개수만큼 배열생성
@@ -304,18 +329,19 @@ function GList(props) {
             >
               {makeCode()}
             </div>
-            {/* 더보기 버튼 */}
-            <div id="more">
+            {/* 더보기 버튼박스 */}
+            <div
+              id="more"
+              style={{
+                // 더보기 횟수가 전체한계수와 같으면 숨기기
+                display: moreCnt === moreLimit.current ? "none" : "block",
+              }}
+            >
               <button
                 className="more"
                 onClick={(e) => {
                   // 더보기 횟수 1씩 증가
                   setMoreCnt(moreCnt + 1);
-                }}
-                style={{
-                  // 더보기 횟수가 전체한계수와 같으면 숨기기
-                  display: moreCnt === moreLimit 
-                  ?  "none": "inline-block",
                 }}
               >
                 MORE
