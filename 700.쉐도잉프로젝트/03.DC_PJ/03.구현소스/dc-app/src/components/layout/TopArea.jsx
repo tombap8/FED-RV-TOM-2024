@@ -197,6 +197,7 @@ export const TopArea = memo(({ loginMsg, loginSts, logoutFn, goPage }) => {
             {
               // 로그인 상태이면 로그아웃버튼 보이기!
               loginSts && (
+                <>
                 <li>
                   <a
                     href="#"
@@ -210,6 +211,11 @@ export const TopArea = memo(({ loginMsg, loginSts, logoutFn, goPage }) => {
                     LOGOUT
                   </a>
                 </li>
+                {/* 마이페이지 링크 */}
+                <li>
+                  <Link to="/mypage">MY PAGE</Link>
+                </li>
+                </>
               )
             }
           </ul>

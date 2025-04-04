@@ -28,6 +28,7 @@ import SearchPage from "./components/pages/SearchPage";
 import Member from "./components/pages/Member";
 import Login from "./components/pages/Login";
 import Series from "./components/pages/Series";
+import MyPage from "./components/pages/MyPage";
 // import SwiperApp from './components/plugin/SwiperApp';
 
 /********************************************* 
@@ -110,6 +111,7 @@ export default function MainComponent() {
           <Route path="search" element={<SearchPage />} />
           <Route path="member" element={<Member />} />
           <Route path="login" element={<Login />} />
+          <Route path="mypage" element={<MyPage />} />
           {/* <Route index element={<SwiperApp />}  /> */}
         </Route>
       </Routes>
