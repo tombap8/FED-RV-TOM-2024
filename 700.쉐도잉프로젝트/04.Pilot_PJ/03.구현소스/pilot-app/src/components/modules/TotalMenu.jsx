@@ -5,19 +5,19 @@ import { useContext } from "react";
 import { pCon } from "./pCon";
 
 export function TotalMenu() {
-
   // 컨텍스트 사용
   const myCon = useContext(pCon);
   // pCon에 Provider value 속성에 공개한 변수/함수를 사용함!
 
   // 메뉴 클릭시 처리함수 ///
-  const setPage = (catName) => { // catName 호출시 카테고리명
+  const setPage = (catName) => {
+    // catName 호출시 카테고리명
     // (1) 카테고리명 상태변수 변경 : 상단메뉴 변경
     myCon.setCatName(catName);
     // (2) 이동 페이지 셋팅 : 라우터 이동
-    myCon.goPage("/fashion",{state:{ catName: catName }})
+    myCon.goPage("/fashion", { state: { catName: catName } });
     // (3) 전체박스 숨기기
-    document.querySelector('.ham').click();
+    document.querySelector(".ham").click();
   }; //////// setPage 메서드 ///////////
 
   // 코드 리턴 //////////////////////
@@ -33,11 +33,15 @@ export function TotalMenu() {
         <nav className="mlist">
           <dl>
             <dt>
-              <a href="#" 
-              onClick={(e)=>{
-                e.preventDefault();
-                setPage('men');
-              }}>MEN</a>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setPage("men");
+                }}
+              >
+                MEN
+              </a>
             </dt>
             <dd>
               <a href="#">T-SHIRT</a>
@@ -54,11 +58,15 @@ export function TotalMenu() {
           </dl>
           <dl>
             <dt>
-              <a href="#" 
-              onClick={(e)=>{
-                e.preventDefault();
-                setPage('women');
-              }}>WOMEN</a>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setPage("women");
+                }}
+              >
+                WOMEN
+              </a>
             </dt>
             <dd>
               <a href="#">T-SHIRT</a>
@@ -75,11 +83,15 @@ export function TotalMenu() {
           </dl>
           <dl>
             <dt>
-              <a href="#" 
-              onClick={(e)=>{
-                e.preventDefault();
-                setPage('style');
-              }}>STYLE</a>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setPage("style");
+                }}
+              >
+                STYLE
+              </a>
             </dt>
             <dd>
               <a href="#">COLLECTION</a>
@@ -92,6 +104,26 @@ export function TotalMenu() {
             </dd>
             <dd>
               <a href="#">MAIN ITEM</a>
+            </dd>
+          </dl>
+          <dl>
+            <dt style={{ paddingBottom: "2px" }}>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  myCon.setCatName('glist');
+                  // (1) 전체상품리스트로 이동
+                  myCon.goPage('glist');
+                  // (2) 전체박스 숨기기
+                  document.querySelector(".ham").click();
+                }}
+              >
+                전체상품리스트
+              </a>
+            </dt>
+            <dd>
+              <a href="#">　</a>
             </dd>
           </dl>
         </nav>
