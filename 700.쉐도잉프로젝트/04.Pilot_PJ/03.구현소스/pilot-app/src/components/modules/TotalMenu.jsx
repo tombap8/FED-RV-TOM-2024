@@ -111,11 +111,13 @@ export function TotalMenu() {
               <a
                 href="#"
                 onClick={(e) => {
+                  // 기본이동막기
                   e.preventDefault();
+                  // (1) 카테고리명 상태변수 변경
                   myCon.setCatName('glist');
-                  // (1) 전체상품리스트로 이동
+                  // (2) 전체상품리스트로 이동
                   myCon.goPage('glist');
-                  // (2) 전체박스 숨기기
+                  // (3) 전체박스 숨기기
                   document.querySelector(".ham").click();
                 }}
               >

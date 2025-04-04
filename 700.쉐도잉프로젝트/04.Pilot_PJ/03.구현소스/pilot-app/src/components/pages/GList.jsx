@@ -200,9 +200,17 @@ function GList() {
       myCon.setGMode("F");
     }
 
+    // 홈버튼 첫 페이지로 이동기능 셋팅하기
+    $("#logo a").on("click", (e) => {
+      e.preventDefault();
+      // 라우터이동 : 첫페이지로!
+      goPage("/");
+    }); //////// click ////////
+
     // 소멸시 이벤트 제거하기 ///
     return(()=>{
       $(".gnb li").off("click");
+      $("#logo a").off("click");
     });
   }, []); //// 처음 한번만 실행 //////
 
