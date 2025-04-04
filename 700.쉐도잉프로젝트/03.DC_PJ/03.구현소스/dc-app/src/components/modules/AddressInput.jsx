@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import DaumPostcode from "react-daum-postcode";
 
-const AddressInput = ({changeAddr}) => {
+const AddressInput = ({changeAddr,zcode,addr}) => {
     // changeAddr - 회원가입 양식체크 전달함수
+    // zcode - 수정모드일 경우 기존 우편번호 전달
+    // addr - 수정모드일 경우 기존 주소 전달
 
     // 상태관리변수 ///////////////
     // [1] 우편번호
-    const [zonecode, setZonecode] = useState("");
+    const [zonecode, setZonecode] = useState(zcode?zcode:"");
     // [2] 주소
-    const [address, setAddress] = useState("");
+    const [address, setAddress] = useState(addr?addr:"");
     // [3] 주소찾기 창 보이기여부
     const [isOpen, setIsOpen] = useState(false);
 
@@ -113,12 +115,15 @@ const AddressInput = ({changeAddr}) => {
                     </div>
                 )}
                 {/* 주소자동완성 앞부분 */}
-                <input className="addr1" value={address} readOnly 
+                <input className="addr1" 
+                value={address.includes('*')?address.split('*')[0]:address} readOnly 
                 onClick={toggleHandler}
                 style={{ width: "100%" }} 
                 placeholder="Click 'Search Address'" />
                 {/* 주소 직접작성 뒷부분(상세주소) */}
-                <input className="addr2" placeholder="input detail adress" style={{ width: "100%" }}
+                <input className="addr2" 
+                defaultValue={address.includes('*')?address.split('*')[1]:''}
+                placeholder="input detail adress" style={{ width: "100%" }}
                 onChange={changeAddr}
                 onBlur={changeAddr}
                 />

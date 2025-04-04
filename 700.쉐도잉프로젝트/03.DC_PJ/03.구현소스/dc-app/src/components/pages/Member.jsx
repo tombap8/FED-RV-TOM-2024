@@ -242,7 +242,7 @@ function Member() {
 
     // 3. 기존입력값 반영하기 : 상태변수에 반영함
     // (1) 전체주소값 저장 (앞주소+뒷주소)
-    setAddr(address1 + " " + address2);
+    setAddr(address1 + "*" + address2);
     console.log(addr);
     // (2) 우편번호 저장
     setZipcode(zc);
