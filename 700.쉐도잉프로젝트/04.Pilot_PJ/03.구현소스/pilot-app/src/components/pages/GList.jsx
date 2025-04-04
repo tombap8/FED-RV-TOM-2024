@@ -195,14 +195,20 @@ function GList() {
       .siblings().removeClass("on");
     });
 
+    // 만약 처음에 gMode값이 'F'가 아닌경우 'F'로 셋팅하기
+    if (myCon.gMode !== "F") {
+      myCon.setGMode("F");
+    }
+
     // 소멸시 이벤트 제거하기 ///
     return(()=>{
       $(".gnb li").off("click");
     });
   }, []); //// 처음 한번만 실행 //////
 
-  // ★★★★★★★★★★★★ ///
-  // 코드 리턴구역 /////////////
+  // ★★★★★★★★★★★★ /////////////////
+  // 코드 리턴구역 ///////////////////////////
+  // ★★★★★★★★★★★★ /////////////////
   return (
     <main id="cont">
       <h1 className="tit">All ITEMS List</h1>
