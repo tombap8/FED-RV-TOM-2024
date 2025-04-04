@@ -7,9 +7,9 @@ const AddressInput = ({changeAddr,zcode,addr}) => {
     // addr - 수정모드일 경우 기존 주소 전달
 
     // 상태관리변수 ///////////////
-    // [1] 우편번호
+    // [1] 우편번호 : 수정모드일때 기존 우편번호넣기
     const [zonecode, setZonecode] = useState(zcode?zcode:"");
-    // [2] 주소
+    // [2] 주소 : 수정모드일때 기존 주소넣기
     const [address, setAddress] = useState(addr?addr:"");
     // [3] 주소찾기 창 보이기여부
     const [isOpen, setIsOpen] = useState(false);
