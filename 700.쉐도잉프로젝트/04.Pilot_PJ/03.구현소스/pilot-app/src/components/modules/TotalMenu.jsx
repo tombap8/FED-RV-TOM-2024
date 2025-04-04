@@ -124,9 +124,7 @@ export function TotalMenu() {
                 전체상품리스트
               </a>
             </dt>
-            <dd>
-              <a href="#">　</a>
-            </dd>
+            <dd></dd>
           </dl>
         </nav>
       </div>

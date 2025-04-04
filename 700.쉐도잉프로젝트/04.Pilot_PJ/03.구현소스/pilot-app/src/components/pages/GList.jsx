@@ -204,7 +204,7 @@ function GList() {
     $("#logo a").on("click", (e) => {
       e.preventDefault();
       // 라우터이동 : 첫페이지로!
-      goPage("/");
+      myCon.goPage("/");
     }); //////// click ////////
 
     // 소멸시 이벤트 제거하기 ///
