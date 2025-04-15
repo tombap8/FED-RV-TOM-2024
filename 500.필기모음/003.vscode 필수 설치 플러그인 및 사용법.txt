@@ -30,7 +30,7 @@
  5) CSS PEEK : CSS 미리보기/연결하기
  6) HTML to CSS autocompletion
  : html의 아이디, 클래스명을 읽어서 제시해줌
- 7) TabNine : 인공지능 자동완성 기능 제공
+ 7) Codeium : 생성형AI 자동완성 기능 제공
  8) Material Icon Theme : 폴더 아이콘 셋팅
  9) book mark : 소스 코드 위치 북마크
  -> 라인설정 토글 : ctrl+alt+K
