@@ -1,3 +1,18 @@
+// index.html에서 가장 먼저 불러오는 JS - index.ts
+// -> ts파일은 js파일로 컴파일 후 dist폴더에 bundle.js로 배포됨!
+
+// 외부 ts파일 불러오기 ////
+import {
+  // 개발팀 배열
+  devTeam,
+  // 활동 중인 개발자 필터 함수
+  getActiveDevelopers,
+  // 특정 기술을 가진 개발자 필터 함수
+  findBySkill,
+  // 특정 역할을 가진 개발자 필터 함수
+  findByRole,
+} from "./devTeam";
+
 function greet(name: string): string {
   return `안녕, ${name}~!`;
 }
@@ -48,5 +63,116 @@ const user1: User = {
   age: 25,
 };
 
+const user2: User = {
+  name: "Bob",
+  age: 30,
+  isActive: true,
+};
+
+const user3: User = {
+  name: "Charlie",
+  age: 35,
+  isActive: false,
+};
+
 console.log("😎 객체타입");
 console.log(user1);
+console.log(user2);
+console.log(user3);
+
+// 6. 함수에 타입 선언
+function sayGoodBye(
+  name: string,
+  isOpt: boolean,
+  message?: string // 선택적 매개변수는 맨끝에 위치함
+): string {
+  return `${name}! ${message ? message : ""} ${isOpt ? "잘가!" : "안녕!"} `;
+}
+
+console.log("😎 함수타입");
+console.log(sayGoodBye("찐친 개발자", true));
+console.log(sayGoodBye("타입스크립트", true, "멋쪄!"));
+console.log(sayGoodBye("JS 개발자", false));
+console.log(sayGoodBye("코딩의 신", false, "하이!"));
+
+// 7. void 함수 : 리턴값이 없는 함수
+function logMessage(msg: string): void {
+  console.log("🍊", msg);
+}
+
+console.log("😎 void 함수");
+logMessage("코딩의 신");
+logMessage("타입스크립트");
+
+// 8. 인터섹션 타입 선언
+type Employee = {
+  name: string;
+  company: string;
+};
+
+// 인터섹션 타입을 적용한 새로운 변수선언 할당
+const employee1: Employee = {
+  name: "조삼모사",
+  company: "한국교통공사",
+};
+
+const employee2: Employee = {
+  name: "김하루방",
+  company: "삼성전자",
+};
+
+console.log("😎 인터섹션타입");
+console.log(employee1);
+console.log(employee2);
+
+// 인터섹션을 다른 방식으로 만들기 : 학생의 이름/집/나이
+type StudentName = { name: string };
+type StudentHome = { home: string };
+type StudentAge = { age: number };
+
+// 개별 type을 하나의 타입으로 합치기
+type StudentInformation = StudentName & StudentHome & StudentAge;
+
+// 결국 인터섹션은 타입을 여러개 동시에 적용하는 것!
+
+const student1: StudentInformation = {
+  name: "강상모",
+  home: "서울",
+  age: 20,
+};
+
+const student2: StudentInformation = {
+  name: "갈매기",
+  home: "부산",
+  age: 21,
+};
+
+console.log("😎 인터섹션타입");
+console.log(student1);
+console.log(student2);
+
+// 개발자 회사 샘플 찍어보기 //////////////////
+
+console.log("😎 개발자 회사 샘플 찍어보기");
+console.log("👷‍♀️🦸‍♀️전체 개발자 리스트:", devTeam);
+
+console.log("👷‍♀️🦸‍♀️Frontend 개발자 리스트:");
+console.log(findByRole(devTeam, "Frontend"));
+
+console.log("👷‍♀️🦸‍♀️BackEnd 개발자 리스트:");
+console.log(findByRole(devTeam, "Backend"));
+
+console.log("👷‍♀️🦸‍♀️Fullstack 개발자 리스트:");
+console.log(findByRole(devTeam, "Fullstack"));
+
+console.log("👷‍♀️🦸‍♀️현재 활동중인 개발자 리스트:");
+console.log(getActiveDevelopers(devTeam));
+
+console.log("👷‍♀️🦸‍♀️TypeScript 스킬을 가진 개발자 리스트:");
+console.log(findBySkill(devTeam, "TypeScript"));
+
+console.log("👷‍♀️🦸‍♀️React 스킬을 가진 개발자 리스트:");
+console.log(findBySkill(devTeam, "React"));
+
+console.log("👷‍♀️🦸‍♀️VueJS 스킬을 가진 개발자 리스트:");
+console.log(findBySkill(devTeam, "VueJS"));
