@@ -1,13 +1,22 @@
 {
   "compilerOptions": {
+    // 컴파일러가 생성하는 코드의 버전을 정의 (ES6, ES2015, ES2016, ES2017, ES2018, ES2019, ES2020, ESNext)
     "target": "ES6",
+    // 모듈 시스템 (CommonJS, AMD, UMD, ESNext, ES2015, ES2020)
     "module": "ESNext",
+    // 모듈 해상도 (Classic, Node, NodeNext)
     "moduleResolution": "node",
+    // 엄격한 모드 (strictNullChecks, strictFunctionTypes, strictPropertyInitialization)
     "strict": true,
+    // import * as React from 'react' 이렇게 사용할 수 있도록 해주는 옵션
     "esModuleInterop": true,
+    // 파일 이름이 대소문자 구분을 지키게 해주는 옵션
     "forceConsistentCasingInFileNames": true,
+    // 라이브러리에서 사용하는 타입 선언을 체크하지 않도록 해주는 옵션
     "skipLibCheck": true,
+    // 컴파일러가 생성하는 코드의 출력 위치
     "outDir": "./dist"
   },
+  // 컴파일할 파일이 있는 경로
   "include": ["src"]
 }
