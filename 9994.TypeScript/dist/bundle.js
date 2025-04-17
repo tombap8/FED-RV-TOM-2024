@@ -11,6 +11,7 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Role: () => (/* binding */ Role),
+/* harmony export */   Skill: () => (/* binding */ Skill),
 /* harmony export */   devTeam: () => (/* binding */ devTeam),
 /* harmony export */   findByRole: () => (/* binding */ findByRole),
 /* harmony export */   findBySkill: () => (/* binding */ findBySkill),
@@ -74,83 +75,105 @@ findBySkill:
 // 참고 : 타입은 파스칼케이스로 정의하고
 // export로 개별적 내보내기 가능함!
 // 🤹‍♀️ 1. "역할"을 나타내는 타입 정의 + 내보내기 ///////
-// enum형으로 타입정의
+// enum형으로 타입정의 : 이유는 값이 잘못 입력될 수 있기때문
 var Role;
 (function (Role) {
     Role["Frontend"] = "Frontend";
     Role["Backend"] = "Backend";
     Role["Fullstack"] = "Fullstack";
 })(Role || (Role = {}));
-// 🤹‍♀️ 3. 개발자 정보 셋팅 : 배열 객체
+// 🤹‍♀️ 3. 개발자 기술정보 셋팅 : 열거형 타입
+var Skill;
+(function (Skill) {
+    Skill["React"] = "React";
+    Skill["NodeJs"] = "Node.js";
+    Skill["TypeScript"] = "TypeScript";
+    Skill["Express"] = "Express";
+    Skill["MongoDB"] = "MongoDB";
+    Skill["Sass"] = "Sass";
+    Skill["VueJs"] = "VueJS";
+})(Skill || (Skill = {}));
 const devTeam = [
     {
         name: "김상중하",
         age: 30,
-        role: "Frontend",
-        skills: ["React", "Node.js", "TypeScript"],
+        role: Role.Frontend,
+        skills: [Skill.React, Skill.NodeJs, Skill.TypeScript],
         isActive: false,
     },
     {
         name: "이주현",
         age: 25,
-        role: "Backend",
-        skills: ["Node.js", "VueJS", "Express", "MongoDB"],
+        role: Role.Backend,
+        skills: [Skill.NodeJs, Skill.VueJs, Skill.Express, Skill.MongoDB],
         isActive: true,
     },
     {
         name: "김하루방",
         age: 32,
-        role: "Fullstack",
-        skills: ["React", "Node.js", "TypeScript", "Express", "MongoDB"],
+        role: Role.Fullstack,
+        skills: [
+            Skill.React,
+            Skill.NodeJs,
+            Skill.TypeScript,
+            Skill.Express,
+            Skill.MongoDB,
+        ],
         isActive: false,
     },
     {
         name: "조삼모사",
         age: 48,
-        role: "Frontend",
-        skills: ["TypeScript", "Sass"],
+        role: Role.Frontend,
+        skills: [Skill.TypeScript, Skill.Sass],
         isActive: false,
     },
     {
         name: "김한결",
         age: 27,
-        role: "Backend",
-        skills: ["Node.js", "Express", "MongoDB"],
+        role: Role.Backend,
+        skills: [Skill.NodeJs, Skill.Express, Skill.MongoDB],
         isActive: true,
     },
     {
         name: "이상민",
         age: 26,
-        role: "Fullstack",
-        skills: ["React", "Node.js", "TypeScript", "Express", "MongoDB"],
+        role: Role.Fullstack,
+        skills: [
+            Skill.React,
+            Skill.NodeJs,
+            Skill.TypeScript,
+            Skill.Express,
+            Skill.MongoDB,
+        ],
         isActive: true,
     },
     {
         name: "김하은",
         age: 24,
-        role: "Frontend",
-        skills: ["React", "Sass"],
+        role: Role.Frontend,
+        skills: [Skill.React, Skill.Sass],
         isActive: true,
     },
     {
         name: "이주호",
         age: 23,
-        role: "Backend",
-        skills: ["Node.js", "Express", "MongoDB"],
+        role: Role.Backend,
+        skills: [Skill.NodeJs, Skill.Express, Skill.MongoDB],
         isActive: true,
     },
     {
         name: "김상민",
         age: 29,
-        role: "Fullstack",
-        skills: ["React", "Node.js", "Express", "MongoDB"],
+        role: Role.Fullstack,
+        skills: [Skill.React, Skill.NodeJs, Skill.Express, Skill.MongoDB],
         isActive: true,
     },
     {
         name: "박상현",
         age: 25,
-        role: "Backend",
-        skills: ["Node.js", "Express", "MongoDB"],
+        role: Role.Backend,
+        skills: [Skill.NodeJs, Skill.Express, Skill.MongoDB],
         isActive: true,
     },
 ];
@@ -356,22 +379,23 @@ console.log(AISystem.StableDiffusion);
 console.log(AISystem.Cop);
 // ★★★★★★★★★★★★★★★★★★★★★ //
 // 개발자 회사 샘플 찍어보기 //////////////////
+// ★★★★★★★★★★★★★★★★★★★★★ //
 console.log("😎 개발자 회사 샘플 찍어보기");
 console.log("👷‍♀️🦸‍♀️전체 개발자 리스트:", _devTeam__WEBPACK_IMPORTED_MODULE_0__.devTeam);
 console.log("👷‍♀️🦸‍♀️Frontend 개발자 리스트:");
-console.log((0,_devTeam__WEBPACK_IMPORTED_MODULE_0__.findByRole)(_devTeam__WEBPACK_IMPORTED_MODULE_0__.devTeam, "Frontend"));
-console.log("👷‍♀️🦸‍♀️BackEnd 개발자 리스트:");
-console.log((0,_devTeam__WEBPACK_IMPORTED_MODULE_0__.findByRole)(_devTeam__WEBPACK_IMPORTED_MODULE_0__.devTeam, "Backend"));
+console.log((0,_devTeam__WEBPACK_IMPORTED_MODULE_0__.findByRole)(_devTeam__WEBPACK_IMPORTED_MODULE_0__.devTeam, _devTeam__WEBPACK_IMPORTED_MODULE_0__.Role.Frontend));
+console.log("👷‍♀️🦸‍♀️Backend 개발자 리스트:");
+console.log((0,_devTeam__WEBPACK_IMPORTED_MODULE_0__.findByRole)(_devTeam__WEBPACK_IMPORTED_MODULE_0__.devTeam, _devTeam__WEBPACK_IMPORTED_MODULE_0__.Role.Backend));
 console.log("👷‍♀️🦸‍♀️Fullstack 개발자 리스트:");
-console.log((0,_devTeam__WEBPACK_IMPORTED_MODULE_0__.findByRole)(_devTeam__WEBPACK_IMPORTED_MODULE_0__.devTeam, "Fullstack"));
+console.log((0,_devTeam__WEBPACK_IMPORTED_MODULE_0__.findByRole)(_devTeam__WEBPACK_IMPORTED_MODULE_0__.devTeam, _devTeam__WEBPACK_IMPORTED_MODULE_0__.Role.Fullstack));
 console.log("👷‍♀️🦸‍♀️현재 활동중인 개발자 리스트:");
 console.log((0,_devTeam__WEBPACK_IMPORTED_MODULE_0__.getActiveDevelopers)(_devTeam__WEBPACK_IMPORTED_MODULE_0__.devTeam));
 console.log("👷‍♀️🦸‍♀️TypeScript 스킬을 가진 개발자 리스트:");
-console.log((0,_devTeam__WEBPACK_IMPORTED_MODULE_0__.findBySkill)(_devTeam__WEBPACK_IMPORTED_MODULE_0__.devTeam, "TypeScript"));
+console.log((0,_devTeam__WEBPACK_IMPORTED_MODULE_0__.findBySkill)(_devTeam__WEBPACK_IMPORTED_MODULE_0__.devTeam, _devTeam__WEBPACK_IMPORTED_MODULE_0__.Skill.TypeScript));
 console.log("👷‍♀️🦸‍♀️React 스킬을 가진 개발자 리스트:");
-console.log((0,_devTeam__WEBPACK_IMPORTED_MODULE_0__.findBySkill)(_devTeam__WEBPACK_IMPORTED_MODULE_0__.devTeam, "React"));
+console.log((0,_devTeam__WEBPACK_IMPORTED_MODULE_0__.findBySkill)(_devTeam__WEBPACK_IMPORTED_MODULE_0__.devTeam, _devTeam__WEBPACK_IMPORTED_MODULE_0__.Skill.React));
 console.log("👷‍♀️🦸‍♀️VueJS 스킬을 가진 개발자 리스트:");
-console.log((0,_devTeam__WEBPACK_IMPORTED_MODULE_0__.findBySkill)(_devTeam__WEBPACK_IMPORTED_MODULE_0__.devTeam, "VueJS"));
+console.log((0,_devTeam__WEBPACK_IMPORTED_MODULE_0__.findBySkill)(_devTeam__WEBPACK_IMPORTED_MODULE_0__.devTeam, _devTeam__WEBPACK_IMPORTED_MODULE_0__.Skill.VueJs));
 
 })();
 

@@ -58,11 +58,11 @@ findBySkill:
 // export로 개별적 내보내기 가능함!
 
 // 🤹‍♀️ 1. "역할"을 나타내는 타입 정의 + 내보내기 ///////
-// enum형으로 타입정의
+// enum형으로 타입정의 : 이유는 값이 잘못 입력될 수 있기때문
 export enum Role {
-    Frontend = "Frontend",
-    Backend = "Backend",
-    Fullstack = "Fullstack",
+  Frontend = "Frontend",
+  Backend = "Backend",
+  Fullstack = "Fullstack",
 }
 
 // export type Role = "Frontend" | "Backend" | "Fullstack";
@@ -83,76 +83,98 @@ export type Developer = {
   isActive: boolean;
 };
 
-// 🤹‍♀️ 3. 개발자 정보 셋팅 : 배열 객체
+// 🤹‍♀️ 3. 개발자 기술정보 셋팅 : 열거형 타입
+export enum Skill {
+  React = "React",
+  NodeJs = "Node.js",
+  TypeScript = "TypeScript",
+  Express = "Express",
+  MongoDB = "MongoDB",
+  Sass = "Sass",
+  VueJs = "VueJS",
+}
+
 export const devTeam: Developer[] = [
   {
     name: "김상중하",
     age: 30,
-    role: "Frontend",
-    skills: ["React", "Node.js", "TypeScript"],
+    role: Role.Frontend,
+    skills: [Skill.React, Skill.NodeJs, Skill.TypeScript],
     isActive: false,
   },
   {
     name: "이주현",
     age: 25,
-    role: "Backend",
-    skills: ["Node.js", "VueJS", "Express", "MongoDB"],
+    role: Role.Backend,
+    skills: [Skill.NodeJs, Skill.VueJs, Skill.Express, Skill.MongoDB],
     isActive: true,
   },
   {
     name: "김하루방",
     age: 32,
-    role: "Fullstack",
-    skills: ["React", "Node.js", "TypeScript", "Express", "MongoDB"],
+    role: Role.Fullstack,
+    skills: [
+      Skill.React,
+      Skill.NodeJs,
+      Skill.TypeScript,
+      Skill.Express,
+      Skill.MongoDB,
+    ],
     isActive: false,
   },
   {
     name: "조삼모사",
     age: 48,
-    role: "Frontend",
-    skills: ["TypeScript", "Sass"],
+    role: Role.Frontend,
+    skills: [Skill.TypeScript, Skill.Sass],
     isActive: false,
   },
   {
     name: "김한결",
     age: 27,
-    role: "Backend",
-    skills: ["Node.js", "Express", "MongoDB"],
+    role: Role.Backend,
+    skills: [Skill.NodeJs, Skill.Express, Skill.MongoDB],
     isActive: true,
   },
   {
     name: "이상민",
     age: 26,
-    role: "Fullstack",
-    skills: ["React", "Node.js", "TypeScript", "Express", "MongoDB"],
+    role: Role.Fullstack,
+    skills: [
+      Skill.React,
+      Skill.NodeJs,
+      Skill.TypeScript,
+      Skill.Express,
+      Skill.MongoDB,
+    ],
     isActive: true,
   },
   {
     name: "김하은",
     age: 24,
-    role: "Frontend",
-    skills: ["React", "Sass"],
+    role: Role.Frontend,
+    skills: [Skill.React, Skill.Sass],
     isActive: true,
   },
   {
     name: "이주호",
     age: 23,
-    role: "Backend",
-    skills: ["Node.js", "Express", "MongoDB"],
+    role: Role.Backend,
+    skills: [Skill.NodeJs, Skill.Express, Skill.MongoDB],
     isActive: true,
   },
   {
     name: "김상민",
     age: 29,
-    role: "Fullstack",
-    skills: ["React", "Node.js", "Express", "MongoDB"],
+    role: Role.Fullstack,
+    skills: [Skill.React, Skill.NodeJs, Skill.Express, Skill.MongoDB],
     isActive: true,
   },
   {
     name: "박상현",
     age: 25,
-    role: "Backend",
-    skills: ["Node.js", "Express", "MongoDB"],
+    role: Role.Backend,
+    skills: [Skill.NodeJs, Skill.Express, Skill.MongoDB],
     isActive: true,
   },
 ];
@@ -182,8 +204,8 @@ export function findBySkill(
 // 배열값의 객체속성중 role 속성값이
 // 파라미터로 받은 role과 같은 개발자들만 반환
 export function findByRole(
-    team: Developer[], // 팀원데이터
-    role: Role // 역할
+  team: Developer[], // 팀원데이터
+  role: Role // 역할
 ): Developer[] {
   return team.filter((dev) => dev.role === role);
 } ////////// findByRole 함수 //////////////

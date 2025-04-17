@@ -3,6 +3,10 @@
 
 // 외부 ts파일 불러오기 ////
 import {
+  // 개발자 기술
+  Skill,
+  // 개발자 역할
+  Role,
   // 개발팀 배열
   devTeam,
   // 활동 중인 개발자 필터 함수
@@ -172,27 +176,29 @@ console.log(AISystem.Cop)
 
 // ★★★★★★★★★★★★★★★★★★★★★ //
 // 개발자 회사 샘플 찍어보기 //////////////////
+// ★★★★★★★★★★★★★★★★★★★★★ //
 
 console.log("😎 개발자 회사 샘플 찍어보기");
 console.log("👷‍♀️🦸‍♀️전체 개발자 리스트:", devTeam);
 
 console.log("👷‍♀️🦸‍♀️Frontend 개발자 리스트:");
-console.log(findByRole(devTeam, "Frontend"));
+console.log(findByRole(devTeam, Role.Frontend));
 
-console.log("👷‍♀️🦸‍♀️BackEnd 개발자 리스트:");
-console.log(findByRole(devTeam, "Backend"));
+console.log("👷‍♀️🦸‍♀️Backend 개발자 리스트:");
+console.log(findByRole(devTeam, Role.Backend));
 
 console.log("👷‍♀️🦸‍♀️Fullstack 개발자 리스트:");
-console.log(findByRole(devTeam, "Fullstack"));
+console.log(findByRole(devTeam, Role.Fullstack));
 
 console.log("👷‍♀️🦸‍♀️현재 활동중인 개발자 리스트:");
 console.log(getActiveDevelopers(devTeam));
 
 console.log("👷‍♀️🦸‍♀️TypeScript 스킬을 가진 개발자 리스트:");
-console.log(findBySkill(devTeam, "TypeScript"));
+console.log(findBySkill(devTeam, Skill.TypeScript));
 
 console.log("👷‍♀️🦸‍♀️React 스킬을 가진 개발자 리스트:");
-console.log(findBySkill(devTeam, "React"));
+console.log(findBySkill(devTeam, Skill.React));
 
 console.log("👷‍♀️🦸‍♀️VueJS 스킬을 가진 개발자 리스트:");
-console.log(findBySkill(devTeam, "VueJS"));
+console.log(findBySkill(devTeam, Skill.VueJs));
+
