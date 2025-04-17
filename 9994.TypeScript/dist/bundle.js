@@ -10,6 +10,7 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Role: () => (/* binding */ Role),
 /* harmony export */   devTeam: () => (/* binding */ devTeam),
 /* harmony export */   findByRole: () => (/* binding */ findByRole),
 /* harmony export */   findBySkill: () => (/* binding */ findBySkill),
@@ -70,6 +71,16 @@ findBySkill:
 포함된 경우만 반환합니다.
 
 **************************************/
+// 참고 : 타입은 파스칼케이스로 정의하고
+// export로 개별적 내보내기 가능함!
+// 🤹‍♀️ 1. "역할"을 나타내는 타입 정의 + 내보내기 ///////
+// enum형으로 타입정의
+var Role;
+(function (Role) {
+    Role["Frontend"] = "Frontend";
+    Role["Backend"] = "Backend";
+    Role["Fullstack"] = "Fullstack";
+})(Role || (Role = {}));
 // 🤹‍♀️ 3. 개발자 정보 셋팅 : 배열 객체
 const devTeam = [
     {
@@ -77,90 +88,94 @@ const devTeam = [
         age: 30,
         role: "Frontend",
         skills: ["React", "Node.js", "TypeScript"],
-        isActive: false
+        isActive: false,
     },
     {
         name: "이주현",
         age: 25,
         role: "Backend",
         skills: ["Node.js", "VueJS", "Express", "MongoDB"],
-        isActive: true
+        isActive: true,
     },
     {
         name: "김하루방",
         age: 32,
         role: "Fullstack",
         skills: ["React", "Node.js", "TypeScript", "Express", "MongoDB"],
-        isActive: false
+        isActive: false,
     },
     {
         name: "조삼모사",
         age: 48,
         role: "Frontend",
         skills: ["TypeScript", "Sass"],
-        isActive: false
+        isActive: false,
     },
     {
         name: "김한결",
         age: 27,
         role: "Backend",
         skills: ["Node.js", "Express", "MongoDB"],
-        isActive: true
+        isActive: true,
     },
     {
         name: "이상민",
         age: 26,
         role: "Fullstack",
         skills: ["React", "Node.js", "TypeScript", "Express", "MongoDB"],
-        isActive: true
+        isActive: true,
     },
     {
         name: "김하은",
         age: 24,
         role: "Frontend",
         skills: ["React", "Sass"],
-        isActive: true
+        isActive: true,
     },
     {
         name: "이주호",
         age: 23,
         role: "Backend",
         skills: ["Node.js", "Express", "MongoDB"],
-        isActive: true
+        isActive: true,
     },
     {
         name: "김상민",
         age: 29,
         role: "Fullstack",
         skills: ["React", "Node.js", "Express", "MongoDB"],
-        isActive: true
+        isActive: true,
     },
     {
         name: "박상현",
         age: 25,
         role: "Backend",
         skills: ["Node.js", "Express", "MongoDB"],
-        isActive: true
-    }
+        isActive: true,
+    },
 ];
 // 🤹‍♀️ 4. 활동중인 개발자 필터링 함수 정의 ///////
 // -> team 파라미터변수에 devTeam 배열을 받아서
 // 배열값의 객체속성중 isActive 속성값이 true인 개발자들만 반환
-function getActiveDevelopers(team) {
+function getActiveDevelopers(team // 팀원데이터
+) {
     return team.filter((dev) => dev.isActive);
 } ////////// getActiveDevelopers 함수 //////////////
 // 🤹‍♀️ 5. 특정기술을 가진 개발자 필터링 함수 정의 ///////
 // -> team 파라미터변수에 devTeam 배열을 받아서
-// 배열값의 객체속성중 skills 속성값중 
+// 배열값의 객체속성중 skills 속성값중
 // 해당 기술이 있는 개발자들만 반환
-function findBySkill(team, skill) {
+function findBySkill(team, // 팀원데이터
+skill) {
     return team.filter((dev) => dev.skills.includes(skill));
 } ////////// findBySkill 함수 //////////////
 // 🤹‍♀️ 6. 특정 역할을 가진 개발자 필터링 함수 정의 ///////
 // -> team 파라미터변수에 devTeam 배열을 받아서
-// 배열값의 객체속성중 role 속성값이 
+// 배열값의 객체속성중 role 속성값이
 // 파라미터로 받은 role과 같은 개발자들만 반환
-function findByRole(team, role) {
+function findByRole(team, // 팀원데이터
+role // 역할
+) {
     return team.filter((dev) => dev.role === role);
 } ////////// findByRole 함수 //////////////
 
@@ -288,7 +303,7 @@ function sayGoodBye(name, isOpt, message // 선택적 매개변수는 맨끝에 
 }
 console.log("😎 함수타입");
 console.log(sayGoodBye("찐친 개발자", true));
-console.log(sayGoodBye("타입스크립트", true, "멋쪄!"));
+console.log(sayGoodBye("타입스크립트", true, "완전멋쪄!"));
 console.log(sayGoodBye("JS 개발자", false));
 console.log(sayGoodBye("코딩의 신", false, "하이!"));
 // 7. void 함수 : 리턴값이 없는 함수
@@ -324,6 +339,22 @@ const student2 = {
 console.log("😎 인터섹션타입");
 console.log(student1);
 console.log(student2);
+// 9. enum 타입 선언
+var AISystem;
+(function (AISystem) {
+    AISystem["Cgpt"] = "Chat GPT";
+    AISystem["DallE"] = "DALL-E";
+    AISystem["MidJourney"] = "MidJourney";
+    AISystem["StableDiffusion"] = "Stable Diffusion";
+    AISystem["Cop"] = "Copilot";
+})(AISystem || (AISystem = {}));
+console.log("😎 enum타입");
+console.log(AISystem.Cgpt);
+console.log(AISystem.DallE);
+console.log(AISystem.MidJourney);
+console.log(AISystem.StableDiffusion);
+console.log(AISystem.Cop);
+// ★★★★★★★★★★★★★★★★★★★★★ //
 // 개발자 회사 샘플 찍어보기 //////////////////
 console.log("😎 개발자 회사 샘플 찍어보기");
 console.log("👷‍♀️🦸‍♀️전체 개발자 리스트:", _devTeam__WEBPACK_IMPORTED_MODULE_0__.devTeam);

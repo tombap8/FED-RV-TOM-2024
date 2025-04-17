@@ -91,7 +91,7 @@ function sayGoodBye(
 
 console.log("😎 함수타입");
 console.log(sayGoodBye("찐친 개발자", true));
-console.log(sayGoodBye("타입스크립트", true, "멋쪄!"));
+console.log(sayGoodBye("타입스크립트", true, "완전멋쪄!"));
 console.log(sayGoodBye("JS 개발자", false));
 console.log(sayGoodBye("코딩의 신", false, "하이!"));
 
@@ -104,7 +104,8 @@ console.log("😎 void 함수");
 logMessage("코딩의 신");
 logMessage("타입스크립트");
 
-// 8. 인터섹션 타입 선언
+// 8. 인터섹션 타입 선언 : 
+// &를 쓰기도하고 {}로 한꺼번에 셋팅하기도함
 type Employee = {
   name: string;
   company: string;
@@ -151,6 +152,25 @@ console.log("😎 인터섹션타입");
 console.log(student1);
 console.log(student2);
 
+// 9. enum 타입 선언
+enum AISystem {
+  Cgpt = "Chat GPT",
+  DallE = "DALL-E",
+  MidJourney = "MidJourney",
+  StableDiffusion = "Stable Diffusion",
+  Cop = "Copilot",
+}
+
+console.log("😎 enum타입");
+console.log(AISystem.Cgpt);
+console.log(AISystem.DallE);
+console.log(AISystem.MidJourney);
+console.log(AISystem.StableDiffusion);
+console.log(AISystem.Cop)
+
+
+
+// ★★★★★★★★★★★★★★★★★★★★★ //
 // 개발자 회사 샘플 찍어보기 //////////////////
 
 console.log("😎 개발자 회사 샘플 찍어보기");
