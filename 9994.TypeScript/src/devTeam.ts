@@ -75,6 +75,8 @@ export type Developer = {
   name: string;
   // 나이
   age: number;
+  // 경력
+  year: number;
   // 역할(Frontend, Backend, Fullstack)
   role: Role;
   // 기술(예: React, Node.js, TypeScript)
@@ -98,6 +100,7 @@ export const devTeam: Developer[] = [
   {
     name: "김상중하",
     age: 30,
+    year: 20,
     role: Role.Frontend,
     skills: [Skill.React, Skill.NodeJs, Skill.TypeScript],
     isActive: false,
@@ -105,6 +108,7 @@ export const devTeam: Developer[] = [
   {
     name: "이주현",
     age: 25,
+    year: 5,
     role: Role.Backend,
     skills: [Skill.NodeJs, Skill.VueJs, Skill.Express, Skill.MongoDB],
     isActive: true,
@@ -112,6 +116,7 @@ export const devTeam: Developer[] = [
   {
     name: "김하루방",
     age: 32,
+    year: 10,
     role: Role.Fullstack,
     skills: [
       Skill.React,
@@ -125,6 +130,7 @@ export const devTeam: Developer[] = [
   {
     name: "조삼모사",
     age: 48,
+    year: 20,
     role: Role.Frontend,
     skills: [Skill.TypeScript, Skill.Sass],
     isActive: false,
@@ -132,6 +138,7 @@ export const devTeam: Developer[] = [
   {
     name: "김한결",
     age: 27,
+    year: 5,
     role: Role.Backend,
     skills: [Skill.NodeJs, Skill.Express, Skill.MongoDB],
     isActive: true,
@@ -139,6 +146,7 @@ export const devTeam: Developer[] = [
   {
     name: "이상민",
     age: 26,
+    year: 5,
     role: Role.Fullstack,
     skills: [
       Skill.React,
@@ -152,6 +160,7 @@ export const devTeam: Developer[] = [
   {
     name: "김하은",
     age: 24,
+    year: 3,
     role: Role.Frontend,
     skills: [Skill.React, Skill.Sass],
     isActive: true,
@@ -159,6 +168,7 @@ export const devTeam: Developer[] = [
   {
     name: "이주호",
     age: 23,
+    year: 2,
     role: Role.Backend,
     skills: [Skill.NodeJs, Skill.Express, Skill.MongoDB],
     isActive: true,
@@ -166,6 +176,7 @@ export const devTeam: Developer[] = [
   {
     name: "김상민",
     age: 29,
+    year: 8,
     role: Role.Fullstack,
     skills: [Skill.React, Skill.NodeJs, Skill.Express, Skill.MongoDB],
     isActive: true,
@@ -173,6 +184,7 @@ export const devTeam: Developer[] = [
   {
     name: "박상현",
     age: 25,
+    year: 5,
     role: Role.Backend,
     skills: [Skill.NodeJs, Skill.Express, Skill.MongoDB],
     isActive: true,
@@ -209,3 +221,33 @@ export function findByRole(
 ): Developer[] {
   return team.filter((dev) => dev.role === role);
 } ////////// findByRole 함수 //////////////
+
+
+
+// 7. 인터페이스를 활용한 팀 메니저 타입 정의 //////
+export interface TeamMamager {
+  // 팀 매니저의 이름
+  name: string;
+  // 팀의 크기
+  teamSize: number;
+  // 어떤 역할들을 관리하는지
+  managerRoles: Role[]; 
+}
+
+// 위의 메니저 값 셋팅하기 /////
+export const teamManager: TeamMamager = {
+    name: "박상현",
+    teamSize: devTeam.length,
+    managerRoles: [Role.Frontend, Role.Backend],
+};
+
+// 8. 제네릭을 활용한 중급,고급 개발자 필터함수 만들기 ////
+// -> 기준 : 중고급 개발자는 경력 5년이상이다! 
+// 기존에 경력년수가 없으므로 year 속성을 추가함!
+export function getSeniorDevelopers<T>(
+    items: T[], // 개발자 배열객체 데이터
+    filterFn: (item: T) => boolean // 검증함수
+): T[] {
+    // 검증함수결과가 true인 배열값만 반환
+  return items.filter(filterFn);
+} ////////// getSeniorDevelopers 함수 //////////////

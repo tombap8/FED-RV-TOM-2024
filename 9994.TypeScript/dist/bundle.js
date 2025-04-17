@@ -15,7 +15,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   devTeam: () => (/* binding */ devTeam),
 /* harmony export */   findByRole: () => (/* binding */ findByRole),
 /* harmony export */   findBySkill: () => (/* binding */ findBySkill),
-/* harmony export */   getActiveDevelopers: () => (/* binding */ getActiveDevelopers)
+/* harmony export */   getActiveDevelopers: () => (/* binding */ getActiveDevelopers),
+/* harmony export */   getSeniorDevelopers: () => (/* binding */ getSeniorDevelopers),
+/* harmony export */   teamManager: () => (/* binding */ teamManager)
 /* harmony export */ });
 /**************************************
 🧩 실습 주제: “우리 개발팀 인력 관리 시스템”
@@ -97,6 +99,7 @@ const devTeam = [
     {
         name: "김상중하",
         age: 30,
+        year: 20,
         role: Role.Frontend,
         skills: [Skill.React, Skill.NodeJs, Skill.TypeScript],
         isActive: false,
@@ -104,6 +107,7 @@ const devTeam = [
     {
         name: "이주현",
         age: 25,
+        year: 5,
         role: Role.Backend,
         skills: [Skill.NodeJs, Skill.VueJs, Skill.Express, Skill.MongoDB],
         isActive: true,
@@ -111,6 +115,7 @@ const devTeam = [
     {
         name: "김하루방",
         age: 32,
+        year: 10,
         role: Role.Fullstack,
         skills: [
             Skill.React,
@@ -124,6 +129,7 @@ const devTeam = [
     {
         name: "조삼모사",
         age: 48,
+        year: 20,
         role: Role.Frontend,
         skills: [Skill.TypeScript, Skill.Sass],
         isActive: false,
@@ -131,6 +137,7 @@ const devTeam = [
     {
         name: "김한결",
         age: 27,
+        year: 5,
         role: Role.Backend,
         skills: [Skill.NodeJs, Skill.Express, Skill.MongoDB],
         isActive: true,
@@ -138,6 +145,7 @@ const devTeam = [
     {
         name: "이상민",
         age: 26,
+        year: 5,
         role: Role.Fullstack,
         skills: [
             Skill.React,
@@ -151,6 +159,7 @@ const devTeam = [
     {
         name: "김하은",
         age: 24,
+        year: 3,
         role: Role.Frontend,
         skills: [Skill.React, Skill.Sass],
         isActive: true,
@@ -158,6 +167,7 @@ const devTeam = [
     {
         name: "이주호",
         age: 23,
+        year: 2,
         role: Role.Backend,
         skills: [Skill.NodeJs, Skill.Express, Skill.MongoDB],
         isActive: true,
@@ -165,6 +175,7 @@ const devTeam = [
     {
         name: "김상민",
         age: 29,
+        year: 8,
         role: Role.Fullstack,
         skills: [Skill.React, Skill.NodeJs, Skill.Express, Skill.MongoDB],
         isActive: true,
@@ -172,6 +183,7 @@ const devTeam = [
     {
         name: "박상현",
         age: 25,
+        year: 5,
         role: Role.Backend,
         skills: [Skill.NodeJs, Skill.Express, Skill.MongoDB],
         isActive: true,
@@ -201,6 +213,21 @@ role // 역할
 ) {
     return team.filter((dev) => dev.role === role);
 } ////////// findByRole 함수 //////////////
+// 위의 메니저 값 셋팅하기 /////
+const teamManager = {
+    name: "박상현",
+    teamSize: devTeam.length,
+    managerRoles: [Role.Frontend, Role.Backend],
+};
+// 8. 제네릭을 활용한 중급,고급 개발자 필터함수 만들기 ////
+// -> 기준 : 중고급 개발자는 경력 5년이상이다! 
+// 기존에 경력년수가 없으므로 year 속성을 추가함!
+function getSeniorDevelopers(items, // 개발자 배열객체 데이터
+filterFn // 검증함수
+) {
+    // 검증함수결과가 true인 배열값만 반환
+    return items.filter(filterFn);
+} ////////// getSeniorDevelopers 함수 //////////////
 
 
 /***/ })
@@ -423,6 +450,28 @@ console.log("👷‍♀️🦸‍♀️React 스킬을 가진 개발자 리스�
 console.log((0,_devTeam__WEBPACK_IMPORTED_MODULE_0__.findBySkill)(_devTeam__WEBPACK_IMPORTED_MODULE_0__.devTeam, _devTeam__WEBPACK_IMPORTED_MODULE_0__.Skill.React));
 console.log("👷‍♀️🦸‍♀️VueJS 스킬을 가진 개발자 리스트:");
 console.log((0,_devTeam__WEBPACK_IMPORTED_MODULE_0__.findBySkill)(_devTeam__WEBPACK_IMPORTED_MODULE_0__.devTeam, _devTeam__WEBPACK_IMPORTED_MODULE_0__.Skill.VueJs));
+console.log("👷‍♀️🦸‍♀️팀 매니저 정보:");
+console.log(_devTeam__WEBPACK_IMPORTED_MODULE_0__.teamManager);
+// 중고급 개발자 필터링 함수 호출하여 결과 받기 /////
+const seniorDevelopers = (0,_devTeam__WEBPACK_IMPORTED_MODULE_0__.getSeniorDevelopers)(_devTeam__WEBPACK_IMPORTED_MODULE_0__.devTeam, (dev) => dev.year >= 5);
+console.log("👷‍♀️🦸‍♀️중고급 개발자 리스트:");
+console.log(seniorDevelopers);
+// 모든 개발자를 화면에 출력해 보자! ////////
+const devListContainer = document.getElementById('dev-list');
+// 개발자 목록 출력하기 /////
+_devTeam__WEBPACK_IMPORTED_MODULE_0__.devTeam.map((dev) => {
+    const devInfo = document.createElement('div');
+    devInfo.classList.add('dev-info');
+    devInfo.innerHTML = `
+    <h3>👨‍🌾 Developer: ${dev.name}</h3>
+    <p>🎍 Age: ${dev.age}세</p>
+    <p>🎎 Year: ${dev.year}년차</p>
+    <p>🎡 Role: ${dev.role}개발자</p>
+    <p>🥽 Skills: ${dev.skills.join(', ')}</p>
+    <hr />
+  `;
+    devListContainer.appendChild(devInfo);
+}); ///// map //////
 
 })();
 
