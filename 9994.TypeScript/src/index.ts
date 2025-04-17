@@ -172,7 +172,50 @@ console.log(AISystem.Cgpt);
 console.log(AISystem.DallE);
 console.log(AISystem.MidJourney);
 console.log(AISystem.StableDiffusion);
-console.log(AISystem.Cop)
+console.log(AISystem.Cop);
+
+
+// 10. 제네릭(Generics) 타입 함수에 적용하기
+// -> 타입을 외부에서 유연하게 전달받을 수 있는 방식
+
+// 배열요소 콘솔 출력 제네릭함수
+function printArray<T>(arr: T[]): void {
+  console.log("😎 제네릭타입");
+  arr.forEach((val, idx) => {
+    console.log(idx,'번째 : ',val);
+  });
+} //////// printArray 제네릭 함수 //////
+
+// 숫자 배열 제네릭함수 호출예
+const numberArray: number[] = 
+[1000, 2000, 3000, 4000, 5000];
+// 제네릭 함수 호출시 형을 지정하여 호출하기
+// printArray<number>(numberArray);
+// 데이터 형을 지정하지 않아도 자동으로 형을 감지한다!(타입추론)
+printArray(numberArray);
+
+// 문자 배열 제네릭함수 호출예
+const stringArray: string[] = 
+["코딩의 신", "타입스크립트", "리액트"];
+printArray<string>(stringArray);
+
+// 11. 제네릭 타입 설정하기 /////
+// API응답 관련 속성 타입선언
+type ApiResponse<T> = {
+  data: T;
+  success: boolean;
+  error?: string;
+};
+
+// 사용자정보 전달 : 객체를 변수에 할당함! ////
+const userResponse: 
+ApiResponse<{name: string; age: number}> = {
+  data: {name: "강상모", age: 20},
+  success: true,
+};
+
+console.log("😎 제네릭타입");
+console.log(userResponse)
 
 
 
