@@ -157,6 +157,8 @@ console.log(student1);
 console.log(student2);
 
 // 9. enum 타입 선언
+// -> 상수 데이터를 안정적으로 쓰기 위한 타입
+// -> 이놈(enum)! 에러잡아!
 enum AISystem {
   Cgpt = "Chat GPT",
   DallE = "DALL-E",
