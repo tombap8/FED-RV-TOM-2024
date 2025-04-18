@@ -1,7 +1,8 @@
 import React from "react";
 import VidIntro from "../modules/VidIntro";
+import { CatName } from "../../types/common";
 
-function Video({ catName }) {
+function Video({ catName }:CatName) {
   // catName - 페이지 카테고리명 데이터
 
   // 리턴 코드구역 ////////////

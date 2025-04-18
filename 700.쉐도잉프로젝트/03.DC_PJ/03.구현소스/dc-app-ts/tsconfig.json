@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx", // ★ React 17 이상에서 JSX 변환을 위해 사용
+    "module": "esnext", // ES 모듈을 사용
+    "target": "es6",  // ES6로 변환
+    "strict": true,       // 모든 엄격한 타입 검사 옵션 활성화
+    "allowJs": true,         // JS 파일도 허용
+    "checkJs": false,        // JS에 타입검사 강제 안함
+    "noEmit": true,        // 컴파일 시 파일 생성 안함
+    "esModuleInterop": true, // CommonJS 모듈과 ES 모듈 간의 호환성 제공
+    "skipLibCheck": true, // 라이브러리 파일 타입 검사 건너뛰기    
+    "moduleResolution": "node", // ★ 모듈 해석을 Node.js 방식으로 설정
+    "resolveJsonModule": true // ★ json import 지원
+
+  },
+  "include": ["src"]
+}

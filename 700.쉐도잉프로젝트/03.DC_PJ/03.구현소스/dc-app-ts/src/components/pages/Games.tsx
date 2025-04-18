@@ -1,8 +1,9 @@
 import React from "react";
 import Banner from "../modules/Banner";
 import VidIntro from "../modules/VidIntro";
+import { CatName } from "../../types/common";
 
-function Comics({catName}) {
+function Games({ catName }:CatName) {
   // catName - 페이지 카테고리명 데이터
 
   // 리턴 코드구역 ////////////
@@ -16,4 +17,4 @@ function Comics({catName}) {
   );
 }
 
-export default Comics;
+export default Games;

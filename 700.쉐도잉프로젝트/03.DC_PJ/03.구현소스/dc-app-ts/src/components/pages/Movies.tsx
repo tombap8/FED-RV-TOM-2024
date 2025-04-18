@@ -2,8 +2,11 @@ import React from "react";
 import Banner from "../modules/Banner";
 import VidIntro from "../modules/VidIntro";
 import VidSwipe from "../modules/VidSwipe";
+import { CatName } from "../../types/common";
 
-function Movies({catName}) {
+// 외부 TS를 가져와서 타입지정하기
+
+function Movies({catName}:CatName) {
   // catName - 페이지 카테고리명 데이터
 
   // 리턴 코드구역 ////////////

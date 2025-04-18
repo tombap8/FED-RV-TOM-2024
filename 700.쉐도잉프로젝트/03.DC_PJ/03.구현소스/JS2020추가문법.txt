@@ -1,0 +1,33 @@
+🔥 널 병합 연산자 (??)
+-> 널 병합 연산자는 null 또는 undefined인 경우에만 오른쪽 
+피연산자를 반환하고 그렇지 않으면 왼쪽 피연산자를 반환함.
+
+Example
+let name = null;
+let text = "missing";
+let result = name ?? text;
+
+🔥 옵셔널 체이닝 연산자 (?.)
+-> 옵셔널 체이닝 연산자는 객체가 null 또는 undefined인 경우에
+undefined를 반환하고 그렇지 않으면 객체의 속성 값을 반환함.
+-> 정확히 값을 리턴함으로 에러가 발생하지 않는다!
+
+Example
+const car = {type:"Fiat", model:"500", color:"white"};
+let name = car?.name;
+
+🔥 정리 패턴
+((배열 데이터 접근 패턴))
+arr?.[0]?.prop ?? 기본값	
+users?.[0]?.name ?? "Guest"	
+배열의 첫 번째 객체의 프로퍼티 안전하게 접근
+
+((객체 데이터 접근 패턴))
+obj?.nested?.prop ?? 기본값	
+user?.address?.city ?? "미정"	
+깊이 있는 객체에서 안전하게 접근
+
+((함수 호출 패턴))
+func?.() ?? 기본값	
+callback?.() ?? "기본 호출"	
+콜백 함수가 있을 때만 실행

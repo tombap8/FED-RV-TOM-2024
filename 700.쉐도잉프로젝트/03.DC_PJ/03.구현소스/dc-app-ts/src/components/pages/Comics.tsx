@@ -2,7 +2,12 @@ import React from "react";
 import Banner from "../modules/Banner";
 import VidIntro from "../modules/VidIntro";
 
-function Games({ catName }) {
+// 타입 지정하기
+type CatName = {
+  catName: string;
+}
+
+function Comics({catName}:CatName) {
   // catName - 페이지 카테고리명 데이터
 
   // 리턴 코드구역 ////////////
@@ -16,4 +21,4 @@ function Games({ catName }) {
   );
 }
 
-export default Games;
+export default Comics;

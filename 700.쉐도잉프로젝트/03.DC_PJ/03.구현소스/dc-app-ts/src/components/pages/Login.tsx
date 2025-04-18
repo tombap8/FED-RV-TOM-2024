@@ -48,7 +48,7 @@ function Login() {
 
   // [ 유효성 검사 함수 ] ///////
   // 1. 아이디 유효성 검사 ////////////
-  const changeUserId = (e) => {
+  const changeUserId = (e:any) => {
     // 입력된 값읽기
     let val = e.target.value;
 
@@ -69,7 +69,7 @@ function Login() {
   }; ////////// changeUserId 함수 ////////////
 
   // 2. 비밀번호 유효성 검사 ///////////
-  const changePwd = (e) => {
+  const changePwd = (e:any) => {
     // 입력된 값읽기
     let val = e.target.value;
 
@@ -102,7 +102,7 @@ function Login() {
   }; /////////// totalValid 함수 ///////////
 
   // [ 서브밋 기능함수 ] ////////////////
-  const onSubmit = (e) => {
+  const onSubmit = (e:any) => {
     // 1. 기본서브밋 막기
     e.preventDefault();
 
@@ -118,7 +118,8 @@ function Login() {
       initData();
 
       // 2. 로컬스 변수할당
-      let memData = localStorage.getItem("mem-data");
+      let memData: string = 
+      localStorage.getItem("mem-data")||"[]";
 
       // 3. 로컬스 객체변환
       memData = JSON.parse(memData);
