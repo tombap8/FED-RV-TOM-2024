@@ -119,14 +119,19 @@ function Login() {
 
       // 2. 로컬스 변수할당
       let memData: string = 
-      localStorage.getItem("mem-data")||"[]";
+      localStorage.getItem("mem-data")??"[]";
+      // ??는 널병합 연산자임! 기본값을 제공함
+      // localStorage.getItem("mem-data")||"[]";
 
-      // 3. 로컬스 객체변환
-      memData = JSON.parse(memData);
-      console.log(memData);
+      // 3. 로컬스 객체변환 -> find함수 처리시 아래서 변환
+      // memData = JSON.parse(memData); -> 여기서 처리안함
+      // console.log(memData);
 
       // 4. 아이디 존재 여부 검사하기
-      let result = memData.find((v) => {
+      // let result = memData.find((v) => {
+      let result = 
+      (JSON.parse(memData) as Array<any>)      
+      .find((v:any) => {
         if (v.uid === userId) return true;
       }); /////// find ///////
       console.log("결과:", result);
@@ -164,7 +169,9 @@ function Login() {
           myCon.makeMsg(result.unm);
 
           // 4. 로그인 성공 메시지 버튼에 출력하기
-          document.querySelector(".sbtn").innerText = 
+          const sBtn = 
+          document.querySelector(".sbtn") as HTMLElement;
+          sBtn.innerText = 
           "넌 로그인 된거야~!";
 
           // 5. 라우팅 페이지 이동
@@ -199,7 +206,14 @@ function Login() {
   // 화면랜더링 구역 /////////
   useEffect(() => {
     // 아이디입력창 포커스
-    document.querySelector("#user-id").focus();
+    const userId = 
+    document
+    .querySelector("#user-id") as HTMLInputElement;
+    userId.focus();
+    
+    // 위와 동일한 코드임. 변수에 담지 않고 처리하는 방법
+    // (document.querySelector("#user-id") as HTMLInputElement)
+    // .focus();
   }, []);
 
   // 코드 리턴구역 //////////////////////
@@ -214,7 +228,7 @@ function Login() {
               <input
                 id="user-id"
                 type="text"
-                maxLength="20"
+                maxLength={20}
                 placeholder="Please enter your ID"
                 value={userId}
                 onChange={changeUserId}
@@ -239,7 +253,7 @@ function Login() {
               <label>Password : </label>
               <input
                 type="password"
-                maxLength="20"
+                maxLength={20}
                 placeholder="Please enter your Password"
                 value={pwd}
                 onChange={changePwd}
