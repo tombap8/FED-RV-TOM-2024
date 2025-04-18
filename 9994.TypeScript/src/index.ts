@@ -19,6 +19,10 @@ import {
   findByRole,
   // 중고급 개발자 필터 함수
   getSeniorDevelopers,
+  // 개발자 등급 함수
+  getDevLevel,
+  // 개발자 보너스 함수
+  getDevBonus,
 } from "./devTeam";
 
 function greet(name: string): string {
@@ -274,6 +278,7 @@ console.log("👷‍♀️🦸‍♀️중고급 개발자 리스트:");
 console.log(seniorDevelopers);
 
 // 모든 개발자를 화면에 출력해 보자! ////////
+// -> 개발자 등급과 보너스도 출력하기
 
 const devListContainer = 
 document.getElementById('dev-list') as HTMLElement;
@@ -288,6 +293,9 @@ devTeam.map((dev)=>{
     <p>🎎 Year: ${dev.year}년차</p>
     <p>🎡 Role: ${dev.role}개발자</p>
     <p>🥽 Skills: ${dev.skills.join(', ')}</p>
+    <p>🥇 Level: ${getDevLevel(dev.year)}</p>
+    <p>📀 Bonus: ${
+      getDevBonus(dev.year).toLocaleString()+'만원'}</p>
     <hr />
   `;
   devListContainer.appendChild(devInfo);

@@ -259,12 +259,22 @@ function getDevLevel(year) {
 } ////////// getDevLevel 함수 //////////////
 // 12. 개발자 보너스 금액 조회 함수 /////////
 function getDevBonus(year) {
+    var _a;
     // (1) 경력년수로 레벨 알아오기
     const level = getDevLevel(year);
     // (2) 레벨별 보너스 계산하기
-    const bonus = levelBonusList.find((v) => v[0] === level);
-    return bonus ? bonus[1] : 0;
-}
+    const bonus = ((_a = levelBonusList.find((v) => v[0] === level)) === null || _a === void 0 ? void 0 : _a[1]) || 0;
+    // find로 찾은 값이 있으면.[1] 두번째 배열값 읽기
+    // 이값이 없으면 0을 할당
+    // -> 배열?.[순번] -> 배열일 경우 적용여부판단하는 구문
+    // -> 변수 = 값1 || 값2 ->>> 값1이 없을때 값2를 할당
+    // (1),(2) 결과값을 객체로 반환하기
+    return { level, bonus };
+    // -> 이 함수의 리턴값 타입은 중간에 개발시 변경될 수 있다!
+    // 따라서 타입지정은 하지않고
+    // 추론을 통해 자동으로 타입이 결정되도록 한다!
+    // -> ReturnType<typeof 함수명> 형식으로 사용가능하다!
+} ////////// getDevBonus 함수 //////////////
 
 
 /***/ })
@@ -498,6 +508,7 @@ const seniorDevelopers = (0,_devTeam__WEBPACK_IMPORTED_MODULE_0__.getSeniorDevel
 console.log("👷‍♀️🦸‍♀️중고급 개발자 리스트:");
 console.log(seniorDevelopers);
 // 모든 개발자를 화면에 출력해 보자! ////////
+// -> 개발자 등급과 보너스도 출력하기
 const devListContainer = document.getElementById('dev-list');
 // 개발자 목록 출력하기 /////
 _devTeam__WEBPACK_IMPORTED_MODULE_0__.devTeam.map((dev) => {
@@ -509,6 +520,8 @@ _devTeam__WEBPACK_IMPORTED_MODULE_0__.devTeam.map((dev) => {
     <p>🎎 Year: ${dev.year}년차</p>
     <p>🎡 Role: ${dev.role}개발자</p>
     <p>🥽 Skills: ${dev.skills.join(', ')}</p>
+    <p>🥇 Level: ${(0,_devTeam__WEBPACK_IMPORTED_MODULE_0__.getDevLevel)(dev.year)}</p>
+    <p>📀 Bonus: ${(0,_devTeam__WEBPACK_IMPORTED_MODULE_0__.getDevBonus)(dev.year).toLocaleString() + '만원'}</p>
     <hr />
   `;
     devListContainer.appendChild(devInfo);

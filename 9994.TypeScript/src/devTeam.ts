@@ -281,6 +281,20 @@ export function getDevBonus(year: number) {
   // (1) 경력년수로 레벨 알아오기
   const level = getDevLevel(year);
   // (2) 레벨별 보너스 계산하기
-  const bonus = levelBonusList.find((v) => v[0] === level);
-  return bonus ? bonus[1] : 0;
-}
+  const bonus = 
+  levelBonusList.find((v) => v[0] === level)?.[1]||0;
+  // find로 찾은 값이 있으면.[1] 두번째 배열값 읽기
+  // 이값이 없으면 0을 할당
+  // -> 배열?.[순번] -> 배열일 경우 적용여부판단하는 구문
+  // -> 변수 = 값1 || 값2 ->>> 값1이 없을때 값2를 할당
+
+  // (1),(2) 결과값을 객체로 반환하기
+  return {level, bonus};
+  // -> 이 함수의 리턴값 타입은 중간에 개발시 변경될 수 있다!
+  // 따라서 타입지정은 하지않고
+  // 추론을 통해 자동으로 타입이 결정되도록 한다!
+  // -> ReturnType<typeof 함수명> 형식으로 사용가능하다!
+} ////////// getDevBonus 함수 //////////////
+
+// 13. 반환타입 추론 후 재사용 : 중요!!! 이것때문에 이예제함! ////
+export type DevBonusInfo = ReturnType<typeof getDevBonus>;
