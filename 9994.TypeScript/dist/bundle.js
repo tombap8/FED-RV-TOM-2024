@@ -267,6 +267,7 @@ function getDevBonus(year) {
     // find로 찾은 값이 있으면.[1] 두번째 배열값 읽기
     // 이값이 없으면 0을 할당
     // -> 배열?.[순번] -> 배열일 경우 적용여부판단하는 구문
+    // ->>> 이런 방식을 옵셔널 체이닝이라고함!(배열없으면 undefined)
     // -> 변수 = 값1 || 값2 ->>> 값1이 없을때 값2를 할당
     // (1),(2) 결과값을 객체로 반환하기
     return { level, bonus };
@@ -512,16 +513,22 @@ console.log(seniorDevelopers);
 const devListContainer = document.getElementById('dev-list');
 // 개발자 목록 출력하기 /////
 _devTeam__WEBPACK_IMPORTED_MODULE_0__.devTeam.map((dev) => {
+    // (1) 개발자 정보 출력을 위한 div 요소 생성
     const devInfo = document.createElement('div');
+    // (2) 개발자 정보 div에 클래스 추가
     devInfo.classList.add('dev-info');
+    // (3) 개발자 레벨과 보너스 정보 조회하기
+    const devBonus = (0,_devTeam__WEBPACK_IMPORTED_MODULE_0__.getDevBonus)(dev.year);
+    // (4) 개발자 정보 div에 HTML 추가
+    // -> 개발자 이름, 나이, 경력, 역할, 기술스택, 등급, 보너스
     devInfo.innerHTML = `
     <h3>👨‍🌾 Developer: ${dev.name}</h3>
     <p>🎍 Age: ${dev.age}세</p>
     <p>🎎 Year: ${dev.year}년차</p>
     <p>🎡 Role: ${dev.role}개발자</p>
     <p>🥽 Skills: ${dev.skills.join(', ')}</p>
-    <p>🥇 Level: ${(0,_devTeam__WEBPACK_IMPORTED_MODULE_0__.getDevLevel)(dev.year)}</p>
-    <p>📀 Bonus: ${(0,_devTeam__WEBPACK_IMPORTED_MODULE_0__.getDevBonus)(dev.year).toLocaleString() + '만원'}</p>
+    <p>🥇 Level: ${devBonus.level}</p>
+    <p>📀 Bonus: ${devBonus.bonus.toLocaleString() + '만원'}</p>
     <hr />
   `;
     devListContainer.appendChild(devInfo);

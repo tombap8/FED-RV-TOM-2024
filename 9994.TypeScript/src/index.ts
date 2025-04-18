@@ -19,10 +19,10 @@ import {
   findByRole,
   // 중고급 개발자 필터 함수
   getSeniorDevelopers,
-  // 개발자 등급 함수
-  getDevLevel,
   // 개발자 보너스 함수
   getDevBonus,
+  // 개발자 보너스 추론리턴타입(제네릭!)
+  DevBonusInfo,
 } from "./devTeam";
 
 function greet(name: string): string {
@@ -285,17 +285,25 @@ document.getElementById('dev-list') as HTMLElement;
 
 // 개발자 목록 출력하기 /////
 devTeam.map((dev)=>{
+  // (1) 개발자 정보 출력을 위한 div 요소 생성
   const devInfo = document.createElement('div');
+
+  // (2) 개발자 정보 div에 클래스 추가
   devInfo.classList.add('dev-info');
+
+  // (3) 개발자 레벨과 보너스 정보 조회하기
+  const devBonus : DevBonusInfo = getDevBonus(dev.year);
+
+  // (4) 개발자 정보 div에 HTML 추가
+  // -> 개발자 이름, 나이, 경력, 역할, 기술스택, 등급, 보너스
   devInfo.innerHTML = `
     <h3>👨‍🌾 Developer: ${dev.name}</h3>
     <p>🎍 Age: ${dev.age}세</p>
     <p>🎎 Year: ${dev.year}년차</p>
     <p>🎡 Role: ${dev.role}개발자</p>
     <p>🥽 Skills: ${dev.skills.join(', ')}</p>
-    <p>🥇 Level: ${getDevLevel(dev.year)}</p>
-    <p>📀 Bonus: ${
-      getDevBonus(dev.year).toLocaleString()+'만원'}</p>
+    <p>🥇 Level: ${devBonus.level}</p>
+    <p>📀 Bonus: ${devBonus.bonus.toLocaleString()+'만원'}</p>
     <hr />
   `;
   devListContainer.appendChild(devInfo);
