@@ -251,3 +251,36 @@ export function getSeniorDevelopers<T>(
     // 검증함수결과가 true인 배열값만 반환
   return items.filter(filterFn);
 } ////////// getSeniorDevelopers 함수 //////////////
+
+// 9. 개발자 등급 열거형(enum)으로 정의하기 /////
+export enum DevLevel {
+  Junior = "Junior",
+  Middle = "Middle",
+  Senior = "Senior",
+  Leader = "Leader",
+}
+
+// 10. 튜플을 활용한 등급별 보너스 정보배열 /////
+export const levelBonusList: [DevLevel, number][] = [
+  [DevLevel.Junior, 500],
+  [DevLevel.Middle, 1000],
+  [DevLevel.Senior, 2000],
+  [DevLevel.Leader, 3000],
+];
+
+// 11. 특정 개발자 경력에 따라 등급을 계산하는 함수 /////
+export function getDevLevel(year: number): DevLevel {
+  if (year >= 15) return DevLevel.Leader;
+  if (year >= 8) return DevLevel.Senior;
+  if (year >= 4) return DevLevel.Middle;
+  return DevLevel.Junior;
+} ////////// getDevLevel 함수 //////////////
+
+// 12. 개발자 보너스 금액 조회 함수 /////////
+export function getDevBonus(year: number) {
+  // (1) 경력년수로 레벨 알아오기
+  const level = getDevLevel(year);
+  // (2) 레벨별 보너스 계산하기
+  const bonus = levelBonusList.find((v) => v[0] === level);
+  return bonus ? bonus[1] : 0;
+}

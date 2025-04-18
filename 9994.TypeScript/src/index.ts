@@ -219,7 +219,19 @@ ApiResponse<{name: string; age: number}> = {
 };
 
 console.log("😎 제네릭타입");
-console.log(userResponse)
+console.log(userResponse);
+
+// 12. 제네릭 ReturnType 사용하기 /////////////
+// -> 함수의 반환값을 자동으로 추론하여 타입을 설정함
+// sayGoodBye 함수의 리턴 타입을 가져오기
+type SayGoodByeReturn = ReturnType<typeof sayGoodBye>;
+
+// 해당타입을 사용하는 변수
+const farewellMessage: SayGoodByeReturn =
+sayGoodBye("난 개발천재야!", true, "정말로 굿바이~~!");
+
+console.log("😎 제네릭 ReturnType");
+console.log(farewellMessage);
 
 
 

@@ -10,13 +10,17 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   DevLevel: () => (/* binding */ DevLevel),
 /* harmony export */   Role: () => (/* binding */ Role),
 /* harmony export */   Skill: () => (/* binding */ Skill),
 /* harmony export */   devTeam: () => (/* binding */ devTeam),
 /* harmony export */   findByRole: () => (/* binding */ findByRole),
 /* harmony export */   findBySkill: () => (/* binding */ findBySkill),
 /* harmony export */   getActiveDevelopers: () => (/* binding */ getActiveDevelopers),
+/* harmony export */   getDevBonus: () => (/* binding */ getDevBonus),
+/* harmony export */   getDevLevel: () => (/* binding */ getDevLevel),
 /* harmony export */   getSeniorDevelopers: () => (/* binding */ getSeniorDevelopers),
+/* harmony export */   levelBonusList: () => (/* binding */ levelBonusList),
 /* harmony export */   teamManager: () => (/* binding */ teamManager)
 /* harmony export */ });
 /**************************************
@@ -228,6 +232,39 @@ filterFn // 검증함수
     // 검증함수결과가 true인 배열값만 반환
     return items.filter(filterFn);
 } ////////// getSeniorDevelopers 함수 //////////////
+// 9. 개발자 등급 열거형(enum)으로 정의하기 /////
+var DevLevel;
+(function (DevLevel) {
+    DevLevel["Junior"] = "Junior";
+    DevLevel["Middle"] = "Middle";
+    DevLevel["Senior"] = "Senior";
+    DevLevel["Leader"] = "Leader";
+})(DevLevel || (DevLevel = {}));
+// 10. 튜플을 활용한 등급별 보너스 정보배열 /////
+const levelBonusList = [
+    [DevLevel.Junior, 500],
+    [DevLevel.Middle, 1000],
+    [DevLevel.Senior, 2000],
+    [DevLevel.Leader, 3000],
+];
+// 11. 특정 개발자 경력에 따라 등급을 계산하는 함수 /////
+function getDevLevel(year) {
+    if (year >= 15)
+        return DevLevel.Leader;
+    if (year >= 8)
+        return DevLevel.Senior;
+    if (year >= 4)
+        return DevLevel.Middle;
+    return DevLevel.Junior;
+} ////////// getDevLevel 함수 //////////////
+// 12. 개발자 보너스 금액 조회 함수 /////////
+function getDevBonus(year) {
+    // (1) 경력년수로 레벨 알아오기
+    const level = getDevLevel(year);
+    // (2) 레벨별 보너스 계산하기
+    const bonus = levelBonusList.find((v) => v[0] === level);
+    return bonus ? bonus[1] : 0;
+}
 
 
 /***/ })
@@ -431,6 +468,10 @@ const userResponse = {
 };
 console.log("😎 제네릭타입");
 console.log(userResponse);
+// 해당타입을 사용하는 변수
+const farewellMessage = sayGoodBye("난 개발천재야!", true, "정말로 굿바이~~!");
+console.log("😎 제네릭 ReturnType");
+console.log(farewellMessage);
 // ★★★★★★★★★★★★★★★★★★★★★ //
 // 개발자 회사 샘플 찍어보기 //////////////////
 // ★★★★★★★★★★★★★★★★★★★★★ //
