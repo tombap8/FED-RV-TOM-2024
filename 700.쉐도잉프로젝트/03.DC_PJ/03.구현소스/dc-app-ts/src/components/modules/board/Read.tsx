@@ -5,8 +5,9 @@ import { dCon } from "../dCon";
 
 // 제이쿼리 불러오기 ////
 import $ from "jquery";
+import { IReadProps } from "../../../types/board_props";
 
-function Read({ setMode, selRecord }) {
+function Read({ setMode, selRecord }: IReadProps) {
   // setMode - 모든 변경 상태변수 setter
   // selRecord - 선택데이터 참조변수
 
@@ -36,7 +37,8 @@ function Read({ setMode, selRecord }) {
   // 2. 세션스 글번호 저장하기 ////
 
   // (1) 세션스 파싱하여 변수할당 ///
-  let rec = JSON.parse(sessionStorage.getItem("bd-rec"));
+  let rec = JSON.parse(sessionStorage.getItem("bd-rec") ?? "[]");
+  // let rec = JSON.parse(sessionStorage.getItem("bd-rec"));
 
   // (2) 기존 배열값에 현재글번호 존재 여부 검사하기
   // 결과가 true이면 조회수를 증가하지 않는다!
@@ -73,12 +75,14 @@ function Read({ setMode, selRecord }) {
   // -> 게시판 원본 데이터 조회수 업데이트하기
   if (!isRec) {
     // (1) 게시판 로컬스 데이터 파싱
-    let bdData = JSON.parse(localStorage.getItem("board-data"));
+    let bdData = JSON.parse(
+      localStorage.getItem("board-data") ?? "[]");
+    // let bdData = JSON.parse(localStorage.getItem("board-data"));
     // console.log('조증구역!',bdData);
 
     // (2) 게시판 해당 데이터 cnt값 증가
     // 조건 : isRec값이 false일때(여기 if문내부에 코딩!)
-    bdData.some((v) => {
+    bdData.some((v:any) => {
       if (v.idx === selData.idx) {
         // console.log('당첨!',v.cnt);
         // 기존값에 1증가하여 넣기
@@ -99,7 +103,7 @@ function Read({ setMode, selRecord }) {
   // (1) 코멘트 정보 객체저장 상태변수
   const [commentData, setCommentData] = useState([]);
   // (2) TextArea 요소용 참조변수
-  const textareaRef = useRef([]);
+  const textareaRef = useRef<any[]>([]);
   // (3) 수정중 코멘트 idx 저장변수 : 수정완료시 null값 복원!
   const [isEditing, setIsEditing] = useState(null);
   // (4) 수정중 코멘트 내용 저장변수
@@ -121,7 +125,7 @@ function Read({ setMode, selRecord }) {
   // (1) 코멘트 데이터 저장함수 //////
   const saveComment = () => {
     // 1) 코멘트 입력란이 비었으면 메시지와 리턴하기
-    if ($(".comment-box").val().trim() === "") {
+    if (($(".comment-box").val() as string).trim() === "") {
       alert("Write comment!");
       return;
     } /// if ////
@@ -129,12 +133,12 @@ function Read({ setMode, selRecord }) {
     // 2) 코멘트 데이터 로컬스 확인하기
     // -> 로컬스 코멘트가 없으면 빈배열 있으면 파싱 데이터 할당!
     let comDt = localStorage.getItem("comment-data")
-      ? JSON.parse(localStorage.getItem("comment-data"))
+      ? JSON.parse(localStorage.getItem("comment-data")??"[]")
       : [];
 
     console.log(
       "코멘트 저장해~!",
-      comDt.map((v) => v.idx)
+      comDt.map((v:any) => v.idx)
     );
 
     // 3) 코멘트 배열 데이터에 새로운 값 넣기
@@ -142,7 +146,7 @@ function Read({ setMode, selRecord }) {
     // -> 기존 idx배열값만 모아서 max함수로 최대값 뽑고 1더함!
     // -> comDt가 빈 배열이면 첫값은 1이 되게함!
     comDt.push({
-      idx: comDt.length > 0 ? Math.max(...comDt.map((v) => v.idx)) + 1 : 1, // 유일키
+      idx: comDt.length > 0 ? Math.max(...comDt.map((v:any) => v.idx)) + 1 : 1, // 유일키
       cont: $(".comment-box").val(), // 코멘트 글
       uid: myCon.loginSts.uid, // 로그인 사용자 아이디
       unm: myCon.loginSts.unm, // 로그인 사용자 이름
@@ -164,13 +168,12 @@ function Read({ setMode, selRecord }) {
   const makeCommentData = () => {
     // 로컬스 코멘트 데이터 있을 경우 /////
     if (localStorage.getItem("comment-data")) {
-      let temp = localStorage.getItem("comment-data");
-      temp = JSON.parse(temp);
+      let temp = JSON.parse(localStorage.getItem("comment-data")??"[]");
       temp = temp
         // 게시글번호와 일치하는 코멘트 글번호만 수집
-        .filter((v) => v.bid === selData.idx)
+        .filter((v:any) => v.bid === selData.idx)
         // 날짜역순 +  idx역순
-        .sort((a, b) =>
+        .sort((a:any, b:any) =>
           a.date > b.date
             ? -1
             : a.date < b.date
@@ -197,7 +200,7 @@ function Read({ setMode, selRecord }) {
   const adjustHeight = () => {
     // 코멘트로 생성된 textarea 수만큼 돌아서 높이값 셋팅!
     // 지운 데이터 순번처리위해 index값이 확인시 필요함!
-    textareaRef.current.forEach((textarea, index) => {
+    textareaRef.current.forEach((textarea: HTMLTextAreaElement, index: number) => {
       // index는 순회시 순번리턴
       if (textarea) {
         // console.log("높이:", textarea.scrollHeight);
@@ -216,15 +219,15 @@ function Read({ setMode, selRecord }) {
   }; ///// adjustHeight 함수 ///////////////
 
   // [4] 코멘트 삭제 함수 /////////////////////
-  const deleteComment = (idx) => {
+  const deleteComment = (idx: number) => {
     // idx - 지울 코멘트 idx값
     // (1) 삭제여부를 다시한번 확인 후 "취소"시 리턴
     if (!window.confirm("Are you sure you want to delete?")) return;
 
     // (2) idx값을 비교해서 filter로 제거후 localStrage에 다시 저장
-    let comDt = JSON.parse(localStorage.getItem("comment-data"));
+    let comDt = JSON.parse(localStorage.getItem("comment-data")??"[]");
     // idx가 지울idx와 같지 않은 것만 다시 담기함!
-    comDt = comDt.filter((v) => v.idx !== idx);
+    comDt = comDt.filter((v:any) => v.idx !== idx);
     // 로컬스에 다시 저장!
     localStorage.setItem("comment-data", JSON.stringify(comDt));
 
@@ -233,23 +236,23 @@ function Read({ setMode, selRecord }) {
   }; ////////////// deleteComment 함수 //////////////
 
   // [5] 코멘트 수정상태 변경 함수 /////////////////////
-  const modifyComment = (idx) => {
+  const modifyComment = (idx: any) => {
     // (1) 수정상태모드로 설정
     setIsEditing(idx);
     // (2) idx값이 동일한 코멘트를 선택
-    const selData = commentData.find((v) => v.idx === idx);
+    const selData = commentData.find((v:any) => v.idx === idx)??{cont:""};
     // (3) 수정대상 코멘트 컨텐트 데이터를 editedContent에 넣기
     setEditedContent(selData.cont);
     // 왜 넣었나요? 바로 다시 수정저장시 그대로 저장될 수 있게함!
   }; /// modifyComment 함수 //////////////
 
   // [6] 코멘트 수정저장 함수 /////////////////////
-  const saveModifiedComment = (idx) => {
+  const saveModifiedComment = (idx:any) => {
     // (1) 원본 코멘트 로컬스 데이터 불러와서 파싱하기
-    let comDt = JSON.parse(localStorage.getItem("comment-data"));
+    let comDt = JSON.parse(localStorage.getItem("comment-data")??"[]");
 
     // (2) 파싱된 배열데이터의 해당 코멘트의 cont값을 변경함!
-    comDt = comDt.map((v) =>
+    comDt = comDt.map((v:any) =>
       v.idx === idx ? { ...v, cont: editedContent } : v
     );
 
@@ -290,7 +293,7 @@ function Read({ setMode, selRecord }) {
               <input
                 type="text"
                 className="name"
-                size="20"
+                size={20}
                 readOnly={true}
                 defaultValue={selData.unm}
               />
@@ -302,7 +305,7 @@ function Read({ setMode, selRecord }) {
               <input
                 type="text"
                 className="subject"
-                size="60"
+                size={60}
                 readOnly={true}
                 defaultValue={selData.tit}
               />
@@ -313,8 +316,8 @@ function Read({ setMode, selRecord }) {
             <td>
               <textarea
                 className="content"
-                cols="60"
-                rows="10"
+                cols={60}
+                rows={10}
                 readOnly={true}
                 defaultValue={selData.cont}
               ></textarea>
@@ -367,8 +370,8 @@ function Read({ setMode, selRecord }) {
                 <td>
                   <textarea
                     className="comment-box"
-                    cols="60"
-                    rows="5"
+                    cols={60}
+                    rows={5}
                   ></textarea>
                   <button
                     style={{
@@ -394,7 +397,7 @@ function Read({ setMode, selRecord }) {
             <tbody>
               {
                 // 코멘트 테이터 만큼 반복생성하기
-                commentData.map((v, i) => (
+                commentData.map((v:any, i:any) => (
                   <tr key={i}>
                     {/* (1) 코멘트 쓴이 이름 */}
                     <td style={{ fontSize: "16px", fontWeight: "normal" }}>
@@ -446,7 +449,9 @@ function Read({ setMode, selRecord }) {
                         className="comment-view-box"
                         // 내용에 따른 높이값 정보를 참조변수에 노출
                         // 자기자신을 참조변수 textareaRef에 할당!
-                        ref={(el) => (textareaRef.current[i] = el)}
+                        ref={(el) => {
+                          textareaRef.current[i] = el as HTMLTextAreaElement | null;
+                        }}
                         value={
                           isEditing === v.idx // 수정해당이면
                             ? editedContent // 수정컨텐트변수넣기
@@ -494,9 +499,9 @@ function Read({ setMode, selRecord }) {
           </table>
         )
       }
-      
     </main>
   );
 }
 
 export default Read;
+

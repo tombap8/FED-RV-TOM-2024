@@ -5,6 +5,7 @@ import { dCon } from "../dCon";
 
 // 제이쿼리 불러오기 ///
 import $ from "jquery";
+import { IListProps } from "../../../types/board_props";
 
 function List({
   selData, // 선택된 배열데이터 전달
@@ -25,7 +26,7 @@ function List({
   sortCta, // 정렬기준 상태변수 getter
   setSortCta, // 정렬기준 상태변수 setter
   initVariables, // 변수초기화함수
-}) {
+}: IListProps) {
   // 전역 컨텍스트 API 사용하기!!
   const myCon = useContext(dCon);
   // console.log('List에서 loginSts:',myCon.loginSts);
@@ -272,7 +273,7 @@ function List({
   *******************************************/
 
   // [ 리듀서함수에서 쓸 리턴값 만들기 함수 ] ///
-  const retVal = (gval, txt) => {
+  const retVal = (gval: string, txt: any) => {
     // gval은 기존값, txt는 새로운값
     return (
       // 1. 별구분자가 있는가?
@@ -293,7 +294,10 @@ function List({
   }; ////// retVal함수 ///////////////
 
   // [1] 검색어 저장기능을 처리하기 위한 리듀서함수 ///
-  const reducerFn = (memory, action) => {
+  const reducerFn = (
+    memory: string,
+    action: { type: [string, HTMLElement] }
+  ) => {
     // (1)첫번째 전달변수
     // memory - memory변수의 값(리듀서변수값)
     // (2)두번째 전달변수
@@ -305,12 +309,12 @@ function List({
     console.log("리듀서함수 전달값:", memory, key, ele);
 
     // 2. 최신 검색어를 기준으로 5개만 생기도록 맨 앞배열값 삭제하기
-    let newArr = memory.split("*");
+    let newArr: string[] = memory.split("*");
     if (newArr.length > 4) newArr.shift();
 
     // 3. 맨앞 배열값 제거후 join으로 문자열 만들기
-    newArr = newArr.join("*");
-    console.log(newArr);
+    const result: string = newArr.join("*");
+    console.log(result);
 
     // 3. key값에 따라서 분기하여 처리하기
     switch (key) {
@@ -319,18 +323,18 @@ function List({
         // (1) 검색어 읽어오기
         let txt = $(ele).prev().val();
         // (2) 검색어를 리듀서 변수에 리턴하는 값을 만드는 함수 호출
-        return retVal(newArr, txt);
+        return retVal(result, txt);
       // memory는 기존 리듀서변수값, txt는 새로운값
     } /// case: search ///
+    // switch문에 걸리지 않은 경우 아래에서 return해준다!
+    return "";
   }; ////////// reducerFn 함수 //////////
 
   // [2] 검색어 저장기능 지원 후크 리듀서 : useReducer
   const [memory, dispatch] = useReducer(
     reducerFn,
     // 로컬스에 검색어 메모리값이 있으면 할당하기!
-    localStorage.getItem("memory-data")
-      ? localStorage.getItem("memory-data")
-      : ""
+    localStorage.getItem("memory-data") ?? ""
   );
   // 1. memory : 검색어 저장변수
   // -> 값은 *로 구분자를 사용한 문자열
@@ -386,7 +390,7 @@ function List({
           id="sel"
           className="sel"
           value={order}
-          onChange={(e) => {
+          onChange={(e: any) => {
             // 정렬값 반대로 변경하기
             setOrder(order * -1);
             // 변경시 변경한 선택값 반영하기
@@ -403,22 +407,22 @@ function List({
         <input
           id="stxt"
           type="text"
-          maxLength="50"
+          maxLength={50}
           defaultValue={keyword.kw}
-          onKeyUp={(e) => {
+          onKeyUp={(e: any) => {
             // 엔터를 친 경우 ///
             if (e.key === "Enter") e.target.nextElementSibling.click();
             // 다음 형제요소인 버튼 클릭이벤트 발생!
 
             // 페이지, 페이징 모두 초기화
             setPageNum(1);
-            pgPgNum.currnt = 1;
+            pgPgNum.current = 1;
           }}
         />
         {/* 검색버튼 */}
         <button
           className="sbtn"
-          onClick={(e) => {
+          onClick={(e: any) => {
             // e - 이벤트 전달변수
             // 검색함수 호출
             searchFn();
@@ -574,7 +578,7 @@ function List({
             ) : (
               // 데이터가 0일 경우 출력 ////////////
               <tr>
-                <td colSpan="5">No search results</td>
+                <td colSpan={5}>No search results</td>
               </tr>
             )
           }
@@ -582,7 +586,7 @@ function List({
         {/* 페이징 하단파트 */}
         <tfoot>
           <tr>
-            <td colSpan="5" className="paging">
+            <td colSpan={5} className="paging">
               {
                 // 결과 데이터가 0이 아닐경우 페이징 출력
                 totalCount.current > 0 && pagingCode()

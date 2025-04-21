@@ -11,6 +11,9 @@ import { initData } from "../../js/func/mem_fn";
 
 // 제이쿼리 불러오기 ////
 import $ from "jquery";
+// -> 타입스크립트 적용시 jquery 못찾는 에러가 난다면
+// 아래 개발쪽 의존성에 @types/jquery를 설치한다!(강제설치)
+// npm i --save-dev @types/jquery@^3.5.32 --force
 
 // 다음 우편번호 모듈 불러오기 ///
 import AddressInput from "../modules/AddressInput";
@@ -50,7 +53,9 @@ function Member() {
   // 5. 이메일변수
   const [emailError, setEmailError] = useState(false);
   // 6. 주소변수
-  const [addrError, setAddrError] = useState("");
+  const [addrError, setAddrError] = useState(false);
+  // 타입추론에 의해 useState<boolean>(초기값)으로 표기하지 않아도
+  // 초기값이 boolean값이면 타입추론이 된다!
 
   // console.log(">>>>", userIdError);
 
@@ -82,7 +87,8 @@ function Member() {
 
   // [ 유효성 검사 함수 ] ///////
   // 1. 아이디 유효성 검사 ////////////
-  const changeUserId = (e) => {
+  // const changeUserId = (e:any) => {
+  const changeUserId = (e: React.ChangeEvent<HTMLInputElement>) => {
     // 입력된 값읽기
     let val = e.target.value;
 
@@ -102,12 +108,13 @@ function Member() {
       // 로컬스토리지에 "mem-data"가 없으면 초기셋팅함!
 
       // 이제 중복 아이디 검사를 실행한다!!!
-      // 1. 로컬스 변수할당
-      let memData = localStorage.getItem("mem-data");
+      // 1. 로컬스 변수할당 :  null값을 방지하여 무조건 배열생성
+      let memData = localStorage.getItem("mem-data") ?? "[]";
       console.log(memData);
 
       // 2. 로컬스 객체변환 (왜? 문자형이니까!)
-      memData = JSON.parse(memData);
+      memData = memData ? JSON.parse(memData) : null;
+
       console.log(memData);
       // -> 배열데이터로 변환!
       // 주의: JSON 파싱할때 원본형식이 제이슨 파일형식으로
@@ -116,7 +123,12 @@ function Member() {
       // 3. 배열이니까 현재 입력데이터의 아이디가
       // 기존 배열값으로 있는지 검사함!
       // 있으면 true, 없으면 false
-      let isT = memData.some((v) => v.uid === val);
+      let isT = Array.isArray(memData) && memData.some((v) => v.uid === val);
+      // 해석: isT에 memData가 배열이고
+      // memData에 중복아이디가 있는지 검사하고
+      // 그 결과를 isT에 넣는다!
+      // 이방식은 배열인지 여부를 확정하고 할당하는 방식임!
+
       console.log("중복id있어?", isT);
 
       // 4. true 일 경우 중복데이터 메시지 표시
@@ -162,7 +174,7 @@ function Member() {
   }; ////////// changeUserId 함수 ////////////
 
   // 2. 비밀번호 유효성 검사 ///////////
-  const changePwd = (e) => {
+  const changePwd = (e: any) => {
     // 입력된 값읽기
     let val = e.target.value;
 
@@ -181,7 +193,7 @@ function Member() {
   }; ///////// changePwd 함수 //////////
 
   // 3. 비밀번호확인 유효성 검사 ///////////
-  const changeChkPwd = (e) => {
+  const changeChkPwd = (e: any) => {
     // 입력된 값읽기
     let val = e.target.value;
 
@@ -194,7 +206,7 @@ function Member() {
   }; ///////// changeChkPwd 함수 //////////
 
   // 4. 사용자이름 유효성 검사 ///////////
-  const changeUserName = (e) => {
+  const changeUserName = (e: any) => {
     // 입력된 값읽기
     let val = e.target.value;
 
@@ -207,7 +219,7 @@ function Member() {
   }; ///////// changeUserName 함수 //////////
 
   // 5. 이메일 유효성 검사 ///////////
-  const changeEmail = (e) => {
+  const changeEmail = (e: any) => {
     // 입력된 값읽기
     let val = e.target.value;
 
@@ -244,8 +256,8 @@ function Member() {
     // (1) 전체주소값 저장 (앞주소+뒷주소)
     setAddr(address1 + "*" + address2);
     console.log(addr);
-    // (2) 우편번호 저장
-    setZipcode(zc);
+    // (2) 우편번호 저장 : zc데이터를 문자형으로 변환후 보냄
+    setZipcode(zc?.toString() ?? "");
     console.log(zipcode);
   }; ///////// changeUserName 함수 //////////
 
@@ -285,7 +297,7 @@ function Member() {
   }; /////////// totalValid 함수 ///////////
 
   // [ 서브밋 기능함수 ] ////////////////
-  const onSubmit = (e) => {
+  const onSubmit = (e: any) => {
     // 1. 기본서브밋 막기
     e.preventDefault();
 
@@ -299,11 +311,16 @@ function Member() {
       // 1. 로컬스 체크함수호출(없으면 생성!)
       initData();
 
-      // 2. 로컬스 변수할당
-      let memData = localStorage.getItem("mem-data");
+      // 2. 로컬스 변수할당시 배열형으로 지정하고 파싱하기!
+      let memData: Array<any> = JSON.parse(
+        localStorage.getItem("mem-data") ?? "[]"
+      );
+      // -> 여기서 배열형으로 지정하면 아래서 map,push메서드등을
+      // 사용할때 타입에러가 나지 않는다!
+      // -> 널병합 연산자로 로컬스에 데이터가 없을경우 빈배열로 지정함
 
-      // 3. 로컬스 객체변환
-      memData = JSON.parse(memData);
+      // 3. 로컬스 객체변환 -> 위에서 해준다!
+      // memData = JSON.parse(memData);
       // 최대수를 위한 배열값 뽑기 (idx항목)
       let temp = memData.map((v) => v.idx);
       // 다음 번호는 항상 최대수+1이다!
@@ -330,7 +347,8 @@ function Member() {
 
       // 7. 회원가입 환영메시지 + 로그인 페이지 이동
       // 버튼 텍스트에 환영메시지
-      document.querySelector(".sbtn").innerText = "Thank you for joining us!";
+      (document.querySelector(".sbtn") as HTMLButtonElement).innerText =
+        "Thank you for joining us!";
       // 1초후 페이지 이동 : 라우터 Navigate로 이동함
       setTimeout(() => {
         goPage("/login");
@@ -358,7 +376,7 @@ function Member() {
               <label>ID : </label>
               <input
                 type="text"
-                maxLength="20"
+                maxLength={20}
                 placeholder="Please enter your ID"
                 value={userId}
                 onChange={changeUserId}
@@ -403,7 +421,7 @@ function Member() {
               <label>Password : </label>
               <input
                 type="password"
-                maxLength="20"
+                maxLength={20}
                 placeholder="Please enter your Password"
                 value={pwd}
                 onChange={changePwd}
@@ -430,7 +448,7 @@ function Member() {
               <label>Confirm Password : </label>
               <input
                 type="password"
-                maxLength="20"
+                maxLength={20}
                 placeholder="Please enter your Confirm Password"
                 value={chkPwd}
                 onChange={changeChkPwd}
@@ -457,7 +475,7 @@ function Member() {
               <label>User Name : </label>
               <input
                 type="text"
-                maxLength="20"
+                maxLength={20}
                 placeholder="Please enter your Name"
                 value={userName}
                 onChange={changeUserName}
@@ -482,13 +500,13 @@ function Member() {
             </li>
             <li>
               <label>Address</label>
-              {
-                /* 다음 우편번호 모듈
+              {/* 다음 우편번호 모듈
                   - 보내줄 값은 내가 정해야함!
                   - 변경체크함수를 프롭스다운시킴!
-                */
-              }
-              <AddressInput changeAddr={changeAddr} />
+                  - My Page에서 사용할 전달변수 zcode, addr
+                  셋팅값을 null로 보내서 처리함!
+                */}
+              <AddressInput changeAddr={changeAddr} zcode={null} addr={null} />
               {
                 // 에러일 경우 메시지 출력
                 // 조건문 && 출력요소
@@ -510,7 +528,7 @@ function Member() {
               <label>Email : </label>
               <input
                 type="text"
-                maxLength="50"
+                maxLength={50}
                 placeholder="Please enter your Email"
                 value={email}
                 onChange={changeEmail}

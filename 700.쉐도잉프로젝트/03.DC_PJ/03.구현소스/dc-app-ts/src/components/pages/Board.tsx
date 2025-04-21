@@ -18,7 +18,7 @@ function Board() {
   initBoardData();
 
   // [ 로컬스 데이터 변수할당하기! : 원본 배열 데이터 ] //////
-  const baseData = JSON.parse(localStorage.getItem("board-data"));
+  const baseData = JSON.parse(localStorage.getItem("board-data")??"[]");
 
   // [ ★★ 후크 상태관리 변수구역 ★★ ] //////
   // [1] 기능모드 /////
@@ -114,7 +114,7 @@ function Board() {
       // 내림차순은 -1 * order변수값이 1일 경우
       // 오름차순은 -1 * order변수값이 -1일 경우
       //
-      .sort((a, b) =>
+      .sort((a:any, b:any) =>
         a[sortCta] > b[sortCta]
           ? -1 * order
           : a[sortCta] < b[sortCta]
@@ -131,7 +131,7 @@ function Board() {
           ? 1 * order : 0
       )
       // 여기부터 검색어로 리스트 만들기
-      .filter((v) => {
+      .filter((v:any) => {
         if (
           v[keyword.cta].toLowerCase().indexOf(keyword.kw.toLowerCase()) !== -1
         )
@@ -146,7 +146,7 @@ function Board() {
       // 내림차순은 -1 * order변수값이 1일 경우
       // 오름차순은 -1 * order변수값이 -1일 경우
       //
-      .sort((a, b) =>
+      .sort((a:any, b:any) =>
         a[sortCta] > b[sortCta] 
           ? -1 * order
           : a[sortCta] < b[sortCta]
@@ -201,9 +201,10 @@ function Board() {
   const searchFn = () => {
     // 검색어 조건과 검색문자열을 담은 상태변수를 업데이트함!
     // -> 이것을 변경하면 전체가 변경되어 리랜더링된다!
+    // -> 할당되는 요소의 value를 string형으로 정해준다!
     setKeyword({
-      cta: $("#cta").val(),
-      kw: $("#stxt").val(),
+      cta: $("#cta").val() as string,
+      kw: $("#stxt").val() as string,
     });
   }; /////// searchFn 함수 ////////////////////
 
