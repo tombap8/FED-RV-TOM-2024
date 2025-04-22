@@ -4,8 +4,16 @@ import React from "react";
 
 // 제이쿼리 불러오기 ////
 import $ from "jquery";
+import { IModifyProps } from "../../../types/board_props";
 
-function Modify({ setMode, selRecord, totalCount, setPageNum, pgPgNum }) {
+
+function Modify({ 
+  setMode, 
+  selRecord, 
+  totalCount, 
+  setPageNum, 
+  pgPgNum 
+}: IModifyProps) {
   // setMode - 모든 변경 상태변수 setter
   // selRecord - 선택데이터 참조변수
   // totalCount - 전체 개수 참조변수 (글삭제시 카운트 1감소!)
@@ -19,9 +27,11 @@ function Modify({ setMode, selRecord, totalCount, setPageNum, pgPgNum }) {
   // 글쓰기 저장 서브밋 함수 //////
   const submitFn = () => {
     // 제목입력항목
-    let title = $(".subject").val().trim();
+    let title = 
+    ($(".subject").val() as string)?.trim();
     // 내용입력항목
-    let content = $(".content").val().trim();
+    let content = 
+    ($(".content").val() as string)?.trim();
     // trim()으로 앞뒤공백 제거후 검사!
 
     // (1) 공통 유효성검사
@@ -35,10 +45,12 @@ function Modify({ setMode, selRecord, totalCount, setPageNum, pgPgNum }) {
     else {
       // 1) 로컬스 읽어와서 객체화하기 ////////////
       // 1-1) 로컬스토리지 게시판 데이터 불러오기
-      let localData = localStorage.getItem("board-data");
+      let localData = 
+      JSON.parse(
+        localStorage.getItem("board-data")?? "[]");
 
-      // 1-2) JSON.parse()로 배열객체로 변환
-      localData = JSON.parse(localData);
+      // 1-2) JSON.parse()로 배열객체로 변환 -> 위에서함!
+      // localData = JSON.parse(localData);
 
       // 2) 수정할 현재 데이터 idx값(키값)
       let currIdx = selData.idx;
@@ -46,7 +58,7 @@ function Modify({ setMode, selRecord, totalCount, setPageNum, pgPgNum }) {
 
       // 3) 로컬스 객체화 데이터 배열을 find로 순회하여
       // 해당 idx만 찾아서 제목과 내용 변경하기
-      localData.find((v) => {
+      localData.find((v:any) => {
         if (v.idx === currIdx) {
           // 제목, 내용변경
           v.tit = title;
@@ -79,10 +91,10 @@ function Modify({ setMode, selRecord, totalCount, setPageNum, pgPgNum }) {
 
       // 1) 로컬스 읽어와서 객체화하기 ////////////
       // 1-1) 로컬스토리지 게시판 데이터 불러오기
-      let localData = localStorage.getItem("board-data");
+      let localData = JSON.parse(localStorage.getItem("board-data") ?? "[]");
 
       // 1-2) JSON.parse()로 배열객체로 변환
-      localData = JSON.parse(localData);
+      // localData = JSON.parse(localData);
 
       // 2) 수정할 현재 데이터 idx값(키값)
       let currIdx = selData.idx;
@@ -92,7 +104,7 @@ function Modify({ setMode, selRecord, totalCount, setPageNum, pgPgNum }) {
       // 해당 idx만 삭제 처리한다!
       // find()와 달리 some()은 결과값을 boolean값으로 리턴함
       // 어째든 find()나 some()은 return true하면 순회를 멈춘다!
-      localData.some((v, i) => {
+      localData.some((v:any, i:number) => {
         if (v.idx === currIdx) {
           // 삭제 처리 : i는 해당 배열순번
           localData.splice(i, 1);
@@ -132,7 +144,7 @@ function Modify({ setMode, selRecord, totalCount, setPageNum, pgPgNum }) {
               <input
                 type="text"
                 className="name"
-                size="20"
+                size={20}
                 readOnly={true}
                 defaultValue={selData.unm}
               />
@@ -144,7 +156,7 @@ function Modify({ setMode, selRecord, totalCount, setPageNum, pgPgNum }) {
               <input
                 type="text"
                 className="subject"
-                size="60"
+                size={60}
                 defaultValue={selData.tit}
               />
             </td>
@@ -154,8 +166,8 @@ function Modify({ setMode, selRecord, totalCount, setPageNum, pgPgNum }) {
             <td>
               <textarea
                 className="content"
-                cols="60"
-                rows="10"
+                cols={60}
+                rows={10}
                 defaultValue={selData.cont}
               ></textarea>
             </td>
