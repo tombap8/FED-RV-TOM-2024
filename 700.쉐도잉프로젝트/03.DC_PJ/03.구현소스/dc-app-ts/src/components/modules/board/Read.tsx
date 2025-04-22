@@ -102,10 +102,10 @@ function Read({ setMode, selRecord }: IReadProps) {
   // [1] 코멘트 관련 상태변수 및 참조변수
   // (1) 코멘트 정보 객체저장 상태변수
   const [commentData, setCommentData] = useState([]);
-  // (2) TextArea 요소용 참조변수
+  // (2) TextArea 요소용 참조변수 : <any[]> 배열 제네릭
   const textareaRef = useRef<any[]>([]);
   // (3) 수정중 코멘트 idx 저장변수 : 수정완료시 null값 복원!
-  const [isEditing, setIsEditing] = useState(null);
+  const [isEditing, setIsEditing] = useState(0);
   // (4) 수정중 코멘트 내용 저장변수
   const [editedContent, setEditedContent] = useState("");
 
@@ -168,7 +168,10 @@ function Read({ setMode, selRecord }: IReadProps) {
   const makeCommentData = () => {
     // 로컬스 코멘트 데이터 있을 경우 /////
     if (localStorage.getItem("comment-data")) {
-      let temp = JSON.parse(localStorage.getItem("comment-data")??"[]");
+      let temp = 
+      JSON.parse(
+        localStorage.getItem("comment-data")??"[]"
+      );
       temp = temp
         // 게시글번호와 일치하는 코멘트 글번호만 수집
         .filter((v:any) => v.bid === selData.idx)
@@ -200,7 +203,9 @@ function Read({ setMode, selRecord }: IReadProps) {
   const adjustHeight = () => {
     // 코멘트로 생성된 textarea 수만큼 돌아서 높이값 셋팅!
     // 지운 데이터 순번처리위해 index값이 확인시 필요함!
-    textareaRef.current.forEach((textarea: HTMLTextAreaElement, index: number) => {
+    textareaRef.current.forEach(
+      (textarea, index) => {
+      // (textarea:HTMLTextAreaElement, index:number) => {
       // index는 순회시 순번리턴
       if (textarea) {
         // console.log("높이:", textarea.scrollHeight);
@@ -225,7 +230,10 @@ function Read({ setMode, selRecord }: IReadProps) {
     if (!window.confirm("Are you sure you want to delete?")) return;
 
     // (2) idx값을 비교해서 filter로 제거후 localStrage에 다시 저장
-    let comDt = JSON.parse(localStorage.getItem("comment-data")??"[]");
+    // 이때 null병합 연산자를 사용하여
+    // 로컬스에 데이터가 없을 경우 빈배열로 처리함!
+    let comDt = JSON.parse(
+      localStorage.getItem("comment-data")??"[]");
     // idx가 지울idx와 같지 않은 것만 다시 담기함!
     comDt = comDt.filter((v:any) => v.idx !== idx);
     // 로컬스에 다시 저장!
@@ -236,20 +244,25 @@ function Read({ setMode, selRecord }: IReadProps) {
   }; ////////////// deleteComment 함수 //////////////
 
   // [5] 코멘트 수정상태 변경 함수 /////////////////////
-  const modifyComment = (idx: any) => {
-    // (1) 수정상태모드로 설정
+  const modifyComment = (idx: number) => {
+    // (1) 수정상태모드로 설정 : 초기값을 0으로 숫자형넣기
     setIsEditing(idx);
     // (2) idx값이 동일한 코멘트를 선택
-    const selData = commentData.find((v:any) => v.idx === idx)??{cont:""};
+    const selData = 
+    commentData.find(
+      (v:any) => v.idx === idx)??{cont:""};
+    // 만약 find의 결과가 없으면 cont값을 빈문자열로 처리함!
+
     // (3) 수정대상 코멘트 컨텐트 데이터를 editedContent에 넣기
     setEditedContent(selData.cont);
     // 왜 넣었나요? 바로 다시 수정저장시 그대로 저장될 수 있게함!
   }; /// modifyComment 함수 //////////////
 
   // [6] 코멘트 수정저장 함수 /////////////////////
-  const saveModifiedComment = (idx:any) => {
+  const saveModifiedComment = (idx:number) => {
     // (1) 원본 코멘트 로컬스 데이터 불러와서 파싱하기
-    let comDt = JSON.parse(localStorage.getItem("comment-data")??"[]");
+    let comDt = JSON.parse(
+      localStorage.getItem("comment-data")??"[]");
 
     // (2) 파싱된 배열데이터의 해당 코멘트의 cont값을 변경함!
     comDt = comDt.map((v:any) =>
@@ -260,7 +273,8 @@ function Read({ setMode, selRecord }: IReadProps) {
     localStorage.setItem("comment-data", JSON.stringify(comDt));
 
     // (4) 수정이 끝났으므로 수정모드 해제하기!
-    setIsEditing(null); // 버튼이 다시 Send -> Modify로 변경
+    setIsEditing(0); // 버튼이 다시 Send -> Modify로 변경
+    // 기본값은 number형인 0으로 초기화함!
 
     // (5) 코멘트 데이터 상태변수에 반영하기
     makeCommentData();
@@ -278,9 +292,8 @@ function Read({ setMode, selRecord }: IReadProps) {
   }, []); ///// useEffect ///////////
 
   // ★★★★★★★★★★★★★★★★★★★★★★★ ////
+  ///////////////// 리턴 코드구역 ///////////////////
   // ★★★★★★★★★★★★★★★★★★★★★★★ ////
-  // ★★★★★★★★★★★★★★★★★★★★★★★ ////
-  // 리턴 코드구역 ///////////////////
   return (
     <main className="cont">
       <h1 className="tit">OPINION</h1>
@@ -397,7 +410,7 @@ function Read({ setMode, selRecord }: IReadProps) {
             <tbody>
               {
                 // 코멘트 테이터 만큼 반복생성하기
-                commentData.map((v:any, i:any) => (
+                commentData.map((v:any, i:number) => (
                   <tr key={i}>
                     {/* (1) 코멘트 쓴이 이름 */}
                     <td style={{ fontSize: "16px", fontWeight: "normal" }}>
@@ -449,8 +462,9 @@ function Read({ setMode, selRecord }: IReadProps) {
                         className="comment-view-box"
                         // 내용에 따른 높이값 정보를 참조변수에 노출
                         // 자기자신을 참조변수 textareaRef에 할당!
-                        ref={(el) => {
-                          textareaRef.current[i] = el as HTMLTextAreaElement | null;
+                        ref={(el) =>{ 
+                          textareaRef.current[i] = 
+                          el as HTMLTextAreaElement | null
                         }}
                         value={
                           isEditing === v.idx // 수정해당이면

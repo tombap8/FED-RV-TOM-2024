@@ -29,3 +29,18 @@ export interface IReadProps {
   setMode: (mode: string) => void;
   selRecord: React.MutableRefObject<any>;
 }
+
+// 보통 인터페이스 이름 작명시 I로 시작하는 경우가 많다!
+//    - I는 Interface의 약자이다!
+//    - Read는 컴포넌트명
+//    - Props는 속성의 약자이다!
+
+// 3. 게시판 쓰기모드 타입 정의하기
+//    - 게시판 쓰기모드에서 사용하는 props 타입정의
+export interface IWriteProps {
+  setMode: (mode: string) => void;
+  totalCount: React.MutableRefObject<number>;
+  setPageNum: (pageNum: number) => void;
+  pgPgNum: React.MutableRefObject<number>;
+  initVariables: () => void;
+}
