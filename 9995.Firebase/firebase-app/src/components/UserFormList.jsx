@@ -1,9 +1,9 @@
 // 사용자 정보 입력 및 리스트 출력 컴포넌트
 // Firebase와 연결된 사용자 정보 입력 및 리스트 출력 컴포넌트
-
+import '../css/user_form.scss'; // CSS 파일 import
 const UserFormList = () => {
   return (
-    <div>
+    <div className="user-form">
       <h2>Firebase Users</h2>
       {/* 이름 입력 필드 */}
         <input 
