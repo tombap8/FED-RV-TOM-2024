@@ -18,7 +18,8 @@
     font-size: 30px;
 }
 
-.user-form label {
+// 상위레벨 라벨
+.user-form > label {
     display: block;
     margin-bottom: 10px;
     font-size: 25px;

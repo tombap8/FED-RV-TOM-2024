@@ -78,6 +78,9 @@ const UserFormList = () => {
   const [isEditMode, setIsEditMode] = useState(false);
   // (6) 수정할 사용자 ID
   const [editUserId, setEditUserId] = useState(null);
+  // (7) 정렬 필드 및 순서 상태 추가
+  const [sortField, setSortField] = useState("name");
+  const [sortOrder, setSortOrder] = useState("asc");
 
   // [2] 사용자 데이터 가져오기 함수 //////
   // 파이어베이스에서 사용자 목록을 가져오는 함수
@@ -132,7 +135,7 @@ const UserFormList = () => {
         // 사용할 컬렉션 가져오기 //
         const usersRef = collection(db, "users");
 
-        // [최대값 idx 값을 찾기위한 쿼리]        
+        // [최대값 idx 값을 찾기위한 쿼리]
         const maxIdxQuery = await getDocs(
           query(usersRef, orderBy("idx", "desc"), limit(1))
         );
@@ -144,7 +147,7 @@ const UserFormList = () => {
         // 최대값 변수에 숫자를 할당함
         let maxIdx = 0;
         // 쿼리 결과가 비어있지 않으면 최대값을 찾음
-        if(!maxIdxQuery.empty){
+        if (!maxIdxQuery.empty) {
           const lastDoc = maxIdxQuery.docs[0].data();
           maxIdx = lastDoc.idx || 0;
         }
@@ -166,6 +169,8 @@ const UserFormList = () => {
           age: Number(userAge),
           // 나이는 숫자형으로 변환하여 저장합니다.
           addr: userAddr,
+          // 날짜넣기 : 날짜객체를 넣으면 날짜형식으로 저장됨
+          date: new Date(),
         });
         // addDoc은 Firestore에 문서를 추가하는 함수입니다.
         // collection은 Firestore에서 컬렉션을 참조하는 함수입니다.
@@ -277,30 +282,72 @@ const UserFormList = () => {
       {/* 사용자 리스트 출력 */}
       <div className="user-list">
         <h2>사용자 리스트</h2>
+        {/* 정렬옵션박스 */}
+        {/* 정렬 옵션 선택 */}
+        <div
+          style={{
+            backgroundColor: "#ccc",
+            marginBottom: "1rem",
+            padding: "0.5rem",
+            borderRadius: "5px",
+            textAlign: "center",
+          }}
+        >
+          <label>정렬 기준:</label>
+          <select
+            value={sortField}
+            onChange={(e) => setSortField(e.target.value)}
+          >
+            <option value="name">이름</option>
+            <option value="age">나이</option>
+            <option value="date">등록일</option>
+          </select>
+          &nbsp;&nbsp;
+          <label>정렬 순서:</label>
+          <select
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}
+          >
+            <option value="asc">오름차순</option>
+            <option value="desc">내림차순</option>
+          </select>
+        </div>
+
+        {/* 사용자 목록 */}
         <ul>
-          {userList.map((user) => (
-            <li key={user.id}>
-              {/* 사용자이름 (나이) - 주소 */}
-              {user.name} ({user.age}세) - {user.addr ?? "주소없음"} &nbsp;
-              <button
-                onClick={() => {
-                  // 수정모드 실행 함수 호출!
-                  editUser(user);
-                  // 수정할 사용자 정보를 editUser() 함수에 전달함
-                }}
-              >
-                수정
-              </button>
-              &nbsp;
-              <button
-                onClick={() =>
-                  window.confirm("삭제하시겠습니까?") && deleteUser(user.id)
-                }
-              >
-                삭제
-              </button>
-            </li>
-          ))}
+          {
+            // 리스트 데이터가 0개 이상일 때만 출력함
+            userList.length > 0 ? (
+              userList.map((user) => (
+                <li key={user.id}>
+                  {/* 사용자이름 (나이) - 주소 */}
+                  {user.name} ({user.age}세) - {user.addr ?? "주소없음"}
+                  &nbsp;
+                  <small>{user.date.toDate().toJSON().substr(0, 10)}</small>
+                  &nbsp;
+                  <button
+                    onClick={() => {
+                      // 수정모드 실행 함수 호출!
+                      editUser(user);
+                      // 수정할 사용자 정보를 editUser() 함수에 전달함
+                    }}
+                  >
+                    수정
+                  </button>
+                  &nbsp;
+                  <button
+                    onClick={() =>
+                      window.confirm("삭제하시겠습니까?") && deleteUser(user.id)
+                    }
+                  >
+                    삭제
+                  </button>
+                </li>
+              ))
+            ) : (
+              <li>사용자 정보가 없습니다.</li>
+            )
+          }
         </ul>
       </div>
     </div>
