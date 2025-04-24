@@ -54,6 +54,8 @@ import {
   deleteDoc,
   doc,
   getDocs,
+  limit,
+  query,
   updateDoc,
 } from "firebase/firestore";
 import { db } from "../js/firebaseConfig";
@@ -123,10 +125,42 @@ const UserFormList = () => {
           addr: userAddr,
         });
       } /// if ///
-      // 수정모드가 아닐때만 실행합니다.
+
+      // 사용자 추가하기 //////////////////////
       else {
+        // 사용할 컬렉션 가져오기 //
+        const usersRef = collection(db, "users");
+
+        // [최대값 idx 값을 찾기위한 쿼리]        
+        const maxIdxQuery = await getDocs(
+          query(usersRef, orderBy("idx", "desc"), limit(1))
+        );
+        // -> idx는 사용자 목록에서 가장 큰 값을 찾기 위한 쿼리입니다.
+        // -> orderBy("idx", "desc")는 idx를 기준으로 내림차순정렬
+        // -> limit(1)은 정렬된 결과에서 첫 번째 문서만 가져옴
+        // -> getDocs()는 쿼리 결과를 가져오는 함수
+
+        // 최대값 변수에 숫자를 할당함
+        let maxIdx = 0;
+        // 쿼리 결과가 비어있지 않으면 최대값을 찾음
+        if(!maxIdxQuery.empty){
+          const lastDoc = maxIdxQuery.docs[0].data();
+          maxIdx = lastDoc.idx || 0;
+        }
+        // idx는 숫자형으로 변환하여 저장합니다.
+        // lastDoc은 쿼리 결과에서 첫 번째 문서를 가져옵니다.
+        // lastDoc.data()는 문서의 데이터를 가져옵니다.
+        // lastDoc.idx는 문서의 idx 값을 가져옵니다.
+        // 만약 idx 값이 없으면 0을 저장합니다.
+
+        const newIdx = maxIdx + 1;
+
+        // lastDoc.idx + 1은 다음 idx 값을 계산합니다.
+        // -> 결과적으로 최대값+1을 계산하여 maxIdx에 저장합니다.
+
         // 파이어베이스의 'users' 컬렉션에 새로운 문서 추가하기
-        await addDoc(collection(db, "users"), {
+        await addDoc(usersRef, {
+          idx: newIdx,
           name: userName,
           age: Number(userAge),
           // 나이는 숫자형으로 변환하여 저장합니다.
