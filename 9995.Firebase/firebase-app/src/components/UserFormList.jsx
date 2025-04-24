@@ -48,7 +48,14 @@
 ***********************************************************/
 
 import { useEffect, useState } from "react";
-import { addDoc, collection, deleteDoc, doc, getDocs } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  updateDoc,
+} from "firebase/firestore";
 import { db } from "../js/firebaseConfig";
 
 // 디자인 적용을 위한 CSS 파일 import
@@ -107,11 +114,17 @@ const UserFormList = () => {
       // 이름, 나이, 주소가 모두 입력되었는지 확인합니다.
 
       // 수정모드 분기하기 ///
-      if(isEditMode){
-
+      if (isEditMode && editUserId) {
+        // editMode가 true이고 editUserId가 존재할 때
+        // 수정모드일 때는 updateDoc()을 사용하여 문서를 수정합니다.
+        await updateDoc(doc(db, "users", editUserId), {
+          name: userName,
+          age: Number(userAge),
+          addr: userAddr,
+        });
       } /// if ///
       // 수정모드가 아닐때만 실행합니다.
-      else{
+      else {
         // 파이어베이스의 'users' 컬렉션에 새로운 문서 추가하기
         await addDoc(collection(db, "users"), {
           name: userName,
@@ -123,14 +136,15 @@ const UserFormList = () => {
         // collection은 Firestore에서 컬렉션을 참조하는 함수입니다.
         // 'users' 컬렉션의 모든 문서를 가져오기 위해
         // collection(db, 'users')를 사용합니다.
-
       } /// else ///
-
 
       // 입력된 기존 값 초기화하기 ///
       setUserName("");
       setUserAge(0);
       setUserAddr("");
+      // 수정모드도 모두 초기화하기 ///
+      setIsEditMode(false);
+      setEditUserId(null);
 
       // 사용자 목록 업데이트 함수 호출 ///
       getUserList();
@@ -153,12 +167,29 @@ const UserFormList = () => {
     // 이것을 호출해야 갱신된 사용자 목록이 화면에 나옴!
   }; // 사용자 삭제 함수 //////////////
 
+  // [5] 사용자 수정 함수 //////////////
+  const editUser = async (user) => {
+    // 수정할 사용자정보를 user변수로 받아옴!
+
+    // 수정모드업데이트
+    setIsEditMode(true);
+
+    // 수정할 사용자 id 업데이트
+    setEditUserId(user.id);
+    
+    // 기존값을 입력필드에 넣어줌
+    setUserName(user.name);
+    setUserAge(user.age);
+    setUserAddr(user.addr);
+    
+  }; // 사용자 수정하는 함수 //////////////
+
   // 랜더링 후 실행 구역 /////////////
   useEffect(() => {
     // 사용자 정보를 DB에서 가져오는 함수 호출
     getUserList();
   }, []); // 처음 한번만 실행되도록 빈 배열을 넣어줍니다.
-//   }, [userList]); -> 이렇게하면 성능상 문제 발생함!
+  //   }, [userList]); -> 이렇게하면 성능상 문제 발생함!
 
   // 리턴 코드구역 //////////////
   return (
@@ -210,20 +241,23 @@ const UserFormList = () => {
           {userList.map((user) => (
             <li key={user.id}>
               {/* 사용자이름 (나이) - 주소 */}
-              {user.name} ({user.age}세) - {
-              user.addr??'주소없음'} &nbsp;
+              {user.name} ({user.age}세) - {user.addr ?? "주소없음"} &nbsp;
               <button
                 onClick={() => {
-                  // 수정모드업데이트
-                  setIsEditMode(true);
-                  // 기존 사용자 추가함수에 수정할 id보내기
-                  addUser(user.id);
+                  // 수정모드 실행 함수 호출!
+                  editUser(user.id);
                 }}
-              >수정</button>&nbsp;
-              <button 
-              onClick={()=>
-                window.confirm('삭제하시겠습니까?')
-                &&deleteUser(user.id)}>삭제</button>
+              >
+                수정
+              </button>
+              &nbsp;
+              <button
+                onClick={() =>
+                  window.confirm("삭제하시겠습니까?") && deleteUser(user.id)
+                }
+              >
+                삭제
+              </button>
             </li>
           ))}
         </ul>
