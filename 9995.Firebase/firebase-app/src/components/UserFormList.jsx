@@ -1,5 +1,51 @@
 // 사용자 정보 입력 및 리스트 출력 컴포넌트
 // Firebase와 연결된 사용자 정보 입력 및 리스트 출력 컴포넌트
+/*********************************************************** 
+  [ 파이어베이스를 이용한 DB연동 구현]
+   - 핵심기능 : CRUD (Create, Read, Update, Delete)
+    1. 사용자 정보 입력 (이름, 나이, 주소) : addUser()
+    2. 사용자 정보 리스트 출력 (이름, 나이, 주소) : getUserList()
+    3. 사용자 정보 수정 (이름, 나이, 주소) : addUser()
+    4. 사용자 정보 삭제 (이름, 나이, 주소) : deleteUser()
+    ________________________________________________________
+
+    - 파이어베이스 핵심 메서드
+    1. addDoc() : Firestore에 문서를 추가하는 메서드
+    -> addDoc(데이터베이스, 컬렉션, 데이터)
+    예시) addDoc(db, collection(db, "users"), { name: userName })
+
+    2. getDocs() : Firestore에서 문서를 가져오는 메서드
+    -> getDocs(컬렉션(데이터베이스, 컬렉션명))
+    예시) getDocs(collection(db, "users"))
+
+    3. doc() : Firestore에서 문서를 참조하는 메서드
+    -> doc(데이터베이스, 컬렉션명, 문서ID)
+    예시) doc(db, "users", "문서ID")
+    -> 문서ID는 Firestore에서 자동으로 생성됨!
+    -> doc() 메서드는 컬렉션에서 특정 문서를 참조하는 메서드입니다.
+    -> 하나의 레코드와 동일한 개념으로 이해하면 됩니다.
+
+    4. deleteDoc() : Firestore에서 문서를 삭제하는 메서드
+    -> deleteDoc(문서 참조)
+    예시) deleteDoc(doc(db, "users", "문서ID"))
+
+    5. updateDoc() : Firestore에서 문서를 수정하는 메서드
+    -> updateDoc(문서 참조, 수정할 데이터)
+    예시) updateDoc(doc(db, "users", "문서ID"), { name: userName })
+
+    6. collection() : Firestore에서 컬렉션을 참조하는 메서드
+    -> collection(데이터베이스, 컬렉션명)
+    예시) collection(db, "users")
+
+    7. setDoc() : Firestore에서 문서를 설정하는 메서드
+    -> setDoc(문서 참조, 데이터)
+    예시) setDoc(doc(db, "users", "문서ID"), { name: userName })
+    -> setDoc() 메서드는 updateDoc()와 비슷하지만,
+    -> 문서가 없으면 새로 생성하고, 있으면 덮어씌우는 메서드입니다.
+    -> updateDoc() 메서드는 문서가 없으면 에러가 발생합니다.
+    -> setDoc() 메서드는 문서를 생성하거나 수정하는 메서드입니다.
+
+***********************************************************/
 
 import { useEffect, useState } from "react";
 import { addDoc, collection, getDocs } from "firebase/firestore";
