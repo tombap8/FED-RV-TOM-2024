@@ -48,7 +48,7 @@
 ***********************************************************/
 
 import { useEffect, useState } from "react";
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { db } from "../js/firebaseConfig";
 
 // 디자인 적용을 위한 CSS 파일 import
@@ -56,14 +56,18 @@ import "../css/user_form.scss"; // CSS 파일 import
 
 const UserFormList = () => {
   // [1] 상태변수 정의 //////////////
-  // 사용자 이름 상태변수
+  // (1) 사용자 이름
   const [userName, setUserName] = useState("");
-  // 사용자 나이 상태변수 (숫자형)
+  // (2) 사용자 나이 (숫자형)
   const [userAge, setUserAge] = useState(0);
-  // 사용자 주소 상태변수
+  // (3) 사용자 주소
   const [userAddr, setUserAddr] = useState("");
-  // 파이어베이스에서 가져온 사용자 목록 상태변수
+  // (4) 파이어베이스에서 가져온 사용자 목록
   const [userList, setUserList] = useState([]);
+  // (5) 수정모드여부 (true/false)
+  const [isEditMode, setIsEditMode] = useState(false);
+  // (6) 수정할 사용자 ID
+  const [editUserId, setEditUserId] = useState(null);
 
   // [2] 사용자 데이터 가져오기 함수 //////
   // 파이어베이스에서 사용자 목록을 가져오는 함수
@@ -99,18 +103,29 @@ const UserFormList = () => {
 
     // 사용자 정보를 파이어베이스에 추가하는 함수
     // 이름과 나이가 입력되었는지 확인하기
-    if (userName && userAge) {
-      // 파이어베이스의 'users' 컬렉션에 새로운 문서 추가하기
-      await addDoc(collection(db, "users"), {
-        name: userName,
-        age: Number(userAge),
-        // 나이는 숫자형으로 변환하여 저장합니다.
-        addr: userAddr,
-      });
-      // addDoc은 Firestore에 문서를 추가하는 함수입니다.
-      // collection은 Firestore에서 컬렉션을 참조하는 함수입니다.
-      // 'users' 컬렉션의 모든 문서를 가져오기 위해
-      // collection(db, 'users')를 사용합니다.
+    if (userName && userAge && userAddr) {
+      // 이름, 나이, 주소가 모두 입력되었는지 확인합니다.
+
+      // 수정모드 분기하기 ///
+      if(isEditMode){
+
+      } /// if ///
+      // 수정모드가 아닐때만 실행합니다.
+      else{
+        // 파이어베이스의 'users' 컬렉션에 새로운 문서 추가하기
+        await addDoc(collection(db, "users"), {
+          name: userName,
+          age: Number(userAge),
+          // 나이는 숫자형으로 변환하여 저장합니다.
+          addr: userAddr,
+        });
+        // addDoc은 Firestore에 문서를 추가하는 함수입니다.
+        // collection은 Firestore에서 컬렉션을 참조하는 함수입니다.
+        // 'users' 컬렉션의 모든 문서를 가져오기 위해
+        // collection(db, 'users')를 사용합니다.
+
+      } /// else ///
+
 
       // 입력된 기존 값 초기화하기 ///
       setUserName("");
@@ -123,7 +138,22 @@ const UserFormList = () => {
     } /// if ////
   }; // 사용자 추가 함수 //////////////
 
-  // [4] 랜더링 후 실행 구역 /////////////
+  // [4] 사용자 삭제 함수 //////////////
+  const deleteUser = async (id) => {
+    // 사용자를 삭제하는 함수
+    // 파이어베이스의 'users' 컬렉션에서 사용자를 삭제하는 함수
+    await deleteDoc(doc(db, "users", id));
+    // deleteDoc은 Firestore에서 문서를 삭제하는 함수입니다.
+    // doc은 Firestore에서 문서를 참조하는 함수입니다.
+    // 'users' 컬렉션의 모든 문서를 가져오기 위해
+    // doc(db, 'users', id)를 사용합니다.
+
+    // 사용자 목록 업데이트 함수 호출 ///
+    getUserList();
+    // 이것을 호출해야 갱신된 사용자 목록이 화면에 나옴!
+  }; // 사용자 삭제 함수 //////////////
+
+  // 랜더링 후 실행 구역 /////////////
   useEffect(() => {
     // 사용자 정보를 DB에서 가져오는 함수 호출
     getUserList();
@@ -179,7 +209,21 @@ const UserFormList = () => {
         <ul>
           {userList.map((user) => (
             <li key={user.id}>
-              {user.name} ({user.age}세) - {user.addr}
+              {/* 사용자이름 (나이) - 주소 */}
+              {user.name} ({user.age}세) - {
+              user.addr??'주소없음'} &nbsp;
+              <button
+                onClick={() => {
+                  // 수정모드업데이트
+                  setIsEditMode(true);
+                  // 기존 사용자 추가함수에 수정할 id보내기
+                  addUser(user.id);
+                }}
+              >수정</button>&nbsp;
+              <button 
+              onClick={()=>
+                window.confirm('삭제하시겠습니까?')
+                &&deleteUser(user.id)}>삭제</button>
             </li>
           ))}
         </ul>
