@@ -176,12 +176,11 @@ const UserFormList = () => {
 
     // 수정할 사용자 id 업데이트
     setEditUserId(user.id);
-    
+
     // 기존값을 입력필드에 넣어줌
     setUserName(user.name);
     setUserAge(user.age);
     setUserAddr(user.addr);
-    
   }; // 사용자 수정하는 함수 //////////////
 
   // 랜더링 후 실행 구역 /////////////
@@ -228,7 +227,9 @@ const UserFormList = () => {
       />
 
       {/* 사용자 추가 버튼 */}
-      <button onClick={addUser}>사용자 추가</button>
+      <button onClick={addUser}>
+        {isEditMode ? "사용자 수정" : "사용자 추가"}
+      </button>
 
       <br />
       <br />
@@ -245,7 +246,8 @@ const UserFormList = () => {
               <button
                 onClick={() => {
                   // 수정모드 실행 함수 호출!
-                  editUser(user.id);
+                  editUser(user);
+                  // 수정할 사용자 정보를 editUser() 함수에 전달함
                 }}
               >
                 수정
