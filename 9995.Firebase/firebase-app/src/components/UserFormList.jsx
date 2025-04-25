@@ -257,8 +257,8 @@ const UserFormList = () => {
       setIsEditMode(false);
       setEditUserId(null);
 
-      // 사용자 목록 업데이트 함수 호출 ///
-      getUserList();
+      // 초기화 함수 호출 ///
+      initPagination();
       // 이것을 호출해야 갱신된 사용자 목록이 화면에 나옴!
     } /// if ////
     else {
@@ -277,8 +277,8 @@ const UserFormList = () => {
     // 'users' 컬렉션의 모든 문서를 가져오기 위해
     // doc(db, 'users', id)를 사용합니다.
 
-    // 사용자 목록 업데이트 함수 호출 ///
-    getUserList();
+    // 초기화 함수 호출 ///
+    initPagination();
     // 이것을 호출해야 갱신된 사용자 목록이 화면에 나옴!
   }; // 사용자 삭제 함수 //////////////
 
