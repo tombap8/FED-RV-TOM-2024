@@ -85,7 +85,7 @@ const UserFormList = () => {
   // (8) 페이지네이션을 위한 상태변수 추가
   // 페이지당 문서수
   const PAGE_SIZE = 3; 
-  // 전체 페이지수
+  // 페이지네이션 페이지수
   const [pageCount, setPageCount] = useState(0); 
   // 현재 페이지번호
   const [currentPage, setCurrentPage] = useState(1);
@@ -302,8 +302,24 @@ const UserFormList = () => {
 
     // 3. 전체 문서 개수 구하기
     const totalDocs = allDocsData.length;
+    // console.log('전체문서데이터:',allDocsData,'/개수',totalDocs);
 
-    console.log('전체문서데이터:',allDocsData,'/개수',totalDocs);
+    // 4. 페이지네이션 총 개수 구하기
+    const pageNum = Math.ceil(totalDocs / PAGE_SIZE);
+    console.log('페이징개수:',pageNum);
+
+    // 5. 페이지네이션 상태변수에 저장하기
+    setPageCount(pageNum);
+
+    // (((★★★중요!!!★★★)))
+    // 6. 각 페이지의 '이전 페이지 마지막 문서'를 저장함
+    const startDoc = [];
+    for(let i = PAGE_SIZE - 1; i < totalDocs; i += PAGE_SIZE) {
+      startDoc.push(allDocsData[i]);
+    } /// for ///
+
+    console.log(startDoc);
+
     
   } ///////// initPagination /////////
 
