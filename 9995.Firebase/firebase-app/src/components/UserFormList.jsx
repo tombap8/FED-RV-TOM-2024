@@ -57,6 +57,7 @@ import {
   limit,
   orderBy,
   query,
+  startAfter,
   updateDoc,
 } from "firebase/firestore";
 import { db } from "../js/firebaseConfig";
@@ -89,23 +90,53 @@ const UserFormList = () => {
   // 현재 페이지번호
   const [currentPage, setCurrentPage] = useState(1);
   // 각 페이지 시작점을 적용하기 위한 문서저장 배열변수
-  const [pageStart, setPageStart] = useState([]); 
+  const [pageStartDoc, setPageStartDoc] = useState([]); 
+  // -> pageStartDoc변수에 배열값 셋팅을 위해 초기화함수가 필요함!
+  // -> initPagenation() 함수를 이용해 배열값 셋팅
 
 
   // [2] 사용자 데이터 가져오기 함수 //////
   // 파이어베이스에서 사용자 목록을 가져오는 함수
-  const getUserList = async () => {
+  const getUserList = async (page, startDoc) => {
+    // page는 현재페이지, startDoc는 이전페이지 데이터 배열
+    // -> 이전페이지 데이터 배열이 왜 필요하지?
+    // 이유는 startAfter라고 하는 함수에서 시작 문서가
+    // 이전 페이지의 마지막 문서를 넣어야 하므로 배열 데이터를 
+    // 이전 페이지것을 가져와야 한다!
+
     // async/await를 사용하여 비동기적으로 데이터를 가져옵니다.
     // 비동기 함수는 async 키워드로 정의합니다.
 
     // 1. 컬렉션 선택하기
     const setCollection = collection(db, "users");
 
+    // 쿼리변수 선언
+    let q;
+
     // 2. 정렬 필드와 순서 설정하기
-    const q = query(setCollection, orderBy(sortField, sortOrder));
-    // orderBy(정렬필드,정렬순서) 메서드를 사용하여
-    // 정렬 필드와 순서를 설정하고
-    // query() 메서드를 사용하여 쿼리를 생성함
+    // 페이징 적용을 위한 분기
+    // 2-1. 1페이지인 경우
+    if(page === 1) {      
+      q = query(
+        setCollection, 
+        orderBy(sortField, sortOrder),
+        limit(PAGE_SIZE)
+      );
+      // orderBy(정렬필드,정렬순서) 메서드를 사용하여
+      // 정렬 필드와 순서를 설정하고
+      // query() 메서드를 사용하여 쿼리를 생성함
+    } // if /////
+
+    // 2-2. 1페이지가 아닌 경우
+    else{
+      q = query(
+        setCollection, 
+        orderBy(sortField, sortOrder),
+        startAfter(startDoc[page - 1]), // 이전 페이지의 마지막 문서이후부터 시작!
+        limit(PAGE_SIZE)
+      );
+      console.log('이전페이지 마지막문서:',startDoc[page - 1]);
+    } // else /////
 
     // 3. 정렬된 데이터로 'users' 컬렉션의 모든 문서 가져오기
     const allCollection = await getDocs(q);
@@ -133,9 +164,12 @@ const UserFormList = () => {
     // 결과 :
     // {id: 'sdfasd56f75f78g', name: 'test', age: 20, addr: 'seoul'}
 
-    // 사용자 리스트 상태 변수를 업데이트함!
+    // 5. 사용자 리스트 상태 변수를 업데이트함!
     setUserList(userListArray);
     // setUserList는 상태변수를 업데이트하는 함수입니다.
+
+    // 6. 현재 페이지 업데이트
+    setCurrentPage(page);
   }; // 사용자 목록을 가져오는 함수 //////////////
 
   // [3] 사용자 추가 함수 //////////////
@@ -256,10 +290,29 @@ const UserFormList = () => {
     setUserAddr(user.addr);
   }; // 사용자 수정하는 함수 //////////////
 
+  // [6] 페이지네이션 초기화 함수 ////////
+  const initPagination = async() => {
+    // 1. 전체 문서가져오기
+    const allDocs = await getDocs(
+      query(collection(db, "users"), orderBy(sortField, sortOrder))
+    );
+
+    // 2. 전체 문서 데이터 구하기
+    const allDocsData = allDocs.docs;
+
+    // 3. 전체 문서 개수 구하기
+    const totalDocs = allDocsData.length;
+
+    console.log('전체문서데이터:',allDocsData,'/개수',totalDocs);
+    
+  } ///////// initPagination /////////
+
   // 랜더링 후 실행 구역 /////////////
   useEffect(() => {
+    // 페이지네이션 초기화함수 호출
+    initPagination();
     // 사용자 정보를 DB에서 가져오는 함수 호출
-    getUserList();
+    // getUserList();
   }, [sortField, sortOrder]);
   // ★★★ 정렬변경시 반영되게 하려면 의존성에 넣어준다!
 
@@ -421,6 +474,7 @@ const UserFormList = () => {
             // 전달값 변경함수가 생성한 값을 page변수가 받음
             .map((page) => (
               <button
+                key={page}
                 style={{
                   margin: "0 5px",
                   fontWeight: currentPage === page ? "bold" : "normal",
