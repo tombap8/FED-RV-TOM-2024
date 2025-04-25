@@ -132,7 +132,15 @@ const UserFormList = () => {
       q = query(
         setCollection, 
         orderBy(sortField, sortOrder),
-        startAfter(startDoc[page - 1]), // 이전 페이지의 마지막 문서이후부터 시작!
+        startAfter(startDoc[page - 2]), 
+        // 이전 페이지의 마지막 문서이후부터 시작!
+        // 왜 2를 빼지? 현재 페이지번호 보다 배열번호는
+        // 1작기 때문에 2페이지의 이전 페이지는 1이 아니라 0임
+        // 이런 원리로 2를 빼야 배열순번이 일치함!
+        // 이 배열순번은 startDoc 배열의 순번을 읽어오는 것임!
+        // 2페이지->startDoc[0]
+        // 3페이지->startDoc[1]
+        // 4페이지->startDoc[2]
         limit(PAGE_SIZE)
       );
       console.log('이전페이지 마지막문서:',startDoc[page - 1]);
@@ -314,11 +322,23 @@ const UserFormList = () => {
     // (((★★★중요!!!★★★)))
     // 6. 각 페이지의 '이전 페이지 마지막 문서'를 저장함
     const startDoc = [];
-    for(let i = PAGE_SIZE - 1; i < totalDocs; i += PAGE_SIZE) {
+    for(let i = PAGE_SIZE - 1; i < totalDocs; i += PAGE_SIZE) {      
       startDoc.push(allDocsData[i]);
+      // for문 돌린후 i의 값을 찍어보자
+      console.log('순번:',i);
     } /// for ///
 
+    // 2, 5, 8, 11X
+    // {0,1,2} {3,4,5} {6,7,8} {9}
+    // 이 순번은 매 배열의 마지막 순번임!!!    
+
     console.log(startDoc);
+
+    // 7. pageStartDoc 상태변수에 저장하기
+    setPageStartDoc(startDoc);
+
+    // 8. 리스트 함수 호출
+    getUserList(1, startDoc);
 
     
   } ///////// initPagination /////////
@@ -486,11 +506,12 @@ const UserFormList = () => {
           {
             // 특정개수만큼 배열 만들어 돌리기
             // Array.from({length: 개수},전달값변경함수)
-            Array.from({ length: 5 }, (_, i) => i + 1)
+            Array.from({ length: pageCount }, (_, i) => i + 1)
             // 전달값 변경함수가 생성한 값을 page변수가 받음
             .map((page) => (
               <button
                 key={page}
+                onClick={()=>getUserList(page, pageStartDoc)}
                 style={{
                   margin: "0 5px",
                   fontWeight: currentPage === page ? "bold" : "normal",
