@@ -87,8 +87,19 @@ const UserFormList = () => {
   const getUserList = async () => {
     // async/await를 사용하여 비동기적으로 데이터를 가져옵니다.
     // 비동기 함수는 async 키워드로 정의합니다.
-    // 파이어베이스의 'users' 컬렉션의 모든 문서 가져오기
-    const allCollection = await getDocs(collection(db, "users"));
+
+    // 1. 컬렉션 선택하기
+    const setCollection = collection(db, "users");
+
+    // 2. 정렬 필드와 순서 설정하기
+    const q = query(setCollection, orderBy(sortField, sortOrder));
+    // orderBy(정렬필드,정렬순서) 메서드를 사용하여 
+    // 정렬 필드와 순서를 설정하고
+    // query() 메서드를 사용하여 쿼리를 생성함
+
+
+    // 3. 정렬된 데이터로 'users' 컬렉션의 모든 문서 가져오기
+    const allCollection = await getDocs(q);
     // await는 비동기 함수에서 사용하여
     // Promise가 해결될 때까지 기다립니다.
     // getDocs는 Firestore에서 문서를 가져오는 함수입니다.
@@ -96,13 +107,22 @@ const UserFormList = () => {
     // 'users' 컬렉션의 모든 문서를 가져오기 위해
     // collection(db, 'users')를 사용합니다.
 
-    // 가져온 문서들을 배열로 변환하기
-    // 비동기코드로 가져온 후 데이터를 할당하는 아래 코드가
-    // 실행된다!
+    // 4. 가져온 문서들을 배열로 변환하기
     const userListArray = allCollection.docs.map((doc) => {
       console.log(doc.id, " => ", doc.data());
       return { id: doc.id, ...doc.data() };
     });
+    // 비동기코드로 가져온 후 데이터를 할당하는 아래 코드가
+    // 실행된다!
+    // allCollection 에 담긴 파이어베이스 컬렉션에서
+    // 하위 문서들을 배열로 받기위해서는 .docs를 사용하면 됨.
+
+    // 하위에 id는 고유id로 파이어베이스에서 생성된 것
+    // ...doc.data()라고 스프레드 연산자를 쓴 이유는
+    // {name: 'test', age: 20, addr: 'seoul'} 이라고
+    // 나오므로 내부의 데이터만 가져오기 위해 사용한 것이다!
+    // 결과 : 
+    // {id: 'sdfasd56f75f78g', name: 'test', age: 20, addr: 'seoul'}
 
     // 사용자 리스트 상태 변수를 업데이트함!
     setUserList(userListArray);
@@ -231,8 +251,8 @@ const UserFormList = () => {
   useEffect(() => {
     // 사용자 정보를 DB에서 가져오는 함수 호출
     getUserList();
-  }, []); // 처음 한번만 실행되도록 빈 배열을 넣어줍니다.
-  //   }, [userList]); -> 이렇게하면 성능상 문제 발생함!
+  }, [sortField, sortOrder]); 
+  // ★★★ 정렬변경시 반영되게 하려면 의존성에 넣어준다!
 
   // 리턴 코드구역 //////////////
   return (
@@ -323,7 +343,17 @@ const UserFormList = () => {
                   {/* 사용자이름 (나이) - 주소 */}
                   {user.name} ({user.age}세) - {user.addr ?? "주소없음"}
                   &nbsp;
-                  <small>{user.date.toDate().toJSON().substr(0, 10)}</small>
+                  <small>
+                  {
+                    // 날짜형식 데이터 변경해서 넣기
+                    // toJSON() -> YYYY-MM-DDThh:mm:ss
+                  user.date.toDate().toJSON()
+                  .slice(2, 2+8) // YY-MM-DD
+                  // 요즘은 substr() 안쓰고 새로나온 slice()를씀
+                  // slice(시작순번,끝순번)
+                  // 뒤의 끝순번을 개수로 사용하고 싶으면
+                  // slice(시작순번, 시작순번+개수)
+                  }</small>
                   &nbsp;
                   <button
                     onClick={() => {
