@@ -93,10 +93,9 @@ const UserFormList = () => {
 
     // 2. 정렬 필드와 순서 설정하기
     const q = query(setCollection, orderBy(sortField, sortOrder));
-    // orderBy(정렬필드,정렬순서) 메서드를 사용하여 
+    // orderBy(정렬필드,정렬순서) 메서드를 사용하여
     // 정렬 필드와 순서를 설정하고
     // query() 메서드를 사용하여 쿼리를 생성함
-
 
     // 3. 정렬된 데이터로 'users' 컬렉션의 모든 문서 가져오기
     const allCollection = await getDocs(q);
@@ -121,7 +120,7 @@ const UserFormList = () => {
     // ...doc.data()라고 스프레드 연산자를 쓴 이유는
     // {name: 'test', age: 20, addr: 'seoul'} 이라고
     // 나오므로 내부의 데이터만 가져오기 위해 사용한 것이다!
-    // 결과 : 
+    // 결과 :
     // {id: 'sdfasd56f75f78g', name: 'test', age: 20, addr: 'seoul'}
 
     // 사용자 리스트 상태 변수를 업데이트함!
@@ -251,7 +250,7 @@ const UserFormList = () => {
   useEffect(() => {
     // 사용자 정보를 DB에서 가져오는 함수 호출
     getUserList();
-  }, [sortField, sortOrder]); 
+  }, [sortField, sortOrder]);
   // ★★★ 정렬변경시 반영되게 하려면 의존성에 넣어준다!
 
   // 리턴 코드구역 //////////////
@@ -341,37 +340,54 @@ const UserFormList = () => {
               userList.map((user) => (
                 <li key={user.id}>
                   {/* 사용자이름 (나이) - 주소 */}
-                  {user.name} ({user.age}세) - {user.addr ?? "주소없음"}
+                  {user.name} ({user.age}세) 🏡 {
+                  '주소:'+user.addr ?? "주소없음"}
                   &nbsp;
-                  <small>
-                  {
-                    // 날짜형식 데이터 변경해서 넣기
-                    // toJSON() -> YYYY-MM-DDThh:mm:ss
-                  user.date.toDate().toJSON()
-                  .slice(2, 2+8) // YY-MM-DD
-                  // 요즘은 substr() 안쓰고 새로나온 slice()를씀
-                  // slice(시작순번,끝순번)
-                  // 뒤의 끝순번을 개수로 사용하고 싶으면
-                  // slice(시작순번, 시작순번+개수)
-                  }</small>
-                  &nbsp;
-                  <button
-                    onClick={() => {
-                      // 수정모드 실행 함수 호출!
-                      editUser(user);
-                      // 수정할 사용자 정보를 editUser() 함수에 전달함
-                    }}
-                  >
-                    수정
-                  </button>
-                  &nbsp;
-                  <button
-                    onClick={() =>
-                      window.confirm("삭제하시겠습니까?") && deleteUser(user.id)
-                    }
-                  >
-                    삭제
-                  </button>
+                  <small style={{ display: "block" }}>
+                    [{
+                      // 날짜형식 데이터 변경해서 넣기
+                      // toJSON() -> YYYY-MM-DDThh:mm:ss
+                      user.date
+                        .toDate()
+                        .toJSON()
+                        .slice(2, 2 + 8) // YY-MM-DD
+                      // 요즘은 substr() 안쓰고 새로나온 slice()를씀
+                      // slice(시작순번,끝순번)
+                      // 뒤의 끝순번을 개수로 사용하고 싶으면
+                      // slice(시작순번, 시작순번+개수)
+                    } &nbsp;
+                    ({
+                      // 시간형식으로 출력하기
+                      user.date
+                        .toDate()
+                        // toLocaleTimeString(국가코드,{출력형식})
+                        .toLocaleTimeString("ko-KR", {
+                          hour: "2-digit", // 2자릿수
+                          minute: "2-digit", // 2자릿수
+                          second: "2-digit", // 2자릿수
+                          hour12: true, // 12시간제(오전/오후표시)
+                        })
+                    })]
+                    &nbsp;
+                    <button
+                      onClick={() => {
+                        // 수정모드 실행 함수 호출!
+                        editUser(user);
+                        // 수정할 사용자 정보를 editUser() 함수에 전달함
+                      }}
+                    >
+                      수정
+                    </button>
+                    &nbsp;
+                    <button
+                      onClick={() =>
+                        window.confirm("삭제하시겠습니까?") &&
+                        deleteUser(user.id)
+                      }
+                    >
+                      삭제
+                    </button>
+                  </small>
                 </li>
               ))
             ) : (
