@@ -81,6 +81,16 @@ const UserFormList = () => {
   // (7) 정렬 필드 및 순서 상태 추가
   const [sortField, setSortField] = useState("name");
   const [sortOrder, setSortOrder] = useState("asc");
+  // (8) 페이지네이션을 위한 상태변수 추가
+  // 페이지당 문서수
+  const PAGE_SIZE = 3; 
+  // 전체 페이지수
+  const [pageCount, setPageCount] = useState(0); 
+  // 현재 페이지번호
+  const [currentPage, setCurrentPage] = useState(1);
+  // 각 페이지 시작점을 적용하기 위한 문서저장 배열변수
+  const [pageStart, setPageStart] = useState([]); 
+
 
   // [2] 사용자 데이터 가져오기 함수 //////
   // 파이어베이스에서 사용자 목록을 가져오는 함수
@@ -340,11 +350,12 @@ const UserFormList = () => {
               userList.map((user) => (
                 <li key={user.id}>
                   {/* 사용자이름 (나이) - 주소 */}
-                  {user.name} ({user.age}세) 🏡 {
-                  '주소:'+user.addr ?? "주소없음"}
+                  {user.name} ({user.age}세) 🏡{" "}
+                  {"주소:" + user.addr ?? "주소없음"}
                   &nbsp;
                   <small style={{ display: "block" }}>
-                    [{
+                    [
+                    {
                       // 날짜형식 데이터 변경해서 넣기
                       // toJSON() -> YYYY-MM-DDThh:mm:ss
                       user.date
@@ -355,8 +366,9 @@ const UserFormList = () => {
                       // slice(시작순번,끝순번)
                       // 뒤의 끝순번을 개수로 사용하고 싶으면
                       // slice(시작순번, 시작순번+개수)
-                    } &nbsp;
-                    ({
+                    }{" "}
+                    &nbsp; (
+                    {
                       // 시간형식으로 출력하기
                       user.date
                         .toDate()
@@ -367,8 +379,8 @@ const UserFormList = () => {
                           second: "2-digit", // 2자릿수
                           hour12: true, // 12시간제(오전/오후표시)
                         })
-                    })]
-                    &nbsp;
+                    }
+                    )] &nbsp;
                     <button
                       onClick={() => {
                         // 수정모드 실행 함수 호출!
@@ -395,6 +407,35 @@ const UserFormList = () => {
             )
           }
         </ul>
+        {/* 페이징 표시 박스 */}
+        <div
+          style={{
+            textAlign: "center",
+            marginTop: "1rem",
+          }}
+        >
+          {
+            // 특정개수만큼 배열 만들어 돌리기
+            // Array.from({length: 개수},전달값변경함수)
+            Array.from({ length: 5 }, (_, i) => i + 1)
+            // 전달값 변경함수가 생성한 값을 page변수가 받음
+            .map((page) => (
+              <button
+                style={{
+                  margin: "0 5px",
+                  fontWeight: currentPage === page ? "bold" : "normal",
+                  backgroundColor: currentPage === page ? "#444" : "#ddd",
+                  color: currentPage === page ? "#fff" : "#000",
+                  border: "none",
+                  padding: "5px 10px",
+                  borderRadius: "5px",
+                }}
+              >
+                {page}
+              </button>
+            ))
+          }
+        </div>
       </div>
     </div>
   );
