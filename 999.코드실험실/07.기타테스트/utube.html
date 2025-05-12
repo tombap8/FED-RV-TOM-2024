@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>음악 영상 카테고리 사이트</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+ 
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Arial', sans-serif;
+      background: #f0f0f0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 100px); /* header + footer 높이 제외 */
+    }
+   
+    h1 {
+      margin: 20px;
+      color: #333;
+    }
+    .header {
+        background: #222;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+    .rainbow-text {
+        font-family: 'Pacifico', cursive;
+    font-size: 48px;
+    font-weight: bold;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 50px;
+  }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .tab {
+      background: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      cursor: pointer;
+      margin: 5px;
+      border-radius: 5px;
+    }
+    .tab.active {
+      background: #357a38;
+    }
+    .videos {
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .videos.active {
+      display: flex;
+    }
+    iframe {
+      width: 300px;
+      height: 180px;
+      border: none;
+    }
+    footer {
+      background: #333;
+      color: #fff;
+      padding: 20px;
+      font-size: 14px;
+      text-align: center;
+    }
+    footer p {
+      margin: 5px 0;
+    }
+
+    @media (max-width: 600px) {
+      .videos {
+        flex-direction: column;
+        align-items: center;
+      }
+      iframe {
+        width: 90%;
+        height: 200px;
+      }
+      .tab {
+        width: 90%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+    <header class="rainbow-text">Muse.com</header>
+</div>
+
+<div class="container">
+  <h1>음악 카테고리별 유튜브 영상</h1>
+
+  <div class="tabs">
+    <div class="tab active" data-category="classic">클래식</div>
+    <div class="tab" data-category="kpop">K-pop</div>
+    <div class="tab" data-category="jpop">J-pop</div>
+    <div class="tab" data-category="pop">팝송</div>
+    <div class="tab" data-category="jazz">재즈</div>
+  </div>
+
+  <div id="classic" class="videos active">
+    <iframe src="https://www.youtube.com/embed/GRxofEmo3HA" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/rq1U3ZBszkE" allowfullscreen></iframe>
+  </div>
+  <div id="kpop" class="videos">
+    <iframe src="https://www.youtube.com/embed/tV2je_mOUQg" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/5EQB_B2KY9o" allowfullscreen></iframe>
+  </div>
+  <div id="jpop" class="videos">
+    <iframe src="https://www.youtube.com/embed/pfGzV5G0fvA" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/0tOXxuLcaog" allowfullscreen></iframe>
+  </div>
+  <div id="pop" class="videos">
+    <iframe src="https://www.youtube.com/embed/kJQP7kiw5Fk" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/2Vv-BfVoq4g" allowfullscreen></iframe>
+  </div>
+  <div id="jazz" class="videos">
+    <iframe src="https://www.youtube.com/embed/VMnjF1O4eH0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/HXrkNzg8ve4" allowfullscreen></iframe>
+  </div>
+</div>
+
+<footer>
+  <p>ⓒ 2025 Muse.com Corp.</p>
+  <p>주소: 서울특별시 강남구 가상로 123</p>
+  <p>이메일: info@muse.com</p>
+  <p>전화번호: 02-1234-5678</p>
+</footer>
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const videos = document.querySelectorAll('.videos');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const category = tab.getAttribute('data-category');
+      videos.forEach(v => v.classList.remove('active'));
+      document.getElementById(category).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
