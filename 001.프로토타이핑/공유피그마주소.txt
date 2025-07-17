@@ -1,3 +1,9 @@
 [도깨비PJ 피그마 작업 공유주소]
 
+처음만나는 피그마 책 자료주소
+https://www.figma.com/@insightbook
+
+UX/UI 디자이너를 위한 실무 피그마 책 자료주소
+https://www.figma.com/@uidesignguide
+
 https://www.figma.com/design/AOrzldvTsFfE5MlKMomnLJ/%EB%8F%84%EA%B9%A8%EB%B9%84-PJ?node-id=1-2&t=JGI7xh2bpsHVmj5v-1
