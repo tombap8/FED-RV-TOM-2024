@@ -199,7 +199,7 @@ function 맘대로해라(헐, 헉스){
 
   // 3-3. 유튜브 동영상 넣기
   아파트.innerHTML = `<iframe
-  src="https://www.youtube.com/embed/8Ebqe2Dbzls?autoplay=1" 
+  src="https://www.youtube.com/embed/EQcspXZ5g4c?autoplay=1&mute=1" 
   allow="autoplay"></iframe>`;
 
   // 3-4. 아이프레임 디자인 넣기 : 선택된 아파트 하위 iframe
