@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Three.js Earth Sphere Tutorial</title>
+  <style>
+    body { margin: 0; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+  <!-- Three.js 라이브러리를 CDN에서 가져옵니다. 반드시 사용자 코드보다 먼저 로드해야 합니다! -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    //================//
+    // 1. 장면(Scene), 카메라(Camera), 렌더러(Renderer) 생성
+    //================//
+
+    // Scene: 3D 오브젝트, 빛 등을 담는 공간(무대)입니다.
+    const scene = new THREE.Scene();
+
+    // Camera: 우리가 바라보는 시점입니다.
+    // - 첫 번째 인자: 시야각(FOV, degree, 일반적으로 75~90)
+    // - 두 번째 인자: 화면의 가로세로비(화면비, 일반적으로 window.innerWidth / window.innerHeight)
+    // - 세 번째, 네 번째 인자: 볼 수 있는 최소/최대 거리(clip)
+    const camera = new THREE.PerspectiveCamera(
+      75, // FOV(시야각), 크기를 넓히면 더 많은 장면이 보임(원근이 약해짐)
+      window.innerWidth / window.innerHeight, // 화면비
+      0.1, // 가장 가까운 거리(0.1)
+      1000 // 가장 먼 거리(1000)
+    );
+
+    // Renderer: 화면에 그려주는 역할(WebGLRenderer가 주로 사용됨)
+    const renderer = new THREE.WebGLRenderer({antialias: true}); // antialias: 계단현상 방지
+    renderer.setSize(window.innerWidth, window.innerHeight); // 캔버스 크기 지정
+    document.body.appendChild(renderer.domElement); // 캔버스를 body에 추가
+
+    //================//
+    // 2. 텍스처(지구본 이미지) 불러오기
+    //================//
+    const textureLoader = new THREE.TextureLoader();
+    // 이미지는 반드시 CORS 허용된 주소여야 합니다.
+    const earthTexture = textureLoader.load(
+      'https://raw.githubusercontent.com/turban/webgl-earth/master/images/2_no_clouds_4k.jpg', // 공개 도메인 지구본 이미지
+      render // 로드가 끝나면 render() 호출
+    );
+
+    //================//
+    // 3. 구(지구본) 만들기
+    //================//
+    // SphereGeometry: 구 형태의 격자(mesh)를 만듭니다.
+    // - 첫 번째 인자: 반지름(radius)
+    // - 두 번째/세 번째 인자: 가로/세로 분할수(높을수록 더 부드럽게)
+    const geometry = new THREE.SphereGeometry(
+      2,   // 반지름(radius). 숫자를 3, 5 등으로 바꾸면 구가 커집니다!
+      64,  // 가로 세그먼트(높을수록 정교)
+      64   // 세로 세그먼트
+    );
+
+    // MeshPhongMaterial: 빛에 반응하는 재질(Material)입니다.
+    // - map: 표면에 입힐 텍스처(지구본 이미지)
+    // - shininess: 반짝임 정도(기본 30, 낮추면 무광)
+    // - color: 기본색(흰색이면 텍스처 색이 그대로)
+    const material = new THREE.MeshPhongMaterial({
+      map: earthTexture,
+      shininess: 10 // 낮으면 무광, 높으면 더 번쩍임
+    });
+
+    // Mesh: geometry(모양) + material(재질)을 합쳐서 3D 오브젝트 생성
+    const earth = new THREE.Mesh(geometry, material);
+    scene.add(earth); // 장면에 추가
+
+    //================//
+    // 4. 빛 추가 (조명 Lighting)
+    //================//
+
+    // 1) AmbientLight(환경광): 전체적으로 은은하게 비추는 빛
+    // - 첫 번째: 색상(0xffffff = 흰색)
+    // - 두 번째: 세기(강도, 0~1, 기본 1)
+    const ambient = new THREE.AmbientLight(0xffffff, 0.7);
+    // 세기를 더 올리면 전체적으로 밝아짐, 0.3~1.0 사이로 조절 가능
+    scene.add(ambient);
+
+    // 2) DirectionalLight(직사광): 태양처럼 한 방향에서 비추는 빛
+    // - 첫 번째: 색상
+    // - 두 번째: 세기(강도)
+    const directional = new THREE.DirectionalLight(0xffffff, 0.8);
+    // 빛의 위치 조정: (x, y, z)
+    // x: +면 오른쪽, -면 왼쪽 / y: +면 위, -면 아래 / z: +면 앞, -면 뒤
+    directional.position.set(5, 3, 5); // 빛의 방향을 바꾸려면 이 값을 바꾸세요!
+    // 예: directional.position.set(-5, 10, 0); // 왼쪽 위에서 비추기
+    scene.add(directional);
+
+    //================//
+    // 5. 카메라 위치 조정
+    //================//
+    // 기본 위치는 (0,0,0) 방향을 바라봅니다.
+    camera.position.z = 6; // z축 +6 위치에서 바라봄 (멀리서 볼수록 값이 커짐)
+    // camera.position.set(0, 2, 8); // 위에서 멀리서 바라보고 싶을 때
+
+    //================//
+    // 6. 애니메이션 루프(지구본 회전)
+    //================//
+    function animate() {
+      requestAnimationFrame(animate); // 매 프레임마다 animate 반복 호출
+
+      earth.rotation.y += 0.005; // y축(세로축)으로 조금씩 회전, 속도를 바꾸고 싶으면 수치를 바꾸세요
+
+      render();
+    }
+
+    function render() {
+      renderer.render(scene, camera); // 장면과 카메라를 이용해 화면에 그리기
+    }
+
+    animate(); // 애니메이션 시작
+
+    //================//
+    // 7. 반응형: 창 크기 변경시 처리
+    //================//
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight; // 화면비 갱신
+      camera.updateProjectionMatrix(); // 카메라 갱신
+      renderer.setSize(window.innerWidth, window.innerHeight); // 렌더러 크기 갱신
+    });
+
+    //================//
+    // [옵션 설명 및 실험 TIP]
+    //================//
+    // 1. 구의 크기를 바꾸고 싶으면:
+    //    const geometry = new THREE.SphereGeometry(5, 64, 64); // 반지름 5로 커짐
+    // 2. 빛의 세기(강도) 조절:
+    //    const ambient = new THREE.AmbientLight(0xffffff, 0.3); // 더 어둡게
+    //    const directional = new THREE.DirectionalLight(0xffffff, 1.2); // 더 밝게
+    // 3. 빛의 방향 바꾸기:
+    //    directional.position.set(-10, 5, 0); // 왼쪽에서 비추기
+    // 4. 카메라 위치 바꾸기:
+    //    camera.position.set(0, 10, 12); // 위쪽, 멀리서 보기
+    // 5. 지구본 회전 속도 바꾸기:
+    //    earth.rotation.y += 0.01; // 더 빠르게
+    // 6. 지구본 표면의 반짝임(Shininess) 바꾸기:
+    //    const material = new THREE.MeshPhongMaterial({ map: earthTexture, shininess: 100 });
+    //    // 값이 높을수록 더 반짝임
+
+    // Three.js 공식 문서: https://threejs.org/docs/
+    // 다양한 예제: https://threejs.org/examples/
+  </script>
+</body>
+</html>
