@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Flex 상단영역 3가지 예시</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #f8f8f8;
+        margin: 0;
+        padding: 30px;
+      }
+      h2 {
+        margin-top: 40px;
+        margin-bottom: 12px;
+        color: #333;
+      }
+      .example {
+        margin-bottom: 40px;
+        background: #fff;
+        padding: 24px 0 24px 0;
+        border-radius: 10px;
+        box-shadow: 0 1px 12px rgba(0, 0, 0, 0.07);
+      }
+      .flex-bar {
+        display: flex;
+        align-items: center;
+        padding: 0 24px;
+        min-height: 70px;
+        border: 2px solid #eee;
+        border-radius: 8px;
+        margin-bottom: 16px;
+      }
+      .box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+        border: 2px solid #bbb;
+        border-radius: 6px;
+        margin: 0 8px;
+        height: 48px;
+        background: #e7f0fb;
+      }
+      .box1 {
+        background: #ffe7e7;
+      }
+      .box2 {
+        background: #e7ffe7;
+      }
+      .box3 {
+        background: #e7e7ff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Flex 상단영역 3가지 배치 예시</h1>
+
+    <div class="example">
+      <h2>1. 첫박스 200px, 중간박스 자동, 끝박스 150px</h2>
+      <div class="flex-bar">
+        <div class="box box1" style="width: 200px">첫박스<br />200px</div>
+        <div class="box box2" style="flex: 1">중간박스<br />자동</div>
+        <div class="box box3" style="width: 150px">끝박스<br />150px</div>
+      </div>
+      <div>
+        설명: 첫 박스와 끝 박스는 고정 너비, 중간 박스가 남은 공간을 차지합니다.
+      </div>
+    </div>
+
+    <div class="example">
+      <h2>2. 첫박스와 끝박스 균등분할, 중간박스 200px (로고 중앙)</h2>
+      <div class="flex-bar">
+        <div class="box box1" style="flex: 1">첫박스<br />1fr</div>
+        <div class="box box2" style="width: 200px">
+          중간박스<br />200px<br />(로고)
+        </div>
+        <div class="box box3" style="flex: 1">끝박스<br />1fr</div>
+      </div>
+      <div>
+        설명: 양쪽 박스가 공간을 균등하게 차지하고, 중간 박스(로고)가 정중앙에
+        위치합니다.
+      </div>
+    </div>
+
+    <div class="example">
+      <h2>3. 첫박스 200px, 중간박스 300px, 끝박스 150px (중간박스 중앙배치)</h2>
+      <div class="flex-bar" style="justify-content: space-between">
+        <div class="box box1" style="width: 200px">첫박스<br />200px</div>
+        <div class="box box2" style="width: 300px; text-align: center">
+          중간박스<br />300px<br />(로고)
+        </div>
+        <div class="box box3" style="width: 150px">끝박스<br />150px</div>
+      </div>
+      <div>
+        설명: 모든 박스가 고정 너비이며,
+        <b>justify-content: space-between</b>으로 중간박스가 중앙에 배치됩니다.
+        <br> (중간박스가 정확히 중앙에 위치하지는 않음)
+      </div>
+    </div>
+
+    <div class="example">
+      <h2>
+        3. 첫박스와 끝박스 등분할 <br>
+        (첫박스 자식박스 200px,끝박스 자식박스 150px), <br>
+        중간박스 300px (중간박스 정중앙배치)
+      </h2>
+      <div class="flex-bar">
+        <div style="flex: 1; display: flex; justify-content: flex-start">
+          <div class="box box1" style="width: 200px">첫박스<br />200px</div>
+        </div>
+        <div class="box box2" style="width: 200px">
+          중간박스<br />200px(로고)
+        </div>
+        <div style="flex: 1; display: flex; justify-content: flex-end">
+          <div class="box box3" style="width: 150px">끝박스<br />150px</div>
+        </div>
+      </div>
+      <div>
+        설명: <br />
+        좌/우를 각각 flex:1로 등분할 좌: 내부에 200px 박스(왼쪽 정렬) 가운데:
+        고정폭 로고, 우: 내부에 150px 박스(오른쪽 정렬) <br />
+        로고가 항상 "정중앙"에 위치!
+      </div>
+    </div>
+  </body>
+</html>
