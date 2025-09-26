@@ -1,66 +1,92 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title> append()  </title>
-<!-- jQuery library -->
-<script src="../jquery-3.6.3.min.js"></script>
-<script>
-	$(function(){/// jQB ///////////////////
-		/******************************************** 
-			append(추가/이동요소) 메서드
-			- 새로운 요소를 추가하거나
-			기존 요소를 이동하는 기능의 메서드
-			비교) JS내장함수 : appendChild() 와 유사
-		********************************************/
+  <head>
+    <meta charset="utf-8" />
+    <title>append()</title>
+    <!-- jQuery library -->
+    <script src="../jquery-3.6.3.min.js"></script>
+    <script>
+      // 배우 이미지 객체
+      const imgs = {
+        차은우:
+          "https://dimg.donga.com/wps/SPORTS/IMAGE/2021/01/12/104876389.1.jpg",
+        김고은:
+          "https://entertainimg.kbsmedia.co.kr/cms/uploads/PERSON_20221212090715_e278f19a9280bcb4e008031d06c56357.jpg",
+        공유:
+          "https://upload.wikimedia.org/wikipedia/commons/9/9f/Gong_yoo_in_October_2021.png",
+        윤아:
+        "https://talkimg.imbc.com/TVianUpload/tvian/TViews/image/2025/04/14/3a79db5a-bf15-42af-b78e-75921dc77f99.jpg",
+      };
 
-		$('body,button').css({fontSize:'40px'});
-		
-		// 미션: #container를 클릭하면 자식요소 p태그에 
-		// "내가 좋아하는 배우는 아무개입니다."라고 써서 추가하시오.
-		$('#container').click((e)=>{
-			$(e.currentTarget) // 클릭된 요소자신
-			.append('<p>내가 좋아하는 배우는 차은우입니다!</p>')
-		});
-		
+      $(() => {
+        /******************************************** 
+          append(추가/이동요소) 메서드
+          - 새로운 요소를 추가하거나
+          기존 요소를 이동하는 기능의 메서드
+          비교) JS내장함수 : appendChild() 와 유사
 
-		// 추가미션: #btngo버튼 클릭시 #container의 첫번째 p요소를
-		// 맨뒤로 이동하시오! -> 첫번째 p요소 -> p:first
-		$('#btngo').click(()=>{
-			$('#container').append(
-				$('#container p').first()
-			);
-		});
-		
+          ((추가 메서드))
+          기존요소.appendTo(대상요소) : 
+          -> 기존요소를 대상요소에 마지막 자식으로 이동
+        ********************************************/
 
-	
-	});//// jQB ///////////////////////////////////
-	//////////////////////////////////////////////
-	
-	
-	
-	
-	
-	
-	
-	</script>
-	
-	
-	
-	
-</head>
- 
-<body>
+        // 미션: 배우이름 버튼을 클릭하면 자식요소 p태그에
+        // "내가 좋아하는 배우는 아무개입니다."라고 써서 추가하고 배우 이미지도 추가하시오.
 
-<button id="btngo">맨뒤로가~!</button>
-	
-<div id="container">
- <p>당신이 좋아하는 배우는 누구입니까?</p>
-</div>
-<!---------- jQuery code Start ---------->
-<script>
+        // 이벤트 대상 : .actor
+        // 이벤트 메서드 : on(이벤트명,함수)
+        $(".actor").on("click", (e) => {
+          // e - 이벤트 객체 전달변수
+          // 클릭된 버튼 자신
+          let actor = e.target;
+          // button은 하위에 아무 다른 요소가 없으므로
+          // e.currentTarget 안쓰고 e.target 사용 가능
+          console.log(actor);
 
-</script>
+          // 변경대상 : #container
+          // 사용할 메서드 : append()
+          $("#container").append(`
+            <p> 내가 좋아하는 배우는 ${actor.innerText}입니다!
+              <img 
+              src="${imgs[actor.innerText]}" 
+              alt="${actor.innerText} 이미지" 
+              style="width: 100px; vertical-align: middle;">
+            </p>
+          `);
+        }); // click /////
 
-</body>
+        // 추가미션: #btngo버튼 클릭시 #container의 첫번째 p요소를
+        // 맨뒤로 이동하시오! -> 첫번째 p요소 -> first()메서드
+        $("#btngo").click(() => {
+          // 기존 요소 선택시 맨뒤로 이동된다!!!
+          // append(이동할기존요소)
+          // $('#container').append($('#container p').first());
+
+          // (( 조금 다른 방법 ))
+          // 선택요소.appendTo(이동할기존요소선택자)
+          $("#container p").first().appendTo("#container");
+        }); /// click /////
+      }); // jQuery code End ///////
+    </script>
+    <style>
+      body,
+      button {
+        font-size: 3vw;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button id="btngo">맨뒤로가~!</button>
+    <button class="actor">차은우</button>
+    <button class="actor">김고은</button>
+    <button class="actor">공유</button>
+    <button class="actor">윤아</button>
+
+    <div id="container">
+      <p>당신이 좋아하는 배우는 누구입니까?</p>
+    </div>
+    <!---------- jQuery code Start ---------->
+    <script></script>
+  </body>
 </html>
