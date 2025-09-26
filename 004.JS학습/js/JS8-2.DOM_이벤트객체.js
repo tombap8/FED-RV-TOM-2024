@@ -6,7 +6,7 @@ import myFn from "./my_function.js";
 // console.log(myFn);
 
 /// 이벤트 객체의 이벤트 로그찍기함수 ///
-const showEvtLog = (x) =>
+const showEvtLog = (x, event) =>
   console.log(
     x,
     ":",
@@ -36,25 +36,23 @@ const showEvtLog = (x) =>
 // addEventListener로 할 수 있음!!!
 
 // 추가 이벤트 설정
-myFn.addEvt(myFn.qs('a'),'click',mySon);
+myFn.addEvt(myFn.qs("a"), "click", mySon);
 
 // 추가기능함수
-function mySon(e){
-    // 이벤트 버블링 막기
-    // e.stopPropagation();
+function mySon(e) {
+  // 이벤트 버블링 막기
+  // e.stopPropagation();
 
-    // e.stopImmediatePropagation();
-    // 이벤트 버블링 막기에서 
-    // stopImmediatePropagation 다른점은
-    // 버블링 막기 + 나중에 등록된 같은 이벤트실행 막기
-    // 여기서는 아랫쪽에 등록된 onclick 이벤트 함수기능이
-    // 막아져서 버블링 막기와 함께 실행중지됨!
-    // 현재 여기에 구현된 기능만 실행됨!
-    
-    e.currentTarget
-    .style.outline = '20px dotted hotpink';
+  // e.stopImmediatePropagation();
+  // 이벤트 버블링 막기에서
+  // stopImmediatePropagation 다른점은
+  // 버블링 막기 + 나중에 등록된 같은 이벤트실행 막기
+  // 여기서는 아랫쪽에 등록된 onclick 이벤트 함수기능이
+  // 막아져서 버블링 막기와 함께 실행중지됨!
+  // 현재 여기에 구현된 기능만 실행됨!
+
+  e.currentTarget.style.outline = "20px dotted hotpink";
 } //// mySon ///////
-
 
 myFn.qs("a").onclick = (e) => {
   // e - 이벤트 전달변수
@@ -64,15 +62,13 @@ myFn.qs("a").onclick = (e) => {
   e.currentTarget.style.backgroundColor = "red"; // 이벤트발생요소
 
   // 이벤트 로그 찍기
-  showEvtLog("아들방(a)");
+  showEvtLog("아들방(a)", e);
 
   // 기본기능막기(a요소는 이동특성이 있음. 이것을 막음!)
   // event.preventDefault();
   return false;
   // 리턴시 false를 쓰면 기본기능막기가 됨!
 }; /// click ///
-
-
 
 // 2. 엄마집 ///////
 myFn.qs("p").onclick = function (e) {
@@ -82,7 +78,7 @@ myFn.qs("p").onclick = function (e) {
   // return false;
 
   // 이벤트 로그 찍기
-  showEvtLog("엄마집(p)");
+  showEvtLog("엄마집(p)", e);
 }; /// click ///
 
 // 3. 친척네집 //////
@@ -91,7 +87,7 @@ myFn.qs("div").onclick = (e) => {
   e.currentTarget.style.backgroundColor = "green"; // 이벤트발생요소
 
   // 이벤트 로그 찍기
-  showEvtLog("친척네집(div)");
+  showEvtLog("친척네집(div)", e);
 }; /// click ///
 
 // 4. 대한민국 전체 /////
@@ -100,7 +96,7 @@ myFn.qs("body").onclick = (e) => {
   e.currentTarget.style.backgroundColor = "blue"; // 이벤트발생요소
 
   // 이벤트 로그 찍기
-  showEvtLog("대한민국전체(body)");
+  showEvtLog("대한민국전체(body)", e);
 }; /// click ///
 
 /**************************************************
@@ -205,20 +201,19 @@ stopImmediatePropagation() 메서드 사용!
 **************************************************/
 
 /// 이벤트 지우기 버튼 클릭시 기능 설정하기 //////
-myFn.qs('.clear').onclick = (e)=>{
-    // 1. 이벤트 버블링 막기
-    e.stopPropagation();
+myFn.qs(".clear").onclick = (e) => {
+  // 1. 이벤트 버블링 막기
+  e.stopPropagation();
 
-    alert('아들방 이벤트 지움!!!');
-    // 2. 이벤트리스너로 등록된 이벤트 지우기
-    myFn.qs('a').removeEventListener('click', mySon);
-    // 반드시 이벤트명과 연결함수가  addEventListener 여야함!
-    // 그리고 외부함수 연결이어야 지울 수 있음!
+  alert("아들방 이벤트 지움!!!");
+  // 2. 이벤트리스너로 등록된 이벤트 지우기
+  myFn.qs("a").removeEventListener("click", mySon);
+  // 반드시 이벤트명과 연결함수가  addEventListener 여야함!
+  // 그리고 외부함수 연결이어야 지울 수 있음!
 
-    // 3. 이벤트 속성에 할당한 값 지우기
-    myFn.qs('a').onclick = '';
-    // 할당값에 null 또는 undefined 를 할당하여 지울 수 있다!
-    
+  // 3. 이벤트 속성에 할당한 값 지우기
+  myFn.qs("a").onclick = "";
+  // 할당값에 null 또는 undefined 를 할당하여 지울 수 있다!
 }; //// click ////
 
 // 휠 이벤트 막기 테스트 ////
