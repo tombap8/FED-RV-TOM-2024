@@ -1,4 +1,4 @@
-// JS실험실 : 02.스크롤액션 JS
+// JS실험실 : 04.스크롤액션 JS
 
 // 나의 함수 불러오기
 import myFn from "./my_function.js";
