@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+            /* 높이값 화면의 5배로 그라데이션 배경처리 */
+            body {
+                padding-bottom: 50vh;
+                background-image: linear-gradient(to bottom, lightcoral, lightblue, lightgreen);
+
+                margin: 0;
+                font-family: sans-serif;
+            }
+
+            .header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 60px;
+                background: #4a90e2;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                transition: transform 0.3s ease; /* 부드럽게 숨김 효과 */
+                z-index: 10;
+            }
+
+            .header.hide {
+                transform: translateY(-100%);
+            }
+
+            .content p {
+                margin-top: 50vh;
+                font-size: 4vh;
+                text-align: center;
+            }
+        </style>
+        <script>
+            window.addEventListener("load", () => {
+                let lastScrollTop = 0;
+                let ticking = false;
+                const header = document.querySelector(".header");
+
+                window.addEventListener("scroll", () => {
+                    const currentScroll = window.pageYOffset;
+
+                    if (!ticking) {
+                        // requestAnimationFrame()를 이용한 스크롤 이벤트 숨김
+                        // 역할 : 애니메이션 작동을 체크하여 더 부드럽게
+                        // 렉걸림 없이 작동하도록 이벤트를 체크해준다!
+                        window.requestAnimationFrame(() => {
+                            if (currentScroll > lastScrollTop && currentScroll > 80) {
+                                // 🔽 아래로 스크롤 중 → 헤더 숨김
+                                header.classList.add("hide");
+                            } else if (currentScroll < lastScrollTop) {
+                                // 🔼 위로 스크롤 중 → 헤더 표시
+                                header.classList.remove("hide");
+                            }
+
+                            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                });
+            }); /// 로딩구역 ///////////////////////
+        </script>
+        <title>Document</title>
+    </head>
+    <body>
+        <header class="header">내 멋진 헤더</header>
+        <div class="content">
+            <!-- 스크롤 테스트용 긴 내용 -->
+            <p>스크롤 테스트용 컨텐츠입니다.</p>
+            <p>스크롤 테스트용 컨텐츠입니다.</p>
+            <p>스크롤 테스트용 컨텐츠입니다.</p>
+            <p>스크롤 테스트용 컨텐츠입니다.</p>
+            <p>스크롤 테스트용 컨텐츠입니다.</p>
+            <p>스크롤 테스트용 컨텐츠입니다.</p>
+            <p>스크롤 테스트용 컨텐츠입니다.</p>
+            <p>스크롤 테스트용 컨텐츠입니다.</p>
+            <p>스크롤 테스트용 컨텐츠입니다.</p>
+            <p>스크롤 테스트용 컨텐츠입니다.</p>
+        </div>
+    </body>
+</html>
