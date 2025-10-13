@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- 제이쿼리 라이브러리 CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- include plugin src -->
+    <script src="../src/mgGlitch.min.js"></script>
+    <script>
+      $(() => {
+        $(".sample").mgGlitch({
+          destroy: false, // set 'true' to stop the plugin
+          glitch: true, // set 'false' to stop glitching
+          scale: true, // set 'false' to stop scaling
+          blend: true, // set 'false' to stop glitch blending
+          blendModeType: "hue", // select blend mode type
+          glitch1TimeMin: 600, // set min time for glitch 1 elem
+          glitch1TimeMax: 900, // set max time for glitch 1 elem
+          glitch2TimeMin: 10, // set min time for glitch 2 elem
+          glitch2TimeMax: 115, // set max time for glitch 2 elem
+        });
+      });
+    </script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .wrap {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+      }
+      .sample {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: url(./img/duo.jpg) no-repeat center/cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="sample"></div>
+    </div>
+  </body>
+</html>
