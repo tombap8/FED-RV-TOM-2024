@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스크롤</title>
+
+    <!-- Demo styles -->
+    <style>
+      html,
+      body {
+        position: relative;
+        height: 100%;
+        font-family: "Instrument Sans", sans-serif;
+        font-size: 10px;
+      }
+      body {
+        background: #000;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* ⭐️ 모달 열릴 때 body 스크롤 방지용 클래스 추가 */
+      .modal-open {
+        overflow: hidden;
+      }
+
+      body {
+        background: #000;
+        color: #000;
+      }
+
+      /* 4. 모달 스타일 */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        animation: fadeIn 0.3s ease;
+        overflow: hidden;
+      }
+
+      /* ⭐️ .modal-content 수정: 화면 중앙에 완전히 고정 */
+      .modal-content {
+        background-color: white;
+        position: fixed; /* 👈 위치 고정 */
+
+        /* 중앙 정렬 추가 */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* 👈 정확한 중앙 정렬 */
+
+        /* 기존 스타일 유지 */
+        max-width: 1114px;
+        width: 90%; /* max-width와 함께 반응형을 위해 추가 */
+        height: 80%;
+        border: #000000 solid 1px;
+
+        animation: slideIn 0.3s ease;
+        /* overflow-y: auto; */ /* 👈 모달 내부에서만 스크롤되도록 허용 */
+        text-align: center;
+        overflow: hidden;
+        overscroll-behavior: auto;
+      }
+
+      .modal-box {
+        width: 950px;
+        margin: 0 auto;
+        justify-items: center;
+        line-height: 1.8;
+        background: white;
+      }
+
+      .modal-box > div {
+        height: 100%;
+        overflow: auto;
+      }
+
+      /* ... (나머지 CSS는 그대로 유지) ... */
+
+      .titbox {
+        padding: 30px 0 20px 0;
+      }
+      .title {
+        font-size: 1.8rem;
+        width: 750px;
+        height: 33px;
+        align-content: center;
+        border-left: #000000 solid 1px;
+        text-align: left;
+      }
+      .title > strong {
+        margin-left: 25px;
+      }
+
+      section.modal-img > img {
+        aspect-ratio: 884 / 1012;
+        width: 750px;
+      }
+      section.modal-img {
+        width: 750px;
+        text-align: right;
+        padding-bottom: 40px;
+      }
+
+      .modal-img > p {
+        margin: 0;
+        font-size: 1.4rem;
+      }
+
+      .close {
+        position: absolute;
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+
+        right: 0;
+        top: 0;
+        z-index: 3;
+      }
+
+      .close:hover {
+        color: #000;
+      }
+
+      .modal-btn {
+        background: #e74c3c;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background 0.3s ease;
+      }
+
+      .modal-btn:hover {
+        background: #c0392b;
+      }
+      .box {
+        width: 750px;
+        margin-bottom: 35px;
+      }
+      .box1 {
+        border-left: #000000 solid 1px;
+      }
+      .box1 > p {
+        margin-left: 25px;
+        word-break: break-all;
+        text-align: justify;
+        font-size: 1.8rem;
+      }
+
+      .set-it5 {
+        width: 100%;
+        /* text-align: right; */
+        /* padding-bottom: 60px; */
+      }
+      .box2 {
+        width: 750px;
+        text-align: right;
+      }
+      .imgbx1 {
+        display: flex;
+        width: 750px;
+        justify-content: space-between;
+      }
+      .imgbx2 {
+        display: flex;
+        width: 750px;
+        justify-content: space-between;
+      }
+      .imgbx1 > img {
+        height: 510px;
+      }
+      .imgbx2 > img {
+        height: 280px;
+      }
+      .imgbx3 > img {
+        height: 450px;
+      }
+      .box2 > p {
+        margin-bottom: 35px;
+        font-size: 1.4rem;
+      }
+      .sectionbx {
+        display: flex;
+        /* margin-bottom: 15px; */
+      }
+      .section_title {
+        width: 90px;
+        margin-right: 10px;
+        text-align: right;
+      }
+      .section_content {
+        width: 750px;
+        text-align: left;
+        border-left: #000000 solid 1px;
+      }
+
+      .section_content > p {
+        margin-left: 25px;
+      }
+      span {
+        font-size: 1.4rem;
+        color: #b3b3b5;
+      }
+
+      .section_content > span {
+        margin-left: 25px;
+      }
+
+      /* ⭐️ topBtn 위치 조정: 모달 콘텐츠를 기준으로 상대 위치 지정 */
+
+      .ubtn {
+        margin: 38px 0;
+        text-align: center;
+      }
+      section#upBtn {
+        margin: 0 auto;
+        width: 38px;
+      }
+      .image-wrapper {
+        position: relative; /* 자식 이미지의 절대 위치 기준점 */
+        width: 38px; /* 이미지의 실제 너비에 맞춰 조정 */
+        height: 38px; /* 이미지의 실제 높이에 맞춰 조정 */
+      }
+
+      /* 3. 모든 이미지에 적용: 겹쳐 놓기 및 부드러운 전환 효과 */
+      .image-wrapper img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: opacity 0.3s ease; /* 투명도 전환 시 0.3초 동안 부드럽게 */
+      }
+
+      /* 4. 호버 이미지 숨기기 (기본 상태) */
+      .hover-arrow {
+        opacity: 0; /* 평소에는 투명하게 숨김 */
+      }
+
+      /* 5. 호버 시 이미지 전환 */
+      .image-wrapper:hover .default-arrow {
+        opacity: 0; /* 기본 이미지를 투명하게 만들어서 숨김 */
+      }
+
+      .image-wrapper:hover .hover-arrow {
+        opacity: 1; /* 호버 이미지를 보이게 함 */
+      }
+
+      .set-it1 {
+        opacity: 1; /* 초기값은 보이게 설정 */
+        transition: 1.2s ease-in-out;
+      }
+
+      .set-it2.on {
+        transform: translateY(6%); /* 👈 최종 위치를 0으로 통일하여 명확히 함 */
+        opacity: 1;
+      }
+
+      .set-it2 {
+        opacity: 0;
+        transform: translateY(6%); /* 👈 초기 위치 설정 */
+        transition: 1.2s ease-in-out;
+      }
+      .set-it3.on {
+        transform: translateY(15%);
+        opacity: 1;
+      }
+
+      .set-it3 {
+        opacity: 0;
+        transform: translateY(15%);
+        transition: 1.2s ease-in-out;
+      }
+      .set-it4.on {
+        transform: translateY(5%);
+        opacity: 1;
+      }
+
+      .set-it4 {
+        opacity: 0;
+        transform: translateY(5%);
+        transition: 1.2s ease-in-out;
+      }
+      .set-it5.on {
+        transform: translateY(-6%);
+        opacity: 1;
+      }
+
+      .set-it5 {
+        opacity: 0;
+        transform: translateY(-6%);
+        transition: 1.2s ease-in-out;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 모달시작 -->
+    <div class="section">
+      <button class="modal-btn" onclick="openModal()">모달 열기</button>
+    </div>
+
+    <div id="modal" class="modal">
+      <div class="modal-content mySwiper">
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <div class="modal-box swiper-wrapper">
+          <div class="scroll-act sa1 set-it1 swiper-slide">
+            <section class="titbox">
+              <div class="title">
+                <strong>Reverberation from the Universe</strong>
+              </div>
+            </section>
+            <section class="modal-img">
+              <img src="./images/exb1.jpg" alt="" />
+              <p class="imgtxt1">
+                Pink Dots － Let Me Rest in a Tomb of Stars (detail)
+                1993–1994<br />
+                © YAYOI KUSAMA
+              </p>
+            </section>
+          </div>
+          <div class="scroll-act sa2 set-it2 swiper-slide">
+            <section class="box box1">
+              <p class="exbtxt">
+                From a young age, Kusama has suffered from visual and auditory
+                hallucinations. Her mental health condition has had a tremendous
+                impact on the artist’s creative activities. In the 1950s, driven
+                by her own obsessions, Kusama created an enormous number of
+                drawings, resulting in an opportunity to make her breakthrough
+                as an artist. After relocating to the United States in 1957, the
+                artist began to create a series of works that could be described
+                as ritual of “self-obliteration,” where all existence is
+                engulfed in infinitely repetitive patterns such as polka dots
+                and nets while the self is immersed into a boundless world.
+                These works express a desire for salvation from psychological
+                disorders and simultaneously reflect her intention to liberate
+                society from absurd oppression through happenings and other
+                forms of expression. However, from the late 1970s to the 1980s,
+                after returning to Japan due to mental and physical health
+                conditions, Kusama created small-scale works such as collages
+                and works on ‘shikishi’ paperboards in her room in a psychiatric
+                hospital. Subsequently, her creations expanded to an
+                environmental scale, such as multi-canvas paintings and gigantic
+                inflatable works. Kusama’s concept of “self-obliteration” is no
+                longer solely a matter of the artist’s inner psyche; rather, it
+                invites us into this sensation as though we are caught in a
+                solemn “reverberation from the universe.” This exhibition
+                focuses on the theme of illness, which can be described as the
+                driving force behind Kusama’s art, showcasing a diverse range of
+                works and related materials from her early years to the present
+                day. We invite you to witness these productions of Kusama’s
+                abundant creativity that reverberate to the farthest reaches of
+                the universe.
+              </p>
+            </section>
+          </div>
+          <div class="scroll-act sa3 set-it3 swiper-slide">
+            <section class="box box2">
+              <div class="imgbx imgbx1">
+                <img src="./images/전시1.jpg" alt="왼쪽그림" />
+                <img src="./images/전시2.jpg" alt="오른쪽그림" />
+              </div>
+              <p class="imgtxt2">
+                L: Left: Yayoi-chan 2013 Right: TOKO-TON 2013 <br />
+                Installation view at Aviva Studios, Manchester, 2023 R: Ancient
+                Fire 1953 <br />
+                © YAYOI KUSAMA
+              </p>
+            </section>
+          </div>
+          <div class="scroll-act sa4 set-it4 swiper-slide">
+            <section class="box box2">
+              <div class="imgbx imgbx2">
+                <img src="./images/전시3.jpg" alt="" />
+                <img src="./images/전시4.jpg" alt="" />
+              </div>
+              <p class="imgtxt3">
+                L: STAR FAIRY 2013<br />
+                R: The Obliteration Room 2002–present<br />
+                Collaboration between Yayoi Kusama and Queens land Art
+                Gallery.<br />
+                Commissioned Queensland Art Gallery.<br />
+                Gift of the artist through the Queensland Art Gallery Foundation
+                2012. Collection: QAGOMA.<br />
+                © YAYOI KUSAMA. Photo: QAGOMA
+              </p>
+              <div class="imgbx imgbx3">
+                <img src="./images/전시5.jpg" alt="" />
+              </div>
+              <p>
+                Narcissus Garden 1966/2020 Installation view at YAYOI KUSAMA
+                MUSEUM, Tokyo 2020 <br />
+                © YAYOI KUSAMA
+              </p>
+            </section>
+          </div>
+          <div class="scroll-act sa5 set-it5 swiper-slide">
+            <section class="box3">
+              <!-- 1. -->
+              <div class="sectionbx">
+                <div class="section_title">
+                  <strong>Dates </strong>
+                </div>
+
+                <div class="section_content dates_box">
+                  <p>Thursday, April 24 – Sunday, August 31, 2025</p>
+                </div>
+              </div>
+
+              <!-- 2. -->
+              <div class="sectionbx">
+                <div class="section_title">
+                  <strong>Open </strong>
+                </div>
+                <div class="section_content">
+                  <p>Thursdays to Sundays and National Holidays</p>
+                </div>
+              </div>
+
+              <!-- 3. -->
+              <div class="sectionbx">
+                <div class="section_title">
+                  <strong>Closed </strong>
+                </div>
+                <div class="section_content">
+                  <p>
+                    Mondays, Tuesdays and Wednesdays (except national holidays)
+                  </p>
+                </div>
+              </div>
+
+              <!-- 4. -->
+              <div class="sectionbx">
+                <div class="section_title">
+                  <strong>Hours </strong>
+                </div>
+                <div class="section_content">
+                  <p>11:00 - 17:30</p>
+                </div>
+              </div>
+
+              <!-- 5. -->
+              <div class="sectionbx">
+                <div class="section_title">
+                  <strong>Admission<br />Charges</strong><br />
+                  <span
+                    >(including<br />
+                    tax)
+                  </span>
+                </div>
+                <div class="section_content">
+                  <p>Adults: JPY 1,100　Children aged 6 - 18: JPY 600</p>
+                  <span> *Children under age 6 are free.</span><br />
+                  <span>
+                    *Group and disability discounts are not available.
+                  </span>
+                </div>
+              </div>
+
+              <!-- 6. -->
+              <div class="sectionbx">
+                <div class="section_title">
+                  <strong>Admission <br />Times</strong>
+                </div>
+                <div class="section_content">
+                  <p>
+                    ① 11:00 - 12:30 (Enter by 11:30) <br />
+                    ②12:00 - 13:30 (Enter by 12:30) <br />
+                    ③ 13:00 - 14:30 (Enter by 13:30) <br />
+                    ④14:00 - 15:30 (Enter by 14:30) <br />
+                    ⑤ 15:00 - 16:30 (Enter by 15:30) <br />
+                    ⑥16:00 - 17:30 (Enter by 16:30) <br />
+                    <span
+                      >Yayoi Kusama Museum has no designated waiting area for
+                      visitors arriving before the admission time. Please
+                      refrain from coming to the museum before your admission
+                      time.</span
+                    >
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div class="ubtn">
+            <section class="up" id="upBtn" onclick="scrollToTop()">
+              <div class="image-wrapper">
+                <img
+                  src="./images/위로올리기 .png"
+                  alt="위로 올리기"
+                  class="default-arrow"
+                />
+                <img
+                  src="./images/위로올리기_호버시.png"
+                  alt="위로 올리기 호버"
+                  class="hover-arrow"
+                />
+              </div>
+            </section>
+          </div>
+        </div>
+        <!-- modal-box 끝 -->
+        <!-- txtbox 끝 -->
+      </div>
+    </div>
+    <!-- 모달버튼끝 -->
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script type="module">
+      const exhibInfo = [
+        {
+          index: 2,
+          title: "I WOULD OVERCOME DEATH AND GO ON LIVING",
+          imgtxt1: `L: Lingering Dream 1949
+© YAYOI KUSAMA
+R: Kusama with her soft sculpture works at the solo exhibition Yayoi Kusama: Obsessional Art: A Requiem for Death and Life, Painting, Sculpture and Objects 1976
+Photo:Shigeo Anzaï
+©Estate of Shigeo Anzaï, Courtesy of Zeit-Foto`,
+          imgtxt2: `L: Flame of Life- Dedicated to Tu-Fu Private Collection 1988
+R: Song of a Manhattan Suicide Addict 2010
+© YAYOI KUSAMA`,
+          imgtxt3: "",
+          exbtxt: `Yayoi Kusama has constantly faced the critical realities of life and death as pressing issues. Her experience of the Pacific War in a complex family environment, along with her overcoming of suicidal impulses triggered by trauma and neurosis through her creative practices, has influenced her perception of these issues. This exhibition unveils Kusama’s evolving outlook on life and death, alongside the corresponding shifts in her artistic presentation, through a series of diverse works—from her 1940s and 1950s paintings, which bear the imprint of war, to her very latest pieces.
+
+After relocating to the United States in 1957, Kusama gained a reputation for her net paintings and sculptures that embody ‘self-obliteration’: the feeling of losing the boundary between the self and the other through the obsessive repetition of motifs originating from her hallucinations. In her anti-war happenings in the late 1960s, she painted dots onto the human body using the same concept of ‘self-obliteration’ while also highlighting the beauty of life and the human body. During the 1970s and 80s, following the loss of her father and her lover, as well as her return to Japan due to health issues, Kusama produced numerous dark-toned collages and three-dimensional works centered on the theme of death, as well as poetry and novels imbued with a sense of mortality. As she continued creating fantastical works exploring death and the afterlife, her works from the late 1980s began to explore themes of transmigration and cyclical returns to eternity through ‘self-obliteration’. Kusama’s works, which increasingly incorporated more colors, reveal how her creative process evolved from a means of coping with death to becoming synonymous with her very existence. In her painting series from 2000 onwards, Kusama has been relentlessly depicting the beauty of life and the joy of living on canvases overflowing with vibrant colors, driven by the ever-looming presence of her own death.`,
+        },
+      ];
+      // ---------------------- 요소 및 상태 변수 ----------------------
+
+      const modal = document.getElementById("modal");
+      const modalContent = document.querySelector(".modal-content");
+      const modalBox = document.querySelector(".modal-box");
+      const modalBoxDiv = document.querySelectorAll(".modal-box > div");
+      const boxes = document.querySelectorAll(".modal-box .scroll-act");
+      const upButton = document.getElementById("upBtn"); // ⭐️ upBtn으로 변경
+
+      let currentBoxIndex = 0;
+      const scrollDelay = 800;
+
+      ////////////////////////////////////////////////////////
+
+      var swiper = new Swiper(".mySwiper", {
+        direction: "vertical",
+        slidesPerView: 1,
+        spaceBetween: 30,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+
+      // 스와이퍼 변경시 발생이벤트 함수
+      swiper.on("slideChange", function () {
+        console.log("slide changed", swiper.realIndex);
+
+        // 2. 모든 박스에서 'on' 클래스 제거 후, 현재 박스에만 'on' 클래스 추가하여 투명도 조절
+        boxes.forEach((box) => {
+          box.classList.remove("on");
+        });
+        boxes[swiper.realIndex].classList.add("on");
+      });
+
+      // ---------------------- 핵심 스크롤 로직 ----------------------
+
+      function isAtBottom(el) {
+        return Math.ceil(el.scrollTop + el.clientHeight) >= el.scrollHeight - 1;
+      }
+      function isAtTop(el) {
+        return el.scrollTop <= 0;
+      }
+
+      modalBoxDiv.forEach((el) => {
+        el.addEventListener(
+          "wheel",
+          function (e) {
+            // 광휠막기 //////
+            if (blockWheel()) return;
+            const d = e.deltaY;
+            if (d > 0) {
+              // 아래로 스크롤 중
+              if (isAtBottom(el)) {
+                e.preventDefault(); // 내부 기본 스크롤 멈춤
+                // 이동시간후 개별스크롤위치 맨위로 이동
+                setTimeout(() => {
+                  el.scrollTop = 0;
+                }, 300);
+                swiper.slideNext(300);
+              } // else: 내부가 스크롤을 소비함
+            } else if (d < 0) {
+              // 위로 스크롤 중
+              if (isAtTop(el)) {
+                e.preventDefault();
+                // 이동시간후 개별스크롤위치 맨위로 이동
+                setTimeout(() => {
+                  el.scrollTop = 0;
+                }, 300);
+                swiper.slidePrev(300);
+              }
+            }
+          },
+          { passive: false }
+        );
+      });
+
+      /******************************** 
+      ////////// 광휠금지함수 //////////
+      ********************************/
+      // [1] 광휠금지상태변수 ///////////
+      let stopWheel = false;
+      // 값이 true일때 휠릭허용/ false면 불허용
+
+      // [2] 광휠금지해제시간 상수셋팅 //////
+      const TIME_GAP = 600;
+
+      // [3] 광휠금지함수 //////////////////
+      function blockWheel() {
+        // 1. 광휠이면 true 를 리턴함!
+        if (stopWheel) return true;
+
+        // 2. 휠가능상태이면 전역변수 셋팅
+        stopWheel = true;
+        setTimeout(() => {
+          stopWheel = false;
+        }, TIME_GAP);
+
+        // 3. 상태값 리턴 (휠가능상태 false)
+        return false;
+      } ////// blockWheel 함수 ///////
+
+      // ---------------------- 모달 제어 함수 ----------------------
+
+      function openModal() {
+        document.getElementById("modal").style.display = "block";
+
+        // 2. <body> 스크롤 막기
+        document.body.classList.add("modal-open");
+
+        // 3. 휠 이벤트 리스너 추가
+        // modalContent.addEventListener("wheel", throttledWheelHandler, {
+        //   passive: false,
+        // });
+
+        // 스와이퍼 방식 이동
+        swiper.slideTo(0);
+
+        // 4. 모달 열 때 첫 번째 박스로 이동 및 on 클래스 적용
+        // scrollToBox(0);
+
+        document.querySelector('.title').innerText = exhibInfo[0].title;
+        document.querySelector('.exbtxt').innerText = exhibInfo[0].exbtxt;
+      }
+
+      function closeModal() {
+        document.getElementById("modal").style.display = "none";
+
+        // 2. <body> 스크롤 복원
+        document.body.classList.remove("modal-open");
+
+        // 3. 휠 이벤트 리스너 제거
+        // modalContent.removeEventListener("wheel", throttledWheelHandler);
+
+        // 4. 상태 초기화
+        currentBoxIndex = 0;
+        upButton.style.display = "none";
+
+        // 5. 모든 박스의 'on' 클래스 제거 및 첫 번째 박스에만 적용
+        boxes.forEach((box) => box.classList.remove("on"));
+        if (boxes.length > 0) {
+          boxes[0].classList.add("on");
+        }
+      }
+
+      // 모달 배경 클릭시 닫기
+      window.addEventListener("click", (event) => {
+        const modal = document.getElementById("modal");
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      // HTML의 onclick 속성 사용을 위해 전역으로 노출합니다.
+      window.openModal = openModal;
+      window.closeModal = closeModal;
+    </script>
+  </body>
+</html>
