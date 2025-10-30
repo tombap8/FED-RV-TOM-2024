@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOGUE KOREA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Times New Roman', serif;
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 8px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .search-login {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .search-login button {
+            background: black;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(to bottom, #ffd6e8, #e8f4f8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            color: #333;
+            max-width: 500px;
+        }
+
+        .hero-content h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        section {
+            margin: 60px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #333;
+        }
+
+        .section-header h2 {
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .section-header a {
+            font-size: 12px;
+            color: #666;
+            text-decoration: none;
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .card {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 300px;
+            background: #f5f5f5;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .card-image.tall {
+            height: 400px;
+        }
+
+        .card-title {
+            font-size: 14px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .card-description {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* People Now Section */
+        .people-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .people-card {
+            position: relative;
+            height: 450px;
+            background: #f0f0f0;
+            overflow: hidden;
+        }
+
+        .people-card-content {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+        }
+
+        .people-card-content h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .people-card-content p {
+            font-size: 12px;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: white;
+            padding: 60px 40px 40px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Times New Roman', serif;
+            font-size: 36px;
+            letter-spacing: 10px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .footer-copyright {
+            font-size: 11px;
+            color: #999;
+            margin-top: 30px;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Tablet Styles */
+        @media (max-width: 1024px) {
+            .header-top {
+                padding: 15px 30px;
+            }
+
+            .logo {
+                font-size: 28px;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+
+            .container {
+                padding: 0 30px;
+            }
+
+            .grid-3, .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .people-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-image {
+                height: 400px;
+            }
+
+            .card-image {
+                height: 250px;
+            }
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .header-top {
+                padding: 15px 20px;
+            }
+
+            .logo {
+                font-size: 24px;
+                letter-spacing: 4px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .search-login {
+                gap: 10px;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .grid-3, .grid-4, .people-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                height: 300px;
+            }
+
+            .hero-content {
+                left: 20px;
+                bottom: 20px;
+            }
+
+            .hero-content h1 {
+                font-size: 20px;
+            }
+
+            section {
+                margin: 40px 0;
+            }
+
+            .section-header {
+                margin-bottom: 20px;
+            }
+
+            .section-header h2 {
+                font-size: 16px;
+            }
+
+            .card-image {
+                height: 350px;
+            }
+
+            .card-image.tall {
+                height: 450px;
+            }
+
+            .people-card {
+                height: 400px;
+            }
+
+            footer {
+                padding: 40px 20px 30px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 20px;
+                letter-spacing: 3px;
+            }
+
+            .search-login button {
+                padding: 6px 12px;
+                font-size: 11px;
+            }
+
+            .hero-content h1 {
+                font-size: 18px;
+            }
+
+            .card-image {
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="logo">VOGUE</div>
+            <nav>
+                <ul>
+                    <li><a href="#fashion">Fashion</a></li>
+                    <li><a href="#beauty">Beauty</a></li>
+                    <li><a href="#living">Living</a></li>
+                    <li><a href="#people">People</a></li>
+                    <li><a href="#video">Video</a></li>
+                    <li><a href="#shopping">Shopping</a></li>
+                </ul>
+            </nav>
+            <div class="search-login">
+                <button>검색</button>
+                <button class="menu-toggle">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="hero">
+            <div class="hero-image">
+                <div style="color: #999; font-size: 48px;">👯‍♀️</div>
+            </div>
+            <div class="hero-content">
+                <h1>가을 컬러 라이언 호주머니 트렌드 스타일링</h1>
+            </div>
+        </div>
+
+        <div class="container">
+            <section id="today">
+                <div class="section-header">
+                    <h2>Today's Stories</h2>
+                    <a href="#">more →</a>
+                </div>
+                <div class="grid grid-3">
+                    <div class="card">
+                        <div class="card-image tall"></div>
+                        <div class="card-title">2024-25 F/W 시즌 컬렉션</div>
+                        <div class="card-description">새로운 시즌을 여는 디자이너들의 혁신적인 컬렉션</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image tall"></div>
+                        <div class="card-title">뷰티 트렌드 리포트</div>
+                        <div class="card-description">이번 시즌 주목해야 할 뷰티 키워드</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image tall"></div>
+                        <div class="card-title">셀러브리티 스타일</div>
+                        <div class="card-description">레드카펫을 장식한 스타들의 패션</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="best">
+                <div class="section-header">
+                    <h2>Best Stories</h2>
+                    <a href="#">more →</a>
+                </div>
+                <div class="grid grid-4">
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-title">스트리트 스타일</div>
+                        <div class="card-description">도쿄 패션위크 스트리트</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-title">아티스트 인터뷰</div>
+                        <div class="card-description">창작의 세계를 말하다</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-title">뉴 컬렉션</div>
+                        <div class="card-description">이번 시즌 신상품</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-title">패션 화보</div>
+                        <div class="card-description">가을 감성 화보</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="people">
+                <div class="section-header">
+                    <h2>People Now</h2>
+                    <a href="#">more →</a>
+                </div>
+                <div class="people-grid">
+                    <div class="people-card">
+                        <div class="people-card-content">
+                            <h3>김지원</h3>
+                            <p>배우, 화보 촬영</p>
+                        </div>
+                    </div>
+                    <div class="people-card">
+                        <div class="people-card-content">
+                            <h3>전지현</h3>
+                            <p>여배우, 인터뷰</p>
+                        </div>
+                    </div>
+                    <div class="people-card">
+                        <div class="people-card-content">
+                            <h3>박서준</h3>
+                            <p>배우, 화보</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="fashion">
+                <div class="section-header">
+                    <h2>Fashion</h2>
+                    <a href="#">more →</a>
+                </div>
+                <div class="grid grid-4">
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-title">런웨이 리포트</div>
+                        <div class="card-description">파리 패션위크 하이라이트</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-title">트렌드 분석</div>
+                        <div class="card-description">2025 SS 트렌드 키워드</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-title">디자이너 인터뷰</div>
+                        <div class="card-description">신진 디자이너의 이야기</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-title">스타일링 팁</div>
+                        <div class="card-description">데일리 룩 스타일링</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="beauty">
+                <div class="section-header">
+                    <h2>Beauty</h2>
+                    <a href="#">more →</a>
+                </div>
+                <div class="grid grid-3">
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-title">메이크업 트렌드</div>
+                        <div class="card-description">가을 메이크업 완성하기</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-title">스킨케어 루틴</div>
+                        <div class="card-description">피부 고민 솔루션</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-title">향수 가이드</div>
+                        <div class="card-description">시그니처 향 찾기</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="living">
+                <div class="section-header">
+                    <h2>Living</h2>
+                    <a href="#">more →</a>
+                </div>
+                <div class="grid grid-4">
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-title">인테리어 디자인</div>
+                        <div class="card-description">감각적인 공간 연출</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-title">라이프스타일</div>
+                        <div class="card-description">일상의 여유 찾기</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-title">트래블 가이드</div>
+                        <div class="card-description">숨은 여행지 추천</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-title">푸드 & 다이닝</div>
+                        <div class="card-description">레스토랑 리뷰</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">VOGUE</div>
+            <div class="footer-links">
+                <a href="#">회사소개</a>
+                <a href="#">광고·제휴</a>
+                <a href="#">개인정보처리방침</a>
+                <a href="#">이용약관</a>
+                <a href="#">고객센터</a>
+            </div>
+            <div class="footer-copyright">
+                © 2025 VOGUE KOREA. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

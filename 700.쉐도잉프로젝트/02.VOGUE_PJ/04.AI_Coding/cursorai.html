@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOGUE KOREA 스타일 메인</title>
+  <!-- Google Fonts: 선택적으로 사용 -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    /* ===========================
+      기본 스타일 및 색상/폰트
+    =========================== */
+    html, body {
+      font-family: 'Noto Sans KR', Arial, sans-serif;
+      color: #222;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    img {
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .container {
+      width: 93%;
+      max-width: 1270px;
+      margin: 0 auto;
+    }
+    /* ===========================
+      Header
+    =========================== */
+    header {
+      border-bottom: 1px solid #eee;
+      background: #fff;
+      padding: 0 0 10px 0;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0 0 0;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.7rem;
+      letter-spacing: 0.18em;
+    }
+    nav {
+      margin-left: 16px;
+    }
+    nav ul {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 1.02rem;
+    }
+    nav li {
+      font-weight: 500;
+    }
+    .util {
+      display: flex;
+      align-items: center;
+      gap: 17px;
+      font-size: 1rem;
+    }
+    /* ===========================
+      Main Visual (Hero)
+    =========================== */
+    .main-visual {
+      margin: 30px 0 24px 0;
+    }
+    .main-visual-img {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 2.3 / 1;
+      background: #e6e6e6;
+      overflow: hidden;
+      border-radius: 22px;
+      box-shadow: 0 2px 15px rgba(80,80,80,0.2);
+    }
+    .main-visual-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.32);
+      color: #fff;
+      font-weight: 500;
+      font-size: 1.35rem;
+      padding: 28px 36px 14px 36px;
+      border-radius: 0 0 22px 22px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+      letter-spacing: -0.8px;
+    }
+    /* ===========================
+      Stories Section
+    =========================== */
+    main {
+      margin-bottom: 48px;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      margin-bottom: 17px;
+    }
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 21px;
+    }
+    .story {
+      display: flex;
+      flex-direction: column;
+      row-gap: 6px;
+    }
+    .story img {
+      height: 184px;
+    }
+    .story-title {
+      margin: 7px 0 0 0;
+      font-size: 1.03rem;
+      font-weight: 500;
+      color: #111;
+    }
+    .story-meta {
+      font-size: 0.91rem;
+      color: #888;
+    }
+
+    /* Large featured single story (Today's Story 등) */
+    .stories-large {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 18px;
+    }
+    .story-large {
+      grid-row: span 2;
+      position: relative;
+    }
+    .story-large img {
+      height: 382px;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+    .story-overlay {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      background: linear-gradient(0deg,rgba(0,0,0,0.5) 50%, transparent 100%);
+      color: #fff;
+      padding: 21px;
+      border-radius: 0 0 16px 16px;
+      font-weight: 600;
+    }
+    /* ===========================
+      Mini Three Columns (People Now 등)
+    =========================== */
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .mini-card img {
+      height: 145px;
+      object-fit: cover;
+    }
+    .mini-title {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-top: 7px;
+    }
+    /* ===========================
+      Footer
+    =========================== */
+    footer {
+      border-top: 1px solid #ddd;
+      font-family: 'Playfair Display', serif;
+      color: #232323;
+      font-size: 1.12rem;
+      text-align: center;
+      padding: 30px 0 15px 0;
+      background: #fff;
+      margin-top: 40px;
+      letter-spacing:0.04em;
+    }
+    /* ===========================
+      반응형 (미디어쿼리)
+    =========================== */
+    @media (max-width: 1240px) {
+      .container {
+        max-width: 1040px;
+      }
+      .stories-grid, .stories-large {
+        gap: 12px;
+      }
+    }
+    /* Tablet 구간 */
+    @media (max-width: 1024px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 13px;
+      }
+      .stories-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .stories-large {
+        grid-template-columns: 1.5fr 1fr 1fr;
+      }
+      .main-visual {
+        margin-top: 18px;
+      }
+      .main-visual-img,
+      .story-large img {
+        aspect-ratio: 16/9;
+        height: auto;
+      }
+      .mini-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    /* Mobile 구간 */
+    @media (max-width: 819px) {
+      .container {
+        width: 98%;
+        max-width: 100%;
+      }
+      .header-inner {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 11px 0 6px 0;
+        gap: 8px;
+      }
+      nav ul {
+        gap: 11px;
+        font-size: 0.98rem;
+      }
+      .main-visual {
+        margin: 10px 0 10px 0;
+      }
+      .main-visual-caption {
+        font-size: 1rem;
+        padding: 12px 17px 6px 17px;
+      }
+      .stories-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .stories-large {
+        display: block;
+      }
+      .story-large, .story {
+        margin-bottom: 11px;
+      }
+      .mini-grid {
+        grid-template-columns: 1fr;
+        gap: 9px;
+      }
+      section {
+        margin-bottom: 19px;
+      }
+      footer {
+        font-size: 1rem;
+        padding: 18px 0 9px 0;
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- =========================
+      Header
+  ========================== -->
+  <header>
+    <div class="container header-inner">
+      <div class="logo">VOGUE</div>
+      <nav>
+        <ul>
+          <li><a href="#">FASHION</a></li>
+          <li><a href="#">BEAUTY</a></li>
+          <li><a href="#">LIVING</a></li>
+          <li><a href="#">CULTURE</a></li>
+          <li><a href="#">PEOPLE</a></li>
+        </ul>
+      </nav>
+      <div class="util">
+        <a href="#">LOGIN</a>
+        <a href="#"><span style="font-size:1.18em;">☰</span></a>
+      </div>
+    </div>
+  </header>
+  
+  <!-- =========================
+      Main Visual
+  ========================== -->
+  <div class="main-visual">
+    <div class="container">
+      <div class="main-visual-img">
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1200&q=80" alt="메인 비주얼">
+        <div class="main-visual-caption">
+          캐스브라이트의 트윈 룩이 내게 가져다준 완벽한 아름다움
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class="container">
+      <!-- =========================
+          Today’s Stories
+      ========================== -->
+      <section>
+        <div class="section-title">Today's Stories</div>
+        <div class="stories-large">
+          <div class="story-large">
+            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80" alt="story1">
+            <div class="story-overlay">뉴 럭셔리 시대, 스타일의 진화</div>
+          </div>
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80" alt="story2">
+            <div class="story-title">도시의 밤을 밝히다</div>
+            <div class="story-meta">2025.10.30</div>
+          </div>
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?auto=format&fit=crop&w=600&q=80" alt="story3">
+            <div class="story-title">뮤즈가 된 순간</div>
+            <div class="story-meta">2025.10.30</div>
+          </div>
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1469398715555-c09ed7abf0b2?auto=format&fit=crop&w=600&q=80" alt="story4">
+            <div class="story-title">선명하게 드러난 개성</div>
+            <div class="story-meta">2025.10.30</div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- =========================
+          Best Stories
+      ========================== -->
+      <section>
+        <div class="section-title">Best Stories</div>
+        <div class="stories-grid">
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=500&q=80" alt="b1">
+            <div class="story-title">함께 걷는 계절</div>
+            <div class="story-meta">VOGUE · 5분전</div>
+          </div>
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1475189778702-5ec9941484ae?auto=format&fit=crop&w=500&q=80" alt="b2">
+            <div class="story-title">편안한 클래식</div>
+            <div class="story-meta">VOGUE · 5분전</div>
+          </div>
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=500&q=80" alt="b3">
+            <div class="story-title">자연스러움의 미학</div>
+            <div class="story-meta">VOGUE · 10분전</div>
+          </div>
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=500&q=80" alt="b4">
+            <div class="story-title">화려함과 절제 사이</div>
+            <div class="story-meta">VOGUE · 11분전</div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- =========================
+          Must Read
+      ========================== -->
+      <section>
+        <div class="section-title">Must Read</div>
+        <div class="stories-grid">
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1514986888952-b46852f3a54b?auto=format&fit=crop&w=500&q=80" alt="m1">
+            <div class="story-title">레전드 패션 모먼트</div>
+            <div class="story-meta">2025.10.30</div>
+          </div>
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=500&q=80" alt="m2">
+            <div class="story-title">최신 뷰티 뉴웨이브</div>
+            <div class="story-meta">2025.10.30</div>
+          </div>
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=500&q=80" alt="m3">
+            <div class="story-title">영감을 주는 리빙</div>
+            <div class="story-meta">2025.10.30</div>
+          </div>
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=500&q=80" alt="m4">
+            <div class="story-title">예술과 일상</div>
+            <div class="story-meta">2025.10.30</div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- =========================
+          People Now
+      ========================== -->
+      <section>
+        <div class="section-title">People Now</div>
+        <div class="mini-grid">
+          <div class="mini-card">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="p1">
+            <div class="mini-title">가장 빛나는 순간</div>
+          </div>
+          <div class="mini-card">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80" alt="p2">
+            <div class="mini-title">오늘의 셀럽</div>
+          </div>
+          <div class="mini-card">
+            <img src="https://images.unsplash.com/photo-1454023492550-5696f8ff10e1?auto=format&fit=crop&w=300&q=80" alt="p3">
+            <div class="mini-title">스타일리시한 그들</div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- =========================
+          Fashion, Beauty, Living, Culture
+      ========================== -->
+      <section>
+        <div class="section-title">Fashion</div>
+        <div class="stories-grid">
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=500&q=80" alt="f1">
+            <div class="story-title">드라마틱한 런웨이</div>
+            <div class="story-meta">2025.10.29</div>
+          </div>
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1469398715555-c09ed7abf0b2?auto=format&fit=crop&w=500&q=80" alt="f2">
+            <div class="story-title">함께한 순간들</div>
+            <div class="story-meta">2025.10.29</div>
+          </div>
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=500&q=80" alt="f3">
+            <div class="story-title">밝고 선명하게</div>
+            <div class="story-meta">2025.10.29</div>
+          </div>
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1475189778702-5ec9941484ae?auto=format&fit=crop&w=500&q=80" alt="f4">
+            <div class="story-title">날카로운 시선</div>
+            <div class="story-meta">2025.10.29</div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="section-title">Beauty</div>
+        <div class="stories-grid">
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=500&q=80" alt="b1">
+            <div class="story-title">경계를 허문 메이크업</div>
+            <div class="story-meta">2025.10.28</div>
+          </div>
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=500&q=80" alt="b2">
+            <div class="story-title">빛나는 피부, 자연스러운 헤어</div>
+            <div class="story-meta">2025.10.28</div>
+          </div>
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=500&q=80" alt="b3">
+            <div class="story-title">뷰티 아이콘의 탄생</div>
+            <div class="story-meta">2025.10.28</div>
+          </div>
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?auto=format&fit=crop&w=500&q=80" alt="b4">
+            <div class="story-title">감각의 미학</div>
+            <div class="story-meta">2025.10.28</div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="section-title">Living</div>
+        <div class="stories-grid">
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80" alt="l1">
+            <div class="story-title">LIVE AT HOME</div>
+            <div class="story-meta">2025.10.27</div>
+          </div>
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1454023492550-5696f8ff10e1?auto=format&fit=crop&w=500&q=80" alt="l2">
+            <div class="story-title">내추럴 공간</div>
+            <div class="story-meta">2025.10.27</div>
+          </div>
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=500&q=80" alt="l3">
+            <div class="story-title">일상의 쉼표</div>
+            <div class="story-meta">2025.10.27</div>
+          </div>
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=500&q=80" alt="l4">
+            <div class="story-title">공간의 온도</div>
+            <div class="story-meta">2025.10.27</div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="section-title">Culture</div>
+        <div class="stories-grid">
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1514986888952-b46852f3a54b?auto=format&fit=crop&w=500&q=80" alt="c1">
+            <div class="story-title">예술의 뒤편</div>
+            <div class="story-meta">2025.10.26</div>
+          </div>
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=500&q=80" alt="c2">
+            <div class="story-title">창조적 상상력</div>
+            <div class="story-meta">2025.10.26</div>
+          </div>
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=500&q=80" alt="c3">
+            <div class="story-title">함께 누리는 문화</div>
+            <div class="story-meta">2025.10.26</div>
+          </div>
+          <div class="story">
+            <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=500&q=80" alt="c4">
+            <div class="story-title">전통과 혁신</div>
+            <div class="story-meta">2025.10.26</div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  
+  <!-- =========================
+        Footer
+  ========================== -->
+  <footer>
+    VOGUE KOREA &copy; 2025<br>
+    본 페이지는 데모/연습용으로 제작되었습니다.
+  </footer>
+</body>
+</html>

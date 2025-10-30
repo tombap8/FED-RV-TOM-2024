@@ -1,0 +1,93 @@
+/* ================================== */
+/* 1. 기본 스타일 (Mobile-First: 모든 기기 기본 적용) */
+/* ================================== */
+* {
+    box-sizing: border-box; /* 패딩과 보더가 너비에 포함되도록 설정 */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    background-color: #fff;
+    color: #333;
+}
+
+.main-content {
+    max-width: 100%; /* 모바일에서 꽉 채움 */
+    padding: 10px;
+    margin: 0 auto;
+}
+
+/* ================================== */
+/* 2. 기사 섹션 및 카드 레이아웃 */
+/* ================================== */
+.section-title {
+    font-size: 1.5rem;
+    margin: 20px 0 15px;
+    text-align: center;
+}
+
+.card-list {
+    display: flex;
+    flex-wrap: wrap; /* 카드가 다음 줄로 넘어가도록 설정 */
+    gap: 20px; /* 카드 간의 간격 */
+    justify-content: space-between; /* 카드 정렬 (선택 사항) */
+}
+
+.card {
+    /* 모바일 기본: 한 줄에 1~2개 */
+    width: 100%; /* 기본적으로 한 줄에 하나 (세로 스크롤 방식) */
+    margin-bottom: 20px;
+}
+
+.card-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 모바일 2열 레이아웃을 위한 선택적 설정 */
+@media (min-width: 480px) {
+    .card {
+        width: calc(50% - 10px); /* 2열로 배치, gap 20px 반영 */
+    }
+}
+
+
+/* ================================== */
+/* 3. 미디어 쿼리 (태블릿) */
+/* ================================== */
+@media (min-width: 768px) {
+    .main-content {
+        padding: 20px;
+    }
+
+    /* 태블릿: 3열 레이아웃 설정 */
+    .card {
+        width: calc(33.333% - 14px); /* 3열로 배치, gap 20px 반영 */
+    }
+    
+    /* 메인 비주얼 크기 조정 등 */
+    .main-visual {
+        /* 예시: 메인 비주얼 높이 증가 등 */
+    }
+}
+
+/* ================================== */
+/* 4. 미디어 쿼리 (데스크탑) */
+/* ================================== */
+@media (min-width: 1200px) {
+    .main-content {
+        max-width: 1200px; /* 최대 너비 제한으로 중앙 정렬 */
+    }
+
+    /* 데스크탑: 4열 레이아웃 설정 */
+    .card {
+        width: calc(25% - 15px); /* 4열로 배치, gap 20px 반영 */
+    }
+    
+    /* 헤더 및 내비게이션 바 레이아웃 조정 */
+    /* .header, .nav 등 */
+}
