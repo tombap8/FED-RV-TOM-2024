@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+/* 보그 JS 초기화 CSS - reset.css */
+
+/* ========== 기본 리셋 ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Roboto', "Noto Sans KR";
+  padding-top: 209px;
+}
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  /* display: block; */
+}
+
+ul,
+li {
+  list-style: none;
+}

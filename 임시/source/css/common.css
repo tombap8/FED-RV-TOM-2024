@@ -1,0 +1,178 @@
+@charset "UTF-8";
+/* 공통 헤더/푸터 스타일 - common.css */
+
+/* ========== 헤더 ========== */
+header {
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 209px;
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+
+/* 로고, 상단메뉴 포함 박스 */
+.header-top {
+  position: relative;
+  /* 부모자격 */
+  /* padding: 20px 40px; */
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 8px;
+  text-align: center;
+}
+
+/* 상단메뉴 */
+.header-actions {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  translate: 0 -50%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.header-actions button {
+  background-color: #fff;
+  padding: 4px 8px;
+  /* border-radius: 4px; */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+}
+/* 구독버튼 */
+.header-actions .gudok-btn {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #000;
+}
+
+/* GNB 메뉴 리스트 ul */
+.nav-list {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  /* padding: 15px 0; */
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+/* GNB 메뉴 리스트 li a링크 */
+.nav-list li a {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+.nav-list li a:hover {
+  color: #e74c3c;
+}
+
+/* ========== 푸터 ========== */
+footer {
+  background: #000;
+  color: #fff;
+  padding: 60px 40px 40px;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-logo {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 10px;
+  margin-bottom: 30px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: opacity 0.3s;
+}
+
+.footer-links a:hover {
+  opacity: 0.7;
+}
+
+.footer-copyright {
+  font-size: 11px;
+  color: #999;
+}
+
+/* ========== 반응형: 태블릿 (820px ~ 1024px) ========== */
+@media (max-width: 1024px) {
+  .header-top {
+    padding: 15px 30px;
+  }
+
+  .logo {
+    font-size: 28px;
+    letter-spacing: 6px;
+  }
+
+  .nav-list {
+    gap: 25px;
+  }
+}
+
+/* ========== 반응형: 모바일 (<819px) ========== */
+@media (max-width: 819px) {
+  .header-top {
+    padding: 12px 20px;
+  }
+
+  .logo {
+    font-size: 24px;
+    letter-spacing: 4px;
+  }
+
+  .nav-list {
+    gap: 15px;
+    padding: 10px 20px;
+  }
+
+  .nav-list li a {
+    font-size: 11px;
+  }
+
+  footer {
+    padding: 40px 20px 30px;
+  }
+
+  .footer-logo {
+    font-size: 28px;
+    letter-spacing: 6px;
+  }
+
+  .footer-links {
+    gap: 15px;
+  }
+}
+
+
