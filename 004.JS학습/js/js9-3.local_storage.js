@@ -147,13 +147,16 @@ function localsFn() {
 
 // 추가로 각 출력 영역을 클릭하면 해당 로컬쓰만 지우기셋팅
 // 배우이름 삭제
-myFn.qs(".local .nm").onclick = () => localStorage.removeItem("actor-name");
+myFn.qs(".local .nm").onclick = 
+() => localStorage.removeItem("actor-name");
 
 // 역할이름 삭제
-myFn.qs(".local .role").onclick = () => localStorage.removeItem("actor-role");
+myFn.qs(".local .role").onclick = 
+() => localStorage.removeItem("actor-role");
 
 // 캐릭터소개 삭제
-myFn.qs(".local .cat").onclick = () => localStorage.removeItem("actor-cat");
+myFn.qs(".local .cat").onclick = 
+() => localStorage.removeItem("actor-cat");
 
 // "minfo" 로컬쓰 키가 없으면 객체를 만들어 넣기 함수 //
 function makeObj() {
@@ -446,6 +449,8 @@ function setLS() {
   // 5. 다시 데이터 바인딩하기
   bindData();
 } //////////// setLS 함수 //////////////////////
+
+
 
 //******************************************** */
 ///////////////////////////////////////////////
