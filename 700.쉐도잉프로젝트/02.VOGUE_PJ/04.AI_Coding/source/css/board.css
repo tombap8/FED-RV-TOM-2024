@@ -1,0 +1,452 @@
+@charset "UTF-8";
+/* 보그 게시판 CSS - board.css  */
+
+/* 게시판 전체 컨테이너 */
+.board-cont {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 100px;
+  min-height: calc(100vh - 400px);
+}
+
+/* 게시판 타이틀 */
+.board-cont .tit {
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+  letter-spacing: 4px;
+}
+
+/* 검색옵션박스 */
+.selbx {
+  max-width: 100%;
+  margin: 0 auto 30px;
+  padding: 20px 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.selbx select,
+.selbx input[type="text"] {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-size: 14px;
+}
+
+.selbx select {
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.selbx input[type="text"] {
+  flex: 1;
+  min-width: 200px;
+}
+
+.selbx button {
+  padding: 8px 20px;
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #000;
+  cursor: pointer;
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.selbx button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* 정렬기준 선택박스 */
+.sort_cta {
+  margin-left: auto;
+}
+
+/* 테이블 디자인 */
+.dtbl {
+  text-align: center;
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-size: 14px;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.dtbl caption,
+.dtblview caption {
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  padding: 20px 0;
+  text-align: left;
+}
+
+.dtbl a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.dtbl a:hover {
+  color: #000;
+  font-weight: 600;
+}
+
+.btngrp td {
+  border-bottom: none !important;
+  text-align: right;
+  padding: 20px 0 !important;
+}
+
+.dtbl td,
+.dtbl th {
+  padding: 15px 10px;
+}
+
+/* 보드 메인리스트 a요소 말줄임표시하기 */
+#board tbody td a {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  text-align: left;
+}
+
+/* 각 th별 가로크기지정 */
+.dtbl th:nth-child(1) {
+  width: 8%;
+}
+.dtbl th:nth-child(2) {
+  width: 44%;
+}
+.dtbl th:nth-child(3) {
+  width: 20%;
+}
+.dtbl th:nth-child(4) {
+  width: 18%;
+}
+.dtbl th:nth-child(5) {
+  width: 10%;
+}
+
+.dtbl tbody tr td {
+  border-bottom: 1px solid #eee;
+}
+
+.dtbl thead tr th {
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  font-weight: 600;
+  background-color: #fafafa;
+}
+
+.dtbl tbody tr:last-child td {
+  border-bottom: 2px solid #000;
+}
+
+.dtbl tbody tr td:nth-child(2) {
+  text-align: left;
+}
+
+/* 짝수번째 배경색 */
+.dtbl tbody tr:hover td {
+  background-color: #f8f8f8;
+}
+
+/* 하단 페이징 */
+.dtbl tfoot td {
+  text-align: center;
+  padding: 30px 0;
+  border-bottom: none;
+}
+
+/* 내용보기 테이블 */
+.dtblview {
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-size: 16px;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  background-color: #fff;
+}
+
+.dtblview td {
+  border-bottom: 1px solid #eee;
+  padding: 15px 20px;
+}
+
+.dtblview td:first-child {
+  width: 150px;
+  background-color: #fafafa;
+  text-align: center;
+  font-weight: 600;
+}
+
+.dtblview td:last-child {
+  text-align: left;
+}
+
+.dtblview input,
+.dtblview textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.dtblview textarea {
+  resize: vertical;
+  min-height: 200px;
+  font-family: inherit;
+  line-height: 1.6;
+}
+
+/* 버튼 그룹 */
+.btngrp button {
+  border-radius: 0;
+  padding: 10px 30px;
+  background-color: #000;
+  color: #fff;
+  font-weight: 600;
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-size: 14px;
+  transition: all 0.3s;
+  cursor: pointer;
+  border: 1px solid #000;
+  margin: 0 5px;
+}
+
+.btngrp button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* 검색기록 리스트 */
+#historyList {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  flex-direction: column-reverse;
+  line-height: 1.7;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  white-space: nowrap;
+  display: none;
+  list-style: none;
+  cursor: pointer;
+  margin-top: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+#historyList li {
+  padding: 5px 0;
+}
+
+#historyList li b {
+  cursor: pointer;
+  font-weight: 400;
+}
+
+#historyList li b:hover {
+  font-weight: 600;
+}
+
+/* 코멘트 입력/뷰 박스 */
+.comment-box {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-size: 14px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.comment-view-box {
+  width: 100%;
+  border: none;
+  overflow: hidden;
+  resize: none;
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-size: 14px;
+  background-color: transparent;
+  line-height: 1.6;
+}
+
+.comment-view-box.editing {
+  outline: 2px solid #000;
+  background-color: #fff;
+  padding: 5px;
+}
+
+/* 코멘트 테이블 */
+.comment-table {
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-size: 14px;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  border-top: 1px solid #ddd;
+  border-bottom: 2px solid #000;
+  background-color: #fff;
+}
+
+.comment-table td {
+  border-bottom: 1px solid #eee;
+  padding: 15px 20px;
+  vertical-align: top;
+}
+
+.comment-table td:first-child {
+  width: 150px;
+  background-color: #fafafa;
+  text-align: center;
+}
+
+.comment-table button {
+  padding: 5px 15px;
+  background-color: #000;
+  color: #fff;
+  font-weight: 600;
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-size: 12px;
+  transition: all 0.3s;
+  cursor: pointer;
+  border: 1px solid #000;
+  margin: 3px 2px;
+}
+
+.comment-table button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* 페이징 스타일 */
+.paging a,
+.paging b {
+  display: inline-block;
+  margin: 0 8px;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #666;
+  font-family: "Ubuntu Condensed", sans-serif;
+}
+
+.paging a:hover {
+  color: #000;
+  font-weight: 600;
+}
+
+.paging b {
+  color: #000;
+  font-weight: 700;
+  font-size: 16px;
+  border-bottom: 2px solid #000;
+}
+
+/* 반응형 디자인 */
+@media screen and (max-width: 768px) {
+      .board-cont {
+        padding: 30px 15px 80px;
+    }
+
+  .board-cont .tit {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+
+  .selbx {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .selbx > * {
+    width: 100%;
+  }
+
+  .sort_cta {
+    margin-left: 0;
+  }
+
+  .dtbl {
+    font-size: 12px;
+  }
+
+  .dtbl th:nth-child(1),
+  .dtbl th:nth-child(5) {
+    display: none;
+  }
+
+  .dtbl:not(.btngrp) tbody td:nth-child(1),
+  .dtbl:not(.btngrp) tbody td:nth-child(5) {
+    display: none;
+  }
+
+  .dtbl th:nth-child(2) {
+    width: 50%;
+  }
+
+  .dtbl th:nth-child(3) {
+    width: 25%;
+  }
+
+  .dtbl th:nth-child(4) {
+    width: 25%;
+  }
+
+  .dtblview,
+  .comment-table {
+    font-size: 14px;
+  }
+
+  .dtblview td:first-child,
+  .comment-table td:first-child {
+    width: 100px;
+    font-size: 12px;
+  }
+
+  .dtblview input,
+  .dtblview textarea {
+    font-size: 14px;
+  }
+
+  .btngrp td {
+    text-align: center;
+    padding: 30px 0 !important;
+  }
+
+  .btngrp button {
+    font-size: 12px;
+    padding: 8px 20px;
+    margin: 5px;
+    width: auto;
+    min-width: 80px;
+  }
+
+  .paging a,
+  .paging b {
+    margin: 0 4px;
+    padding: 3px 6px;
+    font-size: 14px;
+  }
+}

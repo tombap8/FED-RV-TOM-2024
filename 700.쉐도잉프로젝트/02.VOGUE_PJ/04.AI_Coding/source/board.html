@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OPINION - VOGUE KOREA</title>
+    <!-- 폰트어썸 CDN CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- 리셋 CSS -->
+    <link rel="stylesheet" href="./css/reset.css" />
+    <!-- 공통 CSS -->
+    <link rel="stylesheet" href="./css/common.css" />
+    <!-- 게시판 CSS -->
+    <link rel="stylesheet" href="./css/board.css" />
+    <!-- 구글폰트 -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- 헤더 영역 -->
+    <div id="header-area"></div>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <main class="cont board-cont">
+      <!-- 리스트 모드 -->
+      <div id="list-mode" class="mode-container">
+        <h1 class="tit">OPINION</h1>
+        <div class="selbx">
+          <!-- 검색기준 선택박스 -->
+          <select name="cta" id="cta" class="cta">
+            <option value="tit">Title</option>
+            <option value="cont">Contents</option>
+            <option value="unm">Writer</option>
+          </select>
+          <!-- 정렬순서 선택박스 -->
+          <select name="sel" id="sel" class="sel">
+            <option value="1">Descending</option>
+            <option value="-1">Ascending</option>
+          </select>
+          <!-- 검색어 입력 -->
+          <input id="stxt" type="text" maxlength="50" placeholder="검색어 입력" />
+          <!-- 검색버튼 -->
+          <button class="sbtn" id="searchBtn">Search</button>
+          <!-- 초기화버튼 -->
+          <button class="sbtn" id="resetBtn">Reset</button>
+          <!-- 검색기록 버튼 -->
+          <button id="historyBtn" style="position: relative">
+            History
+            <ol id="historyList"></ol>
+          </button>
+
+          <!-- 정렬기준 선택박스 -->
+          <select
+            name="sort_cta"
+            id="sort_cta"
+            class="sort_cta"
+            style="float: right; translate: 0 5px"
+          >
+            <option value="date">Recent</option>
+            <option value="tit">Title</option>
+          </select>
+        </div>
+
+        <!-- 게시판 테이블 -->
+        <table class="dtbl" id="board">
+          <thead>
+            <tr>
+              <th>Number</th>
+              <th>Title</th>
+              <th>Writer</th>
+              <th>Date</th>
+              <th>Hits</th>
+            </tr>
+          </thead>
+          <tbody id="board-body">
+            <!-- 데이터가 여기에 동적으로 삽입됨 -->
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="5" class="paging" id="paging">
+                <!-- 페이징이 여기에 동적으로 삽입됨 -->
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+        <br />
+        <table class="dtbl btngrp">
+          <tbody>
+            <tr>
+              <td>
+                <button id="writeBtn" style="display: none">Write</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 읽기 모드 -->
+      <div id="read-mode" class="mode-container" style="display: none">
+        <h1 class="tit">OPINION</h1>
+        <table class="dtblview readone">
+          <caption>
+            OPINION : Read
+          </caption>
+          <tbody>
+            <tr>
+              <td>Name</td>
+              <td>
+                <input
+                  type="text"
+                  class="name"
+                  size="20"
+                  readonly
+                  id="read-name"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Title</td>
+              <td>
+                <input
+                  type="text"
+                  class="subject"
+                  size="60"
+                  readonly
+                  id="read-title"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Content</td>
+              <td>
+                <textarea
+                  class="content"
+                  cols="60"
+                  rows="10"
+                  readonly
+                  id="read-content"
+                ></textarea>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+        <table class="dtbl btngrp">
+          <tbody>
+            <tr>
+              <td>
+                <button id="readListBtn">List</button>
+                <button id="readModifyBtn" style="display: none">
+                  Modify
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 코멘트 입력 박스 -->
+        <table
+          class="dtblview"
+          id="comment-input-box"
+          style="display: none"
+        >
+          <tbody>
+            <tr>
+              <td>Comments</td>
+              <td>
+                <textarea
+                  class="comment-box"
+                  id="comment-box"
+                  cols="60"
+                  rows="5"
+                ></textarea>
+                <button
+                  style="
+                    margin-left: 10px;
+                    height: 80px;
+                    vertical-align: 35px;
+                  "
+                  id="commentSendBtn"
+                >
+                  Send
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 코멘트 리스트 -->
+        <div id="comment-list"></div>
+      </div>
+
+      <!-- 쓰기 모드 -->
+      <div id="write-mode" class="mode-container" style="display: none">
+        <h1 class="tit">OPINION</h1>
+        <table class="dtblview readone">
+          <caption>
+            OPINION : Write
+          </caption>
+          <tbody>
+            <tr>
+              <td>Name</td>
+              <td>
+                <input
+                  type="text"
+                  class="name"
+                  size="20"
+                  readonly
+                  id="write-name"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Title</td>
+              <td>
+                <input type="text" class="subject" size="60" id="write-title" />
+              </td>
+            </tr>
+            <tr>
+              <td>Content</td>
+              <td>
+                <textarea
+                  class="content"
+                  cols="60"
+                  rows="10"
+                  id="write-content"
+                ></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>Attachment</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+        <table class="dtbl btngrp">
+          <tbody>
+            <tr>
+              <td>
+                <button id="writeSubmitBtn">Submit</button>
+                <button id="writeListBtn">List</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 수정 모드 -->
+      <div id="modify-mode" class="mode-container" style="display: none">
+        <h1 class="tit">OPINION</h1>
+        <table class="dtblview readone">
+          <caption>
+            OPINION : Modify
+          </caption>
+          <tbody>
+            <tr>
+              <td>Name</td>
+              <td>
+                <input
+                  type="text"
+                  class="name"
+                  size="20"
+                  readonly
+                  id="modify-name"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Title</td>
+              <td>
+                <input
+                  type="text"
+                  class="subject"
+                  size="60"
+                  id="modify-title"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Content</td>
+              <td>
+                <textarea
+                  class="content"
+                  cols="60"
+                  rows="10"
+                  id="modify-content"
+                ></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>Attachment</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+        <table class="dtbl btngrp">
+          <tbody>
+            <tr>
+              <td>
+                <button id="modifySubmitBtn">Submit</button>
+                <button id="modifyDeleteBtn">Delete</button>
+                <button id="modifyListBtn">List</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <!-- 푸터 영역 -->
+    <div id="footer-area"></div>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- 공통 JS 모듈 (헤더, 푸터 로드 포함) -->
+    <script type="module" src="./js/common.js"></script>
+    <!-- 게시판 JS 모듈 -->
+    <script type="module" src="./js/board.js"></script>
+  </body>
+</html>

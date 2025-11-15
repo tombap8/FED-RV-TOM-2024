@@ -112,10 +112,6 @@ header.hidden {
   transition: color 0.3s;
 }
 
-.nav-list li a:hover {
-  /* color: #e74c3c; */
-}
-
 /* ========== 푸터 ========== */
 footer {
   background: #000;
@@ -185,6 +181,10 @@ footer {
 
 /* ========== 반응형: 모바일 (<819px) ========== */
 @media (max-width: 819px) {
+
+  body {
+    padding-top: 108px;
+}
 
   header {
     left: 0;

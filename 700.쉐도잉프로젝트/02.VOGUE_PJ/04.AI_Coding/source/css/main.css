@@ -122,7 +122,7 @@
 main > section {
   max-width: 1400px;
   margin: 0 auto;
-  margin-top: 120px !important;
+  /* margin-top: 120px !important; */
   padding: 0 40px;
 }
 

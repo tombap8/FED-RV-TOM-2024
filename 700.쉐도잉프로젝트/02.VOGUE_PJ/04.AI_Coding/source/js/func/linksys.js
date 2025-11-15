@@ -13,7 +13,13 @@ export default function () {
       // 카테고리 페이지에 보낼값
       const pm = this.getAttribute("href").substr(1);
       // substr(시작순번, 개수) -> 개수를 안쓰면 시작순번부터 끝까지임
-      location.href = "category.html?pm=" + pm;
+      
+      // OPINION 메뉴는 게시판 페이지로 이동
+      if (pm.toUpperCase() === "OPINION") {
+        location.href = "board.html";
+      } else {
+        location.href = "category.html?pm=" + pm;
+      }
     }); ///////////// click //////////////
   }); ///////////// forEach //////////////
 
