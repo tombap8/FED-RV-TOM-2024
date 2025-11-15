@@ -92,9 +92,8 @@
   fashion파트도 모두 변경해야함
   그래서 !important사용 */
   .stories-grid {
-    display: flex !important;
-    flex-direction: column;
-    gap: 15px;
+    grid-template-columns: 1fr !important;
+    gap: 30px 0;
   }
 
   /* 큰 카드 위치변경 :  
