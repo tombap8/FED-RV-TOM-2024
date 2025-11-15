@@ -521,7 +521,7 @@ function saveComment() {
     idx: newIdx,
     cont: commentText,
     userid: loginSts.userid,
-    username: loginSts.username,
+    username: loginSts.name,
     bid: selRecord.idx,
     date: new Date().toJSON().substring(0, 10),
   });
@@ -641,13 +641,35 @@ window.saveModifiedComment = function (idx) {
 
 // ★★★ 쓰기 모드 렌더링 ★★★ //
 function renderWriteMode() {
+  // 로그인 정보 다시 확인
+  const loginfo = sessionStorage.getItem("loginfo");
+  if (loginfo) {
+    loginSts = JSON.parse(loginfo);
+  }
+  
+  // 로그인 체크
+  if (!loginSts) {
+    alert("Please login first!");
+    mode = "L";
+    renderMode();
+    return;
+  }
+  
+  console.log("Write Mode - Login Info:", loginSts);
+  
   $("#write-mode").show();
-  $("#write-name").val(loginSts.username);
+  $("#write-name").val(loginSts.name);
   $("#write-title").val("");
   $("#write-content").val("");
 }
 
 function submitWrite() {
+  // 로그인 체크
+  if (!loginSts) {
+    alert("Please login first!");
+    return;
+  }
+
   let title = $("#write-title").val().trim();
   let content = $("#write-content").val().trim();
 
@@ -667,7 +689,7 @@ function submitWrite() {
     att: "",
     date: today,
     userid: loginSts.userid,
-    username: loginSts.username,
+    username: loginSts.name,
     cnt: 0,
   };
 
