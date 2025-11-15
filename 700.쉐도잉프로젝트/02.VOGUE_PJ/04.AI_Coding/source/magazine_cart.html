@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 폰트어썸 CDN CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+
+    <!-- 매거진 리스트 CSS -->
+    <link rel="stylesheet" href="./css/magazine_cart.css" />
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Common JS (공통 모듈 로드) -->
+    <script src="./js/common.js" type="module"></script>
+
+    <!-- 매거진 리스트 데이터 바인딩 JS -->
+    <script type="module" src="./js/magazine_cart.js"></script>
+
+    <title>VOGUE 정기구독 장바구니</title>
+  </head>
+  <body>
+    <!-- ========== 헤더 영역 (공통 모듈) ========== -->
+    <div id="header-area"></div>
+
+    <!-- ========== 메인 영역 ============-->
+    <main class="main-area inbox">
+      <!-- 탭 메뉴 -->
+      <div class="tab-menu">
+        <button class="tab-item active">일반주문(3)</button>
+        <button class="tab-item">예약주문(0)</button>
+        <button class="tab-item">매장픽업(0)</button>
+      </div>
+
+      <!-- 선택 컨트롤 -->
+      <div class="select-controls">
+        <label class="checkbox-label">
+          <input type="checkbox" class="checkbox" checked />
+          <span>전체선택</span>
+        </label>
+        <button class="delete-btn">선택삭제</button>
+      </div>
+
+      <!-- 메인 컨텐츠 -->
+      <div class="main-content inbox">
+        <!-- 장바구니 아이템 -->
+        <div class="cart-items">
+          <!-- 아이템 1 -->
+          <div class="cart-item">
+            <input type="checkbox" class="checkbox item-checkbox" checked />
+            <div class="item-image-wrapper">
+              <img
+                src="https://static-resource.discovery-expedition.com/cdn-cgi/image/q=75,w=392,format=auto,fit=scale-down,onerror=redirect/images/goods/ec/X25FDXSS71056CRS/thnail/0013C55CA1A94475B49E8F7201EB20DC.png"
+                alt="테크플리스 하이넥 자켓"
+                class="item-image"
+              />
+            </div>
+            <div class="item-info">
+              <div class="item-top">
+                <div class="order-type">일반주문</div>
+                <a href="#" class="item-name">테크플리스 하이넥 자켓</a>
+                <div class="item-options">
+                  <span>WHITE</span>
+                  <span>90</span>
+                  <span>1개</span>
+                </div>
+                <div class="item-price">169,000원</div>
+              </div>
+              <div class="item-actions">
+                <button class="action-btn">옵션 변경</button>
+                <button class="action-btn">삭제</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 아이템 2 -->
+          <div class="cart-item">
+            <input type="checkbox" class="checkbox item-checkbox" checked />
+            <div class="item-image-wrapper">
+              <img
+                src="https://static-resource.discovery-expedition.com/cdn-cgi/image/q=75,w=392,format=auto,fit=scale-down,onerror=redirect/images/goods/ec/X25FDWDJ9M056TQD/thnail/3636C1CBDF35408C87137341ADB364BF.png"
+                alt="여성 올버트 뉴퀼팅 구스다운 경량패딩"
+                class="item-image"
+              />
+            </div>
+            <div class="item-info">
+              <div class="item-top">
+                <div class="order-type">일반주문</div>
+                <a href="#" class="item-name"
+                  >여성 올버트 뉴퀼팅 구스다운 경량패딩</a
+                >
+                <div class="item-options">
+                  <span>TURQUOISE</span>
+                  <span>90</span>
+                  <span>1개</span>
+                </div>
+                <div class="item-price">279,000원</div>
+              </div>
+              <div class="item-actions">
+                <button class="action-btn">옵션 변경</button>
+                <button class="action-btn">삭제</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 아이템 3 -->
+          <div class="cart-item">
+            <input type="checkbox" class="checkbox item-checkbox" checked />
+            <div class="item-image-wrapper">
+              <img
+                src="https://static-resource.discovery-expedition.com/cdn-cgi/image/q=75,w=392,format=auto,fit=scale-down,onerror=redirect/images/goods/ec/X25FDWDJ84056CRS/thnail/273C2F869AD8442F960324AD979218BE.png"
+                alt="여성 티베른 튜브 구스다운 경량패딩"
+                class="item-image"
+              />
+            </div>
+            <div class="item-info">
+              <div class="item-top">
+                <div class="order-type">일반주문</div>
+                <a href="#" class="item-name"
+                  >여성 티베른 튜브 구스다운 경량패딩</a
+                >
+                <div class="item-options">
+                  <span>WHITE</span>
+                  <span>95</span>
+                  <span>1개</span>
+                </div>
+                <div class="item-price">289,000원</div>
+              </div>
+              <div class="item-actions">
+                <button class="action-btn">옵션 변경</button>
+                <button class="action-btn">삭제</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 결제 정보 -->
+        <div class="payment-summary">
+          <div class="summary-title">결제정보</div>
+
+          <div class="summary-row">
+            <span>상품 금액</span>
+            <span class="amount">737,000원</span>
+          </div>
+
+          <div class="summary-row">
+            <span>배송비</span>
+            <span class="amount">무료배송</span>
+          </div>
+
+          <div class="summary-row discount">
+            <span>총 할인금액</span>
+            <span class="amount">-0원</span>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="summary-row total">
+            <span>총 주문금액</span>
+            <span class="amount">737,000원</span>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="mileage-row">
+            <span>적립예상 마일리지</span>
+            <span class="amount">+0M</span>
+          </div>
+
+          <button class="order-btn">주문하기</button>
+        </div>
+      </div>
+
+      <!-- 이용 안내 -->
+      <div class="usage-info">
+        <div class="usage-header">
+          <div class="usage-title">이용 안내</div>
+          <svg
+            class="arrow-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </div>
+      </div>
+    </main>
+
+    <!-- ========== 푸터 영역 (공통 모듈) ========== -->
+    <div id="footer-area"></div>
+  </body>
+</html>

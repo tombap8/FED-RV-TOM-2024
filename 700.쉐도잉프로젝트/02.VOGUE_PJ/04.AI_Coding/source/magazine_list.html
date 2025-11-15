@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 폰트어썸 CDN CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- 메인 CSS -->
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <!-- 메인 미디어쿼리 CSS -->
+    <link rel="stylesheet" href="./css/main_media.css" />
+
+    <!-- 매거진 리스트 CSS -->
+    <link rel="stylesheet" href="./css/magazine_list.css" />
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Common JS (공통 모듈 로드) -->
+    <script src="./js/common.js" type="module"></script>
+
+    <!-- 매거진 리스트 데이터 바인딩 JS -->
+    <script type="module" src="./js/magazine_list.js"></script>
+
+    <title>VOGUE 정기구독 리스트</title>
+  </head>
+  <body>
+    <!-- ========== 헤더 영역 (공통 모듈) ========== -->
+    <div id="header-area"></div>
+
+    <!-- 배너 섹션 -->
+    <section class="banner">
+      <img
+        src="https://cdn-pro-web-241-46.cdn-nhncommerce.com/dsmag452110_godomall_com/data/skin/front/test/img/banner/slider_511517418/51ede99afa8d38a1e04ae1121e32f7bc_59652.jpg"
+        alt="정기구독 배너"
+      />
+    </section>
+
+    <!-- 메인 컨텐츠 -->
+    <main class="main-area inbox">
+      <!-- 상품 리스트 헤더 -->
+      <div class="product-header">
+        <h2>정기구독 전체상품</h2>
+        <a href="#" class="more-btn">+ 더보기</a>
+      </div>
+
+      <!-- 상품 그리드 -->
+      <div class="product-grid" id="productGrid">
+        <!-- JavaScript로 동적 생성 -->
+      </div>
+    </main>
+
+    <!-- ========== 푸터 영역 (공통 모듈) ========== -->
+    <div id="footer-area"></div>
+  </body>
+</html>

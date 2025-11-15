@@ -1,0 +1,411 @@
+{
+  "siteName": "보그 코리아 (Vogue Korea)",
+  "url": "https://www.vogue.co.kr/",
+  "meta": {
+    "description": "컬렉션부터 스타일, 쇼핑, 뷰티, 라이프스타일, 셀러브리티까지 지금 가장 핫한 트렌드 소개",
+    "ogImage": "https://www.vogue.co.kr/wp-content/themes/vogue/assets/images/main_og_image.jpg",
+    "favicon": "https://img.vogue.co.kr/vogue/common/vogue-favicon.ico?v=0.2",
+    "appleTouchIcon": "https://img.vogue.co.kr/vogue/common/vogue-apple-touch-favicon.jpg?v=0.2"
+  },
+  "logo": {
+    "pc": "https://www.vogue.co.kr/wp-content/themes/vogue/assets/images/logo.svg",
+    "mobile": "https://www.vogue.co.kr/wp-content/themes/vogue/assets/images/logo_m.svg",
+    "footer": "https://www.vogue.co.kr/wp-content/themes/vogue/assets/images/footer_logo.svg",
+    "footerMobile": "https://www.vogue.co.kr/wp-content/themes/vogue/assets/images/footer_logo_m.svg"
+  },
+  "sections": {
+    "spotSection": [
+      {
+        "id": "section_spot_0",
+        "category": "패션 트렌드",
+        "date": "2025.10.21",
+        "title": "길면 길수록 좋은, 이번 시즌 롱 코트 연출 공식!",
+        "url": "/2025/10/21/길면-길수록-좋은-이번-시즌-롱-코트-연출-공식/",
+        "images": {
+          "pc": "https://img.vogue.co.kr/vogue/2025/10/style_68f6f66c75443-1920x1080.jpg?x=3419&y=3000",
+          "mobile": "https://img.vogue.co.kr/vogue/2025/10/style_68f6f66c75443-960x1440.jpg?x=3696&y=5768"
+        },
+        "display": "none"
+      },
+      {
+        "id": "section_spot_1",
+        "category": "패션 트렌드",
+        "date": "2025.10.24",
+        "title": "다 같은 블루가 아닙니다, 2026 봄/여름 가장 뜨거운 컬러!",
+        "url": "/2025/10/24/다-같은-블루가-아닙니다-2026-봄-여름-가장-뜨거운-컬러/",
+        "images": {
+          "pc": "https://img.vogue.co.kr/vogue/2025/10/style_690808a2a430e-1920x1080.jpg?x=1928&y=908",
+          "mobile": "https://img.vogue.co.kr/vogue/2025/10/style_69080beae3546-960x1440.jpg?x=2131&y=2272"
+        },
+        "display": "visible"
+      }
+    ],
+    "todaysStories": {
+      "title": "Today's Stories",
+      "mainHighlight": {
+        "id": "today_slot_1_0",
+        "category": "뷰 포인트",
+        "date": "2025.11.03",
+        "title": "자기만의 이야기를 지닌 모든 여성에게",
+        "url": "/2025/11/03/자기만의-이야기를-지닌-모든-여성에게/",
+        "image": "https://img.vogue.co.kr/vogue/2025/10/style_690334c0ae40f-960x1440.jpg"
+      },
+      "articles": [
+        {
+          "category": "패션 아이템",
+          "title": "'만능' 그 자체! 올겨울의 멋을 책임질 갈색 코트",
+          "date": "2025.11.03",
+          "author": "안건호, Selene Oliva, Lucrezia Malavolta",
+          "url": "/2025/11/03/만능-그-자체-올겨울의-멋을-책임질-갈색-코트/",
+          "image": "https://img.vogue.co.kr/vogue/2025/11/style_69081e57c53fe-759x500.jpg"
+        },
+        {
+          "category": "셀러브리티 스타일",
+          "title": "신디 크로포드-카이아 거버 모녀의 우아한 드레스 데이트",
+          "date": "2025.11.03",
+          "author": "오기쁨",
+          "url": "/2025/11/03/신디-크로포드-카이아-거버-모녀의-우아한-드레스-데이트/",
+          "image": "https://img.vogue.co.kr/vogue/2025/11/style_6908374581e21-759x500.jpg"
+        },
+        {
+          "category": "아트",
+          "title": "까치와 호랑이는 언제부터 정다웠을까?",
+          "date": "2025.11.03",
+          "author": "하솔휘",
+          "url": "/2025/11/03/까치와-호랑이는-언제부터-정다웠을까/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_68ee02aac88ae-759x500.jpg"
+        },
+        {
+          "category": "아트",
+          "title": "에르메스 '쥘 뤼 아쉬' 공방과 류성희 감독이 연출한 '송'의 의미",
+          "date": "2025.11.03",
+          "author": "김나랑",
+          "url": "/2025/11/03/에르메스-쥘-뤼-아쉬-공방과-류성희-감독이-연출한/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_68f716cc7bfff-759x500.jpg"
+        }
+      ]
+    },
+    "bestStories": {
+      "title": "Best stories",
+      "articles": [
+        {
+          "category": "패션 아이템",
+          "title": "지금 입기 가장 좋은 데님 아이템!",
+          "date": "2025.11.03",
+          "author": "안건호, Olivia Allen",
+          "url": "/2025/11/03/지금-입기-가장-좋은-데님-아이템/",
+          "image": "https://img.vogue.co.kr/vogue/2025/11/style_69085a8612939-759x500.jpg"
+        },
+        {
+          "category": "패션 아이템",
+          "title": "올가을 카디건에 청바지, 강단 있게 입는 게 포인트!",
+          "date": "2025.10.31",
+          "author": "소피아, Natalie Hammond",
+          "url": "/2025/10/31/올가을-카디건에-청바지-강단-있게-입는-게-포인트/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_6904432146786-759x500.jpg"
+        },
+        {
+          "category": "패션 아이템",
+          "title": "뭘 입어야 할지 모를 때, 일단 청바지 룩 5!",
+          "date": "2025.10.31",
+          "author": "황혜원, Lucrezia Malavolta, Emma Bocchi",
+          "url": "/2025/10/31/뭘-입어야-할지-모를-때-일단-청바지-룩-5/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_69032904dcd9d-759x500.jpg"
+        },
+        {
+          "category": "Fashion",
+          "title": "브라운에 블랙 한 방울! 케이티 홈즈처럼 입어보세요",
+          "date": "2025.10.31",
+          "author": "김현유, Michel Mejía",
+          "url": "/2025/10/31/브라운에-블랙-한-방울-케이티-홈즈처럼-입어보세요/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_69044e93055d7-759x500.jpg"
+        },
+        {
+          "category": "패션 아이템",
+          "title": "'만능' 그 자체! 올겨울의 멋을 책임질 갈색 코트",
+          "date": "2025.11.03",
+          "author": "안건호, Selene Oliva, Lucrezia Malavolta",
+          "url": "/2025/11/03/만능-그-자체-올겨울의-멋을-책임질-갈색-코트/",
+          "image": "https://img.vogue.co.kr/vogue/2025/11/style_69081e57c53fe-759x500.jpg"
+        },
+        {
+          "category": "패션 아이템",
+          "title": "이번 겨울 어디에나 있을 2000년대 운동화!",
+          "date": "2025.10.28",
+          "author": "황혜원, Daisy Jones",
+          "url": "/2025/10/28/이번-겨울-어디에나-있을-2000년대-운동화/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_6900673dc8f6c-759x500.jpg"
+        },
+        {
+          "category": "셀러브리티 스타일",
+          "title": "마침내 딱 맞는 완벽한 청바지를 찾았는데, 켄달 제너가 입고 있어요!",
+          "date": "2025.10.29",
+          "author": "황혜원",
+          "url": "/2025/10/29/마침내-딱-맞는-완벽한-청바지를-찾았는데-켄달-제너/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_6901bb81277bb-759x500.jpg"
+        },
+        {
+          "category": "패션 아이템",
+          "title": "모두 기피하는 아이템을 활용해 멋 낸 헤일리 비버",
+          "date": "2025.11.03",
+          "author": "안건호",
+          "url": "/2025/11/03/모두-기피하는-아이템을-활용해-멋-낸-헤일리-비버/",
+          "image": "https://img.vogue.co.kr/vogue/2025/11/style_69087e95220a5-759x500.jpg"
+        }
+      ]
+    },
+    "mustRead": {
+      "title": "Must Read",
+      "articles": [
+        {
+          "category": "패션 아이템",
+          "title": "올겨울, 코트를 대신할 '등 따신' 아우터",
+          "date": "2025.10.01",
+          "author": "황혜원",
+          "url": "/2025/10/01/올겨울-코트를-대신할-등-따신-아우터/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_68dcac2dd7c02-500x500.jpg"
+        },
+        {
+          "category": "셀러브리티 스타일",
+          "title": "로퍼에 흰 양말, 로제처럼 아무 데나 매치하세요!",
+          "date": "2025.09.29",
+          "author": "황혜원",
+          "url": "/2025/09/29/로퍼에-흰-양말-로제처럼-아무-데나-매치하세요/",
+          "image": "https://img.vogue.co.kr/vogue/2025/09/style_68da60048331c-500x500.jpg"
+        },
+        {
+          "category": "패션 아이템",
+          "title": "올가을에는 '이 부츠'를 신으세요!",
+          "date": "2025.10.01",
+          "author": "황혜원",
+          "url": "/2025/10/01/올가을에는-이-부츠를-신으세요/",
+          "image": "https://img.vogue.co.kr/vogue/2025/09/style_68d971309572c-500x500.jpg"
+        },
+        {
+          "category": "패션 아이템",
+          "title": "이번 겨울 어디에나 있을 2000년대 운동화!",
+          "date": "2025.10.28",
+          "author": "황혜원, Daisy Jones",
+          "url": "/2025/10/28/이번-겨울-어디에나-있을-2000년대-운동화/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_6900673dc8f6c-500x500.jpg"
+        }
+      ]
+    },
+    "peopleNow": {
+      "title": "PEOPLE NOW",
+      "subtitle": "지금, 보그가 주목하는 인물",
+      "people": [
+        {
+          "id": "p_390101",
+          "category": "패션 화보",
+          "title": "미연, 파리의 휴일",
+          "url": "/2023/08/02/미연-파리의-휴일/",
+          "image": "https://img.vogue.co.kr/vogue/2023/08/style_64c9f92161abc-700x1050.jpg?x=4038&y=4254"
+        },
+        {
+          "id": "p_496124",
+          "category": "인터뷰",
+          "title": "선미 \"그래, 흔들려보자\"",
+          "url": "/2024/06/19/선미-그래-흔들려보자/",
+          "image": "https://img.vogue.co.kr/vogue/2024/06/style_6670eca1cd94e-700x1050.jpg?x=2764&y=3550"
+        },
+        {
+          "id": "p_518647",
+          "category": "패션 화보",
+          "title": "다음 단계 그리고 다른 차원의 에스파",
+          "url": "/2024/08/16/다음-단계-그리고-다른-차원의-에스파/",
+          "image": "https://img.vogue.co.kr/vogue/2024/08/style_66c059913e001-700x1050.jpeg?x=1534&y=1080"
+        }
+      ]
+    },
+    "fashion": {
+      "title": "fashion",
+      "url": "/fashion/",
+      "mainHighlight": {
+        "category": "패션 화보",
+        "date": "2025.11.03",
+        "title": "나 홀로 집에, 극내향인의 홀리데이 파티",
+        "url": "/2025/11/03/나-홀로-집에-극내향인의-홀리데이-파티/",
+        "image": "https://img.vogue.co.kr/vogue/2025/10/style_68fec790d38de-960x1440.jpg"
+      },
+      "articles": [
+        {
+          "category": "워치&주얼리",
+          "title": "보석이 시간을 초월하는 법",
+          "date": "2025.11.02",
+          "author": "고주연, 신은지",
+          "url": "/2025/11/02/보석이-시간을-초월하는-법/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_68fb1f6f50356-759x500.jpg"
+        },
+        {
+          "category": "패션 아이템",
+          "title": "짧을수록 좋은 미니 원피스 걱정 없이 입기",
+          "date": "2025.11.01",
+          "author": "소피아, Laura Tortora",
+          "url": "/2025/11/01/짧을수록-좋은-미니-원피스-걱정-없이-입기/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_69043051a80ba-759x500.jpg"
+        }
+      ]
+    },
+    "beauty": {
+      "title": "beauty",
+      "url": "/beauty/",
+      "mainHighlight": {
+        "category": "뷰티 화보",
+        "date": "2025.10.30",
+        "title": "키스오브라이프의 쥴리와 나탈이 표현한 '본질적' 아름다움",
+        "url": "/2025/10/30/키스오브라이프의-쥴리와-나탈이-표현한-본질적-아/",
+        "image": "https://img.vogue.co.kr/vogue/2025/10/style_68fa2d3a1dd57-960x1440.jpg"
+      },
+      "articles": [
+        {
+          "category": "뷰티 화보",
+          "title": "애프터 블로우 우디 피그와 원필이 그려낸 깊은 여운.",
+          "date": "2025.11.01",
+          "author": "박채원",
+          "url": "/2025/11/01/애프터-블로우-우디-피그와-원필이-그려낸-깊은-여운/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_69042102c5416-759x500.jpg"
+        }
+      ]
+    },
+    "living": {
+      "title": "Living",
+      "url": "/lifestyle/",
+      "articles": [
+        {
+          "category": "데코",
+          "title": "이제 도산대로에서 생루이 크리스탈을 만날 수 있다",
+          "date": "2025.11.03",
+          "author": "김나랑",
+          "url": "/2025/11/03/이제-도산대로에서-생루이-크리스탈을-만날-수-있다/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_68f71b25523aa-500x500.jpg"
+        },
+        {
+          "category": "푸드",
+          "title": "청하와 글렌피딕, 하나 되는 속도",
+          "date": "2025.10.30",
+          "author": "남윤진",
+          "url": "/2025/10/30/청하와-글렌피딕-하나-되는-속도/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_68ff1ba0d7506-500x500.jpg"
+        }
+      ]
+    },
+    "culture": {
+      "title": "culture",
+      "url": "/culture/",
+      "articles": [
+        {
+          "category": "엔터테인먼트",
+          "title": "'세계의 주인', 세계의 관성을 넘어 스스로 속도를 정하는 소녀",
+          "date": "2025.10.31",
+          "author": "강병진",
+          "url": "/2025/10/31/세계의-주인-세계의-관성을-넘어-스스로-속도를-정/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_6904633b03e5d-500x500.jpg"
+        },
+        {
+          "category": "아트",
+          "title": "두아 리파의 추천 소설 '핸드메이즈 테일'",
+          "date": "2025.10.31",
+          "author": "오기쁨",
+          "url": "/2025/10/31/두아-리파의-추천-소설-핸드메이즈-테일/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_690471c32e823-500x500.jpeg"
+        }
+      ]
+    }
+  },
+  "navigation": {
+    "main": [
+      {
+        "name": "FASHION",
+        "url": "/fashion/",
+        "subMenu": [
+          { "name": "전체", "url": "/fashion/" },
+          { "name": "패션 트렌드", "url": "/fashion/fashion-trend/" },
+          { "name": "패션 아이템", "url": "/fashion/fashion-item/" },
+          { "name": "셀러브리티 스타일", "url": "/fashion/celebrity-style/" },
+          { "name": "패션 화보", "url": "/fashion/fashion-pictorial/" },
+          { "name": "인터뷰", "url": "/fashion/interview/" },
+          { "name": "패션 뉴스", "url": "/fashion/fashion-news/" },
+          { "name": "워치 & 주얼리", "url": "/fashion/watch-and-jewelry/" }
+        ]
+      },
+      {
+        "name": "BEAUTY",
+        "url": "/beauty/",
+        "subMenu": [
+          { "name": "전체", "url": "/beauty/" },
+          { "name": "뷰티 트렌드", "url": "/beauty/beauty-trend/" },
+          { "name": "뷰티 아이템", "url": "/beauty/beauty-item/" },
+          { "name": "웰니스", "url": "/beauty/wellness/" },
+          { "name": "뷰티 화보", "url": "/beauty/beauty-pictorial/" }
+        ]
+      },
+      {
+        "name": "LIVING",
+        "url": "/living/",
+        "subMenu": [
+          { "name": "전체", "url": "/living/" },
+          { "name": "여행", "url": "/living/travel/" },
+          { "name": "푸드", "url": "/living/food/" },
+          { "name": "데코", "url": "/living/deco/" },
+          { "name": "라이프", "url": "/living/life/" }
+        ]
+      },
+      {
+        "name": "CULTURE",
+        "url": "/culture/",
+        "subMenu": [
+          { "name": "전체", "url": "/culture/" },
+          { "name": "엔터테인먼트", "url": "/culture/entertainment" },
+          { "name": "아트", "url": "/culture/art" },
+          { "name": "셀럽 뉴스", "url": "/culture/celebrity-news" },
+          { "name": "뷰 포인트", "url": "/culture/view-point/" }
+        ]
+      },
+      {
+        "name": "VIDEO",
+        "url": "/video/"
+      }
+    ]
+  },
+  "socialMedia": {
+    "instagram": {
+      "url": "https://www.instagram.com/VOGUEKOREA",
+      "icon": "https://www.vogue.co.kr/wp-content/themes/vogue/assets/images/ic_sns_insta.svg"
+    },
+    "facebook": {
+      "url": "https://www.facebook.com/VOGUEkr",
+      "icon": "https://www.vogue.co.kr/wp-content/themes/vogue/assets/images/ic_sns_facebook.svg"
+    },
+    "twitter": {
+      "url": "https://twitter.com/VogueKorea",
+      "icon": "https://www.vogue.co.kr/wp-content/themes/vogue/assets/images/ic_sns_x.svg"
+    },
+    "youtube": {
+      "url": "https://www.youtube.com/user/VogueKorea",
+      "icon": "https://www.vogue.co.kr/wp-content/themes/vogue/assets/images/ic_sns_youtube.svg"
+    }
+  },
+  "imageSpecs": {
+    "spotBanner": {
+      "pc": { "width": 1920, "height": 1080 },
+      "mobile": { "width": 960, "height": 1440 }
+    },
+    "mainHighlight": {
+      "width": 960,
+      "height": 1440
+    },
+    "articleThumbnail": {
+      "width": 759,
+      "height": 500
+    },
+    "squareThumbnail": {
+      "width": 500,
+      "height": 500
+    },
+    "peopleNow": {
+      "width": 700,
+      "height": 1050
+    }
+  }
+}

@@ -1,0 +1,316 @@
+@charset "UTF-8";
+/* 매거진 상세 페이지 CSS - magazine_detail.css */
+@import "./core.css";
+@import "./reset.css";
+@import "./common.css";
+
+/* 메인 박스 */
+.main-area {
+  margin-bottom: 10vh;
+  padding: 5vh 5vw 0;
+}
+
+.product-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+/* 이미지 영역 */
+.image-area {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.main-image {
+  width: 100%;
+  background: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+}
+
+.main-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.thumb-list {
+  display: flex;
+  gap: 10px;
+}
+
+.thumb-item {
+  width: 80px;
+  height: 100px;
+  border: 2px solid #e0e0e0;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.thumb-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumb-item.active {
+  border-color: #000;
+}
+
+/* 정보 영역 */
+.info-area {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.product-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.share-btn {
+  padding: 8px 16px;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.info-list {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 20px;
+}
+
+.info-row {
+  display: flex;
+  padding: 12px 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.info-label {
+  width: 120px;
+  color: #666;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.info-value {
+  flex: 1;
+  font-size: 14px;
+}
+
+.info-value del {
+  color: #999;
+  margin-right: 8px;
+}
+
+.price-row .info-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+}
+
+.delivery-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  background: #000;
+  color: white;
+  font-size: 12px;
+  margin-right: 8px;
+}
+
+.select-area {
+  margin-top: 20px;
+}
+
+.select-box {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  cursor: pointer;
+  appearance: none;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>')
+    no-repeat right 12px center;
+  background-size: 20px;
+}
+
+.selected-item {
+  border: 1px solid #e0e0e0;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.item-name {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.item-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+}
+
+.quantity-control input {
+  width: 60px;
+  text-align: center;
+  border: none;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.quantity-control button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: #f5f5f5;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.quantity-control button:hover {
+  background: #e0e0e0;
+}
+
+.item-price {
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 20px;
+}
+
+.price-summary {
+  margin-top: 30px;
+  padding: 20px;
+  background: #f8f8f8;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  font-size: 14px;
+}
+
+.summary-row.total {
+  border-top: 2px solid #000;
+  margin-top: 12px;
+  padding-top: 16px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.summary-row.total .amount {
+  font-size: 24px;
+  color: #000;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn {
+  flex: 1;
+  padding: 16px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-cart {
+  background: white;
+  border: 1px solid #000;
+  color: #000;
+}
+
+.btn-cart:hover {
+  background: #f5f5f5;
+}
+
+.btn-wish {
+  background: white;
+  border: 1px solid #ddd;
+  color: #666;
+}
+
+.btn-wish:hover {
+  background: #f5f5f5;
+}
+
+.btn-buy {
+  background: #000;
+  color: white;
+}
+
+.btn-buy:hover {
+  background: #333;
+}
+
+@media (max-width: 968px) {
+  .product-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .image-area {
+    order: 1;
+  }
+
+  .info-area {
+    order: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 20px 10px;
+  }
+
+  .product-title {
+    font-size: 20px;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .info-label {
+    width: 100px;
+    font-size: 13px;
+  }
+
+  .info-value {
+    font-size: 13px;
+  }
+
+  .main-image {
+    min-height: 400px;
+  }
+}

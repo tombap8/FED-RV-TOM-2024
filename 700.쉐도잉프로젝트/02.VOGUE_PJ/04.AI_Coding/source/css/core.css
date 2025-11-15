@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+/*********** 1. 웹폰트 ***********/
+/* Roboto체 + Noto Sans Kr체 - CDN */
+@import 'https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Noto+Sans+KR:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap';
+/* 
+font-family: 'Roboto', "Noto Sans KR";
+font-family: 'Roboto Condensed', sans-serif;
+*/
+
+/*********** 2. 공통 클래스 ***********/
+.inbox {
+    max-width: 1400px;
+    margin: 0 auto;
+}

@@ -1,0 +1,121 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "pcode": "1000000309",
+      "name": "쿠오카 세럼 블렌드 + 더블유 정기구독 12개월",
+      "description": "1년 정기구독시 '쿠오카 세럼 블렌드' 정품을 함께 드립니다.",
+      "image": "https://godomall.speedycdn.net/135d464bb6e6ef46c78bf30c67f818d1/goods/1000000309/image/add2/1000000190_add2_016.jpg",
+      "originalPrice": 173000,
+      "salePrice": 69200,
+      "discount": 60,
+      "badge": "이벤트",
+      "memberOnly": true,
+      "count": 43
+    },
+    {
+      "id": 2,
+      "pcode": "1000000310",
+      "name": "쿠오카 크림 블렌드 + 더블유 정기구독 12개월",
+      "description": "1년 정기구독시 '쿠오카 크림 블렌드' 정품을 함께 드립니다.",
+      "image": "https://godomall.speedycdn.net/135d464bb6e6ef46c78bf30c67f818d1/goods/1000000310/image/add2/1000000191_add2_016.jpg",
+      "originalPrice": 183000,
+      "salePrice": 67710,
+      "discount": 63,
+      "badge": "이벤트",
+      "memberOnly": true,
+      "count": 27
+    },
+    {
+      "id": 3,
+      "pcode": "1000000297",
+      "name": "보그 정기구독",
+      "description": "보그 정기구독시 25% 할인 혜택!!",
+      "image": "https://godomall.speedycdn.net/135d464bb6e6ef46c78bf30c67f818d1/goods/1000000297/image/add2/1000000297_add2_069.png",
+      "originalPrice": 96000,
+      "salePrice": 72000,
+      "discount": 25,
+      "badge": "인기",
+      "memberOnly": false,
+      "count": 132
+    },
+    {
+      "id": 4,
+      "pcode": "1000000298",
+      "name": "지큐 정기구독",
+      "description": "지큐 정기구독시 25% 할인 혜택!!",
+      "image": "https://godomall.speedycdn.net/135d464bb6e6ef46c78bf30c67f818d1/goods/1000000298/image/add2/1000000298_add2_043.png",
+      "originalPrice": 90000,
+      "salePrice": 67500,
+      "discount": 25,
+      "badge": "인기",
+      "memberOnly": false,
+      "count": 98
+    },
+    {
+      "id": 5,
+      "pcode": "1000000299",
+      "name": "얼루어 정기구독",
+      "description": "얼루어 정기구독시 선착순으로 특별 선물을 드립니다.",
+      "image": "https://godomall.speedycdn.net/135d464bb6e6ef46c78bf30c67f818d1/goods/1000000299/image/add2/1000000299_add2_020.png",
+      "originalPrice": 84000,
+      "salePrice": 63000,
+      "discount": 25,
+      "badge": "이벤트",
+      "memberOnly": false,
+      "count": 76
+    },
+    {
+      "id": 6,
+      "pcode": "1000000300",
+      "name": "더블유 정기구독",
+      "description": "더블유 정기구독시 25% 혜택!",
+      "image": "https://godomall.speedycdn.net/135d464bb6e6ef46c78bf30c67f818d1/goods/1000000300/image/add2/1000000300_add2_090.png",
+      "originalPrice": 90000,
+      "salePrice": 67500,
+      "discount": 25,
+      "badge": "이벤트",
+      "memberOnly": false,
+      "count": 81
+    },
+    {
+      "id": 7,
+      "pcode": "1000000301",
+      "name": "보그, 지큐 정기구독 패키지",
+      "description": "패키지 정기구독시 최대 30% 할인해드립니다.",
+      "image": "https://godomall.speedycdn.net/135d464bb6e6ef46c78bf30c67f818d1/goods/1000000301/image/add2/1000000301_add2_01.png",
+      "originalPrice": 186000,
+      "salePrice": 120000,
+      "discount": 35,
+      "badge": "기획",
+      "memberOnly": false,
+      "count": 54
+    },
+    {
+      "id": 8,
+      "pcode": "1000000302",
+      "name": "보그, 얼루어 정기구독 패키지",
+      "description": "패키지 정기구독시 최대 30% 할인해드립니다.",
+      "image": "https://godomall.speedycdn.net/135d464bb6e6ef46c78bf30c67f818d1/goods/1000000302/image/add2/1000000302_add2_044.png",
+      "originalPrice": 174000,
+      "salePrice": 120000,
+      "discount": 31,
+      "badge": "기획",
+      "memberOnly": false,
+      "count": 69
+    },
+    {
+      "id": 9,
+      "pcode": "1000000303",
+      "name": "보그, 더블유 정기구독 패키지",
+      "description": "패키지 정기구독시 최대 30% 할인해드립니다.",
+      "image": "https://godomall.speedycdn.net/135d464bb6e6ef46c78bf30c67f818d1/goods/1000000303/image/add2/1000000303_add2_076.png",
+      "originalPrice": 186000,
+      "salePrice": 120000,
+      "discount": 35,
+      "badge": null,
+      "memberOnly": false,
+      "count": 115
+    }
+  ]
+}

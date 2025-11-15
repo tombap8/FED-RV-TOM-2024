@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VOGUE Korea</title>
+    <!-- 폰트어썸 CDN CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Swiper CSS 추가 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- 메인 CSS -->
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <!-- 메인 미디어쿼리 CSS -->
+    <link rel="stylesheet" href="./css/main_media.css" />
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <!-- Swiper JS 추가 -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Common JS (공통 모듈 로드) -->
+    <script src="./js/common.js" type="module"></script>
+    <!-- Custom JS 연결 -->
+    <script src="./js/main.js"></script>
+    <!-- 메인 페이지 데이터 바인딩 JS -->
+     <script type="module" src="./js/main_data_binding.js"></script>
+  </head>
+  <body>
+    <!-- ========== 헤더 영역 (공통 모듈) ========== -->
+    <div id="header-area"></div>
+
+    <!-- ========== 히어로 섹션 ========== -->
+    <section class="hero">
+      <!-- ========== 히어로 슬라이더 섹션 ========== -->
+      <section class="hero-slider">
+        <div class="swiper">
+          <div class="swiper-wrapper"></div>
+
+          <!-- 양쪽 네비게이션 버튼 -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <!-- 아래쪽 페이지네이션 -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ========== 메인 컨텐츠 ========== -->
+    <main>
+      <!-- TODAY'S STORIES -->
+      <section class="todays-stories">
+        <h2 class="section-title">TODAY'S STORIES</h2>
+
+        <div class="stories-grid"></div>
+      </section>
+
+      <!-- BEST STORIES -->
+      <section class="best-stories">
+        <div class="section-header">
+          <h2 class="section-title">Best Stories</h2>
+          <span class="view-more">View More +</span>
+        </div>
+        <div class="best-stories-slider">
+          <div class="swiper">
+            <div class="swiper-wrapper"></div>
+            <!-- 양쪽 네비게이션 버튼 -->
+            <div class="swiper-button-next best-stories-next"></div>
+            <div class="swiper-button-prev best-stories-prev"></div>
+          </div>
+        </div>
+      </section>
+      
+
+      <!-- MUST READ -->
+      <section class="must-read">
+        <div class="section-header">
+          <h2 class="section-title">Must Read</h2>
+          <span class="view-more">View More +</span>
+        </div>
+        <div class="grid grid-4"></div>
+      </section>
+
+      <!-- PEOPLE NOW -->
+      <section id="people">
+        <div class="people-grid"></div>
+      </section>
+
+      <!-- FASHION -->
+      <section class="todays-stories fashion">
+        <h2 class="section-title">fashion</h2>
+
+        <div class="stories-grid"></div>
+      </section>
+
+      <!-- BEAUTY -->
+      <section class="todays-stories beauty">
+        <h2 class="section-title">beauty</h2>
+
+        <div class="stories-grid"></div>
+      </section>
+
+      <!-- LIVING -->
+      <section id="living">
+        <div class="section-header">
+          <h2 class="section-title">Living</h2>
+          <span class="view-more">View More +</span>
+        </div>
+        <div class="grid grid-4"></div>
+      </section>
+
+      <!-- LATEST STORIES -->
+      <section>
+        <div class="section-header">
+          <h2 class="section-title">Latest Stories</h2>
+          <span class="view-more">View More +</span>
+        </div>
+        <!-- LATEST STORIES 3:1 박스 -->
+        <div class="latest-stories-box">
+          <!-- 3:1 비율 그리드 박스 -->
+          <article>
+            <div class="grid grid-3"></div>
+          </article>
+          <!-- 두번째 파트 : 인스타그램광고 -->
+          <article>
+            <a href="#">
+                <img src="./images/vogue_instagram.jpg" alt="보그 인스타그램 광고">
+            </a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========== 푸터 영역 (공통 모듈) ========== -->
+    <div id="footer-area"></div>
+  </body>
+</html>

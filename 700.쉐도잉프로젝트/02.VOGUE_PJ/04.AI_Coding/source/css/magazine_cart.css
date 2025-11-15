@@ -1,0 +1,311 @@
+@charset "UTF-8";
+/* 매거진 장바구니 페이지 CSS - magazine_cart.css */
+@import "./core.css";
+@import "./reset.css";
+@import "./common.css";
+
+
+/* 메인 박스 */
+.main-area {
+  margin-bottom: 10vh;
+  padding: 0 5vw;
+}
+
+.tab-menu {
+  display: flex;
+  gap: 0;
+  background: white;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.tab-item {
+  flex: 1;
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 15px;
+  color: #666;
+  border-bottom: 3px solid transparent;
+}
+
+.tab-item.active {
+  color: #000;
+  font-weight: 600;
+  border-bottom-color: #000;
+}
+
+.select-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  background: white;
+  margin-bottom: 10px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  color: #666;
+  font-size: 14px;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 20px;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cart-item {
+  background: white;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  position: relative;
+}
+
+.item-checkbox {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.item-image-wrapper {
+  position: relative;
+  width: 120px;
+  height: 150px;
+  flex-shrink: 0;
+  margin-left: 30px;
+}
+
+.item-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.item-top {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.order-type {
+  font-size: 12px;
+  color: #666;
+}
+
+.item-name {
+  font-size: 15px;
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.item-name:hover {
+  text-decoration: underline;
+}
+
+.item-options {
+  display: flex;
+  gap: 8px;
+  font-size: 13px;
+  color: #666;
+}
+
+.item-price {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.item-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.action-btn {
+  padding: 8px 16px;
+  background: white;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.action-btn:hover {
+  background: #f5f5f5;
+}
+
+.payment-summary {
+  background: white;
+  padding: 24px;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+
+.summary-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  font-size: 14px;
+}
+
+.summary-row.total {
+  border-top: 1px solid #e0e0e0;
+  margin-top: 12px;
+  padding-top: 16px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.summary-row.total .amount {
+  color: #000;
+  font-size: 20px;
+}
+
+.summary-row.discount .amount {
+  color: #e74c3c;
+}
+
+.divider {
+  height: 1px;
+  background: #e0e0e0;
+  margin: 16px 0;
+}
+
+.mileage-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.mileage-row .amount {
+  color: #3498db;
+}
+
+.order-btn {
+  width: 100%;
+  padding: 16px;
+  background: #000;
+  color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.order-btn:hover {
+  background: #333;
+}
+
+.usage-info {
+  background: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.usage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.usage-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.arrow-icon {
+  width: 24px;
+  height: 24px;
+  transform: rotate(180deg);
+}
+
+@media (max-width: 968px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-summary {
+    position: static;
+    order: 2;
+  }
+
+  .cart-items {
+    order: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 10px;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .item-image-wrapper {
+    width: 100%;
+    height: 200px;
+    margin-left: 0;
+    margin-top: 30px;
+  }
+
+  .item-checkbox {
+    left: 15px;
+    top: 15px;
+  }
+
+  .item-actions {
+    flex-direction: column;
+  }
+
+  .action-btn {
+    width: 100%;
+  }
+}

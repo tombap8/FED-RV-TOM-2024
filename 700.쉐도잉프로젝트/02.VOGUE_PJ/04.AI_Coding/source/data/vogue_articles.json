@@ -1,0 +1,244 @@
+{
+  "categories": [
+    {
+      "categoryName": "fashion",
+      "highlight": {
+        "category": "패션 뉴스",
+        "date": "2025.11.05",
+        "title": "예술의 심장은 멈추지 않는다, 2025 LACMA 갈라",
+        "url": "/2025/11/05/%ec%98%88%ec%88%a0%ec%9d%98-%ec%8b%ac%ec%9e%a5%ec%9d%80-%eb%a9%88%ec%b6%94%ec%a7%80-%ec%95%8a%eb%8a%94%eb%8b%a4-2025-lacma-%ea%b0%88%eb%9d%bc/",
+        "image": "https://img.vogue.co.kr/vogue/2025/11/style_6909cf206fc94-960x1440.jpg"
+      },
+      "articles": [
+        {
+          "id": "p_711158",
+          "category": "셀러브리티 스타일",
+          "title": "'완벽한 청바지는 없다'고 말하던 알렉사 청이 정착한 데님",
+          "date": "2025.11.06",
+          "author": "안건호",
+          "url": "/2025/11/06/%ec%99%84%eb%b2%bd%ed%95%9c-%ec%b2%ad%eb%b0%94%ec%a7%80%eb%8a%94-%ec%97%86%eb%8b%a4%ea%b3%a0-%eb%a7%90%ed%95%98%eb%8d%98-%ec%95%8c%eb%a0%89%ec%82%ac-%ec%b2%ad%ec%9d%b4-%ec%a0%95%ec%b0%a9%ed%95%9c/",
+          "image": "https://img.vogue.co.kr/vogue/2025/11/style_690c275d73f28-759x500.jpg"
+        },
+        {
+          "id": "p_711138",
+          "category": "패션 뉴스",
+          "title": "올리비에 루스테잉, 발망 떠난다",
+          "date": "2025.11.06",
+          "author": "오기쁨",
+          "url": "/2025/11/06/%ec%98%ac%eb%a6%ac%eb%b9%84%ec%97%90-%eb%a3%a8%ec%8a%a4%ed%85%8c%ec%9e%89-%eb%b0%9c%eb%a7%9d-%eb%96%a0%eb%82%9c%eb%8b%a4/",
+          "image": "https://img.vogue.co.kr/vogue/2025/11/style_690c1b92dfe13-759x500.jpg"
+        },
+        {
+          "id": "p_710047",
+          "category": "패션 화보",
+          "title": "맥카지와 이주빈이 만들어 낸 겨울의 온도",
+          "date": "2025.11.06",
+          "author": "VOGUE PROMOTION",
+          "url": "/2025/11/06/%eb%a7%a5%ec%b9%b4%ec%a7%80%ec%99%80-%ec%9d%b4%ec%a3%bc%eb%b9%88%ec%9d%b4-%eb%a7%8c%eb%93%a4%ec%96%b4-%eb%82%b8-%ea%b2%a8%ec%9a%b8%ec%9d%98-%ec%98%a8%eb%8f%84/",
+          "image": "https://img.vogue.co.kr/vogue/2025/11/style_6909812f694a4-759x500.jpg"
+        },
+        {
+          "id": "p_706591",
+          "category": "워치&주얼리",
+          "title": "자연 속에서, 시간의 초상화",
+          "date": "2025.11.06",
+          "author": "VOGUE",
+          "url": "/2025/11/06/%ec%9e%90%ec%97%b0-%ec%86%8d%ec%97%90%ec%84%9c-%ec%8b%9c%ea%b0%84%ec%9d%98-%ec%b4%88%ec%83%81%ed%99%94/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_68fecf638132b-759x500.jpg"
+        }
+      ]
+    },
+    {
+      "categoryName": "beauty",
+      "highlight": {
+        "category": "뷰티 화보",
+        "date": "2025.10.30",
+        "title": "키스오브라이프의 쥴리와 나띠가 표현한 '본질적' 아름다움",
+        "url": "/2025/10/30/%ed%82%a4%ec%8a%a4%ec%98%a4%eb%b8%8c%eb%9d%bc%ec%9d%b4%ed%94%84%ec%9d%98-%ec%a5%b4%eb%a6%ac%ec%99%80-%eb%82%98%eb%9d%a0%ea%b0%80-%ed%91%9c%ed%98%84%ed%95%9c-%eb%b3%b8%ec%a7%88%ec%a0%81-%ec%95%84/",
+        "image": "https://img.vogue.co.kr/vogue/2025/10/style_68fa2d3a1dd57-960x1440.jpg"
+      },
+      "articles": [
+        {
+          "id": "p_711145",
+          "category": "뷰티 트렌드",
+          "title": "두아 리파가 선보이는 스킨케어 라인 'DUA'",
+          "date": "2025.11.06",
+          "author": "오기쁨",
+          "url": "/2025/11/06/%eb%91%90%ec%95%84-%eb%a6%ac%ed%8c%8c%ea%b0%80-%ec%84%a0%eb%b3%b4%ec%9d%b4%eb%8a%94-%ec%8a%a4%ed%82%a8%ec%bc%80%ec%96%b4-%eb%9d%bc%ec%9d%b8-dua/",
+          "image": "https://img.vogue.co.kr/vogue/2025/11/style_690c2184a28d4-759x500.jpg"
+        },
+        {
+          "id": "p_711016",
+          "category": "Beauty",
+          "title": "향과 빛으로 그려낸 구찌 뷰티 하우스의 여정",
+          "date": "2025.11.06",
+          "author": "신예지",
+          "url": "/2025/11/06/%ed%96%a5%ea%b3%bc-%eb%b9%9b%ec%9c%bc%eb%a1%9c-%ea%b7%b8%eb%a0%a4%eb%82%b8-%ea%b5%ac%ec%b0%8c-%eb%b7%b0%ed%8b%b0-%ed%95%98%ec%9a%b0%ec%8a%a4%ec%9d%98-%ec%97%ac%ec%a0%95/",
+          "image": "https://img.vogue.co.kr/vogue/2025/11/style_690bfbee73946-759x500.jpg"
+        },
+        {
+          "id": "p_710579",
+          "category": "웰니스",
+          "title": "내분비학자의 경고! 노릇하고 바삭한 음식이 노화를 앞당긴다",
+          "date": "2025.11.05",
+          "author": "김초롱, Laura Solla",
+          "url": "/2025/11/05/%eb%82%b4%eb%b6%84%eb%b9%84%ed%95%99%ec%9e%90%ec%9d%98-%ea%b2%bd%ea%b3%a0-%eb%85%b8%eb%a6%87%ed%95%98%ea%b3%a0-%eb%b0%94%ec%82%ad%ed%95%9c-%ec%9d%8c%ec%8b%9d%ec%9d%b4-%eb%85%b8%ed%99%94%eb%a5%bc/",
+          "image": "https://img.vogue.co.kr/vogue/2025/11/style_690ab7a9295ed-759x500.jpg"
+        },
+        {
+          "id": "p_710016",
+          "category": "Beauty",
+          "title": "지방시 뷰티, 스트레이 키즈 현진과 함께한 반짝이는 홀리데이 시즌의 초대",
+          "date": "2025.11.05",
+          "author": "신예지",
+          "url": "/2025/11/05/%ec%a7%80%eb%b0%a9%ec%8b%9c-%eb%b7%b0%ed%8b%b0-%ec%8a%a4%ed%8a%b8%eb%a0%88%ec%9d%b4-%ed%82%a4%ec%a6%88-%ed%98%84%ec%a7%84%ea%b3%bc-%ed%95%a8%ea%bb%98%ed%95%9c-%eb%b0%98%ec%a7%9d%ec%9d%b4%eb%8a%94/",
+          "image": "https://img.vogue.co.kr/vogue/2025/11/style_69097c88a28ad-759x500.jpg"
+        }
+      ]
+    },
+    {
+      "categoryName": "living",
+      "highlight": {
+        "category": "여행",
+        "date": "2025.10.31",
+        "title": "다이버의 섬, 대만 샤오류추",
+        "url": "/2025/10/31/%eb%8b%a4%ec%9d%b4%eb%b2%84%ec%9d%98-%ec%84%ac-%eb%8c%80%eb%a7%8c-%ec%83%a4%ec%98%a4%eb%a5%98%ec%b6%94/",
+        "image": "https://img.vogue.co.kr/vogue/2025/10/style_6903645a38b60-960x1440.jpg"
+      },
+      "articles": [
+        {
+          "id": "p_710890",
+          "category": "푸드",
+          "title": "A24 최초의 레스토랑 '와일드 체리'",
+          "date": "2025.11.05",
+          "author": "오기쁨",
+          "url": "/2025/11/05/a24-%ec%b5%9c%ec%b4%88%ec%9d%98-%eb%a0%88%ec%8a%a4%ed%86%a0%eb%9e%91-%ec%99%80%ec%9d%bc%eb%93%9c-%ec%b2%b4%eb%a6%ac/",
+          "image": "https://img.vogue.co.kr/vogue/2025/11/style_690b04a38effb-759x500.jpg"
+        },
+        {
+          "id": "p_703709",
+          "category": "데코",
+          "title": "이제 도산대로에서 생루이 크리스털을 만날 수 있다",
+          "date": "2025.11.03",
+          "author": "김나랑",
+          "url": "/2025/11/03/%ec%9d%b4%ec%a0%9c-%eb%8f%84%ec%82%b0%eb%8c%80%eb%a1%9c%ec%97%90%ec%84%9c-%ec%83%9d%eb%a3%a8%ec%9d%b4-%ed%81%ac%eb%a6%ac%ec%8a%a4%ed%84%b8%ec%9d%84-%eb%a7%8c%eb%82%a0-%ec%88%98-%ec%9e%88%eb%8b%a4/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_68f71b25523aa-759x500.jpg"
+        },
+        {
+          "id": "p_707007",
+          "category": "푸드",
+          "title": "청하와 글렌피딕, 하나 되는 속도",
+          "date": "2025.10.30",
+          "author": "남윤진",
+          "url": "/2025/10/30/%ec%b2%ad%ed%95%98%ec%99%80-%ea%b8%80%eb%a0%8c%ed%94%bc%eb%94%95-%ed%95%98%eb%82%98-%eb%90%98%eb%8a%94-%ec%86%8d%eb%8f%84/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_68ff1ba0d7506-759x500.jpg"
+        },
+        {
+          "id": "p_708012",
+          "category": "라이프",
+          "title": "아반떼 N이 당신의 일상을 업그레이드하는 방식",
+          "date": "2025.10.30",
+          "author": "류가영",
+          "url": "/2025/10/30/%ec%95%84%eb%b0%98%eb%96%bc-n%ec%9d%b4-%eb%8b%b9%ec%8b%a0%ec%9d%98-%ec%9d%bc%ec%83%81%ec%9d%84-%ec%97%85%ea%b7%b8%eb%a0%88%ec%9d%b4%eb%93%9c%ed%95%98%eb%8a%94-%eb%b0%a9%ec%8b%9d/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_6901d668914b9-759x500.jpg"
+        }
+      ]
+    },
+    {
+      "categoryName": "culture",
+      "highlight": {
+        "category": "뷰 포인트",
+        "date": "2025.11.03",
+        "title": "자기만의 이야기를 지닌 모든 여성에게",
+        "url": "/2025/11/03/%ec%9e%90%ea%b8%b0%eb%a7%8c%ec%9d%98-%ec%9d%b4%ec%95%bc%ea%b8%b0%eb%a5%bc-%ec%a7%80%eb%8b%8c-%eb%aa%a8%eb%93%a0-%ec%97%ac%ec%84%b1%ec%97%90%ea%b2%8c/",
+        "image": "https://img.vogue.co.kr/vogue/2025/10/style_690334c0ae40f-960x1440.jpg"
+      },
+      "articles": [
+        {
+          "id": "p_710958",
+          "category": "엔터테인먼트",
+          "title": "훔치고, 속이고, 즐겨라! '나우 유 씨 미 3'",
+          "date": "2025.11.05",
+          "author": "오기쁨",
+          "url": "/2025/11/05/%ed%9b%94%ec%b9%98%ea%b3%a0-%ec%86%8d%ec%9d%b4%ea%b3%a0-%ec%a6%90%ea%b2%a8%eb%9d%bc-%eb%82%98%ec%9a%b0-%ec%9c%a0-%ec%94%a8-%eb%af%b8-3/",
+          "image": "https://img.vogue.co.kr/vogue/2025/11/style_690b0f6552335-759x500.jpeg"
+        },
+        {
+          "id": "p_710916",
+          "category": "셀럽 뉴스",
+          "title": "케이티 페리, 새 싱글 깜짝 발매 예고",
+          "date": "2025.11.05",
+          "author": "오기쁨",
+          "url": "/2025/11/05/%ec%bc%80%ec%9d%b4%ed%8b%b0-%ed%8e%98%eb%a6%ac-%ec%83%88-%ec%8b%b1%ea%b8%80-%ea%b9%9c%ec%a7%9d-%eb%b0%9c%eb%a7%a4-%ec%98%88%ea%b3%a0/",
+          "image": "https://img.vogue.co.kr/vogue/2025/11/style_690b098f4685d-759x500.jpeg"
+        },
+        {
+          "id": "p_710431",
+          "category": "셀럽 뉴스",
+          "title": "라이즈와 일민미술관의 특별한 만남 '고요와 파동'",
+          "date": "2025.11.04",
+          "author": "오기쁨",
+          "url": "/2025/11/04/%eb%9d%bc%ec%9d%b4%ec%a6%88%ec%99%80-%ec%9d%bc%eb%af%bc%eb%af%b8%ec%88%a0%ea%b4%80%ec%9d%98-%ed%8a%b9%eb%b3%84%ed%95%9c-%eb%a7%8c%eb%82%a8-%ea%b3%a0%ec%9a%94%ec%99%80-%ed%8c%8c%eb%8f%99/",
+          "image": "https://img.vogue.co.kr/vogue/2025/11/style_6909c13f2016f-759x500.jpeg"
+        },
+        {
+          "id": "p_710364",
+          "category": "셀럽 뉴스",
+          "title": "2025 가장 섹시한 남자, 조나단 베일리",
+          "date": "2025.11.04",
+          "author": "오기쁨",
+          "url": "/2025/11/04/2025-%ea%b0%80%ec%9e%a5-%ec%84%b9%ec%8b%9c%ed%95%9c-%eb%82%a8%ec%9e%90-%ec%a1%b0%eb%82%98%eb%8b%a8-%eb%b2%a0%ec%9d%bc%eb%a6%ac/",
+          "image": "https://img.vogue.co.kr/vogue/2025/11/style_6909badcdccac-759x500.jpg"
+        }
+      ]
+    },
+    {
+      "categoryName": "video",
+      "highlight": {
+        "category": "Video",
+        "date": "2025.09.26",
+        "title": "송혜교의 가방 속을 '보그'에서 최초 공개합니다 | MY VOGUE",
+        "url": "/2025/09/26/%ec%86%a1%ed%98%9c%ea%b5%90%ec%9d%98-%ea%b0%80%eb%b0%a9-%ec%86%8d%ec%9d%84-%eb%b3%b4%ea%b7%b8%ec%97%90%ec%84%9c-%ec%b5%9c%ec%b4%88-%ea%b3%b5%ea%b0%9c%ed%95%a9%eb%8b%88%eb%8b%a4-my-vogue/",
+        "image": "https://img.vogue.co.kr/vogue/2025/09/style_68d62c6b95185-960x1440.jpg"
+      },
+      "articles": [
+        {
+          "id": "p_709634",
+          "category": "Video",
+          "title": "향수와 부기 관리에 진심! 나띠·쥴리의 뷰티 인마이백 | MY VOGUE",
+          "date": "2025.11.04",
+          "author": "이인정",
+          "url": "/2025/11/04/%ed%96%a5%ec%88%98%ec%99%80-%eb%b6%80%ea%b8%b0-%ea%b4%80%eb%a6%ac%ec%97%90-%ec%a7%84%ec%8b%ac-%eb%82%98%eb%9d%a0-%ec%a5%b4%eb%a6%ac%ec%9d%98-%eb%b7%b0%ed%8b%b0-%ec%9d%b8%eb%a7%88%ec%9d%b4/",
+          "image": "https://img.vogue.co.kr/vogue/2025/11/style_690855310d907-759x500.jpg"
+        },
+        {
+          "id": "p_707438",
+          "category": "Video",
+          "title": "보이넥스트도어의 K-팝 릴레이 댄스 게임! | VOGUE CHALLENGE",
+          "date": "2025.10.28",
+          "author": "장소라, 한다혜",
+          "url": "/2025/10/28/%eb%b3%b4%ec%9d%b4%eb%84%a5%ec%8a%a4%ed%8a%b8%eb%8f%84%ec%96%b4%ec%9d%98-k-%ed%8c%9d-%eb%a6%b4%eb%a0%88%ec%9d%b4-%eb%8c%84%ec%8a%a4-%ea%b2%8c%ec%9e%84-vogue-challenge/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_690082118adaf-759x500.jpg"
+        },
+        {
+          "id": "p_705794",
+          "category": "Video",
+          "title": "토니 어워즈 6관왕 '어쩌면 해피엔딩' 팀 총출동 | VOGUE MEETS",
+          "date": "2025.10.24",
+          "author": "이인정, 조영경",
+          "url": "/2025/10/24/%ed%86%a0%eb%8b%88-%ec%96%b4%ec%9b%8c%ec%a6%88-6%ea%b4%80%ec%99%95-%ec%96%b4%ec%a9%8c%eb%a9%b4-%ed%95%b4%ed%94%bc%ec%97%94%eb%94%a9-%ed%8c%80-%ec%b4%9d%ec%b6%9c%eb%8f%99-vogue-meets/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_68fb33f32726e-759x500.jpg"
+        },
+        {
+          "id": "p_697249",
+          "category": "Video",
+          "title": "그레타 리의 서울 뷰티 투어 스토리 | MY VOGUE",
+          "date": "2025.10.03",
+          "author": "이인정",
+          "url": "/2025/10/03/%ea%b7%b8%eb%a0%88%ed%83%80-%eb%a6%ac%ec%9d%98-%ec%84%9c%ec%9a%b8-%eb%b7%b0%ed%8b%b0-%ed%88%ac%ec%96%b4-%ec%8a%a4%ed%86%a0%eb%a6%ac-my-vogue/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_68df3b40809f6-759x500.jpg"
+        }
+      ]
+    }
+  ]
+}
