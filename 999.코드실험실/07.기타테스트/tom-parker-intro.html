@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tom B. Parker - Code Artist & Mentor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-dark: #0a1628;
+            --navy-medium: #1a2942;
+            --navy-light: #2c4875;
+            --accent-blue: #4a9eff;
+            --accent-cyan: #00d9ff;
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #4a9eff 0%, #00d9ff 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--navy-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(74, 158, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-2);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 6rem 2rem 4rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: var(--gradient-1);
+            opacity: 0.05;
+            transform: skewX(-15deg) translateX(30%);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content .highlight {
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-description {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--gradient-2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(74, 158, 255, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(74, 158, 255, 0.4);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            color: var(--accent-cyan);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Profile Section */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .profile-card {
+            background: var(--navy-medium);
+            border: 1px solid rgba(74, 158, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(74, 158, 255, 0.3);
+        }
+
+        .profile-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-blue);
+        }
+
+        .profile-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .profile-card li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+
+        .profile-card li:last-child {
+            border-bottom: none;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            padding: 0.5rem 1rem;
+            background: rgba(74, 158, 255, 0.1);
+            border: 1px solid rgba(74, 158, 255, 0.3);
+            border-radius: 20px;
+            color: var(--accent-cyan);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Works Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent-blue), var(--accent-cyan));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--navy-medium);
+            border-radius: 15px;
+            border: 1px solid rgba(74, 158, 255, 0.1);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 2rem;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+        }
+
+        .timeline-period {
+            color: var(--accent-cyan);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Hall of Fame Cards */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--navy-medium);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(74, 158, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(74, 158, 255, 0.2);
+        }
+
+        .project-image {
+            height: 200px;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            opacity: 0.7;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Channel Section */
+        .channel-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 4rem;
+            background: var(--navy-medium);
+            border-radius: 30px;
+            border: 1px solid rgba(74, 158, 255, 0.2);
+        }
+
+        .channel-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+        }
+
+        .channel-description {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy-medium);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(74, 158, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-quote {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--accent-cyan);
+            margin-bottom: 2rem;
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .profile-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Tom B. Parker</div>
+            <ul class="nav-links">
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#works">My Works</a></li>
+                <li><a href="#fame">Hall of Fame</a></li>
+                <li><a href="#channel">Channel</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>
+                    <span class="highlight">Code Artist</span><br>
+                    & Mentor
+                </h1>
+                <p class="hero-subtitle">Veteran Developer, Now Your Mentor</p>
+                <p class="hero-description">
+                    1999년부터 시작된 개발 여정, 이제는 당신의 성장을 코딩합니다.<br>
+                    26년 차 풀스택 개발자이자 IT 전문 교육자, Tom B. Parker입니다.
+                </p>
+                <a href="#profile" class="cta-button">Explore My Journey</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item fade-in">
+                    <span class="stat-number">26+</span>
+                    <span class="stat-label">Years of Coding</span>
+                </div>
+                <div class="stat-item fade-in">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Students Mentored</span>
+                </div>
+                <div class="stat-item fade-in">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Projects Delivered</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile">
+        <div class="section-header">
+            <div class="section-tag">About Tom</div>
+            <h2 class="section-title">Profile</h2>
+            <p class="section-subtitle">
+                단순 코딩 기술이 아닌, '문제 해결 능력'을 갖춘 진짜 개발자를 양성합니다
+            </p>
+        </div>
+
+        <div class="profile-grid">
+            <div class="profile-card fade-in">
+                <h3>About Tom</h3>
+                <ul>
+                    <li>26년 차 풀스택 개발자이자 IT 전문 교육자</li>
+                    <li>다국적 제약사(Pfizer) 및 공공기관 엔터프라이즈 시스템 구축 전문가</li>
+                    <li>현재 강남/역삼 그린컴퓨터아카데미 K-Digital Training 훈련 교사</li>
+                    <li>실무 프로젝트 기반 하드 트레이닝 지향</li>
+                </ul>
+            </div>
+
+            <div class="profile-card fade-in">
+                <h3>Core Competency</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+                    프론트엔드부터 백엔드까지, 엔터프라이즈급 솔루션 구축 역량
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">Vue.js</span>
+                    <span class="tech-tag">Flutter</span>
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">PHP</span>
+                    <span class="tech-tag">ASP.NET</span>
+                    <span class="tech-tag">C#</span>
+                    <span class="tech-tag">MS-SQL</span>
+                    <span class="tech-tag">UI/UX Design</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Works Section -->
+    <section id="works">
+        <div class="section-header">
+            <div class="section-tag">Experience</div>
+            <h2 class="section-title">My Works</h2>
+            <p class="section-subtitle">
+                기업의 문제를 해결하던 코드에서, 개발자를 키우는 커리큘럼으로
+            </p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-period">2021 ~ Present</div>
+                <h3 class="timeline-title">Chapter 3. Curriculum Design</h3>
+                <div class="timeline-content">
+                    <p>현장 투입 가능한 신입 개발자 양성을 위한 실무 중심 커리큘럼 설계 및 강의</p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem; color: var(--text-secondary);">
+                        <li>React/Vue 활용 웹 개발, Flutter 하이브리드 앱 개발 과정 리딩</li>
+                        <li>자바 기반 웹&앱 SW 개발자 양성 과정(KDT/국기) 전임</li>
+                        <li>UI/UX 디자인과 퍼블리싱을 결합한 실무형 교육</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-period">2007 ~ 2012</div>
+                <h3 class="timeline-title">Chapter 1. Enterprise Solution Architect</h3>
+                <div class="timeline-content">
+                    <p><strong>Pfizer Korea & Global:</strong> 핵심 업무 시스템 구축 및 고도화 총괄</p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem; color: var(--text-secondary);">
+                        <li>Info DB, 전자결재, 모바일 오피스, 마케팅 포탈 등 구축</li>
+                        <li>일본 및 호주 화이자 제약 시스템 연동 및 포털 사이트 구축</li>
+                        <li>사내 개발팀 대상 ASP.NET, MS-SQL, XML, Ajax 기술 강의 전담</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-period">1999 ~ 2007</div>
+                <h3 class="timeline-title">Chapter 2. System Integration Specialist</h3>
+                <div class="timeline-content">
+                    <ul style="padding-left: 1.5rem; color: var(--text-secondary);">
+                        <li>질병관리본부 질병 추적 시스템, 동국제강 포털 구축</li>
+                        <li>오토에버시스템즈 문서관리 시스템 개발</li>
+                        <li>Korea.com, DreamX 등 대형 포털 서브 페이지 개발</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hall of Fame Section -->
+    <section id="fame">
+        <div class="section-header">
+            <div class="section-tag">Student Success</div>
+            <h2 class="section-title">Hall of Fame</h2>
+            <p class="section-subtitle">
+                Tom's Disciples - 탐의 멘토링을 통해 탄생한 '진짜 개발자'들의 프로젝트
+            </p>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <div class="project-image">⚛️</div>
+                <div class="project-content">
+                    <h3 class="project-title">React & Vue Masterpiece</h3>
+                    <p class="project-description">
+                        2024-2025 프론트엔드 양성과정 수료생들의 SPA 기반 웹 서비스 프로젝트
+                    </p>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-image">📱</div>
+                <div class="project-content">
+                    <h3 class="project-title">Flutter Innovation</h3>
+                    <p class="project-description">
+                        2023-2024 플러터 활용 웹&앱 개발 과정 수료생들의 크로스 플랫폼 앱 결과물
+                    </p>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-image">🎨</div>
+                <div class="project-content">
+                    <h3 class="project-title">UI/UX & Publisher</h3>
+                    <p class="project-description">
+                        디자인 감각과 코딩 능력을 겸비한 웹 퍼블리싱 포트폴리오 컬렉션
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 4rem; text-align: center;">
+            <div style="max-width: 600px; margin: 0 auto; padding: 2rem; background: var(--navy-medium); border-radius: 20px; border: 1px solid rgba(74, 158, 255, 0.2);">
+                <h4 style="color: var(--accent-cyan); margin-bottom: 1rem; font-size: 1.3rem;">Mentoring Philosophy</h4>
+                <p style="color: var(--text-secondary); font-size: 1.1rem; font-style: italic;">
+                    "코드는 거짓말을 하지 않는다."<br>
+                    기초부터 탄탄하게, 실무 프로젝트 기반의 하드 트레이닝 지향
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Channel Section -->
+    <section id="channel">
+        <div class="section-header">
+            <div class="section-tag">Connect</div>
+            <h2 class="section-title">Channel</h2>
+            <p class="section-subtitle">
+                강의실 밖에서도 계속되는 개발 인사이트
+            </p>
+        </div>
+
+        <div class="channel-content fade-in">
+            <div class="channel-icon">🎥</div>
+            <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Tech Talk with Tom</h3>
+            <p class="channel-description">
+                현직 개발자 멘토가 들려주는 코딩 노하우, 최신 기술 트렌드 리뷰,<br>
+                그리고 학생 작품 피드백
+            </p>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                개발자 취업 꿀팁 및 포트폴리스 작성 가이드 제공
+            </p>
+            <a href="#" class="cta-button">Visit YouTube Channel</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-quote">"From Enterprise Solutions to Tech Education"</p>
+            <p class="footer-text">
+                © 2025 Tom B. Parker. Veteran Developer, Now Your Mentor.<br>
+                26 years of coding excellence, dedicated to nurturing the next generation of developers.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
