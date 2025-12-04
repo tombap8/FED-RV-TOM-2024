@@ -1,0 +1,86 @@
+{
+    "navigation": [
+        { "href": "#profile", "text": "Profile" },
+        { "href": "#works", "text": "My Works" },
+        { "href": "#fame", "text": "Hall of Fame" },
+        { "href": "#channel", "text": "Channel" }
+    ],
+    "hero": {
+        "stats": [
+            { "number": "26+", "label": "Years of Coding" },
+            { "number": "500+", "label": "Students Mentored" },
+            { "number": "100+", "label": "Projects Delivered" }
+        ]
+    },
+    "profile": {
+        "aboutTom": [
+            "26년 차 풀스택 개발자이자 IT 전문 교육자",
+            "다국적 제약사(Pfizer) 및 공공기관 엔터프라이즈 시스템 구축 전문가",
+            "현재 강남/역삼 그린컴퓨터아카데미 K-Digital Training 훈련 교사",
+            "실무 프로젝트 기반 하드 트레이닝 지향"
+        ],
+        "techStack": [
+            "React",
+            "Vue.js",
+            "Flutter",
+            "Java",
+            "PHP",
+            "ASP.NET",
+            "C#",
+            "MS-SQL",
+            "UI/UX Design"
+        ]
+    },
+    "timeline": [
+        {
+            "period": "2021 ~ Present",
+            "title": "Chapter 3. Curriculum Design",
+            "description": "현장 투입 가능한 신입 개발자 양성을 위한 실무 중심 커리큘럼 설계 및 강의",
+            "details": [
+                "React/Vue 활용 웹 개발, Flutter 하이브리드 앱 개발 과정 리딩",
+                "자바 기반 웹&앱 SW 개발자 양성 과정(KDT/국기) 전임",
+                "UI/UX 디자인과 퍼블리싱을 결합한 실무형 교육"
+            ]
+        },
+        {
+            "period": "2007 ~ 2012",
+            "title": "Chapter 1. Enterprise Solution Architect",
+            "description": "<strong>Pfizer Korea & Global:</strong> 핵심 업무 시스템 구축 및 고도화 총괄",
+            "details": [
+                "Info DB, 전자결재, 모바일 오피스, 마케팅 포탈 등 구축",
+                "일본 및 호주 화이자 제약 시스템 연동 및 포털 사이트 구축",
+                "사내 개발팀 대상 ASP.NET, MS-SQL, XML, Ajax 기술 강의 전담"
+            ]
+        },
+        {
+            "period": "1999 ~ 2007",
+            "title": "Chapter 2. System Integration Specialist",
+            "description": "",
+            "details": [
+                "질병관리본부 질병 추적 시스템, 동국제강 포털 구축",
+                "오토에버시스템즈 문서관리 시스템 개발",
+                "Korea.com, DreamX 등 대형 포털 서브 페이지 개발"
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "icon": "⚛️",
+            "title": "React & Vue Masterpiece",
+            "description": "2024-2025 프론트엔드 양성과정 수료생들의 SPA 기반 웹 서비스 프로젝트",
+            "url": "https://tombap8.github.io/FED-RV-TOM-2024/950.프로젝트발표/"
+        },
+        {
+            "icon": "📱",
+            "title": "Flutter Innovation",
+            "description": "2023-2024 플러터 활용 웹&앱 개발 과정 수료생들의 크로스 플랫폼 앱 결과물",
+            "url": "https://tombap8.github.io/FED-RF-2023-TOM/950.프로젝트발표/main/index3rd.html"
+        },
+        {
+            "icon": "🎨",
+            "title": "UI/UX & Publisher",
+            "description": "디자인 감각과 코딩 능력을 겸비한 웹 퍼블리싱 포트폴리오 컬렉션",
+            "url": "https://tombap8.github.io/WPC-626-TOM/950.프로젝트발표/"
+        }
+    ]
+}
