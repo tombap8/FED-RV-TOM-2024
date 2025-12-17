@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Object Detection</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.11.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.3/dist/coco-ssd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #a855f7 0%, #4f46e5 100%);
+            padding: 2rem;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: white;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .header p {
+            font-size: 1.125rem;
+        }
+        .status {
+            margin-top: 0.5rem;
+        }
+        .status.loading {
+            color: #fef08a;
+        }
+        .status.ready {
+            color: #86efac;
+        }
+        .main-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .file-input {
+            display: none;
+        }
+        .upload-area {
+            border: 4px dashed #d8b4fe;
+            border-radius: 0.75rem;
+            padding: 5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .upload-area:hover {
+            border-color: #a855f7;
+            background: #faf5ff;
+        }
+        .upload-area .icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        .upload-area h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+        .upload-area p {
+            color: #6b7280;
+        }
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
+        .image-container img {
+            max-width: 100%;
+            border-radius: 0.5rem;
+            display: block;
+        }
+        .image-container canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        .button-group {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .btn {
+            flex: 1;
+            font-weight: bold;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        .btn-secondary {
+            background: #e5e7eb;
+            color: #374151;
+        }
+        .btn-secondary:hover {
+            background: #d1d5db;
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, #9333ea 0%, #4f46e5 100%);
+            color: white;
+        }
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .results {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: #faf5ff;
+            border-radius: 0.75rem;
+        }
+        .results h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #581c87;
+            margin-bottom: 1rem;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            background: white;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .result-item span:first-child {
+            font-weight: 600;
+        }
+        .result-item span:last-child {
+            color: #9333ea;
+            font-weight: bold;
+        }
+        .info-card {
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+        }
+        .info-card h3 {
+            font-weight: bold;
+            color: #581c87;
+            margin-bottom: 0.5rem;
+        }
+        .info-card p {
+            color: #4b5563;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AI Object Detection</h1>
+            <p>TensorFlow Real-time Detection</p>
+            <p class="status loading" id="status">Loading model...</p>
+        </div>
+
+        <div class="main-card">
+            <input type="file" id="fileInput" class="file-input" accept="image/*">
+            
+            <div id="uploadArea" class="upload-area">
+                <div class="icon">📷</div>
+                <h2>Upload Image</h2>
+                <p>Click or drag file here</p>
+            </div>
+
+            <div id="imageArea" class="hidden">
+                <div class="image-container">
+                    <img id="uploadedImage" src="" alt="Upload">
+                    <canvas id="canvas"></canvas>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-secondary" id="newImageBtn">New Image</button>
+                    <button class="btn btn-primary" id="detectBtn">Detect Objects</button>
+                </div>
+            </div>
+
+            <div id="results" class="results hidden">
+                <h3 id="resultsTitle">Found 0 objects</h3>
+                <div id="resultsList"></div>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <h3>Info</h3>
+            <p>Model: COCO-SSD</p>
+            <p>Detects 80 object types</p>
+        </div>
+    </div>
+
+    <script>
+        let model = null;
+        let currentImage = null;
+        let predictions = [];
+        let loading = false;
+
+        const fileInput = document.getElementById('fileInput');
+        const uploadArea = document.getElementById('uploadArea');
+        const imageArea = document.getElementById('imageArea');
+        const uploadedImage = document.getElementById('uploadedImage');
+        const canvas = document.getElementById('canvas');
+        const newImageBtn = document.getElementById('newImageBtn');
+        const detectBtn = document.getElementById('detectBtn');
+        const results = document.getElementById('results');
+        const resultsTitle = document.getElementById('resultsTitle');
+        const resultsList = document.getElementById('resultsList');
+        const status = document.getElementById('status');
+
+        // 모델 로드
+        async function loadModel() {
+            try {
+                model = await cocoSsd.load();
+                status.textContent = 'Model ready!';
+                status.className = 'status ready';
+            } catch (error) {
+                status.textContent = 'Failed to load model';
+                console.error(error);
+            }
+        }
+
+        // 파일 처리
+        function handleFile(file) {
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                currentImage = e.target.result;
+                uploadedImage.src = currentImage;
+                uploadArea.classList.add('hidden');
+                imageArea.classList.remove('hidden');
+                results.classList.add('hidden');
+                predictions = [];
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // 이미지 로드 완료 시
+        uploadedImage.onload = () => {
+            canvas.width = uploadedImage.width;
+            canvas.height = uploadedImage.height;
+        };
+
+        // 객체 탐지
+        async function detect() {
+            if (!model || !uploadedImage.src || loading) return;
+            
+            loading = true;
+            detectBtn.textContent = 'Detecting...';
+            detectBtn.disabled = true;
+
+            try {
+                predictions = await model.detect(uploadedImage);
+                drawBoxes(predictions);
+                displayResults(predictions);
+            } catch (error) {
+                alert('Detection failed');
+                console.error(error);
+            }
+
+            loading = false;
+            detectBtn.textContent = 'Detect Objects';
+            detectBtn.disabled = false;
+        }
+
+        // 바운딩 박스 그리기
+        function drawBoxes(results) {
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            ctx.strokeStyle = '#667eea';
+            ctx.lineWidth = 3;
+            ctx.font = 'bold 16px Arial';
+
+            results.forEach(r => {
+                const [x, y, w, h] = r.bbox;
+
+                ctx.strokeRect(x, y, w, h);
+                ctx.fillStyle = '#667eea';
+                ctx.fillRect(x, y - 25, 100, 25);
+                ctx.fillStyle = 'white';
+                ctx.fillText(r.class, x + 5, y - 5);
+            });
+        }
+
+        // 결과 표시
+        function displayResults(preds) {
+            if (preds.length === 0) {
+                results.classList.add('hidden');
+                return;
+            }
+
+            resultsTitle.textContent = `Found ${preds.length} objects`;
+            resultsList.innerHTML = '';
+
+            preds.forEach((p, i) => {
+                const item = document.createElement('div');
+                item.className = 'result-item';
+                item.innerHTML = `
+                    <span>${i + 1}. ${p.class}</span>
+                    <span>${(p.score * 100).toFixed(1)}%</span>
+                `;
+                resultsList.appendChild(item);
+            });
+
+            results.classList.remove('hidden');
+        }
+
+        // 이벤트 리스너
+        uploadArea.addEventListener('click', () => fileInput.click());
+        
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const file = e.dataTransfer.files[0];
+            if (file) handleFile(file);
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            handleFile(e.target.files[0]);
+        });
+
+        newImageBtn.addEventListener('click', () => {
+            currentImage = null;
+            uploadedImage.src = '';
+            predictions = [];
+            uploadArea.classList.remove('hidden');
+            imageArea.classList.add('hidden');
+            results.classList.add('hidden');
+            fileInput.value = '';
+        });
+
+        detectBtn.addEventListener('click', detect);
+
+        // 초기화
+        loadModel();
+    </script>
+</body>
+</html>
