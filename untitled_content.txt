@@ -1,0 +1,36 @@
+<td>
+                                <div class="recruitment-items">
+                                    <div class="recruitment-item">
+                                        <table class="content-table">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <p><b>담당업무</b></p>
+                                                        <p>ㆍ<span style="font-family: inherit; font-size: inherit; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-weight: inherit; color: rgba(0, 0, 0, 0.85); white-space-collapse: preserve; letter-spacing: 0px;">AI Agent 설계 및 개발</span></p>
+                                                        <p>ㆍ<span style="font-family: inherit; font-size: inherit; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-weight: inherit; color: rgba(0, 0, 0, 0.85); white-space-collapse: preserve; letter-spacing: 0px;">Multi-Agent 워크플로우 설계 및 구현 (LangChain, LangGraph, LangSmith 등 활용)</span></p><p><span style="letter-spacing: 0px;">ㆍ</span><span style="font-family: inherit; font-size: inherit; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-weight: inherit; color: rgba(0, 0, 0, 0.85); white-space-collapse: preserve; letter-spacing: 0px;">상용 LLM(GPT, Claude, Gemini 등) 연계 업무 자동화 시스템 개발</span></p><p>ㆍ<span style="font-family: inherit; font-size: inherit; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-weight: inherit; color: rgba(0, 0, 0, 0.85); white-space-collapse: preserve; letter-spacing: 0px;">RAG 시스템 구축 및 성능 최적화</span></p>
+                                                        <p><span style="letter-spacing: 0px;">ㆍ</span><span style="font-family: inherit; font-size: inherit; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-weight: inherit; color: rgba(0, 0, 0, 0.85); white-space-collapse: preserve; letter-spacing: 0px;">FastAPI 기반 백엔드 API 개발 및 운영</span></p>
+                                                        
+
+
+
+                                                        <p><b><br></b></p><p><b>자격요건</b></p>
+                                                            <p>ㆍ학력 : 학력무관</p>
+
+                                                        
+                                                        
+                                                        
+                                                        <p><br></p>
+                                                        <p><b>우대사항</b></p>
+                                                        
+                                                        
+                                                        
+
+                                                        <p>ㆍ<span style="font-family: inherit; font-size: inherit; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-weight: inherit; color: rgba(0, 0, 0, 0.85); white-space-collapse: preserve; letter-spacing: 0px;">Python 언어 활용 능숙</span></p>
+                                                        <p>ㆍ<span style="font-family: inherit; font-size: inherit; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-weight: inherit; color: rgba(0, 0, 0, 0.85); white-space-collapse: preserve; letter-spacing: 0px;">AI Agent 개발 경험 (LangChain, LangGraph, LangSmith 등)</span></p><p style="letter-spacing: normal;">ㆍ<span style="font-family: inherit; font-size: inherit; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-weight: inherit; color: rgba(0, 0, 0, 0.85); white-space-collapse: preserve; letter-spacing: 0px;">RAG 파이프라인 구현 경험</span></p><p style="letter-spacing: normal;">ㆍ<span style="font-family: inherit; font-size: inherit; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-weight: inherit; color: rgba(0, 0, 0, 0.85); white-space-collapse: preserve; letter-spacing: 0px;">바이브 코딩으로 1개 이상의 프로젝트나 서비스 개발 경험</span></p><p style="letter-spacing: normal;">ㆍ<span style="font-family: inherit; font-size: inherit; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-weight: inherit; color: rgba(0, 0, 0, 0.85); white-space-collapse: preserve; letter-spacing: 0px;">Multi-Agent 오케스트레이션 설계 및 운영 경험</span></p><p style="letter-spacing: normal;">ㆍ<span style="font-family: inherit; font-size: inherit; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-weight: inherit; color: rgba(0, 0, 0, 0.85); white-space-collapse: preserve; letter-spacing: 0px;">FastAPI, Flask 등 Python 웹 프레임워크 경험</span></p><p style="letter-spacing: normal;">ㆍ<span style="font-family: inherit; font-size: inherit; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-weight: inherit; color: rgba(0, 0, 0, 0.85); white-space-collapse: preserve; letter-spacing: 0px;">Streamlit 활용 웹앱 개발 경험</span></p><p style="letter-spacing: normal;">ㆍ<span style="font-family: inherit; font-size: inherit; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-weight: inherit; color: rgba(0, 0, 0, 0.85); white-space-collapse: preserve; letter-spacing: 0px;">Docker, Kubernetes 등 컨테이너 기반 배포 경험</span></p><p style="letter-spacing: normal;">ㆍ<span style="font-family: inherit; font-size: inherit; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-weight: inherit; color: rgba(0, 0, 0, 0.85); white-space-collapse: preserve; letter-spacing: 0px;">프롬프트 엔지니어링 및 LLM Fine-tuning 경험</span></p><p style="letter-spacing: normal;">ㆍ<span style="font-family: inherit; font-size: inherit; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-weight: inherit; color: rgba(0, 0, 0, 0.85); white-space-collapse: preserve; letter-spacing: 0px;">MySQL, PostgreSQL, MongoDB 등 데이터베이스 설계 및 운영 경험</span></p><p style="letter-spacing: normal;">ㆍ<span style="font-family: inherit; font-size: inherit; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-weight: inherit; color: rgba(0, 0, 0, 0.85); white-space-collapse: preserve; letter-spacing: 0px;">HTML, JavaScript 등 웹 관련 활용 경험</span></p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </td>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개발자 대체의 꿈</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; background: #f3f4f6; overflow: hidden; }
+        .container { width: 100vw; height: 100vh; display: flex; flex-direction: column; }
+        .slide-container { flex: 1; position: relative; overflow: hidden; background: white; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .slide { position: absolute; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; padding: 3rem; text-align: center; opacity: 0; transition: transform 0.5s ease, opacity 0.5s ease; }
+        .slide.active { opacity: 1; transform: translateX(0); }
+        .slide.slide-out-left { transform: translateX(-100%); opacity: 0; }
+        .slide.slide-out-right { transform: translateX(100%); opacity: 0; }
+        .slide.slide-in-left { transform: translateX(-100%); opacity: 1; }
+        .slide.slide-in-right { transform: translateX(100%); opacity: 1; }
+        .navigation { background: #1f2937; padding: 1rem; display: flex; justify-content: space-between; align-items: center; }
+        button { background: #2563eb; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 0.5rem; cursor: pointer; font-size: 1rem; }
+        button:hover { background: #1d4ed8; }
+        .slide-counter { color: white; font-size: 1.125rem; font-weight: 600; }
+        h1 { font-size: 3.5rem; font-weight: bold; margin-bottom: 2rem; }
+        h2 { font-size: 3rem; font-weight: bold; margin-bottom: 3rem; }
+        h3 { font-size: 1.875rem; margin-bottom: 2rem; }
+        .content { max-width: 80rem; width: 100%; }
+        .card { background: white; padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); margin: 1rem 0; text-align: left; }
+        .space-y > * { margin-bottom: 1.5rem; }
+        .space-y > *:last-child { margin-bottom: 0; }
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="slide-container" id="slideContainer"></div>
+        <div class="navigation">
+            <button id="prevBtn">이전</button>
+            <div class="slide-counter"><span id="currentSlide">1</span> / <span id="totalSlides">14</span></div>
+            <button id="nextBtn">다음</button>
+        </div>
+    </div>
+
+    <script>
+        function createSlide(bg, color, content) {
+            var slide = document.createElement('div');
+            slide.className = 'slide';
+            slide.style.background = bg;
+            slide.style.color = color;
+            var wrapper = document.createElement('div');
+            wrapper.className = 'content';
+            wrapper.innerHTML = content;
+            slide.appendChild(wrapper);
+            return slide;
+        }
+
+        var container = document.getElementById('slideContainer');
+        var slides = [];
+
+        var slide1 = createSlide('linear-gradient(to bottom right, #1e3a8a, #581c87)', 'white', 
+            '<h1>10년마다 되풀이되는<br>개발자 대체의 꿈</h1><p style="font-size: 1.5rem; color: #93c5fd;">50년간 반복된 패턴과 그 교훈</p>');
+        slides.push(slide1);
+
+        var slide2 = createSlide('white', '#1f2937',
+            '<h2>반복되는 패턴</h2><div style="text-align: left; max-width: 60rem; margin: 0 auto;"><p style="font-size: 1.5rem; color: #374151; margin-bottom: 1.5rem;">지난 50여 년간 소프트웨어 개발을 단순화해 개발자 의존을 줄이려는 시도가 반복되어 왔습니다.</p><p style="font-size: 1.5rem; color: #374151; margin-bottom: 1.5rem;">1960년대 COBOL에서 시작해 CASE 도구, Visual Basic, 로우코드, 노코드, 그리고 최근의 AI 코드 도우미까지 같은 패턴이 이어지고 있습니다.</p><p style="font-size: 1.5rem; color: #2563eb; font-weight: 600;">결과: 각 기술은 생산성을 높였지만, 복잡성을 다루는 사고 과정은 여전히 사람의 몫</p></div>');
+        slides.push(slide2);
+
+        var slide3 = createSlide('linear-gradient(to bottom right, #fff7ed, #fef3c7)', '#1f2937',
+            '<span style="background: #fed7aa; color: #9a3412; padding: 0.75rem 1.5rem; border-radius: 9999px; font-size: 1.5rem; font-weight: bold; display: inline-block; margin-bottom: 2rem;">1960년대</span><h2>COBOL</h2><h3 style="color: #ea580c;">Common Business-Oriented Language</h3><div class="space-y"><div class="card"><p style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem;">약속</p><p style="font-size: 1.25rem;">비즈니스 담당자가 영어 문장처럼 코드를 작성</p></div><div class="card"><p style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem;">현실</p><p style="font-size: 1.25rem;">논리, 데이터 구조, 시스템 설계의 복잡성은 여전</p><p style="font-size: 1.25rem; margin-top: 0.5rem;">전문 COBOL 개발자 계층이 새로 형성됨</p></div></div>');
+        slides.push(slide3);
+
+        var slide4 = createSlide('linear-gradient(to bottom right, #f0fdf4, #f0fdfa)', '#1f2937',
+            '<span style="background: #d1fae5; color: #065f46; padding: 0.75rem 1.5rem; border-radius: 9999px; font-size: 1.5rem; font-weight: bold; display: inline-block; margin-bottom: 2rem;">1980년대</span><h2>CASE 도구</h2><h3 style="color: #059669;">Computer-Aided Software Engineering</h3><div class="space-y"><div class="card"><p style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem;">약속</p><p style="font-size: 1.25rem;">다이어그램으로 코드를 자동 생성</p><p style="font-size: 1.25rem; margin-top: 0.5rem; color: #059669; font-weight: 600;">기대: 생산성 10배 향상</p></div><div class="card"><p style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem;">현실</p><p style="font-size: 1.25rem;">성능 문제, 유지보수 어려움, 모델 불일치로 실패</p></div></div>');
+        slides.push(slide4);
+
+        var slide5 = createSlide('linear-gradient(to bottom right, #faf5ff, #fce7f3)', '#1f2937',
+            '<span style="background: #e9d5ff; color: #6b21a8; padding: 0.75rem 1.5rem; border-radius: 9999px; font-size: 1.5rem; font-weight: bold; display: inline-block; margin-bottom: 2rem;">1990년대</span><h2>Visual Basic &amp; Delphi</h2><div class="space-y"><div class="card"><p style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem;">약속</p><p style="font-size: 1.25rem;">드래그 앤 드롭 방식으로 UI를 쉽게 만들어 개발 진입 장벽 완화</p></div><div class="card"><p style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem;">현실</p><p style="font-size: 1.25rem;">복잡한 시스템에는 여전히 숙련된 개발자 필요</p><p style="font-size: 1.25rem; margin-top: 1rem; color: #7c3aed; font-weight: 600;">개발자 수요는 오히려 확대됨</p></div></div>');
+        slides.push(slide5);
+
+        var slide6 = createSlide('linear-gradient(to bottom right, #eff6ff, #eef2ff)', '#1f2937',
+            '<span style="background: #dbeafe; color: #1e40af; padding: 0.75rem 1.5rem; border-radius: 9999px; font-size: 1.5rem; font-weight: bold; display: inline-block; margin-bottom: 2rem;">2000년대 이후</span><h2>웹 프레임워크, 로우코드, 노코드</h2><div class="space-y"><div class="card"><p style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem;">Ruby on Rails</p><p style="font-size: 1.25rem;">설정보다 관례</p></div><div class="card"><p style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem;">로우코드, 노코드</p><p style="font-size: 1.25rem;">코드 없는 개발</p></div><div class="card"><p style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem;">결과</p><p style="font-size: 1.25rem;">특정 영역에서 속도 향상했지만 전문 개발자 필요성은 지속 증가</p></div></div>');
+        slides.push(slide6);
+
+        var slide7 = createSlide('linear-gradient(to bottom right, #ecfeff, #eff6ff)', '#1f2937',
+            '<span style="background: #cffafe; color: #155e75; padding: 0.75rem 1.5rem; border-radius: 9999px; font-size: 1.5rem; font-weight: bold; display: inline-block; margin-bottom: 2rem;">2020년대</span><h2>AI 코딩 도우미</h2><div class="space-y"><div class="card"><p style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem;">새로운 가능성</p><p style="font-size: 1.25rem;">자연어로 코드 생성, 설명, 디버깅, 개선 제안</p></div><div class="card" style="border: 2px solid #0891b2;"><p style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem;">여전히 인간의 역할</p><p style="font-size: 1.25rem;">문제 정의, 보안, 통합, 유지보수 판단</p><p style="font-size: 1.25rem; margin-top: 1rem; font-weight: 600; color: #0e7490;">AI는 생산성 증폭, 판단력과 맥락 이해는 대체 불가</p></div></div>');
+        slides.push(slide7);
+
+        var slide8 = createSlide('linear-gradient(to bottom right, #fef2f2, #fff7ed)', '#1f2937',
+            '<h2>복잡성의 본질</h2><div class="space-y"><div class="card"><p style="font-size: 1.5rem; color: #374151; margin-bottom: 1.5rem;">소프트웨어는 세부 상황과 예외 처리에서 복잡성이 폭발합니다</p><div class="grid-3"><div style="background: #fecaca; padding: 1rem; border-radius: 0.5rem;"><p style="font-weight: 600;">재고 예약 충돌</p></div><div style="background: #fecaca; padding: 1rem; border-radius: 0.5rem;"><p style="font-weight: 600;">결제 실패 처리</p></div><div style="background: #fecaca; padding: 1rem; border-radius: 0.5rem;"><p style="font-weight: 600;">서비스 중단 대응</p></div></div></div><div style="background: #dc2626; color: white; padding: 2rem; border-radius: 0.5rem;"><p style="font-size: 1.875rem; font-weight: bold;">이러한 세부 판단이 개발 행위의 본질이며,<br>어떤 도구도 이를 제거할 수 없습니다</p></div></div>');
+        slides.push(slide8);
+
+        var slide9 = createSlide('white', '#1f2937',
+            '<h2>진짜 병목은 어디에?</h2><div class="space-y"><div class="grid-2"><div style="background: #f3f4f6; padding: 2rem; border-radius: 0.5rem;"><p style="font-size: 1.875rem; font-weight: bold; color: #9ca3af; margin-bottom: 1rem;">병목이 아닌 것</p><p style="font-size: 1.25rem; color: #6b7280; margin: 0.75rem 0;">타이핑 속도</p><p style="font-size: 1.25rem; color: #6b7280; margin: 0.75rem 0;">문법 지식</p><p style="font-size: 1.25rem; color: #6b7280; margin: 0.75rem 0;">코드 작성 시간</p></div><div style="background: #2563eb; color: white; padding: 2rem; border-radius: 0.5rem;"><p style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1rem;">진짜 병목</p><p style="font-size: 1.25rem; margin: 0.75rem 0;">복잡성 사고 능력</p><p style="font-size: 1.25rem; margin: 0.75rem 0;">문제 이해와 정의</p><p style="font-size: 1.25rem; margin: 0.75rem 0;">맥락 판단력</p></div></div></div>');
+        slides.push(slide9);
+
+        var slide10 = createSlide('linear-gradient(to bottom right, #312e81, #581c87)', 'white',
+            '<h2>리더가 던져야 할 질문</h2><div class="space-y"><div style="background: rgba(255, 255, 255, 0.1); padding: 1.5rem; border-radius: 0.5rem; opacity: 0.6;"><p style="font-size: 1.5rem; text-decoration: line-through;">이 도구가 개발자를 대체할까?</p></div><div style="background: rgba(255, 255, 255, 0.2); padding: 1.5rem; border-radius: 0.5rem;"><p style="font-size: 1.5rem;">복잡한 문제 해결에 도움이 되는가?</p></div><div style="background: rgba(255, 255, 255, 0.2); padding: 1.5rem; border-radius: 0.5rem;"><p style="font-size: 1.5rem;">반복 작업을 줄여 창의적 문제에 집중하게 하는가?</p></div><div style="background: rgba(255, 255, 255, 0.2); padding: 1.5rem; border-radius: 0.5rem;"><p style="font-size: 1.5rem;">새로운 기술 습득이 필요한가?</p></div></div>');
+        slides.push(slide10);
+
+        var slide11 = createSlide('linear-gradient(to bottom right, #1f2937, #111827)', 'white',
+            '<h2>50년의 교훈</h2><div class="space-y"><div style="background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 0.5rem;"><p style="font-size: 1.875rem; margin-bottom: 1.5rem; font-weight: 600;">문제는 기계적이 아니라 지적입니다</p><p style="font-size: 1.25rem; margin: 1rem 0;">COBOL은 문법을 단순화했습니다</p><p style="font-size: 1.25rem; margin: 1rem 0;">CASE는 타이핑을 없앴습니다</p><p style="font-size: 1.25rem; margin: 1rem 0;">AI는 함수 전체를 생성합니다</p></div><div style="background: #fbbf24; color: #1f2937; padding: 2rem; border-radius: 0.5rem;"><p style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1rem;">하지만 본질적 어려움은 여전합니다</p><p style="font-size: 1.5rem;">소프트웨어 개발은 생각을 구체화하는 행위이며 도구로 대체 불가능합니다</p></div></div>');
+        slides.push(slide11);
+
+        var slide12 = createSlide('linear-gradient(to bottom right, #059669, #0d9488)', 'white',
+            '<h2>앞으로의 방향</h2><div class="space-y"><div style="background: rgba(255, 255, 255, 0.2); padding: 2rem; border-radius: 0.5rem;"><p style="font-size: 1.5rem; margin-bottom: 1.5rem;">새로운 도구는 계속 등장할 것입니다</p><p style="font-size: 1.25rem;">AI, 로우코드, 새 프레임워크를 실험하세요</p></div><div style="background: #fbbf24; color: #1f2937; padding: 2rem; border-radius: 0.5rem;"><p style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1rem;">핵심 투자처</p><p style="font-size: 1.5rem;">사람의 사고력과 복잡성 이해 능력을 조직의 핵심 역량으로</p></div></div>');
+        slides.push(slide12);
+
+        var slide13 = createSlide('white', '#1f2937',
+            '<h2>꿈이 계속되는 이유</h2><div class="space-y"><div style="background: #eff6ff; padding: 2rem; border-radius: 0.5rem;"><p style="font-size: 1.5rem; color: #374151;">개발자 대체 꿈은 실패가 아니라 도구 혁신을 자극하는 낙관주의입니다</p></div><div class="grid-2"><div style="background: #fed7aa; padding: 1.5rem; border-radius: 0.5rem;"><p style="font-weight: bold; font-size: 1.25rem; margin-bottom: 0.5rem;">COBOL</p><p>비즈니스 시스템 개발 확산</p></div><div style="background: #d1fae5; padding: 1.5rem; border-radius: 0.5rem;"><p style="font-weight: bold; font-size: 1.25rem; margin-bottom: 0.5rem;">CASE</p><p>시각적 모델링 발전</p></div><div style="background: #e9d5ff; padding: 1.5rem; border-radius: 0.5rem;"><p style="font-weight: bold; font-size: 1.25rem; margin-bottom: 0.5rem;">Visual Basic</p><p>개발 접근성 확대</p></div><div style="background: #cffafe; padding: 1.5rem; border-radius: 0.5rem;"><p style="font-weight: bold; font-size: 1.25rem; margin-bottom: 0.5rem;">AI</p><p>개발 방식의 변화 촉진</p></div></div></div>');
+        slides.push(slide13);
+
+        var slide14 = createSlide('linear-gradient(to bottom right, #1e3a8a, #581c87)', 'white',
+            '<h2 style="font-size: 4rem; margin-bottom: 2rem;">결론</h2><div style="background: rgba(255, 255, 255, 0.2); padding: 2.5rem; border-radius: 0.5rem; margin: 1rem 0;"><p style="font-size: 1.875rem; line-height: 1.6;">제약은 도구가 아니라<br>우리가 해결하려는 문제의<br><span style="color: #fcd34d; font-weight: bold; font-size: 2.5rem;">복잡성</span>에 있습니다</p></div><div style="margin-top: 2rem;"><p style="font-size: 1.5rem; margin: 1rem 0;">새로운 도구를 거부할 필요는 없습니다</p><p style="font-size: 1.5rem; color: #fcd34d; font-weight: 600;">현실적 기대와 인간 판단의 중요성을 인식하세요</p></div>');
+        slides.push(slide14);
+
+        for (var i = 0; i < slides.length; i++) {
+            if (i == 0) slides[i].classList.add('active');
+            container.appendChild(slides[i]);
+        }
+
+        var currentSlide = 0;
+        var slideElements = document.querySelectorAll('.slide');
+        var currentEl = document.getElementById('currentSlide');
+        var totalEl = document.getElementById('totalSlides');
+        var prevBtn = document.getElementById('prevBtn');
+        var nextBtn = document.getElementById('nextBtn');
+
+        totalEl.textContent = slideElements.length;
+
+        function showSlide(n, direction) {
+            if (n === currentSlide) return;
+            
+            var oldSlide = slideElements[currentSlide];
+            var newSlide = slideElements[n];
+            
+            // 모든 슬라이드의 애니메이션 클래스 초기화
+            for (var i = 0; i < slideElements.length; i++) {
+                if (i !== currentSlide && i !== n) {
+                    slideElements[i].classList.remove('slide-out-left', 'slide-out-right', 'slide-in-left', 'slide-in-right', 'active');
+                }
+            }
+            
+            if (direction === 'next') {
+                // 다음: 현재 슬라이드는 왼쪽으로, 새 슬라이드는 오른쪽에서 중앙으로
+                newSlide.classList.remove('slide-out-left', 'slide-out-right', 'slide-in-left', 'active');
+                newSlide.classList.add('slide-in-right');
+                
+                // 강제 reflow
+                newSlide.offsetHeight;
+                
+                requestAnimationFrame(function() {
+                    oldSlide.classList.remove('active');
+                    oldSlide.classList.add('slide-out-left');
+                    newSlide.classList.remove('slide-in-right');
+                    newSlide.classList.add('active');
+                });
+            } else {
+                // 이전: 현재 슬라이드는 오른쪽으로, 새 슬라이드는 왼쪽에서 중앙으로
+                newSlide.classList.remove('slide-out-left', 'slide-out-right', 'slide-in-right', 'active');
+                newSlide.classList.add('slide-in-left');
+                
+                // 강제 reflow
+                newSlide.offsetHeight;
+                
+                requestAnimationFrame(function() {
+                    oldSlide.classList.remove('active');
+                    oldSlide.classList.add('slide-out-right');
+                    newSlide.classList.remove('slide-in-left');
+                    newSlide.classList.add('active');
+                });
+            }
+            
+            currentSlide = n;
+            currentEl.textContent = n + 1;
+        }
+
+        prevBtn.onclick = function() {
+            var nextIndex = (currentSlide - 1 + slideElements.length) % slideElements.length;
+            showSlide(nextIndex, 'prev');
+        };
+
+        nextBtn.onclick = function() {
+            var nextIndex = (currentSlide + 1) % slideElements.length;
+            showSlide(nextIndex, 'next');
+        };
+
+        document.onkeydown = function(e) {
+            if (e.keyCode == 39 || e.keyCode == 32) {
+                e.preventDefault();
+                var nextIndex = (currentSlide + 1) % slideElements.length;
+                showSlide(nextIndex, 'next');
+            }
+            if (e.keyCode == 37) {
+                e.preventDefault();
+                var nextIndex = (currentSlide - 1 + slideElements.length) % slideElements.length;
+                showSlide(nextIndex, 'prev');
+            }
+        };
+    </script>
+</body>
+</html>
