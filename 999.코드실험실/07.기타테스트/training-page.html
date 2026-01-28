@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[기업프로젝트] 프론트엔드(React, PHP), 플러터(Flutter)활용 웹&앱개발 양성과정 - 역삼 그린컴퓨터아카데미 | OKKY 부트캠프</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00C896;
+            --primary-dark: #00A47D;
+            --secondary: #FF6B35;
+            --dark: #1A1A2E;
+            --dark-light: #2C2C44;
+            --text: #333;
+            --text-light: #666;
+            --bg: #F8F9FA;
+            --white: #FFFFFF;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            box-shadow: 0 2px 12px var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: var(--primary);
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+            color: var(--white);
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 200, 150, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 30%, rgba(255, 107, 53, 0.1) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.8s both;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-size: 1rem;
+        }
+
+        .meta-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 3rem;
+        }
+
+        .main-content {
+            animation: fadeInLeft 0.8s ease;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .section {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px var(--shadow);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--primary);
+            display: inline-block;
+        }
+
+        .section-content {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #E8F8F5 0%, #D5F4E6 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            margin: 1.5rem 0;
+        }
+
+        .curriculum-list {
+            list-style: none;
+        }
+
+        .curriculum-list li {
+            padding: 1rem;
+            margin-bottom: 0.8rem;
+            background: var(--bg);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .curriculum-list li:hover {
+            background: #E8F8F5;
+            transform: translateX(10px);
+            border-left-width: 6px;
+        }
+
+        .curriculum-list li strong {
+            color: var(--primary);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-card {
+            background: var(--bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            background: var(--white);
+            border-color: var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: var(--dark);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            animation: fadeInRight 0.8s ease;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .sticky-sidebar {
+            position: sticky;
+            top: 120px;
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .price-tag {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-tag::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .price-label {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .price-amount {
+            font-size: 2.5rem;
+            font-weight: 900;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .info-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid #E5E5E5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .info-value {
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .cta-button {
+            width: 100%;
+            background: var(--secondary);
+            color: var(--white);
+            border: none;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            background: #FF5722;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(255, 107, 53, 0.4);
+        }
+
+        .contact-info {
+            background: var(--bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .footer-text {
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        /* Reviews Section */
+        .satisfaction-summary {
+            background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            border: 2px solid #BAE6FD;
+        }
+
+        .star-rating {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stars {
+            display: flex;
+            gap: 0.3rem;
+            font-size: 2rem;
+        }
+
+        .star {
+            filter: grayscale(100%);
+        }
+
+        .star.filled {
+            filter: grayscale(0%);
+        }
+
+        .star.partial {
+            filter: grayscale(0%);
+            opacity: 0.7;
+        }
+
+        .rating-score {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .satisfaction-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: var(--text);
+        }
+
+        .highlight-blue {
+            color: #2563EB;
+            font-weight: 700;
+            text-decoration: underline;
+            text-decoration-color: rgba(37, 99, 235, 0.3);
+            text-decoration-thickness: 4px;
+            text-underline-offset: 4px;
+        }
+
+        .highlight-pink {
+            color: #DB2777;
+            font-weight: 700;
+            text-decoration: underline;
+            text-decoration-color: rgba(219, 39, 119, 0.3);
+            text-decoration-thickness: 4px;
+            text-underline-offset: 4px;
+        }
+
+        .reviews-container {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .review-card {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 2px solid #E5E5E5;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .review-card.featured {
+            background: linear-gradient(135deg, #E8F8F5 0%, #F0FDF9 100%);
+            border: 2px solid var(--primary);
+        }
+
+        .review-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 8rem;
+            color: rgba(0, 200, 150, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .review-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 40px rgba(0, 200, 150, 0.2);
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .reviewer-info {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .reviewer-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 200, 150, 0.3);
+            flex-shrink: 0;
+        }
+
+        .reviewer-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+
+        .reviewer-meta {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.2rem;
+        }
+
+        .review-rating {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+
+        .review-text {
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            font-size: 1.05rem;
+        }
+
+        .review-achievement {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .achievement-badge {
+            background: linear-gradient(135deg, #FFE5B4 0%, #FFD700 100%);
+            color: #8B4513;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3); }
+            50% { box-shadow: 0 2px 15px rgba(255, 215, 0, 0.5); }
+        }
+
+        .review-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 2px dashed #E5E5E5;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 20px rgba(0, 200, 150, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sticky-sidebar {
+                position: static;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .review-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.animate {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .fade-in.animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Tooltip */
+        [data-tooltip] {
+            position: relative;
+            cursor: help;
+        }
+
+        [data-tooltip]::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--dark);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            margin-bottom: 5px;
+        }
+
+        [data-tooltip]:hover::after {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">OKKY</a>
+            <nav class="nav">
+                <a href="#overview">과정소개</a>
+                <a href="#curriculum">커리큘럼</a>
+                <a href="#benefits">혜택</a>
+                <a href="#reviews">수강생 후기</a>
+                <a href="#apply">신청하기</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">🎓 국민내일배움카드 지원</div>
+            <h1>[기업프로젝트] 프론트엔드(React, PHP),<br>플러터(Flutter)활용 웹&앱개발 양성과정</h1>
+            <p class="hero-subtitle">역삼 그린컴퓨터아카데미에서 진행하는 실무 중심 풀스택 개발자 양성 과정</p>
+            <div class="hero-meta">
+                <div class="meta-item">
+                    <div class="meta-icon">📅</div>
+                    <span>6개월 과정</span>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-icon">🏢</div>
+                    <span>역삼동 위치</span>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-icon">💼</div>
+                    <span>취업 연계</span>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-icon">👥</div>
+                    <span>소수정예 운영</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <main class="main-content">
+            <!-- 과정 소개 -->
+            <section class="section fade-in" id="overview">
+                <h2 class="section-title">과정 소개</h2>
+                <div class="section-content">
+                    <p>본 과정은 프론트엔드 개발부터 백엔드, 모바일 앱 개발까지 아우르는 풀스택 개발자 양성 프로그램입니다. React를 활용한 현대적인 웹 개발, PHP 기반의 서버 사이드 개발, 그리고 Flutter를 통한 크로스플랫폼 모바일 앱 개발 기술을 모두 습득할 수 있습니다.</p>
+                    
+                    <div class="highlight-box">
+                        <strong style="color: var(--primary); font-size: 1.2rem;">✨ 실무 프로젝트 중심 교육</strong>
+                        <p style="margin-top: 0.8rem;">실제 기업 프로젝트를 수행하며 포트폴리오를 완성하고, 취업까지 연계되는 실전형 교육 과정입니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 커리큘럼 -->
+            <section class="section fade-in" id="curriculum">
+                <h2 class="section-title">커리큘럼</h2>
+                <div class="section-content">
+                    <ul class="curriculum-list">
+                        <li>
+                            <strong>1단계: HTML/CSS/JavaScript 기초</strong>
+                            웹 개발의 기본이 되는 HTML5, CSS3, JavaScript ES6+ 문법을 완벽하게 마스터합니다.
+                        </li>
+                        <li>
+                            <strong>2단계: React 프론트엔드 개발</strong>
+                            React Hooks, Redux, React Router를 활용한 SPA(Single Page Application) 개발 기술을 습득합니다.
+                        </li>
+                        <li>
+                            <strong>3단계: PHP 백엔드 개발</strong>
+                            PHP 기본 문법부터 Laravel 프레임워크를 활용한 RESTful API 개발까지 학습합니다.
+                        </li>
+                        <li>
+                            <strong>4단계: 데이터베이스 설계 및 관리</strong>
+                            MySQL을 활용한 데이터베이스 설계, 쿼리 최적화, 백업 및 복구 전략을 배웁니다.
+                        </li>
+                        <li>
+                            <strong>5단계: Flutter 모바일 앱 개발</strong>
+                            Dart 언어와 Flutter 프레임워크로 iOS/Android 크로스플랫폼 앱을 개발합니다.
+                        </li>
+                        <li>
+                            <strong>6단계: 실전 프로젝트</strong>
+                            실제 기업 요구사항을 반영한 웹/앱 통합 프로젝트를 기획부터 배포까지 완성합니다.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 교육 특징 -->
+            <section class="section fade-in" id="benefits">
+                <h2 class="section-title">교육 특징</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">💻</div>
+                        <h3>최신 기술 스택</h3>
+                        <p>현업에서 가장 많이 사용되는 최신 기술을 학습합니다</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👨‍🏫</div>
+                        <h3>현직 개발자 강의</h3>
+                        <p>10년 이상 경력의 현직 개발자가 직접 강의합니다</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📁</div>
+                        <h3>포트폴리오 완성</h3>
+                        <p>실무 프로젝트로 취업용 포트폴리오를 완성합니다</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🤝</div>
+                        <h3>취업 지원</h3>
+                        <p>이력서 작성부터 면접 준비까지 1:1 취업 컨설팅</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 수강 대상 -->
+            <section class="section fade-in">
+                <h2 class="section-title">수강 대상</h2>
+                <div class="section-content">
+                    <ul class="curriculum-list">
+                        <li>
+                            <strong>비전공자</strong>
+                            개발자로 커리어 전환을 희망하는 비전공자
+                        </li>
+                        <li>
+                            <strong>신입 개발자</strong>
+                            체계적인 교육으로 실력을 향상시키고 싶은 신입 개발자
+                        </li>
+                        <li>
+                            <strong>프리랜서 희망자</strong>
+                            풀스택 개발 능력을 갖춘 프리랜서를 목표로 하는 분
+                        </li>
+                        <li>
+                            <strong>창업 준비자</strong>
+                            자신의 아이디어를 직접 구현하고 싶은 예비 창업자
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 수강생 후기 -->
+            <section class="section fade-in" id="reviews">
+                <h2 class="section-title">최근 교육에서 수강생들이 매우 만족했어요.</h2>
+                
+                <div class="satisfaction-summary">
+                    <div class="star-rating">
+                        <div class="stars">
+                            <span class="star filled">⭐</span>
+                            <span class="star filled">⭐</span>
+                            <span class="star filled">⭐</span>
+                            <span class="star filled">⭐</span>
+                            <span class="star partial">⭐</span>
+                        </div>
+                        <span class="rating-score">4.7 / 5.0</span>
+                    </div>
+                    
+                    <p class="satisfaction-text">
+                        이 교육은 <span class="highlight-blue">4회차</span> 진행중인 교육과정으로 
+                        <span class="highlight-pink">1회차</span>에서 총 
+                        <span class="highlight-pink">20명</span> 중 
+                        <span class="highlight-pink">19명</span>이 5점 만점에 
+                        <span class="highlight-pink">4.7점</span>으로 
+                        <span class="highlight-pink">매우 높은 만족도</span>를 얻었다고 평가하고 그중 
+                        <span class="highlight-pink">19명</span>은 이 교육과정을 <strong>추천하고</strong> 있습니다.
+                    </p>
+                </div>
+
+                <div class="reviews-container">
+                    <div class="review-card featured">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">1</div>
+                                <div>
+                                    <div class="reviewer-name">1회차 수강생</div>
+                                </div>
+                            </div>
+                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                        <p class="review-text">
+                            비전공자에 처음 접해보는 분야라서 더 많은 걱정을 하고 임했던 훈련이었지만, 학습을 마무리하면서 제일 먼저 드는 생각은 이 수업을 듣길 정말 잘했다는 것입니다. 저는 이 수업을 들으면서 안좋았던 부분을 찾기 어려울 정도로 제게 너무나 유익하고 가치있는 시간이었습니다! 첫번째로, 학습 환경 자체가 학습을 하는데에 차질없이 이루어져서 좋았습니다. 두번째로 상담실장님의 직업군 및 적성 상담이 진정성이 있어서 좋았습니다. 세번째로, 무엇보다도 저는 강사님께서 이 훈련에 가장 진심을 다하고 계신다고 생각할 정도로 열정적이신 점이 너무 좋았습니다. 비전공자인 제가 프론트엔드의 프자도 모르고 시작하였지만 이전동안 공부했던 제 원래 전공보다 더 흥미를 느끼게 되었고, 꼭 이 분야로 취업하고 싶다는 생각도 하게되었습니다. 강사님의 열정과 진심이 제 흥미를 이끌게 된것 같고, 제게는 7개월이 너무 짧고 아쉽지만 정말 가치있는 시간이었다고 생각했습니다. 강사님이 하시는 다른 수업이 있으면 그걸 다시 듣고싶을 정도고, 수업을 지루하지 않게 하려고 많은 노력을 하신거 같습니다 ㅜㅜ<br><br>
+                            저는 강사님과 이 훈련 덕분에 프론트엔드라는 직업의 매력을 느낀것 같고 제가 나아갈 방향성을 얻은것 같아 감사드립니다 ㅠ!<br>
+                            이 수업을 다른 사람들에게도 꼭 추천하고 싶고 제가 프론트엔드 개발자로 취업하게 된다면 이 과정을 잊지 못하게 될것 같습니다:)
+                        </p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">1</div>
+                                <div>
+                                    <div class="reviewer-name">1회차 수강생</div>
+                                </div>
+                            </div>
+                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                        <p class="review-text">
+                            수업에 대한 만족도는 10점만점에 100점을 주어도 모자를 만큼 만족합니다.<br>
+                            1. 강사님이 열정적입니다.<br>
+                            2. 전문적이며 강의력이 좋아서 학생들이 이해하면서 코드를 작성할 수 있게 유도해주십니다.<br>
+                            3. 최신기술이나 업데이트 된 부분을 강의에 즉각적으로 반영해주어 좋았습니다.<br>
+                            4. 추가로 사용할만한 코드를 제공해주어 좋습니다.<br>
+                            취업과 관련해서는 학원에서 지원하는 부분이 점차 늘어가는 것 같아보였습니다.<br>
+                            1. 자기소개서와 이력서 첨삭이 꼼꼼해서 좋았습니다.<br>
+                            2. 포트폴리오 작성에 관한 강의 또는 예시 데이터가 많으면 좋겠습니다.<br>
+                            3. 모의면접은 1:1대면으로 도움이 많이 되었습니다. 모의면접의 기회가 좀 더 있으면 더 좋을 것 같습니다.<br>
+                            양질의 수업과 취업지원 감사드립니다.
+                        </p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">1</div>
+                                <div>
+                                    <div class="reviewer-name">1회차 수강생</div>
+                                </div>
+                            </div>
+                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                        <p class="review-text">
+                            국비 수업들을 때 강사님 운도 중요하다고 들었는데 우선 강사님이 정말 좋았습니다.<br>
+                            자칫 지루할 수도 있는 수업이 강사님의 좋은 기운과 유머로 재밌고 유익했습니다.<br>
+                            이론적인 부분에서도 기본기부터 탄탄하게 가르쳐주신 점과 필요한 부분을 최대한 이해하기 쉽게 가르쳐주신 점이 좋았고, 무엇보다 비전공자들도 자신감을 가지고 할 수 있도록 격려해주시고 항상 긍정적으로 대해주시는 모습이 너무 좋았습니다!!박석호 강사님 최고!!
+                        </p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">1</div>
+                                <div>
+                                    <div class="reviewer-name">1회차 수강생</div>
+                                </div>
+                            </div>
+                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                        <p class="review-text">
+                            비전공자라 6개월의 긴 수업을 포기하지 않고 잘 끝마칠 수 있을까 하는 걱정에서 수강을 시작했습니다.<br>
+                            중간중간 힘든 시기도 있었지만 박석호 강사님 덕분에 끝까지 포기하지 않고 갈 수 있었습니다.<br>
+                            강사님께 고민을 털어놓으면 잘할 수 있다, 처음엔 나도 그랬다며 격려도 해주시고 세심하게 잘 케어해 주시는 부분이 힘이 되었습니다.<br>
+                            수업은 항상 에너지 넘치고 유쾌하게 진행하셨고 무작정 외워가 아닌 원론적인 부분부터 설명해 주셔서 이해하고 기억할 수 있는 방식으로 수업을 진행하셨습니다.<br>
+                            국비 수업은 강사님이 중요하다는 말이 있는데, 이런 부분으로 고민하시는 분이 계시다면 박석호 강사님을 적극 추천드리고 싶습니다. 좋은 타이밍에 좋은 강사님을 만나게 되어 너무 만족스러운 강의였습니다.
+                        </p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">2</div>
+                                <div>
+                                    <div class="reviewer-name">2회차 수강생</div>
+                                </div>
+                            </div>
+                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                        <p class="review-text">
+                            비 전공자로 html,css도 모르는 상태로 입문하여 react로 심도 깊은 프로젝트까지 진행 하는 과정이 쉽지는 않았지만, 항상 학생보다 훨씬 열정적인 박석호 강사 선생님을 보며 덕분에 끝까지 높은 완성도의 결과를 낼 수 있었습니다.<br><br>
+                            6개월이라는 기간 동안 프로젝트를 3개정도 진행하면서 진도를 나가기 때문에 php / flutter에 대한 깊이 있는 수업 진행은 어려웠지만 수업 기간 동안 최대한의 깊이를 경험할 수 있었다고 생각합니다!<br>
+                            1회 차의 리뷰를 참고하여 강의를 수강 했는데, 정말 좋은 강사님을 만난 덕분에 도중에 포기하지 않아 다행이었고 값진 시간이었습니다.<br>
+                            항상 매 수업 내용을 녹화 후 학습자료로 공개해 주셔서 더욱 감사했습니다.
+                        </p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">2</div>
+                                <div>
+                                    <div class="reviewer-name">2회차 수강생</div>
+                                </div>
+                            </div>
+                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                        <p class="review-text">
+                            인생에서 만난 선생님들 중에서 탑3에 들어가는 좋은 선생님이에요.<br>
+                            전체적으로 세심하시고, 친절하시고, 코딩관련해서는 모르는것도 없으시고, 못하는것도 없으시고, 최대한 쉽고 재미있게 가르쳐주시려고 노력해주셔서 정말 감사했습니다.<br>
+                            전공자가 아니라서 어려웠지만,(다른선생님한테 배웠으면 더 힘들고 어려웠을꺼라고 생각합니다.) 이 선생님 만나서 최대한 쉽게 배운거 같아서 정말 감사합니다.<br>
+                            행정실장님이랑 취업실장님도 친절하시고 좋아요~
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sticky-sidebar">
+                <div class="info-card">
+                    <div class="price-tag">
+                        <div class="price-label">교육비</div>
+                        <div class="price-amount" data-tooltip="국민내일배움카드 사용 시">전액 지원</div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <span class="info-label">교육 기간</span>
+                        <span class="info-value">6개월</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">교육 시간</span>
+                        <span class="info-value">월~금 09:00-18:00</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">모집 인원</span>
+                        <span class="info-value">20명 (선착순)</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">교육 장소</span>
+                        <span class="info-value">역삼동 캠퍼스</span>
+                    </div>
+                    
+                    <button class="cta-button" onclick="handleApply()">수강 신청하기</button>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <div style="font-size: 0.9rem; color: var(--text-light);">문의 전화</div>
+                                <div style="font-weight: 700; color: var(--dark);">02-1234-5678</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <div style="font-size: 0.9rem; color: var(--text-light);">이메일</div>
+                                <div style="font-weight: 700; color: var(--dark);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bdd4d3dbd2fddacfd8d8d3dccfc993ded293d6cf">[email&#160;protected]</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3 style="margin-bottom: 1rem; font-size: 1.3rem;">🎁 특별 혜택</h3>
+                    <ul style="list-style: none; line-height: 2;">
+                        <li>✅ 국민내일배움카드 전액 지원</li>
+                        <li>✅ 훈련장려금 최대 월 31.6만원</li>
+                        <li>✅ 노트북 무료 대여</li>
+                        <li>✅ 취업 성공 시 수료 지원금</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">OKKY 부트캠프</div>
+            <p class="footer-text">
+                역삼 그린컴퓨터아카데미<br>
+                서울특별시 강남구 역삼동 테헤란로 123<br>
+                사업자등록번호: 123-45-67890<br>
+                © 2026 Green Computer Academy. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // 애니메이션을 적용할 요소들에 animate 클래스 추가
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.classList.add('animate');
+            observer.observe(el);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Apply button handler
+        function handleApply() {
+            alert('수강 신청 페이지로 이동합니다.\n\n문의: 02-1234-5678\n이메일: info@greenart.co.kr');
+        }
+
+        // Parallax effect for hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Counter animation for numbers
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start);
+                }
+            }, 16);
+        }
+
+        // Add hover effect to cards
+        document.querySelectorAll('.section').forEach(section => {
+            section.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            section.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Curriculum item click handler
+        document.querySelectorAll('.curriculum-list li').forEach(item => {
+            item.addEventListener('click', function() {
+                const isActive = this.classList.contains('active');
+                document.querySelectorAll('.curriculum-list li').forEach(li => {
+                    li.classList.remove('active');
+                    li.style.background = '';
+                });
+                if (!isActive) {
+                    this.classList.add('active');
+                    this.style.background = 'linear-gradient(135deg, #E8F8F5 0%, #D5F4E6 100%)';
+                }
+            });
+        });
+
+        // Add floating animation to badges
+        const badge = document.querySelector('.badge');
+        if (badge) {
+            setInterval(() => {
+                badge.style.animation = 'none';
+                setTimeout(() => {
+                    badge.style.animation = 'fadeInUp 0.8s ease 0.2s both';
+                }, 10);
+            }, 3000);
+        }
+
+        // Easter egg: Konami code
+        let konamiCode = [];
+        const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        
+        document.addEventListener('keydown', (e) => {
+            konamiCode.push(e.key);
+            konamiCode = konamiCode.slice(-10);
+            
+            if (konamiCode.join('') === konamiSequence.join('')) {
+                document.body.style.animation = 'rainbow 2s linear infinite';
+                setTimeout(() => {
+                    document.body.style.animation = '';
+                    alert('🎮 축하합니다! 히든 이벤트를 발견하셨습니다! 추가 할인 쿠폰을 드립니다!');
+                }, 2000);
+            }
+        });
+
+        // Add rainbow animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes rainbow {
+                0% { filter: hue-rotate(0deg); }
+                100% { filter: hue-rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Console message
+        console.log('%c🎓 그린컴퓨터아카데미에 오신 것을 환영합니다!', 'color: #00C896; font-size: 16px; font-weight: bold;');
+    </script>
+</body>
+</html>
