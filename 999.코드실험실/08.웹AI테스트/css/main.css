@@ -8,7 +8,7 @@
 }
 
 body {
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: "Noto Sans KR", sans-serif;
     color: #333;
     line-height: 1.6;
     background: #fff;
@@ -19,7 +19,8 @@ a {
     color: inherit;
 }
 
-ul, ol {
+ul,
+ol {
     list-style: none;
 }
 
@@ -309,8 +310,9 @@ header.scrolled {
 /* 히어로 섹션 */
 .hero {
     min-height: 100vh;
-    background: linear-gradient(135deg, rgba(0, 61, 130, 0.85) 0%, rgba(0, 102, 204, 0.85) 100%),
-                url('https://picsum.photos/seed/technology/1920/1080') center/cover;
+    background:
+        linear-gradient(135deg, rgba(0, 61, 130, 0.85) 0%, rgba(0, 102, 204, 0.85) 100%),
+        url("https://picsum.photos/seed/technology/1920/1080") center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -645,8 +647,9 @@ header.scrolled {
 /* 채용 섹션 */
 .career-section {
     padding: 100px 0;
-    background: linear-gradient(135deg, rgba(0, 61, 130, 0.9) 0%, rgba(0, 102, 204, 0.9) 100%),
-                url('https://picsum.photos/seed/business/1920/600') center/cover;
+    background:
+        linear-gradient(135deg, rgba(0, 61, 130, 0.9) 0%, rgba(0, 102, 204, 0.9) 100%),
+        url("https://picsum.photos/seed/business/1920/600") center/cover;
     color: white;
     text-align: center;
 }
@@ -741,11 +744,11 @@ footer {
     .menu-content {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .service-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .industry-list {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -755,71 +758,71 @@ footer {
     .header-container {
         padding: 15px 20px;
     }
-    
+
     .menu-toggle {
         display: flex;
     }
-    
+
     .desktop-nav {
         display: none;
     }
-    
+
     .header-right {
         gap: 15px;
     }
-    
+
     .menu-content {
         grid-template-columns: 1fr;
         gap: 40px;
     }
-    
+
     .full-menu-container {
         padding: 60px 20px;
     }
-    
+
     .menu-close {
         top: 20px;
         right: 20px;
         font-size: 36px;
     }
-    
+
     .hero {
         padding: 100px 15px 60px;
     }
-    
+
     .hero-content h1 {
         font-size: 32px;
     }
-    
+
     .hero-content > p {
         font-size: 16px;
     }
-    
+
     .section-title {
         font-size: 24px;
     }
-    
+
     .news-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .service-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .industry-list {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .footer-top {
         flex-direction: column;
         gap: 30px;
     }
-    
+
     .footer-links {
         flex-direction: column;
         align-items: flex-start;
@@ -830,15 +833,15 @@ footer {
     .hero {
         padding: 100px 15px 60px;
     }
-    
+
     .container {
         padding: 0 15px;
     }
-    
+
     .industry-list {
         grid-template-columns: 1fr;
     }
-    
+
     .stats-grid {
         grid-template-columns: 1fr;
     }
