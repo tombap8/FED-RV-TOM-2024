@@ -1,0 +1,845 @@
+/* KMAC 웹사이트 스타일 - 심플 버전 */
+
+/* 리셋 및 기본 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button {
+    border: none;
+    background: none;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* 컨테이너 */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 헤더 */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #1a1a1a;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
+}
+
+header.scrolled {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #c9e2ff;
+    cursor: pointer;
+}
+
+/* 햄버거 메뉴 버튼 */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 2px;
+    background: #333;
+    transition: all 0.3s;
+}
+
+.menu-toggle:hover span {
+    background: #003d82;
+}
+
+/* 데스크톱 네비게이션 */
+.desktop-nav ul {
+    display: flex;
+    gap: 40px;
+}
+
+.desktop-nav > ul > li {
+    position: relative;
+}
+
+.desktop-nav > ul > li > a {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    transition: color 0.3s;
+    display: block;
+    padding: 10px 0;
+}
+
+.desktop-nav > ul > li > a:hover {
+    color: #aad2ff;
+}
+
+/* 서브메뉴 */
+.submenu {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: #1a1a1a;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    padding: 50px 0;
+    border-top: 1px solid #333;
+    z-index: 99;
+}
+
+.has-submenu:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.submenu-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: nowrap;
+}
+
+.submenu-column {
+    flex: 0 0 auto;
+    min-width: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.submenu-column h4 {
+    font-size: 14px;
+    font-weight: 400;
+    color: #999;
+    margin-bottom: 20px;
+    text-transform: none;
+    letter-spacing: 0;
+    white-space: nowrap;
+}
+
+.submenu-column ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+.submenu-column h4 + ul {
+    flex-direction: column;
+    gap: 0;
+}
+
+.submenu-column li {
+    margin-bottom: 15px;
+}
+
+.submenu-column a {
+    font-size: 14px;
+    color: #ccc;
+    transition: all 0.3s;
+    display: block;
+    padding: 0;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+.submenu-column a:hover {
+    color: white;
+    padding-left: 0;
+}
+
+.header-right {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.lang-select {
+    font-size: 14px;
+    color: #666;
+}
+
+.search-icon {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* 전체 메뉴 */
+.full-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    overflow-y: auto;
+}
+
+.full-menu.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.full-menu-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+    position: relative;
+}
+
+.menu-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 48px;
+    cursor: pointer;
+    line-height: 1;
+    transition: all 0.3s;
+}
+
+.menu-close:hover {
+    color: #0066cc;
+    transform: rotate(90deg);
+}
+
+.menu-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px;
+    color: white;
+}
+
+.menu-column h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0066cc;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.menu-section {
+    margin-bottom: 40px;
+}
+
+.menu-section h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 15px;
+}
+
+.menu-section ul {
+    list-style: none;
+}
+
+.menu-section li {
+    margin-bottom: 12px;
+}
+
+.menu-section a {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.menu-section a:hover {
+    color: #0066cc;
+    transform: translateX(5px);
+}
+
+/* 히어로 섹션 */
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, rgba(0, 61, 130, 0.85) 0%, rgba(0, 102, 204, 0.85) 100%),
+                url('https://picsum.photos/seed/technology/1920/1080') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 120px 20px 80px;
+}
+
+.hero-content h1 {
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.hero-content > p {
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.hero-desc {
+    font-size: 16px !important;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* 뉴스 & 인사이트 섹션 */
+.news-section {
+    padding: 100px 0;
+    background: #fff;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 50px;
+    line-height: 1.4;
+}
+
+.section-subtitle {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.news-filter {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    background: #f8f9fa;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #666;
+    transition: all 0.3s;
+}
+
+.filter-btn.active {
+    background: #003d82;
+    color: white;
+}
+
+.filter-btn:hover {
+    background: #003d82;
+    color: white;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.news-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.news-card:hover {
+    border-color: #003d82;
+    box-shadow: 0 4px 12px rgba(0, 61, 130, 0.1);
+}
+
+.news-card-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.news-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.news-card:hover .news-card-image img {
+    transform: scale(1.05);
+}
+
+.news-card-content {
+    padding: 30px;
+}
+
+.news-category {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #f0f0f0;
+    color: #666;
+    font-size: 12px;
+    border-radius: 3px;
+    margin-right: 8px;
+}
+
+.news-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    background: #ff4444;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 3px;
+}
+
+.news-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 15px 0 10px;
+    line-height: 1.5;
+}
+
+.news-date {
+    font-size: 13px;
+    color: #999;
+}
+
+/* 서비스 섹션 */
+.service-section {
+    padding: 100px 0;
+    background: #f8f9fa;
+}
+
+.service-intro {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 60px;
+}
+
+.service-intro h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.service-intro p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #666;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.service-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 40px 30px;
+    transition: all 0.3s;
+}
+
+.service-card:hover {
+    border-color: #003d82;
+    box-shadow: 0 4px 12px rgba(0, 61, 130, 0.1);
+}
+
+.service-card h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #003d82;
+}
+
+.service-card ul {
+    list-style: none;
+}
+
+.service-card li {
+    font-size: 14px;
+    color: #666;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.service-card li:last-child {
+    border-bottom: none;
+}
+
+/* 인더스트리 섹션 */
+.industry-section {
+    padding: 100px 0;
+    background: white;
+}
+
+.industry-intro {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 60px;
+}
+
+.industry-intro h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.industry-intro p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #666;
+}
+
+.industry-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.industry-item {
+    padding: 30px 20px;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.industry-item:hover {
+    background: #003d82;
+    color: white;
+    border-color: #003d82;
+}
+
+/* About 섹션 */
+.about-section {
+    padding: 100px 0;
+    background: #f8f9fa;
+}
+
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-text {
+    margin-bottom: 60px;
+}
+
+.about-text h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.about-subtitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #003d82;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.about-text p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #666;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 30px;
+    background: white;
+    border-radius: 4px;
+}
+
+.stat-item h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #003d82;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.stat-item p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* 채용 섹션 */
+.career-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, rgba(0, 61, 130, 0.9) 0%, rgba(0, 102, 204, 0.9) 100%),
+                url('https://picsum.photos/seed/business/1920/600') center/cover;
+    color: white;
+    text-align: center;
+}
+
+.career-content h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.career-content h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.career-content p {
+    font-size: 15px;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.career-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: white;
+    color: #003d82;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.career-btn:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+/* 푸터 */
+footer {
+    background: #1a1a1a;
+    color: white;
+    padding: 60px 0 30px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 30px;
+}
+
+.footer-info h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.footer-info p {
+    font-size: 13px;
+    color: #999;
+    line-height: 1.8;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.footer-links a {
+    font-size: 14px;
+    color: #999;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-bottom p {
+    font-size: 13px;
+    color: #666;
+    text-align: center;
+}
+
+/* 반응형 */
+@media (max-width: 1200px) {
+    .menu-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .industry-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        padding: 15px 20px;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .desktop-nav {
+        display: none;
+    }
+    
+    .header-right {
+        gap: 15px;
+    }
+    
+    .menu-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .full-menu-container {
+        padding: 60px 20px;
+    }
+    
+    .menu-close {
+        top: 20px;
+        right: 20px;
+        font-size: 36px;
+    }
+    
+    .hero {
+        padding: 100px 15px 60px;
+    }
+    
+    .hero-content h1 {
+        font-size: 32px;
+    }
+    
+    .hero-content > p {
+        font-size: 16px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
+    
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .industry-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-top {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 100px 15px 60px;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .industry-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
