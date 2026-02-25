@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 시대 스마트웹 & 콘텐츠개발 과정</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f3ee;
+    --yellow: #f5e642;
+    --orange: #ff5c1a;
+    --gray: #1c1c1c;
+    --mid: #2e2e2e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Noto Sans KR', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 1000; opacity: .5;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 40px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: 'AI';
+    position: absolute;
+    right: -30px; top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: clamp(200px, 35vw, 420px);
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(245,230,66,0.08);
+    line-height: 1;
+    pointer-events: none;
+    animation: drift 8s ease-in-out infinite;
+  }
+
+  @keyframes drift {
+    0%,100% { transform: translateY(-50%) rotate(-2deg); }
+    50% { transform: translateY(-52%) rotate(1deg); }
+  }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--orange);
+    color: var(--white);
+    padding: 6px 16px;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    width: fit-content;
+    animation: fadeUp .6s ease both;
+  }
+
+  .badge::before { content: '●'; animation: pulse 1.2s ease infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+  h1 {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: clamp(28px, 5.5vw, 72px);
+    line-height: 1.15;
+    letter-spacing: -1px;
+    max-width: 900px;
+    animation: fadeUp .7s .1s ease both;
+  }
+
+  h1 .highlight {
+    color: var(--yellow);
+    position: relative;
+    display: inline;
+  }
+
+  h1 .highlight::after {
+    content: '';
+    position: absolute; left: 0; bottom: 2px;
+    width: 100%; height: 3px;
+    background: var(--orange);
+    transform: scaleX(0); transform-origin: left;
+    animation: underline 1s .9s ease forwards;
+  }
+
+  @keyframes underline { to { transform: scaleX(1); } }
+
+  .hero-sub {
+    margin-top: 24px;
+    font-size: clamp(14px, 2vw, 18px);
+    color: rgba(245,243,238,.55);
+    max-width: 600px;
+    line-height: 1.7;
+    animation: fadeUp .7s .2s ease both;
+  }
+
+  .hero-sub strong { color: var(--orange); }
+
+  .scroll-hint {
+    margin-top: 60px;
+    display: flex; align-items: center; gap: 12px;
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(245,243,238,.3);
+    animation: fadeUp .7s .4s ease both;
+  }
+
+  .scroll-hint span {
+    width: 40px; height: 1px; background: rgba(245,243,238,.2);
+    display: block;
+  }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform: translateY(24px); }
+    to   { opacity:1; transform: translateY(0); }
+  }
+
+  /* ── PROBLEM SECTION ── */
+  .section { padding: 80px 40px; position: relative; }
+
+  .section-label {
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--orange); margin-bottom: 20px; font-weight: 700;
+  }
+
+  .problem {
+    background: var(--gray);
+    border-left: 4px solid var(--orange);
+  }
+
+  .problem h2 {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: clamp(22px, 4vw, 48px);
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+
+  .problem p {
+    font-size: 16px; line-height: 1.9;
+    color: rgba(245,243,238,.65);
+    max-width: 640px;
+  }
+
+  .problem p strong { color: var(--yellow); }
+
+  /* ── FEATURES GRID ── */
+  .features { background: var(--black); }
+
+  .features h2 {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: clamp(24px, 4vw, 52px);
+    margin-bottom: 50px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2px;
+  }
+
+  .card {
+    background: var(--gray);
+    padding: 36px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: background .3s;
+    cursor: default;
+  }
+
+  .card:hover { background: var(--mid); }
+
+  .card::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--yellow);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .4s ease;
+  }
+
+  .card:hover::before { transform: scaleX(1); }
+
+  .card-num {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 52px;
+    color: rgba(245,230,66,.07);
+    position: absolute; top: 16px; right: 20px;
+    line-height: 1;
+  }
+
+  .card-icon { font-size: 28px; margin-bottom: 16px; }
+
+  .card h3 {
+    font-size: 16px; font-weight: 700;
+    color: var(--yellow);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  .card p {
+    font-size: 13.5px;
+    color: rgba(245,243,238,.55);
+    line-height: 1.75;
+  }
+
+  /* ── INSTRUCTOR ── */
+  .instructor { background: var(--gray); }
+
+  .instructor-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .instructor-inner { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .instructor h2 {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: clamp(24px, 4vw, 52px);
+    margin-bottom: 30px;
+  }
+
+  .instructor h2 span { color: var(--orange); }
+
+  .stat-row {
+    display: flex; gap: 30px; flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+
+  .stat {
+    border-left: 3px solid var(--yellow);
+    padding-left: 14px;
+  }
+
+  .stat .num {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 36px;
+    color: var(--yellow);
+    line-height: 1;
+  }
+
+  .stat .label {
+    font-size: 12px;
+    color: rgba(245,243,238,.5);
+    margin-top: 4px;
+  }
+
+  .instructor-list { list-style: none; }
+
+  .instructor-list li {
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(245,243,238,.07);
+    font-size: 14.5px;
+    color: rgba(245,243,238,.75);
+    line-height: 1.7;
+    display: flex; gap: 10px;
+  }
+
+  .instructor-list li::before {
+    content: '▸';
+    color: var(--orange); flex-shrink: 0;
+  }
+
+  .visual-block {
+    background: var(--black);
+    padding: 50px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .visual-block::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 30px,
+      rgba(245,230,66,.03) 30px,
+      rgba(245,230,66,.03) 31px
+    );
+  }
+
+  .visual-block .big-text {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: clamp(36px, 6vw, 80px);
+    line-height: 1.2;
+    position: relative;
+  }
+
+  .visual-block .big-text em {
+    font-style: normal;
+    -webkit-text-stroke: 1.5px var(--white);
+    color: transparent;
+    display: block;
+  }
+
+  .visual-block .big-text span {
+    color: var(--yellow);
+  }
+
+  /* ── TARGET ── */
+  .target { background: var(--black); }
+
+  .target h2 {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: clamp(24px, 4vw, 52px);
+    margin-bottom: 40px;
+  }
+
+  .target-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2px;
+  }
+
+  .target-card {
+    background: var(--gray);
+    padding: 32px;
+    border-top: 3px solid transparent;
+    transition: border-color .3s;
+  }
+
+  .target-card:hover { border-color: var(--yellow); }
+
+  .target-card .icon { font-size: 36px; margin-bottom: 14px; }
+
+  .target-card p {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.7;
+    color: rgba(245,243,238,.85);
+  }
+
+  /* ── CTA ── */
+  .cta {
+    background: var(--yellow);
+    color: var(--black);
+    text-align: center;
+    padding: 100px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 20px,
+      rgba(0,0,0,.04) 20px,
+      rgba(0,0,0,.04) 21px
+    );
+  }
+
+  .cta h2 {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: clamp(28px, 5vw, 64px);
+    line-height: 1.25;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .cta p {
+    font-size: 16px;
+    color: rgba(10,10,10,.65);
+    max-width: 500px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+    position: relative;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--black);
+    color: var(--yellow);
+    padding: 18px 48px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    position: relative;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 6px 6px 0 rgba(0,0,0,.2);
+  }
+
+  .cta-btn:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 rgba(0,0,0,.2);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    padding: 30px 40px;
+    font-size: 12px;
+    color: rgba(245,243,238,.2);
+    letter-spacing: 1px;
+    border-top: 1px solid rgba(245,243,238,.05);
+  }
+
+  /* ── SATISFACTION ── */
+  .satisfaction { background: var(--black); }
+
+  .satisfaction h2 {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: clamp(22px, 3.5vw, 44px);
+    margin-bottom: 40px;
+  }
+
+  .satisfaction h2 span { color: var(--yellow); }
+
+  .sat-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    .sat-inner { grid-template-columns: 1fr; }
+  }
+
+  /* Score block */
+  .score-block {
+    background: var(--gray);
+    padding: 40px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .score-block::before {
+    content: '⭐';
+    position: absolute; right: 24px; top: 20px;
+    font-size: 60px; opacity: .07;
+  }
+
+  .score-main {
+    display: flex; align-items: baseline; gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .score-main .big-num {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 72px;
+    color: var(--yellow);
+    line-height: 1;
+  }
+
+  .score-main .out-of {
+    font-size: 20px;
+    color: rgba(245,243,238,.4);
+  }
+
+  .stars {
+    font-size: 24px;
+    letter-spacing: 4px;
+    margin-bottom: 24px;
+  }
+
+  .score-items { display: flex; flex-direction: column; gap: 14px; }
+
+  .score-item {
+    display: flex; align-items: center; gap: 14px;
+  }
+
+  .score-item .s-label {
+    font-size: 13px;
+    color: rgba(245,243,238,.55);
+    flex-shrink: 0; width: 160px;
+  }
+
+  .score-item .bar-wrap {
+    flex: 1; height: 6px;
+    background: rgba(245,243,238,.08);
+    border-radius: 3px; overflow: hidden;
+  }
+
+  .score-item .bar-fill {
+    height: 100%; border-radius: 3px;
+    background: var(--yellow);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 1.2s ease;
+  }
+
+  .score-item .s-val {
+    font-size: 12px; font-weight: 700;
+    color: var(--yellow);
+    flex-shrink: 0; width: 32px; text-align: right;
+  }
+
+  .sat-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 24px;
+    color: var(--orange);
+    font-size: 13px; font-weight: 700;
+    text-decoration: none;
+    letter-spacing: .5px;
+    border-bottom: 1px solid rgba(255,92,26,.3);
+    padding-bottom: 2px;
+    transition: color .2s, border-color .2s;
+  }
+
+  .sat-link:hover { color: var(--yellow); border-color: var(--yellow); }
+
+  /* Review block */
+  .review-block { display: flex; flex-direction: column; gap: 14px; }
+
+  .review-card {
+    background: var(--gray);
+    padding: 22px 26px;
+    border-left: 3px solid transparent;
+    transition: border-color .3s, background .3s;
+    position: relative;
+  }
+
+  .review-card:hover {
+    border-color: var(--yellow);
+    background: var(--mid);
+  }
+
+  .review-card .quote-mark {
+    font-family: Georgia, serif;
+    font-size: 48px;
+    color: rgba(245,230,66,.12);
+    line-height: 1;
+    position: absolute; top: 10px; right: 16px;
+  }
+
+  .review-card p {
+    font-size: 14.5px;
+    color: rgba(245,243,238,.85);
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  .review-card .tag {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 11px; letter-spacing: 2px;
+    color: var(--orange);
+    text-transform: uppercase;
+  }
+
+  .passion-banner {
+    margin-top: 14px;
+    background: var(--yellow);
+    color: var(--black);
+    padding: 18px 26px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    letter-spacing: .5px;
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(245,230,66,.2), transparent);
+    margin: 0 40px;
+  }
+
+  @media (max-width: 600px) {
+    .section { padding: 60px 24px; }
+    .hero { padding: 80px 24px 60px; }
+    footer { padding: 24px; }
+    .divider { margin: 0 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge">2025 NEW CURRICULUM</div>
+  <h1>
+    AI 시대를 반영한<br>
+    <span class="highlight">스마트웹 & 콘텐츠개발</span><br>
+    UI/UX 웹디자인 + AI 기반<br>프론트엔드 실무 과정
+  </h1>
+  <p class="hero-sub">
+    단순 HTML/CSS를 반복하는 시대는 끝났습니다.<br>
+    <strong>AI를 활용하는 실무형 인재</strong>로 전환하는 새로운 과정.
+  </p>
+  <div class="scroll-hint"><span></span> scroll to explore</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROBLEM -->
+<section class="section problem reveal">
+  <div class="section-label">🔥 Problem</div>
+  <h2>기존 웹퍼블리셔 과정,<br>그대로 배우실 건가요?</h2>
+  <p>
+    AI가 코드를 작성하는 시대.<br>
+    <strong>단순 HTML/CSS만 배우면 경쟁력이 떨어집니다.</strong><br><br>
+    이번 스마트웹 &amp; 콘텐츠개발 UI/UX 웹디자인 과정은 다릅니다.
+    기존 커리큘럼의 반복이 아닌, AI 시대에 통하는 실무 중심으로 운영됩니다.
+  </p>
+</section>
+
+<div class="divider"></div>
+
+<!-- FEATURES -->
+<section class="section features reveal">
+  <div class="section-label">🚀 Curriculum</div>
+  <h2>AI 활용 UI/UX 설계<br>+ 프론트엔드 실전 구현</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="card-num">01</div>
+      <div class="card-icon">🎨</div>
+      <h3>Figma 설계 → 코드 구현</h3>
+      <p>디자인 설계부터 실제 코드 구현까지 실무 흐름 전체를 연결하는 통합 실습</p>
+    </div>
+    <div class="card">
+      <div class="card-num">02</div>
+      <div class="card-icon">🤖</div>
+      <h3>AI 코딩 어시스턴트 활용</h3>
+      <p>AI 도구를 실제 개발 워크플로우에 통합하는 실전 방식으로 생산성을 극대화</p>
+    </div>
+    <div class="card">
+      <div class="card-num">03</div>
+      <div class="card-icon">⚡</div>
+      <h3>자바스크립트 기반 SPA 구조</h3>
+      <p>단순 퍼블리싱을 넘어 자바스크립트 구현 기반의 싱글 페이지 앱 구조 이해</p>
+    </div>
+    <div class="card">
+      <div class="card-num">04</div>
+      <div class="card-icon">🔧</div>
+      <h3>실무 흐름 중심 프로젝트</h3>
+      <p>실제 현장과 동일한 업무 프로세스로 진행하는 실전 프로젝트 중심 교육</p>
+    </div>
+    <div class="card">
+      <div class="card-num">05</div>
+      <div class="card-icon">💼</div>
+      <h3>취업 포트폴리오 완성</h3>
+      <p>채용 담당자가 선호하는 수준의 포트폴리오 완성도를 목표로 집중 강화</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INSTRUCTOR -->
+<section class="section instructor reveal">
+  <div class="section-label">👨‍🏫 Instructor</div>
+  <div class="instructor-inner">
+    <div>
+      <h2>12년 이상<br><span>실무·교육 경력</span><br>강의</h2>
+      <div class="stat-row">
+        <div class="stat">
+          <div class="num">12+</div>
+          <div class="label">년 실무 경력</div>
+        </div>
+        <div class="stat">
+          <div class="num">SI/SM</div>
+          <div class="label">대규모 프로젝트</div>
+        </div>
+        <div class="stat">
+          <div class="num">KDT</div>
+          <div class="label">국기 과정 운영</div>
+        </div>
+      </div>
+      <ul class="instructor-list">
+        <li>SI·SM 대규모 프로젝트 경험 기반 실무 관점 교육</li>
+        <li>KDT·국기 과정 다년간 운영</li>
+        <li>"화면·기능·구조"를 연결하는 프론트엔드 훈련</li>
+        <li>단순 퍼블리셔 양성이 아닌 AI 시대 UI/UX 기반 프론트엔드 인재 육성</li>
+      </ul>
+    </div>
+    <div class="visual-block">
+      <div class="big-text">
+        <em>단순</em>
+        <em>퍼블리셔가</em>
+        <em>아닌</em>
+        <span>실무형<br>프론트엔드</span>
+        <em>인재</em>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SATISFACTION -->
+<section class="section satisfaction reveal">
+  <div class="section-label">📊 Satisfaction</div>
+  <h2>박석호 강사<br><span>수강생 만족도</span> 요약</h2>
+  <div class="sat-inner">
+
+    <!-- 점수 블록 -->
+    <div class="score-block">
+      <div class="score-main">
+        <div class="big-num">4.7</div>
+        <div class="out-of">/ 5.0</div>
+      </div>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <div class="score-items">
+        <div class="score-item">
+          <div class="s-label">평균 평점</div>
+          <div class="bar-wrap"><div class="bar-fill" data-width="94"></div></div>
+          <div class="s-val">4.7</div>
+        </div>
+        <div class="score-item">
+          <div class="s-label">매회차 수강 추천율</div>
+          <div class="bar-wrap"><div class="bar-fill" data-width="90"></div></div>
+          <div class="s-val">90%+</div>
+        </div>
+        <div class="score-item">
+          <div class="s-label">지속적 만족도 유지</div>
+          <div class="bar-wrap"><div class="bar-fill" data-width="97"></div></div>
+          <div class="s-val">높음</div>
+        </div>
+      </div>
+      <a class="sat-link" href="https://okky.kr/trainings/21804" target="_blank" rel="noopener">
+        🔗 OKKY 수강생 후기 원문 보기 →
+      </a>
+    </div>
+
+    <!-- 수강생 후기 블록 -->
+    <div class="review-block">
+      <div class="review-card">
+        <div class="quote-mark">"</div>
+        <p>수업을 듣길 정말 잘했다</p>
+        <span class="tag">수강생 후기</span>
+      </div>
+      <div class="review-card">
+        <div class="quote-mark">"</div>
+        <p>인생 선생님 TOP3</p>
+        <span class="tag">수강생 후기</span>
+      </div>
+      <div class="review-card">
+        <div class="quote-mark">"</div>
+        <p>강사님 덕분에 포기하지 않았다</p>
+        <span class="tag">수강생 후기</span>
+      </div>
+      <div class="passion-banner">
+        🔥 "항상 학생보다 더 열정적인 강사"
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TARGET -->
+<section class="section target reveal">
+  <div class="section-label">📌 For You</div>
+  <h2>이런 분께<br>추천합니다</h2>
+  <div class="target-cards">
+    <div class="target-card">
+      <div class="icon">🚀</div>
+      <p>AI 활용 능력을 갖춘 개발자로 성장하고 싶은 분</p>
+    </div>
+    <div class="target-card">
+      <div class="icon">🔄</div>
+      <p>퍼블리싱에서 프론트엔드로 확장하고 싶은 분</p>
+    </div>
+    <div class="target-card">
+      <div class="icon">💡</div>
+      <p>실무 기준 포트폴리오를 제대로 만들고 싶은 분</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta reveal">
+  <h2>지금 필요한 건<br>AI를 활용하는<br>실무형 인재로의 전환</h2>
+  <p>기존 커리큘럼의 반복이 아닙니다.<br>AI 시대에 통하는 진짜 실력을 쌓으세요.</p>
+  <a href="#" class="cta-btn">수강 문의하기 →</a>
+</section>
+
+<footer>
+  © 2025 스마트웹 &amp; 콘텐츠개발 UI/UX 웹디자인 과정 · AI 기반 프론트엔드 실무
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        // Stagger children cards
+        const cards = e.target.querySelectorAll('.card, .target-card, .instructor-list li');
+        cards.forEach((c, i) => {
+          c.style.transitionDelay = `${i * 0.08}s`;
+          c.style.opacity = '0';
+          c.style.transform = 'translateY(20px)';
+          c.style.transition = `opacity .5s ${i*0.08}s ease, transform .5s ${i*0.08}s ease`;
+          requestAnimationFrame(() => {
+            setTimeout(() => {
+              c.style.opacity = '1';
+              c.style.transform = 'none';
+            }, 50);
+          });
+        });
+      }
+    });
+  }, { threshold: 0.1 });
+
+  reveals.forEach(r => observer.observe(r));
+
+  // Animate satisfaction bars when visible
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.bar-fill').forEach(bar => {
+          const w = bar.dataset.width;
+          bar.style.transform = `scaleX(${w / 100})`;
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.satisfaction').forEach(s => barObserver.observe(s));
+</script>
+</body>
+</html>
